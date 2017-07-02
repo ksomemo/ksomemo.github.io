@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>scala環境 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">scala環境</a></li>
+<li><a class="reference internal" href="#">バージョン切り替え</a><ul>
+<li><a class="reference internal" href="#scalaenv">scalaenv</a></li>
+<li><a class="reference internal" href="#svm">svm</a><ul>
+<li><a class="reference internal" href="#install">install</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jenv">jenv</a><ul>
+<li><a class="reference internal" href="#version">version</a></li>
+<li><a class="reference internal" href="#doctor">doctor</a></li>
+<li><a class="reference internal" href="#gvm">gvm</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#plugin">plugin</a><ul>
+<li><a class="reference internal" href="#">試してみた</a><ul>
+<li><a class="reference internal" href="#plugin">Pluginの最有効化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">まとめ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>scala環境</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/java, scalaの環境を整えすぎようとして消耗したのでメモ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scala">
+<span id="scala"></span><h1>scala環境<a class="headerlink" href="#scala" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>scala<ul>
+<li>scalaenv</li>
+<li>svm</li>
+</ul>
+</li>
+<li>Java<ul>
+<li>jenv</li>
+</ul>
+</li>
+<li>IntelliJ IDEA<ul>
+<li>plugin<ul>
+<li>scala</li>
+<li>sbt</li>
+</ul>
+</li>
+<li>setting<ul>
+<li>JDK</li>
+<li>ほかいろいろ</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>gitignore<ul>
+<li>https://www.gitignore.io/api/scala</li>
+<li>https://www.gitignore.io/api/sbt</li>
+<li>https://www.gitignore.io/api/java</li>
+<li>https://www.gitignore.io/api/intellij</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>バージョン切り替え<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>いろいろ入れながら調べてみたけど、実はさほど必要ないらしい…（下記より）</p>
+<p>http://d.hatena.ne.jp/xuwei/20140203/1391400111</p>
+<div class="section" id="scalaenv">
+<span id="scalaenv"></span><h2>scalaenv<a class="headerlink" href="#scalaenv" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>rbenvを参考にしたらしい</li>
+<li>installできるversionが比較的新しい</li>
+<li>作者は他にもsbt/play framework用のxenvを作っている</li>
+</ul>
+<div class="highlight-bash:brew_info_scalaenv.sh"><div class="highlight"><pre><span></span>% brew info scalaenv
+scalaenv: stable 0.0.7, HEAD
+https://github.com/mazgi/scalaenv
+Not installed
+From: https://github.com/Homebrew/homebrew/blob/master/Library/Formula/scalaenv.rb
+==&gt; Caveats
+To use Homebrew&#39;s directories rather than ~/.scalaenv add to your profile:
+  export SCALAENV_ROOT=/usr/local/var/scalaenv
+
+To enable shims and autocompletion add to your profile:
+  eval &quot;$(scalaenv init -)&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="svm">
+<span id="svm"></span><h2>svm<a class="headerlink" href="#svm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>昔のversionもinstallできる</li>
+<li>上記の理由でこちらにした</li>
+</ul>
+<div class="highlight-bash:svm_install.sh"><div class="highlight"><pre><span></span>git clone git@github.com:yuroyoro/svm.git ~/.svm
+</pre></div>
+</div>
+<div class="highlight-bash:svm_setting.sh"><div class="highlight"><pre><span></span>export SCALA_HOME=~/.svm/current/rt
+export PATH=~/.svm:$PATH
+export PATH=$SCALA_HOME/bin:$PATH
+</pre></div>
+</div>
+<div class="section" id="install">
+<span id="install"></span><h3>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash:svm_scala_install.sh"><div class="highlight"><pre><span></span>svm install 2.11.7
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="jenv">
+<span id="jenv"></span><h1>jenv<a class="headerlink" href="#jenv" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>現在java8がデフォルトになっていた</li>
+<li>念のため、java7以下を使える環境を整えておきたかった</li>
+</ul>
+<blockquote>
+<div>It is based on rbenv.</div></blockquote>
+<p>とのこと</p>
+<div class="highlight-bash:jenv_install.sh"><div class="highlight"><pre><span></span>% brew install jenv
+==&gt; Downloading https://github.com/gcuisinier/jenv/archive/0.4.2.tar.gz
+######################################################################## 100.0%
+==&gt; Caveats
+To enable shims and autocompletion add to your profile:
+  if which jenv &gt; /dev/null; then eval &quot;$(jenv init -)&quot;; fi
+
+To use Homebrew&#39;s directories rather than ~/.jenv add to your profile:
+  export JENV_ROOT=/usr/local/opt/jenv
+</pre></div>
+</div>
+<p>と上に書いてあったけど、下記設定にした</p>
+<div class="highlight-bash:jenv_setting.sh"><div class="highlight"><pre><span></span>export PATH=&quot;$HOME/.jenv/bin:$PATH&quot;
+eval &quot;$(jenv init -)&quot;
+</pre></div>
+</div>
+<div class="highlight-bash:jenv_add.sh"><div class="highlight"><pre><span></span>jenv add /System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
+jenv add /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home
+jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
+</pre></div>
+</div>
+<div class="section" id="version">
+<span id="version"></span><h2>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:jenv_versions.sh"><div class="highlight"><pre><span></span>% jenv versions
+* system (set by $HOME/.jenv/version)
+  1.6
+  1.6.0.65
+  1.7
+  1.7.0.09
+  1.8
+  1.8.0.20
+  oracle64-1.6.0.65
+  oracle64-1.7.0.09
+  oracle64-1.8.0.20
+</pre></div>
+</div>
+<div class="highlight-bash:jenv_switch_version.sh"><div class="highlight"><pre><span></span>jenv shell 1.7
+jenv rehash
+</pre></div>
+</div>
+<ul class="simple">
+<li>rehashによって1.7を参照するようになった</li>
+<li>けど、jdkの参照が変わらない…1.8のまま</li>
+</ul>
+<p>この状態の時</p>
+<ul class="simple">
+<li>2.7系はErrorになる</li>
+<li>2.8系はErrorにならないが、REPLから帰ってこない</li>
+<li>2.9系はwarning, reflect/AnnotatedElement.class is broken</li>
+<li>2.10/11系は正常に動作する</li>
+</ul>
+</div>
+<div class="section" id="doctor">
+<span id="doctor"></span><h2>doctor<a class="headerlink" href="#doctor" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:jenv_doctor.sh"><div class="highlight"><pre><span></span>jenv doctor
+[ERROR] JAVA_HOME variable already set, scripts that use it directly could not use java version set by jenv
+[OK]    Java binaries in path are jenv shims
+[OK]    Jenv is correctly loaded
+</pre></div>
+</div>
+<ul class="simple">
+<li>JAVA_HOMEをみると1.8を指していた</li>
+<li>jenv javahomeを実行すると1.7を指している</li>
+</ul>
+<p>初期化がうまくいってないのかなと思い、まずはevalしているinitを確認</p>
+<div class="highlight-bash:echo_jenv_init.sh"><div class="highlight"><pre><span></span>export PATH=&quot;$HOME/.jenv/shims:${PATH}&quot;
+source &quot;/usr/local/Cellar/jenv/0.4.2/libexec/libexec/../completions/jenv.zsh&quot;
+jenv rehash 2&gt;/dev/null
+export JENV_LOADED=1
+unset JAVA_HOME
+</pre></div>
+</div>
+<ul class="simple">
+<li>unsetされているはずのJAVA_HOMEがなぜか表示されていることが分かった</li>
+<li>念のため、zshrcに記載したinit前後にて出力すると、この時点ではJAVA_HOMEは空</li>
+<li>zshrcの一番最後で出力すると表示された</li>
+<li>shell起動後にevalすると問題ない</li>
+<li>scala2.7, jdk1.7でのREPL起動となり、問題なく動く</li>
+</ul>
+</div>
+<div class="section" id="gvm">
+<span id="gvm"></span><h2>gvm<a class="headerlink" href="#gvm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Javaっぽい設定なにかあるかなと思ったらGVM(Groovy enVironment Manager)の直後でJAVA_HOMEが再設定されていた</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[[</span> <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;$</span><span class="si">{HOME}</span><span class="s2">/.gvm/bin/gvm-init.sh&quot;</span> <span class="p">]]</span> <span class="o">&amp;&amp;</span> <span class="n">source</span> <span class="s2">&quot;$</span><span class="si">{HOME}</span><span class="s2">/.gvm/bin/gvm-init.sh&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Twitterでgolangのツールと名前変わってたなーと思い出した(The Software Development Kit Manager)</li>
+<li>Groovyは今後バージョン切り替えするほど使わないと思う</li>
+<li>後述するpluginでインストールするか、グローバルにインストールしてもよさそう</li>
+</ul>
+<p>ということでアンインストールして設定を消すことにした。下記でインストールしたっぽいのでそのまま削除</p>
+<p>curl -s get.gvmtool.net | bash</p>
+<p>JAVA_HOME系で消耗するの他にもありそう…。</p>
+</div>
+</div>
+<div class="section" id="plugin">
+<span id="plugin"></span><h1>plugin<a class="headerlink" href="#plugin" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>プラグインがあるらしいのでとりあえず見てみたら、</p>
+<div class="highlight-bash:jenv_plugins.sh"><div class="highlight"><pre><span></span>% jenv plugins
+ant
+export
+golo
+gradle
+grails
+groovy
+lein
+maven
+sbt
+scala
+springboot
+</pre></div>
+</div>
+<ul class="simple">
+<li>Scalaもあるし、sbtもあった…</li>
+<li>その他build系ツールもたくさんあり、gradleあるならgroovyも</li>
+<li>さらにClojureのleinまである充実さ</li>
+</ul>
+<div class="highlight-bash:jenv_enable_plugin.sh"><div class="highlight"><pre><span></span>% jenv enable-plugin
+Usage: jenv enable-plugin &lt;pluginName&gt;
+
+Activate a jEnv plugin
+</pre></div>
+</div>
+<p>pluginを使うのはあとで試してみる</p>
+<div class="section" id="">
+<span id="id2"></span><h2>試してみた<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:jenv_enable_plugins.sh"><div class="highlight"><pre><span></span>for p in `jenv plugins`; do jenv enable-plugin $p; done
+ll ~/.jenv/plugins/*/etc/jenv.d/exec/*.bash
+# $pluginName-before.bash というファイル
+ll ~/.jenv/plugins/*/etc/jenv.d/rehash/*.bash
+</pre></div>
+</div>
+<ul class="simple">
+<li>pluginsとして実行ファイルがインストールされるわけではなさそう</li>
+<li>各種コマンド名に対するHook用のShellで、OPTION関連のExport</li>
+<li>よって、他でインストールする必要がある</li>
+</ul>
+<div class="section" id="plugin">
+<span id="id3"></span><h3>Pluginの最有効化<a class="headerlink" href="#plugin" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>sbtを <code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">sbt</span></code> でインストールしたあとに、実行するとエラーになった</p>
+<div class="highlight-bash:stb-error.txt"><div class="highlight"><pre><span></span>sbt
+
+No java installations was detected.
+Please go to http://www.java.com/getjava/ and download
+# sbt実行時にJAVA_HOMEが反映されていない問題
+</pre></div>
+</div>
+<ul class="simple">
+<li>packageが古かった(0.4.2)ので、0.4.3にあげた　(https://github.com/gcuisinier/jenv/pull/89/files のコミット)</li>
+<li>再実行してもエラーになった</li>
+<li>$pluginName-before.bash のコミットが反映されていないのでPluginを最有効化したらコミットが反映されていた(disable-plugin -&gt; enable-plugin)</li>
+<li>sbtも実行できるようになった</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>まとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>バージョン切り替えさほど必要ないにしたがっていればよかった</li>
+<li>消耗良くない</li>
+<li>とはいえ、Javaの切り替えを使えるようになったのはとても良いと思う</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

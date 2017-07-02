@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>execute system command &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">execute system command</a></li>
+<li><a class="reference internal" href="#attributes-of-variable">attributes of variable</a></li>
+<li><a class="reference internal" href="#date-seq-and-datetime">date(seq and datetime)</a></li>
+<li><a class="reference internal" href="#package-version">package version</a><ul>
+<li><a class="reference internal" href="#fast-read-file">fast read file</a></li>
+<li><a class="reference internal" href="#pipe">pipe</a></li>
+<li><a class="reference internal" href="#grouping-and-summarize">grouping and summarize</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sql-like">sql like</a></li>
+<li><a class="reference internal" href="#delete-var-and-gc">delete var and gc</a></li>
+<li><a class="reference internal" href="#cross-tabulation">cross tabulation</a></li>
+<li><a class="reference internal" href="#arguments-parser">arguments parser</a></li>
+<li><a class="reference internal" href="#exit-or-assertion-like-function">exit or assertion like function</a><ul>
+<li><a class="reference internal" href="#random-shuffle-sample">random, shuffle(sample)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#network-graph">network graph</a><ul>
+<li><a class="reference internal" href="#plot">plot</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>execute system command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Rで簡単に前処理＋クロス集計＋α.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="execute-system-command">
+<span id="execute-system-command"></span><h1>execute system command<a class="headerlink" href="#execute-system-command" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="kp">system</span><span class="p">(</span><span class="s">&quot;R --version&quot;</span><span class="p">)</span>
+
+R version <span class="m">3.1.2</span> <span class="p">(</span><span class="m">2014-10-31</span><span class="p">)</span> <span class="o">--</span> <span class="s">&quot;Pumpkin Helmet&quot;</span>
+Copyright <span class="p">(</span>C<span class="p">)</span> <span class="m">2014</span> The R Foundation <span class="kr">for</span> Statistical Computing
+Platform<span class="o">:</span> i386<span class="o">-</span>w64<span class="o">-</span>mingw32<span class="o">/</span>i386 <span class="p">(</span><span class="m">32</span><span class="o">-</span>bit<span class="p">)</span>
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions <span class="m">2</span> or <span class="m">3.</span>
+For more information about these matters see
+http<span class="o">://</span>www.gnu.org<span class="o">/</span>licenses<span class="o">/</span><span class="m">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributes-of-variable">
+<span id="attributes-of-variable"></span><h1>attributes of variable<a class="headerlink" href="#attributes-of-variable" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="c1"># result is NULL</span>
+<span class="kp">attributes</span><span class="p">(</span><span class="kt">c</span><span class="p">())</span>
+<span class="kp">attributes</span><span class="p">(</span><span class="kc">NULL</span><span class="p">)</span>
+<span class="kp">attributes</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<span class="kp">attributes</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">)</span>
+<span class="kp">attributes</span><span class="p">(</span><span class="bp">T</span><span class="p">)</span>
+
+<span class="c1"># class, names, dim, row.names</span>
+<span class="c1"># names -&gt; var$name</span>
+<span class="kp">attributes</span><span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span><span class="kp">Sys.time</span><span class="p">()))</span>
+<span class="kp">attributes</span><span class="p">(</span><span class="kp">Sys.getenv</span><span class="p">())</span>
+<span class="kp">attributes</span><span class="p">(</span><span class="kt">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">))</span>
+<span class="kp">attributes</span><span class="p">(</span><span class="kt">data.frame</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">))</span>
+
+<span class="c1"># attributes(POSIXlt)</span>
+<span class="c1"># $names</span>
+<span class="c1">#  [1] &quot;sec&quot;    &quot;min&quot;    &quot;hour&quot;   &quot;mday&quot;   &quot;mon&quot;    &quot;year&quot;   &quot;wday&quot;   &quot;yday&quot;   &quot;isdst&quot;</span>
+<span class="c1"># [10] &quot;zone&quot;   &quot;gmtoff&quot;</span>
+<span class="c1"># $class</span>
+<span class="c1"># [1] &quot;POSIXlt&quot; &quot;POSIXt&quot;</span>
+<span class="c1">#</span>
+<span class="c1"># $tzone</span>
+<span class="c1"># $[1] &quot;&quot;    &quot;JST&quot; &quot;JDT&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="date-seq-and-datetime">
+<span id="date-seq-and-datetime"></span><h1>date(seq and datetime)<a class="headerlink" href="#date-seq-and-datetime" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="c1"># seq for date</span>
+last.ym <span class="o">&lt;-</span> <span class="kr">function</span> <span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
+  d <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span>x<span class="p">),</span> len<span class="o">=</span><span class="m">2</span><span class="p">,</span> by<span class="o">=</span><span class="s">&quot;-1 month&quot;</span><span class="p">)[</span><span class="m">2</span><span class="p">]</span>
+  <span class="kr">return</span><span class="p">(</span><span class="kp">format</span><span class="p">(</span>d<span class="p">,</span> <span class="s">&quot;%Y%m&quot;</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="c1"># POSIXlt(as datetime)</span>
+month.first.date <span class="o">&lt;-</span> <span class="kr">function</span> <span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
+  t <span class="o">&lt;-</span> <span class="kp">as.POSIXlt</span><span class="p">(</span>x<span class="p">)</span>
+  e <span class="o">&lt;-</span> <span class="kp">as.POSIXlt</span><span class="p">(</span>t <span class="o">-</span> <span class="p">(</span><span class="kp">t</span><span class="o">$</span>mday <span class="o">-</span> <span class="m">1</span><span class="p">)</span> <span class="o">*</span> <span class="m">60</span> <span class="o">*</span> <span class="m">60</span> <span class="o">*</span> <span class="m">24</span><span class="p">)</span>
+  <span class="kr">return</span><span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span>e<span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="package-version">
+<span id="package-version"></span><h1>package version<a class="headerlink" href="#package-version" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span>packageVersion<span class="p">(</span><span class="s">&quot;dplyr&quot;</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> ‘<span class="m">0.4.1</span>’
+</pre></div>
+</div>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="c1">## data processing library</span>
+
+<span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>data.table<span class="p">)</span>
+
+<span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+
+ 次のパッケージを付け加えます<span class="o">:</span> ‘dplyr’
+
+The following objects are masked from ‘package<span class="o">:</span>plyr’<span class="o">:</span>
+
+    arrange<span class="p">,</span> count<span class="p">,</span> desc<span class="p">,</span> failwith<span class="p">,</span> id<span class="p">,</span> mutate<span class="p">,</span> rename<span class="p">,</span> summarise<span class="p">,</span> summarize
+
+The following object is masked from ‘package<span class="o">:</span>stats’<span class="o">:</span>
+
+    filter
+
+The following objects are masked from ‘package<span class="o">:</span>base’<span class="o">:</span>
+
+    <span class="kp">intersect</span><span class="p">,</span> <span class="kp">setdiff</span><span class="p">,</span> <span class="kp">setequal</span><span class="p">,</span> <span class="kp">union</span>
+
+<span class="o">&gt;</span> <span class="kn">library</span><span class="p">(</span>data.table<span class="p">)</span>
+data.table <span class="m">1.9.4</span>  For help type<span class="o">:</span> <span class="o">?</span>data.table
+<span class="o">***</span> NB<span class="o">:</span> by<span class="o">=</span><span class="m">.</span>EACHI is now explicit. See README to restore previous behaviour.
+
+ 次のパッケージを付け加えます<span class="o">:</span> ‘data.table’
+
+The following objects are masked from ‘package<span class="o">:</span>dplyr’<span class="o">:</span>
+
+    between<span class="p">,</span> last
+</pre></div>
+</div>
+<div class="section" id="fast-read-file">
+<span id="fast-read-file"></span><h2>fast read file<a class="headerlink" href="#fast-read-file" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span>df1 <span class="o">&lt;-</span> data.table<span class="o">::</span>fread<span class="p">(</span>df1.path<span class="p">,</span> header <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> stringsAsFactors <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pipe">
+<span id="pipe"></span><h2>pipe<a class="headerlink" href="#pipe" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>easy to understand.</p>
+<ul class="simple">
+<li>join</li>
+<li>add column</li>
+<li>filter</li>
+<li>delete column(or choose column)</li>
+</ul>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="c1"># %.% is duplicated.</span>
+df1 <span class="o">%&gt;%</span>
+  dplyr<span class="o">::</span>left_join<span class="p">(</span>df2<span class="p">,</span> by<span class="o">=</span><span class="s">&quot;id&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+  dplyr<span class="o">::</span>inner_join<span class="p">(</span>df3<span class="p">,</span> by<span class="o">=</span><span class="s">&quot;id&quot;</span><span class="p">)</span>
+  dplyr<span class="o">::</span>mutate<span class="p">(</span>col5 <span class="o">=</span> <span class="kp">ifelse</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>df3<span class="o">$</span>col4<span class="p">),</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  dplyr<span class="o">::</span>filter<span class="p">(</span>mem_type <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;z&quot;</span><span class="p">))</span> <span class="o">%&gt;%</span>
+  dplyr<span class="o">::</span>select<span class="p">(</span><span class="o">-</span>col1<span class="p">,</span> <span class="o">-</span>col2<span class="p">,</span> col3<span class="p">,</span> col2<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grouping-and-summarize">
+<span id="grouping-and-summarize"></span><h2>grouping and summarize<a class="headerlink" href="#grouping-and-summarize" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span>grouped <span class="o">&lt;-</span> device <span class="o">%&gt;%</span>
+  dplyr<span class="o">::</span>group_by<span class="p">(</span>id<span class="p">)</span> <span class="o">%&gt;%</span>
+  dplyr<span class="o">::</span>summarize<span class="p">(</span>last_timestamp <span class="o">=</span> <span class="kp">max</span><span class="p">(</span>timestamp<span class="p">))</span>
+
+<span class="c1"># distinct</span>
+<span class="c1"># Don&#39;t use group for instead of unique().</span>
+dplyr<span class="o">::</span>distinct<span class="p">(</span>df1<span class="p">,</span> id<span class="p">,</span> type<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sql-like">
+<span id="sql-like"></span><h1>sql like<a class="headerlink" href="#sql-like" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>sqldf<span class="p">)</span>
+var.name.chain.dot <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>
+var_name_chain_dot <span class="o">&lt;-</span> var.name.chain.dot
+sqldf<span class="p">(</span><span class="s">&quot;select count(*) from var_name_chain_dot&quot;</span><span class="p">)</span>
+<span class="c1"># sqldf(&quot;select count(*) var.name.chain.dot&quot;)</span>
+<span class="c1"># ↑ error</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-var-and-gc">
+<span id="delete-var-and-gc"></span><h1>delete var and gc<a class="headerlink" href="#delete-var-and-gc" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="kp">rm</span><span class="p">(</span>var1<span class="p">,</span> var2<span class="p">)</span>
+<span class="kp">gc</span><span class="p">()</span>
+
+<span class="c1"># for gloval env</span>
+clear.var.global <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>vars<span class="p">)</span> <span class="p">{</span>
+  <span class="kp">rm</span><span class="p">(</span><span class="kt">list</span><span class="o">=</span>vars<span class="p">,</span> pos <span class="o">=</span> <span class="s">&quot;.GlobalEnv&quot;</span><span class="p">)</span>
+  <span class="kp">gc</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cross-tabulation">
+<span id="cross-tabulation"></span><h1>cross tabulation<a class="headerlink" href="#cross-tabulation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>reshape2<span class="p">)</span>
+
+<span class="c1"># one column</span>
+dcast<span class="p">(</span>df1<span class="p">,</span> value.var <span class="o">=</span> <span class="s">&quot;id&quot;</span><span class="p">,</span>
+      type <span class="o">~</span> <span class="m">.</span><span class="p">,</span>
+      <span class="kp">length</span><span class="p">)</span>
+<span class="c1"># table(d$g)</span>
+
+<span class="c1"># cross tabulation</span>
+dcast<span class="p">(</span>df1<span class="p">,</span> value.var <span class="o">=</span> <span class="s">&quot;id&quot;</span><span class="p">,</span>
+      status <span class="o">~</span> type<span class="p">,</span>
+      <span class="kp">length</span><span class="p">)</span>
+<span class="c1"># table(d$g, d$s)</span>
+
+<span class="c1"># multi column cross tabulation</span>
+dcast<span class="p">(</span>df1<span class="p">,</span> value.var <span class="o">=</span> <span class="s">&quot;id&quot;</span><span class="p">,</span>
+      status <span class="o">+</span> type <span class="o">+</span> <span class="kt">category</span> <span class="o">~</span> is_max<span class="p">,</span>
+      <span class="kp">length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments-parser">
+<span id="arguments-parser"></span><h1>arguments parser<a class="headerlink" href="#arguments-parser" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="c1"># Python optparse like</span>
+<span class="kn">library</span><span class="p">(</span>optparse<span class="p">)</span>
+optslist <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>
+  make_option<span class="p">(</span><span class="s">&quot;--flag1&quot;</span><span class="p">,</span>          action<span class="o">=</span><span class="s">&quot;store_T&quot;</span><span class="p">,</span> default<span class="o">=</span><span class="bp">F</span><span class="p">,</span>      help<span class="o">=</span><span class="s">&quot;A Flag&quot;</span><span class="p">),</span>
+  make_option<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;-f&quot;</span><span class="p">,</span> <span class="s">&quot;--flag2&quot;</span><span class="p">),</span> action<span class="o">=</span><span class="s">&quot;store&quot;</span><span class="p">,</span>   default<span class="o">=</span><span class="bp">F</span><span class="p">,</span>      help<span class="o">=</span><span class="s">&quot;A Flag&quot;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&quot;logical&quot;</span><span class="p">),</span>
+  make_option<span class="p">(</span><span class="s">&quot;--num&quot;</span><span class="p">,</span>            type<span class="o">=</span><span class="s">&quot;integer&quot;</span><span class="p">,</span>   default<span class="o">=</span><span class="m">1</span><span class="p">,</span>      help<span class="o">=</span><span class="s">&quot;A Number&quot;</span><span class="p">),</span>
+  make_option<span class="p">(</span><span class="s">&quot;--raw-data&quot;</span><span class="p">,</span>       type<span class="o">=</span><span class="s">&quot;character&quot;</span><span class="p">,</span> default<span class="o">=</span><span class="s">&quot;hoge&quot;</span><span class="p">,</span> help<span class="o">=</span><span class="s">&quot;a string&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+parser <span class="o">&lt;-</span> OptionParser<span class="p">(</span>option_list <span class="o">=</span> optslist<span class="p">)</span>
+opts <span class="o">&lt;-</span> parse_args<span class="p">(</span>parser<span class="p">)</span>
+
+<span class="kp">cat</span><span class="p">(</span><span class="kp">sprintf</span><span class="p">(</span><span class="s">&quot;flag1=%s, flag2=%s, num=%d, raw-data=%s&quot;</span><span class="p">,</span>
+            opts<span class="o">$</span>flag1<span class="p">,</span> opts<span class="o">$</span>flag2<span class="p">,</span> opts<span class="o">$</span>num<span class="p">,</span> opts<span class="p">[[</span><span class="s">&quot;raw-data&quot;</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exit-or-assertion-like-function">
+<span id="exit-or-assertion-like-function"></span><h1>exit or assertion like function<a class="headerlink" href="#exit-or-assertion-like-function" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="kp">stop</span><span class="p">(</span><span class="s">&quot;Message&quot;</span><span class="p">)</span>
+
+<span class="kp">stopifnot</span><span class="p">(</span><span class="bp">T</span><span class="p">)</span>
+<span class="kp">stopifnot</span><span class="p">(</span><span class="bp">F</span> <span class="o">==</span> <span class="bp">T</span><span class="p">)</span>
+<span class="c1"># -&gt; Error:  F == T は TRUE ではありません</span>
+</pre></div>
+</div>
+<div class="section" id="random-shuffle-sample">
+<span id="random-shuffle-sample"></span><h2>random, shuffle(sample)<a class="headerlink" href="#random-shuffle-sample" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span>m1 <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span>runif<span class="p">(</span><span class="m">100</span><span class="p">),</span> nrow<span class="o">=</span><span class="m">10</span><span class="p">)</span>
+m2 <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="kp">sample</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> <span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">5</span><span class="p">)),</span> size <span class="o">=</span> <span class="m">9</span><span class="p">),</span> ncol<span class="o">=</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="network-graph">
+<span id="network-graph"></span><h1>network graph<a class="headerlink" href="#network-graph" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>igraph<span class="p">)</span>
+g <span class="o">&lt;-</span> graph.adjacency<span class="p">(</span>m1 <span class="o">&lt;=</span> <span class="m">0.5</span><span class="p">,</span> mode<span class="o">=</span><span class="s">&quot;undirected&quot;</span><span class="p">)</span>
+
+<span class="c1"># edge</span>
+E<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>color <span class="o">&lt;-</span> <span class="s">&quot;grey&quot;</span>
+E<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>width <span class="o">&lt;-</span> <span class="m">1</span>
+E<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>weight <span class="o">&lt;-</span> <span class="m">100</span>
+E<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>label <span class="o">&lt;-</span> <span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>E<span class="p">(</span>g<span class="p">))]</span>
+
+<span class="c1"># node</span>
+V<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>size <span class="o">&lt;-</span> <span class="m">5</span>
+V<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>color <span class="o">&lt;-</span> <span class="s">&quot;blue&quot;</span>
+V<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>shape <span class="o">&lt;-</span> <span class="s">&quot;circle&quot;</span>
+V<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>label <span class="o">&lt;-</span> <span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>V<span class="p">(</span>g<span class="p">))]</span>
+V<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>label.cex <span class="o">&lt;-</span> <span class="m">1.5</span>                   <span class="c1"># font size for label</span>
+</pre></div>
+</div>
+<div class="section" id="plot">
+<span id="plot"></span><h2>plot<a class="headerlink" href="#plot" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span>plot<span class="p">(</span>g<span class="p">)</span>
+plot<span class="p">(</span>g<span class="p">,</span> layout<span class="o">=</span>layout.circle<span class="p">)</span>
+plot<span class="p">(</span>g<span class="p">,</span> layout<span class="o">=</span>layout.star<span class="p">)</span>
+plot<span class="p">(</span>g<span class="p">,</span> layout<span class="o">=</span>layout.grid<span class="p">)</span>
+plot<span class="p">(</span>g<span class="p">,</span> layout<span class="o">=</span>layout.kamada.kawai<span class="p">)</span>
+
+<span class="c1"># directed and weighted</span>
+g <span class="o">&lt;-</span> graph.adjacency<span class="p">(</span>m2<span class="p">,</span> mode<span class="o">=</span><span class="s">&quot;directed&quot;</span><span class="p">,</span> weighted<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+plot<span class="p">(</span>g<span class="p">,</span> vertex.color<span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">,</span> vertex.label <span class="o">=</span> V<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>name<span class="p">,</span> edge.color <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> edge.label <span class="o">=</span> E<span class="p">(</span>g<span class="p">)</span><span class="o">$</span>weight<span class="p">,</span> vertex.size<span class="o">=</span><span class="m">10</span><span class="p">)</span>
+
+<span class="c1"># tree</span>
+g <span class="o">&lt;-</span> graph.tree<span class="p">(</span><span class="m">15</span><span class="p">)</span>
+plot.igraph<span class="p">(</span>g<span class="p">)</span>
+
+<span class="c1"># dendrogram like</span>
+lay <span class="o">&lt;-</span> layout.reingold.tilford<span class="p">(</span>g<span class="p">)</span>
+plot<span class="p">(</span>g<span class="p">,</span> layout<span class="o">=</span>lay<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

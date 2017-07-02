@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sqlserver2014から移行前提のメモ &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">sqlserver2014から移行前提のメモ</a><ul>
+<li><a class="reference internal" href="#">変数利用</a></li>
+<li><a class="reference internal" href="#">一時テーブル</a></li>
+<li><a class="reference internal" href="#window">Window関数</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#postgresql">postgresqlとの比較</a><ul>
+<li><a class="reference internal" href="#copy">copy</a></li>
+<li><a class="reference internal" href="#">連番テーブル</a></li>
+<li><a class="reference internal" href="#">配列</a></li>
+<li><a class="reference internal" href="#json">json</a></li>
+<li><a class="reference internal" href="#udf">udf</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>sqlserver2014から移行前提のメモ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/note:redshift query.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sqlserver2014">
+<span id="sqlserver2014"></span><h1>sqlserver2014から移行前提のメモ<a class="headerlink" href="#sqlserver2014" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>with使える</li>
+<li>convert(date, column) が使えなかった</li>
+<li>代わりに cast(column as date) or column::date</li>
+<li>dateadd, datediff は使えた</li>
+<li>explain 使える</li>
+</ul>
+<div class="section" id="">
+<span id="id1"></span><h2>変数利用<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>declare &#64;varname type = value が使えない(t-sqlなので当たり前)</li>
+<li>使えない＋下記構文より、定型クエリの微調整がめんどうだった</li>
+</ul>
+<div class="highlight-prepared_statement.sql"><div class="highlight"><pre><span></span>prepare prep_select_plan (int, varchar) 
+as 
+select
+  *
+  , $2 as myvar 
+from
+  table_name
+where id = $1;
+execute prep_select_plan (2, &#39;aa&#39;);
+execute prep_select_plan (3, &#39;bb&#39;);
+deallocate prep_select_plan;
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>一時テーブル<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>#になれたせいか、とても面倒に感じた</li>
+<li>global一時テーブル##table_name に似たものは未調査</li>
+</ul>
+<div class="highlight-temporary_table.sql"><div class="highlight"><pre><span></span>create temporary table temp_table_name1 (id int, name varchar);
+
+select *
+into temporary table temp_table_name
+from (
+  select 1 as class, 2 as v1, 3 as v2
+  union all select 1, 4, 5 
+  union all select 2, 6, 7 
+  union all select 2, 8, 9 
+) t
+</pre></div>
+</div>
+</div>
+<div class="section" id="window">
+<span id="window"></span><h2>Window関数<a class="headerlink" href="#window" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>sqlserverにもあるけど今回初めて知った</li>
+<li>listagg within groupを初めて見た</li>
+</ul>
+<div class="highlight-listagg.sql"><div class="highlight"><pre><span></span>select
+  class
+  , listagg(v1, &#39;,&#39;) within group (order by null) as a
+from temp_table_name
+group by
+  class
+;
+select
+  listagg(v1, &#39;,&#39;) within group (order by class desc) as a
+  , count(1)
+from temp_table_name
+;
+select
+  class
+  , listagg(v1, &#39;,&#39;) within group (order by null) over () as a
+from temp_table_name
+;
+select
+  class
+  , listagg(v1, &#39;,&#39;) within group (order by class) over (partition by class) as a
+from temp_table_name
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="postgresql">
+<span id="postgresql"></span><h1>postgresqlとの比較<a class="headerlink" href="#postgresql" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="copy">
+<span id="copy"></span><h2>copy<a class="headerlink" href="#copy" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>postgresqlにもある</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>連番テーブル<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-generate_series.sql"><div class="highlight"><pre><span></span>-- カラムはgenerate_seriesになる
+select
+  *
+from (select * from generate_series(1, 10)) as a
+cross join (select * from generate_series(1, 10)) as b
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>配列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-array_access.sql"><div class="highlight"><pre><span></span>select
+  ids
+  , case when ids[0] is null then &#39;null!&#39; else &#39;not null&#39; end
+  , ids[1]
+  , ids[2]
+  , ids[3]
+from (select array[1, 2, 3] as ids) t
+</pre></div>
+</div>
+<ul class="simple">
+<li>sqlserverで使ったことない</li>
+<li>array_agg が使えなかった(縦-&gt;横)</li>
+<li>unnest が使えなかった(横-&gt;縦)</li>
+</ul>
+<div class="highlight-array_agg.sql"><div class="highlight"><pre><span></span>select
+  class
+  , array_agg(v1)
+from temp_table_name
+group by
+  class
+</pre></div>
+</div>
+<div class="highlight-unnest.sql"><div class="highlight"><pre><span></span>select
+  string
+  , unnest(array[id1, id2, id3]) as id
+from (
+select
+  &#39;str&#39; as string
+  , &#39;1&#39; as id1
+  , &#39;2&#39; as id2
+  , &#39;3&#39; as id3
+) as t
+</pre></div>
+</div>
+</div>
+<div class="section" id="json">
+<span id="json"></span><h2>json<a class="headerlink" href="#json" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>sqlserver2014にはなかった</li>
+<li>2016から使えるらしい (https://blogs.msdn.microsoft.com/jocapc/2015/05/16/json-support-in-sql-server-2016/)</li>
+</ul>
+<div class="highlight-json.sql"><div class="highlight"><pre><span></span>select 
+  -- ↓使えなかった
+  -- json_to_record(&#39;{&quot;key1&quot;: &quot;value1&quot;, &quot;key2&quot;: 2}&#39;)
+    json_extract_path_text(&#39;{&quot;key1&quot;: {&quot;nest_key&quot;: &quot;nest_value&quot;}, &quot;key2&quot;: 2}&#39;, &#39;key1&#39;, &#39;nest_key&#39;)
+  , json_extract_path_text(&#39;{&quot;key1&quot;: {&quot;nest_key&quot;: &quot;nest_value&quot;}, &quot;key2&quot;: 2}&#39;, &#39;key1&#39;)
+  , json_extract_path_text(&#39;{&quot;key1&quot;: {&quot;nest_key&quot;: &quot;nest_value&quot;}, &quot;key2&quot;: 2}&#39;, &#39;key100&#39;)
+  , json_extract_array_element_text(&#39;[1, 2, [3, 4], 5]&#39;, 2)
+  , json_extract_array_element_text(&#39;[1, 2, [3, 4], 5]&#39;, 100)
+  , json_array_length(&#39;[1, 2, [3, 4], 5]&#39;)
+  --, json_array_length(&#39;{&quot;1&quot;: 2, &quot;[3, 4]&quot;: 5]&#39;) -- error
+</pre></div>
+</div>
+</div>
+<div class="section" id="udf">
+<span id="udf"></span><h2>udf<a class="headerlink" href="#udf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>一覧はこれを見る</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">*</span> 
+<span class="kn">from</span> <span class="nn">pg_proc</span>
+<span class="n">order</span> <span class="n">by</span> <span class="n">proname</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>http://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_join_pg.html</li>
+<li>http://stackoverflow.com/questions/33083500/how-to-get-a-list-of-udfs-in-redshift</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

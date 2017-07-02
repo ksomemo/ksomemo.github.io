@@ -1,0 +1,1224 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>scikit-learn module &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">scikit-learn module</a><ul>
+<li><a class="reference internal" href="#modules">modules</a></li>
+<li><a class="reference internal" href="#model">model全般</a></li>
+<li><a class="reference internal" href="#">考える事</a></li>
+<li><a class="reference internal" href="#">その他</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scipy-modules">scipy modules</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>scikit-learn module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/scikit-learn ／ scipy module と概要まとめ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scikit-learn-module">
+<span id="scikit-learn-module"></span><h1>scikit-learn module<a class="headerlink" href="#scikit-learn-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>http://scikit-learn.org/stable/modules/classes.html</p>
+<ul class="simple">
+<li>なにがあるか概要だけでも把握</li>
+<li>ちょっと触ってわかったものを書き込む</li>
+</ul>
+<div class="section" id="modules">
+<span id="modules"></span><h2>modules<a class="headerlink" href="#modules" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>sklearn.xxx</p>
+<ul class="simple">
+<li>base<ul>
+<li>clone<ul>
+<li>並列処理するときやbest_estimatorを返すときなどに使用している</li>
+</ul>
+</li>
+<li>model用のMixinなど<ul>
+<li>下記は作成したいmodelに合わせた最低限の作り方</li>
+<li>http://qiita.com/_takoika/items/89a7e42dd0dc964d0e29</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>calibration<ul>
+<li>predict_probaの校正</li>
+<li>predict_probaを持たないクラス確率を出力できないものへの適用?</li>
+<li>http://tjo.hatenablog.com/entry/2016/11/24/190000</li>
+</ul>
+</li>
+<li>cluster<ul>
+<li>KMeans<ul>
+<li>実際はKMean++が使われている(初期化問題対応)<ul>
+<li>https://www.quora.com/What-is-the-difference-between-Kmeans++-and-Kmeans-1</li>
+<li>http://stats.stackexchange.com/questions/130888/k-means-vs-k-means</li>
+</ul>
+</li>
+<li>クラスタ数については、<a class="reference external" href="http://qiita.com/deaikei/items/11a10fde5bb47a2cf2c2">k-meansの最適なクラスター数を調べる方法
+</a>を参照<ul>
+<li>sklearnのexample(エルボー/シルエット)</li>
+<li>距離</li>
+</ul>
+</li>
+<li>上記の後編のX-Meansもよかった<ul>
+<li>BICとクラスタに分けたあとの2-means<ul>
+<li>決定木っぽさを感じた</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>KMeansにもMiniBatchがある(TODO:MiniBatch)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cluster.bicluster</li>
+<li>covariance</li>
+<li>cross_decomposition</li>
+<li>model_selection<ul>
+<li><del>cross_validation module</del></li>
+<li>過学習を避けるための方法がいろいろ<ul>
+<li>bias/variance<ul>
+<li>high bias: under fitting</li>
+<li>high variance: over fitting</li>
+<li>いろいろ参考をあげたけど、教師データだけに着目すればいいので自明だった…<ul>
+<li>予測は考えない</li>
+<li>教師データすべてに対して悪いが、大幅なズレはないならunder fitting</li>
+<li>すべてに対して当てはまっているが、教師データにはない点での分散が大きい</li>
+</ul>
+</li>
+<li><del>http://s0sem0y.hatenablog.com/entry/2017/01/24/100415</del></li>
+<li><del>https://www.slideshare.net/canard0328/ss-44288984 p58</del></li>
+<li><del>http://ibisforest.org/index.php?%E3%83%90%E3%82%A4%E3%82%A2%E3%82%B9-%E3%83%90%E3%83%AA%E3%82%A2%E3%83%B3%E3%82%B9</del></li>
+<li>http://d.hatena.ne.jp/isobe1978/20130906/1378438914</li>
+</ul>
+</li>
+<li>hyperparamter用の分け方<ul>
+<li>CourseraのMachine Learningをやってわかったこと<ul>
+<li>学習はtraning setで行う(hyperparamterはもちろん決め打ち)</li>
+<li>学習後のもmodelとvalidation setを用いて hyperparamterのよさを求める</li>
+<li>よいhyperparamterを決めた後、test setで最終確認</li>
+</ul>
+</li>
+<li>http://penzant.hatenadiary.com/entry/2016/02/19/000000</li>
+<li>ttp://qiita.com/katsu1110/items/97c3f98a987ea92b2cc1</li>
+<li>ttp://qiita.com/QUANON/items/ae569961ea02b4468e23</li>
+<li>https://www.coursera.org/learn/machine-learning/lecture/QGKbr/model-selection-and-train-validation-test-sets</li>
+<li>http://stats.stackexchange.com/questions/19048/what-is-the-difference-between-test-set-and-validation-set</li>
+<li>http://cs231n.github.io/classification/#val</li>
+<li>http://www.slideshare.net/minoruchikamune/by-20150911172207 p28</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>train_test_split<ul>
+<li>学習データとテストデータにわける(割合 or 個数)</li>
+<li>(train|test)_size 0.0 to 1.0 or int</li>
+<li>hold-out</li>
+</ul>
+</li>
+<li>cross_val_score<ul>
+<li>cross validationを実行して、そのスコアを返す<ul>
+<li>GridSearchCVのようにbest_estimatorは返さない<ul>
+<li>GridSearchCVを渡せるが上記のとおりなので、nestしても意味がない…</li>
+</ul>
+</li>
+<li>joblibのParallelにcloneしたestimatorを渡している</li>
+</ul>
+</li>
+<li>乱数は直接指定できない</li>
+</ul>
+</li>
+<li>KFold<ul>
+<li>Cross validation iterator</li>
+<li>cross_val_scoreのcv引数に渡す</li>
+<li>乱数はrandom_state(seed or numpy.random.RandomState)で設定</li>
+<li>ほかにも種類があり、どのように分割するかによって使い分ける(xxFold)</li>
+</ul>
+</li>
+<li>LeaveOneOut(LOO)<ul>
+<li>N samples, N-1 train, 1 test</li>
+<li><code class="docutils literal"><span class="pre">KFold(n_splits=n)</span></code><ul>
+<li>0.18から利用方法/API/引数変更</li>
+<li>instanceにしてから splitすることでiterとして扱える</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>StratifiedKFold<ul>
+<li><del>不均衡データ用</del>(目的変数が<code class="docutils literal"><span class="pre">[1,1,1,0,0,0,0,0,0,0]</span></code>)<ul>
+<li>分類と回帰の違い</li>
+<li>cvパラメータが存在するclassや関数のドキュメントに書いてある</li>
+</ul>
+</li>
+<li>KFlodで分割した場合、負例しか含まれないようなケースがあるがコレの場合はバランスを考慮してくれる</li>
+<li>他の方法にはover/under samplingや, クラスへの重み付けがあるらしい</li>
+</ul>
+</li>
+<li><del>grid_search module</del></li>
+<li>GridSearchCV<ul>
+<li>各ハイパーパラメータのパターンを渡す<ul>
+<li>estimatorにはPipeLineも渡せるので、そのときのparamterはPipeLineの規則に従う</li>
+</ul>
+</li>
+<li>組合せた結果を返してくれて、その中から最適なものなども指定して取得できる<ul>
+<li>下記タイトル関係なく見えるけど、一応やってる</li>
+<li><a class="reference external" href="http://qiita.com/ksomemo/items/71af220ea716a5a3bb8a">pandas.Series.applyでDataFrameを返す</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><del>learning_curve module</del></li>
+<li>learning_curve<ul>
+<li>データサイズによるbias/varianceの確認</li>
+<li>割合を(0, 1] のndarrayで指定する</li>
+</ul>
+</li>
+<li>validation_curve<ul>
+<li>hyperparamerによるbias/varianceの確認</li>
+<li>GridSearchCVの単一paramter特価</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>datasets<ul>
+<li>irisなどdigitsのdataset<ul>
+<li>load_xxx().DESCR で概要</li>
+<li>前に調べた <a class="reference external" href="http://qiita.com/ksomemo/items/69ae8eec98b795781586">load datasets in python</a></li>
+<li>分類用<ul>
+<li>iris</li>
+<li>digits</li>
+</ul>
+</li>
+<li>回帰用<ul>
+<li>boston</li>
+</ul>
+</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>make_xxx<ul>
+<li>sample generator<ul>
+<li>二重円や月の形をした非線形分離のためのサンプルデータセット作成</li>
+<li>ex. <a class="reference external" href="http://qiita.com/ksomemo/items/e601cebec88d7d24e6bb">perceptronの可視化(線形/非線形性分離のためのデータセット作成例)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>decomposition<ul>
+<li>PCA(主成分分析)<ul>
+<li><code class="docutils literal"><span class="pre">np.linalg.eig(h)</span></code>は使わずSVDを使っている<ul>
+<li>TODO：SVDとeigの違い</li>
+</ul>
+</li>
+<li>線形, 欠損値なし前提<ul>
+<li>分散が最大になる方向の基底ベクトル</li>
+<li>その方向を基準とした行列(成分が実数)による変換のため線形変換？</li>
+</ul>
+</li>
+<li>パラメータは縮約する次元数(主成分の数)<ul>
+<li><code class="docutils literal"><span class="pre">n_components</span></code> を指定しない場合、次元を落とさず寄与率を調べられる</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">components_</span></code><ul>
+<li>固有ベクトル相当（ただし、転置すること)</li>
+<li>元データとの内積をとるとき、各特徴量の平均を引いてcenteringすること</li>
+</ul>
+</li>
+<li>transform<ul>
+<li><code class="docutils literal"><span class="pre">components_</span></code> で変換した入力ベクトル</li>
+</ul>
+</li>
+<li>寄与率(<code class="docutils literal"><span class="pre">explained_variance_ratio_</span></code>) で縮約したあとの各次元が元のどれだけの情報を示すか</li>
+<li>参考<ul>
+<li>http://www.macromill.com/landing/words/b007.html</li>
+<li>http://breakbee.hatenablog.jp/entry/2014/07/13/191803</li>
+<li>関係ないが、教師ありバージョン? http://qiita.com/kenmatsu4/items/c61ce5d85667f499c3c8</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>FactorAnalysis<ul>
+<li>因子分析</li>
+<li>これも線形</li>
+<li>ガウス潜在変数<ul>
+<li>潜在変数とEMアルゴリズム</li>
+<li>http://aidiary.hatenablog.com/entry/20100521/1274445325</li>
+</ul>
+</li>
+<li>PPCA<ul>
+<li>Probabilistic PCA<ul>
+<li>http://d.hatena.ne.jp/ryamada22/20150409/1428549068</li>
+</ul>
+</li>
+<li>比較?, http://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_fa_model_selection.html</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>fastICA<ul>
+<li>Independent Component Analysis(独立成分分析)</li>
+<li>下記の例では第1,2成分が直行していない図がある</li>
+<li>http://s0sem0y.hatenablog.com/entry/2016/05/01/185044#主成分分析との違い</li>
+</ul>
+</li>
+<li>LDA<ul>
+<li>よく見る</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dummy</li>
+<li>ensemble<ul>
+<li>汎化性能(generalizability)/頑健性(robustness)を向上させるため<ul>
+<li>外れ値や欠損値が含まれるようなデータでも(正解と予測できる/誤差が少ない)こと</li>
+</ul>
+</li>
+<li>VotingClassifier<ul>
+<li>Python機械学習の本にのってて、著者が実装したもの<ul>
+<li>https://github.com/rasbt/python-machine-learning-book/blob/master/code/ch07/ch07.ipynb</li>
+</ul>
+</li>
+<li>複数分類器による多数決</li>
+<li>上記の重み付き多数決</li>
+</ul>
+</li>
+<li>bagging<ul>
+<li>Bootstrap Aggregating<ul>
+<li>voting for classification</li>
+<li>averaging for regression</li>
+</ul>
+</li>
+<li>並列に動かして集約する<ul>
+<li>baseとなる推定器を学習していく</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>boosting<ul>
+<li>baseとなる推定器を学習していく</li>
+<li>本来のboostingではなく, Ada(ptive)Boost(ing)(Classifier|Regressor) を基本としている</li>
+<li>並列ではなく、逐次学習＋重み更新</li>
+<li>ttps://twitter.com/chezou/status/840345208206188546<ul>
+<li>これを見てなるほど、と思う</li>
+<li>予測結果の判定</li>
+<li>重みの更新(正解は-, 間違いは+), ここがパーセプトロン(というか普通の機械学習)っぽい</li>
+<li>学習率のパラメータがあるのも納得した<ul>
+<li>重みのための更新用パラメータ(誤分類率から求める)とは別っぽい</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>stacking<ul>
+<li>kaggleでよく聞くアレ(よく分かっていない)</li>
+<li>stageがある、boostingっぽさあるけどいろんなmodelから学習する</li>
+<li>Kfoldして、データを分割して利用する<ul>
+<li>推測した結果を次のstageの入力として利用するらしい<ul>
+<li>分割データを利用した結果は積む</li>
+</ul>
+</li>
+<li>これを複数のモデルから作成<ul>
+<li>異なるモデルの結果は積まず、別の変数として利用する</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RandomForest<ul>
+<li>モデル選択で迷ったらとりあえず突っ込んでみる<ul>
+<li>分類および回帰の両方がある</li>
+</ul>
+</li>
+<li>sampling<ul>
+<li>colun: 使用する変数のrandom sampling</li>
+<li>row: bootstrap sampling</li>
+<li>N個のsampleから重複を許可してN個抽出する(それをM個用意して、決定木の作成)<ul>
+<li>重複を許可は、1個抽出したら元に戻してN個になるまで繰り返す</li>
+<li>不均衡データにどう対処するのか疑問に思った</li>
+</ul>
+</li>
+<li>Bagging(Regressor|Classifier)<ul>
+<li>row/columnともに設定できるかつbootstrap設定もできるのでestimatorを変えて自分の好きなように実装できそう</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>out-of-bag(OOB)<ul>
+<li>samplingで利用されなかったデータ</li>
+<li>36%が使われない理由は <a class="reference external" href="http://qiita.com/kenmatsu4/items/1152d6e5634921d9246e">【機械学習】OOB (Out-Of-Bag) とその比率
+</a> の本文とコメント参照</li>
+<li>tree構築に利用されたデータから作られたmodelで、利用されなかったデータに対する誤差を求める<ul>
+<li>http://alfredplpl.hatenablog.com/entry/2013/12/24/225420</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>externals<ul>
+<li>joblib<ul>
+<li>並行処理やmodelのdump/load(pickle)</li>
+<li><code class="docutils literal"><span class="pre">dir(externals.joblib)</span> <span class="pre">==</span> <span class="pre">dir(joblib)</span> <span class="pre">#=&gt;</span> <span class="pre">True</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>feature_extraction<ul>
+<li>DictVectorizer<ul>
+<li>dictのlistを変換<ul>
+<li>数値はpandas.DataFrameと同じ</li>
+<li>文字列はpandas.get_dummiesと同じ</li>
+</ul>
+</li>
+<li>defaultでsparse matrix(<code class="docutils literal"><span class="pre">scipy.sparse.csr.csr_matrix</span></code>)が返ってくる</li>
+<li>inverse_transformでdictのlistに戻せるが、dummy変数を元の形には戻せない</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>feature_extraction.image<ul>
+<li>TODO: skimageとの比較</li>
+</ul>
+</li>
+<li>feature_extraction.text<ul>
+<li>TODO: nltk<ul>
+<li>stop words</li>
+<li>stemming(語幹を残す)<ul>
+<li>stemmingにもいろいろある<ul>
+<li>porter</li>
+<li>snowball</li>
+<li>lancaster(porter2, English)</li>
+</ul>
+</li>
+<li>英語であっても一部問題あり<ul>
+<li>存在しない単語になる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>lemmatization(lemma:見出し, 語化)<ul>
+<li>文法としての正しさ</li>
+<li>stemmingより処理が重い</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TODO: gensimとの比較</li>
+<li>CountVectorizer<ul>
+<li>filename, file object, list[string]に対応<ul>
+<li>bag-of-words形式に変換</li>
+</ul>
+</li>
+<li>いろんなオプションが存在する<ul>
+<li>文字のcase, n-gram関連, tokenizer, stop words, etc.</li>
+</ul>
+</li>
+<li>日本語対応: Customizing the vectorizer classesを参考に作ればよさそう</li>
+</ul>
+</li>
+<li>TfidfVectorizer<ul>
+<li>Term-Frequency * Inverse Document-Frequency を求める<ul>
+<li>TfidfTransformer は CountVectorizerの出力を受け取ってtf-idfを求める</li>
+<li>正規化はここでも指定できる</li>
+<li>use_idf=Falseでidfを利用せずtfだけの正規化可能</li>
+</ul>
+</li>
+<li>tf<ul>
+<li>1つdocumentを対象とした時にあるwordの頻度(をdocumentに含まれる全てwordの総数で割われて正規化されている)</li>
+<li>計算の都合上?正規化された頻度</li>
+<li>頻出すると特徴が強い</li>
+</ul>
+</li>
+<li>idf<ul>
+<li>df: あるwordが存在するdocumentの数(をdocumentの総数で割っている)</li>
+<li>の逆数なのでめずらしさ</li>
+<li>数値を調整するために下記のようなパターンが有る<ul>
+<li><code class="docutils literal"><span class="pre">log</span> <span class="pre">[n</span> <span class="pre">/</span> <span class="pre">df(d,</span> <span class="pre">t)]</span> <span class="pre">+</span> <span class="pre">1</span></code> <code class="docutils literal"><span class="pre">(smooth_idf=False,</span> <span class="pre">よくある説明)</span></code></li>
+<li><code class="docutils literal"><span class="pre">log</span> <span class="pre">[(1</span> <span class="pre">+</span> <span class="pre">n)</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">df(d,</span> <span class="pre">t)]</span> <span class="pre">+</span> <span class="pre">1</span></code> <code class="docutils literal"><span class="pre">(smooth_idf=True,</span> <span class="pre">sklearn)</span></code></li>
+<li><code class="docutils literal"><span class="pre">log</span> <span class="pre">[n</span> <span class="pre">/</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">df(d,</span> <span class="pre">t)]</span></code> <code class="docutils literal"><span class="pre">stanfordのらしい</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>正規化<ul>
+<li>defaultで L2 normが1になるように設定されている<ul>
+<li>実際に1だった <code class="docutils literal"><span class="pre">(tfidf[0]</span> <span class="pre">**</span> <span class="pre">2).sum()</span></code></li>
+<li>式の結果を確認する時は <code class="docutils literal"><span class="pre">norm=None</span></code> にして試すと良い</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>feature_selection<ul>
+<li>VarianceThreshold<ul>
+<li>分散の小さい変数の削除<ul>
+<li>小さいとほぼ同じ値になるので特徴がないと見なせる</li>
+</ul>
+</li>
+<li>thresholdは変数の分布によって決める例がある(ベルヌーイ)<ul>
+<li>確率は自分で決めている</li>
+</ul>
+</li>
+<li>R の caret::nearZeroVar を知っていたので気になった<ul>
+<li>https://www.rdocumentation.org/packages/caret/versions/6.0-73/topics/nearZeroVar</li>
+<li>このclassとは直接関係ないが、findLinearCombos に似たものが見当たらない</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>gaussian_process</li>
+<li>isotonic<ul>
+<li>等張?よく分かっていない</li>
+<li>単調増加するようにfitしている</li>
+</ul>
+</li>
+<li>kernel_approximation<ul>
+<li>kernelを使って近似するらしい</li>
+<li>user guideには密度推定は出てこない</li>
+</ul>
+</li>
+<li>kernel_ridge</li>
+<li>discriminant_analysis<ul>
+<li>判別分析関連</li>
+<li>normalは等分散性が必要</li>
+<li>重は多値分類?, 重回帰と違う…</li>
+<li>LinearDiscriminantAnalysis<ul>
+<li>線形判別分析</li>
+<li>教師ありとしての次元削除として紹介される</li>
+<li>クラス間分散とクラス内分散を指標にしている<ul>
+<li>全分散については調べてない</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>linear_model<ul>
+<li>LinearRegression<ul>
+<li>線形回帰, 重回帰</li>
+</ul>
+</li>
+<li>LogisticRegression<ul>
+<li>tol is Tolerance for stopping criteria. 収束するための許容する差(機械学習全般用語?)</li>
+<li><code class="docutils literal"><span class="pre">multi_class='ovr'</span></code><ul>
+<li>多値分類</li>
+<li>one vs restの略で,k classあるときクラス1とその他のクラスで2値分類する</li>
+<li>各クラスでそれを行い一番確率が高いものに分類する<ul>
+<li>predictではクラス, predict_probaでは各クラスの確率</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LogisticRegressionCVというcvパラメータ付きのModelがある</li>
+<li>CというLogisticRegressionのハイパーパラメータを複数(Cs)渡してcv時に利用する<ul>
+<li>default:Cs=10-&gt;10個, Cs_,C_に学習後の結果あり</li>
+</ul>
+</li>
+<li>各変数の係数とカラムを結びつけるのが面倒<ul>
+<li>DataFrame.columnsと合わせて見るとよさそう</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>manifold<ul>
+<li>多様体学習<ul>
+<li>isomapをよく見る</li>
+</ul>
+</li>
+<li>次元削除系(非線形)<ul>
+<li>線形の次元削除に効くPCAとの比較<ul>
+<li>知らなかった</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MDS<ul>
+<li>Multi Dimensional scaling(多次元尺度構成法)</li>
+<li>統計学/多変量解析の本で見たことある<ul>
+<li>地図の例</li>
+</ul>
+</li>
+<li>http://d.hatena.ne.jp/fronori/20140517</li>
+</ul>
+</li>
+<li>t-SNE<ul>
+<li>t-distributed Stochastic Neighbor Embedding<ul>
+<li>これもよく見る</li>
+<li>なんて略せばイイのか…</li>
+</ul>
+</li>
+<li>わかったのは以下</li>
+<li>自由度=1のt分布は、標準正規分布よりなだらか<ul>
+<li>距離を確率にしたときに遠くを表現できる<ul>
+<li>距離はユークリッド距離</li>
+</ul>
+</li>
+<li>http://d.hatena.ne.jp/ryamada22/20130613/1371091312</li>
+<li>http://blog.albert2005.co.jp/2015/12/02/tsne/</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>metrics<ul>
+<li>scikit-learnや機械学習というよりデータ分析として覚えたほうが良い</li>
+<li>Classification metrics</li>
+<li>confusion_matrix<ul>
+<li>(予測)真偽/(正解データ)陽陰(※正負)の2x2の数まとめ</li>
+<li>例で覚えた方が良い(契約の継続/退会,値段がある基準以上/未満), 分類問題の+1/-1や1/0</li>
+<li>ある会員は契約を継続すると予測, 実際は継続</li>
+<li>上記は下記のTPに該当するが、日本語にすると順番があわないので慣れないとつらい<ul>
+<li>True Positive(TP): 正しいものを,正しいと予測でき,正解</li>
+<li>False Positive(FP): 正しいものを,間違いと予測して,失敗</li>
+<li>False negative(FN): 間違っているものを,正しいと予測して,失敗</li>
+<li>True negative(TN): 間違っているものを,間違いと予測して,正解</li>
+</ul>
+</li>
+<li>統計学では第一種の誤り(FP)/第二種の誤り(FN)</li>
+</ul>
+</li>
+<li>classification_report<ul>
+<li>confusion_matrixの各数から得られる指標のtable string(formated)<ul>
+<li>precision</li>
+<li>recall</li>
+<li>f1-score</li>
+<li>support</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>roc関連<ul>
+<li>roc_curve<ul>
+<li>二値分類の際に使い、ロジスティック回帰のように予測した確率と正解データを用いる</li>
+<li>TP/FPの比率</li>
+</ul>
+</li>
+<li>auc<ul>
+<li>Area Under the Curve</li>
+</ul>
+</li>
+<li>roc_auc_score<ul>
+<li>roc_curve の引数でaucを求めてくれる</li>
+<li>rocの分布はaucの値だけでは一意にならないので、分布を確認したほうがいいと思う</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>score関連<ul>
+<li>accuracy_score<ul>
+<li>正解率。正しいものを正しいと,間違っているものを間違っていると予測できている割合</li>
+<li>これだけ高くても、正例/負例の構成比によっては良いと判断できない</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>scorer.SCORERS<ul>
+<li>CrossValidationやGridSearchに指定するscoringに使えるもの一覧</li>
+<li>一覧を覚えるよりどんな指標で良いとするかを覚える</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mixture</li>
+<li>multiclass</li>
+<li>naive_bayes</li>
+<li>neighbors<ul>
+<li>いろいろなものがある</li>
+<li>KNN<ul>
+<li>Classifier/Regressorの両方がある</li>
+</ul>
+</li>
+<li>NearestNeighbors<ul>
+<li>教師なし学習用</li>
+</ul>
+</li>
+<li>KernelDensity<ul>
+<li>seabornのdistplotなどで見るカーネル密度推定がここにあった</li>
+</ul>
+</li>
+<li>DistanceMetric<ul>
+<li>距離関数がたくさん</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>neural_network<ul>
+<li>素直に他のライブラリを使ったほうがよさそう<ul>
+<li>どのように層を重ねるか/どんなネットワークにするか<ul>
+<li>CNN/RNNなど</li>
+<li>確率的にするか</li>
+</ul>
+</li>
+<li>パラメータをどうするか<ul>
+<li>学習率</li>
+<li>Momentum</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>関数をどうするか<ul>
+<li>activation</li>
+<li>loss/cost</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cross_decomposition</li>
+<li>pipeline<ul>
+<li>PipeLine<ul>
+<li><code class="docutils literal"><span class="pre">[tuple(label,</span> <span class="pre">estimator),</span> <span class="pre">...,]</span></code></li>
+<li>make_pipelineはestimatorのlistを与えてPipeLineを生成する<ul>
+<li>labelが自動的に付けられる</li>
+<li>明示的につけたほうがいいと思うので使わない</li>
+</ul>
+</li>
+<li>fit, transformを繰り返して, 最終的にfitさせる</li>
+<li>parameterの再設定は, <code class="docutils literal"><span class="pre">label__param=value</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>preprocessing<ul>
+<li>scale <a class="reference external" href="http://qiita.com/ksomemo/items/ff0cbe63455f70bdf751">ランダムデータと正規化・標準化</a><ul>
+<li>紛らわしいので違い</li>
+<li><a class="reference external" href="http://xiaoxia.exblog.jp/19955378/">Normalization, Standardization, Scaling</a></li>
+<li>↑の順とpreprocessingの対応は, normalize, scale, minmax_scale</li>
+<li><a class="reference external" href="http://www.dataminingblog.com/standardization-vs-normalization/">Standardization vs. normalization</a></li>
+<li>normalizeはnormと関係している(L1-マンハッタン距離,L2-ユークリッド距離)<ul>
+<li>距離はわかるが正則化(regularization)をよく分かっていないので不明…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LabelEncoder<ul>
+<li>カテゴリ変数を数値に変換</li>
+<li>変換系はtransformを使う</li>
+</ul>
+</li>
+<li>Imputer<ul>
+<li>欠損値用</li>
+<li>正直、pandasのSeriesとfillnaで良い(そういうものが他にもある<ul>
+<li>数値用のmean,median</li>
+<li>カテゴリ用のmost_frequent</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LabelBinarizer<ul>
+<li>dummy変数<ul>
+<li>sparse対応がある</li>
+<li>pandasにもあった</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Binarizer<ul>
+<li>数値を閾値でわける</li>
+<li>めんどうなので使わなくてよさそう</li>
+</ul>
+</li>
+<li>PolynomialFeatures<ul>
+<li>一変数のN乗多項式を作るときに便利<ul>
+<li>3乗の場合, <code class="docutils literal"><span class="pre">[[2]]</span></code> -&gt; [[1, 2, 4, 8]]</li>
+<li>先頭はbias</li>
+<li>2変数だとめんどうなので使わない、モデルが複雑</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>random_projection<ul>
+<li>次元削除系</li>
+</ul>
+</li>
+<li>semi_supervised</li>
+<li>svm<ul>
+<li>SVC(Support Vector Classifier)<ul>
+<li>linear と rbf(radial basis function/Gaussian)の2つのkernelを試した</li>
+<li>rbf kernelで非線形分類できるのを確認した<ul>
+<li>radial:球対称, 動径的(よくわかってない)</li>
+<li>RBFとしてはGaussianだけでなく、他にもある</li>
+</ul>
+</li>
+<li>kernel<ul>
+<li>内積</li>
+<li>類似度</li>
+<li>ランドマークとは？</li>
+<li>この説明の時、双対問題やラグランジュ未定乗数法がまったく出てこない</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>support vector<ul>
+<li>分離超平面を引くときに、よく分類できて新しいデータに対しても分類できる(過学習しない)ようにするため</li>
+<li>正則化の一種<ul>
+<li>support vectorをどうとるか, 制限をかけることで実現しているという直感的理解</li>
+<li>正則化の係数としてのC</li>
+</ul>
+</li>
+<li>基本はperceptronと同じ式なので線形分類であることを忘れない<ul>
+<li>非線形分類するためにまずkernel trickを使う</li>
+<li>分類できるようになったらsupport vectorを求めて分類する</li>
+</ul>
+</li>
+<li>TODO: ハード/ソフトマージンの違い</li>
+<li>TODO: 線形のときの点と直線との距離の復習, ラグランジュ未定乗数法, 双対問題などの数学</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tree<ul>
+<li>決定木(分類と回帰)がある</li>
+<li>plotは前に調べた <a class="reference external" href="http://qiita.com/ksomemo/items/27e305056bf0215b3441">python, decision treeのtree graph plot
+</a></li>
+<li>本質は木をどう分岐させるか<ul>
+<li>ジニ係数</li>
+<li>情報量<ul>
+<li>各変数を使って分岐するときに、どれを使えばよく分類できるか<ul>
+<li>entropy</li>
+</ul>
+</li>
+<li>TODO: rootからとの比較直接分岐と比べる</li>
+<li>TODO: 過学習防止のための枝刈り(深さ),分岐数(hyper parameterについて)</li>
+<li>連続量のとき(回帰の時)はまだ調べていない</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>utils</li>
+</ul>
+</div>
+<div class="section" id="model">
+<span id="model"></span><h2>model全般<a class="headerlink" href="#model" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>使用するmodelを決める</li>
+<li>modelのインスタンス作成</li>
+<li>fitで学習<ul>
+<li>このとき返す値はmodelなので変数に束縛していれば木にしなくて良い</li>
+<li>回帰、分類、LabelEncoderやPCAなどの変換系、GridSearchなどでもfitを利用する</li>
+</ul>
+</li>
+<li>predictでテスト<ul>
+<li>predict_probaで確率で返す(logistic regressionなど)</li>
+</ul>
+</li>
+<li>学習後はparameterに値が反映される<ul>
+<li>parameterは切片や傾きなどのこと</li>
+</ul>
+</li>
+</ul>
+<p>sckit-learnのEstimated parameters</p>
+<div class="highlight-py3:skleran_estimated_params.py"><div class="highlight"><pre><span></span># http://scikit-learn.org/stable/tutorial/statistical_inference/settings.html
+def estimated_params(estimator):
+    return [a for a in dir(estimator) if a.endswith(&quot;_&quot;) and not a.startswith(&quot;_&quot;)]
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h2>考える事<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>二値分類<ul>
+<li>多値分類</li>
+</ul>
+</li>
+<li>分類と回帰での違い</li>
+<li>行列の疎と密</li>
+<li>不均衡データ<ul>
+<li>目的変数の二値<ul>
+<li>グループごと</li>
+</ul>
+</li>
+<li>クラスタリングのクラスタのサイズ</li>
+</ul>
+</li>
+<li>評価指標</li>
+<li>kernel</li>
+<li>Nonparametricと分布</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>どのように分類されているか、各モデルやパラメータによって境界はどう違うのかは matplotlibで確認<ul>
+<li>contourf<ul>
+<li><a class="reference external" href="http://qiita.com/ksomemo/items/81c88378a1dffa5cbea7">meshgridとcontourfを可視化して理解してみた</a></li>
+</ul>
+</li>
+<li>pcolormesh</li>
+<li>gif<ul>
+<li>matplotlibのAnimation</li>
+<li>またはipywidget<ul>
+<li>ex. <a class="reference external" href="http://qiita.com/ksomemo/items/e601cebec88d7d24e6bb">perceptronの可視化(パラメータのwidgetを手動で変更して理解を深める)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="scipy-modules">
+<span id="scipy-modules"></span><h1>scipy modules<a class="headerlink" href="#scipy-modules" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>scipy.xxx について</p>
+<p>https://docs.scipy.org/doc/scipy/reference/api.html</p>
+<ul class="simple">
+<li>cluster<ul>
+<li>hierarchy<ul>
+<li>階層クラスタリング時に使う</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>interpolate<ul>
+<li>pandasのinterpolateで使われている</li>
+<li>時系列のresample後の補完時に使う</li>
+</ul>
+</li>
+<li>linalg<ul>
+<li>numpy.linalgとは同じ結果が返る</li>
+<li>sparse配下のmoduleとではsparse用のため結果が異なる関数があるらしいので注意</li>
+</ul>
+</li>
+<li>sparse<ul>
+<li>疎行列<ul>
+<li>0が多い行列で、ほとんど意味のない値によってメモリ消費が多くなること避けるために使われる</li>
+<li>行/列/値の3つによって構築される</li>
+<li>dok_matrix<ul>
+<li>Dictionary of Key</li>
+<li><code class="docutils literal"><span class="pre">{(row,</span> <span class="pre">col):</span> <span class="pre">value}</span></code> というdict</li>
+<li>0代入すると要素から消える</li>
+<li>ただし、初期化されたときのshapeは変わらない</li>
+</ul>
+</li>
+<li>lil_matrix<ul>
+<li>LInked List</li>
+<li>行ごとのdataとcol index</li>
+</ul>
+</li>
+<li>coo_matrix<ul>
+<li>COOrdinate, triplet, ijv(row:i index, col:j index, value)</li>
+<li>triplet/ijvのとおり３つで構成される</li>
+</ul>
+</li>
+<li>csr_matrix<ul>
+<li>Compressed Sparse Row matrix</li>
+<li>例として下記データがあるとする</li>
+<li><code class="docutils literal"><span class="pre">data=[1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">2,</span> <span class="pre">1,</span> <span class="pre">1]</span></code></li>
+<li><code class="docutils literal"><span class="pre">indices=[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">0,</span> <span class="pre">3,</span> <span class="pre">3,</span> <span class="pre">3]</span></code>, column index</li>
+<li><code class="docutils literal"><span class="pre">indptr=[0,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">7,</span> <span class="pre">8]</span></code>, row index(Compressed)<ul>
+<li>indptrのindexは行に対応</li>
+<li>0は0行目, 3は1行目</li>
+<li>0-3未満, つまり0-2, これはcolumn indexに対応</li>
+<li>0-2のcolumn indexは0-2より</li>
+<li>0行目は(0,0),(0,1),(0,2)にdataが存在する</li>
+<li>indptrの4 index, つまり5行目は, 6行目も7よりdataが存在しない</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>csc_matrix<ul>
+<li>csr column version</li>
+<li>indices, indptrの役割が逆になる</li>
+</ul>
+</li>
+<li>TODO: <del>dia_matrix</del></li>
+<li>TODO: <del>bsr_matrix</del></li>
+</ul>
+</li>
+<li>linalg<ul>
+<li>線形代数</li>
+<li>solver</li>
+<li>特異値分解</li>
+<li>etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>spatial<ul>
+<li>空間という意味</li>
+<li>distance<ul>
+<li>距離やコサイン類似度など</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>special<ul>
+<li>comb $n\mathrm{C}_k $</li>
+<li>perm $n\mathrm{P}_k$</li>
+<li>expit: logistic function</li>
+<li>logit</li>
+</ul>
+</li>
+<li>stats<ul>
+<li>distributions<ul>
+<li>stats直下からも使える</li>
+<li>連続/離散確率分布のinstance<ul>
+<li><code class="docutils literal"><span class="pre">scipy.stats._continuous_distns</span></code></li>
+<li><code class="docutils literal"><span class="pre">scipy.stats._discrete_distns</span></code></li>
+</ul>
+</li>
+<li>分布は <a class="reference external" href="http://qiita.com/ksomemo/items/db44917cd1f3866bef39">numpy/scipy distributions
+</a> を参照</li>
+<li>各分布が持つmethod<ul>
+<li>rvs: size指定してrandomな値を得る<ul>
+<li><code class="docutils literal"><span class="pre">numpy.random.xxx()</span></code> のほうがparameterを特定しやすくわかりやすい</li>
+<li>ただし、random_state paramterを指定できるので, seed設定を気軽にできる</li>
+<li><code class="docutils literal"><span class="pre">numpy.random</span></code> には存在しない見たことない分布がたくさんある</li>
+</ul>
+</li>
+<li>pdf/pmf: 確率(密度/質量)関数<ul>
+<li>pmfはそのまま</li>
+<li>pdfは範囲でなく単一の値を渡しても0でない結果が返ってくる</li>
+</ul>
+</li>
+<li>cdf: 累積分布関数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>probplot<ul>
+<li>確率分布の当てはまりをplot<ul>
+<li>defaultは標準正規分布</li>
+<li>distパラメータで分布指定可能（stats.xx, e.g. stats.gamma/norm/etc.）<ul>
+<li>QQとは限らないらしい</li>
+<li>各分布によって追加パラメータが必要</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">see</span> <span class="pre">statsmodels.api.ProbPlot</span></code> とhelpに書かれていた<ul>
+<li>Classなのでいろいろな情報を保持しているので使いやすい</li>
+<li>loc,scale(平均,標準偏差相当のもの)に加えてdataや分布</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/ContextManagerとcontextlibいろいろ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="highlight-0_title_ContextManagerとcontextlibいろいろ"><div class="highlight"><pre><span></span>- http://docs.python.jp/3/library/stdtypes.html#typecontextmanager
+- http://docs.python.jp/3/library/contextlib.html#module-contextlib
+</pre></div>
+</div>
+<div class="highlight-py3:1_my_context_manager.py"><div class="highlight"><pre><span></span>&quot;&quot;&quot;context manager としての動きの確認&quot;&quot;&quot;
+class MyContextManager(object):
+    def __enter__(self):
+        print(&quot;enter&quot;)
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        print(&quot;exit&quot;, exc_type, exc_value, traceback)
+
+with MyContextManager():
+    print(&quot;do someting&quot;)
+# enter
+# do something
+# (exit, None, None, None)
+
+with MyContextManager():
+    print(&quot;do someting&quot;)
+    raise Exception(&quot;in with&quot;)
+# (exit, &lt;type &#39;exceptions.Exception&#39;&gt;, Exception(&quot;in with&quot;,), &lt;tracekback object at 0x106471d88&gt;)
+# Traceback (xxxxx...
+</pre></div>
+</div>
+<div class="highlight-py3:2_using_mycm_as_decorator.py"><div class="highlight"><pre><span></span>from contextlib import ContextDecorator
+
+
+class MyCmDecorator(MyContextManager, ContextDecorator):
+    pass
+
+@MyCmDecorator()
+def decorated():
+    print(&quot;decorated&quot;)
+
+decorated()
+# enter
+# decorated
+# exit: None None None
+</pre></div>
+</div>
+<div class="highlight-py3:3_contextlib_context_manager.py"><div class="highlight"><pre><span></span>&quot;&quot;&quot;generator functionをenter/exitに対応させるdecorator&quot;&quot;&quot;
+from contextlib import contextmanager
+
+
+@contextmanager
+def cm1():
+    print(&quot;front&quot;)
+    yield
+    print(&quot;back&quot;)
+
+
+@contextmanager
+def cm2():
+    try:
+        print(&quot;front&quot;)
+        yield
+    finally:
+        print(&quot;back&quot;)
+
+with cm1():
+    print(&quot;do something&quot;)
+    raise Exception(&quot;cm1&quot;)
+
+with cm2():
+    print(&quot;do something&quot;)
+    raise Exception(&quot;cm2&quot;)
+# 前者ではbackは表示されないので、完全にcontext managerとしての動きはしてない?
+</pre></div>
+</div>
+<div class="highlight-py3:4_contextlib_closing.py"><div class="highlight"><pre><span></span>&quot;&quot;&quot;auto closing&quot;&quot;&quot;
+from contextlib import closing
+
+
+class Close(object):
+    def close(self):
+        print(&quot;close&quot;)
+
+
+with closing(Close()) as c:
+    pass
+# =&gt; close
+</pre></div>
+</div>
+<div class="highlight-py3:5_contextlib_suppress_py34.py"><div class="highlight"><pre><span></span>&quot;&quot;&quot;指定したErrorを無視するようになる&quot;&quot;&quot;
+from contextlib import suppress
+
+
+with suppress(NameError, ImportError):
+    print(&quot;call not defined variable&quot;)
+    a = 1
+    import ababa
+    print(&quot;after&quot;)
+
+with suppress(NameError, ImportError):
+    a = 1
+    print(&quot;not exists module&quot;)
+    import ababa
+    print(&quot;after&quot;)
+
+with suppress(ImportError):
+    print(&quot;different error&quot;)
+    b
+    print(&quot;after&quot;)
+
+# NameErrorは表示されず、with内の処理は継続されない
+# Error指定を増やした結果、ImportErrorは表示されず、with内の処理は継続されない
+# b に関するNameError が発生する
+</pre></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

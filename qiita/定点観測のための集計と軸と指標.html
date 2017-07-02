@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>概要 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">概要</a></li>
+<li><a class="reference internal" href="#">なにはともあれ軸は時系列</a><ul>
+<li><a class="reference internal" href="#">付加情報としてのイベント系</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">指標の種類</a></li>
+<li><a class="reference internal" href="#">ユーザー軸</a><ul>
+<li><a class="reference internal" href="#">入会時期 軸</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">サービス利用 軸</a><ul>
+<li><a class="reference internal" href="#">回数</a></li>
+<li><a class="reference internal" href="#">利用日付</a></li>
+<li><a class="reference internal" href="#">課金 料金 軸</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">マスタ系</a><ul>
+<li><a class="reference internal" href="#">カテゴリ系 軸</a></li>
+<li><a class="reference internal" href="#">公開日などの日付 軸</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">その他</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>概要</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/定点観測のための集計と軸と指標.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>概要<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>目的によるといったらそれで終わりだけど、とりあえずあげてみたかった<ul>
+<li>自分の言葉で説明できることを知りたい</li>
+</ul>
+</li>
+<li>Webマーケティングやソーシャル系などユーザーベースで行動ログがたまるものにする</li>
+<li>定点観測なので可視化できるものとする<ul>
+<li>深掘りするためにはいろんな軸で見れる必要がある</li>
+<li>そのたびにレポート作成するのはめんどうなのでBIツール使用を推奨</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>なにはともあれ軸は時系列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>日々どう変わっているか<ul>
+<li>月々</li>
+<li>年ごと</li>
+<li>曜日(休日祝日)<ul>
+<li>祝日マスタが必要になる</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="">
+<span id="id3"></span><h2>付加情報としてのイベント系<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>イベント開始日</li>
+<li>イベントスケジュールマスタが必要になる</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>指標の種類<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>日々の使われ方とひと月のうちにどれだけのユーザーに使ってもらえたかを知る</p>
+<ul class="simple">
+<li>日別の指標</li>
+<li>ひと月の日々のユニーク累積<ul>
+<li>特に月額系など</li>
+<li>月額でなくて月ごとの施策をしている場合</li>
+</ul>
+</li>
+<li>ひと月の日々の累積<ul>
+<li>ページビューなど</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h1>ユーザー軸<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>性別</li>
+<li>年齢 or 年代</li>
+<li>地域</li>
+<li>利用OSやブラウザ</li>
+<li>など</li>
+</ul>
+<div class="section" id="">
+<span id="id6"></span><h2>入会時期 軸<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>入会年月別</li>
+<li>さらにまとめたNヶ月ごと</li>
+<li>今月入会とそれ以前</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h1>サービス利用 軸<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id8"></span><h2>回数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>サイト訪問回数</li>
+<li>アプリ起動回数</li>
+<li>各種行動利用回数<ul>
+<li>商品閲覧や購入</li>
+<li>ゲームのクエスト</li>
+<li>記事の閲覧やストックやあとで読む</li>
+<li>など</li>
+</ul>
+</li>
+<li>上記を日数にしたものなどの離散数量<ul>
+<li>あまりにも飛び抜けた数値がある場合はセグメント分けする</li>
+</ul>
+</li>
+<li>または、0か1以上での分類としても使える</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h2>利用日付<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>直近行動をした日付と基準日との日数差分<ul>
+<li>直近のログイン日との間隔</li>
+<li>記事を書いた最近の日付との間隔</li>
+<li>など日付と日付を計算して数値に置き換えて使う</li>
+</ul>
+</li>
+<li>初めての利用日<ul>
+<li>入会日との間隔</li>
+<li>初めて他ユーザーをフォローした日との間隔</li>
+</ul>
+</li>
+<li>今月初めてや3ヶ月以内など、基準を変えて集計するのもよし</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h2>課金 料金 軸<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>課金料金別<ul>
+<li>個別課金</li>
+</ul>
+</li>
+<li>課金体系別<ul>
+<li>月のグレード別</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h1>マスタ系<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id12"></span><h2>カテゴリ系 軸<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>閲覧した商品ジャンル</li>
+<li>記事のタグ</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id13"></span><h2>公開日などの日付 軸<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>商品販売開始日</li>
+<li>機能リリース開始日</li>
+<li>その他、日付からイベント期間中であるかを判定しフラグとして使う</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id14"></span><h1>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>TODO:もっと書けそうなので思いついたら書く</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

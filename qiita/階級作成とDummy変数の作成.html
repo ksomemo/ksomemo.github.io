@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>参考 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">参考</a></li>
+<li><a class="reference internal" href="#">データ</a></li>
+<li><a class="reference internal" href="#bin">bin作成</a></li>
+<li><a class="reference internal" href="#bin">binのラベル</a></li>
+<li><a class="reference internal" href="#dummy">Dummy変数</a></li>
+<li><a class="reference internal" href="#">おまけ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>参考</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/階級作成とDummy変数の作成.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <ul class="simple">
+<li>いままでの階級作成は、dictを作ってmapさせていた<ul>
+<li>右区間の開閉を指定できる</li>
+<li>数値の範囲を示す文字列を作成することでmapのようなことができる</li>
+</ul>
+</li>
+<li>dummy変数便利、SQLを複雑にしないですむ</li>
+<li>おまけにのせたfactorizeは数値しか扱えないライブラリには便利そう<ul>
+<li>ただし、numpyとはnanの扱いが少し違うらしい</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>参考<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># http://pandas.pydata.org/pandas-docs/stable/generated/pandas.cut.html</span>
+<span class="c1"># http://pandas.pydata.org/pandas-docs/stable/reshaping.html#computing-indicator-dummy-variables</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>データ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df_for_cut</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+<span class="n">df_for_cut</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>995</th>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>89</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>85</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+<div class="section" id="bin">
+<span id="bin"></span><h1>bin作成<a class="headerlink" href="#bin" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">bins</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bin">
+<span id="id3"></span><h1>binのラベル<a class="headerlink" href="#bin" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">bins_labels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">bins_labels</span>
+
+    <span class="p">[</span><span class="s1">&#39;0 - 9&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;10 - 19&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;20 - 29&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;30 - 39&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;40 - 49&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;50 - 59&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;60 - 69&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;70 - 79&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;80 - 89&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;90 - 99&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">df_for_cut</span><span class="p">[</span><span class="s2">&quot;age_group&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df_for_cut</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+<span class="n">df_for_cut</span><span class="p">[</span><span class="s2">&quot;age_group_right&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df_for_cut</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">df_for_cut</span><span class="p">[</span><span class="s2">&quot;age_group_label_F&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df_for_cut</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">df_for_cut</span><span class="p">[</span><span class="s2">&quot;age_group_labels&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df_for_cut</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bins_labels</span><span class="p">)</span>
+<span class="n">df_for_cut</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>age_group</th>
+      <th>age_group_right</th>
+      <th>age_group_label_F</th>
+      <th>age_group_labels</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>995</th>
+      <td>36</td>
+      <td>(30, 40]</td>
+      <td>[30, 40)</td>
+      <td>3</td>
+      <td>30 - 39</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>89</td>
+      <td>(80, 90]</td>
+      <td>[80, 90)</td>
+      <td>8</td>
+      <td>80 - 89</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>50</td>
+      <td>(40, 50]</td>
+      <td>[50, 60)</td>
+      <td>4</td>
+      <td>40 - 49</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>80</td>
+      <td>(70, 80]</td>
+      <td>[80, 90)</td>
+      <td>7</td>
+      <td>70 - 79</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>85</td>
+      <td>(80, 90]</td>
+      <td>[80, 90)</td>
+      <td>8</td>
+      <td>80 - 89</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">df_for_cut</span><span class="o">.</span><span class="n">age_group</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+    <span class="p">[(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]]</span>
+    <span class="n">Categories</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span> <span class="o">...</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">df_for_cut</span><span class="o">.</span><span class="n">age_group_label_F</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+    <span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>pd.qcut(quantile cut) もあるが、こちらは分位数または分位のリストを指定してするものもある。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">qcuted_4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df_for_cut</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">qcuted_4</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">25</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">75</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">qcuted_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df_for_cut</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">)</span>
+<span class="n">qcuted_list</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dummy">
+<span id="dummy"></span><h1>Dummy変数<a class="headerlink" href="#dummy" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df_for_cut</span><span class="p">[</span><span class="s1">&#39;age_group&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;age_group&#39;</span><span class="p">)</span>
+<span class="n">df_for_cut_with_dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_for_cut</span><span class="p">,</span> <span class="n">dummies</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_for_cut_with_dummies</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>age_group</th>
+      <th>age_group_right</th>
+      <th>age_group_(0, 10]</th>
+      <th>age_group_(10, 20]</th>
+      <th>age_group_(20, 30]</th>
+      <th>age_group_(30, 40]</th>
+      <th>age_group_(40, 50]</th>
+      <th>age_group_(50, 60]</th>
+      <th>age_group_(60, 70]</th>
+      <th>age_group_(70, 80]</th>
+      <th>age_group_(80, 90]</th>
+      <th>age_group_(90, 100]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>995</th>
+      <td>36</td>
+      <td>(30, 40]</td>
+      <td>[30, 40)</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>89</td>
+      <td>(80, 90]</td>
+      <td>[80, 90)</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>50</td>
+      <td>(40, 50]</td>
+      <td>[50, 60)</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>80</td>
+      <td>(70, 80]</td>
+      <td>[80, 90)</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>85</td>
+      <td>(80, 90]</td>
+      <td>[80, 90)</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;AB&quot;</span><span class="p">),</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;CD&quot;</span><span class="p">)}),</span> <span class="n">prefix</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">))</span>
+
+<span class="c1"># Series</span>
+<span class="c1"># prefixはない, split+expandをさらに加工する必要がなくなる</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;a|b|c&quot;</span><span class="p">,</span> <span class="s2">&quot;e|fg&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">()</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;a|b|c&quot;</span><span class="p">,</span> <span class="s2">&quot;e|fg&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a_A</th>
+      <th>a_B</th>
+      <th>b_C</th>
+      <th>b_D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">factors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">])</span>
+<span class="n">factors</span>
+
+    <span class="mi">0</span>      <span class="n">B</span>
+    <span class="mi">1</span>    <span class="n">NaN</span>
+    <span class="mi">2</span>      <span class="n">a</span>
+    <span class="mi">3</span>    <span class="n">NaN</span>
+    <span class="mi">4</span>    <span class="mi">123</span>
+    <span class="mi">5</span>    <span class="mf">0.4</span>
+    <span class="mi">6</span>    <span class="n">inf</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>おまけ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">factors</span><span class="o">.</span><span class="n">factorize</span><span class="p">()</span>
+
+    <span class="p">(</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">]),</span>
+     <span class="n">Index</span><span class="p">([</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">inf</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

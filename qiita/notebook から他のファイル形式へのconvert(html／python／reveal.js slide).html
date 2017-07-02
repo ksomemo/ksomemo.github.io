@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>htmlへ &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">htmlへ</a></li>
+<li><a class="reference internal" href="#python-script">python scriptへ</a></li>
+<li><a class="reference internal" href="#slide">slideとして</a><ul>
+<li><a class="reference internal" href="#slide">slideの設定</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>htmlへ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/notebook から他のファイル形式へのconvert(html／python／reveal.js slide).md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="html">
+<span id="html"></span><h1>htmlへ<a class="headerlink" href="#html" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>defaultではhtml</p>
+<div class="highlight-sh:notebook_convert_deafault.sh"><div class="highlight"><pre><span></span>ipython nbconvert ch02.ipynb
+[NbConvertApp] Converting notebook ch02.ipynb to html
+[NbConvertApp] Writing 224503 bytes to ch02.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="python-script">
+<span id="python-script"></span><h1>python scriptへ<a class="headerlink" href="#python-script" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:notebook_convert_to_script.sh"><div class="highlight"><pre><span></span>ipython nbconvert --to script ch02.ipynb
+[NbConvertApp] Converting notebook ch02.ipynb to python
+[NbConvertApp] Writing 639 bytes to ch02.py
+</pre></div>
+</div>
+<div class="highlight-py3:notebook_convert_to_script.sh"><div class="highlight"><pre><span></span># coding: utf-8
+
+# In[13]:
+
+get_ipython().magic(&#39;matplotlib inline&#39;)
+# -&gt; 元々は、%matplotlib inline　(magic command)
+</pre></div>
+</div>
+<p>&#8211;to pythonでも同じだった。</p>
+</div>
+<div class="section" id="slide">
+<span id="slide"></span><h1>slideとして<a class="headerlink" href="#slide" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>reveal.jsを使ったslideとしてWebServer＋ブラウザが起動する。</p>
+<div class="highlight-py3:notebook_convert_for_slide_server.sh"><div class="highlight"><pre><span></span>ipython nbconvert --to slides ch02.ipynb --post serve
+[NbConvertApp] Converting notebook ch02.ipynb to slides
+[NbConvertApp] Writing 226741 bytes to ch02.slides.html
+[NbConvertApp] Redirecting reveal.js requests to https://cdn.jsdelivr.net/reveal.js/2.6.2
+Serving your slides at http://127.0.0.1:8000/ch02.slides.html
+Use Control-C to stop this server
+</pre></div>
+</div>
+<div class="highlight-slides.md"><div class="highlight"><pre><span></span>`--post serve`をつけないと、ch02.slides.htmlが生成されるだけでサーバーは起動しない。
+
+- 必要なjs/cssが用意されていない状態なので、post serveした状態で収集しておくと良さそう？
+- =&gt; `--reveal-prefix` を使って指定する http://cdn.bootcss.com/reveal.js/3.1.0
+</pre></div>
+</div>
+<div class="section" id="slide">
+<span id="id1"></span><h2>slideの設定<a class="headerlink" href="#slide" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Cell Toolbar:　を slideshow に変更する</li>
+<li>各Cellの右にSlideに関する選択肢が現れる</li>
+<li>Slide Typeをslideに変更する</li>
+<li>適宜、sub-slideなどに変更して整える</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>いまさら試してみた on Windows &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">いまさら試してみた on Windows</a></li>
+<li><a class="reference internal" href="#">ヘルプが表示された後フォントが変わる</a></li>
+<li><a class="reference internal" href="#">使ったオプション</a></li>
+<li><a class="reference internal" href="#">使ってみた</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>いまさら試してみた on Windows</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/jq on windows.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="on-windows">
+<span id="on-windows"></span><h1>いまさら試してみた on Windows<a class="headerlink" href="#on-windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-0.md"><div class="highlight"><pre><span></span>## いまさら試してみた on Windows
+https://stedolan.github.io/jq/ から jq-win64.exe をDownload
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>ヘルプが表示された後フォントが変わる<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-1.md"><div class="highlight"><pre><span></span>## ヘルプが表示された後フォントが変わる
+jq-win64 --help
+
+chcp 932
+
+プロンプトのプロパティを見るとutf8に変わってる(65001)
+
+dirが使えなくなった
+
+copy jq-win64.exe jq.exeはできた
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>使ったオプション<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-2.md"><div class="highlight"><pre><span></span>## 使ったオプション
+jq --help &gt; jq_help.log 2&gt;&amp;1
+type jq_help.log
+jq - commandline JSON processor [version 1.5]
+Usage: jq [options] &lt;jq filter&gt; [file...]
+
+    ...
+
+    Some of the options include:
+    ...
+     -R     read raw strings, not JSON texts;
+     -C     colorize JSON;
+    ...
+    See the manpage for more options.
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>使ってみた<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-3.md"><div class="highlight"><pre><span></span>## 使ってみた
+
+### raw string
+jq -R {\&quot;a\&quot;:1,\&quot;b\&quot;:2}
+
+入力にスペースを入れず&quot;をescapeすれば動くけど、C-c押さないと出力しっぱなし
+
+### pipe
+echo {&quot;a&quot;: 1, &quot;b&quot;: 2} | jq
+
+スペースが入っても普通に動く
+
+### colorize
+echo {&quot;a&quot;: 1, &quot;b&quot;: 2} | jq -C
+
+動くけど、カラーコードが出力されるだけ
+
+### from file
+- {\&quot;a\&quot;:1,\&quot;b\&quot;:2}
+- {}
+- \&quot;{}\&quot;
+
+jq jq_file.json
+
+どの行のパターンのファイルもうまく動かない
+
+## まとめ
+Windowsではつらい諦めよう
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

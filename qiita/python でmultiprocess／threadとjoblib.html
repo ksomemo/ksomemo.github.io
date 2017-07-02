@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>multiprocess/thread &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">multiprocess/thread</a><ul>
+<li><a class="reference internal" href="#arguments">arguments</a></li>
+<li><a class="reference internal" href="#pool">Pool</a></li>
+<li><a class="reference internal" href="#other">other</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#joblib">joblib</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>multiprocess/thread</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/python でmultiprocess／threadとjoblib.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multiprocess-thread">
+<span id="multiprocess-thread"></span><h1>multiprocess/thread<a class="headerlink" href="#multiprocess-thread" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>interfaceが似ている</li>
+<li>threadは見たことがない</li>
+</ul>
+<div class="highlight-py3:multiprocess_thread.py"><div class="highlight"><pre><span></span>import multiprocessing as mp
+import threading as th
+import datetime
+
+n_loop = 10000 ** 2
+n_x = 8
+
+
+def loop():
+    for _ in range(n_loop):
+        pass
+
+
+def run(klass):
+    xs = []
+    for _ in range(n_x):
+        x = klass(target=loop)
+        x.start()
+        xs.append(x)
+
+    for x in xs:
+        x.join()
+
+
+def main():
+    print(&quot;start&quot;, datetime.datetime.now())
+    print(&quot;-&quot;*10)
+
+    run(mp.Process)
+    print(&quot;run end(mp)&quot;, datetime.datetime.now())
+    print(&quot;-&quot;*10)
+
+    run(th.Thread)
+    print(&quot;run end(th)&quot;, datetime.datetime.now())
+    print(&quot;-&quot;*10)
+
+    for _ in range(n_x):
+        loop()
+
+    print(&quot;loop end&quot;, datetime.datetime.now())
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</pre></div>
+</div>
+<div class="section" id="arguments">
+<span id="arguments"></span><h2>arguments<a class="headerlink" href="#arguments" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>引数はiterator, keyword引数はdict</p>
+<div class="highlight-multiprocess_using_arguments.py"><div class="highlight"><pre><span></span>def print_args(arg1, arg2, kwarg1=3, kwarg2=4, **kwargs):
+    print(arg1, arg2)
+    print(kwarg1, kwarg2)
+    print(kwargs)
+    return arg1 + arg2
+
+x = mp.Process(target=print_args, args=(1, 2),
+                                  kwargs={&quot;kwarg1&quot;:5, &quot;kwargs100&quot;:10})
+x.start()
+1 2
+5 4
+{&#39;kwargs100&#39;: 100}
+</pre></div>
+</div>
+</div>
+<div class="section" id="pool">
+<span id="pool"></span><h2>Pool<a class="headerlink" href="#pool" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>結果を返してくれる</li>
+<li>lambdaがダメだった</li>
+<li>mapは単一引数<ul>
+<li>startmapは複数可能</li>
+</ul>
+</li>
+<li>applyはkeywordを渡せる<ul>
+<li>async版がある</li>
+<li>context抜ける前に処理しないとダメ</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-multiprocess_pool.py"><div class="highlight"><pre><span></span>def add(x, y): return x + y
+with mp.Pool() as p:
+    results = p.starmap(add, [(1, 2), (3, 4)])
+    result = p.apply(print_args, args=(5, 6), kwds={&quot;kwarg1&quot;:5, &quot;kwarg100&quot;:100})
+    async_result = p.apply_async(print_args, args=(7, 8), kwds={&quot;kwarg1&quot;:5, &quot;kwarg100&quot;:100})
+    print(async_result.get(timeout=2))
+    # =&gt; 15
+print(results)
+# =&gt; [3, 7]
+print(result)
+# =&gt; 11
+</pre></div>
+</div>
+</div>
+<div class="section" id="other">
+<span id="other"></span><h2>other<a class="headerlink" href="#other" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Queue/Pipe<ul>
+<li>message passing</li>
+</ul>
+</li>
+<li>Lock</li>
+<li>Semaphore</li>
+</ul>
+<p>もっと簡単に使いたい場合や非同期処理は下記でよさそう</p>
+<ul class="simple">
+<li>concurrent.futures</li>
+<li>async/await</li>
+</ul>
+</div>
+</div>
+<div class="section" id="joblib">
+<span id="joblib"></span><h1>joblib<a class="headerlink" href="#joblib" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>sklearnのexternalsとして利用されている</li>
+<li>Queueはないので置き換えらなさそう<ul>
+<li>multiprocessingより良い点がある</li>
+<li>https://pythonhosted.org/joblib/parallel.html#bad-interaction-of-multiprocessing-and-third-party-libraries</li>
+</ul>
+</li>
+<li>雑に測定してみた</li>
+</ul>
+<div class="highlight-example_joblib.py"><div class="highlight"><pre><span></span>import joblib
+import time
+
+%timeit joblib.Parallel(n_jobs=1)(joblib.delayed(time.sleep)(0.1) for i in range(100))
+1 loop, best of 3: 10.3 s per loop
+
+%timeit joblib.Parallel(n_jobs=-1)(joblib.delayed(time.sleep)(0.1) for i in range(100))
+1 loop, best of 3: 2.7 s per loop
+
+%timeit [time.sleep(0.1) for i in range(100)]
+1 loop, best of 3: 10.2 s per loop
+
+joblib.Parallel(n_jobs=-1)(
+    joblib.delayed(print_args)(i, 2, kwarg1=5, kwarg100=100)
+    for i in range(3))
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

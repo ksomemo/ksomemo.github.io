@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>今までのmoduleへのPATHを通し方 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">今までのmoduleへのPATHを通し方</a></li>
+<li><a class="reference internal" href="#">環境設定</a></li>
+<li><a class="reference internal" href="#pip-install-e-path">pip install -e <PATH></a></li>
+<li><a class="reference internal" href="#test">test実行</a></li>
+<li><a class="reference internal" href="#">まとめ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>今までのmoduleへのPATHを通し方</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/自作module test実行のためpip.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>実行のためにめんどうな設定を指定たので調べてみた。</p>
+<div class="section" id="modulepath">
+<span id="modulepath"></span><h1>今までのmoduleへのPATHを通し方<a class="headerlink" href="#modulepath" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>自分用では、setup.pyからのtest実行時にsys.pathへの追加</li>
+<li>PYTHONPATHへの設定追加</li>
+</ul>
+<div class="highlight-py3:sys_path_append.py"><div class="highlight"><pre><span></span>sys.path.append(&#39;/path/to/module&#39;)
+</pre></div>
+</div>
+<div class="highlight-bash:PYTHONPATH.sh"><div class="highlight"><pre><span></span>export PYTHONPATH=path/to/module
+</pre></div>
+</div>
+<p>以下、改善。</p>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>環境設定<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>pyvenvでvirtual envの設定(pyenvで今まで済ませていたけど、pyenv使えない環境のための勉強用)</li>
+<li>test用moduleのinstall</li>
+</ul>
+</div>
+<div class="section" id="pip-install-e-path">
+<span id="pip-install-e-path"></span><h1>pip install -e <PATH><a class="headerlink" href="#pip-install-e-path" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>local pathをmoduleとしてinstallできる(privateなrepositoryも？)</li>
+<li>pipなので最低限のsetup.pyを用意する必要がある</li>
+</ul>
+<div class="highlight-py3:setup.py"><div class="highlight"><pre><span></span>from setuptools import setup
+
+setup(
+    name=&#39;mymodule&#39;
+)
+</pre></div>
+</div>
+<p>環境設定と合わせると以下のとおり</p>
+<div class="highlight-bash:env_setting.sh"><div class="highlight"><pre><span></span>cd path/to/module
+pyvenv venv
+pip install pytest
+# 他環境のpy.test実行を防ぎ、PATH設定されない状態を防ぐ)
+pip install -e .
+</pre></div>
+</div>
+<div class="highlight-bash:pip_freeze.sh"><div class="highlight"><pre><span></span>pip freeze
+py==1.4.30
+pytest==2.7.2
+mymodule==0.0.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="test">
+<span id="test"></span><h1>test実行<a class="headerlink" href="#test" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>pytestのテスト収集規則により、venv/lib/pythonXX/site-packages内のtestが実行されるので自分のtestのみを対象にする</p>
+<div class="highlight-bash:pytest.sh"><div class="highlight"><pre><span></span>py.test test
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>まとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>簡単にmoduleをinstall済みとして扱える</li>
+<li>venvディレクトリがあると他に必要なmoduleを追加したいときに気後れしない</li>
+<li>もしよさげなmoduleができたらsetup.pyが既にあるので追加で書けそう</li>
+</ul>
+<p>すべてが好循環になりそう。</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>調べた結果 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">調べた結果</a></li>
+<li><a class="reference internal" href="#">参考</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>調べた結果</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Notebookに複数のDataFrameを(水平に)出力する+displayについて.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>調べた結果<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>core.displayのDisplayObjectを使ったものは出力できる<ul>
+<li>dataframeだけでなくいろいろなものを出力できる</li>
+<li>出力はOutではなく、print等の出力領域に表示される</li>
+</ul>
+</li>
+<li>core.displayより直下のdisplay moduleは便利なものを含んでいる<ul>
+<li>YoutubeやIFrame便利そう</li>
+</ul>
+</li>
+<li><em>repr_html</em> を実装しているclassのinstanceは、このmethodが呼ばれ結果はhtmlとして解釈される<ul>
+<li>Python DataScience Handbookのipynbを見ていたら書いてあった</li>
+<li>ipythonのrepositoryにsampleがあった</li>
+<li>pandas.DataFrameにはもちろん実装してあった(実際の処理はto_html)</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-display_multiple_df_as_html.py"><div class="highlight"><pre><span></span>import pandas as pd
+import IPython.core.display as display
+import IPython.display
+&quot;&quot;&quot;
+↑
+from IPython.core.display import *
+from IPython.lib.display import *
+
+lib.display includes 
+__all__ = [&#39;Audio&#39;, &#39;IFrame&#39;, &#39;YouTubeVideo&#39;, &#39;VimeoVideo&#39;, &#39;ScribdDocument&#39;,
+           &#39;FileLink&#39;, &#39;FileLinks&#39;]
+&quot;&quot;&quot;
+
+df = pd.DataFrame(dict(a=range(4)))
+
+print(&quot;index: 0 (print)&quot;)
+IPython.display.display(df[0:1])
+
+print(&quot;index: 1 (print)&quot;)
+display.display(df[1:2])
+
+print(&quot;index: 2 (print)&quot;)
+display.display_html(df[2:3])
+
+print(&quot;index: 3 (Out to Cell)&quot;)
+df[3:]
+</pre></div>
+</div>
+<div class="highlight-horizontal_display.py"><div class="highlight"><pre><span></span>class HorizontalDisplay:
+    def __init__(self, *args):
+        self.args = args
+
+    def _repr_html_(self):
+        template = &#39;&lt;div style=&quot;float: left; padding: 10px;&quot;&gt;{0}&lt;/div&gt;&#39;
+        return &quot;\n&quot;.join(template.format(arg._repr_html_())
+                         for arg in self.args)
+# print
+display(HorizontalDisplay(df, df))
+# output
+HorizontalDisplay(df, df)
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>参考<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://stackoverflow.com/questions/34398054/ipython-notebook-cell-multiple-outputs</li>
+<li>http://stackoverflow.com/questions/36719812/pandas-how-to-reference-and-print-multiple-dataframes-as-html-tables</li>
+<li>http://stackoverflow.com/questions/26873127/show-dataframe-as-table-in-ipython-notebook/29665452#29665452</li>
+<li>http://qiita.com/mokemokechicken/items/98564e4a6a8963b2a6e2<ul>
+<li>subplots使わない複数グラフ出力</li>
+</ul>
+</li>
+<li>https://github.com/ipython/ipython/blob/41bc8e5ec492820b32f60122dd178300f7e01240/examples/IPython%20Kernel/Custom%20Display%20Logic.ipynb</li>
+<li>http://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.06-Concat-And-Append.ipynb</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

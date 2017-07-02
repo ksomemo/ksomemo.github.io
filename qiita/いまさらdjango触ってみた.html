@@ -1,0 +1,589 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>参考 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">参考</a></li>
+<li><a class="reference internal" href="#install">install</a></li>
+<li><a class="reference internal" href="#project">project</a></li>
+<li><a class="reference internal" href="#migrate">migrate</a></li>
+<li><a class="reference internal" href="#">管理ユーザと管理画面</a></li>
+<li><a class="reference internal" href="#webserver">WebServer</a></li>
+<li><a class="reference internal" href="#">プロジェクトファイル一覧</a></li>
+<li><a class="reference internal" href="#">アプリ作成</a></li>
+<li><a class="reference internal" href="#app-inex-view">app Inex view</a></li>
+<li><a class="reference internal" href="#create-model">create model</a><ul>
+<li><a class="reference internal" href="#add-model-and-change-model">add model and change model</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#django-shell">django shell</a><ul>
+<li><a class="reference internal" href="#insert-to-master">insert to 品詞master</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#model">管理画面でmodel操作</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>参考</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/いまさらdjango触ってみた.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <ul class="simple">
+<li>scaffoldがない</li>
+<li>積み中, とりあえず最低限は完了</li>
+</ul>
+<div class="section" id="">
+<span id="id1"></span><h1>参考<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>https://docs.djangoproject.com/en/1.10/</li>
+<li>https://docs.djangoproject.com/en/1.10/intro/</li>
+</ul>
+</div>
+<div class="section" id="install">
+<span id="install"></span><h1>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:pip_install_django.sh"><div class="highlight"><pre><span></span>pip install django
+</pre></div>
+</div>
+</div>
+<div class="section" id="project">
+<span id="project"></span><h1>project<a class="headerlink" href="#project" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>アプリじゃなくてプロジェクト作成</p>
+<div class="highlight-bash:django_admin_startproject.sh"><div class="highlight"><pre><span></span>django-admin startproject en_jp_dict
+
+cd en_jp_dict
+ls
+manage.py en_jp_dict
+</pre></div>
+</div>
+</div>
+<div class="section" id="migrate">
+<span id="migrate"></span><h1>migrate<a class="headerlink" href="#migrate" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>基本となるテーブル作成</p>
+<div class="highlight-bash:manage_py_migrate.sh"><div class="highlight"><pre><span></span>python manage.py migrate
+
+sqlite3 db.sqlite3
+
+sqlite&gt; .tables
+sqlite&gt; .schema
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>管理ユーザと管理画面<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:manage_py_createsuperuser.sh"><div class="highlight"><pre><span></span>python manage.py createsuperuser
+# mail省略化
+</pre></div>
+</div>
+</div>
+<div class="section" id="webserver">
+<span id="webserver"></span><h1>WebServer<a class="headerlink" href="#webserver" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>サーバー立ち上げて確認</li>
+<li>ついでに /admin も確認</li>
+</ul>
+<div class="highlight-bash:runserver.sh"><div class="highlight"><pre><span></span>python manage.py runserver
+
+Starting development server at http://127.0.0.1:8000/
+</pre></div>
+</div>
+<div class="highlight-text:response.txt"><div class="highlight"><pre><span></span>It worked!
+Congratulations on your first Django-powered page.
+
+Of course, you haven&#39;t actually done any work yet. Next, start your first app by running python manage.py startapp [app_label].
+You&#39;re seeing this message because you have DEBUG = True in your Django settings file and you haven&#39;t configured any URLs. Get to work!
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>プロジェクトファイル一覧<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:project_files.sh"><div class="highlight"><pre><span></span>cd en_jp_dict
+ls
+__init__.py __pycache__ settings.py urls.py wsgi.py
+</pre></div>
+</div>
+<ul class="simple">
+<li>init<ul>
+<li>何も書いてない</li>
+</ul>
+</li>
+<li>settings<ul>
+<li>各種設定<ul>
+<li>INSTALLED_APPS<ul>
+<li>管理機能やsessionなど便利そうな名前ものが存在する</li>
+</ul>
+</li>
+<li>MIDDLEWARE<ul>
+<li>hook ?</li>
+<li>contribもある</li>
+</ul>
+</li>
+<li>DATABASES<ul>
+<li>DB設定/pyファイルなので環境変数などからパスワードを取得がよさそう</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>runserverに出てきたので見始めた</li>
+</ul>
+</li>
+<li>urls<ul>
+<li>ルーティング設定</li>
+<li>正規表現書いてあった</li>
+<li>idなどのキャプチャのサンプルはなかった</li>
+</ul>
+</li>
+<li>wsgi<ul>
+<li>https://www.python.org/dev/peps/pep-0333/</li>
+<li>Web Server Gateway Interface<ul>
+<li>WebアプリはPHPでしか作ったこと無い</li>
+<li>Rackなどのここら辺わかってない…</li>
+<li>概要はWAFとWebServerのインターフェイス</li>
+<li>これに沿っていればWAF WebServerを入れ替えられる</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-py3:japanese_settings.py"><div class="highlight"><pre><span></span># settings.pyの日本に関わりそうな部分を変更しておく
+LANGUAGE_CODE = &#39;ja&#39;
+TIME_ZOME = Asia/Tokyo
+</pre></div>
+</div>
+<p>SECRET_KEYはenvironで回避した(http://qiita.com/ksomemo/items/ea887b527182500991cb)</p>
+<ul class="simple">
+<li>http://stackoverflow.com/questions/13866926/python-pytz-list-of-timezones</li>
+<li>USE_TZはそのまま</li>
+<li>変えるようにしてるのあるけど、どう変わるのかわからないのでそのまま</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>アプリ作成<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:manage_py_startapp.sh"><div class="highlight"><pre><span></span>cd ..
+python manage.py startapp dictionary
+
+cd dictionary
+ls
+__init__.py admin.py migrations models.py tests.py views.py
+</pre></div>
+</div>
+<ul class="simple">
+<li>init</li>
+<li>migrations/_<em>init</em>_.py<ul>
+<li>何も書いてない</li>
+</ul>
+</li>
+<li>admin</li>
+<li>models</li>
+<li>tests</li>
+<li>views</li>
+</ul>
+<div class="highlight-py3:app_templates.py"><div class="highlight"><pre><span></span>from django.contrib import admin
+# Register your models here.
+
+from django.db import models
+# Create your models here.
+
+from django.test import TestCase
+# Create your tests here.
+
+from django.shortcuts import render
+# Create your views here.
+</pre></div>
+</div>
+<ul class="simple">
+<li>ここから、上記のhere部分にコードを書く</li>
+<li>めんどうだなーと思ってScaffold調べたら古くてメンテされていなかった</li>
+<li>素直に頑張ろう</li>
+</ul>
+</div>
+<div class="section" id="app-inex-view">
+<span id="app-inex-view"></span><h1>app Inex view<a class="headerlink" href="#app-inex-view" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>appの<code class="docutils literal"><span class="pre">views.py</span></code> に関数を定義する<ul>
+<li>request引数を持つ</li>
+<li>http.Responseを返す(文字列でbodyを渡した)</li>
+</ul>
+</li>
+<li>appに<code class="docutils literal"><span class="pre">urls.py</span></code> を作成<ul>
+<li>明示的にroutingを定義する必要がある</li>
+<li>urlpatternsというlistにurl定義を追加する</li>
+<li>regex, callable?, url name</li>
+</ul>
+</li>
+<li>siteの<code class="docutils literal"><span class="pre">urls.py</span></code> にappの<code class="docutils literal"><span class="pre">urls.py</span></code>を利用するように登録する<ul>
+<li>こちらも明示する</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="create-model">
+<span id="create-model"></span><h1>create model<a class="headerlink" href="#create-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>appの<code class="docutils literal"><span class="pre">models.py</span></code>にclassを定義する<ul>
+<li><code class="docutils literal"><span class="pre">models.Model</span></code>のsubtype</li>
+<li>fieldは, <code class="docutils literal"><span class="pre">models.XxxxField</span></code><ul>
+<li>columnでない理由はDBに限らないmodelであるため</li>
+<li>formとして利用されることを想定している</li>
+</ul>
+</li>
+<li>Wordクラスを作成しChar,Int,DateTimeを利用した<ul>
+<li>formとして利用されることもあるのでDBの型に限らない</li>
+<li>File/Image, IP Address/UUIDなど</li>
+<li>辞書として必要な word, japanese, search_count, created_at, updated_at を作成した</li>
+<li>検索履歴tableを作ればよいのだけど、めんどうなので１つにしてある</li>
+</ul>
+</li>
+<li>いろいろなoptionがある<ul>
+<li>primary_key: word</li>
+<li>default<ul>
+<li>immutable value or a callable object</li>
+</ul>
+</li>
+<li>auto_now/auto_now_add<ul>
+<li>datetime field</li>
+<li>上記で現在日時(djangoのtimezone.now)が使われる</li>
+<li>https://docs.djangoproject.com/ja/1.10/ref/models/fields/#datefield</li>
+<li>なので、<code class="docutils literal"><span class="pre">default=datetime.datetime.now</span></code> とは違いそう</li>
+</ul>
+</li>
+<li>unique: 今回使っていない</li>
+<li>db_index: 時刻に使った</li>
+<li>null/blank: null許容/formでのblank許容, japaneseに試してみた</li>
+<li>editable: formでの編集拒否, xxx_atに試してみた</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>appのmodelを利用できる準備<ul>
+<li><code class="docutils literal"><span class="pre">settings.py</span></code> のINSTALLED_APPSに追加する</li>
+<li><code class="docutils literal"><span class="pre">app/apps.py</span></code> に <code class="docutils literal"><span class="pre">AppConfig</span></code> classがあるのでその名前と規則に従う</li>
+</ul>
+</li>
+<li>modelの追加をMigrationsファイルに書き出す<ul>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">makemigrations</span> <span class="pre">app</span></code></li>
+<li>app/migrations/0001_initial.py:<ul>
+<li>Create model Word</li>
+</ul>
+</li>
+<li>migration classにoperationがずらずらと書かれていた</li>
+<li>今回はCreateModel, modelの内容とほぼ同じ</li>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">sqlmigrate</span> <span class="pre">app</span> <span class="pre">0001</span></code> でSQLとして確認できる</li>
+</ul>
+</li>
+<li>migrationする(前回と同じコマンド)<ul>
+<li>sqliteにtable作られていた</li>
+<li>詳しくは下記<ul>
+<li>https://docs.djangoproject.com/en/1.10/topics/migrations/</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>migrationの履歴<ul>
+<li><code class="docutils literal"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">showmigrations</span></code> でmigration一覧を見るとX markがついている</li>
+<li>djangoのmeta tableにmigrationの履歴が残っている</li>
+<li>deleteして一覧をみるとX markが消えている</li>
+<li>migrateするとtableが存在するのでエラーになる<ul>
+<li><code class="docutils literal"><span class="pre">migrate</span> <span class="pre">--fake</span></code> をして履歴だけ作成する</li>
+<li>｀&#8211;fake-initial｀ の説明だけしかなかった</li>
+<li>本来の用途は、すでにDB存在するけど,djangoへの移行などに使う感じがする</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-bash:sqlite3_run_sql_from_stdin.sh"><div class="highlight"><pre><span></span>echo &quot;select * from django_migrations&quot; | \
+sqlite3 db.sqlite3 -column -cmd &quot;.headers on&quot;
+</pre></div>
+</div>
+<div class="section" id="add-model-and-change-model">
+<span id="add-model-and-change-model"></span><h2>add model and change model<a class="headerlink" href="#add-model-and-change-model" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Wordに品詞(Parts of Speech)を追加<ul>
+<li>posとしてchoicesを利用</li>
+<li>form selectorのようなデータの持ち方 <code class="docutils literal"><span class="pre">list[tuple(value,</span> <span class="pre">name),</span> <span class="pre">...]</span></code></li>
+</ul>
+</li>
+<li>品詞テーブルを作成し、上記は外部キーとする<ul>
+<li><code class="docutils literal"><span class="pre">HINT:</span> <span class="pre">ForeignKey(unique=True)</span> <span class="pre">is</span> <span class="pre">usually</span> <span class="pre">better</span> <span class="pre">served</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">OneToOneField.</span></code></li>
+<li>https://docs.djangoproject.com/ja/1.10/topics/db/models/#verbose-field-names</li>
+<li>ForeignKey for Many-to-one relationships<ul>
+<li>マスタと紐付けた明示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>makemigration<ul>
+<li>OneToOneに使ったfieldがnon-nullableなのにdefault値がないので警告</li>
+<li>続けるかやめるかの選択, 親切</li>
+<li>続けたらdefault値の設定を求められた<ul>
+<li>1回目:1, 2回目:Noneを設定(両方成功)</li>
+<li>migration fileに反映されている</li>
+<li>model fileには反映されていない</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">0002_auto_yyyymmdd_HHMM.py</span></code></li>
+</ul>
+</li>
+<li>sqlmigrateの内容<ul>
+<li>変更ありテーブルはrename<ul>
+<li>新定義で作り直し<ul>
+<li><code class="docutils literal"><span class="pre">(sqlite3)CREATE</span> <span class="pre">TABLE</span> <span class="pre">定義</span> <span class="pre">SELECT</span> <span class="pre">*,</span> <span class="pre">(新定義カラム:makemigration</span> <span class="pre">で決めたdefault値)</span></code></li>
+</ul>
+</li>
+<li>renameしたtableをdrop</li>
+</ul>
+</li>
+<li>index貼り直し<ul>
+<li>これは使い物にならないのでは…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="django-shell">
+<span id="django-shell"></span><h1>django shell<a class="headerlink" href="#django-shell" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>ipythonで起動した</li>
+<li>installされてない場合, default python repl</li>
+</ul>
+<div class="section" id="insert-to-master">
+<span id="insert-to-master"></span><h2>insert to 品詞master<a class="headerlink" href="#insert-to-master" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:model_in_django_shell.py"><div class="highlight"><pre><span></span>from dictionary.models import PartOfSpeech, Word
+
+# SQLAlchemyと似た感じ, choiceは名前を引ける
+p_list=[PartOfSpeech(pos=i) for i in range(1, len(PartOfSpeech.CHOICES)+1)]
+[p.save() for p in p_list]
+[(p.pos, p.get_pos_display()), for p in PartOfSpeech.objects.all()]
+w = Word(word=&quot;word test&quot;, japanese=&quot;テスト&quot;,
+         parts_of_speech=PartOfSpeech.objects.get(pos=1))
+# choiceはmodel instanceを求められる, xxx_at are empty
+w.save()
+# xxx_at are not empty
+w.word = &quot;test&quot;
+w.save()
+# updated_at is updated
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="model">
+<span id="model"></span><h1>管理画面でmodel操作<a class="headerlink" href="#model" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">app/admin.py</span></code> にmodelを登録</li>
+<li>user, group以外に登録したモデルが操作できるようになった</li>
+<li>model class名しか分からなくて一覧の意味がない…</li>
+<li>下記で対応したけど、best practiceが分からない</li>
+</ul>
+<div class="highlight-py3:to_string_model.py"><div class="highlight"><pre><span></span>    def __str__(self):
+        values = [str(v) for v in [self.pos, self.get_pos_display()]]
+        return &quot;({0})&quot;.format(&quot;, &quot;.join(values))
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

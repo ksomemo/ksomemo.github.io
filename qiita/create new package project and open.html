@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ここからおまけ &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">ここからおまけ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ここからおまけ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/create new package project and open.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="highlight-bash:create-new-package-project-and-open.sh"><div class="highlight"><pre><span></span>cd /path/to/new-package-parent-folder
+R -q -e &quot;library(devtools); devtools::create(&#39;mypackage&#39;)&quot;
+# open /Applications/RStudio.app
+open -a RStudio mypackage
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>ここからおまけ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-R:Lib.R"><div class="highlight"><pre><span></span># library path関連
+.Library.site
+[1] &quot;/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/site-library&quot;
+# =&gt; 存在しない…
+.Library
+[1] &quot;/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/library&quot;
+
+.libPaths()
+[1] &quot;/usr/local/lib/R/site-library&quot;                                         
+[2] &quot;/usr/local/Cellar/r/3.2.2_1/R.framework/Versions/3.2/Resources/library&quot;
+
+Sys.getenv(&quot;R_HOME&quot;)
+[1] &quot;/usr/local/Cellar/r/3.2.2_1/R.framework/Resources&quot;
+
+Sys.getenv(&quot;R_LIBS_USER&quot;)
+[1] &quot;~/Library/R/3.2/library&quot;
+
+system(&quot;env | grep ^R_ | sort&quot;)
+R_BROWSER=/usr/bin/open
+R_BZIPCMD=/usr/bin/bzip2
+R_DOC_DIR=/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/doc
+R_GZIPCMD=/usr/bin/gzip
+R_HOME=/usr/local/Cellar/r/3.2.2_1/R.framework/Resources
+R_INCLUDE_DIR=/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/include
+R_LIBS_SITE=
+R_LIBS_USER=~/Library/R/3.2/library
+R_PAPERSIZE=a4
+R_PDFVIEWER=/usr/bin/open
+R_PLATFORM=x86_64-apple-darwin14.5.0
+R_PRINTCMD=lpr
+R_RD4PDF=times,inconsolata,hyper
+R_SESSION_TMPDIR=/var/folders/zl/rlmkmk5d3vv_jb8397gd61900000gn/T//Rtmp4KmmMB
+R_SHARE_DIR=/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/share
+R_SYSTEM_ABI=osx,gcc,gxx,gfortran,?
+R_TEXI2DVICMD=/usr/local/opt/texinfo/bin/texi2dvi
+R_UNZIPCMD=/usr/bin/unzip
+R_ZIPCMD=/usr/bin/zip
+
+R -q -e &#39;system(&quot;env | grep ^R_ | sort&quot;)&#39; # in terminal
+R_ARCH=
+R_BROWSER=/usr/bin/open
+R_BZIPCMD=/usr/bin/bzip2
+R_DOC_DIR=/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/doc
+R_GZIPCMD=/usr/bin/gzip
+R_HOME=/usr/local/Cellar/r/3.2.2_1/R.framework/Resources
+R_INCLUDE_DIR=/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/include
+R_LIBS_SITE=
+R_LIBS_USER=~/Library/R/3.2/library
+R_PAPERSIZE=a4
+R_PDFVIEWER=/usr/bin/open
+R_PLATFORM=x86_64-apple-darwin14.5.0
+R_PRINTCMD=lpr
+R_RD4PDF=times,inconsolata,hyper
+R_SESSION_TMPDIR=/var/folders/zl/rlmkmk5d3vv_jb8397gd61900000gn/T//RtmpdMqOVl
+R_SHARE_DIR=/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/share
+R_SYSTEM_ABI=osx,gcc,gxx,gfortran,?
+R_TEXI2DVICMD=/usr/local/opt/texinfo/bin/texi2dvi
+R_UNZIPCMD=/usr/bin/unzip
+R_ZIPCMD=/usr/bin/zip
+
+# in terminal
+env | grep -e &quot;^R_&quot;
+empty
+</pre></div>
+</div>
+<div class="highlight-R:library-test.R"><div class="highlight"><pre><span></span>library(mypackage)
+ library(mypackage) でエラー: 
+   ‘mypackage’ は有効なインストール済みパッケージではありません 
+
+library(mypackage)
+ library(mypackage) でエラー: 
+   ‘mypackage’ という名前のパッケージはありません 
+# 置いただけではだめ、Installするひつようがある
+</pre></div>
+</div>
+<div class="highlight-R：devtools_便利.R"><div class="highlight"><pre><span></span>devtools::add_travis()
+
+# Sample .travis.yml for R projects
+
+language: r
+warnings_are_errors: true
+sudo: required
+
+# 他にもいろいろある
+</pre></div>
+</div>
+<div class="highlight-links.md"><div class="highlight"><pre><span></span>- https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

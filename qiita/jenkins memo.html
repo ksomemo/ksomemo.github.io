@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Environments &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Environments</a></li>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#jenkins">Jenkinsの管理</a><ul>
+<li><a class="reference internal" href="#">プラグインの管理</a><ul>
+<li><a class="reference internal" href="#job-configuration-history-plugin">Job Configuration History Plugin</a></li>
+<li><a class="reference internal" href="#scripttrigger">scripttrigger</a></li>
+<li><a class="reference internal" href="#timestamper">Timestamper</a></li>
+<li><a class="reference internal" href="#discard-old-build-plugin">Discard Old Build plugin</a></li>
+<li><a class="reference internal" href="#jobdelete-builder-plugin">JobDelete Builder Plugin</a></li>
+<li><a class="reference internal" href="#groovy-plugin">Groovy Plugin</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#"></a></li>
+<li><a class="reference internal" href="#http-proxy">HTTP Proxyの設定</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jenkins-cli">Jenkins CLI</a><ul>
+<li><a class="reference internal" href="#">ビルドの範囲指定削除</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">認証情報の管理</a></li>
+<li><a class="reference internal" href="#">ユーザーの管理</a></li>
+<li><a class="reference internal" href="#api">api</a></li>
+<li><a class="reference internal" href="#build">build</a><ul>
+<li><a class="reference internal" href="#error">error</a></li>
+<li><a class="reference internal" href="#authorization">authorization</a></li>
+<li><a class="reference internal" href="#delay">delay</a><ul>
+<li><a class="reference internal" href="#">コンソール出力</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#with-token-job">with token(job)</a><ul>
+<li><a class="reference internal" href="#build-trigger-project-setting">build trigger(project setting)</a></li>
+<li><a class="reference internal" href="#">コンソール出力</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#buildwithparameters">buildWithParameters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">同時実行数</a></li>
+<li><a class="reference internal" href="#">環境変数</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Environments</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/jenkins memo.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>今更Jenkinsの設定等メモ</p>
+<div class="section" id="environments">
+<span id="environments"></span><h1>Environments<a class="headerlink" href="#environments" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Windows</p>
+</div>
+<div class="section" id="install">
+<span id="install"></span><h1>Install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Installer</p>
+</div>
+<div class="section" id="jenkins">
+<span id="jenkins"></span><h1>Jenkinsの管理<a class="headerlink" href="#jenkins" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>ここからいろいろ設定</li>
+<li>JenkinsのUpdate等も行える</li>
+</ul>
+<div class="section" id="">
+<span id="id1"></span><h2>プラグインの管理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>とりあえず入れたもの</p>
+<ul class="simple">
+<li>AnsiColor</li>
+<li>Build Pipeline Plugin</li>
+<li>buildgraph-view</li>
+<li>Credentials Plugin</li>
+<li>Git plugin</li>
+<li>PegDown Formatter Plugin</li>
+</ul>
+<div class="section" id="job-configuration-history-plugin">
+<span id="job-configuration-history-plugin"></span><h3>Job Configuration History Plugin<a class="headerlink" href="#job-configuration-history-plugin" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ジョブの設定変更の履歴が見れるようになる</p>
+</div>
+<div class="section" id="scripttrigger">
+<span id="scripttrigger"></span><h3>scripttrigger<a class="headerlink" href="#scripttrigger" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Scriptでビルドトリガーを定義できるようにする</p>
+</div>
+<div class="section" id="timestamper">
+<span id="timestamper"></span><h3>Timestamper<a class="headerlink" href="#timestamper" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>コンソール出力に時刻が出力されるようになる</p>
+</div>
+<div class="section" id="discard-old-build-plugin">
+<span id="discard-old-build-plugin"></span><h3>Discard Old Build plugin<a class="headerlink" href="#discard-old-build-plugin" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>ビルド完了後、古いビルドを削除できるようになる</li>
+<li>安定や失敗などを選べる</li>
+<li>http://softwaretest.jp/labo/tech/labo-237/</li>
+</ul>
+</div>
+<div class="section" id="jobdelete-builder-plugin">
+<span id="jobdelete-builder-plugin"></span><h3>JobDelete Builder Plugin<a class="headerlink" href="#jobdelete-builder-plugin" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>ジョブのビルド定義にジョブの削除が追加される</li>
+<li>ジョブを正規表現指定して複数削除できるようになる</li>
+</ul>
+</div>
+<div class="section" id="groovy-plugin">
+<span id="groovy-plugin"></span><h3>Groovy Plugin<a class="headerlink" href="#groovy-plugin" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>ビルド定義をGroovyで記述できるようになる</li>
+<li>Groovyコマンドとスクリプトがある？</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2><a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="http-proxy">
+<span id="http-proxy"></span><h2>HTTP Proxyの設定<a class="headerlink" href="#http-proxy" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>しておく</p>
+</div>
+</div>
+<div class="section" id="jenkins-cli">
+<span id="jenkins-cli"></span><h1>Jenkins CLI<a class="headerlink" href="#jenkins-cli" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>使った, 便利</li>
+</ul>
+<div class="section" id="">
+<span id="id3"></span><h2>ビルドの範囲指定削除<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">jenkins</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">jar</span> <span class="o">-</span><span class="n">s</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">yourserver</span><span class="o">.</span><span class="n">com</span> <span class="n">delete</span><span class="o">-</span><span class="n">builds</span> <span class="o">&lt;</span><span class="n">JobName</span><span class="o">&gt;</span> <span class="mi">11</span><span class="o">-</span><span class="mi">1717</span> <span class="o">--</span><span class="n">username</span> <span class="n">user</span> <span class="o">--</span><span class="n">password</span> <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>認証情報の管理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>？</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h1>ユーザーの管理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>ユーザー追加</li>
+<li>API TOKENの表示</li>
+</ul>
+</div>
+<div class="section" id="api">
+<span id="api"></span><h1>api<a class="headerlink" href="#api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://localhost:8080/job/job_name/api/</li>
+<li>http://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API</li>
+</ul>
+</div>
+<div class="section" id="build">
+<span id="build"></span><h1>build<a class="headerlink" href="#build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="error">
+<span id="error"></span><h2>error<a class="headerlink" href="#error" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:build_exapmle.sh"><div class="highlight"><pre><span></span>curl -X POST http://localhost:8080/job/job_name/build
+</pre></div>
+</div>
+</div>
+<div class="section" id="authorization">
+<span id="authorization"></span><h2>authorization<a class="headerlink" href="#authorization" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:build_with_basic_authorization.sh"><div class="highlight"><pre><span></span>curl --user id:pass -X POST \
+http://localhost:8080/job/job_name/build
+</pre></div>
+</div>
+</div>
+<div class="section" id="delay">
+<span id="delay"></span><h2>delay<a class="headerlink" href="#delay" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:build_with_delay_paramter.sh"><div class="highlight"><pre><span></span>curl --user id:pass -X POST \
+ &quot;http://localhost:8080/job/job_name/build?delay=120sec&amp;cause=test&quot;
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>コンソール出力<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>ユーザー(id)が実行</li>
+<li>要因のtestが見当たらない</li>
+</ul>
+</div>
+</div>
+<div class="section" id="with-token-job">
+<span id="with-token-job"></span><h2>with token(job)<a class="headerlink" href="#with-token-job" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="build-trigger-project-setting">
+<span id="build-trigger-project-setting"></span><h3>build trigger(project setting)<a class="headerlink" href="#build-trigger-project-setting" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>リモートからビルドをチェック</li>
+<li>認証トークンを入力</li>
+</ul>
+<p>curl &#8211;user id:pass -X POST &#8220;http://localhost:8080/job/job_name/build?delay=120sec&amp;token=tokentest&amp;cause=test&#8221;</p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h3>コンソール出力<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>リモートホスト0:0:0:0:0:0:0:1が実行(test)</li>
+<li>要因が表示された</li>
+<li>１人で使っている時のトークンの利点は？</li>
+</ul>
+</div>
+</div>
+<div class="section" id="buildwithparameters">
+<span id="buildwithparameters"></span><h2>buildWithParameters<a class="headerlink" href="#buildwithparameters" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>ビルドのパラメータ化</li>
+<li>例として、各違うdelayを付加してbuild requestを送っても同じとして扱われてしまい、キューにたまらない</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h1>同時実行数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ol class="simple">
+<li>ビルド実行状態リンク(http://localhost:8080/computer/)</li>
+<li>右のアイコンから設定変更画面へ(http://localhost:8080/computer/(master)/configure)</li>
+</ol>
+<p>default: 2</p>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h1>環境変数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>同時実行数と同じ画面にて設定できる(ノードプロパティ)</p>
+<p>環境変数 key: value</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>概要 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">概要</a></li>
+<li><a class="reference internal" href="#todo">TODO</a></li>
+<li><a class="reference internal" href="#built-in">built-in</a></li>
+<li><a class="reference internal" href="#numpy">numpy</a></li>
+<li><a class="reference internal" href="#collection">collection</a></li>
+<li><a class="reference internal" href="#seaborn">seaborn</a></li>
+<li><a class="reference internal" href="#">その他</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>概要</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/numpyでk-meansを実装したときに使ったもの(Debug込み).md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>概要<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>KMeansをとりあえず実装した(irisの特定カラム用)<ul>
+<li><a class="reference external" href="https://gist.github.com/ksomemo/cb24c8e070231a6b06b9960ba4163b38">gist</a></li>
+</ul>
+</li>
+<li>可視化には&#64;ipywidgets.interact をパーセプトロンのときと同様に使った<ul>
+<li>Debug用の出力ON/OFFもできるようにした</li>
+</ul>
+</li>
+<li>簡単に実装できるのでぜひやってみるべき</li>
+</ul>
+</div>
+<div class="section" id="todo">
+<span id="todo"></span><h1>TODO<a class="headerlink" href="#todo" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>関数でなくsklearnのようにClassにする</li>
+<li>可視化の際にCentroidsの動きもわかるようにする</li>
+<li>どのデータセットでも(N次元可変)対応できるようにする</li>
+<li>距離関数に任意のものを差し込めるようにする</li>
+<li>EMアルゴリズムとの関係を記述する</li>
+</ul>
+</div>
+<div class="section" id="built-in">
+<span id="built-in"></span><h1>built-in<a class="headerlink" href="#built-in" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>round<ul>
+<li>(float, 2)を使って桁ので調整して表示</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="numpy">
+<span id="numpy"></span><h1>numpy<a class="headerlink" href="#numpy" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>np.random.choice(data.index, n_cluster)<ul>
+<li>各クラスタ中心決定</li>
+</ul>
+</li>
+<li>np.linalg.norm(np.c_[col1 - center_x, col2 - center_y], axis=1)<ul>
+<li>ノルム</li>
+<li>差分計算後に使うことでユークリッド距離にする</li>
+<li><code class="docutils literal"><span class="pre">from</span> <span class="pre">scipy.spatial</span> <span class="pre">import</span> <span class="pre">distance</span></code> にはいろんな距離がある</li>
+<li>ユークリッド距離 <code class="docutils literal"><span class="pre">distance.euclidean([0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">1])</span></code><ul>
+<li>遅いらしい(http://stackoverflow.com/questions/1401712/how-can-the-euclidean-distance-be-calculated-with-numpy)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>np.argmin([[各クラスタの中心との距離],[...]], axis=1)<ul>
+<li>クラスタ判定</li>
+</ul>
+</li>
+<li>np.all(new_clusters == old_clusters)<ul>
+<li>クラスタ決定の終了判定</li>
+</ul>
+</li>
+<li>np.sum(上記)<ul>
+<li>どれだけクラスタが安定しているか</li>
+</ul>
+</li>
+<li><del>np.where(new_clusters != old_clusters)</del><ul>
+<li>どこが移動したか</li>
+</ul>
+</li>
+<li>ary_x.mean(), ary_y.mean()<ul>
+<li>クラスタの中心移動</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="collection">
+<span id="collection"></span><h1>collection<a class="headerlink" href="#collection" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Counter(1d-array)<ul>
+<li>使えたので、各クラスタに属するデータ数を確認</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="seaborn">
+<span id="seaborn"></span><h1>seaborn<a class="headerlink" href="#seaborn" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>lmplot<ul>
+<li>クラスタ別のscatter plot</li>
+<li>http://qiita.com/ksomemo/items/2ea2571434b25a6f70fd</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>実装中にsklearnを見て学んだこと</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">sklearn.cluster.KMeans(verbose=1)</span></code> で学習時の詳細経過表示</li>
+<li>他でもoptionにある</li>
+<li>kmeans++を使っている</li>
+<li>Cythonを使っている</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

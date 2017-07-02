@@ -1,0 +1,31 @@
+## LF to CRLF
+
+perlが一番簡単だった
+
+下記は省略
+
+* nkf
+* unix2dos
+* dos2unix
+
+```sh
+perl -pe 's/\n/\r\n/g'             lf.txt >  p.txt
+sed  -e  "s/$/\r/g"                lf.txt >  s.txt
+awk      '{sub(/$/, "\r"); print}' lf.txt > a1.txt
+awk      '{print $0 "\r"}'         lf.txt > a2.txt
+ruby -pe 'gsub(/\\n/, "\r")'       lf.txt >  r.txt
+```
+
+## 追記
+
+コメントより、awkの場合の簡潔に変換する方法を教えてもらいました。これでGitBashでawk処理したあとの改行に悩まされなくなりました。
+
+>
+AWKだと、RS (input record separator) や　ORS (output record separator) を使うと汎用性が高いかも。
+>
+```sh:awk_record_separator.sh
+awk -v ORS='\r\n'            '{print}' < lf.txt   > crlf.txt
+awk -v RS='\r\n'             '{print}' < crlf.txt > lf.txt
+awk -v RS='\r'               '{print}' < cr.txt   > lf.txt
+awk -v RS='\r' -v ORS='\r\n' '{print}' < cr.txt   > crlf.txt
+```

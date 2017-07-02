@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pickle化するコードと読み込み &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Pickle化するコードと読み込み</a></li>
+<li><a class="reference internal" href="#pickle">モジュールを読み込めないディレクトリでPickle読み込み</a></li>
+<li><a class="reference internal" href="#pickle">pickle化したオブジェクトの再利用</a></li>
+<li><a class="reference internal" href="#">その他ジョブ実行のフロー用のメモ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Pickle化するコードと読み込み</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/pickleとジョブフローのメモ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pickle">
+<span id="pickle"></span><h1>Pickle化するコードと読み込み<a class="headerlink" href="#pickle" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sh:tree.sh"><div class="highlight"><pre><span></span>tree
+.
+├── item.py
+├── pickle_sample.py
+├── user.py
+└── users.pickle
+</pre></div>
+</div>
+<div class="highlight-py3:pickle_sample.py"><div class="highlight"><pre><span></span>import pickle
+import user
+import item
+
+user1 = user.User(1, &#39;A&#39;)
+user2 = user.User(2, &#39;B&#39;)
+item1 = item.Item(&#39;I1&#39;)
+item2 = item.Item(&#39;I2&#39;)
+user1.append_items([item1, item2])
+user2.append_items([item1, item2])
+users = [user1, user2]
+print(users)
+
+with open(&#39;users.pickle&#39;, &#39;wb&#39;) as f:
+    pickle.dump(users, f)
+with open(&#39;users.pickle&#39;, &#39;rb&#39;) as f:
+    users_loaded = pickle.load(f)
+    print(users_loaded)
+</pre></div>
+</div>
+<div class="highlight-py3:user.py"><div class="highlight"><pre><span></span>class User:
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+        self.items = []
+
+    def __repr__(self):
+        return &#39;&lt;%s(%s): %s&gt;&#39; % (self.__class__, id(self), self.__dict__)
+
+    def append_items(self, items):
+        for i in items:
+            self.items.append(i)
+</pre></div>
+</div>
+<div class="highlight-py3:item.py"><div class="highlight"><pre><span></span>class Item:
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return &#39;&lt;%s(%s): %s&gt;&#39; % (self.__class__, id(self), self.__dict__)
+</pre></div>
+</div>
+<div class="highlight-py3:run_pickle_sample.sh"><div class="highlight"><pre><span></span>python pickle_sample.py
+[&lt;&lt;class &#39;user.User&#39;&gt;(4330090336): {&#39;items&#39;: [&lt;&lt;class &#39;item.Item&#39;&gt;(4330307768): {&#39;name&#39;: &#39;I1&#39;}&gt;, &lt;&lt;class &#39;item.Item&#39;&gt;(4330622592): {&#39;name&#39;: &#39;I2&#39;}&gt;], &#39;id&#39;: 1, &#39;name&#39;: &#39;A&#39;}&gt;, &lt;&lt;class &#39;user.User&#39;&gt;(4330307712): {&#39;items&#39;: [&lt;&lt;class &#39;item.Item&#39;&gt;(4330307768): {&#39;name&#39;: &#39;I1&#39;}&gt;, &lt;&lt;class &#39;item.Item&#39;&gt;(4330622592): {&#39;name&#39;: &#39;I2&#39;}&gt;], &#39;id&#39;: 2, &#39;name&#39;: &#39;B&#39;}&gt;]
+[&lt;&lt;class &#39;user.User&#39;&gt;(4330622704): {&#39;items&#39;: [&lt;&lt;class &#39;item.Item&#39;&gt;(4330635336): {&#39;name&#39;: &#39;I1&#39;}&gt;, &lt;&lt;class &#39;item.Item&#39;&gt;(4330635560): {&#39;name&#39;: &#39;I2&#39;}&gt;], &#39;id&#39;: 1, &#39;name&#39;: &#39;A&#39;}&gt;, &lt;&lt;class &#39;user.User&#39;&gt;(4330635728): {&#39;items&#39;: [&lt;&lt;class &#39;item.Item&#39;&gt;(4330635336): {&#39;name&#39;: &#39;I1&#39;}&gt;, &lt;&lt;class &#39;item.Item&#39;&gt;(4330635560): {&#39;name&#39;: &#39;I2&#39;}&gt;], &#39;id&#39;: 2, &#39;name&#39;: &#39;B&#39;}&gt;]
+</pre></div>
+</div>
+</div>
+<div class="section" id="pickle">
+<span id="id1"></span><h1>モジュールを読み込めないディレクトリでPickle読み込み<a class="headerlink" href="#pickle" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:load_pickle.sh"><div class="highlight"><pre><span></span>mkdir test &amp;&amp; cd test
+python -c &quot;
+import pickle
+with open(&#39;../users.pickle&#39;, &#39;rb&#39;) as f:
+    users_loaded = pickle.load(f)
+    print(users_loaded)
+&quot;
+
+Traceback (most recent call last):
+  File &quot;&lt;string&gt;&quot;, line 4, in &lt;module&gt;
+ImportError: No module named &#39;user&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="pickle">
+<span id="id2"></span><h1>pickle化したオブジェクトの再利用<a class="headerlink" href="#pickle" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ジョブフローの落ちたジョブの再実行用にジョブ内容をpickle化したいなと考えていた</p>
+<ul class="simple">
+<li>再利用するには、実行した時と同じコードのモジュールが必要</li>
+<li>バージョン管理が基本の今、gitのHash値などと合わせて確実に再利用できる</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>その他ジョブ実行のフロー用のメモ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>ジョブ実行の履歴管理</li>
+<li>ジョブのフローと成功の有無</li>
+<li>失敗時のタスクを再実行可能にする</li>
+<li>そもそものジョブの冪等性の意識</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

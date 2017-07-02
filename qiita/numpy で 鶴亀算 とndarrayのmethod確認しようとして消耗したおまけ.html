@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>得られるもの &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">得られるもの</a></li>
+<li><a class="reference internal" href="#">おまけ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>得られるもの</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>得られるもの<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>数式をNumpyで解決できる</li>
+<li>数式苦手意識が少なくなる</li>
+<li>進捗が生まれる</li>
+</ul>
+<div class="highlight-py3:matrix_solve.py"><div class="highlight"><pre><span></span>&quot;&quot;&quot;
+x: 鶴, y: 亀 の数
+x + y = 3
+2x + 4y = 10
+
+x, y = (1, 2)
+&quot;&quot;&quot;
+import numpy as np
+
+a = np.array([[1, 1], [2, 4]])
+b = np.array([[3], [10]])
+print(a, &quot;\n&quot;*2, b)
+
+[[1 1]
+ [2 4]] 
+
+ [[ 3]
+ [10]]
+
+# ax = b -&gt; 両辺にaの逆行列をかける -&gt; x = (aの逆行列) * b
+# http://docs.scipy.org/doc/numpy/reference/routines.linalg.html
+np.linalg.inv(a).dot(b)
+
+# https://www.python.org/dev/peps/pep-0465/
+# http://docs.scipy.org/doc/numpy/reference/generated/numpy.matmul.html
+np.linalg.inv(a) @ b
+
+# numpy.matrix と np.array での operatorの機能の違い(違いを意識して使いたくないので、ndarrayだけでよさそう)
+np.matrix(np.linalg.inv(a)) * b
+
+# そもそもAPIとして用意されている
+np.linalg.solve(a, b)
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>おまけ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-numpyのndarrayのmethod確認しようとして消耗した.txt"><div class="highlight"><pre><span></span>?np.ndarray
+  File:           ~/.pyenv/versions/anaconda3-2.5.0/lib/python3.5/site-packages/numpy/__init__.py
+
+numpy/core/numeric.py
+  from numpy.core import multiarray
+  ndarray = multiarray.ndarray
+  __all__ = [
+      &#39;newaxis&#39;, &#39;ndarray&#39;, &#39;flatiter&#39;, &#39;nditer&#39;, &#39;nested_iters&#39;, &#39;ufunc&#39;,
+
+numpy/core/__init__.py
+  from . import multiarray
+  from .numeric import *
+
+numpy/__init__.py
+  from .core import *
+
+- ndarrayで検索した結果、multiarrayからだと分かる
+- core, module.__init__を通って使われてることが分かる
+- けど、multiarray.pyがないのでgithub上で検索
+- numpy/core/setup.py に multiarray moduleというコメンドとpathはsrcと推測される記述があった
+- numpy/core/src/multiarray/ こっちが本体(ここまで)
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

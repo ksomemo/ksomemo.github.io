@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DBへのアクセス経路 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">DBへのアクセス経路</a></li>
+<li><a class="reference internal" href="#">いきなりまとめ</a></li>
+<li><a class="reference internal" href="#">環境</a></li>
+<li><a class="reference internal" href="#profile">接続profileの作成</a></li>
+<li><a class="reference internal" href="#driver">Driver</a></li>
+<li><a class="reference internal" href="#url">URL</a></li>
+<li><a class="reference internal" href="#port-forward">port forward</a><ul>
+<li><a class="reference internal" href="#">鍵準備</a></li>
+<li><a class="reference internal" href="#">踏み台サーバーに接続</a></li>
+<li><a class="reference internal" href="#">参考</a></li>
+<li><a class="reference internal" href="#guioption">GUIとして便利なoption</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sql">SQL実行</a></li>
+<li><a class="reference internal" href="#sqlworkbench-manual">sqlworkbench manual</a><ul>
+<li><a class="reference internal" href="#profile">profile</a></li>
+<li><a class="reference internal" href="#wbexport">WbExport</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>DBへのアクセス経路</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="db">
+<span id="db"></span><h1>DBへのアクセス経路<a class="headerlink" href="#db" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>local -&gt; 踏み台サーバー -&gt; Redshift</p>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>いきなりまとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>port forwardを理解していなかった</li>
+<li>ので、sqlworkbenchをコマンドラインを使うべきだと思い込んでいた</li>
+<li>しかし使う必要はなかった</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>環境<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Windows 7 64bit</li>
+<li>Workbench-Build118</li>
+<li>teraterm</li>
+</ul>
+</div>
+<div class="section" id="profile">
+<span id="profile"></span><h1>接続profileの作成<a class="headerlink" href="#profile" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>sqlworkbenchを開いて、Select Connection Profile画面で作成する</p>
+<p>下記情報を入力し、Profile名を付けておく</p>
+<ul class="simple">
+<li>Driver(Driver File選択)</li>
+<li>URL</li>
+<li>Username</li>
+<li>Password</li>
+</ul>
+</div>
+<div class="section" id="driver">
+<span id="driver"></span><h1>Driver<a class="headerlink" href="#driver" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>http://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/configure-jdbc-connection.html#download-jdbc-driver を参考にして、Driverのダウンロードし、クラス名をメモしておく</p>
+<p>今回は以下のようにした</p>
+<ul class="simple">
+<li>https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC41-1.1.13.1013.jar</li>
+<li>com.amazon.redshift.jdbc41.Driver</li>
+<li>Workbenchのフォルダに上記Driverを格納する</li>
+</ul>
+</div>
+<div class="section" id="url">
+<span id="url"></span><h1>URL<a class="headerlink" href="#url" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>jdbc:redshift://エンドポイント:ポート/dbname</li>
+<li>踏み台サーバーを経由」するので</li>
+<li>jdbc:redshift://127.0.0.1:local_port/dbname</li>
+</ul>
+<p>本来のアクセス先（エンドポイント）の情報は、https://console.aws.amazon.com/redshift/ を参照</p>
+</div>
+<div class="section" id="port-forward">
+<span id="port-forward"></span><h1>port forward<a class="headerlink" href="#port-forward" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id3"></span><h2>鍵準備<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>公開鍵作成</li>
+<li>踏み台サーバーに.ssh/authorized_keysとしてアップロード(600)</li>
+<li>秘密鍵作成</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>踏み台サーバーに接続<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>teraterm のマクロで</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">踏み台host</span><span class="p">:</span><span class="n">port</span>
+    <span class="o">/</span><span class="n">ssh</span>
+    <span class="o">/</span><span class="n">auth</span><span class="o">=</span><span class="n">publickey</span>
+    <span class="o">/</span><span class="n">user</span><span class="o">=</span><span class="n">username</span>
+    <span class="o">/</span><span class="n">passwd</span><span class="o">=</span><span class="k">pass</span>
+    <span class="o">/</span><span class="n">keyfile</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">秘密鍵</span>
+    <span class="o">/</span><span class="n">ssh</span><span class="o">-</span><span class="n">Llocalhost</span><span class="p">:</span><span class="n">local_port</span><span class="p">:</span><span class="n">endpoint</span><span class="p">:</span><span class="n">ep_port</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>踏み台サーバーに公開鍵認証</li>
+<li>localhost:localport にアクセスすると</li>
+<li>Redshiftにアクセスすることになる</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2>参考<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://blue-red.ddo.jp/~ao/wiki/wiki.cgi?page=SSH%A4%CB%A4%E8%A4%EB%A5%DD%A1%BC%A5%C8%A5%D5%A5%A9%A5%EF%A1%BC%A5%C7%A5%A3%A5%F3%A5%B0</li>
+<li>http://halyou.blog84.fc2.com/blog-entry-1004.html</li>
+</ul>
+</div>
+<div class="section" id="guioption">
+<span id="guioption"></span><h2>GUIとして便利なoption<a class="headerlink" href="#guioption" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Remenber DbExplorer Schema</li>
+<li>Separate connection per tab</li>
+</ul>
+<p>仕方なく Save passowrd</p>
+</div>
+</div>
+<div class="section" id="sql">
+<span id="sql"></span><h1>SQL実行<a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">&quot;/path/to/Workbench-dir&quot;</span></code></p>
+<div class="highlight-sql:export.sql"><div class="highlight"><pre><span></span>WbExport -file=export.tsv -type=text -delimiter=\t -encoding=UTF8;
+SELECT *
+FROM table_name
+</pre></div>
+</div>
+<div class="highlight-without_profile.bat"><div class="highlight"><pre><span></span>java -jar sqlworkbench.jar
+    -url=url
+    -driver=class_name
+    -username=user
+    -password=pass
+    -driverjar=/path/to/driver.jar
+    -command
+    -displayResult=true
+    -showTiming=true
+    -printStatements
+    -script=&#39;/path/to/script.sql&#39;
+</pre></div>
+</div>
+<div class="highlight-with_profile.bat"><div class="highlight"><pre><span></span>java -jar sqlworkbench.jar
+    -profile=&#39;profile_name&#39;
+    -script=&#39;/path/to/script.sql&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="sqlworkbench-manual">
+<span id="sqlworkbench-manual"></span><h1>sqlworkbench manual<a class="headerlink" href="#sqlworkbench-manual" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>http://www.sql-workbench.net/manual/workbench-manual.html</p>
+<div class="section" id="profile">
+<span id="id6"></span><h2>profile<a class="headerlink" href="#profile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://www.sql-workbench.net/manual/using-scripting.html</li>
+<li>http://www.sql-workbench.net/manual/commandline.html#commandline-connect-profile</li>
+</ul>
+</div>
+<div class="section" id="wbexport">
+<span id="wbexport"></span><h2>WbExport<a class="headerlink" href="#wbexport" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://www.sql-workbench.net/manual/wb-commands.html</li>
+<li>http://www.sql-workbench.net/manual/command-export.html</li>
+<li>http://stackoverflow.com/questions/20643052/using-wbexport-and-wbinclude-commands-in-sql-workbench-batch-mode</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

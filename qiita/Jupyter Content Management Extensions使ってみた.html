@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>いきなりだけどまとめ &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">いきなりだけどまとめ</a></li>
+<li><a class="reference internal" href="#repogitory-and-pypi">repogitory and pypi</a></li>
+<li><a class="reference internal" href="#install">install</a><ul>
+<li><a class="reference internal" href="#whoosh">Whoosh</a></li>
+<li><a class="reference internal" href="#extensioninstall">extensionとしてのinstallと有効化</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">全文検索</a></li>
+<li><a class="reference internal" href="#">その他デフォルトでできること</a></li>
+<li><a class="reference internal" href="#">試してみた感想</a><ul>
+<li><a class="reference internal" href="#notebookimport">他のnotebookのセルをimport</a></li>
+<li><a class="reference internal" href="#notebook">他のnotebookのセルを関数として利用</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>いきなりだけどまとめ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Jupyter Content Management Extensions使ってみた.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><a class="reference external" href="http://qiita.com/y__sama/items/17aedf0c05187edd61c3">データサイエンティストに向けたコーディング環境Jupyter Notebookの勧め</a> で紹介されていたnotebook内の全文検索を試してみたかった。</p>
+<div class="section" id="">
+<span id="id1"></span><h1>いきなりだけどまとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>全文検索以外にもいろいろあるけど、全文検索が一番使える</p>
+</div>
+<div class="section" id="repogitory-and-pypi">
+<span id="repogitory-and-pypi"></span><h1>repogitory and pypi<a class="headerlink" href="#repogitory-and-pypi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>https://github.com/jupyter-incubator/contentmanagement</li>
+<li>https://pypi.python.org/pypi/jupyter_cms</li>
+</ul>
+</div>
+<div class="section" id="install">
+<span id="install"></span><h1>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyter_cms</span>
+<span class="n">Collecting</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">cms</span>
+  <span class="n">Downloading</span> <span class="n">jupyter_cms</span><span class="o">-</span><span class="mf">0.4</span><span class="o">.</span><span class="mf">0.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">Collecting</span> <span class="n">whoosh</span><span class="o">&lt;</span><span class="mf">3.0</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">jupyter</span><span class="o">-</span><span class="n">cms</span><span class="p">)</span>
+  <span class="n">Downloading</span> <span class="n">Whoosh</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mf">3.</span><span class="n">zip</span> <span class="p">(</span><span class="mf">1.1</span><span class="n">MB</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="whoosh">
+<span id="whoosh"></span><h2>Whoosh<a class="headerlink" href="#whoosh" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>https://pypi.python.org/pypi/Whoosh/</li>
+<li><a class="reference external" href="http://d.hatena.ne.jp/rudi/20110420/1303307332">Python純正の全文検索ライブラリ、Whooshを使ってみた</a></li>
+</ul>
+</div>
+<div class="section" id="extensioninstall">
+<span id="extensioninstall"></span><h2>extensionとしてのinstallと有効化<a class="headerlink" href="#extensioninstall" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">jupyter</span> <span class="n">cms</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="o">--</span><span class="n">symlink</span> <span class="o">--</span><span class="n">overwrite</span>
+<span class="p">[</span><span class="n">ExtensionInstallApp</span><span class="p">]</span> <span class="n">Installing</span> <span class="n">jupyter_cms</span> <span class="n">JS</span> <span class="n">notebook</span> <span class="n">extensions</span>
+<span class="n">symlink</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xxx</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Jupyter</span><span class="o">/</span><span class="n">nbextensions</span><span class="o">/</span><span class="n">jupyter_cms</span> 
+<span class="o">-&gt;</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xxx</span><span class="o">/.</span><span class="n">pyenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">-</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_cms</span><span class="o">/</span><span class="n">nbextension</span>
+
+<span class="o">%</span> <span class="n">jupyter</span> <span class="n">cms</span> <span class="n">activate</span>
+<span class="o">%</span> <span class="n">jupyter</span> <span class="n">cms</span> <span class="n">help</span>
+<span class="o">%</span> <span class="n">jupyter</span> <span class="n">cms</span> <span class="n">install</span> <span class="o">--</span><span class="n">help</span><span class="o">-</span><span class="nb">all</span>
+
+<span class="c1"># 以下、RISEと同じ場所に置こうとして、extensionが起動しなかったメモ</span>
+<span class="c1"># とsymlink削除(-rfは危ないのでやめよう)</span>
+<span class="o">%</span> <span class="n">jupyter</span> <span class="n">cms</span> <span class="n">install</span> <span class="o">--</span><span class="n">symlink</span> <span class="o">--</span><span class="n">overwrite</span> <span class="o">--</span><span class="n">nbextensions</span><span class="o">=~/.</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">jupyter</span><span class="o">/</span><span class="n">nbextension</span>
+<span class="o">%</span> <span class="n">rm</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">xxx</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Jupyter</span><span class="o">/</span><span class="n">nbextensions</span><span class="o">/</span><span class="n">jupyter_cms</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>全文検索<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>の前に</p>
+<ul class="simple">
+<li>モジュール名の変更<ul>
+<li>https://github.com/jupyter-incubator/contentmanagement/commit/6045d4ef0e0d38c7cb38ea9f231333d950ddae95</li>
+</ul>
+</li>
+<li>0.4.0のチュートリアル<ul>
+<li>https://github.com/jupyter-incubator/contentmanagement/blob/b7d34b3c4aeab1f7cfa06323b6741080b54f62b5/etc/notebooks/cookbooks_demo/use_cookbooks.ipynb</li>
+<li>チュートリアルの変更(load_extの変更)<ul>
+<li>https://github.com/jupyter-incubator/contentmanagement/commit/b7d34b3c4aeab1f7cfa06323b6741080b54f62b5#diff-f0a4308977e69922b3419d67f5b5bdb2L11</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>その他デフォルトでできること<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Table of Contents(TOC)の表示</li>
+<li>ファイルのDrag &amp; Dropによるアップロード</li>
+<li>他のnotebookのセルをimport</li>
+<li>他のnotebookのセルを関数として利用</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>試してみた感想<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>TOCは http://qiita.com/ksomemo/items/ba0f24daae2276ffd9b2 でも紹介したとおり、他のextensionにあるのでいらない</li>
+<li>アップロードはmdとjsonはできなかったが、TSVはアップロードできた</li>
+</ul>
+<div class="section" id="notebookimport">
+<span id="notebookimport"></span><h2>他のnotebookのセルをimport<a class="headerlink" href="#notebookimport" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>セルに<code class="docutils literal"><span class="pre">#&lt;help&gt;</span></code>コメント, <code class="docutils literal"><span class="pre">#&lt;help:name&gt;</span></code>でhelp method/name methodを使えるようになる</li>
+<li>上記methodを実行すると、他のnotebookのセルをimportできる(このときにセルの選択が固まる…)</li>
+<li>実際にそのセルを現在のnotebookで使うときには%injectを使う</li>
+<li>コメントめんどう</li>
+</ul>
+</div>
+<div class="section" id="notebook">
+<span id="notebook"></span><h2>他のnotebookのセルを関数として利用<a class="headerlink" href="#notebook" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>セルに<code class="docutils literal"><span class="pre">#</span> <span class="pre">&lt;api&gt;</span></code>コメントを書くと、notebook読み込み時に実行される</li>
+<li>関数定義しておくと、その関数がnotebookのmethodとして定義される</li>
+<li>こちらは問題なく動作した</li>
+<li>こちらもコメントめんどう</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

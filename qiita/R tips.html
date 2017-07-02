@@ -1,0 +1,619 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>packages &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">packages</a></li>
+<li><a class="reference internal" href="#paste-from-clip-board">Paste from Clip Board</a></li>
+<li><a class="reference internal" href="#basic-functions">basic functions</a></li>
+<li><a class="reference internal" href="#repeat-replicate">repeat / replicate</a></li>
+<li><a class="reference internal" href="#sub-tract-vector-from-matrix">sub(tract) vector from matrix</a></li>
+<li><a class="reference internal" href="#apply">apply系</a></li>
+<li><a class="reference internal" href="#dot-outer-product">dot/outer product</a></li>
+<li><a class="reference internal" href="#list">list</a></li>
+<li><a class="reference internal" href="#dummy">dummy</a></li>
+<li><a class="reference internal" href="#duplicated-drop-duplicated">duplicated / drop duplicated</a></li>
+<li><a class="reference internal" href="#">標準化</a></li>
+<li><a class="reference internal" href="#pca">PCA</a></li>
+<li><a class="reference internal" href="#docalllist">docallによるlist展開</a></li>
+<li><a class="reference internal" href="#ggplot">ggplot</a></li>
+<li><a class="reference internal" href="#time-series">time series</a></li>
+<li><a class="reference internal" href="#r-stats">Rで共分散と相関係数を求める(自作と {stats})</a></li>
+<li><a class="reference internal" href="#r">Rで変数削除</a></li>
+<li><a class="reference internal" href="#">他記事のリンク</a><ul>
+<li><a class="reference internal" href="#r">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li><a class="reference internal" href="#r">Rでの前処理として覚えたこと</a></li>
+<li><a class="reference internal" href="#rseq">Rのseqを使って先月を求めるときの注意点</a></li>
+<li><a class="reference internal" href="#not-installed-package-names">not installed package names</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>packages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/R tips.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="packages">
+<span id="packages"></span><h1>packages<a class="headerlink" href="#packages" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-R:packages.R"><div class="highlight"><pre><span></span># data processing
+install.packages(&quot;tidyverse&quot;)
+install.packages(&quot;data.table&quot;)
+
+# date
+install.packages(&quot;lubridate&quot;)
+
+# visualization
+install.packages(&quot;psych&quot;)
+install.packages(&quot;scales&quot;)
+install.packages(&quot;GGally&quot;) # http://www.ggplot2-exts.org/gallery/
+
+# dev
+install.packages(&quot;devtools&quot;)
+install.packages(&quot;testthat&quot;)
+install.packages(&quot;roxygen2&quot;)
+
+# machine learning
+install.packages(&quot;caret&quot;)
+#install.packages(&quot;ranger&quot;)
+install.packages(&quot;randomForest&quot;)
+install.packages(&quot;xgboost&quot;)
+
+# recommendation
+install.packages(&quot;arules&quot;)
+install.packages(&quot;arulesViz&quot;)
+
+# stats modeling
+install.packages(&quot;glmnet&quot;)
+
+# time series
+install.packages(&quot;xts&quot;)
+install.packages(&quot;forecast&quot;)
+install.packages(&quot;zoo&quot;)
+
+# web app
+install.packages(&quot;shiny&quot;)
+
+# reporting
+install.packages(&quot;rmarkdown&quot;)
+install.packages(&quot;formatR&quot;) # R notebook
+
+# bayse
+install.packages(&quot;rstan&quot;)
+#install.packages(&quot;dlm&quot;)
+
+install.packages(&quot;&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="paste-from-clip-board">
+<span id="paste-from-clip-board"></span><h1>Paste from Clip Board<a class="headerlink" href="#paste-from-clip-board" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-R:pasteFromClipBoard.R"><div class="highlight"><pre><span></span># win/Linux?
+data &lt;- read.table(&quot;clipboard&quot;)
+
+# mac
+data &lt;- read.table(pipe(&quot;pbpaste&quot;))
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-functions">
+<span id="basic-functions"></span><h1>basic functions<a class="headerlink" href="#basic-functions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r:basic_func.R"><div class="highlight"><pre><span></span># rangeではない(python脳, range -&gt; output min/max
+seq(1, 9) # 1 to 9
+seq(1, 9, by = 0.1) # step
+seq(1, 9, length.out = 5) # n = 5
+
+# log
+log(2, base = exp(1))
+
+# shuffle/sampling
+sample(1:5)
+sample(1:5, 3)
+sample(1:5, 10, replace=TRUE)
+
+# zero matrix
+matrix(0, nrow=2, ncol=2)
+
+# identity matrix
+diag(nrow=2)
+</pre></div>
+</div>
+</div>
+<div class="section" id="repeat-replicate">
+<span id="repeat-replicate"></span><h1>repeat / replicate<a class="headerlink" href="#repeat-replicate" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-R:repeat_replicate.R"><div class="highlight"><pre><span></span>rep(1:3, 2)
+[1] 1 2 3 1 2 3
+
+# byrowにしたいときはt() で転置
+replicate(2, 1:3)
+     [,1] [,2]
+[1,]    1    1
+[2,]    2    2
+[3,]    3    3
+</pre></div>
+</div>
+</div>
+<div class="section" id="sub-tract-vector-from-matrix">
+<span id="sub-tract-vector-from-matrix"></span><h1>sub(tract) vector from matrix<a class="headerlink" href="#sub-tract-vector-from-matrix" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sub_vector_from_matrix.R"><div class="highlight"><pre><span></span>(mat &lt;- matrix(1:6, ncol=2))
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+
+# MARGIN: 1 -&gt; row, 2 -&gt; col
+sweep(mat, 2, mat[1, ])
+     [,1] [,2]
+[1,]    0    0
+[2,]    1    1
+[3,]    2    2
+
+# matrixではなくdataframeの場合、data.matrixで変換してから対応する
+# matrixにしてもカラムは消えない
+</pre></div>
+</div>
+</div>
+<div class="section" id="apply">
+<span id="apply"></span><h1>apply系<a class="headerlink" href="#apply" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-R:apply.R"><div class="highlight"><pre><span></span># MARGIN = c(1,2) のとき成分ごとに適用
+# sumはnumpyと同じで1つのスカラーに集約してしまうので、applyが必要
+apply(df, MARGIN, sum)
+</pre></div>
+</div>
+</div>
+<div class="section" id="dot-outer-product">
+<span id="dot-outer-product"></span><h1>dot/outer product<a class="headerlink" href="#dot-outer-product" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-R:dot_outer_product.R"><div class="highlight"><pre><span></span>1:3 %*% 1:3
+     [,1]
+[1,]   14
+
+1:3 %o% 1:3
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    2    4    6
+[3,]    3    6    9
+</pre></div>
+</div>
+</div>
+<div class="section" id="list">
+<span id="list"></span><h1>list<a class="headerlink" href="#list" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-R:list.R"><div class="highlight"><pre><span></span># append
+l &lt;- list()
+l &lt;- c(l, list(1))
+l &lt;- c(l, list(2), list(3))
+</pre></div>
+</div>
+</div>
+<div class="section" id="dummy">
+<span id="dummy"></span><h1>dummy<a class="headerlink" href="#dummy" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-dummies.R"><div class="highlight"><pre><span></span>install.packages(&quot;dummies&quot;)
+library(dummies)
+a &lt;- 1:5
+df &lt;- data.frame(a=a)
+
+dummies::dummy(a)
+dummies::dummy(&quot;a&quot;, df)
+</pre></div>
+</div>
+</div>
+<div class="section" id="duplicated-drop-duplicated">
+<span id="duplicated-drop-duplicated"></span><h1>duplicated / drop duplicated<a class="headerlink" href="#duplicated-drop-duplicated" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-duplicated_distinct_unique.R"><div class="highlight"><pre><span></span>df &lt;- data.frame(d1=c(1,1,2,3,3,4,5,6,6),
+                 d2=c(1,1,2,3,3,4,5,5,6))
+df$df_duplicated          &lt;- duplicated(df[, c(&quot;d1&quot;, &quot;d2&quot;)])
+df$d1_duplicated          &lt;- duplicated(df$d1)
+df$d1_duplicated_fromlast &lt;- duplicated(df$d1, fromLast = T)
+df$d1_duplicated_all      &lt;- duplicated(df$d1) | duplicated(df$d1, fromLast = T)
+# =&gt; https://stackoverflow.com/questions/7854433/finding-all-duplicate-rows-including-elements-with-smaller-subscripts
+
+# drop duplicated
+unique(df$d1)
+df %&gt;% select(d1, d2) %&gt;% distinct()
+
+# drop duplicated/base d1 and drop d2
+# drop duplicated/base d1 and keep d2
+df %&gt;% select(d1, d2) %&gt;% distinct(d1)
+df %&gt;% select(d1, d2) %&gt;% distinct(d1, .keep_all = T)
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>標準化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-scale.R"><div class="highlight"><pre><span></span>scale(iris[, -5]) == scale(iris[, -5], center = T, scale = T)
+# center, scaleは標準化でなくてもよい
+# 上記2つに数値を渡すこともできるので、min-max scaleもできる
+</pre></div>
+</div>
+</div>
+<div class="section" id="pca">
+<span id="pca"></span><h1>PCA<a class="headerlink" href="#pca" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-pca.R"><div class="highlight"><pre><span></span># デフォルトの変換対象は分散共分散行列(center = T, scale = F)
+iris_pca &lt;- prcomp(iris[, -5])
+
+# 固有分解
+iris_cov_eigen &lt;- eigen(cov(iris[, -5]))
+## 固有ベクトル
+iris_pca$rotation == iris_cov_eigen$vectors
+## 固有値
+iris_pca$sdev ^ 2 == iris_cov_eigen$values
+
+# 変換後データ と 元の行列
+iris_pca$x
+scale(iris[, -5], scale = F) == (iris_pca$x %*% t(iris_pca$rotation))
+
+# 寄与率
+iris_pca_summary &lt;- summary(iris_pca)
+iris_pca_summary
+</pre></div>
+</div>
+</div>
+<div class="section" id="docalllist">
+<span id="docalllist"></span><h1>docallによるlist展開<a class="headerlink" href="#docalllist" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-docall.R"><div class="highlight"><pre><span></span># cbindにベクトルを渡す
+do.call(cbind, list(1:2, 3:4, 5:6))
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+## 引数が足りない場合
+myfunc &lt;- function(a, b, c, bias1, bias2 = 2) {
+  return(sum(a, b, c) + bias1 + bias2)
+}
+do.call(myfunc, list(1:2, 3:4, bias1 = 1))
+ (function (a, b, c, bias1, bias2 = 2)  でエラー: 
+   引数 &quot;c&quot; がありませんし、省略時既定値もありません 
+
+## デフォルト引数
+do.call(myfunc, list(1:2, 3:4, 5:6, bias1 = 1))
+[1] 24
+
+## 可変長引数関数
+variadic_func &lt;- function(..., bias1, bias2 = 2) {
+  return(sum(...) + bias1 + bias2)
+}
+do.call(variadic_func, list(1:2, 3:4, bias1 = 1))
+[1] 13
+do.call(variadic_func, list(1, 2, 3, 4, 5, bias1 = 1))
+[1] 18
+</pre></div>
+</div>
+</div>
+<div class="section" id="ggplot">
+<span id="ggplot"></span><h1>ggplot<a class="headerlink" href="#ggplot" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-ggplot.R"><div class="highlight"><pre><span></span>library(ggplot2)
+library(gridExtra)
+
+# 複数グラフ
+plots &lt;- list()
+plots[[1]] &lt;- ggplot2::ggplot() +
+  geom_point(aes(x, y1), data = df)
+plots[[2]] &lt;- ggplot2::ggplot() +
+  geom_point(aes(x, y2), data = df)
+
+gridExtra::marrangeGrob(plots, nrow=1, ncol=2)
+# or
+do.call(gridExtra::grid.arrange, c(plots, nrow=1, ncol=2))
+
+# violin
+geom_violin
+
+# for pca
+install.packages(&quot;ggbiplot&quot;)
+library(ggbiplot)
+</pre></div>
+</div>
+</div>
+<div class="section" id="time-series">
+<span id="time-series"></span><h1>time series<a class="headerlink" href="#time-series" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-time_series.R"><div class="highlight"><pre><span></span>data(&quot;AirPassengers&quot;)
+class(AirPassengers)
+# =&gt; [1] &quot;ts&quot;
+tsp(AirPassengers)
+# =&gt; start end frequency
+
+# plot
+plot(AirPassengers)
+decomposed &lt;-decompose(AirPassengers)
+plot(decomposed)
+# observed, trend, seasonal, random
+
+## 変化率 log近似とdefault
+plot(diff(log(AirPassengers)))
+plot(diff(AirPassengers) / AirPassengers)
+
+## (偏)自己相関
+acf(AirPassengers)
+pacf(AirPassengers)
+
+# TODO
+</pre></div>
+</div>
+</div>
+<div class="section" id="r-stats">
+<span id="r-stats"></span><h1>Rで共分散と相関係数を求める(自作と {stats})<a class="headerlink" href="#r-stats" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r:Rで共分散と相関係数を求める.R"><div class="highlight"><pre><span></span>## 数式をプログラムに落とし込む練習
+# Σとか行列・ベクトルを見ても怖がらないように
+# 落ち着けば問題なさそう
+# 作っているうちにイメージしやすくなった
+# forがダサく見える…
+# もっといい方法があったら知りたい
+
+v1 &lt;- 1:9
+v2 &lt;- sample(v1)
+m &lt;- matrix(sample(v2), 3)
+
+# cor
+(function(m){
+  len &lt;- dim(m)[1]
+  mat.cor &lt;- diag(rep(1, len))
+  for (k in 1:len) {
+    for (j in 1:len) {
+      if (k == j) next
+      if (k &gt; j) {
+        cor.kj &lt;- mat.cor[j, k]
+      } else {
+        d1 &lt;- m[, k] - mean(m[, k])
+        d2 &lt;- m[, j] - mean(m[, j])
+        cor.kj &lt;- sum(d1 * d2) / (sqrt(sum(d1 ** 2)) * sqrt(sum(d2 ** 2)))
+      }
+      mat.cor[k, j] &lt;- cor.kj
+    }
+  }
+  return(mat.cor)
+})(m)
+cor(m)
+
+# cov
+(function(m){
+  len &lt;- dim(m)[1]
+  mat &lt;- matrix(0, len, len)
+  for (k in 1:len) {
+    for (j in 1:len) {
+      d1 &lt;- m[, k] - mean(m[, k])
+      d2 &lt;- m[, j] - mean(m[, j])
+      mat[k, j] &lt;- sum(d1 * d2)
+    }
+  }
+  return(mat / (len - 1))
+})(m)
+cov(m)
+</pre></div>
+</div>
+</div>
+<div class="section" id="r">
+<span id="r"></span><h1>Rで変数削除<a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r:Rで変数削除.R"><div class="highlight"><pre><span></span>library(dplyr)
+library(caret)
+
+df.filtered &lt;- df %&gt;%
+  select(-caret::nearZeroVar(df)) %&gt;%
+  select(-caret::findCorrelation(cor(.), cutoff = 任意の閾値))
+
+# おまけ
+# tidyr　はたいでぃーあーる
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>他記事のリンク<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="r">
+<span id="id3"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/e5df50251402369b978d">Rで簡単に前処理＋クロス集計＋α</a><a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="r">
+<span id="id4"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/c80802a16e75dd38ea8a">Rでの前処理として覚えたこと</a><a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="rseq">
+<span id="rseq"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/2c399a35b8edf087237c">Rのseqを使って先月を求めるときの注意点</a><a class="headerlink" href="#rseq" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="not-installed-package-names">
+<span id="not-installed-package-names"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/b6ed564ff247261bd31f">not installed package names</a><a class="headerlink" href="#not-installed-package-names" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>もう一回インストールしたら嵌りそうなもの</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

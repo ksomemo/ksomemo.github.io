@@ -1,0 +1,317 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>参考 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">参考</a></li>
+<li><a class="reference internal" href="#">環境</a></li>
+<li><a class="reference internal" href="#stack-install">stack install 概要</a></li>
+<li><a class="reference internal" href="#install-ghc-mod">install ghc-mod</a><ul>
+<li><a class="reference internal" href="#path">インストールしたバイナリへのPATH</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">コマンド</a><ul>
+<li><a class="reference internal" href="#stack">stack</a></li>
+<li><a class="reference internal" href="#haskell-packages">Haskell packages</a></li>
+<li><a class="reference internal" href="#atom-packages">atom packages</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>参考</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Haskell環境＋Atom.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>またHaskell熱が出てきたので環境を整えてみた</p>
+<p>前の環境から最近の環境の流れは以下のとおりらしい</p>
+<ul class="simple">
+<li>CabalとCabal hell</li>
+<li>辛いのでSandbox</li>
+<li>最近はStack</li>
+</ul>
+<p>整えてはみたんだけど、自分の都合上、最終的にはGlobal環境使いまくりになっているのでメモ程度にする</p>
+<div class="section" id="">
+<span id="id1"></span><h1>参考<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://qiita.com/tanakh/items/6866d0f570d0547df026</li>
+<li>http://takafumi-s.hatenablog.com/entry/2015/10/20/194555</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>環境<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>MacBookAir</li>
+<li>Yosemite</li>
+</ul>
+</div>
+<div class="section" id="stack-install">
+<span id="stack-install"></span><h1>stack install 概要<a class="headerlink" href="#stack-install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>参考通り</p>
+</div>
+<div class="section" id="install-ghc-mod">
+<span id="install-ghc-mod"></span><h1>install ghc-mod<a class="headerlink" href="#install-ghc-mod" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ここでつまづいたので、参考1番目の通りにしてみる</p>
+<ul class="simple">
+<li>unpackしてソース持ってくる</li>
+<li>init<ul>
+<li>参考でサブディレクトリを無視しているのは、ghc-modのtest配下にcabalファイルがあるから</li>
+</ul>
+</li>
+<li>build</li>
+</ul>
+<div class="section" id="path">
+<span id="path"></span><h2>インストールしたバイナリへのPATH<a class="headerlink" href="#path" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>~/.local/bin にコピーされるので通しておく</p>
+<p>build後にPATHを通すと書いてあったが、2番目の参考より、install はbuild + copy なので、installコマンドを実行しておく</p>
+<p>通したPATHにghc-mod, ghc-modiが存在していた</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>コマンド<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="stack">
+<span id="stack"></span><h2>stack<a class="headerlink" href="#stack" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:brew_install_stack.sh"><div class="highlight"><pre><span></span>#brew update
+brew install haskell-stack
+</pre></div>
+</div>
+<div class="highlight-bash:stack_bin_path.sh"><div class="highlight"><pre><span></span>export PATH=~/.local/bin:$PATH
+</pre></div>
+</div>
+</div>
+<div class="section" id="haskell-packages">
+<span id="haskell-packages"></span><h2>Haskell packages<a class="headerlink" href="#haskell-packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:install_haskell_packages.sh"><div class="highlight"><pre><span></span># LTSな環境でインストール
+stack new projectname
+cd projectname
+stack setup
+stack install stylish-haskell
+stack install hlint
+
+# Nightlyであることは気にせずインストール
+cd ..
+stack unpack ghc-mod
+cd ghc-mod-xxx
+stack init --ignore-subdirs
+stack build
+stack install ghc-mod
+</pre></div>
+</div>
+</div>
+<div class="section" id="atom-packages">
+<span id="atom-packages"></span><h2>atom packages<a class="headerlink" href="#atom-packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:install_atom_haskell_packages.sh"><div class="highlight"><pre><span></span>apm install language-haskell
+apm install haskell-ghc-mod
+apm install ide-haskell
+apm install autocomplete-haskell
+apm install linter
+apm install linter-hlint 
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

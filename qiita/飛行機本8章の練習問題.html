@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>コメントで指摘のあったhub版 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">コメントで指摘のあったhub版</a></li>
+<li><a class="reference internal" href="#nodeloop">node同士が直接やりとりしているloop版</a></li>
+<li><a class="reference internal" href="#">その他</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>コメントで指摘のあったhub版</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/飛行機本8章の練習問題.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>こうしたほうがいい！という指摘大歓迎です</p>
+<div class="section" id="hub">
+<span id="hub"></span><h1>コメントで指摘のあったhub版<a class="headerlink" href="#hub" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>リングを回りきり次の周回に移るときのために、Ringを引き回してるのカッコ悪い</li>
+<li>node同士が直接やりとりしているわけではない</li>
+</ul>
+</div>
+<div class="section" id="nodeloop">
+<span id="nodeloop"></span><h1>node同士が直接やりとりしているloop版<a class="headerlink" href="#nodeloop" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>指摘された部分(もとい、問題の本質部分)は解決できたと思う</li>
+<li>ringのheadに相当するnodeの次のnodeを指定するところに違和感…</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>bench部分は今後も使うと思うのでmoduleにしたい</li>
+<li>しかし、非同期用なので同期用のように関数と引数を渡して(Erlangだとapply?)できない</li>
+</ul>
+<div class="highlight-erlang"><div class="highlight"><pre><span></span><span class="c">%%%-------------------------------------------------------------------</span>
+<span class="c">%%% @author ksomemo</span>
+<span class="c">%%% @copyright (C) 2014, &lt;COMPANY&gt;</span>
+<span class="c">%%% @doc</span>
+<span class="c">%%% 8章の練習問題</span>
+<span class="c">%%% @end</span>
+<span class="c">%%% Created : 25. 6 2014 3:21</span>
+<span class="c">%%%-------------------------------------------------------------------</span>
+<span class="p">-</span><span class="ni">module</span><span class="p">(</span><span class="n">exercise</span><span class="p">).</span>
+<span class="p">-</span><span class="ni">author</span><span class="p">(</span><span class="s">&quot;ksomemo&quot;</span><span class="p">).</span>
+
+<span class="c">%% API</span>
+<span class="p">-</span><span class="ni">export</span><span class="p">([</span>
+  <span class="n">ring_bench_hub</span><span class="o">/</span><span class="mi">2</span>
+  <span class="p">,</span> <span class="n">ring_bench_loop</span><span class="o">/</span> <span class="mi">2</span>
+  <span class="p">,</span> <span class="n">loop</span><span class="o">/</span><span class="mi">3</span>
+<span class="p">]).</span>
+
+<span class="nf">ring_bench_hub</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">M</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nv">Ring</span> <span class="o">=</span> <span class="n">create_ring</span><span class="p">(</span><span class="nv">N</span><span class="p">),</span>
+
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;ring_bench(N=</span><span class="si">~p</span><span class="s">, M=</span><span class="si">~p</span><span class="s">) start.</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">,</span> <span class="nv">M</span><span class="p">]),</span>
+  <span class="nb">statistics</span><span class="p">(</span><span class="n">runtime</span><span class="p">),</span>
+  <span class="nb">statistics</span><span class="p">(</span><span class="n">wall_clock</span><span class="p">),</span>
+
+  <span class="nb">register</span><span class="p">(</span><span class="n">bench</span><span class="p">,</span> <span class="n">self</span><span class="p">()),</span>
+  <span class="n">message</span><span class="p">(</span><span class="nv">M</span><span class="p">,</span> <span class="nv">Ring</span><span class="p">,</span> <span class="nv">Ring</span><span class="p">),</span>
+  <span class="k">receive</span>
+    <span class="n">finish</span> <span class="o">-&gt;</span>
+      <span class="p">{_,</span> <span class="nv">Time1</span><span class="p">}</span> <span class="o">=</span> <span class="nb">statistics</span><span class="p">(</span><span class="n">runtime</span><span class="p">),</span>
+      <span class="p">{_,</span> <span class="nv">Time2</span><span class="p">}</span> <span class="o">=</span> <span class="nb">statistics</span><span class="p">(</span><span class="n">wall_clock</span><span class="p">),</span>
+      <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;ring_bench time=</span><span class="si">~p</span><span class="s"> (</span><span class="si">~p</span><span class="s">) microseconds.</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">Time1</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">,</span> <span class="nv">Time2</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">]),</span>
+
+      <span class="nb">unregister</span><span class="p">(</span><span class="n">bench</span><span class="p">)</span>
+  <span class="k">end</span><span class="p">.</span>
+
+<span class="nf">create_ring</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nn">lists</span><span class="p">:</span><span class="nf">map</span><span class="p">(</span><span class="k">fun</span><span class="p">(_)</span> <span class="o">-&gt;</span> <span class="nb">spawn</span><span class="p">(</span><span class="k">fun</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">loop</span><span class="p">()</span> <span class="k">end</span><span class="p">)</span> <span class="k">end</span><span class="p">,</span> <span class="nn">lists</span><span class="p">:</span><span class="nf">seq</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nv">N</span><span class="p">)).</span>
+
+<span class="nf">loop</span><span class="p">()</span> <span class="o">-&gt;</span>
+  <span class="k">receive</span>
+    <span class="p">_</span><span class="nv">Any</span> <span class="o">-&gt;</span>
+<span class="c">%      io:format(&quot;Pid is ~p, Request is ~w.~n&quot;, [self(), _Any]),</span>
+      <span class="n">loop</span><span class="p">()</span>
+  <span class="k">end</span><span class="p">.</span>
+
+<span class="nf">message</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">_,</span> <span class="p">_)</span> <span class="o">-&gt;</span>
+  <span class="n">bench</span> <span class="o">!</span> <span class="n">finish</span><span class="p">;</span>
+<span class="nf">message</span><span class="p">(</span><span class="nv">M</span><span class="p">,</span> <span class="p">[</span><span class="nv">Pid</span><span class="p">|</span><span class="nv">T</span><span class="p">],</span> <span class="nv">Ring</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nv">Pid</span> <span class="o">!</span> <span class="p">{</span><span class="nv">M</span><span class="p">},</span>
+  <span class="n">message</span><span class="p">(</span><span class="nv">M</span><span class="p">,</span> <span class="nv">T</span><span class="p">,</span> <span class="nv">Ring</span><span class="p">);</span>
+<span class="nf">message</span><span class="p">(</span><span class="nv">M</span><span class="p">,</span> <span class="p">[],</span> <span class="nv">Ring</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="n">message</span><span class="p">(</span><span class="nv">M</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">Ring</span><span class="p">,</span> <span class="nv">Ring</span><span class="p">).</span>
+
+<span class="c">%% ここからloop版</span>
+<span class="nf">usage</span><span class="p">()</span> <span class="o">-&gt;</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;ring_bench_loop(N, M) N &gt;= 1, M &gt;= 1&quot;</span><span class="p">).</span>
+<span class="nf">ring_bench_loop</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">M</span><span class="p">)</span> <span class="k">when</span> <span class="nv">N</span> <span class="o">=&lt;</span> <span class="mi">0</span> <span class="ow">orelse</span> <span class="nv">M</span> <span class="o">=&lt;</span> <span class="mi">0</span> <span class="o">-&gt;</span>
+  <span class="n">usage</span><span class="p">();</span>
+<span class="nf">ring_bench_loop</span><span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">M</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nv">Main</span> <span class="o">=</span> <span class="n">self</span><span class="p">(),</span>
+  <span class="nv">Head</span> <span class="o">=</span> <span class="n">create_ring_loop</span><span class="p">(</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">N</span><span class="p">),</span>
+
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;ring_bench(N=</span><span class="si">~p</span><span class="s">, M=</span><span class="si">~p</span><span class="s">) start.</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">N</span><span class="p">,</span> <span class="nv">M</span><span class="p">]),</span>
+  <span class="nb">statistics</span><span class="p">(</span><span class="n">runtime</span><span class="p">),</span>
+  <span class="nb">statistics</span><span class="p">(</span><span class="n">wall_clock</span><span class="p">),</span>
+
+  <span class="nv">Head</span> <span class="o">!</span> <span class="p">{</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">M</span><span class="p">,</span> <span class="n">msg</span><span class="p">},</span>
+  <span class="k">receive</span>
+    <span class="p">{_</span><span class="n">from</span><span class="p">,</span> <span class="n">finish</span><span class="p">}</span> <span class="o">-&gt;</span>
+      <span class="p">{_,</span> <span class="nv">Time1</span><span class="p">}</span> <span class="o">=</span> <span class="nb">statistics</span><span class="p">(</span><span class="n">runtime</span><span class="p">),</span>
+      <span class="p">{_,</span> <span class="nv">Time2</span><span class="p">}</span> <span class="o">=</span> <span class="nb">statistics</span><span class="p">(</span><span class="n">wall_clock</span><span class="p">),</span>
+      <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;ring_bench time=</span><span class="si">~p</span><span class="s"> (</span><span class="si">~p</span><span class="s">) milli seconds.</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">Time1</span><span class="p">,</span> <span class="nv">Time2</span><span class="p">]),</span>
+      <span class="nv">Head</span> <span class="o">!</span> <span class="p">{</span><span class="nv">Main</span><span class="p">,</span> <span class="n">kill</span><span class="p">}</span>
+  <span class="k">end</span><span class="p">.</span>
+
+<span class="nf">create_ring_loop</span><span class="p">(</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">N</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nv">IsLastNode</span>    <span class="o">=</span> <span class="nv">N</span> <span class="o">=:=</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nv">Head</span>          <span class="o">=</span> <span class="n">create_ring_head</span><span class="p">(</span><span class="nv">IsLastNode</span><span class="p">),</span>
+  <span class="nv">TailFirstNode</span> <span class="o">=</span> <span class="n">create_ring_tail</span><span class="p">(</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">Head</span><span class="p">,</span> <span class="nv">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+
+  <span class="nv">Head</span> <span class="o">!</span> <span class="p">{</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">TailFirstNode</span><span class="p">},</span>
+  <span class="nv">Head</span><span class="p">.</span>
+
+<span class="nf">create_ring_head</span><span class="p">(</span><span class="nv">IsLastNode</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nb">spawn</span><span class="p">(</span><span class="k">fun</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">set_head_next</span><span class="p">(</span><span class="nv">IsLastNode</span><span class="p">)</span> <span class="k">end</span><span class="p">).</span>
+<span class="nf">set_head_next</span><span class="p">(</span><span class="nv">IsLastNode</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="k">receive</span>
+    <span class="p">{</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">NextNode</span><span class="p">}</span> <span class="o">-&gt;</span>
+      <span class="n">loop</span><span class="p">(</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">NextNode</span><span class="p">,</span> <span class="nv">IsLastNode</span><span class="p">)</span>
+  <span class="k">end</span><span class="p">.</span>
+
+<span class="nf">create_ring_tail</span><span class="p">(_</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">FirstNode</span><span class="p">,</span> <span class="p">_</span><span class="nv">Rest</span><span class="p">)</span> <span class="k">when</span> <span class="p">_</span><span class="nv">Rest</span> <span class="o">=&lt;</span> <span class="mi">0</span> <span class="o">-&gt;</span>
+  <span class="nv">FirstNode</span><span class="p">;</span>
+<span class="nf">create_ring_tail</span><span class="p">(</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">FirstNode</span><span class="p">,</span> <span class="nv">Rest</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nv">IsLastNode</span> <span class="o">=</span> <span class="nv">Rest</span> <span class="o">=&lt;</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nb">spawn</span><span class="p">(</span><span class="n">exercise</span><span class="p">,</span> <span class="n">loop</span><span class="p">,</span> <span class="p">[</span><span class="nv">Main</span><span class="p">,</span> <span class="n">create_ring_tail</span><span class="p">(</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">FirstNode</span><span class="p">,</span> <span class="nv">Rest</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="nv">IsLastNode</span><span class="p">]).</span>
+
+<span class="nf">loop</span><span class="p">(</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">NextNode</span><span class="p">,</span> <span class="nv">IsLastNode</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="k">receive</span>
+    <span class="p">{_</span><span class="nv">From</span><span class="p">,</span> <span class="n">kill</span><span class="p">}</span> <span class="o">-&gt;</span>
+      <span class="nv">NextNode</span> <span class="o">!</span> <span class="p">{</span><span class="n">self</span><span class="p">(),</span> <span class="n">kill</span><span class="p">};</span>
+    <span class="p">{_</span><span class="nv">From</span><span class="p">,</span> <span class="nv">Round</span><span class="p">,</span> <span class="nv">Response</span><span class="p">}</span> <span class="o">-&gt;</span>
+<span class="c">%%       io:format(</span>
+<span class="c">%%         &quot;From is ~p, self() is ~p, Next is ~p, IsLastNode(~p), Round is ~p.~n&quot;</span>
+<span class="c">%%         , [_From, self(), NextNode, IsLastNode, Round]),</span>
+
+      <span class="nv">IsLastMessage</span> <span class="o">=</span> <span class="nv">Round</span> <span class="o">=&lt;</span> <span class="mi">1</span> <span class="ow">andalso</span> <span class="nv">IsLastNode</span><span class="p">,</span>
+      <span class="nv">FixRound</span> <span class="o">=</span> <span class="k">if</span>
+        <span class="nv">IsLastNode</span> <span class="o">-&gt;</span> <span class="nv">Round</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">true</span>       <span class="o">-&gt;</span> <span class="nv">Round</span>
+      <span class="k">end</span><span class="p">,</span>
+
+      <span class="k">if</span>
+        <span class="ow">not</span> <span class="nv">IsLastMessage</span> <span class="o">-&gt;</span>
+          <span class="nv">NextNode</span> <span class="o">!</span> <span class="p">{</span><span class="n">self</span><span class="p">(),</span> <span class="nv">FixRound</span><span class="p">,</span> <span class="nv">Response</span><span class="p">},</span>
+          <span class="n">loop</span><span class="p">(</span><span class="nv">Main</span><span class="p">,</span> <span class="nv">NextNode</span><span class="p">,</span> <span class="nv">IsLastNode</span><span class="p">);</span>
+        <span class="n">true</span> <span class="o">-&gt;</span>
+          <span class="nv">Main</span> <span class="o">!</span> <span class="p">{</span><span class="n">self</span><span class="p">(),</span> <span class="n">finish</span><span class="p">}</span>
+      <span class="k">end</span>
+  <span class="k">end</span><span class="p">.</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>keys &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">keys</a></li>
+<li><a class="reference internal" href="#m-f-f">M-f でƒが入力されないようにする</a></li>
+<li><a class="reference internal" href="#macls-l">MACでのls -l で表示される&#64;マーク(メタデータ)</a></li>
+<li><a class="reference internal" href="#gnu-timebrew-install">gnu timeをbrew install</a></li>
+<li><a class="reference internal" href="#yen-to-backslash-on-mac">yen to backslash on Mac</a></li>
+<li><a class="reference internal" href="#">他記事のリンク</a><ul>
+<li><a class="reference internal" href="#install-mactex-into-yosemite">install mactex into yosemite</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>keys</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/MacOS tips.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="keys">
+<span id="keys"></span><h1>keys<a class="headerlink" href="#keys" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-markdown:keys.md"><div class="highlight"><pre><span></span>MacOS modifier keys:
+⌘: Command
+⌃: Control
+⌥: Option
+⇧: Shift
+↩: Return
+␣: Space
+⇥: Tab
+</pre></div>
+</div>
+</div>
+<div class="section" id="m-f-f">
+<span id="m-f-f"></span><h1>M-f でƒが入力されないようにする<a class="headerlink" href="#m-f-f" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-M-fでƒが入力されないようにする.md"><div class="highlight"><pre><span></span>¥　から \ に変更したので、これも変更する
+
+## why
+- termianlで次の単語にすばやく移動したい
+- C-[ f はめんどう
+
+## change on iterm2
+1. preferences
+2. profiles
+3. keys
+4. Left option key acts as ESC+
+
+## 感想
+しあわせ
+</pre></div>
+</div>
+</div>
+<div class="section" id="macls-l">
+<span id="macls-l"></span><h1>MACでのls -l で表示される&#64;マーク(メタデータ)<a class="headerlink" href="#macls-l" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:MACでのls-lで表示される&#64;マーク(メタデータ).sh"><div class="highlight"><pre><span></span># MACでのls -l で表示される@マーク(メタデータ)
+# を扱うためのコマンド
+man xattr
+
+NAME
+     xattr -- display and manipulate extended attributes
+
+SYNOPSIS
+     xattr [-lrsvx] file ...
+     xattr -d [-rsv] attr_name file ...
+     ...
+
+## やってみた
+# 何がついているか見る
+xattr file
+file: com.apple.quarantine
+
+xattr file.zip
+file.zip: com.apple.metadata:kMDItemWhereFroms
+
+# 指定して取り除く
+xattr -d com.apple.quarantine file
+# xattr -d com.apple.metadata file.zip
+xattr -d com.apple.metadata:kMDItemWhereFroms file.zip
+</pre></div>
+</div>
+</div>
+<div class="section" id="gnu-timebrew-install">
+<span id="gnu-timebrew-install"></span><h1>gnu timeをbrew install<a class="headerlink" href="#gnu-timebrew-install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-gnu_timeをbrew_install.md"><div class="highlight"><pre><span></span>##　目的
+* プログラムで使用したメモリ量を計測する
+* timeで測れる
+
+## time
+shellで用意されたものなので違う
+
+## /usr/bin/time
+* gnu-timeとは違う
+* -f &quot;%M KB&quot; が使えない
+
+## brew install gnu-time
+* してもtimeはshellで予約されているものから変わらない
+* gtimeとして登録されている
+* gtimeにaliasつけると忘れた時に大変そうなのでメモしておいた
+</pre></div>
+</div>
+</div>
+<div class="section" id="yen-to-backslash-on-mac">
+<span id="yen-to-backslash-on-mac"></span><h1>yen to backslash on Mac<a class="headerlink" href="#yen-to-backslash-on-mac" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-yen-to-backslash-on-Mac.md"><div class="highlight"><pre><span></span>## default
+|input|output|
+|-----|------|
+|¥  |¥|
+|M-¥|\|
+
+## ¥キーで入力する文字の設定
+- keyboard setting -&gt; 入力ソース から変更
+- Google日本語入力でも同様に設定できる
+
+## 変更後の¥の入力
+|input|output|
+|-----|------|
+|M-y         |¥|
+|えん(IME変換)|¥|
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>他記事のリンク<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="install-mactex-into-yosemite">
+<span id="install-mactex-into-yosemite"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/1fa9388d195bec91f356">install mactex into yosemite</a><a class="headerlink" href="#install-mactex-into-yosemite" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

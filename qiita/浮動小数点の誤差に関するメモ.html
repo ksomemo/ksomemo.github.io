@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>link &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">link</a></li>
+<li><a class="reference internal" href="#numpy">numpyの場合</a><ul>
+<li><a class="reference internal" href="#epsilon-eps">epsilon -&gt; eps</a></li>
+<li><a class="reference internal" href="#code">code</a></li>
+<li><a class="reference internal" href="#round">roundで丸めてテスト?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sys">sysの場合</a></li>
+<li><a class="reference internal" href="#">まとめ</a></li>
+<li><a class="reference internal" href="#">おまけ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>link</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/浮動小数点の誤差に関するメモ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>相関係数などの統計数値のテストコードを書いていた時に、丸め誤差により悩んでいた時のメモ。</p>
+<div class="section" id="link">
+<span id="link"></span><h1>link<a class="headerlink" href="#link" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>[計算機イプシロン（machine epsilon）] (https://ja.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E3%82%A4%E3%83%97%E3%82%B7%E3%83%AD%E3%83%B3)</li>
+<li><a class="reference external" href="http://docs.python.jp/3.4/library/decimal.html">Python 標準ライブラリ 9.4. decimal — 10進固定及び浮動小数点数の算術演算</a></li>
+</ul>
+</div>
+<div class="section" id="numpy">
+<span id="numpy"></span><h1>numpyの場合<a class="headerlink" href="#numpy" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="epsilon-eps">
+<span id="epsilon-eps"></span><h2>epsilon -&gt; eps<a class="headerlink" href="#epsilon-eps" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:numpy_eps.py"><div class="highlight"><pre><span></span>In [10]: np.finfo(np.float).eps
+Out[10]: 2.2204460492503131e-16
+
+In [11]: np.finfo(float).eps
+Out[11]: 2.2204460492503131e-16
+
+In [12]: np.finfo(np.float32).eps
+Out[12]: 1.1920929e-07
+
+In [13]: np.finfo(np.float64).eps
+Out[13]: 2.2204460492503131e-16
+
+In [14]: np.finfo(np.float128).eps
+Out[14]: 1.084202172485504434e-19
+</pre></div>
+</div>
+<p>他の型は調べてない。</p>
+</div>
+<div class="section" id="code">
+<span id="code"></span><h2>code<a class="headerlink" href="#code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://github.com/numpy/numpy/search?l=python&amp;q=eps&amp;type=Code</p>
+<p>test codeだけでなく、product codeとissueにも引っかかった</p>
+</div>
+<div class="section" id="round">
+<span id="round"></span><h2>roundで丸めてテスト?<a class="headerlink" href="#round" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://github.com/numpy/numpy/blob/467d4e16d77a2e7c131aac53c639e82b754578c7/numpy/lib/tests/test_financial.py#L49</p>
+</div>
+</div>
+<div class="section" id="sys">
+<span id="sys"></span><h1>sysの場合<a class="headerlink" href="#sys" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:sys_float_info.py"><div class="highlight"><pre><span></span>In [25]: import sys
+
+In [26]: sys.float_info
+Out[26]: sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15, mant_dig=53, epsilon=2.220446049250313e-16, radix=2, rounds=1)
+</pre></div>
+</div>
+<p>epsだけでなく、最大値や桁数に関する情報があった。</p>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>まとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>まとまってない</li>
+<li>あとで追記するかも</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>おまけ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>知らなかった…</p>
+<div class="highlight-py3:float_dot.py"><div class="highlight"><pre><span></span>In [15]: 1.
+Out[15]: 1.0
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ベイズの定理 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">ベイズの定理</a></li>
+<li><a class="reference internal" href="#conjugate">共役(conjugate)分布</a></li>
+<li><a class="reference internal" href="#">パラメータ推定</a></li>
+<li><a class="reference internal" href="#">自己共役</a></li>
+<li><a class="reference internal" href="#">識別/生成モデル</a></li>
+<li><a class="reference internal" href="#">潜在変数</a></li>
+<li><a class="reference internal" href="#">混合分布</a></li>
+<li><a class="reference internal" href="#">回帰</a></li>
+<li><a class="reference internal" href="#">分類</a><ul>
+<li><a class="reference internal" href="#">ニュートン法</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">グラフィカルモデル</a><ul>
+<li><a class="reference internal" href="#">グラフ</a></li>
+<li><a class="reference internal" href="#markov">markov性</a></li>
+<li><a class="reference internal" href="#">ギブスサンプリング</a></li>
+<li><a class="reference internal" href="#">ダイバージェンス</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#chain-tree-model">chain/tree model</a><ul>
+<li><a class="reference internal" href="#dp">DP</a></li>
+<li><a class="reference internal" href="#forward-backward">forward/backward</a></li>
+<li><a class="reference internal" href="#sum-product">sum-product</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#grid-model">grid model</a><ul>
+<li><a class="reference internal" href="#markov-random-fields">markov random fields</a></li>
+<li><a class="reference internal" href="#maxflow-mincut">maxflow/mincut</a></li>
+<li><a class="reference internal" href="#submodularity">submodularity</a></li>
+<li><a class="reference internal" href="#alpha-extension">alpha extension</a></li>
+<li><a class="reference internal" href="#conditional-random-fields">conditional random fields</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">その他</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ベイズの定理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/グラフィカルモデル自分用.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>ベイズの定理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>同時確率を条件付き確率(conditional)と、ある事象の確率の積から導かれるもの</li>
+<li>そんなことより周辺化(marginalization)<ul>
+<li>2変数同時確率の一方を変数のまま、もう一方をすべて足し込む/積分する</li>
+<li>ある変数で積分するので、その変数が消える</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="conjugate">
+<span id="conjugate"></span><h1>共役(conjugate)分布<a class="headerlink" href="#conjugate" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>いろいろな確率分布が出てくる<ul>
+<li>その確率分布に共役分布が存在する<ul>
+<li>bernoulliに対するbeta</li>
+</ul>
+</li>
+<li>TODO:存在しないものもある？</li>
+</ul>
+</li>
+<li>ある分布に共役分布をかけると、共役分布になる<ul>
+<li>２つの分布の積が１つの分布になる扱いやすい</li>
+<li>ただし共役分布のparameterが変化する</li>
+<li>それにともない正規化されて1になるように定数がかけられる</li>
+</ul>
+</li>
+<li>ベイズの定理における共役分布は事前分布として登場する<ul>
+<li>条件付き分布が対になる分布</li>
+<li>beta: lambdaに対する分布</li>
+<li>bernoulli: lambdaが与えられた上での分布</li>
+<li>この対応がベイズの定理にちょうどいい</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>パラメータ推定<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>最尤推定<ul>
+<li>ロジスティック回帰で見た</li>
+<li>尤度だけを考慮</li>
+<li>独立を仮定するので積になり、対数尤度として解く</li>
+</ul>
+</li>
+<li>MAP推定(Maximum a posteriori)<ul>
+<li>事後確率最大化<ul>
+<li>となるようなparameterの推定</li>
+</ul>
+</li>
+<li>事前分布を考慮する<ul>
+<li>事後確率はベイズの定理より、尤度と事前分布の積</li>
+<li>分母の確率はparameterと関係ないので無視する</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ベイズ推定<ul>
+<li>parameterを最大化ではなく、いろいろとる分布をすべて求める？<ul>
+<li>共役分布があると簡単になるので求められる</li>
+<li>TODO:そうじゃない場合</li>
+</ul>
+</li>
+<li>データが多くなると最尤推定に近くなる<ul>
+<li>TODO:説明</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>詳しくは例題</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>自己共役<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>TODO</p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>識別/生成モデル<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>TODO</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h1>潜在変数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h1>混合分布<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h1>回帰<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h1>分類<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id9"></span><h2>ニュートン法<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h1>グラフィカルモデル<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-a.md"><div class="highlight"><pre><span></span>TODO
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h2>グラフ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="markov">
+<span id="markov"></span><h2>markov性<a class="headerlink" href="#markov" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id12"></span><h2>ギブスサンプリング<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id13"></span><h2>ダイバージェンス<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+<div class="section" id="chain-tree-model">
+<span id="chain-tree-model"></span><h1>chain/tree model<a class="headerlink" href="#chain-tree-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="dp">
+<span id="dp"></span><h2>DP<a class="headerlink" href="#dp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="forward-backward">
+<span id="forward-backward"></span><h2>forward/backward<a class="headerlink" href="#forward-backward" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="sum-product">
+<span id="sum-product"></span><h2>sum-product<a class="headerlink" href="#sum-product" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+<div class="section" id="grid-model">
+<span id="grid-model"></span><h1>grid model<a class="headerlink" href="#grid-model" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="markov-random-fields">
+<span id="markov-random-fields"></span><h2>markov random fields<a class="headerlink" href="#markov-random-fields" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="maxflow-mincut">
+<span id="maxflow-mincut"></span><h2>maxflow/mincut<a class="headerlink" href="#maxflow-mincut" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="submodularity">
+<span id="submodularity"></span><h2>submodularity<a class="headerlink" href="#submodularity" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="alpha-extension">
+<span id="alpha-extension"></span><h2>alpha extension<a class="headerlink" href="#alpha-extension" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="conditional-random-fields">
+<span id="conditional-random-fields"></span><h2>conditional random fields<a class="headerlink" href="#conditional-random-fields" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+<div class="section" id="">
+<span id="id14"></span><h1>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>やたらΓ関数が出てくる<ul>
+<li>TODO:これ自体をよく分かっていない</li>
+</ul>
+</li>
+<li>δ関数に慣れていない<ul>
+<li>0/1を出力、あるparameterが特定の値の時TODO</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

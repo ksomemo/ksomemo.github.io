@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>enviroment &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">enviroment</a></li>
+<li><a class="reference internal" href="#install-vs-2015-community-for-c-c-build">install VS 2015 Community for c/c++ build</a></li>
+<li><a class="reference internal" href="#install-mecab-for-compiled-ipa-dictionary">install mecab for compiled IPA dictionary</a><ul>
+<li><a class="reference internal" href="#edit-mecab-h">edit mecab.h</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-code">source code</a><ul>
+<li><a class="reference internal" href="#donwload">donwload</a></li>
+<li><a class="reference internal" href="#edit-makefile-and-source-code">edit Makefile and source code</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#build-exe-dll-lib">build exe, dll, lib</a><ul>
+<li><a class="reference internal" href="#run-open-visual-studio-2015-x64-native-tools-command-prompt">run Open Visual Studio 2015 x64 Native Tools Command Prompt</a></li>
+<li><a class="reference internal" href="#make">make</a></li>
+<li><a class="reference internal" href="#copy-oututs">copy oututs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-mecab">python-mecab</a></li>
+<li><a class="reference internal" href="#references">references</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>enviroment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/install mecab and mecab-python3 on windows.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="enviroment">
+<span id="enviroment"></span><h1>enviroment<a class="headerlink" href="#enviroment" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Windows7</li>
+<li>64bit OS</li>
+<li>Anaconda4.2</li>
+<li>python3.5</li>
+<li>Git</li>
+<li>7Zip</li>
+</ul>
+</div>
+<div class="section" id="install-vs-2015-community-for-c-c-build">
+<span id="install-vs-2015-community-for-c-c-build"></span><h1>install VS 2015 Community for c/c++ build<a class="headerlink" href="#install-vs-2015-community-for-c-c-build" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>https://www.visualstudio.com/ja/downloads/</li>
+<li>must choose Programming language Cpp</li>
+</ul>
+</div>
+<div class="section" id="install-mecab-for-compiled-ipa-dictionary">
+<span id="install-mecab-for-compiled-ipa-dictionary"></span><h1>install mecab for compiled IPA dictionary<a class="headerlink" href="#install-mecab-for-compiled-ipa-dictionary" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>http://taku910.github.io/mecab/#download</p>
+<ul class="simple">
+<li>install mecab by installer for dictionary</li>
+<li>dictionary char code utf-8</li>
+<li>add bin dir to path</li>
+</ul>
+<div class="section" id="edit-mecab-h">
+<span id="edit-mecab-h"></span><h2>edit mecab.h<a class="headerlink" href="#edit-mecab-h" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>add set_result member</li>
+<li>when edit the sorce code, turn off administrator authentication</li>
+</ul>
+<div class="highlight-sdk/mecab.h.patch"><div class="highlight"><pre><span></span>--- C:/Program Files (x86)/MeCab/sdk/mecab.h.bak    Mon Jan 21 17:02:08 2013
++++ C:/Program Files (x86)/MeCab/sdk/mecab.h    Tue Jan 24 15:41:25 2017
+@@ -777,6 +777,7 @@
+  */
+ class MECAB_DLL_CLASS_EXTERN Lattice {
+ public:
++  virtual void set_result(const char *str) = 0;
+   /**
+    * Clear all internal lattice data.
+    */
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="source-code">
+<span id="source-code"></span><h1>source code<a class="headerlink" href="#source-code" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="donwload">
+<span id="donwload"></span><h2>donwload<a class="headerlink" href="#donwload" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>donwload mecab-0.996.tar.gz and ungzip</li>
+</ul>
+</div>
+<div class="section" id="edit-makefile-and-source-code">
+<span id="edit-makefile-and-source-code"></span><h2>edit Makefile and source code<a class="headerlink" href="#edit-makefile-and-source-code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>mecab-0.996/src</p>
+<ul class="simple">
+<li>copy Makefile.msvc.in to Makefile.msvc<ul>
+<li>X86 to X64</li>
+<li>&#64;DIC_VERSION to 102</li>
+<li>&#64;VERSION&#64; to 0.996</li>
+</ul>
+</li>
+<li>feature_index.cpp</li>
+<li>writer.cpp<ul>
+<li>size_t to unsigned int</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-Makefile.msvc.patch"><div class="highlight"><pre><span></span>--- C:/Users/xxx/Downloads/mecab-0.996/src/Makefile.msvc.in Sun Sep 30 01:44:26 2012
++++ C:/Users/xxx/Downloads/mecab-0.996/src/Makefile.msvc    Tue Jan 24 12:55:46 2017
+@@ -3,10 +3,10 @@
+ LINK=link.exe
+ 
+ CFLAGS = /EHsc /O2 /GL /GA /Ob2 /nologo /W3 /MT /Zi /wd4800 /wd4305 /wd4244
+-LDFLAGS = /nologo /OPT:REF /OPT:ICF /LTCG /NXCOMPAT /DYNAMICBASE /MACHINE:X86 ADVAPI32.LIB
++LDFLAGS = /nologo /OPT:REF /OPT:ICF /LTCG /NXCOMPAT /DYNAMICBASE /MACHINE:X64 ADVAPI32.LIB
+ DEFS =  -D_CRT_SECURE_NO_DEPRECATE -DMECAB_USE_THREAD \
+-        -DDLL_EXPORT -DHAVE_GETENV -DHAVE_WINDOWS_H -DDIC_VERSION=@DIC_VERSION@ \
+-        -DVERSION=&quot;\&quot;@VERSION@\&quot;&quot; -DPACKAGE=&quot;\&quot;mecab\&quot;&quot; \
++        -DDLL_EXPORT -DHAVE_GETENV -DHAVE_WINDOWS_H -DDIC_VERSION=102 \
++        -DVERSION=&quot;\&quot;0.996\&quot;&quot; -DPACKAGE=&quot;\&quot;mecab\&quot;&quot; \
+         -DUNICODE -D_UNICODE \
+         -DMECAB_DEFAULT_RC=&quot;\&quot;c:\\Program Files\\mecab\\etc\\mecabrc\&quot;&quot;
+ INC = -I. -I..
+</pre></div>
+</div>
+<div class="highlight-feature_index.cpp.patch"><div class="highlight"><pre><span></span>--- C:/Users/xxx/Downloads/mecab-0.996/src/feature_index.cpp    Mon Jan 16 16:30:05 2017
++++ C:/Users/xxx/Downloads/mecab-0.996/src/feature_index.cpp.bak    Sun Nov 25 14:35:32 2012
+@@ -353,7 +353,7 @@
+               if (!r) goto NEXT;
+               os_ &lt;&lt; r;
+             } break;
+-            case &#39;t&#39;:  os_ &lt;&lt; (unsigned int)path-&gt;rnode-&gt;char_type;     break;
++            case &#39;t&#39;:  os_ &lt;&lt; (size_t)path-&gt;rnode-&gt;char_type;     break;
+             case &#39;u&#39;:  os_ &lt;&lt; ufeature; break;
+             case &#39;w&#39;:
+               if (path-&gt;rnode-&gt;stat == MECAB_NOR_NODE) {
+</pre></div>
+</div>
+<div class="highlight-writer.cpp.patch"><div class="highlight"><pre><span></span>--- C:/Users/xxx/Downloads/mecab-0.996/src/writer.cpp   Mon Jan 16 16:31:10 2017
++++ C:/Users/xxx/Downloads/mecab-0.996/src/writer.cpp.bak   Mon Jan 16 16:30:56 2017
+@@ -257,7 +257,7 @@
+             // input sentence
+           case &#39;S&#39;: os-&gt;write(lattice-&gt;sentence(), lattice-&gt;size()); break;
+             // sentence length
+-           case &#39;L&#39;: *os &lt;&lt; (unsigned int)lattice-&gt;size(); break;
++          case &#39;L&#39;: *os &lt;&lt; lattice-&gt;size(); break;
+             // morph
+           case &#39;m&#39;: os-&gt;write(node-&gt;surface, node-&gt;length); break;
+           case &#39;M&#39;: os-&gt;write(reinterpret_cast&lt;const char *&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="build-exe-dll-lib">
+<span id="build-exe-dll-lib"></span><h1>build exe, dll, lib<a class="headerlink" href="#build-exe-dll-lib" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="run-open-visual-studio-2015-x64-native-tools-command-prompt">
+<span id="run-open-visual-studio-2015-x64-native-tools-command-prompt"></span><h2>run Open Visual Studio 2015 x64 Native Tools Command Prompt<a class="headerlink" href="#run-open-visual-studio-2015-x64-native-tools-command-prompt" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>same as <code class="docutils literal"><span class="pre">call</span> <span class="pre">&quot;C:\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\Microsoft</span> <span class="pre">Visual</span> <span class="pre">Studio</span> <span class="pre">14.0\VC\vcvarsall.bat&quot;</span> <span class="pre">amd64</span></code></li>
+<li>add to path, add variable, etc.</li>
+</ul>
+<div class="highlight-diff-path.txt"><div class="highlight"><pre><span></span>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow
+C:\Program Files (x86)\MSBuild\14.0\bin\amd64
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\amd64
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\VCPackages
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools
+C:\Program Files (x86)\HTML Help Workshop
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Performance Tools\x64
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Performance Tools
+C:\Program Files (x86)\Windows Kits\8.1\bin\x64
+C:\Program Files (x86)\Windows Kits\8.1\bin\x86
+C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\x64\
+</pre></div>
+</div>
+<div class="highlight-diff-set-command-result.log"><div class="highlight"><pre><span></span>CommandPromptType=Native
+Framework40Version=v4.0
+FrameworkDir=C:\Windows\Microsoft.NET\Framework64
+FrameworkDIR64=C:\Windows\Microsoft.NET\Framework64
+FrameworkVersion=v4.0.30319
+FrameworkVersion64=v4.0.30319
+INCLUDE=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE;C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um;C:\Program Files (x86)\Windows Kits\8.1\include\\shared;C:\Program Files (x86)\Windows Kits\8.1\include\\um;C:\Program Files (x86)\Windows Kits\8.1\include\\winrt;
+LIB=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\LIB\amd64;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\LIB\amd64;C:\Program Files (x86)\Windows Kits\10\lib\10.0.10240.0\ucrt\x64;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\lib\um\x64;C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x64;
+LIBPATH=C:\Windows\Microsoft.NET\Framework64\v4.0.30319;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\LIB\amd64;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\LIB\amd64;C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral;\Microsoft.VCLibs\14.0\References\CommonConfiguration\neutral;
+NETFXSDKDir=C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\
+Platform=X64
+UCRTVersion=10.0.10240.0
+UniversalCRTSdkDir=C:\Program Files (x86)\Windows Kits\10\
+VCINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\
+VisualStudioVersion=14.0
+WindowsLibPath=C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral
+WindowsSdkDir=C:\Program Files (x86)\Windows Kits\8.1\
+WindowsSDKLibVersion=winv6.3\
+WindowsSDKVersion=\
+WindowsSDK_ExecutablePath_x64=C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\x64\
+WindowsSDK_ExecutablePath_x86=C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\
+</pre></div>
+</div>
+</div>
+<div class="section" id="make">
+<span id="make"></span><h2>make<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>cd mecab-0.996/src</li>
+<li>run make.bat (<code class="docutils literal"><span class="pre">make</span></code>)<ul>
+<li><code class="docutils literal"><span class="pre">nmake</span> <span class="pre">-f</span> <span class="pre">Makefile.msvc</span></code></li>
+</ul>
+</li>
+<li>if failed, run <code class="docutils literal"><span class="pre">nmake</span> <span class="pre">-f</span> <span class="pre">Makefile.msvc</span> <span class="pre">clean</span></code></li>
+</ul>
+</div>
+<div class="section" id="copy-oututs">
+<span id="copy-oututs"></span><h2>copy oututs<a class="headerlink" href="#copy-oututs" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>to mecab/bin<ul>
+<li>libmecab.dll</li>
+<li>mecab.exe</li>
+<li>mecab-cost-train.exe</li>
+<li>mecab-dict-gen.exe</li>
+<li>mecab-dict-index.exe</li>
+<li>mecab-system-eval.exe</li>
+<li>mecab-test-gen.exe</li>
+</ul>
+</li>
+<li>to mecab/sdk<ul>
+<li>libmecab.lib</li>
+<li>mecab.h</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="python-mecab">
+<span id="python-mecab"></span><h1>python-mecab<a class="headerlink" href="#python-mecab" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/SamuraiT/mecab-python3</span></code><ul>
+<li>Commit hash:    9411d509f34d3a0494b9a5c241566c99014ec063</li>
+</ul>
+</li>
+<li>edit setup.py</li>
+<li><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--no-cache-dir</span> <span class="pre">-e</span> <span class="pre">.</span></code></li>
+</ul>
+<div class="highlight-setup.py.patch"><div class="highlight"><pre><span></span>--- C:/Users/xxx/AppData/Local/Temp/h80KN9_setup.py Tue Jan 24 14:08:23 2017
++++ C:/Users/xxx/tools/mecab-python3/setup.py   Tue Jan 24 14:08:53 2017
+@@ -38,9 +38,9 @@
+     ext_modules = [
+         Extension(&quot;_MeCab&quot;,
+         [&quot;MeCab_wrap.cxx&quot;,],
+-        include_dirs=cmd2(&quot;mecab-config --inc-dir&quot;),
+-        library_dirs=cmd2(&quot;mecab-config --libs-only-L&quot;),
+-        libraries=cmd2(&quot;mecab-config --libs-only-l&quot;))
++        include_dirs=[r&quot;C:\Program Files (x86)\MeCab\sdk&quot;],
++        library_dirs=[r&quot;C:\Program Files (x86)\MeCab\sdk&quot;],
++        libraries=[&quot;libmecab&quot;])
+     ],
+     classifiers = [
+         &quot;Programming Language :: Python&quot;,
+</pre></div>
+</div>
+</div>
+<div class="section" id="references">
+<span id="references"></span><h1>references<a class="headerlink" href="#references" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://pop365.cocolog-nifty.com/blog/2015/03/windows-64bit-m.html</li>
+<li>https://gist.github.com/ksomemo/6c834b5ed96aaf410c9b4a1b4fb50f41</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

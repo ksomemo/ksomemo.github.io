@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>の前に、他との比較 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">の前に、他との比較</a></li>
+<li><a class="reference internal" href="#">覚えたこと</a></li>
+<li><a class="reference internal" href="#">感想</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>の前に、他との比較</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Rでの前処理として覚えたこと.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>dataframeを以下、dfとする。</p>
+<div class="section" id="">
+<span id="id1"></span><h1>の前に、他との比較<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>plyrのほうが簡単だけど、下記のdplyrのほうを先に触ってしまった</li>
+<li>dplyrというRのパッケージが一番直感的かつ簡潔に書ける<ul>
+<li>pipeによるデータの扱いとSQL likeな関数による覚えやすさがのため</li>
+</ul>
+</li>
+<li>PandasというPythonのパッケージでもR標準のdfと同じように書ける<ul>
+<li>ただし、列や行のアクセスに違いあり、かつdplyrのほうが便利</li>
+<li>便利だけど、Pythonの方が前処理メインなのでPythonでやってる</li>
+<li>pandas16にもpipeが出てきたので要チェック</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>覚えたこと<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>dfの作り方(行列、ベクトルから)</li>
+<li>行の連結(df同士、dfとベクトル)</li>
+<li>列の追加<ul>
+<li>列への関数適用</li>
+<li>忘れやすそうな否定とべき乗</li>
+<li>cbindでの行列作成とdfとの結合</li>
+<li>transformによる結合<ul>
+<li>and/orの方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dfを列で結合(Left Join)</li>
+<li>欠損値の埋め方<ul>
+<li>対象列の判定</li>
+<li>ifelse</li>
+</ul>
+</li>
+<li>行のシフト<ul>
+<li>時系列での扱いのため</li>
+<li>例：セッションログを用いて滞在時間を測るなど</li>
+</ul>
+</li>
+<li>ファイルへの書き込みと、そのファイルの読み込む</li>
+</ul>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="c1"># make dataframe from vector</span>
+df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span><span class="kt">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span> ncol <span class="o">=</span> <span class="m">2</span><span class="p">),</span> stringsAsFactors <span class="o">=</span> False<span class="p">)</span>
+df2 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> stringsAsFactors <span class="o">=</span> False<span class="p">)</span>
+
+<span class="c1"># concat row</span>
+df <span class="o">&lt;-</span> <span class="kp">rbind</span><span class="p">(</span>df<span class="p">,</span> df<span class="p">)</span>
+df2 <span class="o">&lt;-</span> <span class="kp">rbind</span><span class="p">(</span>df2<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
+
+<span class="c1"># define function</span>
+odd <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>n<span class="p">)</span> <span class="kr">return</span><span class="p">(</span>n <span class="o">%%</span> <span class="m">2</span> <span class="o">==</span> <span class="m">1</span><span class="p">)</span>
+
+<span class="c1"># add column</span>
+df<span class="o">$</span>odd <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span>X <span class="o">=</span> df<span class="p">[,</span> <span class="s">&quot;X1&quot;</span><span class="p">],</span> odd<span class="p">)</span>
+df<span class="o">$</span>even <span class="o">&lt;-</span> <span class="o">!</span><span class="p">(</span>df<span class="o">$</span>odd<span class="p">)</span>
+df <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span>df<span class="p">,</span> <span class="kp">cbind</span><span class="p">(</span>and <span class="o">=</span> <span class="p">(</span>df<span class="o">$</span>odd <span class="o">&amp;</span> df<span class="o">$</span>even<span class="p">),</span>
+                      or <span class="o">=</span> <span class="p">(</span>df<span class="o">$</span>odd <span class="o">|</span> df<span class="o">$</span>even<span class="p">)))</span>
+
+df2<span class="o">$</span>square <span class="o">&lt;-</span> df2<span class="p">[,</span> <span class="m">1</span><span class="p">]</span> <span class="o">^</span> <span class="m">2</span>
+df2 <span class="o">&lt;-</span> <span class="kp">transform</span><span class="p">(</span>df2<span class="p">,</span> 
+                 up.to.low <span class="o">=</span> <span class="kp">tolower</span><span class="p">(</span><span class="kc">LETTERS</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]),</span> 
+                 low.to.up <span class="o">=</span> <span class="kp">toupper</span><span class="p">(</span><span class="kc">letters</span><span class="p">[</span><span class="m">-1</span><span class="o">:</span><span class="m">-23</span><span class="p">]))</span>
+
+<span class="c1"># merge, left join</span>
+merged <span class="o">&lt;-</span> <span class="kp">merge</span><span class="p">(</span>x <span class="o">=</span> df<span class="p">,</span> y <span class="o">=</span> df2<span class="p">,</span> by.x <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">),</span> by.y <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">),</span> all.x <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="c1"># fill na</span>
+merged<span class="o">$</span>fill1 <span class="o">&lt;-</span> merged<span class="o">$</span>square
+merged<span class="p">[</span><span class="kp">is.na</span><span class="p">(</span>merged<span class="o">$</span>fill1<span class="p">),</span> <span class="s">&quot;fill1&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="m">0</span>
+merged<span class="o">$</span>fill2 <span class="o">&lt;-</span> <span class="kp">ifelse</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>merged<span class="o">$</span>square<span class="p">),</span> <span class="m">0</span><span class="p">,</span> merged<span class="o">$</span>square<span class="p">)</span>
+
+<span class="c1"># shift column</span>
+shift <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> n<span class="p">)</span> <span class="p">{</span>
+  <span class="kr">if</span> <span class="p">(</span>n <span class="o">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">return</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="kp">abs</span><span class="p">(</span>n<span class="p">)),</span> <span class="kp">head</span><span class="p">(</span>x<span class="p">,</span> n<span class="p">)))</span>
+  <span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span>n <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">return</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="kp">tail</span><span class="p">(</span>x<span class="p">,</span> <span class="o">-</span>n<span class="p">),</span> <span class="kp">rep</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="kp">abs</span><span class="p">(</span>n<span class="p">))))</span>
+  <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+    <span class="kr">return</span><span class="p">(</span>x<span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+merged<span class="o">$</span>shift.up <span class="o">&lt;-</span> shift<span class="p">(</span>merged<span class="o">$</span>X1<span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+merged<span class="o">$</span>shift.down <span class="o">&lt;-</span> shift<span class="p">(</span>merged<span class="o">$</span>X1<span class="p">,</span> <span class="m">-1</span><span class="p">)</span>
+
+<span class="c1"># write to file and read from file</span>
+write.table<span class="p">(</span>merged<span class="p">,</span> <span class="s">&quot;output_dataframe.txt&quot;</span><span class="p">,</span> append<span class="o">=</span><span class="bp">F</span><span class="p">,</span> quote<span class="o">=</span><span class="bp">F</span><span class="p">,</span> col.names<span class="o">=</span><span class="bp">T</span><span class="p">)</span>
+result <span class="o">&lt;-</span> read.table<span class="p">(</span>file <span class="o">=</span> <span class="s">&quot;output_dataframe.txt&quot;</span><span class="p">,</span> header <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="kp">print</span><span class="p">(</span>result<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">plyr</span><span class="p">)</span>
+
+<span class="c1"># grouping</span>
+<span class="n">jobs</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
+                   <span class="n">field</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="s2">&quot;web&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">rep</span><span class="p">(</span><span class="s2">&quot;sports&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)),</span>
+                   <span class="n">category</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="s2">&quot;infra&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">rep</span><span class="p">(</span><span class="s2">&quot;frontend&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+                              <span class="n">rep</span><span class="p">(</span><span class="s2">&quot;soccer&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">rep</span><span class="p">(</span><span class="s2">&quot;tennis&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;baseball&quot;</span><span class="p">))</span>
+<span class="n">jobs</span><span class="o">.</span><span class="n">counts</span> <span class="o">&lt;-</span> <span class="n">ddply</span><span class="p">(</span><span class="n">jobs</span><span class="p">,</span> <span class="o">.</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">category</span><span class="p">),</span> <span class="n">summarize</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
+
+<span class="c1"># full outer join</span>
+<span class="n">hobby</span><span class="o">.</span><span class="n">soccer</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">hobby</span><span class="o">.</span><span class="n">tennis</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">6</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span> <span class="n">rep</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">hobby</span><span class="o">.</span><span class="n">all</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">hobby</span><span class="o">.</span><span class="n">soccer</span><span class="p">,</span> <span class="n">hobby</span><span class="o">.</span><span class="n">tennis</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="nb">all</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+
+<span class="c1"># String concatenation</span>
+<span class="n">c</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">paste0</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">))</span>
+
+<span class="c1"># run as Script</span>
+<span class="c1"># R --vanilla --slave &lt; script.R</span>
+<span class="c1"># RScript --vanilla --slave script.R</span>
+
+<span class="c1"># first arg is args[1]</span>
+<span class="n">args</span> <span class="o">&lt;-</span> <span class="n">commandArgs</span><span class="p">(</span><span class="n">trailingOnly</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
+<span class="c1"># arg[5] is first arg from cli</span>
+<span class="n">args</span> <span class="o">&lt;-</span> <span class="n">commandArgs</span><span class="p">()</span>
+
+<span class="c1"># padding</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%03s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">sprintf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%-3s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>感想<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>前処理は無理にRでやらなくてよさそうだと思った（PythonのPandasを触ったことがあるため</li>
+<li>次は分析系Packageとコマンドライン引数の扱いを覚えたい</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,812 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>定型Import &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">定型Import</a></li>
+<li><a class="reference internal" href="#numpy">numpy</a><ul>
+<li><a class="reference internal" href="#one-value">one value</a></li>
+<li><a class="reference internal" href="#range">range</a></li>
+<li><a class="reference internal" href="#mean-average">mean / average</a></li>
+<li><a class="reference internal" href="#ravel-flatten">ravel / flatten</a></li>
+<li><a class="reference internal" href="#t-transpose">.T, transpose</a></li>
+<li><a class="reference internal" href="#">結合</a></li>
+<li><a class="reference internal" href="#vectormax-min">vector同士のmax/min</a></li>
+<li><a class="reference internal" href="#">繰り返し</a></li>
+<li><a class="reference internal" href="#">実部/虚部と随伴行列</a></li>
+<li><a class="reference internal" href="#">三角行列</a></li>
+<li><a class="reference internal" href="#todo">TODO: 行列分解</a><ul>
+<li><a class="reference internal" href="#">固有値分解</a></li>
+<li><a class="reference internal" href="#lu">LU分解</a></li>
+<li><a class="reference internal" href="#qr">QR分解</a></li>
+<li><a class="reference internal" href="#">特異値分解</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#numpy-ndarraymethod">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li><a class="reference internal" href="#">対角行列</a><ul>
+<li><a class="reference internal" href="#">単位行列</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#numpyk-means-debug">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li><a class="reference internal" href="#indexcounter">値をindexにしたCounter</a></li>
+<li><a class="reference internal" href="#apply-axis-0-1">apply axis 0/1</a></li>
+<li><a class="reference internal" href="#other">other</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pandas">pandas</a><ul>
+<li><a class="reference internal" href="#">カンマ区切り数値</a></li>
+<li><a class="reference internal" href="#dataframerow-index">DataFrameのrow をIndex指定して削除</a></li>
+<li><a class="reference internal" href="#access-cell-row-col">access cell (row/col)</a></li>
+<li><a class="reference internal" href="#filter-rows">filter rows</a></li>
+<li><a class="reference internal" href="#filter-columns">filter columns</a></li>
+<li><a class="reference internal" href="#filter-group">filter group</a></li>
+<li><a class="reference internal" href="#method">代入のMethod</a></li>
+<li><a class="reference internal" href="#groupungroup-multi-index-index">group化後のungroup(multi index -&gt; index)</a></li>
+<li><a class="reference internal" href="#date-range">date range</a><ul>
+<li><a class="reference internal" href="#range">月ごとのrange</a></li>
+<li><a class="reference internal" href="#n">過去N日</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">結合</a><ul>
+<li><a class="reference internal" href="#">縦</a><ul>
+<li><a class="reference internal" href="#append">append</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">横結合</a></li>
+<li><a class="reference internal" href="#join">join</a></li>
+<li><a class="reference internal" href="#merge">merge</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">欠損値</a><ul>
+<li><a class="reference internal" href="#fillna">fillna</a></li>
+<li><a class="reference internal" href="#groupby">groupby</a></li>
+<li><a class="reference internal" href="#interpolate">interpolate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#describepercentile">describeのpercentile</a></li>
+<li><a class="reference internal" href="#add-suffix-prefix-to-columns">add suffix/prefix to columns</a></li>
+<li><a class="reference internal" href="#series">series</a><ul>
+<li><a class="reference internal" href="#utility">文字列系Utilityを扱う</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">構成比率を見る時の定型</a></li>
+<li><a class="reference internal" href="#masking">masking</a></li>
+<li><a class="reference internal" href="#others">others</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>定型Import</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/pandas／numpy tips.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>学んだことまとめ</p>
+<div class="section" id="import">
+<span id="import"></span><h1>定型Import<a class="headerlink" href="#import" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:import_snippet.py"><div class="highlight"><pre><span></span>import pandas as pd
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+matplotlib.style.use(&quot;ggplot&quot;)
+%matplotlib inline
+</pre></div>
+</div>
+<ul class="simple">
+<li>numpyもcrosstab時にsumする場合などに使うのでImportしておく</li>
+<li>seabornまだ使ってない -&gt; よく使うようになった<ul>
+<li>matplotlibでどれだけめんどうかを把握した上で使う方がいい</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="numpy">
+<span id="numpy"></span><h1>numpy<a class="headerlink" href="#numpy" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="one-value">
+<span id="one-value"></span><h2>one value<a class="headerlink" href="#one-value" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:numpy_array.py"><div class="highlight"><pre><span></span># 配列確保
+np.zeros
+
+# すべて1
+np.ones
+
+# np.full ?
+</pre></div>
+</div>
+</div>
+<div class="section" id="range">
+<span id="range"></span><h2>range<a class="headerlink" href="#range" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>実験用データ, モデルのplotなど)</p>
+<div class="highlight-py3:numpy_range.py"><div class="highlight"><pre><span></span># rangeとほぼ同様
+np.arange
+
+# N分割用
+np.linspace
+
+# 各分布に対応
+# np.random.rand系
+</pre></div>
+</div>
+</div>
+<div class="section" id="mean-average">
+<span id="mean-average"></span><h2>mean / average<a class="headerlink" href="#mean-average" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>meanは、算術平均</li>
+<li>averageは、重みを付けられる</li>
+</ul>
+</div>
+<div class="section" id="ravel-flatten">
+<span id="ravel-flatten"></span><h2>ravel / flatten<a class="headerlink" href="#ravel-flatten" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>ravelは、参照を維持</li>
+<li>flattenは、copy</li>
+</ul>
+</div>
+<div class="section" id="t-transpose">
+<span id="t-transpose"></span><h2>.T, transpose<a class="headerlink" href="#t-transpose" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>どちらも参照を維持しているので、　.Tでよい</p>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h2>結合<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://qiita.com/ksomemo/items/2f0ce6a88e619db0beef">ndarrayの結合</a></p>
+</div>
+<div class="section" id="vectormax-min">
+<span id="vectormax-min"></span><h2>vector同士のmax/min<a class="headerlink" href="#vectormax-min" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:numpy_vector同士のmaxとmin.py"><div class="highlight"><pre><span></span>np.maximum([1,4],[3,2])
+array([3, 4])
+
+np.minimum([1,4],[3,2])
+array([1, 2])
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>繰り返し<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:numpy_繰り返しとおまけ.py"><div class="highlight"><pre><span></span>x = np.array([[1,2],[3,4]])
+x
+array([[1, 2],
+       [3, 4]])
+
+np.repeat(x, 3, axis=0)
+array([[1, 2],
+       [1, 2],
+       [1, 2],
+       [3, 4],
+       [3, 4],
+       [3, 4]])
+
+np.repeat(x, 3, axis=1)
+array([[1, 1, 1, 2, 2, 2],
+       [3, 3, 3, 4, 4, 4]])
+
+# flatten
+np.repeat(x, 3, axis=None)
+array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4])
+
+# scalar
+np.repeat(1, 3)
+array([1, 1, 1])
+
+## おまけ
+import itertools
+rep = itertools.repeat(1, 3)
+rep
+repeat(1, 3)
+
+list(rep)
+[1, 1, 1]
+
+rep
+repeat(1, 0)
+
+# ∞
+rep = itertools.repeat(1)
+repeat(1)
+
+list(itertools.islice(rep, 4))
+[1, 1, 1, 1]
+
+list(itertools.islice(rep, 2))
+[1, 1]
+
+rep
+repeat(1)
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>実部/虚部と随伴行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="p">],[</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="n">j</span><span class="p">]])</span>
+<span class="n">A</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="o">-</span><span class="mf">1.</span><span class="n">j</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="o">+</span><span class="mf">1.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">+</span><span class="mf">1.</span><span class="n">j</span><span class="p">]])</span>
+
+<span class="c1"># 転置して虚部の反転</span>
+<span class="n">A</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">A</span><span class="o">.</span><span class="n">imag</span><span class="o">.</span><span class="n">T</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="o">+</span><span class="mf">0.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">1.</span><span class="o">-</span><span class="mf">1.</span><span class="n">j</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">1.</span><span class="o">+</span><span class="mf">1.</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.</span><span class="o">-</span><span class="mf">1.</span><span class="n">j</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mat_for_tri</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">mat_for_tri</span><span class="p">)</span> <span class="c1"># lower</span>
+<span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">mat_for_tri</span><span class="p">)</span> <span class="c1"># upper</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="todo">
+<span id="todo"></span><h2>TODO: 行列分解<a class="headerlink" href="#todo" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="">
+<span id="id5"></span><h3>固有値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># numpyの場合、素直に共分散行列を求める(行ごと)</span>
+<span class="c1"># pandas/Rの場合、勝手に特徴量(列ごと)に対する共分散行列</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_iris</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">iris_cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># default ddof: 1, N-1での共分散</span>
+<span class="n">eig_val</span><span class="p">,</span> <span class="n">eig_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">iris_cov</span><span class="p">)</span>
+<span class="n">iris_cov</span> <span class="o">=</span> <span class="n">eig_vec</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">eig_val</span><span class="p">)</span> <span class="o">@</span> <span class="n">eig_vec</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lu">
+<span id="lu"></span><h3>LU分解<a class="headerlink" href="#lu" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="qr">
+<span id="qr"></span><h3>QR分解<a class="headerlink" href="#qr" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>特異値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="numpy-ndarraymethod">
+<span id="numpy-ndarraymethod"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/87ad66a8f4f73e33d645">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a><a class="headerlink" href="#numpy-ndarraymethod" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>逆行列とdot, solveの関係</p>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>対角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:numpy_diag.py"><div class="highlight"><pre><span></span># 1-d: の場合、対角行列を作る
+np.diag([2,3])
+array([[2, 0],
+       [0, 3]])
+
+# 2-d: の場合、対角要素を抜き出す(return 1-d)
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h3>単位行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-py3:numpy_eye.py"><div class="highlight"><pre><span></span>np.eye(2) or np.identity(2)
+array([[ 1.,  0.],
+       [ 0.,  1.]])
+
+# np.eyeは単位行列に限らない
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="numpyk-means-debug">
+<span id="numpyk-means-debug"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/35e872d734d75710cfef">numpyでk-meansを実装したときに使ったもの(Debug込み)</a><a class="headerlink" href="#numpyk-means-debug" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>np.argmin<ul>
+<li>最小となる値にIndex</li>
+</ul>
+</li>
+<li>np.linalg.norm<ul>
+<li>ユークリッド距離</li>
+</ul>
+</li>
+<li>np.random.choice<ul>
+<li>あるリストからの選択</li>
+</ul>
+</li>
+<li>np.all<ul>
+<li>すべてがTrueであるか</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="indexcounter">
+<span id="indexcounter"></span><h2>値をindexにしたCounter<a class="headerlink" href="#indexcounter" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:numpy_bincount.py"><div class="highlight"><pre><span></span>np.bincount([1,2,2,4])
+# index:0 based to max value
+# value:indexの値が現れた回数
+# =&gt; array([0, 1, 2, 0, 1])
+</pre></div>
+</div>
+</div>
+<div class="section" id="apply-axis-0-1">
+<span id="apply-axis-0-1"></span><h2>apply axis 0/1<a class="headerlink" href="#apply-axis-0-1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:numpy_apply_along_axis.py"><div class="highlight"><pre><span></span># each columns, max values
+np.apply_along_axis(lambda x: max(x), 0, iris.values[:, [0,1,2,3]])
+
+#  each rows, max values
+np.apply_along_axis(lambda x: max(x), 1, iris.values[:, [0,1,2,3]])
+</pre></div>
+</div>
+</div>
+<div class="section" id="other">
+<span id="other"></span><h2>other<a class="headerlink" href="#other" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>np.nansum,nanmean, etc.<ul>
+<li>NA対応</li>
+<li>pandasはdefault</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">np.diff(x,</span> <span class="pre">n=2)</span></code> は2回np.diffする意味<ul>
+<li><code class="docutils literal"><span class="pre">pd.Series.diff(periods=2)</span></code>とは違う</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="pandas">
+<span id="pandas"></span><h1>pandas<a class="headerlink" href="#pandas" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id9"></span><h2>カンマ区切り数値<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:pandas_read_csv_thausans.py"><div class="highlight"><pre><span></span>import pandas as pd
+import io
+table_text = &quot;&quot;&quot;
+a b c
+1 10,000 1,000,000
+&quot;&quot;&quot;
+pd.read_csv(io.StringIO(table_text), sep=&quot; &quot;, thousands=&quot;,&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="dataframerow-index">
+<span id="dataframerow-index"></span><h2>DataFrameのrow をIndex指定して削除<a class="headerlink" href="#dataframerow-index" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:pandas_drop_index.py"><div class="highlight"><pre><span></span># df.pivot_tableやpd.crosstabのmargin片方だけ欲しいときに
+df.drop(&quot;All&quot;)
+df.drop(&quot;All&quot;, axis=1)
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-cell-row-col">
+<span id="access-cell-row-col"></span><h2>access cell (row/col)<a class="headerlink" href="#access-cell-row-col" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:pandas_access_cell.py"><div class="highlight"><pre><span></span># pythonのset/getに関わるmagic methodで対応している
+df.iloc[0, &quot;column&quot;]
+</pre></div>
+</div>
+</div>
+<div class="section" id="filter-rows">
+<span id="filter-rows"></span><h2>filter rows<a class="headerlink" href="#filter-rows" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:pandas_filter_rows.py"><div class="highlight"><pre><span></span>(df.loc[indexer, columns]
+   .[lambda d: d.column1 == &quot;a&quot;]
+   .pipe(lambda d: d[d.column2.notnull()])
+</pre></div>
+</div>
+</div>
+<div class="section" id="filter-columns">
+<span id="filter-columns"></span><h2>filter columns<a class="headerlink" href="#filter-columns" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:pandas_filter_columns.py"><div class="highlight"><pre><span></span># 以下`axis=1`で列に対して行った場合
+# 行に対して行う場合は、grouping後などにやりそう（やったことない
+
+import seaborn as sns
+
+iris = sns.load_dataset(&quot;iris&quot;)
+iris.filter(items=[&quot;sepal_length&quot;, &quot;species&quot;], axis=1)
+# `iris[[&quot;sepal_length&quot;, &quot;species&quot;]]` と同じだが、keyになくてもエラーにならない
+
+iris.filter(like=&quot;petal&quot;, axis=1)
+# `iris[:, iris.columns.str.contains(&quot;petal&quot;)]` と同じ
+
+iris.filter(regex=&quot;th$&quot;, axis=1)
+# `iris[:, iris.columns.str.contains(&quot;th$&quot;)]` と同じ
+</pre></div>
+</div>
+</div>
+<div class="section" id="filter-group">
+<span id="filter-group"></span><h2>filter group<a class="headerlink" href="#filter-group" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:pandas_filter_groupby.py"><div class="highlight"><pre><span></span># GroupByオブジェクトのfilterはDataFrameオブジェクトとは違う
+# SQLにおけるhavingでのfilteringに似ているが、返ってくるに値はDataFrame
+df = pd.DataFrame(dict(a=list(&quot;aabbbcc&quot;), b=range(7)))
+df.groupby(&quot;a&quot;).filter(lambda x: x.shape[0] &lt; 3)
+# =&gt; DataFrame.shape = (4, 2)
+</pre></div>
+</div>
+</div>
+<div class="section" id="method">
+<span id="method"></span><h2>代入のMethod<a class="headerlink" href="#method" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>df.assign(column=series)</li>
+<li>method chainとして</li>
+<li>ただし順番を気にする場合は１つずつ or 昇順に問題がない場合</li>
+</ul>
+</div>
+<div class="section" id="groupungroup-multi-index-index">
+<span id="groupungroup-multi-index-index"></span><h2>group化後のungroup(multi index -&gt; index)<a class="headerlink" href="#groupungroup-multi-index-index" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:pandas_groupby_after_reset_index.py"><div class="highlight"><pre><span></span># reset_index前提ならば
+assert df.groupby(columns).sum().reset_index() == \
+       df.groupby(columns, as_index=False).sum()
+</pre></div>
+</div>
+</div>
+<div class="section" id="date-range">
+<span id="date-range"></span><h2>date range<a class="headerlink" href="#date-range" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="range">
+<span id="id10"></span><h3>月ごとのrange<a class="headerlink" href="#range" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">pd.date_range(start_date,</span> <span class="pre">end_date,</span> <span class="pre">freq=&quot;MS&quot;)</span></code></li>
+<li>datetutilより簡単に扱えるので、分析絡むプロジェクトならいいと思う</li>
+<li>逆にPython web applicationだとpandasなさそう</li>
+</ul>
+</div>
+<div class="section" id="n">
+<span id="n"></span><h3>過去N日<a class="headerlink" href="#n" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>pd.rangeのstartは必須ではない</li>
+<li>endとperiodsを指定してあげればよい</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h2>結合<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="">
+<span id="id12"></span><h3>縦<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-py3:pandas_concat_row.py"><div class="highlight"><pre><span></span>pd.concat(df_list, ingnore_index=True)`
+</pre></div>
+</div>
+<p>正直、あまり使わないと思うけどメモ</p>
+<div class="section" id="append">
+<span id="append"></span><h4>append<a class="headerlink" href="#append" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>DataFrameにしないと(indexがないと)index error</p>
+<div class="highlight-py3:pandas_append_df_dict_series.py"><div class="highlight"><pre><span></span>df = pd.DataFrame([range(3), range(2)])
+s = df.sum()
+df = df.append({0:0,1:2,2:2}, ignore_index=True)
+df = df.append(s, ignore_index=True)
+df = df.append(pd.DataFrame({&#39;sum&#39;: s}).T)
+df.append()
+</pre></div>
+</div>
+<pre>
+     0  1  2
+0    0  1  2
+1    0  1  NaN
+2    0  2  2
+3    0  2  2
+sum  0  2  2
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id13"></span><h3>横結合<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-py3:pandas_concat_column.py"><div class="highlight"><pre><span></span># わざわざmergeする必要ないとき
+# dummy作ったあとのmergeなど
+# df_listの一部がset_indexしているとき、indexが合わないと期待する動きにならない
+pd.concat(df_list, axis=1)
+</pre></div>
+</div>
+</div>
+<div class="section" id="join">
+<span id="join"></span><h3>join<a class="headerlink" href="#join" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>by index</p>
+</div>
+<div class="section" id="merge">
+<span id="merge"></span><h3>merge<a class="headerlink" href="#merge" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>by column</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id14"></span><h2>欠損値<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="fillna">
+<span id="fillna"></span><h3>fillna<a class="headerlink" href="#fillna" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-py3:pandas_fillna.py"><div class="highlight"><pre><span></span># 基本scalar
+# padの際のbackfillなどを指定できる
+# 固定値ではなく、Seriesでも埋められる
+# 例:full outer joinしたあとの結合keyを３パターン残す
+# 片方それぞれにあるもの２パターン、両方にあるもの１パターン
+
+df_all = df1.merge(df2, how=&quot;outer&quot;, left_on=&quot;key1&quot;, right_on=&quot;key2&quot;)
+df_all[&quot;key_all&quot;] = df_all[&quot;key1&quot;].fillna(df_all[&quot;key2&quot;])
+</pre></div>
+</div>
+</div>
+<div class="section" id="groupby">
+<span id="groupby"></span><h3>groupby<a class="headerlink" href="#groupby" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>nanはgroupから取り除かれる</li>
+<li>知らないとハマる, 実装上難しいらしい</li>
+<li>対処法は、区別できる値でfillしておく</li>
+</ul>
+</div>
+<div class="section" id="interpolate">
+<span id="interpolate"></span><h3>interpolate<a class="headerlink" href="#interpolate" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>http://pandas.pydata.org/pandas-docs/stable/missing_data.html にあった</li>
+<li>DataFrame/Seriesのinterpolateを調べる<ul>
+<li>いろんなmethodを指定できる</li>
+<li>scipyのinterpolateを使うmethodもある</li>
+<li>https://github.com/pydata/pandas/blob/v0.17.1/pandas/core/generic.py#L3121
+http://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html</li>
+</ul>
+</li>
+<li>https://github.com/pydata/pandas/blob/99bf170ff326b716810f7012e3effdcb611b6e7e/doc/source/whatsnew/v0.12.0.txt#L110</li>
+<li>一度duplicatedになって、0.13.0で復活している</li>
+</ul>
+</div>
+</div>
+<div class="section" id="describepercentile">
+<span id="describepercentile"></span><h2>describeのpercentile<a class="headerlink" href="#describepercentile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>http://pandas.pydata.org/pandas-docs/version/0.18.0/generated/pandas.DataFrame.describe.html を見ていたら、ふだん出力されないcategoryと4分位のみの部分を変更できるようなのでメモ</p>
+<div class="highlight-py3:pandas_desc_detail.py"><div class="highlight"><pre><span></span>iris_pandas_url = &quot;https://raw.githubusercontent.com/pydata/pandas/master/doc/data/iris.data&quot;
+iris = pd.read_csv(iris_pandas_url)
+percentiles = np.linspace(0.1, 0.9, 9)
+# 0, 1 はmin/maxなので不要
+iris.describe(include=&quot;all&quot;, percentiles=percentiles).T
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-suffix-prefix-to-columns">
+<span id="add-suffix-prefix-to-columns"></span><h2>add suffix/prefix to columns<a class="headerlink" href="#add-suffix-prefix-to-columns" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:pandas_add_prefix_suffix.py"><div class="highlight"><pre><span></span># https://gist.github.com/ksomemo/20e41f8cd4dad077a2b33c1d914f952d
+import seaborn as sns
+(sns.load_dataset(&quot;iris&quot;)
+    .add_prefix(&quot;prefix_&quot;)
+    .groupby(&quot;prefix_species&quot;)
+    .mean()
+    .add_suffix(&quot;_mean&quot;))
+</pre></div>
+</div>
+</div>
+<div class="section" id="series">
+<span id="series"></span><h2>series<a class="headerlink" href="#series" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="utility">
+<span id="utility"></span><h3>文字列系Utilityを扱う<a class="headerlink" href="#utility" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>series.str.method</li>
+<li>series.dt.method は0.17から<ul>
+<li>DateTimeIndexはdt経由ではなく直接なので混同しないこと</li>
+</ul>
+</li>
+<li>window functionも0.18.1から</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id15"></span><h2>構成比率を見る時の定型<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:pandas_normalization.py"><div class="highlight"><pre><span></span># ただし正の数に対して
+df.div(df.sum(axis=1), axis=0).plot(kind=&quot;bar&quot;, stacked=True)
+</pre></div>
+</div>
+</div>
+<div class="section" id="masking">
+<span id="masking"></span><h2>masking<a class="headerlink" href="#masking" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>maskは条件に合うものをmask</li>
+<li>whereは条件に合わないものをmask<ul>
+<li><code class="docutils literal"><span class="pre">np.where</span></code>はRのifelseに似ている</li>
+<li>がpandasではmethod一発ではできない</li>
+<li>一旦埋めておく, そのあとに<code class="docutils literal"><span class="pre">series.where</span></code>でmaskする</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="others">
+<span id="others"></span><h2>others<a class="headerlink" href="#others" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>変化率<ul>
+<li>(nth - (n-1)th) / (n-1)th, shiftだと簡潔に表せそうだが</li>
+<li>series.pct_change というmethodがある</li>
+</ul>
+</li>
+<li>自己相関<ul>
+<li>series.corr(series.shift())</li>
+</ul>
+</li>
+<li>上限下限の設定<ul>
+<li><code class="docutils literal"><span class="pre">pd.Series(range(4)).clip(lower=1,</span> <span class="pre">upper=2)</span> <span class="pre">==</span> <span class="pre">pd.Series([1,1,2,2])</span></code></li>
+<li>0,1,2,3 to 1,1,2,2</li>
+</ul>
+</li>
+<li><a class="reference external" href="http://qiita.com/ksomemo/items/ff0cbe63455f70bdf751">ランダムデータと正規化・標準化</a></li>
+<li><a class="reference external" href="http://qiita.com/ksomemo/items/f658742a18ad804caa5f">階級作成とDummy変数の作成</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>参考書 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">参考書</a></li>
+<li><a class="reference internal" href="#">環境構築</a></li>
+<li><a class="reference internal" href="#">エディタ</a></li>
+<li><a class="reference internal" href="#">ディレクトリ構造</a></li>
+<li><a class="reference internal" href="#rebar">rebar</a><ul>
+<li><a class="reference internal" href="#">インストール</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">おわり</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>参考書</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Erlangをはじめるためのまとめ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>参考書<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>飛行機本</li>
+<li>要所ですごいErlangを見る予定</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>環境構築<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://gist.github.com/ksomemo/b3db01e8233a03836e7a にまとめた</p>
+<ul class="simple">
+<li>kerlを使ったバージョン管理</li>
+<li>ビルド用のrebarは後述</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>エディタ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>IntellijIDEA + Erlang plugin</li>
+<li>pluginインストール後、Erlang External Toolsでのrebar設定</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>ディレクトリ構造<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://www.erlang.org/doc/design_principles/applications.html#app_dir</li>
+<li>上記のURLに記載されている各ディレクトリ内の構造の詳細は不明</li>
+<li>src,ebinは後述のrebarで作成できる</li>
+<li>priv,includeよくわかっていない</li>
+<li>testは必須ではないが、後述のrebarでテストを実行する際の対象を格納しておく</li>
+<li>docは、後述のrebar(rebar doc)によってhtml documentが作成される</li>
+</ul>
+</div>
+<div class="section" id="rebar">
+<span id="rebar"></span><h1>rebar<a class="headerlink" href="#rebar" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>便利なコマンドが充実している</p>
+<ul class="simple">
+<li>ひな形作成(srcディレクトリに作成)</li>
+<li>complile(ebinディレクトリに作成)</li>
+<li>test(UnitTest/QuickCheckも)</li>
+<li>document</li>
+<li>依存管理用</li>
+<li>etc.(https://github.com/rebar/rebar/wiki)</li>
+</ul>
+<div class="section" id="">
+<span id="id5"></span><h2>インストール<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">erlang</span><span class="o">/</span> <span class="c1"># kerlで作ったディレクトリなのでなんとなく</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">rebar</span><span class="o">/</span><span class="n">rebar</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">rebar</span>
+<span class="o">./</span><span class="n">bootstrap</span> <span class="c1"># ここでエラー</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>bootstrapの先頭に記載されているところで落ちていた</li>
+<li>!/usr/bin/env escript</li>
+<li>ターミナルの別タブで作業をしたためErlangのactivateをしていなかったので.zshrcに応急処理で突っ込んだ orz</li>
+<li>. ~/erlang/r16b03-1/activate</li>
+<li>escriptを使うとErlangファイルをスクリプトとして実行できる</li>
+</ul>
+<p>作成されたrebar をPATHが通っているところに移動し、rebar(とバージョン管理ツールkerl)をcommit対象外にしておいた</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h1>おわり<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>環境構築できた</li>
+<li>ビルドツール入れたので今後はこれを調べれば良さそう</li>
+<li>あとは基礎から頑張る</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

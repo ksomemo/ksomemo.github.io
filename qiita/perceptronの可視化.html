@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/perceptronの可視化.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><a class="reference external" href="http://qiita.com/s-kiriki/items/b7e5b87e526153dc3611">パーセプトロンの学習規則をPythonで実装</a> を参考に可視化した</p>
+<div class="highlight-note.md"><div class="highlight"><pre><span></span>## いろんな関数
+- 損失関数(loss) or 誤差関数(error)
+    - ある学習手法の損失関数はxxxである
+        - ヒンジ損失
+        - etc.
+- 目的関数
+    - よくわかってない
+    - 正則化項
+        - perceptronの範囲を超えているけど、メモ
+            - 過学習のために使うらしい
+        - http://pandazx.hatenablog.com/entry/2014/07/11/115123
+        - http://d.hatena.ne.jp/tkng/20090119/1232340992
+        - https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%89%87%E5%8C%96
+        - http://tjo.hatenablog.com/entry/2015/03/03/190000
+        - https://staff.aist.go.jp/s.akaho/kernel-html/node7.html
+        - http://breakbee.hatenablog.jp/entry/2015/03/08/041411
+        - https://nbviewer.jupyter.org/github/chezou/notebooks/blob/master/classification.ipynb
+- 活性化関数(activation)
+    - 出力に対して適用する
+        - 出力は入力/bias・重みによる計算結果
+        - step関数
+        - シグモイド関数
+        - etc.
+        - 回帰の時は？
+    - 閾値
+    - perceptronにおいてはニューロンの発火を意味する
+
+### 活性化関数
+https://ja.wikipedia.org/wiki/%E6%B4%BB%E6%80%A7%E5%8C%96%E9%96%A2%E6%95%B0
+
+## 層
+- 入力層
+    - biasの追加
+- 隠れ層
+    - 活性化関数
+- 出力層
+    - 活性化関数
+
+各層における役割と関数を適切に考える
+</pre></div>
+</div>
+<div class="highlight-py3:perceptron.py"><div class="highlight"><pre><span></span>&quot;&quot;&quot;
+- http://qiita.com/s-kiriki/items/b7e5b87e526153dc3611
+- matplotlibのAnimationでやろうとしたけど、global変数の扱いがめんどうだった(class使えばいい気もするが)
+- ipywidgets](https://github.com/ipython/ipywidgets) を採用した
+- ipywidgetsの方が自分で値を調整しながら可視化できるので、勉強する身としては役に立つ(ただし、このように公開するときはAnimation GIFのほうがよい)
+- オンライン機械学習としては、データ数を少しずつ増やす かつ データセットでの繰り返しを１回に抑えたほうがわかりやすいと思った
+- 
+&quot;&quot;&quot;
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn import datasets
+import ipywidgets
+
+%matplotlib inline
+
+def f(X, Y):
+    @ipywidgets.interact(
+        etas={&#39;0.01&#39;: 0.01, &#39;0.1&#39;: 0.1, &#39;0.5&#39;: 0.5},
+        with_bias=True,
+        epoch=(1, 100, 1),
+        end=(2,100, 2)
+    )
+    def plot(etas=0.1, with_bias=True, epoch=100, end=100):
+        #bias = 1
+        #eta = 0.1
+        #train_x = np.c_[X, np.repeat(bias, 100)]
+        #train_y = Y
+
+        bias = 1 * with_bias
+        eta = etas
+        train_x = np.c_[X, np.repeat(bias, len(X))][:end]
+        train_y = Y[:end]
+        weight = np.zeros(train_x.shape[1])
+
+        for i in range(epoch):
+            for x, y in zip(train_x, train_y):
+                weight = train(weight, x, y, eta)
+
+        # ax1+bx2+c = 0
+        # x2 = -(a/b)x1 -(c/b)
+        x2 = -weight[0]/weight[1] * train_x[:, 0] -(weight[2]/weight[1]) 
+        plt.plot(train_x[:,0], x2)
+        plt.scatter(train_x[:, 0], train_x[:, 1], c=train_y)
+    return plot
+</pre></div>
+</div>
+<div class="highlight-py3:example_plot.py"><div class="highlight"><pre><span></span>&quot;&quot;&quot;
+- 線形分離できそうなもの２つとできないもので試した
+- http://scikit-learn.org/stable/datasets/
+&quot;&quot;&quot;
+
+# Generate a random regression problem.
+X, Y = datasets.make_regression(
+    n_samples=100, n_features=2, n_informative=2, n_targets=1, 
+    bias=0.0, effective_rank=None, tail_strength=0.5, noise=1.0, shuffle=True, coef=False, random_state=0)
+f(X, Y &gt; 5)()
+
+
+# Generate isotropic Gaussian blobs for clustering.
+# datasets.make_blobs([n_samples, n_features, ...])
+X_b, Y_b = datasets.make_blobs(
+    n_samples=100, n_features=2, centers=2, cluster_std=1.0, 
+    center_box=(-10.0, 10.0), shuffle=True, random_state=100)
+plt.scatter(X_b[:, 0], X_b[:, 1], c=Y_b, cmap=plt.cm.Paired)
+f(X_b, Y_b)()
+
+
+# http://scikit-learn.org/dev/auto_examples/gaussian_process/plot_gpc_xor.html
+rng = np.random.RandomState(0)
+X_xor = rng.randn(200, 2)
+Y_xor = np.logical_xor(X_xor[:, 0] &gt; 0, X_xor[:, 1] &gt; 0)
+f(X_xor, Y_xor)()
+
+
+# Make a large circle containing a smaller circle in 2d.
+X_circle, Y_circle = datasets.make_circles(n_samples=100, shuffle=True, noise=None, random_state=None, factor=0.8)
+plt.scatter(X_circle[:, 0], X_circle[:, 1], c=Y_circle, cmap=plt.cm.Paired)
+f(X_circle, Y_circle)()
+
+
+# Make two interleaving half circles
+X_moons, Y_moons = datasets.make_moons(n_samples=100, shuffle=True, noise=None, random_state=None)
+plt.scatter(X_moons[:, 0], X_moons[:, 1], c=Y_moons, cmap=plt.cm.Paired)
+f(X_moons, Y_moons)()
+</pre></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

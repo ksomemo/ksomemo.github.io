@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>date_range &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">date_range</a><ul>
+<li><a class="reference internal" href="#dateutil">dateutil</a></li>
+<li><a class="reference internal" href="#pandas">pandas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pandas-offset-alias">pandas offset aliasまとめ</a><ul>
+<li><a class="reference internal" href="#">よく使う月末月初の日付を求める</a><ul>
+<li><a class="reference internal" href="#">結果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>date_range</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/python date_range (dateutil／pandas and offset aliasまとめ).md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="date-range">
+<span id="date-range"></span><h1>date_range<a class="headerlink" href="#date-range" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="dateutil">
+<span id="dateutil"></span><h2>dateutil<a class="headerlink" href="#dateutil" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-py3:datetime_range.py"><div class="highlight"><pre><span></span>from dateutil import (
+    rrule,
+    parser
+)
+
+start_date = parser.parse(&#39;2015-11-01&#39;)
+end_date = parser.parse(&#39;2015-11-05&#39;)
+
+list(rrule.rrule(rrule.DAILY, dtstart=start_date, until=end_date))
+</pre></div>
+</div>
+</div>
+<div class="section" id="pandas">
+<span id="pandas"></span><h2>pandas<a class="headerlink" href="#pandas" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>入っているなら日付Parseや間隔(offset)およびが便利なのでこちら</li>
+<li>http://pandas.pydata.org/pandas-docs/stable/generated/pandas.date_range.html</li>
+<li>日本語日付を扱うならjapandasが便利<ul>
+<li>https://gist.github.com/ksomemo/34c0e447d12376b87d1602a1558af390</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="pandas-offset-alias">
+<span id="pandas-offset-alias"></span><h1>pandas offset aliasまとめ<a class="headerlink" href="#pandas-offset-alias" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases</li>
+<li>見づらいので整形した</li>
+<li>http://www.tablesgenerator.com/markdown_tables で整形した</li>
+</ul>
+<p>| Alias | business | custom business(experimental) | Description   |
+|&#8212;&#8212;-|&#8212;&#8212;&#8212;-|&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-|&#8212;&#8212;&#8212;&#8212;&#8212;|
+| D     | B        | C                             | calendar day  |
+| W     |          |                               | weekly        |
+| M     | BM       | CBM                           | month end     |
+| MS    | BMS      | CBMS                          | month start   |
+| Q     | BQ       |                               | quarter end   |
+| QS    | BQS      |                               | quarter start |
+| A     | BA       |                               | year end      |
+| AS    | BAS      |                               | year start    |
+| H     |          |                               | hourly        |
+| T,min |          |                               | minutely      |
+| S     |          |                               | secondly      |
+| L,ms  |          |                               | milliseonds   |
+| U,us  |          |                               | microseconds  |
+| N     |          |                               | nanoseconds   |</p>
+<div class="section" id="">
+<span id="id1"></span><h2>よく使う月末月初の日付を求める<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>pd.offsets.MonthEndを使って求める</li>
+<li>pd.offsets.MonthBeginは使う必要なかった<ul>
+<li>http://docs.python.jp/3/library/datetime.html#datetime.datetime.replace</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-datetime_replace.py"><div class="highlight"><pre><span></span># pandas.Timestampのまま返ってくる
+dt.replace(year=2000, month=10, day=1, hour=2, minute=3, second=4, microsecond=123456)
+Timestamp(&#39;2000-10-01 02:03:04.123456&#39;)
+</pre></div>
+</div>
+<div class="highlight-pandas_offsets.py"><div class="highlight"><pre><span></span>&quot;&quot;&quot;
+(月初/中/末)日付 × 月末offset(0, 1) × (加算減算)の組合せのうち、
+どれを行えば求められるか
+&quot;&quot;&quot;
+import pandas as pd
+from operator import add, sub
+from itertools import product
+import io
+
+
+dt = pd.to_datetime(&quot;20161111&quot;).date()
+dtb = pd.to_datetime(&quot;20161101&quot;).date()
+dte = pd.to_datetime(&quot;20161130&quot;).date()
+dts = [dt, dtb, dte]
+
+#mb = pd.offsets.MonthBegin()
+#mb0 = pd.offsets.MonthBegin(0)
+me = pd.offsets.MonthEnd()
+me0 = pd.offsets.MonthEnd(0)
+ms = me, me0
+
+ops = [add, sub]
+
+expected_values = {
+  mb.__class__.__name__: &quot;2016-11-01&quot;,
+  me.__class__.__name__: &quot;2016-11-30&quot;,
+}
+
+# ipython上で確認していた+ファイルに出力するとゴミが溜まるので
+# StringIO,print sep=tab, seekで元に戻すで対応してDataFrameに出力
+with io.StringIO() as sio:
+    for d, m, op in product(dts, ms, ops):
+        print(d, op.__name__, m, op(d, m).date(),
+              sep=&quot;\t&quot;, file=sio)
+    sio.seek(0)
+    df = pd.read_table(sio, names=[&quot;date&quot;, &quot;operator&quot;, &quot;offset&quot;, &quot;result&quot;])
+
+df[&quot;correct&quot;] = df[&quot;result&quot;] == &quot;2016-11-30&quot;
+df.pivot_table(index=[&quot;offset&quot;, &quot;operator&quot;],
+               columns=&quot;correct&quot;, values=&quot;result&quot;, aggfunc=len)
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h3>結果<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>月末はMonthBegin(0)を使えば加減どちらでもよい</li>
+<li>意味としては足したほうがわかりやすい</li>
+</ul>
+<div class="highlight-pandas_offsets_result.txt"><div class="highlight"><pre><span></span>correct                   False  True
+offset          operator
+&lt;0 * MonthEnds&gt; add         NaN    3.0
+                sub         NaN    3.0
+&lt;MonthEnd&gt;      add         1.0    2.0
+                sub         3.0    NaN
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

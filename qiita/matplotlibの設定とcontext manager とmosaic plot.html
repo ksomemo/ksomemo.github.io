@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/matplotlibの設定とcontext manager とmosaic plot.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <ul class="simple">
+<li>matplotlibの設定一覧</li>
+<li>上記の設定を一時的に適用できるcontext manager</li>
+<li>mosaic plot というクロス集計結果の割合の可視化</li>
+<li>plot結果を解像度指定して画像として保存</li>
+</ul>
+<div class="highlight-mosaic_plot.py"><div class="highlight"><pre><span></span>%matplotlib inline
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+iris = sns.load_dataset(&quot;iris&quot;)
+iris_copy = iris.copy()
+iris_copy[&quot;sepal_length_round&quot;] = iris_copy.sepal_length.round()
+
+# http://matplotlib.org/users/customizing.html
+plot_context = {
+    &#39;figure.figsize&#39;: (10, 8),
+    &#39;font.size&#39;: 18,
+    &#39;font.stretch&#39;: 18,
+    &#39;figure.dpi&#39;: 100,
+    &#39;axes.labelsize&#39;: 18,
+    &#39;axes.titlesize&#39;: 20,
+    &#39;xtick.labelsize&#39;: 15,
+    &#39;ytick.labelsize&#39;: 20,
+    &#39;legend.fontsize&#39;: 15,
+    &#39;lines.markersize&#39;: 15,
+}
+# それっぽいものがあるかは下記で調べた
+{k for k in plt.rcParams.keys() if &quot;text&quot; in k} | {k for k in plt.rcParams.keys() if &quot;size&quot; in k}
+
+# http://statsmodels.sourceforge.net/stable/generated/statsmodels.graphics.mosaicplot.mosaic.html
+from statsmodels.graphics.mosaicplot import mosaic
+with plt.rc_context(plot_context):
+    fig, rects = mosaic(iris_copy, [&quot;sepal_length_round&quot;, &quot;species&quot;], gap=0.01)
+    plt.savefig(&quot;mosaic_cm.png&quot;, dpi=200)
+
+# 結果のDataFrame Indexが示す値は何か書いてない…
+# 0, 1, : ??
+# 2: 横軸を全体とした時の構成比率
+# 3: 各横軸内での構成比率
+pd.DataFrame(rects)
+
+# 各IndexでのPlot
+fig, axes = plt.subplots(1, 2, figsize=(10, 5))
+index = [&quot;sepal_length_round&quot;, &quot;species&quot;]
+mosaic(iris_copy, index, gap=0.01, ax=axes[0])
+mosaic(iris_copy, index[::-1], gap=0.01, ax=axes[1])
+plt.tight_layout()
+</pre></div>
+</div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">5.0</th>
+      <th colspan="3" halign="left">4.0</th>
+      <th colspan="3" halign="left">6.0</th>
+      <th colspan="3" halign="left">7.0</th>
+      <th colspan="3" halign="left">8.0</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.310897</td>
+      <td>0.310897</td>
+      <td>0.310897</td>
+      <td>0.352564</td>
+      <td>0.352564</td>
+      <td>0.352564</td>
+      <td>0.798077</td>
+      <td>0.798077</td>
+      <td>0.798077</td>
+      <td>0.961538</td>
+      <td>0.961538</td>
+      <td>0.961538</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.846445</td>
+      <td>0.979003</td>
+      <td>0.000000</td>
+      <td>0.993421</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.079141</td>
+      <td>0.608166</td>
+      <td>0.000000</td>
+      <td>0.006579</td>
+      <td>0.342105</td>
+      <td>0.000000</td>
+      <td>0.006579</td>
+      <td>0.013158</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.301282</td>
+      <td>0.301282</td>
+      <td>0.301282</td>
+      <td>0.032051</td>
+      <td>0.032051</td>
+      <td>0.032051</td>
+      <td>0.435897</td>
+      <td>0.435897</td>
+      <td>0.435897</td>
+      <td>0.153846</td>
+      <td>0.153846</td>
+      <td>0.153846</td>
+      <td>0.038462</td>
+      <td>0.038462</td>
+      <td>0.038462</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.839866</td>
+      <td>0.125980</td>
+      <td>0.020997</td>
+      <td>0.986842</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.072562</td>
+      <td>0.522446</td>
+      <td>0.391834</td>
+      <td>0.000000</td>
+      <td>0.328947</td>
+      <td>0.657895</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.986842</td>
+    </tr>
+  </tbody>
+</table>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>lubridate &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">lubridate</a><ul>
+<li><a class="reference internal" href="#sample">sample</a></li>
+<li><a class="reference internal" href="#ymd">ymd</a></li>
+<li><a class="reference internal" href="#months">months</a></li>
+<li><a class="reference internal" href="#date-and-posixct">Date and POSIXct</a></li>
+<li><a class="reference internal" href="#tz">tz</a></li>
+<li><a class="reference internal" href="#years">years</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>lubridate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Rのseqを使って先月を求めるときの注意点.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>月末日を利用して先月を求めたときのメモ。</p>
+<p>＜追記あり＞</p>
+<p>下記のように計算されているので、月末ではなく月初を利用するようにした。</p>
+<ul class="simple">
+<li>2015-03-31の先月は2015-03-03</li>
+<li>2015-03-03 -&gt; 2015-02-31</li>
+</ul>
+<div class="highlight-r"><div class="highlight"><pre><span></span>x <span class="o">&lt;-</span> <span class="s">&quot;2015-03-31&quot;</span>
+<span class="kp">print</span><span class="p">(</span><span class="kp">seq</span><span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span>x<span class="p">),</span> len<span class="o">=</span><span class="m">12</span><span class="p">,</span> by<span class="o">=</span><span class="s">&quot;-1 month&quot;</span><span class="p">))</span>
+
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;2015-03-31&quot;</span> <span class="s">&quot;2015-03-03&quot;</span> <span class="s">&quot;2015-01-31&quot;</span> <span class="s">&quot;2014-12-31&quot;</span> <span class="s">&quot;2014-12-01&quot;</span> <span class="s">&quot;2014-10-31&quot;</span>
+ <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s">&quot;2014-10-01&quot;</span> <span class="s">&quot;2014-08-31&quot;</span> <span class="s">&quot;2014-07-31&quot;</span> <span class="s">&quot;2014-07-01&quot;</span> <span class="s">&quot;2014-05-31&quot;</span> <span class="s">&quot;2014-05-01&quot;</span>
+
+x <span class="o">&lt;-</span> <span class="s">&quot;2015-03-01&quot;</span>
+<span class="kp">print</span><span class="p">(</span><span class="kp">seq</span><span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span>x<span class="p">),</span> len<span class="o">=</span><span class="m">12</span><span class="p">,</span> by<span class="o">=</span><span class="s">&quot;-1 month&quot;</span><span class="p">))</span>
+
+ <span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="s">&quot;2015-03-01&quot;</span> <span class="s">&quot;2015-02-01&quot;</span> <span class="s">&quot;2015-01-01&quot;</span> <span class="s">&quot;2014-12-01&quot;</span> <span class="s">&quot;2014-11-01&quot;</span> <span class="s">&quot;2014-10-01&quot;</span>
+ <span class="p">[</span><span class="m">7</span><span class="p">]</span> <span class="s">&quot;2014-09-01&quot;</span> <span class="s">&quot;2014-08-01&quot;</span> <span class="s">&quot;2014-07-01&quot;</span> <span class="s">&quot;2014-06-01&quot;</span> <span class="s">&quot;2014-05-01&quot;</span> <span class="s">&quot;2014-04-01&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="lubridate">
+<span id="lubridate"></span><h1>lubridate<a class="headerlink" href="#lubridate" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<blockquote>
+<div>https://twitter.com/kohske/status/583989166301511680
+日付扱う時はlubridateが便利だと思う。何も考えず <code class="docutils literal"><span class="pre">ymd(&quot;2015-03-31&quot;)</span> <span class="pre">%m-%months(1:12)</span></code> で事足りる</div></blockquote>
+<p>と書かれていたので思いつくのものを試してみた。
+結論は便利。ただし、Timezoneだけめんどう。</p>
+<div class="section" id="sample">
+<span id="sample"></span><h2>sample<a class="headerlink" href="#sample" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span>install.packages<span class="p">(</span><span class="s">&quot;lubridate&quot;</span><span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>lubridate<span class="p">)</span>
+
+ymd<span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">)</span> <span class="o">%m-%</span> <span class="kp">months</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>
+<span class="c1">#  [1] &quot;2015-02-28 UTC&quot; &quot;2015-01-31 UTC&quot; &quot;2014-12-31 UTC&quot; &quot;2014-11-30 UTC&quot; &quot;2014-10-31 UTC&quot;</span>
+<span class="c1">#  [6] &quot;2014-09-30 UTC&quot; &quot;2014-08-31 UTC&quot; &quot;2014-07-31 UTC&quot; &quot;2014-06-30 UTC&quot; &quot;2014-05-31 UTC&quot;</span>
+<span class="c1"># [11] &quot;2014-04-30 UTC&quot; &quot;2014-03-31 UTC&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ymd">
+<span id="ymd"></span><h2>ymd<a class="headerlink" href="#ymd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span>ymd<span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">)</span>
+<span class="c1">#[1] &quot;2015-03-31 UTC&quot;</span>
+
+<span class="kp">class</span><span class="p">(</span>ymd<span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">))</span>
+<span class="c1">#[1] &quot;POSIXct&quot; &quot;POSIXt&quot; </span>
+
+<span class="o">?</span>ymd
+<span class="c1">#ymd(..., quiet = FALSE, tz = &quot;UTC&quot;,</span>
+<span class="c1">#    locale = Sys.getlocale(&quot;LC_TIME&quot;), truncated = 0)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="months">
+<span id="months"></span><h2>months<a class="headerlink" href="#months" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="kp">months</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<span class="c1">#[1] &quot;1m 0d 0H 0M 0S&quot;</span>
+<span class="o">?</span><span class="kp">months</span>
+<span class="c1"># {base} </span>
+
+<span class="kp">class</span><span class="p">(</span><span class="kp">months</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
+<span class="c1">#[1] &quot;Period&quot;</span>
+<span class="c1">#attr(,&quot;package&quot;)</span>
+<span class="c1">#[1] &quot;lubridate&quot;</span>
+
+<span class="c1"># classを見て疑問に思ったので</span>
+<span class="c1"># libraryする前を試してみると</span>
+<span class="kp">months</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+<span class="c1"># 以下にエラー UseMethod(&quot;months&quot;) :</span>
+<span class="c1">#   &#39;months&#39; をクラス &quot;c(&#39;double&#39;, &#39;numeric&#39;)&quot; のオブジェクトに適用できるようなメソッドがありません</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="date-and-posixct">
+<span id="date-and-posixct"></span><h2>Date and POSIXct<a class="headerlink" href="#date-and-posixct" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span><span class="kp">class</span><span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">))</span>
+<span class="c1">#[1] &quot;Date&quot;</span>
+
+<span class="kp">as.POSIXct</span><span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">))</span>
+<span class="c1">#[1] &quot;2015-03-31 09:00:00 JST&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tz">
+<span id="tz"></span><h2>tz<a class="headerlink" href="#tz" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span>ymd<span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">,</span> tz <span class="o">=</span> <span class="s">&quot;JST&quot;</span><span class="p">)</span>
+<span class="c1">#[1] &quot;2015-03-31 GMT&quot;</span>
+<span class="c1"># 警告メッセージ: </span>
+<span class="c1">#1: In as.POSIXct.POSIXlt(lt) : unknown timezone &#39;JST&#39;</span>
+<span class="c1">#2: In as.POSIXlt.POSIXct(ct) : unknown timezone &#39;JST&#39;</span>
+<span class="c1">#3: In as.POSIXct.POSIXlt(t) : unknown timezone &#39;JST&#39;</span>
+<span class="c1">#4: In as.POSIXlt.POSIXct(ct) : unknown timezone &#39;JST&#39;</span>
+<span class="c1">#5: In as.POSIXlt.POSIXct(x, tz) : unknown timezone &#39;JST&#39;</span>
+
+ymd<span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">,</span> tz <span class="o">=</span> <span class="s">&quot;Asia/Tokyo&quot;</span><span class="p">)</span>
+<span class="c1">#[1] &quot;2015-03-31 JST&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="years">
+<span id="years"></span><h2>years<a class="headerlink" href="#years" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-r"><div class="highlight"><pre><span></span>years<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>
+<span class="c1"># [1] &quot;1y 0m 0d 0H 0M 0S&quot;  &quot;2y 0m 0d 0H 0M 0S&quot;  &quot;3y 0m 0d 0H 0M 0S&quot;  &quot;4y 0m 0d 0H 0M 0S&quot; </span>
+<span class="c1"># [5] &quot;5y 0m 0d 0H 0M 0S&quot;  &quot;6y 0m 0d 0H 0M 0S&quot;  &quot;7y 0m 0d 0H 0M 0S&quot;  &quot;8y 0m 0d 0H 0M 0S&quot; </span>
+<span class="c1"># [9] &quot;9y 0m 0d 0H 0M 0S&quot;  &quot;10y 0m 0d 0H 0M 0S&quot; &quot;11y 0m 0d 0H 0M 0S&quot; &quot;12y 0m 0d 0H 0M 0S&quot;</span>
+
+ymd<span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">)</span> <span class="o">%y-%</span> years<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>
+<span class="c1"># エラー:  関数 &quot;%y-%&quot; を見つけることができませんでした </span>
+ymd<span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">)</span> <span class="o">%Y-%</span> years<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>
+<span class="c1"># エラー:  関数 &quot;%Y-%&quot; を見つけることができませんでした </span>
+ymd<span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">)</span> <span class="o">%d-%</span> years<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>
+<span class="c1"># エラー:  関数 &quot;%d-%&quot; を見つけることができませんでした </span>
+
+ymd<span class="p">(</span><span class="s">&quot;2015-03-31&quot;</span><span class="p">)</span> <span class="o">%m-%</span> years<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>
+<span class="c1"># [1] &quot;2014-03-31 UTC&quot; &quot;2013-03-31 UTC&quot; &quot;2012-03-31 UTC&quot; &quot;2011-03-31 UTC&quot; &quot;2010-03-31 UTC&quot;</span>
+<span class="c1"># [6] &quot;2009-03-31 UTC&quot; &quot;2008-03-31 UTC&quot; &quot;2007-03-31 UTC&quot; &quot;2006-03-31 UTC&quot; &quot;2005-03-31 UTC&quot;</span>
+<span class="c1">#[11] &quot;2004-03-31 UTC&quot; &quot;2003-03-31 UTC&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

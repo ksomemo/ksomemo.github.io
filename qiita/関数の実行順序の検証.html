@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ソースコード &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">ソースコード</a></li>
+<li><a class="reference internal" href="#">実行結果</a></li>
+<li><a class="reference internal" href="#">まとめ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ソースコード</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/関数の実行順序の検証.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>spawnを使ったときの挙動が分からなかったので調べてみた。下記の用途をしているソースを見つけたためである。</p>
+<ul class="simple">
+<li>spawnでPidを生成する</li>
+<li>直後にregisterで登録済みプロセスにする</li>
+<li>spwan内の処理で登録済みプロセスを扱う</li>
+</ul>
+<div class="section" id="">
+<span id="id1"></span><h1>ソースコード<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-erlang"><div class="highlight"><pre><span></span><span class="c">%%%-------------------------------------------------------------------</span>
+<span class="c">%%% @author ksomemo</span>
+<span class="c">%%% @copyright (C) 2014, &lt;COMPANY&gt;</span>
+<span class="c">%%% @doc</span>
+<span class="c">%%% 関数の実行順序の検証</span>
+<span class="c">%%% @end</span>
+<span class="c">%%% Created : 27. 6 2014 20:16</span>
+<span class="c">%%%-------------------------------------------------------------------</span>
+<span class="p">-</span><span class="ni">module</span><span class="p">(</span><span class="n">func_exe_order</span><span class="p">).</span>
+<span class="p">-</span><span class="ni">author</span><span class="p">(</span><span class="s">&quot;ksomemo&quot;</span><span class="p">).</span>
+
+<span class="c">%% API</span>
+<span class="p">-</span><span class="ni">export</span><span class="p">([</span>
+  <span class="n">main</span><span class="o">/</span><span class="mi">0</span>
+<span class="p">]).</span>
+
+<span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span>
+  <span class="nv">Pid0</span> <span class="o">=</span> <span class="nb">spawn</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">format</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;spawn/1_lambda</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">]),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid0 bind </span><span class="si">~p~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">Pid0</span><span class="p">]),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid0 after</span><span class="si">~n~n</span><span class="s">&quot;</span><span class="p">),</span>
+
+  <span class="nv">Pid1</span> <span class="o">=</span> <span class="nb">spawn</span><span class="p">(</span><span class="k">fun</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;spawn/1_lambda</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">)</span> <span class="k">end</span><span class="p">),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid1 bind </span><span class="si">~p~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">Pid1</span><span class="p">]),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid1 after</span><span class="si">~n~n</span><span class="s">&quot;</span><span class="p">),</span>
+
+  <span class="nv">Pid2</span> <span class="o">=</span> <span class="nb">spawn</span><span class="p">(</span><span class="k">fun</span> <span class="n">sub1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid2 bind </span><span class="si">~p~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">Pid2</span><span class="p">]),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid2 after1</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid2 after2</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid2 after3</span><span class="si">~n~n</span><span class="s">&quot;</span><span class="p">),</span>
+
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;sub2 before</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">),</span>
+  <span class="n">sub2</span><span class="p">(),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;sub2 after</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">),</span>
+
+  <span class="p">[</span><span class="nv">Pid0</span><span class="p">,</span> <span class="nv">Pid1</span><span class="p">,</span> <span class="nv">Pid2</span><span class="p">].</span>
+
+<span class="nf">sub1</span><span class="p">()</span> <span class="o">-&gt;</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;sub1</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">),</span>
+  <span class="nv">Pid3</span> <span class="o">=</span> <span class="nb">spawn</span><span class="p">(</span><span class="k">fun</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;spawn/1_lambda in sub1</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">)</span> <span class="k">end</span><span class="p">),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid3 bind </span><span class="si">~p~n</span><span class="s">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">Pid3</span><span class="p">]),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Pid3 after</span><span class="si">~n~n</span><span class="s">&quot;</span><span class="p">).</span>
+
+<span class="nf">sub2</span><span class="p">()</span> <span class="o">-&gt;</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;sub2_1</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;sub2_2</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">),</span>
+  <span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;sub2_3</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">).</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>実行結果<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">erlc</span> <span class="n">func_exe_order</span><span class="o">.</span><span class="n">erl</span>  
+<span class="o">%</span> <span class="n">erl</span> <span class="o">-</span><span class="n">noshell</span> <span class="o">-</span><span class="n">s</span> <span class="n">func_exe_order</span> <span class="n">main</span> <span class="o">-</span><span class="n">s</span> <span class="n">init</span> <span class="n">stop</span>
+
+<span class="n">Pid0</span> <span class="n">bind</span> <span class="o">&lt;</span><span class="mf">0.29</span><span class="o">.</span><span class="mi">0</span><span class="o">&gt;</span>
+<span class="n">spawn</span><span class="o">/</span><span class="mi">1</span><span class="n">_lambda</span>
+<span class="n">Pid0</span> <span class="n">after</span>
+
+<span class="n">Pid1</span> <span class="n">bind</span> <span class="o">&lt;</span><span class="mf">0.30</span><span class="o">.</span><span class="mi">0</span><span class="o">&gt;</span>
+<span class="n">spawn</span><span class="o">/</span><span class="mi">1</span><span class="n">_lambda</span>
+<span class="n">Pid1</span> <span class="n">after</span>
+
+<span class="n">Pid2</span> <span class="n">bind</span> <span class="o">&lt;</span><span class="mf">0.31</span><span class="o">.</span><span class="mi">0</span><span class="o">&gt;</span>
+<span class="n">sub1</span>
+<span class="n">Pid2</span> <span class="n">after1</span>
+<span class="n">Pid3</span> <span class="n">bind</span> <span class="o">&lt;</span><span class="mf">0.32</span><span class="o">.</span><span class="mi">0</span><span class="o">&gt;</span>
+<span class="n">spawn</span><span class="o">/</span><span class="mi">1</span><span class="n">_lambda</span> <span class="ow">in</span> <span class="n">sub1</span>
+<span class="n">Pid2</span> <span class="n">after2</span>
+<span class="n">Pid3</span> <span class="n">after</span>
+
+<span class="n">Pid2</span> <span class="n">after3</span>
+
+<span class="n">sub2</span> <span class="n">before</span>
+<span class="n">sub2_1</span>
+<span class="n">sub2_2</span>
+<span class="n">sub2_3</span>
+<span class="n">sub2</span> <span class="n">after</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>まとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Pid0とPid1より、spawn/1,spawn/3でも結果は同じである</li>
+<li>spawnはPidをまず返し、そのあとに処理を実行する</li>
+<li>そのため、bind logが先に表示される</li>
+<li>Pid2とPid3より、メインが先行して処理されるわけではない</li>
+<li>上記は Pid3 bind &lt;0.32.0&gt;, spawn/1_lambda in sub1 のlogより</li>
+<li>普通に関数を実行する場合は、逐次実行されるのでsub2 afterはあとに表示される</li>
+<li>実装によって冒頭に書いた流れの処理は、実装次第で意図しない挙動をしそうである</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

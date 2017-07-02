@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Windowsでの接続 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Windowsでの接続</a></li>
+<li><a class="reference internal" href="#">問題点</a></li>
+<li><a class="reference internal" href="#python">pythonでやってみた</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Windowsでの接続</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/windows+pythonでsftp.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="windows">
+<span id="windows"></span><h1>Windowsでの接続<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>puttyを使って自動化してみた</p>
+<div class="highlight-bat"><div class="highlight"><pre><span></span><span class="c1">rem passwordの事前入力</span>
+<span class="c1">rem &quot;C:\Program Files (x86)\WinSCP\PuTTY\pageant.exe&quot; path-to.ppk</span>
+
+<span class="c1">rem バッチ実行</span>
+<span class="s2">&quot;C:\Program Files (x86)\WinSCP\WinSCP.com&quot;</span> /script=sftp_sample.txt /log=sftp_sample.log
+
+<span class="k">Set</span> <span class="nv">RESULT</span><span class="p">=</span><span class="nv">%ERRORLEVEL%</span>
+<span class="k">Exit</span> <span class="nv">%RESULT%</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">open</span> <span class="n">sftp</span><span class="p">:</span><span class="o">//</span><span class="n">user</span><span class="nd">@hostname</span><span class="p">:</span><span class="mi">22</span> <span class="o">-</span><span class="n">privatekey</span><span class="o">=</span><span class="s2">&quot;path-to.ppk&quot;</span>
+
+<span class="n">cd</span> <span class="o">/</span><span class="n">dir1</span><span class="o">/</span><span class="n">dir1_1</span>
+<span class="n">ls</span>
+<span class="n">close</span>
+<span class="n">exit</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>問題点<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>引数を渡せるけど扱いが面倒</p>
+</div>
+<div class="section" id="python">
+<span id="python"></span><h1>pythonでやってみた<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paramiko</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;hostname&quot;</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">USER</span> <span class="o">=</span> <span class="s2">&quot;user&quot;</span>
+<span class="n">PRIVATE_KEY</span> <span class="o">=</span> <span class="s2">&quot;path-to-pem-or-ppk&quot;</span>
+
+<span class="k">def</span> <span class="nf">ssh_client_ver</span><span class="p">():</span>
+    <span class="c1"># こちらうまくいかなかったので、メインのほうでためした</span>
+    <span class="n">ssh</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
+    <span class="n">private_key</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">RSAKey</span><span class="o">.</span><span class="n">from_private_key_file</span><span class="p">(</span><span class="n">PRIVATE_KEY</span><span class="p">)</span>
+    <span class="n">ssh</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">pkey</span><span class="o">=</span><span class="n">private_key</span><span class="p">)</span>
+    <span class="n">sftp</span> <span class="o">=</span> <span class="n">ssh</span><span class="o">.</span><span class="n">open_sftp</span><span class="p">()</span>
+
+    <span class="n">sftp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">ssh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">paramiko</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">log_to_file</span><span class="p">(</span><span class="s2">&quot;paramiko_sample_sftp.log&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 接続</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">Transport</span><span class="p">(</span><span class="n">HOST</span><span class="p">)</span>
+    <span class="n">private_key</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">RSAKey</span><span class="o">.</span><span class="n">from_private_key_file</span><span class="p">(</span><span class="n">PRIVATE_KEY</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">pkey</span><span class="o">=</span><span class="n">private_key</span><span class="p">)</span>
+    <span class="n">sftp</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SFTPClient</span><span class="o">.</span><span class="n">from_transport</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="c1"># 確認用</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">sftp</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># ディレクトリ情報</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sftp</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span> <span class="c1"># RootはNone</span>
+    <span class="n">sftp</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;dir1/dir1_1&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sftp</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sftp</span><span class="o">.</span><span class="n">listdir</span><span class="p">())</span>
+
+    <span class="c1"># getの方法</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sftp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;remote.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;local.txt&quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">paramiko</span><span class="o">.</span><span class="n">SFTPClient</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sftp</span><span class="p">,</span> <span class="s2">&quot;remote.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;local.txt&quot;</span><span class="p">))</span>
+
+    <span class="n">sftp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

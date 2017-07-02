@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>動機 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">動機</a></li>
+<li><a class="reference internal" href="#references">references</a></li>
+<li><a class="reference internal" href="#keywords">keywords</a><ul>
+<li><a class="reference internal" href="#ax">axの拡張</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>動機</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Radar Chart.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Rでのクラスタリング結果をレーダーチャートで表示する例をPythonでもやってみたかった</li>
+<li>めんどうであることがわかった</li>
+</ul>
+</div>
+<div class="section" id="references">
+<span id="references"></span><h1>references<a class="headerlink" href="#references" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://matplotlib.org/examples/api/radar_chart.html<ul>
+<li>matplotlibのexample</li>
+</ul>
+</li>
+<li>http://sinhrks.hatenablog.com/entry/2015/11/15/222543<ul>
+<li>pandas datasetでの簡単radar chart</li>
+</ul>
+</li>
+<li>http://blog.kzfmix.com/entry/1216719888<ul>
+<li>exampleと似たもの</li>
+<li>pylab full import使ってるので試すときはpyplotとnumpyでカバー</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="keywords">
+<span id="keywords"></span><h1>keywords<a class="headerlink" href="#keywords" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>projection<ul>
+<li>matplotlib.projections</li>
+<li>register_projection</li>
+</ul>
+</li>
+<li>polar<ul>
+<li>PolarAxes</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="ax">
+<span id="ax"></span><h2>axの拡張<a class="headerlink" href="#ax" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>projectionを指定して用意されている軸を使用することが出来る<ul>
+<li>参考2はこれ</li>
+<li>極座標変換をしているらしい</li>
+<li>polarが極を意味する</li>
+</ul>
+</li>
+<li>用意されているものでは外周が円のまま<ul>
+<li>本家では用意されているpolarを拡張している</li>
+<li>レーダーチャートの角になる</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-dummy.txt"><div class="highlight"><pre><span></span>.
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

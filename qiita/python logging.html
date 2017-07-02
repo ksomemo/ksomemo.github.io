@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>http://docs.python.jp/3/howto/logging.html#logging-flow &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">http://docs.python.jp/3/howto/logging.html#logging-flow</a></li>
+<li><a class="reference internal" href="#level">level</a></li>
+<li><a class="reference internal" href="#advanced-logging">advanced logging</a></li>
+<li><a class="reference internal" href="#cookbook">cookbook</a></li>
+<li><a class="reference internal" href="#handler">handler</a><ul>
+<li><a class="reference internal" href="#other">other</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#filter">filter</a></li>
+<li><a class="reference internal" href="#format">format</a><ul>
+<li><a class="reference internal" href="#handler">handler</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#warnings">warnings ?</a></li>
+<li><a class="reference internal" href="#config">config</a></li>
+<li><a class="reference internal" href="#example">example</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>http://docs.python.jp/3/howto/logging.html#logging-flow</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/python logging.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="highlight-py3:logging_sample.py"><div class="highlight"><pre><span></span>from logging import (
+    getLogger,
+    StreamHandler,
+    DEBUG
+)
+
+
+## logger
+logger = getLogger(__name__)
+handler = StreamHandler()
+handler.setLevel(DEBUG)
+logger.setLevel(DEBUG)
+logger.addHandler(handler)
+
+logger.debug(&#39;hello&#39;)
+logger.info(&#39;hello&#39;)
+logger.warn(&#39;hello&#39;)
+logger.error(&#39;hello&#39;)
+</pre></div>
+</div>
+<div class="section" id="http-docs-python-jp-3-howto-logging-html-logging-flow">
+<span id="http-docs-python-jp-3-howto-logging-html-logging-flow"></span><h1>http://docs.python.jp/3/howto/logging.html#logging-flow<a class="headerlink" href="#http-docs-python-jp-3-howto-logging-html-logging-flow" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="level">
+<span id="level"></span><h1>level<a class="headerlink" href="#level" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>DEBUG</li>
+<li>INFO</li>
+<li>ERROR</li>
+<li>FATAL</li>
+<li>CRITICAL</li>
+<li>WARN(WARNING)</li>
+</ul>
+</div>
+<div class="section" id="advanced-logging">
+<span id="advanced-logging"></span><h1>advanced logging<a class="headerlink" href="#advanced-logging" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>http://docs.python.jp/3/howto/logging.html#advanced-logging-tutorial</p>
+<ul class="simple">
+<li>ロガーは、アプリケーションコードが直接使うインタフェースを公開します。</li>
+<li>ハンドラは、(ロガーによって生成された) ログ記録を適切な送信先に送ります。</li>
+<li>フィルタは、どのログ記録を出力するかを決定する、きめ細かい機能を提供します。</li>
+<li>フォーマッタは、ログ記録が最終的に出力されるレイアウトを指定します。</li>
+<li>ログイベント情報は LogRecord インスタンスの形で、<ul>
+<li>logger, handler, filter, formatter の間でやりとりされます。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="cookbook">
+<span id="cookbook"></span><h1>cookbook<a class="headerlink" href="#cookbook" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>http://docs.python.jp/3/howto/logging-cookbook.html#filters-contextual</p>
+</div>
+<div class="section" id="handler">
+<span id="handler"></span><h1>handler<a class="headerlink" href="#handler" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>StreamHandler(stream=)</li>
+<li>FileHandler(filename=)</li>
+<li>NullHandler</li>
+</ul>
+<div class="section" id="other">
+<span id="other"></span><h2>other<a class="headerlink" href="#other" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-markdown:handlers.md"><div class="highlight"><pre><span></span>import logging.handlers
+
+- WatchedFileHandler
+- RotatingFileHandler
+- TimedRotatingFileHandler
+- SocketHandler
+- DatagramHandler(UDP)
+- SysLogHandler
+- NTEventLogHandler
+- SMTPHandler
+- MemoryHandler
+- HTTPHandler
+- QueueHandler
+  - QueueListener
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="filter">
+<span id="filter"></span><h1>filter<a class="headerlink" href="#filter" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>http://docs.python.jp/3/library/logging.html#filter</p>
+<p>フィルタ (Filter) は、ハンドラ や ロガー によって使われ、
+レベルによって提供されるのよりも洗練されたフィルタリングを実現します。
+基底のフィルタクラスは、ロガー階層構造内の特定地点の配下にあるイベントだけを許可します。
+例えば、’A.B’ で初期化されたフィルタは、
+ロガー ‘A.B’, ‘A.B.C’, ‘A.B.C.D’, ‘A.B.D’ 等によって記録されたイベントは許可しますが、
+’A.BB’, ‘B.A.B’ などは許可しません。
+空の文字列で初期化された場合、すべてのイベントを通過させます。</p>
+</div>
+<div class="section" id="format">
+<span id="format"></span><h1>format<a class="headerlink" href="#format" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">BASIC_FORMAT</span>
+<span class="s1">&#39;</span><span class="si">%(levelname)s</span><span class="s1">:</span><span class="si">%(name)s</span><span class="s1">:</span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># http://docs.python.jp/3/library/logging.html#logrecord-attributes</span>
+</pre></div>
+</div>
+<div class="section" id="handler">
+<span id="id1"></span><h2>handler<a class="headerlink" href="#handler" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fh</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="warnings">
+<span id="warnings"></span><h1>warnings ?<a class="headerlink" href="#warnings" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">warnings</span>
+<span class="o">&lt;</span><span class="n">module</span> <span class="s1">&#39;warnings&#39;</span> <span class="kn">from</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Anaconda3</span><span class="se">\\</span><span class="s1">lib</span><span class="se">\\</span><span class="s1">warnings.py&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="config">
+<span id="config"></span><h1>config<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:logging_config.py"><div class="highlight"><pre><span></span># http://docs.python.jp/3/library/logging.config.html
+import logging.config
+
+logging.config.fileConfig(&#39;config_file.conf&#39;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<span id="example"></span><h1>example<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:file_handler_example.py"><div class="highlight"><pre><span></span>from logging import (
+    getLogger,
+    Formatter,
+    FileHandler,
+    DEBUG
+)
+from pprint import pprint
+
+## logger
+logger = getLogger(__name__)
+
+logrecord_attributes = [
+    &#39;asctime&#39;, &#39;name&#39;, &#39;levelname&#39;, &#39;message&#39;, 
+    &#39;filename&#39;, &#39;funcName&#39;, &#39;lineno&#39;, &#39;module&#39;,
+]
+func = lambda x: &#39;%({0})s&#39;.format(x)
+format = &#39; - &#39;.join(list(map(func, logrecord_attributes)))
+
+formatter = Formatter(format)
+
+handler = FileHandler(filename=&#39;loggin_file_handle.log&#39;)
+handler.setFormatter(formatter)
+handler.setLevel(DEBUG)
+logger.setLevel(DEBUG)
+logger.addHandler(handler)
+
+    
+print(logger)
+pprint(dir(logger))
+pprint(logger.__dict__)
+
+def log(msg):
+    logger.debug(msg + &#39; hello&#39;)
+    logger.info(msg + &#39; hello&#39;)
+    logger.warn(msg + &#39; hello&#39;)
+    logger.error(msg + &#39; hello&#39;)
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

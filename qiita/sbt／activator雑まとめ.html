@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>references &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">references</a></li>
+<li><a class="reference internal" href="#environment">environment</a></li>
+<li><a class="reference internal" href="#install-sbt">install sbt</a></li>
+<li><a class="reference internal" href="#help">help</a></li>
+<li><a class="reference internal" href="#">バッチモード</a></li>
+<li><a class="reference internal" href="#">継続的ビルドとテスト</a></li>
+<li><a class="reference internal" href="#">ディレクトリ構造</a><ul>
+<li><a class="reference internal" href="#target">target</a></li>
+<li><a class="reference internal" href="#project-build-properties">project/build.properties</a></li>
+<li><a class="reference internal" href="#build-sbt">build.sbt</a></li>
+<li><a class="reference internal" href="#key">Key</a><ul>
+<li><a class="reference internal" href="#">組み込みのキー</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#library">library</a></li>
+<li><a class="reference internal" href="#multi-project">multi project</a></li>
+<li><a class="reference internal" href="#plugins">plugins</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#activator">activator</a><ul>
+<li><a class="reference internal" href="#sub-commands">Sub-commands</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>references</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/sbt／activator雑まとめ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="references">
+<span id="references"></span><h1>references<a class="headerlink" href="#references" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://www.scala-sbt.org/0.13/docs/index.html</li>
+<li>http://www.scala-sbt.org/0.13/docs/ja/index.html</li>
+<li>http://www.typesafe.com/activator/docs</li>
+</ul>
+</div>
+<div class="section" id="environment">
+<span id="environment"></span><h1>environment<a class="headerlink" href="#environment" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>yosemite</li>
+<li>homebrew</li>
+</ul>
+</div>
+<div class="section" id="install-sbt">
+<span id="install-sbt"></span><h1>install sbt<a class="headerlink" href="#install-sbt" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">sbt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="help">
+<span id="help"></span><h1>help<a class="headerlink" href="#help" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sbt</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>バッチモード<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>サブコマンドではなかった</li>
+<li>Makeに似ている</li>
+<li>sbt clean compile &#8220;testOnly TestA TestB&#8221;<ul>
+<li>clean</li>
+<li>compile</li>
+<li>testOnly TestA TestB</li>
+</ul>
+</li>
+<li>という順番に実行</li>
+<li>最後は引数を指定している</li>
+</ul>
+<p>よく使うコマンド
+http://www.scala-sbt.org/0.13/docs/Command-Line-Reference.html</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>継続的ビルドとテスト<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>コマンドの先頭に ~ をつける</li>
+<li>~ compile</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>ディレクトリ構造<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">/</span>
+<span class="n">lib</span><span class="o">/</span>
+<span class="n">src</span><span class="o">/</span>
+  <span class="n">main</span><span class="o">/</span>
+    <span class="n">resource</span><span class="o">/</span>
+    <span class="n">scala</span><span class="o">/</span>
+    <span class="n">java</span><span class="o">/</span>
+  <span class="n">test</span><span class="o">/</span>
+    <span class="n">resource</span><span class="o">/</span>
+    <span class="n">scala</span><span class="o">/</span>
+    <span class="n">java</span><span class="o">/</span>
+<span class="n">build</span><span class="o">.</span><span class="n">sbt</span>
+<span class="n">project</span><span class="o">/</span>
+  <span class="n">target</span><span class="o">/</span>
+  <span class="n">build</span><span class="o">.</span><span class="n">properties</span>
+  <span class="n">project</span><span class="o">/</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>後述する activatorでテンプレートから作成できる</p>
+<div class="section" id="target">
+<span id="target"></span><h2>target<a class="headerlink" href="#target" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>build時に生成されるファイルの出力場所</p>
+<ul class="simple">
+<li>コンパイルされたクラスファイル</li>
+<li>パッケージ化された jar ファイル</li>
+<li>managed 配下のファイル/キャッシュとドキュメンテーション?</li>
+</ul>
+<p>そのため無視しておく</p>
+<div class="highlight-.gitignore"><div class="highlight"><pre><span></span>target/
+</pre></div>
+</div>
+</div>
+<div class="section" id="project-build-properties">
+<span id="project-build-properties"></span><h2>project/build.properties<a class="headerlink" href="#project-build-properties" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>sbtのversion指定</li>
+<li>バイナリー互換を気にしないため</li>
+<li>ここ、スクリプト言語出身だとあんまりピンとこない</li>
+</ul>
+<div class="highlight-build.properties"><div class="highlight"><pre><span></span>sbt.version=0.1x.x
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-sbt">
+<span id="build-sbt"></span><h2>build.sbt<a class="headerlink" href="#build-sbt" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ビルド定義</p>
+<ul class="simple">
+<li>Setting[T] のリストを持った Project を定義</li>
+<li>Setting[T] は sbt が持つキーと値のペアの Map に作用する変換を表す</li>
+<li>Tは値の型である。</li>
+</ul>
+<p>よくわからない</p>
+<div class="highlight-scala:common_setting.scala"><div class="highlight"><pre><span></span>lazy val commonSettings = Seq(
+  organization := &quot;com.example&quot;,
+  version := &quot;0.1.0&quot;,
+  scalaVersion := &quot;2.11.4&quot;
+)
+
+lazy val root = (project in file(&quot;.&quot;)).
+  settings(commonSettings: _*).
+  settings(
+    name := &quot;hello&quot;
+  )
+// キーには := というメソッドがあり、
+// このメソッドは Setting[T] を返す
+</pre></div>
+</div>
+</div>
+<div class="section" id="key">
+<span id="key"></span><h2>Key<a class="headerlink" href="#key" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>SettingKey[T]（設定系？）</li>
+</ul>
+<p>その他、</p>
+<ul class="simple">
+<li>TaskKey[T] （副作用のあるサブコマンド系？）</li>
+<li>InputKey[T]</li>
+<li>もあるけど、気にしなくてよさそう</li>
+</ul>
+<div class="section" id="">
+<span id="id4"></span><h3>組み込みのキー<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Keys と呼ばれるオブジェクトのフィールド
+build.sbt は、自動的に import sbt.Keys._ する</p>
+<div class="highlight-auto_import_key.scala"><div class="highlight"><pre><span></span>import sbt._
+import Process._
+import Keys._
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="library">
+<span id="library"></span><h2>library<a class="headerlink" href="#library" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>http://www.scala-sbt.org/0.13/docs/ja/Library-Dependencies.html</p>
+<p>lib/に.jarを入れてしまう方法があるけど、build.sbtに設定を書くほうがいいと思う</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">derby</span> <span class="k">=</span> <span class="s">&quot;org.apache.derby&quot;</span> <span class="o">%</span> <span class="s">&quot;derby&quot;</span> <span class="o">%</span> <span class="s">&quot;10.4.1.3&quot;</span>
+<span class="n">settings</span><span class="o">(</span>
+  <span class="n">name</span> <span class="o">:=</span> <span class="s">&quot;hello&quot;</span><span class="o">,</span>
+  <span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="n">derby</span>
+<span class="o">)</span>
+<span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="n">groupID</span> <span class="o">%</span> <span class="n">artifactID</span> <span class="o">%</span> <span class="n">revision</span> <span class="o">%</span> <span class="n">configuration</span>
+<span class="k">val</span> <span class="n">libraryDependencies</span> <span class="k">=</span> <span class="nc">SettingKey</span><span class="o">[</span><span class="kt">Seq</span><span class="o">[</span><span class="kt">ModuleID</span><span class="o">]](</span><span class="s">&quot;library-dependencies&quot;</span><span class="o">,</span> <span class="s">&quot;Declares managed dependencies.&quot;</span><span class="o">)</span>
+<span class="cm">/*</span>
+<span class="cm">% メソッドは、文字列から ModuleID オブジェクトを作るので、君はその ModuleID を libraryDependencies に追加するだけでいい。</span>
+<span class="cm">もちろん ++= を使って依存ライブラリのリストを一度に追加することもできる</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-project">
+<span id="multi-project"></span><h2>multi project<a class="headerlink" href="#multi-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>http://www.scala-sbt.org/0.13/docs/ja/Multi-Project.html</p>
+<p>最初は気にしなくていいと思うけど、下記一番上がどう展開されるかは知っておくとよさそう</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">lazy</span> <span class="k">val</span> <span class="n">util</span> <span class="k">=</span> <span class="n">project</span>
+<span class="k">lazy</span> <span class="k">val</span> <span class="n">util</span> <span class="k">=</span> <span class="n">project</span><span class="o">.</span><span class="n">in</span><span class="o">(</span><span class="n">file</span><span class="o">(</span><span class="s">&quot;util&quot;</span><span class="o">))</span>
+<span class="k">lazy</span> <span class="k">val</span> <span class="n">core</span> <span class="k">=</span> <span class="n">project</span> <span class="n">in</span> <span class="n">file</span><span class="o">(</span><span class="s">&quot;core&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plugins">
+<span id="plugins"></span><h2>plugins<a class="headerlink" href="#plugins" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>http://www.scala-sbt.org/0.13/docs/ja/Using-Plugins.html</p>
+<ul class="simple">
+<li>IDEのPluginを聞いたことがある</li>
+<li>ほかにも便利なのありそう</li>
+</ul>
+</div>
+</div>
+<div class="section" id="activator">
+<span id="activator"></span><h1>activator<a class="headerlink" href="#activator" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>sbtのSuperSet</li>
+<li>つまり、sbtの機能を全て持っていて追加機能がある</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">typesafe</span><span class="o">-</span><span class="n">activator</span>
+</pre></div>
+</div>
+<div class="section" id="sub-commands">
+<span id="sub-commands"></span><h2>Sub-commands<a class="headerlink" href="#sub-commands" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">activator</span> <span class="n">ui</span>
+<span class="c1"># activator -Dhttp.port=9999 -J-Xmx1g ui</span>
+
+<span class="n">Open</span> <span class="n">the</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">UI</span> <span class="k">if</span> <span class="n">executed</span> <span class="kn">from</span> <span class="nn">an</span> <span class="n">existing</span> <span class="n">project</span>
+<span class="n">directory</span><span class="p">,</span> <span class="n">otherwise</span> <span class="nb">open</span> <span class="n">a</span> <span class="n">project</span><span class="o">-</span><span class="n">creation</span> <span class="n">UI</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">activator</span> <span class="n">new</span> <span class="p">[</span><span class="n">project</span><span class="o">-</span><span class="n">name</span><span class="p">]</span> <span class="p">[</span><span class="n">template</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
+
+<span class="n">Create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">project</span><span class="p">,</span> <span class="n">prompting</span> <span class="k">for</span> <span class="n">project</span><span class="o">-</span><span class="n">name</span> <span class="k">if</span> <span class="n">missing</span> <span class="ow">and</span> <span class="n">helping</span> <span class="n">you</span>
+<span class="n">find</span> <span class="n">a</span> <span class="n">template</span> <span class="k">if</span> <span class="n">template</span><span class="o">-</span><span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">provided</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">activator</span> <span class="nb">list</span><span class="o">-</span><span class="n">templates</span>
+
+<span class="n">Fetch</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">template</span> <span class="nb">list</span> <span class="ow">and</span> <span class="nb">print</span> <span class="n">it</span> <span class="n">to</span> <span class="n">the</span> <span class="n">console</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>いままで &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">いままで</a><ul>
+<li><a class="reference internal" href="#awk">awk</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#split">split</a><ul>
+<li><a class="reference internal" href="#example">example</a></li>
+<li><a class="reference internal" href="#">おまけ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pandas">pandasの場合</a><ul>
+<li><a class="reference internal" href="#numpy-split">numpy.split</a></li>
+<li><a class="reference internal" href="#groupby">groupby</a></li>
+<li><a class="reference internal" href="#read-csv">read_csv</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>いままで</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/ファイルをN行に分割する.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>いままで<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>for と下記を使ってわざわざめんどうなことをしていた</p>
+<ul class="simple">
+<li>sed</li>
+<li>awk(NR)</li>
+<li>pandas.DataFrameをilocとlen(df), floor/ceilを使ってindexぶつ切り</li>
+</ul>
+<div class="section" id="awk">
+<span id="awk"></span><h2>awk<a class="headerlink" href="#awk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># 今まで</span>
+<span class="c1"># wc -lと分割行数より分割数を決めて、forとawkとNR使って分割していたけど、もっと便利なのがあった。</span>
+<span class="c1"># awkだけでも便利にできる。分割数ではなく、最初の行数がファイル名に含まれるようにしてある。</span>
+
+awk <span class="s1">&#39;NR%1000000==1 {filename=&quot;prefix_&quot; sprintf(&quot;%07d&quot;, NR)} {print &gt; filename}&#39;</span> file.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="split">
+<span id="split"></span><h1>split<a class="headerlink" href="#split" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://www.gnu.org/software/coreutils/manual/html_node/split-invocation.html</p>
+<div class="section" id="example">
+<span id="example"></span><h2>example<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-split_example.sh"><div class="highlight"><pre><span></span>seq 3000 | split -d -l 1000 --additional-suffix=.log --filter=&#39;gzip &gt; $FILE.gz&#39; - seq 
+</pre></div>
+</div>
+<ul class="simple">
+<li>seqは適当なデータ作成用</li>
+<li>-dでsuffixを連番にする(指定しないとalphabet)</li>
+<li>-lで行数指定<ul>
+<li>サイズ指定のオプションもある</li>
+</ul>
+</li>
+<li>拡張子がほしいときに追加suffix</li>
+<li>filterで追加処理<ul>
+<li><code class="docutils literal"><span class="pre">$FILE</span></code> はprefix,連番,suffix</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">-</span></code> は標準入力なのでファイル指定したいときはここ</li>
+<li>seqはprefix</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>おまけ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>gzipからの場合zcat通すと便利で楽</p>
+<div class="highlight-zcat_example.sh"><div class="highlight"><pre><span></span>seq 3000 | gzip -f | zcat | 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pandas">
+<span id="pandas"></span><h1>pandasの場合<a class="headerlink" href="#pandas" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="numpy-split">
+<span id="numpy-split"></span><h2>numpy.split<a class="headerlink" href="#numpy-split" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-numpy_split.py"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import seaborn as sns
+
+
+iris = sns.load_dataset(&quot;iris&quot;)
+chunks = np.split(iris, 50)
+
+chunks[0] # index:0-2
+chunks[-1] # index: 147-149
+# =&gt; 150 / 50 = 3
+</pre></div>
+</div>
+</div>
+<div class="section" id="groupby">
+<span id="groupby"></span><h2>groupby<a class="headerlink" href="#groupby" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>割り切れないときに困る＋楽。groupby/Grouper便利</p>
+<div class="highlight-df_groupby.py"><div class="highlight"><pre><span></span>for g, df in iris.groupby(iris.index // 33):
+    df.to_csv(f&quot;{g}.csv&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="read-csv">
+<span id="read-csv"></span><h2>read_csv<a class="headerlink" href="#read-csv" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>読み込み前</p>
+<div class="highlight-pandas_read_chunk.py"><div class="highlight"><pre><span></span>chunks = pd.read_csv(&quot;https://raw.github.com/pydata/pandas/master/pandas/tests/data/iris.csv&quot;, chunksize=33)
+iris = pd.concat(chunks, ignore_index=True)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

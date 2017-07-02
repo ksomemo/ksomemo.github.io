@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>概要 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">概要</a></li>
+<li><a class="reference internal" href="#oracle-database">Oracle database</a></li>
+<li><a class="reference internal" href="#vagrant">Vagrant</a><ul>
+<li><a class="reference internal" href="#download">Download</a></li>
+<li><a class="reference internal" href="#vagrantfile">VagrantFile</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vm">VMの準備</a></li>
+<li><a class="reference internal" href="#oracle-instant-client-package">Oracle Instant Client Package</a><ul>
+<li><a class="reference internal" href="#sqlplus">SQLPlusの準備</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gui-sql-developer">GUI(SQL Developer)</a></li>
+<li><a class="reference internal" href="#">まとめ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>概要</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/oracle on Mac OSX(VM ubuntu).md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>概要<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Mac OSXのGuest OSでOracle XEを準備して, Host OSから扱えるようにする</p>
+</div>
+<div class="section" id="oracle-database">
+<span id="oracle-database"></span><h1>Oracle database<a class="headerlink" href="#oracle-database" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>アカウントが必要なので無い場合は作成</li>
+<li>http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html から Oracle Database Express Edition 11g Release 2 for Linux x64 をダウンロード</li>
+<li>今回は http://download.oracle.com/otn/linux/oracle11g/xe/oracle-xe-11.2.0-1.0.x86_64.rpm.zip を利用</li>
+</ul>
+</div>
+<div class="section" id="vagrant">
+<span id="vagrant"></span><h1>Vagrant<a class="headerlink" href="#vagrant" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Oracle VM等のvirtual machineをコマンドラインから操作できる＋α</li>
+<li>手作業による動作ミスを防ぐために利用する</li>
+<li>今回はOracle Virtual Box を利用するのでinstallしていなければinstall</li>
+</ul>
+<div class="section" id="download">
+<span id="download"></span><h2>Download<a class="headerlink" href="#download" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://www.vagrantup.com/downloads.html</p>
+</div>
+<div class="section" id="vagrantfile">
+<span id="vagrantfile"></span><h2>VagrantFile<a class="headerlink" href="#vagrantfile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Vagrant用の設定ファイル</li>
+<li>共有フォルダの指定やOSのリソース設定を記載して反映できる</li>
+</ul>
+<p>Mac OSX上のubuntu VMにOracleをinstallするVagratFileを提供しているrepositoryがあるので、それを利用する</p>
+<ul class="simple">
+<li>https://github.com/hilverd/vagrant-ubuntu-oracle-xe</li>
+<li>gitが必要なのでinstallしておくこと(なくてもいけるけど、今後のためにinstall)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="vm">
+<span id="vm"></span><h1>VMの準備<a class="headerlink" href="#vm" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:prepare_vm.sh"><div class="highlight"><pre><span></span># 作業フォルダ名は自由に
+mkdir -p /path/to/vagrant-oracle-xe-11-vm &amp;&amp; cd $_
+
+git clone git@github.com:hilverd/vagrant-ubuntu-oracle-xe.git
+cd vagrant-ubuntu-oracle-xe
+
+# VagrantFileの修正
+vim VagrantFile
+# timezone, flyway部分不要のため削除やコメントアウト
+# sed -e &#39;32d&#39; -e &#39;54d&#39; VagrantFile
+
+# downloadしておいたoracle fileを移動
+mv ~/Downloads/oracle-xe-11.2.0-1.0.x86_64.rpm.zip modules/oracle/files/
+
+# virtual box のguest addition用plugin
+vagrant plugin install vagrant-vbguest
+
+vagrant up
+# mountできなくてError
+# Virtualbox Guest Additionsをinstallできているが
+# Install時では反映されない?のでreloadで対処
+vagrant reload
+</pre></div>
+</div>
+</div>
+<div class="section" id="oracle-instant-client-package">
+<span id="oracle-instant-client-package"></span><h1>Oracle Instant Client Package<a class="headerlink" href="#oracle-instant-client-package" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html からダウンロード</p>
+<p>今回は、Version 11.2.0.4.0 (64-bit)</p>
+<ul class="simple">
+<li>instantclient-basic-macos.x64-11.2.0.4.0.zip (62,794,903 bytes)<ul>
+<li>Instant Client Package - Basic: All files required to run OCI, OCCI, and JDBC-OCI applications</li>
+</ul>
+</li>
+<li>instantclient-sqlplus-macos.x64-11.2.0.4.0.zip (884,608 bytes)<ul>
+<li>SQL<em>Plus: Additional libraries and executable for running SQL</em>Plus with Instant Client</li>
+</ul>
+</li>
+<li>instantclient-sdk-macos.x64-11.2.0.4.0.zip (651,903 bytes)<ul>
+<li>SDK: Additional header files and an example makefile for developing Oracle applications with Instant Client</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="sqlplus">
+<span id="sqlplus"></span><h2>SQLPlusの準備<a class="headerlink" href="#sqlplus" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>マニュアルどおりにやったけどうまくいかなかったので、下記を参考にした</li>
+<li>あるディレクトリだけで完結するので環境汚染にならない</li>
+</ul>
+<p>https://blog.caseylucas.com/2013/03/03/oracle-sqlplus-and-instant-client-on-mac-osx-without-dyld_library_path/</p>
+<div class="highlight-bash:prepare_sqlplus.sh"><div class="highlight"><pre><span></span>cd ..
+mv ~/Downloads/instantclient-*.zip .
+# DLファイルの@を消してあげる
+sudo xattr -c *
+unzip instantclient-basic-macos.x64-11.2.0.4.0.zip
+unzip instantclient-sqlplus-macos.x64-11.2.0.4.0.zip
+cd instantclient_11_2
+
+cat &lt;&lt;EOF &gt; changeOracleLibs.sh
+#!/bin/sh
+# script to change the dynamic lib paths and ids for oracle instant client
+# exes and libs
+
+# proces all the executable files in this directory
+find . -maxdepth 1 -type f \( -perm -1 -o \( -perm -10 -o -perm -100 \) \) -print | while read exe
+do
+    echo adjusting executable $exe
+    baseexe=\`basename \$exe\`
+    otool -L $exe | awk &#39;/oracle/ {print $1}&#39; | while read lib
+    do
+        echo adjusting lib $lib
+        baselib=\`basename \$lib\`
+        if [ &quot;$baseexe&quot; = &quot;$baselib&quot; ]
+        then
+            echo changing id to $baselib for $exe
+            install_name_tool -id $baselib $exe
+        else
+            echo changing path id for $lib in $exe
+            install_name_tool -change $lib @executable_path/$baselib $exe
+        fi
+    done
+done
+EOF
+chmod +x changeOracleLibs.sh
+sudo changeOracleLibs.sh
+# 必要あればPATH通してexportしておく
+# export PATH=`pwd`:$PATH
+
+# READMEどおり、 下記で接続可能だったが、あまりにも使いにくい…
+sqlplus system/manager@//localhost:1521/XE
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="gui-sql-developer">
+<span id="gui-sql-developer"></span><h1>GUI(SQL Developer)<a class="headerlink" href="#gui-sql-developer" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://www.oracle.com/technetwork/jp/developer-tools/sql-developer/downloads/index.html</li>
+<li>接続から、system/manager, サービス:XEで接続可能</li>
+<li>Editor, schema, table, Export等可能</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>まとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>VM上のLinuxでoracle用意</li>
+<li>Vagrantでport forward設定</li>
+<li>用意してあるVagrantFileで楽をした<ul>
+<li>中でPuppet使ってるのでいつか使えなくなるかもしれない</li>
+<li>本来はservice設定等を自力で行う</li>
+</ul>
+</li>
+<li>SQL Developer便利<ul>
+<li>sqlplusいらなかったかもしれない</li>
+<li>と思ったが、sqlldrというImport用utilityを使えない<ul>
+<li>GUIからではInsertになり、とても遅い</li>
+<li>共有フォルダにファイルを用意し、<code class="docutils literal"><span class="pre">vagrant</span> <span class="pre">ssh</span></code> からでも可能？</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

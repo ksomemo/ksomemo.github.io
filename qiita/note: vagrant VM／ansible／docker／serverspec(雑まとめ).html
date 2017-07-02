@@ -1,0 +1,730 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>動機 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">動機</a></li>
+<li><a class="reference internal" href="#">流れ</a></li>
+<li><a class="reference internal" href="#virtualbox">virtualbox</a></li>
+<li><a class="reference internal" href="#vagrant">vagrant</a><ul>
+<li><a class="reference internal" href="#install">install</a></li>
+<li><a class="reference internal" href="#vm">VM</a></li>
+<li><a class="reference internal" href="#donwload-and-settings">donwload and settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ansible">ansible</a><ul>
+<li><a class="reference internal" href="#commands">commands</a></li>
+<li><a class="reference internal" href="#ansible-command">ansible command</a></li>
+<li><a class="reference internal" href="#inventory">inventory</a></li>
+<li><a class="reference internal" href="#ansible-playbook">ansible-playbook</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-docker-on-ubuntu">install docker on ubuntu</a></li>
+<li><a class="reference internal" href="#docker-ecosystem">docker ecosystem</a><ul>
+<li><a class="reference internal" href="#brew-serach">brew serachで見つかったもの</a></li>
+<li><a class="reference internal" href="#docker-toolbox">docker toolbox</a><ul>
+<li><a class="reference internal" href="#install">installして使ってみた</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#docker-for-mac-windows">docker for mac/windows</a></li>
+<li><a class="reference internal" href="#docker">その他docker関連</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dockerfile">Dockerfile</a><ul>
+<li><a class="reference internal" href="#docker-hub">docker hub</a><ul>
+<li><a class="reference internal" href="#sign-up">sign up</a></li>
+<li><a class="reference internal" href="#">自動化のための連携</a></li>
+<li><a class="reference internal" href="#clilogin">cliからのlogin</a></li>
+<li><a class="reference internal" href="#create-repository-on-github">create repository on github</a></li>
+<li><a class="reference internal" href="#create-automated-build-on-dockerhub">create automated-build on dockerhub</a></li>
+<li><a class="reference internal" href="#etc">etc.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#serverspec">serverspec</a></li>
+<li><a class="reference internal" href="#hashicorp-tool">よくわかってないhashicorp tool</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>動機</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/note: vagrant VM／ansible／docker／serverspec(雑まとめ).md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>開発環境を整える環境を最新にする</li>
+<li>いいかげんにDockerを触る</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>流れ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>MacなのでDockerのためのVMを立ち上げる<ul>
+<li>VagrantでVM立ち上げる(Ubuntu: 今までRedhat系だったので触ってみる)</li>
+<li>VagrantのためのVirtualBoxを5にUpdate</li>
+</ul>
+</li>
+<li>DockerとDockerのコンテナ以外の準備のためのAnsible準備<ul>
+<li>今回はvagrantのprovisioning, bootstrap.shで対応</li>
+</ul>
+</li>
+<li>playbookの記述<ul>
+<li><del>コンテナをServerspecでテストするのでruby+serverspecも</del></li>
+</ul>
+</li>
+<li>DockerFileの記述<ul>
+<li>こっちでinstall serverspec + α and test</li>
+</ul>
+</li>
+</ul>
+<p>いろいろめんどうだったので、流れが変</p>
+</div>
+<div class="section" id="virtualbox">
+<span id="virtualbox"></span><h1>virtualbox<a class="headerlink" href="#virtualbox" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>https://www.virtualbox.org/wiki/Downloads</li>
+<li>5.0.20</li>
+</ul>
+</div>
+<div class="section" id="vagrant">
+<span id="vagrant"></span><h1>vagrant<a class="headerlink" href="#vagrant" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>https://www.vagrantup.com/docs/</p>
+<div class="section" id="install">
+<span id="install"></span><h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>installer</li>
+<li>https://www.vagrantup.com/downloads.html</li>
+<li>Vagrant 1.8.1</li>
+</ul>
+</div>
+<div class="section" id="vm">
+<span id="vm"></span><h2>VM<a class="headerlink" href="#vm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>https://atlas.hashicorp.com/boxes/search<ul>
+<li>ubuntu 0.14.0までしかなかった</li>
+</ul>
+</li>
+<li><del>http://www.vagrantbox.es/</del> -&gt; 古い</li>
+<li><del>http://opscode.github.io/bento/</del> -&gt; 消えてた<ul>
+<li>http://chef.github.io/bento/ に移ってた</li>
+<li>https://atlas.hashicorp.com/bento/ bento/ubuntu-16.04 あった</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="donwload-and-settings">
+<span id="donwload-and-settings"></span><h2>donwload and settings<a class="headerlink" href="#donwload-and-settings" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:vagrant-vm-setup.sh"><div class="highlight"><pre><span></span>mdkir ~/programming/vagrant/ubuntu &amp;&amp; $_
+vagrant box add bento/ubuntu-16.04
+vagrant init bento/ubuntu-16.04
+vagrant up
+vagrant ssh
+
+# or
+vagrant ssh-config --host ubuntu1604 &gt;&gt; ~/.ssh/config
+ssh ubuntu1604
+
+# host os
+touch synced_folder_test
+# guest os
+ls /vagrant/synced_folder_test
+# https://www.vagrantup.com/docs/synced-folders/basic_usage.html
+</pre></div>
+</div>
+<div class="highlight-vagrant-bootstrap.sh"><div class="highlight"><pre><span></span>#!/usr/bin/env bash
+
+sudo apt-get update
+sudo apt-get install -y vim
+sudo apt-get install -y git
+wget -q -O- https://bootstrap.pypa.io/get-pip.py | sudo python
+sudo apt-get install -y ansible
+# or sudo apt-get install -y python-dev
+# and sudo pip install ansible
+</pre></div>
+</div>
+<div class="highlight-rb:Vagrantfile-provisioning"><div class="highlight"><pre><span></span>Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;bento/ubuntu-16.04&quot;
+  config.vm.provision :shell, path: &quot;bootstrap.sh&quot;
+end
+
+# then vagrant halt &amp;&amp; vagrant up --provision
+# or vagrant reload --provision
+# https://www.vagrantup.com/docs/provisioning/
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ansible">
+<span id="ansible"></span><h1>ansible<a class="headerlink" href="#ansible" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>python製ssh経由でprovisioning(default)</li>
+<li>python2.7でも動いた</li>
+<li>ansible2系が出てる。騒がれてなかったからbreaking changesは少なさそう</li>
+</ul>
+<div class="section" id="commands">
+<span id="commands"></span><h2>commands<a class="headerlink" href="#commands" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>ansible</li>
+<li>ansible-playbook</li>
+<li>doc, galaxy, pull, vaultとは？</li>
+</ul>
+</div>
+<div class="section" id="ansible-command">
+<span id="ansible-command"></span><h2>ansible command<a class="headerlink" href="#ansible-command" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>playbookを使わない</li>
+<li>hostの指定が必要(port付きでも良い)</li>
+</ul>
+</div>
+<div class="section" id="inventory">
+<span id="inventory"></span><h2>inventory<a class="headerlink" href="#inventory" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://docs.ansible.com/ansible/intro_inventory.html</li>
+<li>default=/etc/ansible/hosts</li>
+<li>-i hostfilepath</li>
+<li>hostはgroup化できる</li>
+</ul>
+<div class="highlight-ansible_example.sh"><div class="highlight"><pre><span></span>cat &lt;&lt;EOF &gt; ansible_hosts
+[local]
+localhost ansible_connection=local
+EOF
+
+ansible local -i ansible_hosts -m ping
+ansible all   -i ansible_hosts -m shell -a &quot;echo ansible shell module&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="ansible-playbook">
+<span id="ansible-playbook"></span><h2>ansible-playbook<a class="headerlink" href="#ansible-playbook" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>playbookを使うとき</li>
+</ul>
+<div class="highlight-playbook-example.yml"><div class="highlight"><pre><span></span>---
+- hosts: 127.0.0.1
+  tasks:
+    - name: ping
+      ping:
+
+- hosts: local
+  tasks:
+    - name: shell
+      shell: &quot;echo $item&quot;
+      with_items:
+        - ansible
+        - playbook
+
+# command
+# ansible-playbook -i ansible_hosts playbook-example.yml
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="install-docker-on-ubuntu">
+<span id="install-docker-on-ubuntu"></span><h1>install docker on ubuntu<a class="headerlink" href="#install-docker-on-ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>https://docs.docker.com/engine/installation/linux/ubuntulinux/</li>
+<li>設定が思っていたよりめんどうだったので、ansible-playbookやめてbootstrap.shに追加した</li>
+</ul>
+<div class="highlight-docker_install_for_ubuntu.sh"><div class="highlight"><pre><span></span>sudo apt-get install -y apt-transport-https ca-certificates
+sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+echo &quot;deb https://apt.dockerproject.org/repo ubuntu-xenial main&quot; \
+   &gt; /etc/apt/sources.list.d/docker.list
+sudo apt-get update
+sudo apt-get purge lxc-docker
+
+sudo apt-get install -y linux-image-extra-$(uname -r)
+sudo apt-get install -y docker.io
+sudo apt-get install -y docker-engine
+sudo service docker start
+
+sudo groupadd docker
+sudo usermod -aG docker vagrant
+docker run hello-world # without sudo
+</pre></div>
+</div>
+</div>
+<div class="section" id="docker-ecosystem">
+<span id="docker-ecosystem"></span><h1>docker ecosystem<a class="headerlink" href="#docker-ecosystem" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="brew-serach">
+<span id="brew-serach"></span><h2>brew serachで見つかったもの<a class="headerlink" href="#brew-serach" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><del>boot2docker</del></li>
+<li>docker-machine<ul>
+<li>Automate Docker provisioning</li>
+<li>create VM</li>
+</ul>
+</li>
+<li>docker<ul>
+<li>client</li>
+</ul>
+</li>
+<li>docker-compose<ul>
+<li>for multi-container application</li>
+</ul>
+</li>
+<li>docker-swarm<ul>
+<li>native clustering capabilities to turn a group of Docker engines into a single, virtual Docker Engine.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="docker-toolbox">
+<span id="docker-toolbox"></span><h2>docker toolbox<a class="headerlink" href="#docker-toolbox" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://www.docker.com/products/docker-toolbox, docker関連いろいろ</p>
+<ul class="simple">
+<li>Docker Engine<ul>
+<li>Docker Engine runs on Linux to create the operating environment</li>
+</ul>
+</li>
+<li>Compose</li>
+<li>Machine</li>
+<li>Kitematic<ul>
+<li>GUI</li>
+</ul>
+</li>
+</ul>
+<p>なんのためにubuntu用意したんだ…</p>
+<div class="section" id="install">
+<span id="id3"></span><h3>installして使ってみた<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>install時に設定を行うshell scriptを実行された<ul>
+<li><code class="docutils literal"><span class="pre">/.docker/machine/machines/default/boot2docker.iso</span></code></li>
+<li>VM/SSH等の設定</li>
+<li>VMはVirtualBox上では<code class="docutils literal"><span class="pre">default</span></code>という名前のメモリ2G</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">hello-world</span></code> 問題なし</li>
+<li>上記実行終了時に勧められた <code class="docutils literal"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">ubuntu</span> <span class="pre">bash</span></code> 問題なし<ul>
+<li><code class="docutils literal"><span class="pre">uname</span> <span class="pre">-a</span></code></li>
+<li><code class="docutils literal"><span class="pre">Linux</span> <span class="pre">87631664c41b</span> <span class="pre">4.4.8-boot2docker</span> <span class="pre">#1</span> <span class="pre">SMP</span> <span class="pre">Mon</span> <span class="pre">Apr</span> <span class="pre">25</span> <span class="pre">21:57:27</span> <span class="pre">UTC</span> <span class="pre">2016</span> <span class="pre">x86_64</span> <span class="pre">x86_64</span> <span class="pre">x86_64</span> <span class="pre">GNU/Linux</span></code></li>
+</ul>
+</li>
+<li>ubuntuをcentosにして実行してみても問題なし<ul>
+<li>unameの結果は同じ</li>
+<li>ubuntuではpythonなかったが、centosではあったので中身は違う</li>
+</ul>
+</li>
+<li>itermにしたと思うんだけど、kitematicのDOCKER CLIでterminalが立ち上がらない<ul>
+<li>なので、下記をitermで実行する</li>
+<li><code class="docutils literal"><span class="pre">bash</span> <span class="pre">-c</span> <span class="pre">&quot;DOCKER_HOST=tcp://192.168.99.100:2376</span> <span class="pre">DOCKER_CERT_PATH=~/.docker/machine/machines/default</span> <span class="pre">DOCKER_TLS_VERIFY=1</span> <span class="pre">/bin/zsh&quot;</span></code></li>
+<li>shell立ち上げ時に他の設定をするのか、環境変数をただ設定するだけではダメだった</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="docker-for-mac-windows">
+<span id="docker-for-mac-windows"></span><h2>docker for mac/windows<a class="headerlink" href="#docker-for-mac-windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://blog.docker.com/2016/03/docker-for-mac-windows-beta/</p>
+<p>Docker for Mac can be used at the same time as Docker Toolbox on the same machine, allowing developers to continue using Toolbox as they evaluate Docker for Mac.</p>
+<ul class="simple">
+<li>betaなのでdocker IDを登録してから使う必要がある</li>
+<li>下記、使用例。toolboxと比べると便利そう</li>
+<li>http://paiza.hatenablog.com/entry/docker_for_mac</li>
+</ul>
+</div>
+<div class="section" id="docker">
+<span id="docker"></span><h2>その他docker関連<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>cloud/hubはdocker社のProduct</li>
+<li>betaのときに登録するdocker IDはhubドメインで作る</li>
+<li>notary(https://docs.docker.com/notary/getting_started/)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="dockerfile">
+<span id="dockerfile"></span><h1>Dockerfile<a class="headerlink" href="#dockerfile" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-docker_Dockerfile"><div class="highlight"><pre><span></span># command: docker build -t docker-example:0.0.1 /vagrant/
+
+# Pull base image.
+FROM ubuntu:16.04
+
+MAINTAINER ksomemo
+
+# Install.
+RUN \
+  sed -i &#39;s/# \(.*multiverse$\)/\1/g&#39; /etc/apt/sources.list &amp;&amp; \
+  apt-get update &amp;&amp; \
+  apt-get -y upgrade &amp;&amp; \
+  apt-get install -y build-essential &amp;&amp; \
+  apt-get install -y software-properties-common &amp;&amp; \
+  apt-get install -y byobu curl git htop man unzip vim wget &amp;&amp; \
+  rm -rf /var/lib/apt/lists/*
+
+# Ruby dependencies
+RUN \
+  apt-get update &amp;&amp; \
+  apt-get install -y \
+    git tar gcc openssl \
+    libssl-dev zlib1g-dev libyaml-dev \
+    libreadline-dev libffi-dev libxml2-dev libxslt-dev
+
+# Ruby
+RUN git clone https://github.com/rbenv/ruby-build.git
+RUN ./ruby-build/install.sh
+RUN  ruby-build 2.3.1 /usr/local
+  #apt-get update &amp;&amp; \
+  #apt-get install -y ruby2.3 ruby2.3-dev
+
+# Install Nginx.
+RUN \
+  add-apt-repository -y ppa:nginx/stable &amp;&amp; \
+  apt-get update &amp;&amp; \
+  apt-get install -y nginx &amp;&amp; \
+  rm -rf /var/lib/apt/lists/* &amp;&amp; \
+  #echo &quot;\ndaemon off;&quot; &gt;&gt; /etc/nginx/nginx.conf &amp;&amp; \
+  chown -R www-data:www-data /var/lib/nginx
+
+# serverspec
+# Add files.
+ADD .gemrc ~/.gemrc
+ADD Gemfile Gemfile
+
+RUN gem update --system
+RUN gem install bundler
+RUN bundle install
+
+# Set environment variables.
+ENV HOME /root
+
+# Define mountable directories.
+VOLUME [&quot;/etc/nginx/sites-enabled&quot;, &quot;/etc/nginx/certs&quot;, &quot;/etc/nginx/conf.d&quot;, &quot;/var/log/nginx&quot;, &quot;/var/www/html&quot;]
+
+# Define working directory.
+WORKDIR /etc/nginx
+
+# Expose ports.
+EXPOSE 80
+EXPOSE 443
+
+# Define default command.
+CMD [&quot;bash&quot;]&quot;
+</pre></div>
+</div>
+<ul class="simple">
+<li>aaa</li>
+<li>https://docs.docker.com/engine/reference/builder</li>
+<li>参考ファイル<ul>
+<li>https://github.com/dockerfile/nginx/blob/master/Dockerfile</li>
+<li>https://github.com/dockerfile/ubuntu/blob/master/Dockerfile</li>
+</ul>
+</li>
+<li>FROM でbaseとなるDockerfileを指定できる<ul>
+<li>nginxは dockerfile/ubuntu</li>
+<li>ubuntuは ubuntu:14.04</li>
+<li>上記は https://hub.docker.com/r/library/ubuntu/ の14.04のこと</li>
+<li>上記は FROM scratch</li>
+</ul>
+</li>
+<li>apt-get update を頻繁にする必要がある？<ul>
+<li>一番最初のRUNで実行しているのに二回目のRUNで実行しないとみつからないものがある</li>
+</ul>
+</li>
+<li>apt-get ruby2.3　でインストールしたrubyはruby2.3コマンドになる(gemも同様)<ul>
+<li>https://github.com/rbenv/ruby-build/wiki を頼った</li>
+</ul>
+</li>
+<li>cacheされることを考えて、1つのRUNに押し込めないほうが試行錯誤しやすい<ul>
+<li>すでに完了したものをskipできて嬉しい</li>
+</ul>
+</li>
+<li>Gemfileをheredocでは作成できなかったのでADDした<ul>
+<li>RUN &lt;&lt;EOF xxx EOF は今後できるようにするらしい</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="docker-hub">
+<span id="docker-hub"></span><h2>docker hub<a class="headerlink" href="#docker-hub" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="sign-up">
+<span id="sign-up"></span><h3>sign up<a class="headerlink" href="#sign-up" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>id</li>
+<li>mail</li>
+<li>password</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>自動化のための連携<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>https://hub.docker.com/account/authorized-services/</li>
+<li>github or bitbucket account</li>
+</ul>
+</div>
+<div class="section" id="clilogin">
+<span id="clilogin"></span><h3>cliからのlogin<a class="headerlink" href="#clilogin" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>docker login (username/password)</li>
+<li>~/.docker/config.json に情報が作成される</li>
+</ul>
+</div>
+<div class="section" id="create-repository-on-github">
+<span id="create-repository-on-github"></span><h3>create repository on github<a class="headerlink" href="#create-repository-on-github" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>Dockerfile</li>
+<li>other files</li>
+<li>webhook setting(Docker)</li>
+</ul>
+</div>
+<div class="section" id="create-automated-build-on-dockerhub">
+<span id="create-automated-build-on-dockerhub"></span><h3>create automated-build on dockerhub<a class="headerlink" href="#create-automated-build-on-dockerhub" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>https://hub.docker.com/add/automated-build/username/</li>
+<li>github の repositoryとの連携</li>
+<li>githubにpushするとdocker hubでbuildされる<ul>
+<li>localより結構時間かかる</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="etc">
+<span id="etc"></span><h3>etc.<a class="headerlink" href="#etc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>docker port (fowarding port)</li>
+<li>docker inspect (docker info json)</li>
+<li>docker start container (start created container)</li>
+<li>docker attach container (裏で実行中コンテナにshellでアクセス)<ul>
+<li>dettach (C-p, C-q. not C-c -&gt; exit)</li>
+</ul>
+</li>
+<li>docker commit (操作したコンテナからimage作成)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="serverspec">
+<span id="serverspec"></span><h1>serverspec<a class="headerlink" href="#serverspec" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>dockerコンテナでubuntu環境を整えられたので、コピペしてVM ubuntuでもruby環境を整える</p>
+<div class="highlight-rb:serverspec_.gemrc"><div class="highlight"><pre><span></span>gem: --no-ri --no-rdoc
+</pre></div>
+</div>
+<div class="highlight-rb:serverspec_Gemfile"><div class="highlight"><pre><span></span>source &#39;https://rubygems.org&#39;
+
+gem &#39;rake&#39;
+gem &#39;serverspec&#39;
+gem &#39;docker-api&#39;
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">serverspec-init</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="o">+</span> <span class="n">spec</span><span class="o">/</span>
+ <span class="o">+</span> <span class="n">spec</span><span class="o">//</span><span class="n">sample_spec</span><span class="o">.</span><span class="n">rb</span>
+ <span class="o">+</span> <span class="n">spec</span><span class="o">/</span><span class="n">spec_helper</span><span class="o">.</span><span class="n">rb</span>
+ <span class="o">+</span> <span class="n">Rakefile</span>
+ <span class="o">+</span> <span class="o">.</span><span class="n">rspec</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hashicorp-tool">
+<span id="hashicorp-tool"></span><h1>よくわかってないhashicorp tool<a class="headerlink" href="#hashicorp-tool" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>https://speakerdeck.com/muziyoshiz/2015-4q-report</li>
+<li>http://keyamb.hatenablog.com/entry/2015/05/28/004337</li>
+<li>https://thinkit.co.jp/story/2015/04/13/5875</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

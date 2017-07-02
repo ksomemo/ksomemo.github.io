@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>流れ &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">流れ</a></li>
+<li><a class="reference internal" href="#">書いてみて思ったこと</a></li>
+<li><a class="reference internal" href="#">詳細</a></li>
+<li><a class="reference internal" href="#">分析のための考え方</a></li>
+<li><a class="reference internal" href="#">分析/機械学習のための知識</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>流れ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/集計／分析／機械学習の流れ.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>流れ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>最近pandasやnumpy, sklearnに力入れてたので、それが必要な流れをなにも見ずに書いてみた</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>書いてみて思ったこと<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>コンペのようなデータセットが用意されている場合と、自分たちのサービス改善のためだとだいぶ違う</li>
+<li>あとで分解したほうがよさそう</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>詳細<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ol class="simple">
+<li>目的決定<ol>
+<li>なにを解決したいのか<ol>
+<li>定点観測のため(KGIからのKPI)</li>
+<li>定点観測からの深掘りのための分析(今回の目的)</li>
+<li>レコメンドなどのシステムでも利用(今回の目的とは違う？)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>データ用意<ol>
+<li>集計<ol>
+<li>どんなデータか/もしくは必要か<ol>
+<li>マスタ/トランザクション</li>
+<li>差分/Dump</li>
+</ol>
+</li>
+<li>データの提供タイミング</li>
+<li>自動化してためこめるか</li>
+<li>どのデータと関連がある(結合できる)</li>
+<li>データ量はストレージに対して問題ないか<ol>
+<li>集約するかどうか</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>分析<ol>
+<li>変数の作成の計画</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>データ把握<ol>
+<li>尺度の把握(参考書たくさんある)<ol>
+<li>連続<ol>
+<li>0基準等の比例(よく使う</li>
+<li>間隔(あんまり使ってない</li>
+</ol>
+</li>
+<li>その他<ol>
+<li>順序/カテゴリ(二値含む</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>単変数<ol>
+<li>連続<ol>
+<li>ヒストグラム(分布確認</li>
+<li>箱ひげ図(外れ値ざっくり確認)</li>
+<li>要約統計量(箱ひげ図で見れない平均をみる/四分位数/min,max,std)</li>
+<li>NAの数</li>
+</ol>
+</li>
+<li>その他<ol>
+<li>カテゴリ種類</li>
+<li>種類別カウント<ol>
+<li>棒グラフ</li>
+</ol>
+</li>
+<li>上記の構成比率<ol>
+<li>100%積み上げ棒グラフなど</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>２変数<ol>
+<li>連続<ol>
+<li>散布図行列(重くなければ一気に見てしまう</li>
+<li>相関係数/相関係数行列ヒートマップ</li>
+</ol>
+</li>
+<li>その他<ol>
+<li>カテゴリ×目的変数の箱ひげ図</li>
+</ol>
+</li>
+<li>目的変数がある場合<ol>
+<li>目的変数がカテゴリなら<ol>
+<li>連続とのカテゴリ別ヒストグラム(別々,積み上げ)</li>
+</ol>
+</li>
+<li>目的変数が連続なら<ol>
+<li>カテゴリとのカテゴリ別箱ひげ図</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>多変数<ol>
+<li>散布図の目的カテゴリ別に色分け</li>
+<li>クロス集計<ol>
+<li>行/列それぞれの総数での集計</li>
+<li>各セルの全体における構成比率</li>
+<li>行/列単位の構成比率</li>
+<li>行列のオッズ/オッズ比</li>
+<li>カイ二乗検定</li>
+</ol>
+</li>
+<li>クロスグラフ<ol>
+<li>集計ではなくクロスしたセルにヒストグラムなど</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>前処理<ol>
+<li>外れ値除外</li>
+<li>欠損値除外or埋め</li>
+<li>ダミー変数(kカテゴリ -1個)</li>
+<li>縦持ち横持ち変換(縦のUnique化 and 説明変数の分解/ダミー変数に似ている)</li>
+<li>文字列変数の規則<ol>
+<li>titanicの名前の例</li>
+</ol>
+</li>
+<li>ドメイン知識からひねり出す<ol>
+<li>前処理につながる</li>
+</ol>
+</li>
+<li>離散化(segmentation ?)<ol>
+<li>連続量身長を大中小の順序に変換,解釈しやすくなることもある</li>
+<li>デシル分析など</li>
+</ol>
+</li>
+<li>日付の分解/集約<ol>
+<li>日時<ol>
+<li>時間帯別(0~23,AM/PM,朝昼晩夜)</li>
+<li>年月日分解</li>
+</ol>
+</li>
+<li>ある基準からの経過時間<ol>
+<li>初回利用日-会員登録日など(N日後利用)</li>
+<li>集計最終日-直近の利用日(N日前利用)<ol>
+<li>RFMのRecency</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>利用日のUniqueカウント(利用日数)<ol>
+<li>連続量以外でもRFMのFrequncyにする</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>正規化(標準化,MinMaxScale,etc.)</li>
+<li>多重共線性/分散の少なすぎる説明変数の選定と削除</li>
+<li>その他データセットとの結合<ol>
+<li>SQLでは複雑になる場合</li>
+<li>DBに格納されていないファイル,異なるDBのデータ</li>
+</ol>
+</li>
+<li>時系列系処理<ol>
+<li>移動平均,自己相関など(あんまり知らない</li>
+</ol>
+</li>
+<li>などなど</li>
+<li>再度データ把握</li>
+</ol>
+</li>
+<li>モデル選定<ol>
+<li>ここ分布やドメインによっていろいろ変える</li>
+</ol>
+</li>
+<li>学習<ol>
+<li>過学習/汎化能力のためのデータ準備<ol>
+<li>Cross Validation</li>
+</ol>
+</li>
+<li>説明変数用</li>
+<li>ハイパーパラメータ用</li>
+</ol>
+</li>
+<li>検証<ol>
+<li>係数の重要度<ol>
+<li>施策に活かせるかつコントロールできる変数を探す</li>
+<li>回帰係数</li>
+<li>決定木系</li>
+</ol>
+</li>
+<li>いろんな評価指標<ol>
+<li>回帰<ol>
+<li>RMSE</li>
+</ol>
+</li>
+<li>分類<ol>
+<li>confusion matrixからのnegative/positive/True/Falseによる指標</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>繰り返し</li>
+</ol>
+<ul class="simple">
+<li>この流れさえ見失わなければ、大枠ははずさないはず</li>
+<li>この流れに合うAPIを探す<ul>
+<li>評価系が甘い</li>
+<li>教師なし評価についてまだわかっていない</li>
+<li>NN系はわからない</li>
+<li>画像/テキスト系もわからない</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>分析のための考え方<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>目標設定</li>
+<li>volume と 割合<ul>
+<li>ex. 割合(効果)が高くても、volumeがなければ売上にならない</li>
+<li>構成比率</li>
+<li>正規化/標準化</li>
+</ul>
+</li>
+<li>diff/推移<ul>
+<li>時系列</li>
+</ul>
+</li>
+<li>今回集計したものと、前回集計したものを比較<ul>
+<li>これも定期的に等間隔で行いデータを増やせば、集計結果を時系列として比較できる</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h1>分析/機械学習のための知識<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>math<ul>
+<li>微分積分</li>
+<li>線形代数</li>
+<li>確率</li>
+<li>組合せ</li>
+<li>数学かわからないけど、いろいろな距離</li>
+</ul>
+</li>
+<li>english<ul>
+<li>わからなかったらGoogle Translate</li>
+</ul>
+</li>
+<li>programming<ul>
+<li>if,for,iteratorなどの基本</li>
+<li>DataFrameと行列ライブラリ慣れ</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

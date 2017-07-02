@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>formula &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">formula</a></li>
+<li><a class="reference internal" href="#patsy">patsy</a></li>
+<li><a class="reference internal" href="#">やってみた</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>formula</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/patsy触ってみた.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="formula">
+<span id="formula"></span><h1>formula<a class="headerlink" href="#formula" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Rのあれ(y ~ x1 + x2)</li>
+<li>patsyというpydata提供のpackage</li>
+<li>statsmodelsにformulaあったなぁと調べたら、これだった</li>
+</ul>
+</div>
+<div class="section" id="patsy">
+<span id="patsy"></span><h1>patsy<a class="headerlink" href="#patsy" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://patsy.readthedocs.org/en/latest/</li>
+<li>https://github.com/pydata/patsy</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>やってみた<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://patsy.readthedocs.org/en/latest/formulas.html</li>
+<li>http://patsy.readthedocs.org/en/latest/categorical-coding.html</li>
+</ul>
+<div class="highlight-py3:df_ex.py"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
+plt.style.use(&#39;ggplot&#39;)
+%matplotlib inline
+
+
+df_ex = pd.DataFrame(
+    {
+        &quot;a&quot;: np.random.randint(0, 3+1, 50),
+        &quot;b&quot;: range(50),
+        &quot;c&quot;: list(&quot;abcde&quot;) * 10,
+        &quot;y&quot;: np.random.randint(0, 1+1, 50)
+    }
+)
+</pre></div>
+</div>
+<div class="highlight-py3:dmatrices_dot.py"><div class="highlight"><pre><span></span>patsy.dmatrices(&quot;y ~ .&quot;, df_ex, return_type=&quot;dataframe&quot;)
+
+  File &quot;&lt;unknown&gt;&quot;, line 1
+    .
+    ^
+SyntaxError: invalid syntax
+</pre></div>
+</div>
+<ul class="simple">
+<li>.で全ての変数を使うことはできなかった</li>
+<li>全部入力して使用＋数値をカテゴリ変数として扱ってみた</li>
+</ul>
+<div class="highlight-py3:dmatrices.py"><div class="highlight"><pre><span></span>outcome, predictors = patsy.dmatrices(&quot;y ~ C(a) + b + c + d&quot;,  df_ex, return_type=&quot;dataframe&quot;)
+pd.concat([predictors, outcome], axis=1).head()
+
+    Intercept   C(a)[T.1]   C(a)[T.2]   C(a)[T.3]   c[T.b]  c[T.c]  c[T.d]  c[T.e]  d[T.True]   b   y
+0   1   0   0   0   0   0   0   0   0   0   1
+1   1   1   0   0   1   0   0   0   1   1   0
+2   1   0   1   0   0   1   0   0   0   2   1
+3   1   0   1   0   0   0   1   0   1   3   1
+4   1   1   0   0   0   0   0   1   0   4   0
+</pre></div>
+</div>
+<ul class="simple">
+<li>文字列とbooleanはカテゴリ変数として扱われている</li>
+<li>カテゴリ変数として扱った数値は意図したとおりになっている</li>
+<li>ただの数値は、数値として扱われている</li>
+<li>ここでは２値分類するという設定のもとyを目的変数にしているが、多値分類の場合outcomeの変数が2つ以上になるのでどうするのかわかってない</li>
+<li>たぶん機械学習方面のライブラリに詳しくないから混乱している気がする</li>
+<li>あとは学習と評価なので、scikit-learnとかに任せる</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

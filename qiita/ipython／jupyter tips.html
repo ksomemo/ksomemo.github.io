@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>help系 magic command と perl &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">help系 magic command と perl</a><ul>
+<li><a class="reference internal" href="#">動機</a></li>
+<li><a class="reference internal" href="#">その過程で知ったこと</a></li>
+<li><a class="reference internal" href="#p">%pなんとか(本題)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">その他</a><ul>
+<li><a class="reference internal" href="#">まとめ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ipythonmagic">ipythonで自作magicコマンド</a></li>
+<li><a class="reference internal" href="#jupyter-hook">jupyter hook</a></li>
+<li><a class="reference internal" href="#nbviewerbookmarklet">nbviewer用のbookmarklet</a><ul>
+<li><a class="reference internal" href="#">動機</a></li>
+<li><a class="reference internal" href="#code">code</a></li>
+<li><a class="reference internal" href="#try">tryの部分</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">他記事のリンク</a><ul>
+<li><a class="reference internal" href="#jupyter-content-management-extensions">Jupyter Content Management Extensions使ってみた</a></li>
+<li><a class="reference internal" href="#notebookdataframe-display">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li><a class="reference internal" href="#python-in-jupyter-notebook">Python以外 in jupyter notebook</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>help系 magic command と perl</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/ipython／jupyter tips.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="help-magic-command-perl">
+<span id="help-magic-command-perl"></span><h1>help系 magic command と perl<a class="headerlink" href="#help-magic-command-perl" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id1"></span><h2>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ipythonの<code class="docutils literal"><span class="pre">%pdoc</span></code>というmagic commandをどこかで見たので試していた</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>その過程で知ったこと<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>jupyter notebook上で他にもpなんとかあるかなーと見てたら<code class="docutils literal"><span class="pre">%%perl</span></code>があった</li>
+<li><code class="docutils literal"><span class="pre">%%javascript</span></code>は知っていた</li>
+<li>けどsyntax highlightされるのは知らなかった</li>
+<li><code class="docutils literal"><span class="pre">%%ruby</span></code>もあった</li>
+<li>素直に各言語の処理系とkernelを入れるほうがよさそう</li>
+<li><code class="docutils literal"><span class="pre">%%python2</span></code> はpython2のalias作っておけば便利そう(自分の場合pyenv使っているので無理)</li>
+</ul>
+<div class="highlight-perl_in_jupyter.pl"><div class="highlight"><pre><span></span>%%perl
+# http://ipython.readthedocs.org/en/stable/interactive/magics.html
+my $a = 1;
+sub add {
+   my ($x, $y) = @_;
+   return $x + $y;
+}
+print $a + add(2, 3);
+</pre></div>
+</div>
+</div>
+<div class="section" id="p">
+<span id="p"></span><h2>%pなんとか(本題)<a class="headerlink" href="#p" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>|command|conent|alias|
+|&#8212;&#8212;-|&#8212;&#8212;|&#8212;&#8211;|
+|pdoc   |doc string ||
+|pdef   |signature  ||
+|pinfo  |Signature,docstring,file,type|?target|
+|pinfo2 |pinfo - docstring + source   |??target|
+|pfile  |対象の定義されているfileのsource||
+|psource|対象のsource||</p>
+<p>pagerはQ or ESCで閉じることを知らないと邪魔だと思ってしまうので覚えたほうがいい(知らなかった)</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">%quickref</span></code> か document読もう</li>
+<li>pprintはdefaultでON,OFFにするには<code class="docutils literal"><span class="pre">%pprint</span></code></li>
+<li><code class="docutils literal"><span class="pre">%pycat</span></code> https://raw.githubusercontent.com/pydata/pandas/master/setup.py によるpytho fileのpager閲覧</li>
+<li><code class="docutils literal"><span class="pre">%set_env</span></code> myenv=value による環境変数の設定<ul>
+<li><code class="docutils literal"><span class="pre">%env</span></code> myenv で確認できる</li>
+<li>もちろん <code class="docutils literal"><span class="pre">os.environ</span></code> にも反映される</li>
+<li>proxy機能するかあとで試す</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">%doctest_mode</span></code> はterminalのprompt表示をdoctestにコピペしやすくするものなので、testできるわけではなさそう</li>
+<li><code class="docutils literal"><span class="pre">%edit</span></code> はterminalからだとEditorが立ち上がって編集でき、書いた内容が現在のセッションに反映される(つまりnotebookでは意味が無い…)</li>
+</ul>
+<div class="section" id="">
+<span id="id4"></span><h2>まとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>ipythonだけの環境の場合に強くなった</li>
+<li>%p関連は使えそうだけど, ?/??だけでも問題なさそう</li>
+<li>消耗した</li>
+</ul>
+</div>
+</div>
+<div class="section" id="ipythonmagic">
+<span id="ipythonmagic"></span><h1>ipythonで自作magicコマンド<a class="headerlink" href="#ipythonmagic" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:example.ipynb"><div class="highlight"><pre><span></span>%% exmaple line_start line_end
+cell_start
+1
+2
+3
+cell_end
+</pre></div>
+</div>
+<div class="highlight-py3:example.py"><div class="highlight"><pre><span></span># ~/.ipython/extensions/
+from IPython.core.magic import register_cell_magic
+
+
+@register_cell_magic
+def exmaple(line, cell):
+    print(&quot;line:&quot;, line)
+    print(&quot;cell:&quot;, cell)
+    return line + &quot;[add]&quot;, cell + &quot;[add]&quot;
+
+def load_ipython_extension(ipython):
+    ipython.register_magic_function(helloworld, &#39;cell&#39;)
+</pre></div>
+</div>
+<div class="highlight-py3:ipython_config.py"><div class="highlight"><pre><span></span># ~/.ipython/profile_default/
+c.InteractiveShellApp.extensions.append(&quot;example&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="jupyter-hook">
+<span id="jupyter-hook"></span><h1>jupyter hook<a class="headerlink" href="#jupyter-hook" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:jupyter_notebook_config.py"><div class="highlight"><pre><span></span># http://jupyter-notebook.readthedocs.org/en/latest/extending/savehooks.html
+# ~/.jupyter
+def scrub_output_pre_save(model, **kwargs):
+    &quot;&quot;&quot;scrub output before saving notebooks&quot;&quot;&quot;
+    # only run on notebooks
+    if model[&#39;type&#39;] != &#39;notebook&#39;:
+        return
+    # only run on nbformat v4
+    if model[&#39;content&#39;][&#39;nbformat&#39;] != 4:
+        return
+
+    for cell in model[&#39;content&#39;][&#39;cells&#39;]:
+        if cell[&#39;cell_type&#39;] != &#39;code&#39;:
+            pass
+            # continue
+        # cell[&#39;outputs&#39;] = []
+        # cell[&#39;execution_count&#39;] = None
+        print(cell[&quot;outputs&quot;])
+
+c.FileContentsManager.pre_save_hook = scrub_output_pre_save
+
+import io
+import os
+from notebook.utils import to_api_path
+
+_script_exporter = None
+
+
+def script_post_save(model, os_path, contents_manager, **kwargs):
+    &quot;&quot;&quot;convert notebooks to Python script after save with nbconvert
+
+    replaces `ipython notebook --script`
+    &quot;&quot;&quot;
+    from nbconvert.exporters.script import ScriptExporter
+
+    if model[&#39;type&#39;] != &#39;notebook&#39;:
+        return
+
+    global _script_exporter
+    if _script_exporter is None:
+        _script_exporter = ScriptExporter(parent=contents_manager)
+    log = contents_manager.log
+
+    base, ext = os.path.splitext(os_path)
+    # py_fname = base + &#39;.py&#39;
+    script, resources = _script_exporter.from_filename(os_path)
+    script_fname = base + resources.get(&#39;output_extension&#39;, &#39;.txt&#39;)
+    log.info(&quot;Saving script /%s&quot;, to_api_path(script_fname, contents_manager.root_dir))
+    with io.open(script_fname, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+        f.write(script)
+
+c.FileContentsManager.post_save_hook = script_post_save
+</pre></div>
+</div>
+</div>
+<div class="section" id="nbviewerbookmarklet">
+<span id="nbviewerbookmarklet"></span><h1>nbviewer用のbookmarklet<a class="headerlink" href="#nbviewerbookmarklet" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id5"></span><h2>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>今見ているipynbページ or 特定のURLをnbviewerで見たい</li>
+<li>nbviewerで入力しに行くのはめんどう</li>
+<li>つくってしまえ</li>
+</ul>
+</div>
+<div class="section" id="code">
+<span id="code"></span><h2>code<a class="headerlink" href="#code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-open-nbviewer.js"><div class="highlight"><pre><span></span>var target = &#39;_target&#39;
+, tab = window.open(&#39;about:blank&#39;, target)
+, form = document.createElement(&#39;form&#39;)
+, input = document.createElement(&#39;input&#39;)
+, body = document.querySelector(&#39;body&#39;)
+;
+input.type = &#39;text&#39;;
+input.name = &#39;gistnorurl&#39;;
+input.value = window.prompt() || location.href;
+form.method = &#39;post&#39;;
+form.target = target;
+form.action = &#39;https://nbviewer.jupyter.org/create&#39;;
+form.appendChild(input);
+body.appendChild(form);
+form.submit();
+//try {form.submit()} catch(e){alert(e);tab.close()};
+body.removeChild(form);
+</pre></div>
+</div>
+</div>
+<div class="section" id="try">
+<span id="try"></span><h2>tryの部分<a class="headerlink" href="#try" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">submit()</span></code>したときに起こったerror</li>
+<li>catchできなかったので、後述のCSPは諦めるしか無い</li>
+</ul>
+<blockquote>
+<div>Refused to send form data to &#8216;https://nbviewer.jupyter.org/create&#8217; because it violates the following Content Security Policy directive: &#8220;form-action &#8216;self&#8217; github.com gist.github.com&#8221;.</div></blockquote>
+<p>https://developer.mozilla.org/ja/docs/Web/Security/CSP</p>
+<blockquote>
+<div>Content Security Policy (CSP) とは、クロスサイトスクリプティング (XSS) やデータを差し込む攻撃などといった、特定の種類の攻撃を検知し、影響を軽減するために追加できるセキュリティレイヤーです。これらの攻撃はデータの窃取からサイトの改ざん、マルウェアの拡散に至るまで、様々な目的に用いられます。</div></blockquote>
+</div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h1>他記事のリンク<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="jupyter-content-management-extensions">
+<span id="jupyter-content-management-extensions"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/dab10c3fcd4df51f7f68">Jupyter Content Management Extensions使ってみた</a><a class="headerlink" href="#jupyter-content-management-extensions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="notebookdataframe-display">
+<span id="notebookdataframe-display"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/4a522cecb098ef487bd9">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a><a class="headerlink" href="#notebookdataframe-display" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="python-in-jupyter-notebook">
+<span id="python-in-jupyter-notebook"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/71843261b7b0919d08b8">Python以外 in jupyter notebook</a><a class="headerlink" href="#python-in-jupyter-notebook" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Zen of Python と import &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">The Zen of Python と import</a></li>
+<li><a class="reference internal" href="#this">thisが提供しているもの</a></li>
+<li><a class="reference internal" href="#ds">dとsの詳細</a></li>
+<li><a class="reference internal" href="#functools">functools と 部分適用</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>The Zen of Python と import</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/import this と 部分適用.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-zen-of-python-import">
+<span id="the-zen-of-python-import"></span><h1>The Zen of Python と import<a class="headerlink" href="#the-zen-of-python-import" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>import this すると表示されるはよく知られているので省略。</p>
+</div>
+<div class="section" id="this">
+<span id="this"></span><h1>thisが提供しているもの<a class="headerlink" href="#this" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>this.c</li>
+<li>this.d</li>
+<li>this.i</li>
+<li>this.s</li>
+</ul>
+<p>cとiはなにかの数字、dはdict, sはstrでした。</p>
+</div>
+<div class="section" id="ds">
+<span id="ds"></span><h1>dとsの詳細<a class="headerlink" href="#ds" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>dは英大文字小文字を別の英大文字小文字にmapする内容でした。</p>
+<p>sはThe Zen of Pythonと似たような文章で、</p>
+<p><code class="docutils literal"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">better</span> <span class="pre">than</span> <span class="pre">y.</span></code> が <code class="docutils literal"><span class="pre">a</span> <span class="pre">vf</span> <span class="pre">orggre</span> <span class="pre">guna</span> <span class="pre">b.</span></code> になっているっぽい(x,yも適当なa,bに置き換わっている)。</p>
+<p>ここまで分かれば、あとはsの文字をdでmapするだけ。</p>
+</div>
+<div class="section" id="functools">
+<span id="functools"></span><h1>functools と 部分適用<a class="headerlink" href="#functools" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span> <span class="k">else</span> <span class="n">x</span>
+<span class="n">pf</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">this</span><span class="o">.</span><span class="n">d</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">pf</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="n">s</span><span class="p">)))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>mapすればいいけど、引数が複数ある</li>
+<li>functoolsを使えば部分適用した関数を作れる</li>
+<li>引数を指定できるので、どの位置でも大丈夫そう</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>from_stringがない &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">from_stringがない</a></li>
+<li><a class="reference internal" href="#copyclipboard">copyするのめんどうならclipboardから</a><ul>
+<li><a class="reference internal" href="#">なんでこんなに調べたか</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>from_stringがない</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/文字列からDataFrame作成(困ったらio.StringIO).md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="from-string">
+<span id="from-string"></span><h1>from_stringがない<a class="headerlink" href="#from-string" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>read_csvでCSV読み込むのめんどうなとき</li>
+<li>copyした内容で作りたい</li>
+<li>というよりは、Rにもあるからpandasにもあると思ったらなかった</li>
+<li>from_csvはあったので、StringIOで包んでしまえ</li>
+<li>つくったあとに、read_csvでよいことに気づく</li>
+<li>documentにのってたのでmemoに降格…(http://pandas.pydata.org/pandas-docs/stable/io.html#csv-text-files)</li>
+</ul>
+<div class="highlight-py3:read_and_from_csv.py"><div class="highlight"><pre><span></span>import pandas as pd
+import io
+
+_csv = &quot;&quot;&quot;a,b,c
+1,2,3
+4,5,6
+&quot;&quot;&quot;
+
+pd.read_csv(io.StringIO(_csv))
+
+# from stringつくった
+# from_csvはIndexの読み込みがめんどうだった
+# 以下、無視して問題なし
+
+def from_string(_csv, **kwargs):
+    # http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.from_csv.html
+    return pd.DataFrame.from_csv(io.StringIO(_csv), **kwargs)
+
+from_string(_csv)
+from_string(_csv, index_col=None)
+from_string(_csv[1:])
+
+    b   c
+a       
+1   2   3
+4   5   6
+#################
+    a   b   c
+0   1   2   3
+1   4   5   6
+#################
+    b   c
+1   2   3
+4   5   6
+</pre></div>
+</div>
+</div>
+<div class="section" id="copyclipboard">
+<span id="copyclipboard"></span><h1>copyするのめんどうならclipboardから<a class="headerlink" href="#copyclipboard" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>これもfrom_はないが、read_, to_ が存在した</li>
+<li>https://github.com/pydata/pandas/blob/master/pandas/util/clipboard.py</li>
+<li>https://github.com/pydata/pandas/blob/master/pandas/util/clipboard.py#L1　に <code class="docutils literal"><span class="pre">#</span> <span class="pre">Pyperclip</span> <span class="pre">v1.5.15</span></code> と書かれている</li>
+<li>https://github.com/pydata/pandas/commit/a7d069dc2dbf451e5286cfca3497fa03c77dc900 からPyperclipのコードを使っているっぽい</li>
+</ul>
+<div class="section" id="">
+<span id="id1"></span><h2>なんでこんなに調べたか<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>read_ の存在に気づかず、to_しかないのかよーとPyperclipを使ったコードを作成していた…</li>
+<li>http://qiita.com/ksomemo/items/381191fa95992d81be90#python%E3%81%A7clipboard%E6%93%8D%E4%BD%9C</li>
+</ul>
+<div class="highlight-py3:from_clipboad.py"><div class="highlight"><pre><span></span>import pyperclip
+
+
+def from_clipboad(**kwargs):
+    return from_string(pyperclip.paste(), **kwargs)
+
+pyperclip.copy(_csv)
+from_clipboad(index_col=None)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

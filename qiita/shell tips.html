@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>heredoc中でescape &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">heredoc中でescape</a></li>
+<li><a class="reference internal" href="#">一時的に環境変数を変更</a></li>
+<li><a class="reference internal" href="#gzip-sample">gzip sample</a></li>
+<li><a class="reference internal" href="#oneliner-get-pip-and-install">oneliner: get-pip and install</a></li>
+<li><a class="reference internal" href="#">日付時刻指定してファイル作成</a></li>
+<li><a class="reference internal" href="#">あるファイルより新しい時刻のファイルの検索</a></li>
+<li><a class="reference internal" href="#wget-with-header">wget with header</a></li>
+<li><a class="reference internal" href="#curl-basic-auth">curl basic auth</a></li>
+<li><a class="reference internal" href="#bash-dollar-mkdir-and-cd">bash の dollar と mkdir and cd</a></li>
+<li><a class="reference internal" href="#awkcut">普段awkしか使わないのでcut のメモ</a></li>
+<li><a class="reference internal" href="#bash">bashで桁の大きい数値文字列の作成</a></li>
+<li><a class="reference internal" href="#expectssh">expectを使った自動パスワード入力でのssh接続</a></li>
+<li><a class="reference internal" href="#">他記事のリンク</a><ul>
+<li><a class="reference internal" href="#iconv-and-nkf">iconv and nkf</a></li>
+<li><a class="reference internal" href="#">改行の変換</a></li>
+<li><a class="reference internal" href="#">シェルでの変数に対する操作</a></li>
+<li><a class="reference internal" href="#awk">awkの中でシェルで作成した変数を扱う</a></li>
+<li><a class="reference internal" href="#n">ファイルをN行に分割する</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>heredoc中でescape</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/shell tips.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="heredocescape">
+<span id="heredocescape"></span><h1>heredoc中でescape<a class="headerlink" href="#heredocescape" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:escape_heredoc.sh"><div class="highlight"><pre><span></span># 単純に実行結果をredirectしてるのでescapeする必要がある
+cat &lt;&lt;EOF &gt; escape_heredoc.sh
+echo \`whoami\` home is \$HOME
+EOF
+
+cat escape_heredoc.sh
+echo `whoami` home is $HOME
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>一時的に環境変数を変更<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-zsh:一時的に環境変数を変更.zsh"><div class="highlight"><pre><span></span>echo $LANG         # ja_JP.UTF-8
+       date        # 土  3 25 16:20:03 JST 2017
+LANG=C date        # Sat Mar 25 16:20:18 JST 2017
+echo $LANG         # ja_JP.UTF-8
+
+LANG=C echo $LANG  # ja_JP.UTF-8 ?? builtin ??
+echo &#39;echo $LANG&#39; &gt; test.sh &amp;&amp; chmod +x test.sh
+
+       ./test.sh   # ja_JP.UTF-8
+LANG=C ./test.sh   # C
+</pre></div>
+</div>
+</div>
+<div class="section" id="gzip-sample">
+<span id="gzip-sample"></span><h1>gzip sample<a class="headerlink" href="#gzip-sample" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:gzip_sample.sh"><div class="highlight"><pre><span></span>gzip -V
+gzip 1.6
+
+gzip -dk data.gz # data
+gzip -dc data.gz &gt; data.tsv
+
+gzip -k data.tsv # data.tsv.gz
+gzip -c data.tsv &gt; data.gz
+
+gzip -l data.gz
+       compressed        uncompressed  ratio uncompressed_name
+          2250139            14046126  84.0% data
+</pre></div>
+</div>
+</div>
+<div class="section" id="oneliner-get-pip-and-install">
+<span id="oneliner-get-pip-and-install"></span><h1>oneliner: get-pip and install<a class="headerlink" href="#oneliner-get-pip-and-install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-exec-python-from-stdin.sh"><div class="highlight"><pre><span></span># http://stackoverflow.com/questions/11369964/run-a-python-script-from-url-in-terminal
+
+echo &quot;import sys;print sys.version&quot; | python
+2.7.11+ (default, Apr 17 2016, 14:00:29)
+[GCC 5.3.1 20160413]
+
+# つまり下記で良い
+wget -q -O- https://bootstrap.pypa.io/get-pip.py | python
+
+# python でpip install, replから抜けたくない時などに
+python -c &quot;import pip; pip.main([&#39;install&#39;, &#39;joblib&#39;])&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>日付時刻指定してファイル作成<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:日付時刻指定してファイル作成.sh"><div class="highlight"><pre><span></span># ファイル作成と、作成済みファイルの日時変更は覚えていたので、調べてみた
+
+touch
+usage:
+touch [-A [-][[hh]mm]SS] [-acfhm] [-r file] [-t [[CC]YY]MMDDhhmm[.SS]] file ...
+
+man touch
+
+touch f1
+touch -t &quot;200012090123.45&quot; f2
+touch -t &quot;202001010123.45&quot; f3
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>あるファイルより新しい時刻のファイルの検索<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:あるファイルより新しい時刻のファイルの検索.sh"><div class="highlight"><pre><span></span># 日付時刻指定してファイル作成で分かりやすくファイルを作成した後に
+find . -newer f1
+./f3
+</pre></div>
+</div>
+</div>
+<div class="section" id="wget-with-header">
+<span id="wget-with-header"></span><h1>wget with header<a class="headerlink" href="#wget-with-header" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:wget_with_header_example.sh"><div class="highlight"><pre><span></span># and basic authorization
+wget http://localhost:8080 \
+    --header=&#39;field: value&#39; \
+    --header=&#39;field2: value2&#39; \
+    &#39;--http-user=id&#39; &#39;--http-password=pass&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="curl-basic-auth">
+<span id="curl-basic-auth"></span><h1>curl basic auth<a class="headerlink" href="#curl-basic-auth" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:curl_basic_auth_example.sh"><div class="highlight"><pre><span></span>curl --user id:pass \
+     -X POST \
+     -d name=value
+     &quot;http://localhost:8080/&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="bash-dollar-mkdir-and-cd">
+<span id="bash-dollar-mkdir-and-cd"></span><h1>bash の dollar と mkdir and cd<a class="headerlink" href="#bash-dollar-mkdir-and-cd" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:mdkir_and_cd.sh"><div class="highlight"><pre><span></span># https://www.gnu.org/software/bash/manual/html_node/Variable-Index.html
+
+mkdir -p foo/bar &amp;&amp; cd $_
+# 直近のパラメータになるのでちょうどいい
+</pre></div>
+</div>
+</div>
+<div class="section" id="awkcut">
+<span id="awkcut"></span><h1>普段awkしか使わないのでcut のメモ<a class="headerlink" href="#awkcut" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:cut_example.sh"><div class="highlight"><pre><span></span>echo &quot;1  2  3&quot; | cut -d&quot; &quot; -f1,2,5
+1  3
+# delimiterの連続は考慮しない
+
+echo &quot;1  2  3&quot; | awk       &#39;{print $1 $2 $5}&#39;
+12
+echo &quot;1  2  3&quot; | awk -F&#39; &#39; &#39;{print $1 $2 $5}&#39;
+12
+</pre></div>
+</div>
+</div>
+<div class="section" id="bash">
+<span id="bash"></span><h1>bashで桁の大きい数値文字列の作成<a class="headerlink" href="#bash" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:bashで桁の大きい数値文字列の作成.sh"><div class="highlight"><pre><span></span># 今回は20桁
+# 10^18になるとオーバーフロー
+# seqだけでも0埋め可能
+
+DIGIT_18=$((10 ** 17))
+FORMAT=&#39;No.%s\n&#39;
+for i in $(seq -w 1 1 30)
+do
+  num=${DIGIT_18}$i
+  printf &quot;${FORMAT}&quot; $num
+done
+</pre></div>
+</div>
+</div>
+<div class="section" id="expectssh">
+<span id="expectssh"></span><h1>expectを使った自動パスワード入力でのssh接続<a class="headerlink" href="#expectssh" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bash:expectを使った自動パスワード入力でのssh接続_expect_script.sh"><div class="highlight"><pre><span></span>#!/usr/bin/expect
+ 
+set timeout 5
+spawn ssh [lindex $argv 0]
+expect &quot;password:&quot;
+send &quot;password\n&quot;
+send exit\n
+interact
+</pre></div>
+</div>
+<div class="highlight-bash:expectを使った自動パスワード入力でのssh接続_run_expect.sh"><div class="highlight"><pre><span></span>#!/bin/sh
+
+expect -c &quot;
+ set timeout 5
+ spawn ssh [lindex $argv 0]
+ expect &quot;password:&quot;
+ send &quot;password\n&quot;
+ send exit\n
+ interact
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>他記事のリンク<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="iconv-and-nkf">
+<span id="iconv-and-nkf"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/3faace1a175e20cf63dd">iconv and nkf</a><a class="headerlink" href="#iconv-and-nkf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/ec50044912447636b3ce">改行の変換</a><a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/9e5c354944bb6e1cf799">シェルでの変数に対する操作</a><a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="awk">
+<span id="awk"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/2e7389db84f8b416ad9f">awkの中でシェルで作成した変数を扱う</a><a class="headerlink" href="#awk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="n">
+<span id="n"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/ab498ad8d6d25728db43">ファイルをN行に分割する</a><a class="headerlink" href="#n" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

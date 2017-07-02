@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>chocolatey &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">chocolatey</a></li>
+<li><a class="reference internal" href="#chocolatey">chocolateyのインストール</a></li>
+<li><a class="reference internal" href="#command">command</a></li>
+<li><a class="reference internal" href="#windows">パッケージ（Windowsソフトウェア）のインストール</a><ul>
+<li><a class="reference internal" href="#">インストールできる一覧</a></li>
+<li><a class="reference internal" href="#">パッケージ一覧を指定してインストール</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">設定ファイル</a></li>
+<li><a class="reference internal" href="#">インストール済みのパッケージ一覧</a></li>
+<li><a class="reference internal" href="#gui">GUI</a><ul>
+<li><a class="reference internal" href="#">インストール</a></li>
+<li><a class="reference internal" href="#">実行</a></li>
+<li><a class="reference internal" href="#">インストール済みパッケージ一覧</a></li>
+<li><a class="reference internal" href="#">インストール可能パッケージの検索</a></li>
+<li><a class="reference internal" href="#">インストール</a></li>
+<li><a class="reference internal" href="#export">インストール済みパッケージ一覧のExport</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">まとめ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>chocolatey</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/chocolateyでWindowsでもPackage管理.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chocolatey">
+<span id="chocolatey"></span><h1>chocolatey<a class="headerlink" href="#chocolatey" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Windows用ソフトウェアのパッケージ管理ツール</p>
+</div>
+<div class="section" id="chocolatey">
+<span id="id1"></span><h1>chocolateyのインストール<a class="headerlink" href="#chocolatey" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-bat:chocolatey_install.bat"><div class="highlight"><pre><span></span>@echo off
+@powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;iex ((new-object net.webclient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))&quot; &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+
+pause
+</pre></div>
+</div>
+</div>
+<div class="section" id="command">
+<span id="command"></span><h1>command<a class="headerlink" href="#command" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">choco</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows">
+<span id="windows"></span><h1>パッケージ（Windowsソフトウェア）のインストール<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id2"></span><h2>インストールできる一覧<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">choco</span> <span class="nb">list</span>
+<span class="n">clist</span> <span class="n">atom</span>
+</pre></div>
+</div>
+<p>ただし、めちゃくちゃ時間かかるのでlistのあとにパッケージ名を指定したほうがよい</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">choco</span> <span class="n">install</span> <span class="n">curl</span>
+<span class="n">cinst</span> <span class="n">winmerge</span>
+<span class="n">cinst</span> <span class="n">atom</span> <span class="o">--</span><span class="n">version</span> <span class="mf">1.0</span><span class="o">.</span><span class="mi">7</span>
+</pre></div>
+</div>
+<p>必要であれば管理者としてインストールする</p>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>パッケージ一覧を指定してインストール<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>後述の設定ファイルからもインストールするパッケージを指定できる</p>
+<p><code class="docutils literal"><span class="pre">cinst</span> <span class="pre">packages.config</span></code></p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>設定ファイル<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>packages.configというXMLの設定ファイル</p>
+<div class="highlight-xml:packages_sample.config"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;packages&gt;
+    &lt;package id=&quot;curl&quot; /&gt;
+    &lt;package id=&quot;wget&quot; /&gt;
+&lt;/packages&gt;
+</pre></div>
+</div>
+<p>idはパッケージ名</p>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h1>インストール済みのパッケージ一覧<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">clist</span> <span class="o">-</span><span class="n">l</span>
+</pre></div>
+</div>
+<p>lはLocalOnlyの略です</p>
+</div>
+<div class="section" id="gui">
+<span id="gui"></span><h1>GUI<a class="headerlink" href="#gui" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id6"></span><h2>インストール<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cinst</span> <span class="n">ChocolateyGUI</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>GUIがあるらしく、下記でインストールしようとしたらできなかった。</li>
+<li>しかし、再起動後にコマンドプロンプトを管理者として実行後に再度実行したらインストールできた</li>
+<li>結論、後述するがあまり使わないと思う</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>実行<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>スタートメニューから実行できる。</p>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h2>インストール済みパッケージ一覧<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>左のThisPCを選択すると、一覧が表示される。</p>
+<ul class="simple">
+<li>パッケージ名をダブルクリックすると、詳細画面が表示される</li>
+<li>右下に再インストールとアンインストールボタンがある</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h2>インストール可能パッケージの検索<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>左のChocolateyを選択すると、インストール可能パッケージ一覧が表示される。</p>
+<ul class="simple">
+<li>Searchの隣にあるテキストボックスにキーワードを入力すると、そのパッケージに限定される</li>
+<li>All Versions, Include Prereleaseチェックボックスにチェックを入れると表示されるバージョンが増える</li>
+<li>NAME,VERSION,VERSION DOWNLOADSのバーをクリックすると、ソート可能</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h2>インストール<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>試しにMySQL(CommunityServer)5.6.26をインストールしてみた。</p>
+<p>Dependenciesに 7zip.commandlineが表示されていたが、右下にインストールボタンがあったのクリックしてみたが、成功・失敗についての情報がわからないのでPowerShellなどから実行したほうが良いと思った</p>
+</div>
+<div class="section" id="export">
+<span id="export"></span><h2>インストール済みパッケージ一覧のExport<a class="headerlink" href="#export" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ThisPCを選択し、右上のExportからExportできる。</p>
+<p>しかも、<code class="docutils literal"><span class="pre">clist</span> <span class="pre">-l</span></code>で表示した時と違ってXMLとして出力される。</p>
+<div class="highlight-xml:packages_export.config"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;packages&gt;
+  &lt;package id=&quot;Atom&quot; version=&quot;1.0.7&quot; /&gt;
+  &lt;package id=&quot;ChocolateyGUI&quot; version=&quot;0.13.1&quot; /&gt;
+  &lt;package id=&quot;curl&quot; version=&quot;7.28.1&quot; /&gt;
+  &lt;package id=&quot;PowerShell&quot; version=&quot;4.0.20141001&quot; /&gt;
+  &lt;package id=&quot;winmerge&quot; version=&quot;2.14.0&quot; /&gt;
+&lt;/packages&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h1>まとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>chocolatey便利</li>
+<li>GUIはinstallには使わないほうがよさそう</li>
+<li>package.configをExportしてバージョン管理</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

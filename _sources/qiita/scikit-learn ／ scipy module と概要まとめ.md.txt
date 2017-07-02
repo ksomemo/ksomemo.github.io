@@ -1,0 +1,579 @@
+## scikit-learn module
+http://scikit-learn.org/stable/modules/classes.html
+
+- なにがあるか概要だけでも把握
+- ちょっと触ってわかったものを書き込む
+
+### modules
+sklearn.xxx
+
+- base
+    - clone
+        - 並列処理するときやbest_estimatorを返すときなどに使用している
+    - model用のMixinなど
+        - 下記は作成したいmodelに合わせた最低限の作り方
+        - http://qiita.com/_takoika/items/89a7e42dd0dc964d0e29
+- calibration
+    - predict_probaの校正
+    - predict_probaを持たないクラス確率を出力できないものへの適用?
+    - http://tjo.hatenablog.com/entry/2016/11/24/190000
+- cluster
+    - KMeans
+        - 実際はKMean++が使われている(初期化問題対応)
+            - https://www.quora.com/What-is-the-difference-between-Kmeans++-and-Kmeans-1
+            - http://stats.stackexchange.com/questions/130888/k-means-vs-k-means
+        - クラスタ数については、[k-meansの最適なクラスター数を調べる方法
+](http://qiita.com/deaikei/items/11a10fde5bb47a2cf2c2)を参照
+            - sklearnのexample(エルボー/シルエット)
+            - 距離
+        - 上記の後編のX-Meansもよかった
+            - BICとクラスタに分けたあとの2-means
+                - 決定木っぽさを感じた
+        - KMeansにもMiniBatchがある(TODO:MiniBatch)
+- cluster.bicluster
+- covariance
+- cross_decomposition
+- model_selection
+    - <del>cross_validation module</del>
+    - 過学習を避けるための方法がいろいろ
+        - bias/variance
+            - high bias: under fitting
+            - high variance: over fitting
+            - いろいろ参考をあげたけど、教師データだけに着目すればいいので自明だった…
+                - 予測は考えない
+                - 教師データすべてに対して悪いが、大幅なズレはないならunder fitting
+                - すべてに対して当てはまっているが、教師データにはない点での分散が大きい
+            - <del>http://s0sem0y.hatenablog.com/entry/2017/01/24/100415</del>
+            - <del>https://www.slideshare.net/canard0328/ss-44288984 p58</del>
+            - <del>http://ibisforest.org/index.php?%E3%83%90%E3%82%A4%E3%82%A2%E3%82%B9-%E3%83%90%E3%83%AA%E3%82%A2%E3%83%B3%E3%82%B9</del>
+            - http://d.hatena.ne.jp/isobe1978/20130906/1378438914
+        - hyperparamter用の分け方
+            - CourseraのMachine Learningをやってわかったこと
+                - 学習はtraning setで行う(hyperparamterはもちろん決め打ち)
+                - 学習後のもmodelとvalidation setを用いて hyperparamterのよさを求める
+                - よいhyperparamterを決めた後、test setで最終確認
+            - http://penzant.hatenadiary.com/entry/2016/02/19/000000
+            - ttp://qiita.com/katsu1110/items/97c3f98a987ea92b2cc1
+            - ttp://qiita.com/QUANON/items/ae569961ea02b4468e23
+            - https://www.coursera.org/learn/machine-learning/lecture/QGKbr/model-selection-and-train-validation-test-sets
+            - http://stats.stackexchange.com/questions/19048/what-is-the-difference-between-test-set-and-validation-set
+            - http://cs231n.github.io/classification/#val
+            - http://www.slideshare.net/minoruchikamune/by-20150911172207 p28
+    - train_test_split
+        - 学習データとテストデータにわける(割合 or 個数)
+        - (train|test)_size 0.0 to 1.0 or int
+        - hold-out
+    - cross_val_score
+        - cross validationを実行して、そのスコアを返す
+            - GridSearchCVのようにbest_estimatorは返さない
+                - GridSearchCVを渡せるが上記のとおりなので、nestしても意味がない…
+            - joblibのParallelにcloneしたestimatorを渡している
+        - 乱数は直接指定できない
+    - KFold
+        - Cross validation iterator
+        - cross_val_scoreのcv引数に渡す
+        - 乱数はrandom_state(seed or numpy.random.RandomState)で設定
+        - ほかにも種類があり、どのように分割するかによって使い分ける(xxFold)
+    - LeaveOneOut(LOO)
+        - N samples, N-1 train, 1 test
+        - `KFold(n_splits=n)`
+            - 0.18から利用方法/API/引数変更
+            - instanceにしてから splitすることでiterとして扱える
+    - StratifiedKFold
+        - <del>不均衡データ用</del>(目的変数が`[1,1,1,0,0,0,0,0,0,0]`)
+            - 分類と回帰の違い
+            - cvパラメータが存在するclassや関数のドキュメントに書いてある
+        - KFlodで分割した場合、負例しか含まれないようなケースがあるがコレの場合はバランスを考慮してくれる
+        - 他の方法にはover/under samplingや, クラスへの重み付けがあるらしい
+    - <del>grid_search module</del>
+    - GridSearchCV
+        - 各ハイパーパラメータのパターンを渡す
+            - estimatorにはPipeLineも渡せるので、そのときのparamterはPipeLineの規則に従う
+        - 組合せた結果を返してくれて、その中から最適なものなども指定して取得できる
+            - 下記タイトル関係なく見えるけど、一応やってる
+            - [pandas.Series.applyでDataFrameを返す](http://qiita.com/ksomemo/items/71af220ea716a5a3bb8a)
+    - <del>learning_curve module</del>
+    - learning_curve
+        - データサイズによるbias/varianceの確認
+        - 割合を(0, 1] のndarrayで指定する
+    - validation_curve
+        - hyperparamerによるbias/varianceの確認
+        - GridSearchCVの単一paramter特価
+- datasets
+    - irisなどdigitsのdataset
+        - load_xxx().DESCR で概要
+        - 前に調べた [load datasets in python](http://qiita.com/ksomemo/items/69ae8eec98b795781586)
+        - 分類用
+            - iris
+            - digits
+        - 回帰用
+            - boston
+        - etc.
+    - make_xxx
+        - sample generator
+            - 二重円や月の形をした非線形分離のためのサンプルデータセット作成
+            - ex. [perceptronの可視化(線形/非線形性分離のためのデータセット作成例)](http://qiita.com/ksomemo/items/e601cebec88d7d24e6bb)
+- decomposition
+    - PCA(主成分分析)
+        - `np.linalg.eig(h)`は使わずSVDを使っている
+            - TODO：SVDとeigの違い
+        - 線形, 欠損値なし前提
+            - 分散が最大になる方向の基底ベクトル
+            - その方向を基準とした行列(成分が実数)による変換のため線形変換？
+        - パラメータは縮約する次元数(主成分の数)
+            - `n_components` を指定しない場合、次元を落とさず寄与率を調べられる
+        - `components_`
+            - 固有ベクトル相当（ただし、転置すること)
+            - 元データとの内積をとるとき、各特徴量の平均を引いてcenteringすること
+        - transform
+            - `components_` で変換した入力ベクトル
+        - 寄与率(`explained_variance_ratio_`) で縮約したあとの各次元が元のどれだけの情報を示すか
+        - 参考
+            - http://www.macromill.com/landing/words/b007.html
+            - http://breakbee.hatenablog.jp/entry/2014/07/13/191803
+            - 関係ないが、教師ありバージョン? http://qiita.com/kenmatsu4/items/c61ce5d85667f499c3c8
+    - FactorAnalysis
+        - 因子分析
+        - これも線形
+        - ガウス潜在変数
+            - 潜在変数とEMアルゴリズム
+            - http://aidiary.hatenablog.com/entry/20100521/1274445325
+        - PPCA
+            - Probabilistic PCA
+                - http://d.hatena.ne.jp/ryamada22/20150409/1428549068
+            - 比較?, http://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_fa_model_selection.html
+    - fastICA 
+        - Independent Component Analysis(独立成分分析)
+        - 下記の例では第1,2成分が直行していない図がある
+        - http://s0sem0y.hatenablog.com/entry/2016/05/01/185044#主成分分析との違い
+    - LDA
+        - よく見る
+- dummy
+- ensemble
+    - 汎化性能(generalizability)/頑健性(robustness)を向上させるため
+        - 外れ値や欠損値が含まれるようなデータでも(正解と予測できる/誤差が少ない)こと
+    - VotingClassifier
+        - Python機械学習の本にのってて、著者が実装したもの
+            - https://github.com/rasbt/python-machine-learning-book/blob/master/code/ch07/ch07.ipynb
+        - 複数分類器による多数決
+        - 上記の重み付き多数決
+    - bagging
+        - Bootstrap Aggregating
+            - voting for classification
+            - averaging for regression
+        - 並列に動かして集約する
+            - baseとなる推定器を学習していく
+    - boosting
+        - baseとなる推定器を学習していく
+        - 本来のboostingではなく, Ada(ptive)Boost(ing)(Classifier|Regressor) を基本としている
+        - 並列ではなく、逐次学習＋重み更新
+        - ttps://twitter.com/chezou/status/840345208206188546
+            - これを見てなるほど、と思う
+            - 予測結果の判定
+            - 重みの更新(正解は-, 間違いは+), ここがパーセプトロン(というか普通の機械学習)っぽい
+            - 学習率のパラメータがあるのも納得した
+                - 重みのための更新用パラメータ(誤分類率から求める)とは別っぽい
+    - stacking
+        - kaggleでよく聞くアレ(よく分かっていない)
+        - stageがある、boostingっぽさあるけどいろんなmodelから学習する
+        - Kfoldして、データを分割して利用する
+            - 推測した結果を次のstageの入力として利用するらしい
+                - 分割データを利用した結果は積む
+            - これを複数のモデルから作成
+                - 異なるモデルの結果は積まず、別の変数として利用する
+    - RandomForest
+        - モデル選択で迷ったらとりあえず突っ込んでみる
+            - 分類および回帰の両方がある
+        - sampling
+            - colun: 使用する変数のrandom sampling
+            - row: bootstrap sampling
+            - N個のsampleから重複を許可してN個抽出する(それをM個用意して、決定木の作成)
+                - 重複を許可は、1個抽出したら元に戻してN個になるまで繰り返す
+                - 不均衡データにどう対処するのか疑問に思った
+            - Bagging(Regressor|Classifier)
+                - row/columnともに設定できるかつbootstrap設定もできるのでestimatorを変えて自分の好きなように実装できそう
+        - out-of-bag(OOB)
+            - samplingで利用されなかったデータ
+            - 36%が使われない理由は [【機械学習】OOB (Out-Of-Bag) とその比率
+](http://qiita.com/kenmatsu4/items/1152d6e5634921d9246e) の本文とコメント参照
+            - tree構築に利用されたデータから作られたmodelで、利用されなかったデータに対する誤差を求める
+                - http://alfredplpl.hatenablog.com/entry/2013/12/24/225420
+- externals
+    - joblib
+        - 並行処理やmodelのdump/load(pickle)
+        - `dir(externals.joblib) == dir(joblib) #=> True`
+- feature_extraction
+    - DictVectorizer
+        - dictのlistを変換
+            - 数値はpandas.DataFrameと同じ
+            - 文字列はpandas.get_dummiesと同じ
+        - defaultでsparse matrix(`scipy.sparse.csr.csr_matrix`)が返ってくる
+        - inverse_transformでdictのlistに戻せるが、dummy変数を元の形には戻せない
+- feature_extraction.image
+    - TODO: skimageとの比較
+- feature_extraction.text
+    - TODO: nltk
+        - stop words
+        - stemming(語幹を残す)
+            - stemmingにもいろいろある
+                - porter
+                - snowball
+                - lancaster(porter2, English)
+            - 英語であっても一部問題あり
+                - 存在しない単語になる
+        - lemmatization(lemma:見出し, 語化)
+            - 文法としての正しさ
+            - stemmingより処理が重い
+    - TODO: gensimとの比較
+    - CountVectorizer
+        - filename, file object, list[string]に対応
+            - bag-of-words形式に変換
+        - いろんなオプションが存在する
+            - 文字のcase, n-gram関連, tokenizer, stop words, etc.
+        - 日本語対応: Customizing the vectorizer classesを参考に作ればよさそう
+    - TfidfVectorizer
+        - Term-Frequency * Inverse Document-Frequency を求める
+            - TfidfTransformer は CountVectorizerの出力を受け取ってtf-idfを求める
+            - 正規化はここでも指定できる
+            - use_idf=Falseでidfを利用せずtfだけの正規化可能
+        - tf
+            - 1つdocumentを対象とした時にあるwordの頻度(をdocumentに含まれる全てwordの総数で割われて正規化されている)
+            - 計算の都合上?正規化された頻度
+            - 頻出すると特徴が強い
+        - idf
+            - df: あるwordが存在するdocumentの数(をdocumentの総数で割っている)
+            - の逆数なのでめずらしさ
+            - 数値を調整するために下記のようなパターンが有る
+                - `log [n       /      df(d, t)] + 1` `(smooth_idf=False, よくある説明)`
+                - `log [(1 + n) / (1 + df(d, t)] + 1` `(smooth_idf=True, sklearn)`
+                - `log [n       / (1 + df(d, t)]` `stanfordのらしい`
+        - 正規化
+            - defaultで L2 normが1になるように設定されている
+                - 実際に1だった `(tfidf[0] ** 2).sum()`
+                - 式の結果を確認する時は `norm=None` にして試すと良い
+- feature_selection
+    - VarianceThreshold
+        - 分散の小さい変数の削除
+            - 小さいとほぼ同じ値になるので特徴がないと見なせる
+        - thresholdは変数の分布によって決める例がある(ベルヌーイ)
+            - 確率は自分で決めている
+        - R の caret::nearZeroVar を知っていたので気になった
+            - https://www.rdocumentation.org/packages/caret/versions/6.0-73/topics/nearZeroVar
+            - このclassとは直接関係ないが、findLinearCombos に似たものが見当たらない
+- gaussian_process
+- isotonic
+    - 等張?よく分かっていない
+    - 単調増加するようにfitしている
+- kernel_approximation
+    - kernelを使って近似するらしい
+    - user guideには密度推定は出てこない
+- kernel_ridge
+- discriminant_analysis
+    - 判別分析関連
+    - normalは等分散性が必要
+    - 重は多値分類?, 重回帰と違う…
+    - LinearDiscriminantAnalysis
+        - 線形判別分析
+        - 教師ありとしての次元削除として紹介される
+        - クラス間分散とクラス内分散を指標にしている
+            - 全分散については調べてない
+- linear_model
+    - LinearRegression
+        - 線形回帰, 重回帰
+    - LogisticRegression
+        - tol is Tolerance for stopping criteria. 収束するための許容する差(機械学習全般用語?)
+        - `multi_class='ovr'`
+            - 多値分類
+            - one vs restの略で,k classあるときクラス1とその他のクラスで2値分類する
+            - 各クラスでそれを行い一番確率が高いものに分類する
+                - predictではクラス, predict_probaでは各クラスの確率
+        - LogisticRegressionCVというcvパラメータ付きのModelがある
+        - CというLogisticRegressionのハイパーパラメータを複数(Cs)渡してcv時に利用する
+            - default:Cs=10->10個, Cs_,C_に学習後の結果あり
+        - 各変数の係数とカラムを結びつけるのが面倒
+            - DataFrame.columnsと合わせて見るとよさそう
+- manifold
+    - 多様体学習
+        - isomapをよく見る
+    - 次元削除系(非線形)
+        - 線形の次元削除に効くPCAとの比較
+            - 知らなかった
+    - MDS
+        - Multi Dimensional scaling(多次元尺度構成法)
+        - 統計学/多変量解析の本で見たことある
+            - 地図の例
+        - http://d.hatena.ne.jp/fronori/20140517
+    - t-SNE
+        - t-distributed Stochastic Neighbor Embedding
+            - これもよく見る
+            - なんて略せばイイのか…
+        - わかったのは以下
+        - 自由度=1のt分布は、標準正規分布よりなだらか
+            - 距離を確率にしたときに遠くを表現できる
+                - 距離はユークリッド距離
+            - http://d.hatena.ne.jp/ryamada22/20130613/1371091312
+            - http://blog.albert2005.co.jp/2015/12/02/tsne/
+- metrics
+    - scikit-learnや機械学習というよりデータ分析として覚えたほうが良い
+    - Classification metrics
+    - confusion_matrix
+        - (予測)真偽/(正解データ)陽陰(※正負)の2x2の数まとめ
+        - 例で覚えた方が良い(契約の継続/退会,値段がある基準以上/未満), 分類問題の+1/-1や1/0
+        - ある会員は契約を継続すると予測, 実際は継続
+        - 上記は下記のTPに該当するが、日本語にすると順番があわないので慣れないとつらい
+            -  True Positive(TP): 正しいものを,正しいと予測でき,正解
+            - False Positive(FP): 正しいものを,間違いと予測して,失敗
+            - False negative(FN): 間違っているものを,正しいと予測して,失敗
+            -  True negative(TN): 間違っているものを,間違いと予測して,正解
+        - 統計学では第一種の誤り(FP)/第二種の誤り(FN)
+    - classification_report
+        - confusion_matrixの各数から得られる指標のtable string(formated)
+            - precision
+            - recall
+            - f1-score
+            - support
+    - roc関連
+        - roc_curve
+            - 二値分類の際に使い、ロジスティック回帰のように予測した確率と正解データを用いる
+            - TP/FPの比率
+        - auc
+            - Area Under the Curve
+        - roc_auc_score
+            - roc_curve の引数でaucを求めてくれる
+            - rocの分布はaucの値だけでは一意にならないので、分布を確認したほうがいいと思う
+    - score関連
+        - accuracy_score
+            - 正解率。正しいものを正しいと,間違っているものを間違っていると予測できている割合
+            - これだけ高くても、正例/負例の構成比によっては良いと判断できない
+    - scorer.SCORERS
+        - CrossValidationやGridSearchに指定するscoringに使えるもの一覧
+        - 一覧を覚えるよりどんな指標で良いとするかを覚える
+- mixture
+- multiclass
+- naive_bayes
+- neighbors
+    - いろいろなものがある
+    - KNN
+        - Classifier/Regressorの両方がある
+    - NearestNeighbors
+        - 教師なし学習用
+    - KernelDensity
+        - seabornのdistplotなどで見るカーネル密度推定がここにあった
+    - DistanceMetric
+        - 距離関数がたくさん
+- neural_network
+    - 素直に他のライブラリを使ったほうがよさそう
+        - どのように層を重ねるか/どんなネットワークにするか
+            - CNN/RNNなど
+            - 確率的にするか
+        - パラメータをどうするか
+            - 学習率
+            - Momentum
+            - etc.
+        - 関数をどうするか
+            - activation
+            - loss/cost
+- cross_decomposition
+- pipeline
+    - PipeLine
+        - `[tuple(label, estimator), ...,]`
+        - make_pipelineはestimatorのlistを与えてPipeLineを生成する
+            - labelが自動的に付けられる
+            - 明示的につけたほうがいいと思うので使わない
+        - fit, transformを繰り返して, 最終的にfitさせる
+        - parameterの再設定は, `label__param=value`
+- preprocessing
+    - scale [ランダムデータと正規化・標準化](http://qiita.com/ksomemo/items/ff0cbe63455f70bdf751)
+        - 紛らわしいので違い
+        - [Normalization, Standardization, Scaling](http://xiaoxia.exblog.jp/19955378/)
+        - ↑の順とpreprocessingの対応は, normalize, scale, minmax_scale
+        - [Standardization vs. normalization](http://www.dataminingblog.com/standardization-vs-normalization/)
+        - normalizeはnormと関係している(L1-マンハッタン距離,L2-ユークリッド距離)
+            - 距離はわかるが正則化(regularization)をよく分かっていないので不明…
+    - LabelEncoder
+        - カテゴリ変数を数値に変換
+        - 変換系はtransformを使う
+    - Imputer
+        - 欠損値用
+        - 正直、pandasのSeriesとfillnaで良い(そういうものが他にもある
+            - 数値用のmean,median
+            - カテゴリ用のmost_frequent
+    - LabelBinarizer
+        - dummy変数
+            - sparse対応がある
+            - pandasにもあった
+    - Binarizer
+        - 数値を閾値でわける
+        - めんどうなので使わなくてよさそう
+    - PolynomialFeatures
+        - 一変数のN乗多項式を作るときに便利
+            - 3乗の場合, `[[2]]` -> [[1, 2, 4, 8]]
+            - 先頭はbias
+            - 2変数だとめんどうなので使わない、モデルが複雑
+- random_projection
+    - 次元削除系
+- semi_supervised
+- svm
+    - SVC(Support Vector Classifier)
+        - linear と rbf(radial basis function/Gaussian)の2つのkernelを試した
+        - rbf kernelで非線形分類できるのを確認した
+            - radial:球対称, 動径的(よくわかってない)
+            - RBFとしてはGaussianだけでなく、他にもある
+        - kernel
+            - 内積
+            - 類似度
+            - ランドマークとは？
+            - この説明の時、双対問題やラグランジュ未定乗数法がまったく出てこない
+    - support vector
+        - 分離超平面を引くときに、よく分類できて新しいデータに対しても分類できる(過学習しない)ようにするため
+        - 正則化の一種
+            - support vectorをどうとるか, 制限をかけることで実現しているという直感的理解
+            - 正則化の係数としてのC
+        - 基本はperceptronと同じ式なので線形分類であることを忘れない
+            - 非線形分類するためにまずkernel trickを使う
+            - 分類できるようになったらsupport vectorを求めて分類する
+        - TODO: ハード/ソフトマージンの違い
+        - TODO: 線形のときの点と直線との距離の復習, ラグランジュ未定乗数法, 双対問題などの数学
+- tree
+    - 決定木(分類と回帰)がある
+    - plotは前に調べた [python, decision treeのtree graph plot
+](http://qiita.com/ksomemo/items/27e305056bf0215b3441)
+    - 本質は木をどう分岐させるか
+        - ジニ係数
+        - 情報量
+            - 各変数を使って分岐するときに、どれを使えばよく分類できるか
+                - entropy
+            - TODO: rootからとの比較直接分岐と比べる
+            - TODO: 過学習防止のための枝刈り(深さ),分岐数(hyper parameterについて)
+            - 連続量のとき(回帰の時)はまだ調べていない
+- utils
+
+### model全般
+- 使用するmodelを決める
+- modelのインスタンス作成
+- fitで学習
+    - このとき返す値はmodelなので変数に束縛していれば木にしなくて良い
+    - 回帰、分類、LabelEncoderやPCAなどの変換系、GridSearchなどでもfitを利用する
+- predictでテスト
+    - predict_probaで確率で返す(logistic regressionなど)
+- 学習後はparameterに値が反映される
+    - parameterは切片や傾きなどのこと
+
+sckit-learnのEstimated parameters
+
+```py3:skleran_estimated_params.py
+# http://scikit-learn.org/stable/tutorial/statistical_inference/settings.html
+def estimated_params(estimator):
+    return [a for a in dir(estimator) if a.endswith("_") and not a.startswith("_")]
+```
+
+### 考える事
+- 二値分類
+    - 多値分類
+- 分類と回帰での違い
+- 行列の疎と密
+- 不均衡データ
+    - 目的変数の二値
+        - グループごと
+    - クラスタリングのクラスタのサイズ
+- 評価指標
+- kernel
+- Nonparametricと分布
+
+### その他
+- どのように分類されているか、各モデルやパラメータによって境界はどう違うのかは matplotlibで確認
+    - contourf
+        - [meshgridとcontourfを可視化して理解してみた](http://qiita.com/ksomemo/items/81c88378a1dffa5cbea7)
+    - pcolormesh
+    - gif
+        - matplotlibのAnimation
+        - またはipywidget
+            - ex. [perceptronの可視化(パラメータのwidgetを手動で変更して理解を深める)](http://qiita.com/ksomemo/items/e601cebec88d7d24e6bb)
+
+
+## scipy modules
+scipy.xxx について
+
+https://docs.scipy.org/doc/scipy/reference/api.html
+
+- cluster
+    - hierarchy
+        - 階層クラスタリング時に使う
+- interpolate
+    - pandasのinterpolateで使われている
+    - 時系列のresample後の補完時に使う
+- linalg
+    - numpy.linalgとは同じ結果が返る
+    - sparse配下のmoduleとではsparse用のため結果が異なる関数があるらしいので注意
+- sparse
+    - 疎行列
+        - 0が多い行列で、ほとんど意味のない値によってメモリ消費が多くなること避けるために使われる
+        - 行/列/値の3つによって構築される
+        - dok_matrix
+            - Dictionary of Key
+            - `{(row, col): value}` というdict
+            - 0代入すると要素から消える
+            - ただし、初期化されたときのshapeは変わらない
+        - lil_matrix
+            - LInked List
+            - 行ごとのdataとcol index
+        - coo_matrix
+            - COOrdinate, triplet, ijv(row:i index, col:j index, value)
+            - triplet/ijvのとおり３つで構成される
+        - csr_matrix
+            - Compressed Sparse Row matrix
+            - 例として下記データがあるとする
+            - `data=[1, 2, 3, 1, 2, 2, 1, 1]`
+            - `indices=[0, 1, 2, 3, 0, 3, 3, 3]`, column index
+            - `indptr=[0, 3, 4, 6, 7, 7, 8]`, row index(Compressed)
+                - indptrのindexは行に対応
+                - 0は0行目, 3は1行目
+                - 0-3未満, つまり0-2, これはcolumn indexに対応
+                - 0-2のcolumn indexは0-2より
+                - 0行目は(0,0),(0,1),(0,2)にdataが存在する
+                - indptrの4 index, つまり5行目は, 6行目も7よりdataが存在しない
+        - csc_matrix
+            - csr column version
+            - indices, indptrの役割が逆になる
+        - TODO: <del>dia_matrix</del>
+        - TODO: <del>bsr_matrix</del>
+    - linalg
+        - 線形代数
+        - solver
+        - 特異値分解
+        - etc.
+- spatial
+    - 空間という意味
+    - distance
+        - 距離やコサイン類似度など
+- special
+    - comb $n\mathrm{C}_k $
+    - perm $n\mathrm{P}_k$
+    - expit: logistic function
+    - logit
+- stats
+    - distributions
+        - stats直下からも使える
+        - 連続/離散確率分布のinstance
+            - `scipy.stats._continuous_distns`
+            - `scipy.stats._discrete_distns`
+        - 分布は [numpy/scipy distributions
+](http://qiita.com/ksomemo/items/db44917cd1f3866bef39) を参照
+        - 各分布が持つmethod
+            - rvs: size指定してrandomな値を得る
+                - `numpy.random.xxx()` のほうがparameterを特定しやすくわかりやすい
+                - ただし、random_state paramterを指定できるので, seed設定を気軽にできる
+                - `numpy.random` には存在しない見たことない分布がたくさんある
+            - pdf/pmf: 確率(密度/質量)関数
+                - pmfはそのまま
+                - pdfは範囲でなく単一の値を渡しても0でない結果が返ってくる
+            - cdf: 累積分布関数
+    - probplot
+        - 確率分布の当てはまりをplot
+            - defaultは標準正規分布
+            - distパラメータで分布指定可能（stats.xx, e.g. stats.gamma/norm/etc.）
+                - QQとは限らないらしい
+                - 各分布によって追加パラメータが必要
+            - `see statsmodels.api.ProbPlot` とhelpに書かれていた
+                - Classなのでいろいろな情報を保持しているので使いやすい
+                - loc,scale(平均,標準偏差相当のもの)に加えてdataや分布

@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>動機 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">動機</a></li>
+<li><a class="reference internal" href="#psycopg2">Psycopg2</a><ul>
+<li><a class="reference internal" href="#install">install</a></li>
+<li><a class="reference internal" href="#">名前付きパラメータ</a></li>
+<li><a class="reference internal" href="#">結果セットのカラム名</a></li>
+<li><a class="reference internal" href="#">応用</a></li>
+<li><a class="reference internal" href="#ssl-certificate">SSL(certificate)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sqlalchemy-redshift">sqlalchemy-redshift</a><ul>
+<li><a class="reference internal" href="#">利点</a></li>
+<li><a class="reference internal" href="#">ハマった点</a></li>
+<li><a class="reference internal" href="#install">install</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code">code</a></li>
+<li><a class="reference internal" href="#ssl-mode-with-sqlalchemy">SSL Mode(with sqlalchemy)</a></li>
+<li><a class="reference internal" href="#sqlalchemy-mysql">SQLAlchemy/MySQL</a></li>
+<li><a class="reference internal" href="#postgresql">Postgresql</a><ul>
+<li><a class="reference internal" href="#ssl">SSL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#redshift">redshift</a><ul>
+<li><a class="reference internal" href="#ssl-postgresql">SSL/Postgresql</a></li>
+<li><a class="reference internal" href="#sql">SQL</a></li>
+<li><a class="reference internal" href="#transaction">Transaction</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">その他</a><ul>
+<li><a class="reference internal" href="#https-wgetrc">HTTPS 時の証明書関連エラーを防ぐための .wgetrc 設定</a></li>
+<li><a class="reference internal" href="#forward-with-paramiko">forward with paramiko</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>動機</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/PythonからRedshiftに接続.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>PythonからRedshiftに接続してpandasで扱いたい</li>
+<li>元々、SQLServer + sqlalchemy 環境だったのでsqlalchemyも使えるようにしたい</li>
+</ul>
+</div>
+<div class="section" id="psycopg2">
+<span id="psycopg2"></span><h1>Psycopg2<a class="headerlink" href="#psycopg2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>postgresql driver</li>
+<li>上記単体では使いにくい＋Redshiftは分析用なのでpandas.read_sqlのengineとして利用すると便利</li>
+</ul>
+<div class="section" id="install">
+<span id="install"></span><h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><del>ハマった。whlとして用意されているものを使うようにした</del></p>
+<p>上記は、Windows環境でのbuild失敗によるもの。しかし、最近はwheel対応したのでpypiからinstall可能である</p>
+<ul class="simple">
+<li><del>http://prunus1350.hatenablog.com/entry/2016/01/09/135110</del></li>
+<li><del>http://www.lfd.uci.edu/~gohlke/pythonlibs/</del></li>
+<li><del>http://stackoverflow.com/questions/28611808/how-to-install-psycopg2-for-python-3-5</del></li>
+<li>https://pip.pypa.io/en/latest/user_guide/#installing-from-wheels</li>
+<li>https://pypi.python.org/pypi/psycopg2</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h2>名前付きパラメータ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://initd.org/psycopg/docs/usage.html#passing-parameters-to-sql-queries</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h2>結果セットのカラム名<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://initd.org/psycopg/docs/advanced.html?highlight=column</li>
+<li>http://stackoverflow.com/questions/10252247/how-do-i-get-a-list-of-column-names-from-a-psycopg2-cursor</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h2>応用<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>http://tdoc.info/blog/2012/12/05/psycopg2.html</p>
+</div>
+<div class="section" id="ssl-certificate">
+<span id="ssl-certificate"></span><h2>SSL(certificate)<a class="headerlink" href="#ssl-certificate" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>http://stackoverflow.com/questions/28228241/how-to-connect-to-a-remote-postgresql-database-with-python</p>
+</div>
+</div>
+<div class="section" id="sqlalchemy-redshift">
+<span id="sqlalchemy-redshift"></span><h1>sqlalchemy-redshift<a class="headerlink" href="#sqlalchemy-redshift" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>sqlalchemyのengineにpsycopg2を使うため</p>
+<div class="section" id="">
+<span id="id5"></span><h2>利点<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>transactionを使う場合など、connection/engine以外の用途でsqlalchemyを利用しつつ、pandasのengineに流用できる</li>
+<li>psycopg2では<code class="docutils literal"><span class="pre">%(parameter_name)s</span></code>による指定をsqlalchemyでは<code class="docutils literal"><span class="pre">:parameter_name</span></code>による指定にできる。<ul>
+<li>ただし、Likeで使うワイルドカード<code class="docutils literal"><span class="pre">%</span></code>に作用するので、ワイルドカードそのものを含んだパラメータにする必要がある点は変わらない</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>ハマった点<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>sqlalchemyの場合はdefaultで必要な設定になっていた<ul>
+<li>psycopg2では証明書の必要でない設定になっている</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="install">
+<span id="id7"></span><h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash:pip_install_sqlalchemy-redshift.sh"><div class="highlight"><pre><span></span>pip install sqlalchemy-redshift
+</pre></div>
+</div>
+<ul class="simple">
+<li>https://pypi.python.org/pypi/sqlalchemy-redshift</li>
+<li>https://github.com/sqlalchemy-redshift/sqlalchemy-redshift/blob/master/sqlalchemy_redshift/redshift-ssl-ca-cert.pem ?</li>
+</ul>
+</div>
+</div>
+<div class="section" id="code">
+<span id="code"></span><h1>code<a class="headerlink" href="#code" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:psycopg2_and_sqlalchemy_and_pandas.py"><div class="highlight"><pre><span></span>import sqlalchemy
+import psycopg2
+import psycopg2.extras
+import pandas as pd
+
+
+con_info = {
+    &quot;host&quot;: &quot;localhost&quot;,
+    &quot;port&quot;: port,
+    &quot;dbname&quot;: &quot;dbname&quot;,
+    &quot;password&quot;: &quot;password&quot;,
+    &quot;username&quot;: &quot;username&quot;,
+}
+
+
+def main():
+    example_psycopg2_dict()
+    example_psycopg2()
+    example_redshift_pd()
+
+
+def con_psycopg2():
+    con_fomart = &quot;dbname={dbname} host={host} user={username} password={password} port={port}&quot;
+    return psycopg2.connect(con_fomart.format(**con_info))
+
+
+def create_engine_redshift():
+    con_format = &#39;redshift+psycopg2://{username}:{password}@{host}:{port}/{dbname}&#39;
+    connect_args = {
+        # &quot;sslmode&quot;: &quot;disable&quot;,
+        # &quot;sslmode&quot;: &quot;require&quot;,
+        &quot;sslmode&quot;: &quot;prefer&quot;,
+    }
+    return sqlalchemy.create_engine(con_format.format(**con_info), connect_args=connect_args)
+
+
+def example_psycopg2_dict():
+    conn = con_psycopg2()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    cur.execute(&quot;SELECT * FROM table_name limit 2;&quot;)
+    for row in cur.fetchall():
+        # print(row, type(row), dir(row))
+        print(row, row[&quot;birthday&quot;], row[&quot;column2&quot;])
+        # [datetime.date(2016, 4, 1), 1, 0, 1, 1, &#39;&#39;] &lt;class &#39;psycopg2.extras.DictRow&#39;
+        [&#39;_index&#39;, &#39;append&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;count&#39;, &#39;extend&#39;,
+        &#39;get&#39;, &#39;index&#39;, &#39;insert&#39;, &#39;items&#39;, &#39;keys&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;reverse&#39;, &#39;sort&#39;, &#39;values&#39;]
+    cur.close()
+    conn.close()
+
+
+def example_psycopg2():
+    conn = con_psycopg2()
+
+    cur = conn.cursor()
+    cur.execute(&quot;SELECT COUNT(*) FROM table_name;&quot;)
+    print(cur.fetchone())
+
+    raw_query = &quot;&quot;&quot;
+        SELECT *
+        FROM table_name
+        WHERE column1 = %(column1)s
+        AND column2 = %(column2)s
+    &quot;&quot;&quot;
+    params = {&quot;column1&quot;: 1, &quot;column2&quot;: 1}
+    cur.execute(raw_query, params)
+    # cur.execute(&quot;SELECT * FROM table_name;&quot;)
+    for row in cur.fetchall():
+        print(row)
+
+    cur.execute(raw_query, params)
+    # print([a for a in dir(cur) if not a.startswith(&quot;_&quot;)])
+    attrs = [
+        &#39;arraysize&#39;, &#39;binary_types&#39;, &#39;callproc&#39;, &#39;cast&#39;, &#39;close&#39;, &#39;closed&#39;, &#39;connection&#39;,
+        &#39;copy_expert&#39;, &#39;copy_from&#39;, &#39;copy_to&#39;, &#39;description&#39;, &#39;execute&#39;, &#39;executemany&#39;,
+        &#39;fetchall&#39;, &#39;fetchmany&#39;, &#39;fetchone&#39;, &#39;itersize&#39;, &#39;lastrowid&#39;, &#39;mogrify&#39;,
+        &#39;name&#39;, &#39;nextset&#39;, &#39;query&#39;, &#39;row_factory&#39;, &#39;rowcount&#39;, &#39;rownumber&#39;,
+        &#39;scroll&#39;, &#39;scrollable&#39;, &#39;setinputsizes&#39;, &#39;setoutputsize&#39;, &#39;statusmessage&#39;,
+        &#39;string_types&#39;, &#39;typecaster&#39;, &#39;tzinfo_factory&#39;, &#39;withhold&#39;]
+    columns = [d.name for d in cur.description]
+    description = cur.description[0]
+    # print(description, type(description))
+    # Column(
+    #    name=&#39;birthday&#39;, type_code=1082, display_size=None, internal_size=4,
+    #    precision=None, scale=None, null_ok=None)
+    # &lt;class &#39;psycopg2.extensions.Column&#39;&gt;
+    df = pd.DataFrame(cur.fetchall(), columns=columns)
+
+    cur.close()
+    conn.close()
+
+
+def example_redshift_pd():
+    return pd.read_sql(
+        &quot;&quot;&quot;SELECT *
+        FROM table_name
+        WHERE column1 = %(column1)s;&quot;&quot;&quot;,
+        # 下記2つはsqlalchemy-redshiftを利用
+        # WHERE column1 = :column1;&quot;&quot;&quot;,
+        # con=create_engine_redshift(),
+        con=con_psycopg2(),
+        params={&quot;column1&quot;: 1}
+    )
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssl-mode-with-sqlalchemy">
+<span id="ssl-mode-with-sqlalchemy"></span><h1>SSL Mode(with sqlalchemy)<a class="headerlink" href="#ssl-mode-with-sqlalchemy" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sslmode</span> <span class="ow">not</span> <span class="n">specify</span>
+
+  <span class="n">File</span> <span class="s2">&quot;psycopg2\__init__.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">164</span><span class="p">,</span> <span class="ow">in</span> <span class="n">connect</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="k">async</span><span class="o">=</span><span class="k">async</span><span class="p">)</span>
+
+<span class="n">sqlalchemy</span><span class="o">.</span><span class="n">exc</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span> <span class="p">(</span><span class="n">psycopg2</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">)</span> <span class="n">server</span> <span class="n">common</span> <span class="n">name</span>
+<span class="s2">&quot;endpoint.ap-northeast-1.redshift.amazonaws.com&quot;</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">match</span> <span class="n">host</span> <span class="n">name</span> <span class="s2">&quot;127.0.0.1&quot;</span>
+
+
+<span class="n">sslmode</span><span class="p">:</span> <span class="n">disable</span>
+
+  <span class="n">File</span> <span class="s2">&quot;psycopg2\__init__.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">164</span><span class="p">,</span> <span class="ow">in</span> <span class="n">connect</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="k">async</span><span class="o">=</span><span class="k">async</span><span class="p">)</span>
+<span class="n">sqlalchemy</span><span class="o">.</span><span class="n">exc</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span> <span class="p">(</span><span class="n">psycopg2</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">)</span> 
+<span class="n">FATAL</span><span class="p">:</span>  <span class="n">no</span> <span class="n">pg_hba</span><span class="o">.</span><span class="n">conf</span> <span class="n">entry</span> <span class="k">for</span> <span class="n">host</span> <span class="s2">&quot;xxx.xxx.xxx.xxx&quot;</span><span class="p">,</span> <span class="n">user</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="n">database</span> <span class="s2">&quot;dbname&quot;</span><span class="p">,</span> <span class="n">SSL</span> <span class="n">off</span>
+
+<span class="n">sslmode</span><span class="p">:</span> <span class="n">prefer</span><span class="p">,</span> <span class="n">require</span> <span class="o">-&gt;</span> <span class="n">no</span> <span class="n">error</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sqlalchemy-mysql">
+<span id="sqlalchemy-mysql"></span><h1>SQLAlchemy/MySQL<a class="headerlink" href="#sqlalchemy-mysql" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>engineのconnect_argsを知るきっかけ</li>
+<li>http://stackoverflow.com/questions/8014781/how-to-make-mysql-connection-that-requires-ca-cert-with-sqlalchemy-or-sqlobject</li>
+</ul>
+</div>
+<div class="section" id="postgresql">
+<span id="postgresql"></span><h1>Postgresql<a class="headerlink" href="#postgresql" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="ssl">
+<span id="ssl"></span><h2>SSL<a class="headerlink" href="#ssl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING</li>
+<li>http://www.postgresql.org/docs/current/static/libpq-ssl.html</li>
+<li>http://www.postgresql.org/docs/current/static/runtime-config-connection.html#RUNTIME-CONFIG-CONNECTION-SECURITY</li>
+<li>https://fedorahosted.org/spacewalk/wiki/HowToPostgreSQLwithClientCertificates</li>
+</ul>
+</div>
+</div>
+<div class="section" id="redshift">
+<span id="redshift"></span><h1>redshift<a class="headerlink" href="#redshift" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="ssl-postgresql">
+<span id="ssl-postgresql"></span><h2>SSL/Postgresql<a class="headerlink" href="#ssl-postgresql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://dev.classmethod.jp/cloud/aws/connect-to-redshift-cluster-with-ssl/</li>
+<li>http://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/connecting-ssl-support.html</li>
+<li>http://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/connecting-from-psql.html</li>
+</ul>
+</div>
+<div class="section" id="sql">
+<span id="sql"></span><h2>SQL<a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_Examples_with_TOP.html</li>
+<li>http://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_ORDER_BY_clause.html</li>
+</ul>
+</div>
+<div class="section" id="transaction">
+<span id="transaction"></span><h2>Transaction<a class="headerlink" href="#transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_BEGIN.html</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h1>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="https-wgetrc">
+<span id="https-wgetrc"></span><h2>HTTPS 時の証明書関連エラーを防ぐための .wgetrc 設定<a class="headerlink" href="#https-wgetrc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://friendsnow.hatenablog.com/entry/2014/03/22/012410</li>
+<li>http://qiita.com/cuzic/items/b24803dc0858079b4fb3</li>
+</ul>
+</div>
+<div class="section" id="forward-with-paramiko">
+<span id="forward-with-paramiko"></span><h2>forward with paramiko<a class="headerlink" href="#forward-with-paramiko" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>http://stackoverflow.com/questions/31506958/sqlalchemy-through-paramiko-ssh</li>
+<li>https://github.com/paramiko/paramiko/blob/master/demos/forward.py#L54</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

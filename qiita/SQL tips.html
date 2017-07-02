@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>テストのためのテーブル差分確認用のSQL &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">テストのためのテーブル差分確認用のSQL</a><ul>
+<li><a class="reference internal" href="#sql">なぜSQLで行うか</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">横持ちを縦持ちに</a><ul>
+<li><a class="reference internal" href="#pandas-version">pandas version</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#with">with 複数</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>テストのためのテーブル差分確認用のSQL</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/SQL tips.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sql">
+<span id="sql"></span><h1>テストのためのテーブル差分確認用のSQL<a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="sql">
+<span id="id1"></span><h2>なぜSQLで行うか<a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>exportしてから行うのはめんどう</li>
+<li>exportする場合、事前にsortする必要がある</li>
+<li>データ量が多くてexportもdiffとるのも大変</li>
+</ul>
+<div class="highlight-sql:テストのためのテーブル差分確認用のSQL.sql"><div class="highlight"><pre><span></span>select &quot;a-b&quot;, * from actual_table
+except
+select &quot;a-b&quot;, * from expected_table
+union all
+select &quot;b-a&quot;, * from expected_table
+except
+select &quot;b-a&quot;, * from actual_table
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>横持ちを縦持ちに<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>逆はよくやるけど、こちらはあまりやらないので忘れてしまうためメモ</p>
+<ul class="simple">
+<li>よくある横持ちを縦持ちにするクエリ</li>
+<li>M人のN種類のサマった結果（M * N）の表を</li>
+<li>種類別のレコードM * N行に変換する</li>
+<li>ただし、IDとサマった結果に加えて種類の列が追加される（M*N * 3）</li>
+</ul>
+<div class="highlight-横持ちを縦持ちに.sql"><div class="highlight"><pre><span></span>create table yoko
+(
+    id int
+    , a_cnt int
+    , b_cnt int
+    , c_cnt int
+)
+;
+insert into yoko values
+(1, 1, 2, 3)
+, (2, 4, 5, 6)
+, (3, 7, 8, 9)
+;
+create table names
+(
+    id int
+    , name varchar
+)
+;
+insert into names values
+(1, &#39;a&#39;), (2, &#39;b&#39;), (3, &#39;c&#39;)
+;
+-- yoko to tate
+select
+    yoko.id
+    , p.id
+    , p.name
+    , case
+        when p.id = 1 then yoko.a_cnt
+        when p.id = 2 then yoko.b_cnt
+        when p.id = 3 then yoko.c_cnt
+        else null
+    end as cnt
+from yoko
+cross join names  as p
+</pre></div>
+</div>
+<p>下記の各種cntをIDによって使うものを変えるだけ</p>
+<p>| id | a_cnt | b_cnt | c_cnt | id | name |
+|&#8212;-|&#8212;&#8212;-|&#8212;&#8212;-|&#8212;&#8212;-|&#8212;-|&#8212;&#8212;|
+| 1 | 1 | 2 | 3 | 1 | a |
+| 2 | 4 | 5 | 6 | 1 | a |
+| 3 | 7 | 8 | 9 | 1 | a |
+| 1 | 1 | 2 | 3 | 2 | b |
+| 2 | 4 | 5 | 6 | 2 | b |
+| 3 | 7 | 8 | 9 | 2 | b |
+| 1 | 1 | 2 | 3 | 3 | c |
+| 2 | 4 | 5 | 6 | 3 | c |
+| 3 | 7 | 8 | 9 | 3 | c |</p>
+<div class="section" id="pandas-version">
+<span id="pandas-version"></span><h2>pandas version<a class="headerlink" href="#pandas-version" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://gist.github.com/ksomemo/bc9b336ab7e0aa604eae</p>
+</div>
+</div>
+<div class="section" id="with">
+<span id="with"></span><h1>with 複数<a class="headerlink" href="#with" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-sql:with_複数.sql"><div class="highlight"><pre><span></span>with aaa as (
+  select 1 as a
+)
+, bbb as (
+  select a, 1 as b
+  from aaa
+)
+select a, b, 1 as c
+from bbb
+
+-- a b c
+-- 1 1 1
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

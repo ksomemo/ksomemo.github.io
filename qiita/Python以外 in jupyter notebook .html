@@ -1,0 +1,795 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>前提 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">前提</a></li>
+<li><a class="reference internal" href="#r">R</a><ul>
+<li><a class="reference internal" href="#conda">condaから</a><ul>
+<li><a class="reference internal" href="#">長くなるのでまとめ</a></li>
+<li><a class="reference internal" href="#channel">インストールとChannelについて</a></li>
+<li><a class="reference internal" href="#kernel">Kernelの設定</a></li>
+<li><a class="reference internal" href="#package-conda">package(conda)</a></li>
+<li><a class="reference internal" href="#jupyter-notebookpackageinstall">jupyter notebookからPackageのInstall</a></li>
+<li><a class="reference internal" href="#default">defaultでインストールされるパッケージ</a></li>
+<li><a class="reference internal" href="#notebookinstallpackage">notebookからInstallしたPackageの場所</a></li>
+<li><a class="reference internal" href="#conda">condaでインストールしてみる</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#anaconda-clientinstall">anaconda clientのInstall</a></li>
+<li><a class="reference internal" href="#anaconda-client-usage">anaconda client usage</a><ul>
+<li><a class="reference internal" href="#anaconda-search">anaconda search</a></li>
+<li><a class="reference internal" href="#a3search">A3のsearch</a></li>
+<li><a class="reference internal" href="#">確実に存在するもので試す</a></li>
+<li><a class="reference internal" href="#r">R関連削除</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#r">Rから</a><ul>
+<li><a class="reference internal" href="#install-requirements">install requirements</a></li>
+<li><a class="reference internal" href="#irkernel-setting">IRkernel setting</a></li>
+<li><a class="reference internal" href="#run-notebook">run notebook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#octave">octave</a><ul>
+<li><a class="reference internal" href="#courseraoctave">coursera用のoctave</a></li>
+<li><a class="reference internal" href="#install">install</a></li>
+<li><a class="reference internal" href="#">警告</a></li>
+<li><a class="reference internal" href="#ipython-kernel">起動用のipython kernel</a></li>
+<li><a class="reference internal" href="#ipython-notobook">ipython notobook</a></li>
+<li><a class="reference internal" href="#">まとめ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hasklell">Hasklell</a></li>
+<li><a class="reference internal" href="#scala">Scala</a><ul>
+<li><a class="reference internal" href="#">動機</a></li>
+<li><a class="reference internal" href="#">身についたこと</a></li>
+<li><a class="reference internal" href="#isntall">isntall</a></li>
+<li><a class="reference internal" href="#">試した結果</a><ul>
+<li><a class="reference internal" href="#">その後</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kernel">kernel</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>前提</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Python以外 in jupyter notebook .md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>前提<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>mac</li>
+<li>brewで環境設定</li>
+<li>たいてい、readlineのversionが合わないとエラーになる<ul>
+<li>利用しているものを<code class="docutils literal"><span class="pre">brew</span> <span class="pre">reinstall</span> <span class="pre">xxx</span></code>でreadlineのversionをあわせる</li>
+<li>readlineそのもの</li>
+<li>gnuplot</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="r">
+<span id="r"></span><h1>R<a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>installしたあと、どうなっているのか気になったのでメモ</p>
+<ul class="simple">
+<li>condaから</li>
+<li>Rから</li>
+</ul>
+<div class="section" id="conda">
+<span id="conda"></span><h2>condaから<a class="headerlink" href="#conda" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="">
+<span id="id2"></span><h3>長くなるのでまとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>Python知っている人がRの構文を初めて試す環境としては便利そう</li>
+<li>ただし、install.packages()のrepo指定が面倒</li>
+<li>R関連のuninstallが面倒なので、newenvで試すのを薦める…</li>
+<li>Plotするための設定やインストール等、はまるらしい（既にR環境を整えているので問題なくできた）</li>
+</ul>
+</div>
+<div class="section" id="channel">
+<span id="channel"></span><h3>インストールとChannelについて<a class="headerlink" href="#channel" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># conda install -c r r-essentials</span>
+conda create -n my-r-env -c r r-essentials
+-c CHANNEL, --channel CHANNEL
+
+Additional channel to search <span class="k">for</span> packages. 
+These are URLs searched in the order they are given
+<span class="o">(</span>including file:// <span class="k">for</span> <span class="nb">local</span> directories<span class="o">)</span>. 
+Then, the defaults or channels from .condarc are searched
+<span class="o">(</span>unless --override-channels is given<span class="o">)</span>. 
+You can use <span class="s1">&#39;defaults&#39;</span> to get the default packages <span class="k">for</span> conda, 
+and <span class="s1">&#39;system&#39;</span> to get the system packages, 
+which also takes .condarc into account. 
+You can also use any name and the .condarc channel_alias value will be prepended. 
+The default channel_alias is http://conda.anaconda.org/.
+</pre></div>
+</div>
+</div>
+<div class="section" id="kernel">
+<span id="kernel"></span><h3>Kernelの設定<a class="headerlink" href="#kernel" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cat ~/.pyenv/versions/miniconda3-3.9.1/share/jupyter/kernels/ir/kernel.json
+<span class="o">{</span><span class="s2">&quot;argv&quot;</span>: <span class="o">[</span><span class="s2">&quot;R&quot;</span>, <span class="s2">&quot;--slave&quot;</span>, <span class="s2">&quot;-e&quot;</span>, <span class="s2">&quot;IRkernel::main()&quot;</span>, <span class="s2">&quot;--args&quot;</span>, <span class="s2">&quot;{connection_file}&quot;</span><span class="o">]</span>,
+ <span class="s2">&quot;display_name&quot;</span>:<span class="s2">&quot;R&quot;</span>,
+ <span class="s2">&quot;language&quot;</span>:<span class="s2">&quot;R&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="package-conda">
+<span id="package-conda"></span><h3>package(conda)<a class="headerlink" href="#package-conda" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ls ~/.pyenv/versions/miniconda3-3.9.1/pkgs/ <span class="p">|</span> grep r3 <span class="p">|</span> head
+r-assertthat-0.1-r3.2.2_2
+r-assertthat-0.1-r3.2.2_2.tar.bz2
+r-base64enc-0.1_3-r3.2.2_0
+r-base64enc-0.1_3-r3.2.2_0.tar.bz2
+r-bh-1.58.0_1-r3.2.2_0
+r-bh-1.58.0_1-r3.2.2_0.tar.bz2
+r-bitops-1.0_6-r3.2.2_2
+r-bitops-1.0_6-r3.2.2_2.tar.bz2
+r-boot-1.3_17-r3.2.2_0
+r-boot-1.3_17-r3.2.2_0.tar.bz2
+</pre></div>
+</div>
+</div>
+<div class="section" id="jupyter-notebookpackageinstall">
+<span id="jupyter-notebookpackageinstall"></span><h3>jupyter notebookからPackageのInstall<a class="headerlink" href="#jupyter-notebookpackageinstall" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-r"><div class="highlight"><pre><span></span>jupyter notebook
+<span class="c1"># select R kernel</span>
+<span class="c1"># 今回のRでinstallされたPackageを読み込んでみる</span>
+<span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+ggplot<span class="p">(</span>iris<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>Sepal.Length<span class="p">,</span> y<span class="o">=</span>Sepal.Width<span class="p">))</span> <span class="o">+</span> geom_point<span class="p">()</span>
+<span class="c1"># plotともに問題なし</span>
+
+<span class="c1"># 元のRでinstallしたPackageを読み込んでみる</span>
+<span class="kn">library</span><span class="p">(</span>devtools<span class="p">)</span>
+Error <span class="kr">in</span> <span class="kn">library</span><span class="p">(</span>devtools<span class="p">)</span><span class="o">:</span> there is no package called ‘devtools’
+
+<span class="c1"># https://cran.r-project.org/web/packages/available_packages_by_name.html</span>
+<span class="c1"># から適当に今回のRでインストール</span>
+
+<span class="c1"># 失敗</span>
+install.packages<span class="p">(</span><span class="s">&quot;A3&quot;</span><span class="p">)</span>
+Error <span class="kr">in</span> contrib.url<span class="p">(</span>repos<span class="p">,</span> type<span class="p">)</span><span class="o">:</span> trying to use CRAN without setting a mirror
+
+<span class="c1"># repo指定</span>
+install.packages<span class="p">(</span><span class="s">&quot;A3&quot;</span><span class="p">,</span> repos <span class="o">=</span> <span class="s">&quot;http://cran.r-project.org&quot;</span><span class="p">)</span>
+also installing the dependency ‘pbapply’
+
+
+The downloaded <span class="kn">source</span> packages are <span class="kp">in</span>
+    ‘<span class="o">/</span>private<span class="o">/</span>var<span class="o">/</span>folders<span class="o">/</span>zl<span class="o">/</span>rlmkmk5d3vv_jb8397gd61900000gn<span class="o">/</span><span class="bp">T</span><span class="o">/</span>RtmpufR4m3<span class="o">/</span>downloaded_packages’
+Updating HTML index of packages <span class="kr">in</span> <span class="s">&#39;.Library&#39;</span>
+Making <span class="s">&#39;packages.html&#39;</span> <span class="kc">...</span> done
+
+<span class="c1"># required パッケージが標準エラー出力される</span>
+<span class="kn">library</span><span class="p">(</span>A3<span class="p">)</span>
+Loading required package<span class="o">:</span> xtable
+Loading required package<span class="o">:</span> pbapply
+
+<span class="c1"># 当たり前だけど元のRでは失敗</span>
+<span class="kn">library</span><span class="p">(</span>A3<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>A3<span class="p">)</span> でエラー<span class="o">:</span>  ‘A3’ という名前のパッケージはありません 
+</pre></div>
+</div>
+</div>
+<div class="section" id="default">
+<span id="default"></span><h3>defaultでインストールされるパッケージ<a class="headerlink" href="#default" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>find ~/.pyenv/versions/miniconda3-3.9.1/ -name <span class="s2">&quot;*ggplot*&quot;</span>
+
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1//conda-meta/r-ggplot2-1.0.1-r3.2.2_0.json
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1//lib/python3.4/site-packages/matplotlib/mpl-data/stylelib/ggplot.mplstyle
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1//lib/R/library/ggplot2
+.
+.
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1//lib/R/library/ggplot2/R/ggplot2.rdx
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1//pkgs/matplotlib-1.4.3-np19py34_2/lib/python3.4/site-packages/matplotlib/mpl-data/stylelib/ggplot.mplstyle
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1//pkgs/matplotlib-1.5.0-np110py34_0/lib/python3.4/site-packages/matplotlib/mpl-data/stylelib/ggplot.mplstyle
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1//pkgs/r-ggplot2-1.0.1-r3.2.2_0
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1//pkgs/r-ggplot2-1.0.1-r3.2.2_0/lib/R/library/ggplot2
+.
+.
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1//pkgs/r-ggplot2-1.0.1-r3.2.2_0.tar.bz2
+</pre></div>
+</div>
+</div>
+<div class="section" id="notebookinstallpackage">
+<span id="notebookinstallpackage"></span><h3>notebookからInstallしたPackageの場所<a class="headerlink" href="#notebookinstallpackage" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ls ~/.pyenv/versions/miniconda3-3.9.1/lib/R/library/ <span class="p">|</span> grep -i A3
+A3
+ls ~/.pyenv/versions/miniconda3-3.9.1/pkgs <span class="p">|</span> grep -i A3
+<span class="o">(</span>empty...<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conda">
+<span id="id3"></span><h3>condaでインストールしてみる<a class="headerlink" href="#conda" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>conda install -c r r-A3
+Fetching package metadata: ......
+Error: No packages found in current osx-64 channels matching: r-a3
+
+You can search <span class="k">for</span> this package on anaconda.org with
+
+    anaconda search -t conda r-a3
+
+You may need to install the anaconda-client <span class="nb">command</span> line client with
+
+    conda install anaconda-client
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="anaconda-clientinstall">
+<span id="anaconda-clientinstall"></span><h2>anaconda clientのInstall<a class="headerlink" href="#anaconda-clientinstall" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">anaconda</span><span class="o">-</span><span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="anaconda-client-usage">
+<span id="anaconda-client-usage"></span><h2>anaconda client usage<a class="headerlink" href="#anaconda-client-usage" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>anaconda
+usage: anaconda <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--show-traceback<span class="o">]</span> <span class="o">[</span>--hide-traceback<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-q<span class="o">]</span> <span class="o">[</span>--color<span class="o">]</span>
+                <span class="o">[</span>--no-color<span class="o">]</span> <span class="o">[</span>-V<span class="o">]</span> <span class="o">[</span>-t TOKEN<span class="o">]</span> <span class="o">[</span>-s SITE<span class="o">]</span>
+                ...
+anaconda: error: A sub <span class="nb">command</span> must be given. To show all available sub commands, run:
+
+     anaconda -h
+</pre></div>
+</div>
+<div class="section" id="anaconda-search">
+<span id="anaconda-search"></span><h3>anaconda search<a class="headerlink" href="#anaconda-search" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>anaconda search -h
+usage: anaconda search <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>-t <span class="o">{</span>conda,pypi<span class="o">}]</span> name
+
+Search Anaconda Cloud
+
+positional arguments:
+  name                  Search string
+
+optional arguments:
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  -t <span class="o">{</span>conda,pypi<span class="o">}</span>, --package-type <span class="o">{</span>conda,pypi<span class="o">}</span>
+                        only search <span class="k">for</span> packages of this <span class="nb">type</span>
+
+Search Anaconda Cloud <span class="k">for</span> packages
+</pre></div>
+</div>
+</div>
+<div class="section" id="a3search">
+<span id="a3search"></span><h3>A3のsearch<a class="headerlink" href="#a3search" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>anaconda search -t conda r-a3
+Using Anaconda Cloud api site https://api.anaconda.org
+Run <span class="s1">&#39;anaconda show &lt;USER/PACKAGE&gt;&#39;</span> to get more details:
+No packages found
+     Name                      <span class="p">|</span>  Version <span class="p">|</span> Package Types   <span class="p">|</span> Platforms
+     ------------------------- <span class="p">|</span>   ------ <span class="p">|</span> --------------- <span class="p">|</span> ---------------
+Found <span class="m">0</span> packages
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>確実に存在するもので試す<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">anaconda</span> <span class="n">search</span> <span class="o">-</span><span class="n">t</span> <span class="n">conda</span> <span class="n">r</span><span class="o">-</span><span class="n">essentials</span>
+<span class="n">Using</span> <span class="n">Anaconda</span> <span class="n">Cloud</span> <span class="n">api</span> <span class="n">site</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">anaconda</span><span class="o">.</span><span class="n">org</span>
+<span class="n">Run</span> <span class="s1">&#39;anaconda show &lt;USER/PACKAGE&gt;&#39;</span> <span class="n">to</span> <span class="n">get</span> <span class="n">more</span> <span class="n">details</span><span class="p">:</span>
+<span class="n">Packages</span><span class="p">:</span>
+     <span class="n">Name</span>                      <span class="o">|</span>  <span class="n">Version</span> <span class="o">|</span> <span class="n">Package</span> <span class="n">Types</span>   <span class="o">|</span> <span class="n">Platforms</span>
+     <span class="o">-------------------------</span> <span class="o">|</span>   <span class="o">------</span> <span class="o">|</span> <span class="o">---------------</span> <span class="o">|</span> <span class="o">---------------</span>
+     <span class="n">asmeurer</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="n">essentials</span>     <span class="o">|</span>      <span class="mf">1.1</span> <span class="o">|</span> <span class="n">conda</span>           <span class="o">|</span> <span class="n">linux</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span> <span class="n">win</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span> <span class="n">win</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span> <span class="n">linux</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span> <span class="n">osx</span><span class="o">-</span><span class="mi">64</span>
+                                          <span class="p">:</span> <span class="n">Some</span> <span class="n">essential</span> <span class="n">packages</span> <span class="k">for</span> <span class="n">working</span> <span class="k">with</span> <span class="n">R</span>
+     <span class="n">r</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="n">essentials</span>            <span class="o">|</span>      <span class="mf">1.1</span> <span class="o">|</span> <span class="n">conda</span>           <span class="o">|</span> <span class="n">linux</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span> <span class="n">win</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span> <span class="n">win</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span> <span class="n">linux</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span> <span class="n">osx</span><span class="o">-</span><span class="mi">64</span>
+                                          <span class="p">:</span> <span class="n">Some</span> <span class="n">essential</span> <span class="n">packages</span> <span class="k">for</span> <span class="n">working</span> <span class="k">with</span> <span class="n">R</span>
+     <span class="n">rgrout</span><span class="o">/</span><span class="n">r</span><span class="o">-</span><span class="n">essentials</span>       <span class="o">|</span>          <span class="o">|</span> <span class="n">conda</span>           <span class="o">|</span> <span class="n">linux</span><span class="o">-</span><span class="mi">64</span><span class="p">,</span> <span class="n">linux</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span> <span class="n">osx</span><span class="o">-</span><span class="mi">64</span>
+                                          <span class="p">:</span> <span class="n">Some</span> <span class="n">essential</span> <span class="n">packages</span> <span class="k">for</span> <span class="n">working</span> <span class="k">with</span> <span class="n">R</span>
+<span class="n">Found</span> <span class="mi">3</span> <span class="n">packages</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="r">
+<span id="id5"></span><h3>R関連削除<a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>conda list <span class="p">|</span> awk <span class="s1">&#39;$4==&quot;r&quot; {print $1}&#39;</span> <span class="p">|</span> xargs conda uninstall
+find ~/.pyenv/versions/miniconda3-3.9.1/ -name R <span class="p">|</span> xargs rm -rf
+<span class="c1"># 以下消えてた</span>
+~/.pyenv/versions/miniconda3-3.9.1/bin/R 
+~/.pyenv/versions/miniconda3-3.9.1/share/jupyter/kernels/ir/kernel.json
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="r">
+<span id="id6"></span><h2>Rから<a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>めちゃくちゃ簡単</p>
+<div class="highlight-markdown"><div class="highlight"><pre><span></span>- https://github.com/IRkernel/IRkernel
+- http://irkernel.github.io/
+</pre></div>
+</div>
+<div class="section" id="install-requirements">
+<span id="install-requirements"></span><h3>install requirements<a class="headerlink" href="#install-requirements" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-r"><div class="highlight"><pre><span></span>install.packages<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;rzmq&#39;</span><span class="p">,</span><span class="s">&#39;repr&#39;</span><span class="p">,</span><span class="s">&#39;IRkernel&#39;</span><span class="p">,</span><span class="s">&#39;IRdisplay&#39;</span><span class="p">),</span>
+                 repos <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;http://irkernel.github.io/&#39;</span><span class="p">,</span> <span class="kp">getOption</span><span class="p">(</span><span class="s">&#39;repos&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="irkernel-setting">
+<span id="irkernel-setting"></span><h3>IRkernel setting<a class="headerlink" href="#irkernel-setting" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-r"><div class="highlight"><pre><span></span>IRkernel<span class="o">::</span>installspec<span class="p">()</span>
+ <span class="kr">if</span> <span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>a<span class="p">))</span> <span class="kr">return</span><span class="p">(</span><span class="m">-1L</span><span class="p">)</span> でエラー<span class="o">:</span>  引数の長さが <span class="m">0</span> です 
+ 追加情報<span class="o">:</span>  警告メッセージ<span class="o">:</span> 
+ 命令 <span class="s">&#39;&#39;</span>ipython<span class="s">&#39; --version 2&gt;/dev/null&#39;</span> の実行は状態 <span class="m">126</span> を持ちました  
+
+<span class="c1"># RStudioで失敗したのでitermからR実行</span>
+IRkernel<span class="o">::</span>installspec<span class="p">()</span>
+<span class="p">[</span>InstallKernelSpec<span class="p">]</span> Installed kernelspec ir <span class="kr">in</span> <span class="o">/</span>Users<span class="o">/</span>xxx<span class="o">/</span>Library<span class="o">/</span>Jupyter<span class="o">/</span>kernels<span class="o">/</span>ir
+
+cat <span class="o">~/</span>Library<span class="o">/</span>Jupyter<span class="o">/</span>kernels<span class="o">/</span>ir<span class="o">/</span>kernel.json                                                                <span class="p">(</span>git<span class="p">)</span><span class="o">-</span><span class="p">[</span>master<span class="p">]</span>
+<span class="p">{</span>
+  <span class="s">&quot;argv&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s">&quot;/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/bin/R&quot;</span><span class="p">,</span> <span class="s">&quot;--slave&quot;</span><span class="p">,</span>   <span class="p">{</span>connection_file<span class="p">}</span><span class="s">&quot;],</span>
+<span class="s">  &quot;</span>display_name<span class="s">&quot;: &quot;</span>R<span class="s">&quot;,</span>
+<span class="s">  &quot;</span>language<span class="s">&quot;: &quot;</span>R<span class="s">&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-notebook">
+<span id="run-notebook"></span><h3>run notebook<a class="headerlink" href="#run-notebook" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span>
+<span class="c1"># select kernel </span>
+<span class="n">New</span> <span class="o">&gt;</span> <span class="n">R</span>
+<span class="n">library</span><span class="p">(</span><span class="n">devtools</span><span class="p">)</span> <span class="c1"># success</span>
+<span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Sepal</span><span class="o">.</span><span class="n">Length</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">Sepal</span><span class="o">.</span><span class="n">Width</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="octave">
+<span id="octave"></span><h1>octave<a class="headerlink" href="#octave" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>install octave</p>
+<div class="section" id="courseraoctave">
+<span id="courseraoctave"></span><h2>coursera用のoctave<a class="headerlink" href="#courseraoctave" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>windowsだとMATLABを、Macならこれをと言われてちょっと調べてみた</p>
+<ul class="simple">
+<li>よく名前聞いていたけど触ったことがなかった</li>
+<li>無料じゃないと勝手に思ってた</li>
+<li>有料だと知っていたMATLABの互換性がある（完全ではないっぽい</li>
+</ul>
+</div>
+<div class="section" id="install">
+<span id="install"></span><h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-sh:install_octave.sh"><div class="highlight"><pre><span></span>brew tap homebrew/science
+brew install octave
+</pre></div>
+</div>
+<div class="highlight-text:dependencies.txt"><div class="highlight"><pre><span></span>- qscintilla2
+- gnuplot
+- tbb
+- suite-sparse
+- veclibfort
+- arpack
+- fftw
+- glpk
+- gl2ps
+- graphicsmagick
+- szip
+- hdf
+  - hdf5
+  - qhull
+  - qrupdate
+  - jbig2dec
+  - ghostscript
+  - epstool
+  - imagemagick
+  - pstoedit
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h2>警告<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-text:warning.txt"><div class="highlight"><pre><span></span>Warning: gnuplot dependency libtiff was built with a different C++ standard
+library (libstdc++ from gcc). This may cause problems at runtime.
+
+Warning: pstoedit dependency libtiff was built with a different C++ standard
+library (libstdc++ from gcc). This may cause problems at runtime.
+
+Warning: octave dependency libtiff was built with a different C++ standard
+library (libstdc++ from gcc). This may cause problems at runtime.
+</pre></div>
+</div>
+<div class="highlight-text:caveats.txt"><div class="highlight"><pre><span></span>==&gt; Caveats
+
+gnuplot&#39;s Qt terminal is supported by default with the Octave GUI.
+Use other gnuplot graphics terminals by setting the environment variable
+GNUTERM in ~/.octaverc, and building gnuplot with the matching options.
+
+  setenv(&#39;GNUTERM&#39;,&#39;qt&#39;)    # Default graphics terminal with Octave GUI
+  setenv(&#39;GNUTERM&#39;,&#39;x11&#39;)   # Requires XQuartz; install gnuplot --with-x
+  setenv(&#39;GNUTERM&#39;,&#39;wxt&#39;)   # wxWidgets/pango; install gnuplot --wx
+  setenv(&#39;GNUTERM&#39;,&#39;aqua&#39;)  # Requires AquaTerm; install gnuplot --with-aquaterm
+
+  You may also set this variable from within Octave.
+
+
+The Octave GUI is experimental and not enabled by default. To use it,
+use the command-line argument &quot;--force-gui&quot;; e.g.,
+    octave --force-gui
+</pre></div>
+</div>
+</div>
+<div class="section" id="ipython-kernel">
+<span id="ipython-kernel"></span><h2>起動用のipython kernel<a class="headerlink" href="#ipython-kernel" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>octaveコマンドからREPLによるプログラミングをできるようだけど、KernelについてはPythonしか使っていなかったので、その勉強も込めてインストール。</p>
+<div class="highlight-sh:pip_search_kernel.sh"><div class="highlight"><pre><span></span>pip search _kernel
+octave_kernel           - An Octave kernel for Jupyter/IPython
+bash_kernel             - A bash kernel for Jupyter
+xonsh_kernel            - An Xonsh kernel for Jupyter/IPython
+matlab_kernel           - A Matlab kernel for Jupyter/IPython
+scilab_kernel           - A Scilab kernel for IPython
+r2_kernel               - An R wrapper kernel for IPython
+hy_kernel               - A hy kernel for IPython
+redis_kernel            - A redis kernel for IPython
+jupyter_kernel_test     - Machinery for testing Jupyter kernels via the messaging protocol.
+</pre></div>
+</div>
+<div class="highlight-sh:pip_install_octave.sh"><div class="highlight"><pre><span></span>pip install octave_kernel
+# kernel設定が追加されている
+python -m octave_kernel.install
+</pre></div>
+</div>
+<p>言語が少ないなーと思っていたら、各言語のパッケージ管理ツールからインストールするものもあるようだった。
+https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages</p>
+<ul class="simple">
+<li>Rではinstall.packages</li>
+<li>phpではComposer</li>
+<li>Rubyではgem</li>
+</ul>
+<p>のようにPythonだけでは完結しない</p>
+</div>
+<div class="section" id="ipython-notobook">
+<span id="ipython-notobook"></span><h2>ipython notobook<a class="headerlink" href="#ipython-notobook" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>右上のNEWにPythonに加えて、octaveが追加されていた</p>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h2>まとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>octaveは無料</li>
+<li>MATLABと互換性がある</li>
+<li>Install簡単だった</li>
+<li>ipython notebookから使えるになってOutputしやすくなった</li>
+<li>MATLABを使う本を読んでもいいなと思うようになった</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="hasklell">
+<span id="hasklell"></span><h1>Hasklell<a class="headerlink" href="#hasklell" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>note:IHaskell (jupyter + Haskell)</p>
+<div class="highlight-env_ihaskell.sh"><div class="highlight"><pre><span></span># https://remusao.github.io/install-ihaskell-on-ubuntu-1404-with-stack.html
+
+# Haskell setup
+brew install stack
+stack setup
+
+# alias using stack
+export PATH=~/.local/bin:$PATH # stack etc
+# Haskell
+# export PATH=~/.cabal/bin:$PATH
+if which stack &gt; /dev/null; then
+     alias ghc=&quot;stack ghc --&quot;
+     alias ghci=&quot;stack ghci&quot;
+     alias runghc=&quot;stack runghc --&quot;
+     alias runhaskell=&quot;stack runghc --&quot;
+fi
+
+# setupy ihaskell
+stack build ihaskell
+stack exce ihaskell -- install
+
+# いちいちstackを経由をめんどうだと思って使わない場合
+jupyter notebook # then new Haskell notebook
+# -&gt; shelly did not find ghc-pkg in the PATH:
+# The following target packages were not found: ghc-pkg
+# -&gt; alias ghc-pkg=&quot;stack exec ghc-pkg --&quot; しても同じ
+
+# ok, 参考URLコメントにもあった
+stack exec jupyter -- notebook
+
+# とりあえず下記を定義できて、do記法も使えた
+add3 x y z =
+    do
+        let add2 = x + y
+        add2 + z
+add3 1 2 3
+-- 6
+
+# ghciのように扱えた
+:t 1
+1 :: forall a. Num a =&gt; a
+
+:k Maybe
+Maybe :: * -&gt; *
+
+# 型宣言もできた
+add :: Int -&gt; Int -&gt; Int
+add x y = x + y
+add 1 2
+
+# 拡張の追加とimportもできた
+{-# LANGUAGE OverloadedStrings, ViewPatterns #-}
+import qualified Data.Text.Lazy as T
+
+# 入力を受け付けるプログラムはテキストボックスが出現してにゅうりょくできるようになる
+# getContents だと止まらなくてkernel落とした
+main = do
+    line &lt;- getLine
+    putStr $ line ++ &quot;!!&quot;
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="scala">
+<span id="scala"></span><h1>Scala<a class="headerlink" href="#scala" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>install jupyter-scala</p>
+<div class="section" id="">
+<span id="id9"></span><h2>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>本家・R・Octaveと分析関連のKernel以外を試してみたかった</p>
+</div>
+<div class="section" id="">
+<span id="id10"></span><h2>身についたこと<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>wgetでの出力指定</li>
+<li>xz圧縮と-Cによる解凍先指定</li>
+<li>kernel listの表示</li>
+</ul>
+</div>
+<div class="section" id="isntall">
+<span id="isntall"></span><h2>isntall<a class="headerlink" href="#isntall" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">bash</span> <span class="pre">-vxe</span> <span class="pre">下記script</span></code></p>
+<div class="highlight-bash:install-jupyter-scala.sh"><div class="highlight"><pre><span></span># https://github.com/alexarchambault/jupyter-scala
+home_local=$(echo ~)/local
+arc_dir=jupyter-scala_2.11.6-0.2.0-SNAPSHOT
+arc_file=$arc_dir.tar.xz
+url=https://oss.sonatype.org/content/repositories/snapshots/com/github/alexarchambault/jupyter/jupyter-scala-cli_2.11.6/0.2.0-SNAPSHOT/$arc_file
+
+mkdir -p $home_local
+wget -O $home_local/$arc_file $url
+tar xJf $home_local/$arc_file -C $home_local/
+cd $home_local/$arc_dir
+./bin/jupyter-scala
+jupyter kernelspec list
+cd -
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h2>試した結果<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>初回の評価時はJVM関連のため？か遅い(下記の1.5sくらい)</li>
+<li>二度目移行は <code class="docutils literal"><span class="pre">val</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">1;</span> <span class="pre">a</span></code> に500msくらい</li>
+<li>最初ためした時、遅い時は2.6s くらいかかっていて謎だった…</li>
+</ul>
+<div class="section" id="">
+<span id="id12"></span><h3>その後<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>急にperformance悪くなった</li>
+<li>大したことしてないのにout of memory</li>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">JVM_OPT=&quot;-Xmx1g&quot;</span></code>して回避</li>
+<li>https://github.com/alexarchambault/jupyter-scala/issues/29</li>
+</ul>
+</div>
+</div>
+<div class="section" id="kernel">
+<span id="id13"></span><h2>kernel<a class="headerlink" href="#kernel" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

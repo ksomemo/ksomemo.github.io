@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Rだけで簡潔することipython系でもっと楽に書きたい &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Rだけで簡潔することipython系でもっと楽に書きたい</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Rだけで簡潔することipython系でもっと楽に書きたい</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/PythonからRを利用する方法.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>何番煎じか分からないけど、PythonからRを利用する方法</p>
+<div class="highlight-bash:install_pyper.sh"><div class="highlight"><pre><span></span># http://d.hatena.ne.jp/dichika/20130213/1360718736
+# http://qiita.com/ynakayama/items/f84dc659f1337d71dd9e
+# http://nekopuni.holy.jp/2014/12/rpythonr%E3%81%A8python%E3%81%AE%E9%80%A3%E6%90%BA/
+
+conda search rpy2
+Fetching package metadata: ....
+Using Anaconda Cloud api site https://api.anaconda.org
+
+conda search pyper
+Fetching package metadata: ....
+Using Anaconda Cloud api site https://api.anaconda.org
+
+pip search pyper
+PypeR             - A python interface to R lanugage
+
+pip install pyper
+Collecting pyper
+  Downloading PypeR-1.1.2.tar.gz
+</pre></div>
+</div>
+<div class="highlight-py3:example_pyper.py"><div class="highlight"><pre><span></span>import pandas as pd
+import pyper
+import os
+
+
+# r session作成と変数への代入
+r = pyper.R(use_pandas = &quot;True&quot;)
+r.assign(&quot;r_data&quot;, pd.read_csv(&quot;iris.data.csv&quot;))
+
+# Rのコードから実行
+print(r(&quot;summary(r_data)&quot;))
+
+# Rのsourceを使ってファイルから評価
+r_source_file = &quot;example.R&quot;
+image_file_name = &quot;image.png&quot;
+r_source = &quot;&quot;&quot;library(dplyr)
+png(&quot;{0}&quot;, width = 480, height = 480, pointsize = 12, bg = &quot;white&quot;, res = NA)
+pairs(select(r_data, c(-Name)))
+# dev -&gt; device
+dev.off()
+&quot;&quot;&quot;.format(image_file_name)
+
+with open(r_source_file, &quot;w&quot;) as f:
+    f.write(r_source)
+print(r(&quot;source(file=&#39;{0}&#39;)&quot;.format(r_source_file)))
+os.remove(r_source_file)
+
+from IPython.core.display import Image
+Image(image_file_name)
+# or
+import PIL
+PIL.Image.open(image_file_name)
+
+# os.remove(image_file_name)
+</pre></div>
+</div>
+<div class="section" id="ripython">
+<span id="ripython"></span><h1>Rだけで簡潔することipython系でもっと楽に書きたい<a class="headerlink" href="#ripython" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="http://stackoverflow.com/questions/27727833/ipython-notebook-r-cell-magic-as-a-python-function">ipython notebook R cell magic as a python function</a></li>
+<li>Rのコードを素直に書くだけで良い</li>
+<li>ただしrpy2を使うので雑に使って捨てる前提</li>
+</ul>
+<div class="highlight-py3:load_ext_rpy2_ipython.py"><div class="highlight"><pre><span></span># pip install rpy2
+import rpy2
+%load_ext rpy2.ipython
+</pre></div>
+</div>
+<div class="highlight-R:r_magic_oneline.R"><div class="highlight"><pre><span></span>%R head(iris)
+</pre></div>
+</div>
+<p>DataFrameの出力はHTML Tableになっている</p>
+<div class="highlight-R:r_magic_multiline.R"><div class="highlight"><pre><span></span>%%R
+my.summary &lt;- function (df) {
+    return(summary(df))
+}
+my.summary(iris)
+</pre></div>
+</div>
+<p>pyperのように文字列でないので、printしなくてよい</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

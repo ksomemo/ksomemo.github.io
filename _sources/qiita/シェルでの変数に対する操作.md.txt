@@ -1,0 +1,81 @@
+
+* awkのときに学んだ変数からの文字切り出しのように便利なものをまとめてみた
+* これを覚えるのに時間を消耗するよりはLLでやったほうがいいと思った
+* 最後に上げた例以外(cpなど含む)に用途があればメモしていく
+
+## Code
+
+```bash
+#!/bin/bash
+
+function echoline() {
+    echo "---"
+}
+
+# 設定されないのでエラーとなる
+# set -u
+echoline
+echo ${noset:-if-noset-value}
+echo ${noset}
+
+# 設定されるのでエラーとならない
+set -u
+echoline
+echo ${noset_assign:=if-noset-assign}
+echo ${noset_assign}
+
+# #:先頭一致 ^regex
+# %:末尾一致 regex$
+# #/% 1つ:最短マッチ
+# ##/%% 2つ:最長マッチ
+echoline
+str=a_b_a
+echo ${str#a}
+echo ${str#a?}
+echo ${str#a_b*}
+echo ${str##a_b*}
+
+echoline
+echo ${str%a}
+echo ${str%_*}
+echo ${str%%_*}
+
+# repalce
+# // s/x/xx/g と同じ
+echoline
+echo ${str/a}
+echo ${str//a}
+echo ${str/a/ABC}
+echo ${str//a/ABC}
+```
+
+```
+---
+if-noset-value
+
+---
+if-noset-assign
+if-noset-assign
+---
+_b_a
+b_a
+_a
+
+---
+a_b_
+a_b
+a
+---
+_b_a
+_b_
+ABC_b_a
+ABC_b_ABC
+```
+
+## 例
+
+末尾一致を拡張子一括変更として利用する
+
+```
+for f in `find /path/to/dir -name "*.txt"`; do; mv $f ${f%txt}R; done;
+```

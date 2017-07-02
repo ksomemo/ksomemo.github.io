@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/True／False／None.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="highlight-py3"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import array
+
+values = [
+    0, 0.0, 1, -1, 
+    0j, 0.0j, 1j, -1j,
+    False, True,
+    &#39;&#39;, &#39;0&#39;, &#39;0.0&#39;, &#39;1&#39;,
+    [], [False], 
+    (), (False,),
+    {}, {False: False},
+    object(),
+    None,
+    np.nan,
+    np.array([]), np.array([False]), np.array([True]), np.array([0]), np.array([1]),
+    array.array(&#39;b&#39;, []), array.array(&#39;b&#39;, [0]), 
+]
+
+t(pd.DataFrame())
+# ValueError: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+# -&gt; not v == None, bool(v)
+Empty DataFrame
+Columns: []
+Index: [] is     None -&gt; False
+Empty DataFrame
+Columns: []
+Index: [] is not None -&gt; True
+Empty DataFrame
+Columns: []
+Index: [] ==     None -&gt; Empty DataFrame
+Columns: []
+Index: []
+Empty DataFrame
+Columns: []
+Index: [] !=     None -&gt; Empty DataFrame
+Columns: []
+Index: []
+
+
+
+t(pd.DataFrame([False]))
+# TypeError: Could not compare [None] with block values
+# -&gt; v == None, v != None
+# -&gt; not v == None, bool(v)
+
+       0
+0  False is     None -&gt; False
+       0
+0  False is not None -&gt; True
+
+def t(v):
+    print(&quot;%r is     None -&gt; %s&quot; % (v, v is None))
+    print(&quot;%r is not None -&gt; %s&quot; % (v, v is not None))
+    print(&quot;%r ==     None -&gt; %s&quot; % (v, v == None))
+    print(&quot;%r !=     None -&gt; %s&quot; % (v, v != None))
+    print(&quot;not %r == None -&gt; %s&quot; % (v, not v == None))
+    print(&quot;bool(%r)       -&gt; %s&quot; % (v, bool(v)))
+    print()
+
+# result
+list(map(t, values))
+
+0 is     None -&gt; False
+0 is not None -&gt; True
+0 ==     None -&gt; False
+0 !=     None -&gt; True
+not 0 == None -&gt; True
+bool(0)       -&gt; False
+
+0.0 is     None -&gt; False
+0.0 is not None -&gt; True
+0.0 ==     None -&gt; False
+0.0 !=     None -&gt; True
+not 0.0 == None -&gt; True
+bool(0.0)       -&gt; False
+
+1 is     None -&gt; False
+1 is not None -&gt; True
+1 ==     None -&gt; False
+1 !=     None -&gt; True
+not 1 == None -&gt; True
+bool(1)       -&gt; True
+
+-1 is     None -&gt; False
+-1 is not None -&gt; True
+-1 ==     None -&gt; False
+-1 !=     None -&gt; True
+not -1 == None -&gt; True
+bool(-1)       -&gt; True
+
+0j is     None -&gt; False
+0j is not None -&gt; True
+0j ==     None -&gt; False
+0j !=     None -&gt; True
+not 0j == None -&gt; True
+bool(0j)       -&gt; False
+
+0j is     None -&gt; False
+0j is not None -&gt; True
+0j ==     None -&gt; False
+0j !=     None -&gt; True
+not 0j == None -&gt; True
+bool(0j)       -&gt; False
+
+1j is     None -&gt; False
+1j is not None -&gt; True
+1j ==     None -&gt; False
+1j !=     None -&gt; True
+not 1j == None -&gt; True
+bool(1j)       -&gt; True
+
+(-0-1j) is     None -&gt; False
+(-0-1j) is not None -&gt; True
+(-0-1j) ==     None -&gt; False
+(-0-1j) !=     None -&gt; True
+not (-0-1j) == None -&gt; True
+bool((-0-1j))       -&gt; True
+
+False is     None -&gt; False
+False is not None -&gt; True
+False ==     None -&gt; False
+False !=     None -&gt; True
+not False == None -&gt; True
+bool(False)       -&gt; False
+
+True is     None -&gt; False
+True is not None -&gt; True
+True ==     None -&gt; False
+True !=     None -&gt; True
+not True == None -&gt; True
+bool(True)       -&gt; True
+
+&#39;&#39; is     None -&gt; False
+&#39;&#39; is not None -&gt; True
+&#39;&#39; ==     None -&gt; False
+&#39;&#39; !=     None -&gt; True
+not &#39;&#39; == None -&gt; True
+bool(&#39;&#39;)       -&gt; False
+
+&#39;0&#39; is     None -&gt; False
+&#39;0&#39; is not None -&gt; True
+&#39;0&#39; ==     None -&gt; False
+&#39;0&#39; !=     None -&gt; True
+not &#39;0&#39; == None -&gt; True
+bool(&#39;0&#39;)       -&gt; True
+
+&#39;0.0&#39; is     None -&gt; False
+&#39;0.0&#39; is not None -&gt; True
+&#39;0.0&#39; ==     None -&gt; False
+&#39;0.0&#39; !=     None -&gt; True
+not &#39;0.0&#39; == None -&gt; True
+bool(&#39;0.0&#39;)       -&gt; True
+
+&#39;1&#39; is     None -&gt; False
+&#39;1&#39; is not None -&gt; True
+&#39;1&#39; ==     None -&gt; False
+&#39;1&#39; !=     None -&gt; True
+not &#39;1&#39; == None -&gt; True
+bool(&#39;1&#39;)       -&gt; True
+
+[] is     None -&gt; False
+[] is not None -&gt; True
+[] ==     None -&gt; False
+[] !=     None -&gt; True
+not [] == None -&gt; True
+bool([])       -&gt; False
+
+[False] is     None -&gt; False
+[False] is not None -&gt; True
+[False] ==     None -&gt; False
+[False] !=     None -&gt; True
+not [False] == None -&gt; True
+bool([False])       -&gt; True
+
+() is     None -&gt; False
+() is not None -&gt; True
+() ==     None -&gt; False
+() !=     None -&gt; True
+not () == None -&gt; True
+bool(())       -&gt; False
+
+(False,) is     None -&gt; False
+(False,) is not None -&gt; True
+(False,) ==     None -&gt; False
+(False,) !=     None -&gt; True
+not (False,) == None -&gt; True
+bool((False,))       -&gt; True
+
+{} is     None -&gt; False
+{} is not None -&gt; True
+{} ==     None -&gt; False
+{} !=     None -&gt; True
+not {} == None -&gt; True
+bool({})       -&gt; False
+
+{False: False} is     None -&gt; False
+{False: False} is not None -&gt; True
+{False: False} ==     None -&gt; False
+{False: False} !=     None -&gt; True
+not {False: False} == None -&gt; True
+bool({False: False})       -&gt; True
+
+&lt;object object at 0x102802290&gt; is     None -&gt; False
+&lt;object object at 0x102802290&gt; is not None -&gt; True
+&lt;object object at 0x102802290&gt; ==     None -&gt; False
+&lt;object object at 0x102802290&gt; !=     None -&gt; True
+not &lt;object object at 0x102802290&gt; == None -&gt; True
+bool(&lt;object object at 0x102802290&gt;)       -&gt; True
+
+None is     None -&gt; True
+None is not None -&gt; False
+None ==     None -&gt; True
+None !=     None -&gt; False
+not None == None -&gt; False
+bool(None)       -&gt; False
+
+nan is     None -&gt; False
+nan is not None -&gt; True
+nan ==     None -&gt; False
+nan !=     None -&gt; True
+not nan == None -&gt; True
+bool(nan)       -&gt; True
+
+array([], dtype=float64) is     None -&gt; False
+array([], dtype=float64) is not None -&gt; True
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1/bin/ipython:4: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  from IPython import start_ipython
+array([], dtype=float64) ==     None -&gt; False
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1/bin/ipython:5: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+
+array([], dtype=float64) !=     None -&gt; True
+/Users/xxx/.pyenv/versions/miniconda3-3.9.1/bin/ipython:6: FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+  sys.exit(start_ipython())
+not array([], dtype=float64) == None -&gt; True
+bool(array([], dtype=float64))       -&gt; False
+
+array([False], dtype=bool) is     None -&gt; False
+array([False], dtype=bool) is not None -&gt; True
+array([False], dtype=bool) ==     None -&gt; False
+array([False], dtype=bool) !=     None -&gt; True
+not array([False], dtype=bool) == None -&gt; True
+bool(array([False], dtype=bool))       -&gt; False
+
+array([ True], dtype=bool) is     None -&gt; False
+array([ True], dtype=bool) is not None -&gt; True
+array([ True], dtype=bool) ==     None -&gt; False
+array([ True], dtype=bool) !=     None -&gt; True
+not array([ True], dtype=bool) == None -&gt; True
+bool(array([ True], dtype=bool))       -&gt; True
+
+array([0]) is     None -&gt; False
+array([0]) is not None -&gt; True
+array([0]) ==     None -&gt; False
+array([0]) !=     None -&gt; True
+not array([0]) == None -&gt; True
+bool(array([0]))       -&gt; False
+
+array([1]) is     None -&gt; False
+array([1]) is not None -&gt; True
+array([1]) ==     None -&gt; False
+array([1]) !=     None -&gt; True
+not array([1]) == None -&gt; True
+bool(array([1]))       -&gt; True
+
+array(&#39;b&#39;) is     None -&gt; False
+array(&#39;b&#39;) is not None -&gt; True
+array(&#39;b&#39;) ==     None -&gt; False
+array(&#39;b&#39;) !=     None -&gt; True
+not array(&#39;b&#39;) == None -&gt; True
+bool(array(&#39;b&#39;))       -&gt; False
+
+array(&#39;b&#39;, [0]) is     None -&gt; False
+array(&#39;b&#39;, [0]) is not None -&gt; True
+array(&#39;b&#39;, [0]) ==     None -&gt; False
+array(&#39;b&#39;, [0]) !=     None -&gt; True
+not array(&#39;b&#39;, [0]) == None -&gt; True
+bool(array(&#39;b&#39;, [0]))       -&gt; True
+</pre></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>動機 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">動機</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>動機</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/data frame to dict(key=list).md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>http://qiita.com/haru1977/items/a8bbd177feed148c2eaa</li>
+<li>最終アウトプットフォーマットを見たときに、使いそうな形だったので試してみた<ul>
+<li><code class="docutils literal"><span class="pre">dict(key=list)</span></code></li>
+</ul>
+</li>
+<li>ndarrayのデータ量を増やした時のパフォーマンスも見てみた<ul>
+<li>vectorizeした方法のほうがデータ量が増えたときに良いと思ったため</li>
+<li>重複レコードができるとuniqにしないとアウトプットがあわない</li>
+<li>けど頻度を使いたいときはlistの方がいいだろうし気にしないことにした</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-py3:df_to_dict_like.py"><div class="highlight"><pre><span></span># beign: original
+import pandas as pd
+from collections import defaultdict
+df = pd.DataFrame({
+    &#39;id&#39;:[&#39;a&#39;,&#39;a&#39;,&#39;b&#39;,&#39;b&#39;,&#39;c&#39;,],
+    &#39;shouhin&#39;:[&#39;x&#39;, &#39;y&#39;, &#39;y&#39;,&#39;z&#39;, &#39;x&#39;]
+})
+def to_dict(df):
+    tempdic = defaultdict(dict)
+    for d in df.values:
+        tempdic[d[0]][d[1]] = 1.0
+    return {k: tempdic[k].keys() for k in tempdic}
+    # 2.x?, 3.x: list(t[k].keys())
+# end
+
+def to_dict2(df):
+    return df.groupby(&quot;id&quot;)[&quot;shouhin&quot;].apply(lambda x: list(x)).to_dict()
+
+# 2.shape =&gt; (500, 2)
+# 3.shape =&gt; (50000, 2)
+# 4.shape =&gt; (500000, 2)
+df2 = pd.concat(df.copy() for _ in range(100))
+df3 = pd.concat(df.copy() for _ in range(10000))
+df4 = pd.concat(df.copy() for _ in range(100000))
+
+%timeit to_dict(df)
+10000 loops, best of 3: 27.2 µs per loop
+
+%timeit to_dict2(df)
+1000 loops, best of 3: 1.16 ms per loop
+
+%timeit to_dict(df2)
+1000 loops, best of 3: 247 µs per loop
+
+%timeit to_dict2(df2)
+1000 loops, best of 3: 1.27 ms per loop
+
+# ここからパフォーマンス逆転
+%timeit to_dict(df3)
+10 loops, best of 3: 22.2 ms per loop
+
+%timeit to_dict2(df3)
+100 loops, best of 3: 6.84 ms per loop
+
+%timeit to_dict(df4)
+1 loop, best of 3: 222 ms per loop
+
+%timeit to_dict2(df4)
+10 loops, best of 3: 62.2 ms per loop
+
+# to dataframe
+pd.concat(
+    (pd.DataFrame(dict(id=k, shouhin=v))
+     for k, v in to_dict2(df).items()),
+    ignore_index=True)
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

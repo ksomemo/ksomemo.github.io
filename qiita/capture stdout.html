@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/capture stdout.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <ul class="simple">
+<li>helpの一部だけ見たくてcapture</li>
+<li>stream系あんまりわかってない</li>
+<li>stringIOに溜め込んでいるものに対するflushわかってない</li>
+<li>一旦truncateしないとgetvalueしても前にcaptureしたものが残る</li>
+</ul>
+<p><a class="reference external" href="http://qiita.com/ksomemo/items/3d87934f82d5fcb51092">ContextManagerとcontextlibいろいろ</a>
+を流用</p>
+<div class="highlight-py3:capture_stdout.py"><div class="highlight"><pre><span></span># http://docs.python.jp/3/library/io.html
+# http://stackoverflow.com/questions/4330812/how-do-i-clear-a-stringio-object
+import sys
+import io
+from contextlib import contextmanager
+
+@contextmanager
+def capture():
+    _stdout = sys.stdout
+    with io.StringIO() as strio:
+        try:
+            sys.stdout = strio
+            yield strio
+        finally:
+            sys.stdout = _stdout
+
+
+import pandas as pd
+
+with capture() as c:
+    print(c, c.closed)
+    c.flush()
+    c_log1 = c.getvalue()
+    c.truncate()
+    c_log2 = c.getvalue()
+    c.truncate(0)
+    help(pd.Period)
+    help_doc = c.getvalue()
+    
+print(&quot;output&quot;)
+print(c_log1.strip())
+print(c_log2.strip())
+print(&quot;\n&quot;.join(help_doc.splitlines()[:20]))
+print(c.closed)
+
+########
+output
+&lt;_io.StringIO object at 0x11721ff78&gt; False
+&lt;_io.StringIO object at 0x11721ff78&gt; False
+Help on class Period in module pandas._period:
+
+class Period(builtins.object)
+ |  Represents an period of time
+ |  
+ |  Parameters
+ |  ----------
+ |  value : Period or compat.string_types, default None
+ |      The time period represented (e.g., &#39;4Q2005&#39;)
+ |  freq : str, default None
+ |      One of pandas period strings or corresponding objects
+ |  year : int, default None
+ |  month : int, default 1
+ |  quarter : int, default None
+ |  day : int, default 1
+ |  hour : int, default 0
+ |  minute : int, default 0
+ |  second : int, default 0
+ |  
+ |  Methods defined here:
+True
+</pre></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

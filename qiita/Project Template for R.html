@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>install &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">install</a></li>
+<li><a class="reference internal" href="#create-project">create project</a></li>
+<li><a class="reference internal" href="#list-contents-of-directories">list contents of directories</a></li>
+<li><a class="reference internal" href="#">見てみた感想</a></li>
+<li><a class="reference internal" href="#">疑問</a></li>
+<li><a class="reference internal" href="#">まとめ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>install</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/Project Template for R.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>いつも迷うので検索したら、それっぽいのあったけど、迷い中。</p>
+<div class="section" id="install">
+<span id="install"></span><h1>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r:install-ProjectTemplate.R"><div class="highlight"><pre><span></span>install.packages(&#39;ProjectTemplate&#39;)
+# or
+# install.packages(&quot;devtools&quot;)
+require(devtools)
+devtools::install_github(&#39;johnmyleswhite/ProjectTemplate&#39;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-project">
+<span id="create-project"></span><h1>create project<a class="headerlink" href="#create-project" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-r:create-project.R"><div class="highlight"><pre><span></span>require(ProjectTemplate)
+packageVersion(&quot;ProjectTemplate&quot;)
+[1] ‘0.6’
+
+create.project(project.name = &quot;new-project&quot;, minimal = FALSE)
+create.project(project.name = &quot;new-project-minimal&quot;, minimal = TRUE)
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-contents-of-directories">
+<span id="list-contents-of-directories"></span><h1>list contents of directories<a class="headerlink" href="#list-contents-of-directories" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-text:tree-new-project.txt"><div class="highlight"><pre><span></span>tree new-project
+
+new-project
+├── README
+├── TODO
+├── cache
+├── config
+│   └── global.dcf
+├── data
+├── diagnostics
+│   └── 1.R
+├── doc
+├── graphs
+├── lib
+│   └── helpers.R
+├── logs
+├── munge
+│   └── 01-A.R
+├── profiling
+│   └── 1.R
+├── reports
+├── src
+│   └── eda.R
+└── tests
+    └── 1.R
+</pre></div>
+</div>
+<div class="highlight-text:tree-new-project-minimal.txt"><div class="highlight"><pre><span></span>tree new-project-minimal
+
+new-project-minimal
+├── README
+├── cache
+├── config
+│   └── global.dcf
+├── data
+├── munge
+│   └── 01-A.R
+└── src
+    └── eda.R
+</pre></div>
+</div>
+<div class="highlight-txt:diff-each-project-files.txt"><div class="highlight"><pre><span></span>diff new-project new-project-minimal
+
+Only in new-project: TODO
+Common subdirectories: new-project/cache and new-project-minimal/cache
+Common subdirectories: new-project/config and new-project-minimal/config
+Common subdirectories: new-project/data and new-project-minimal/data
+Only in new-project: diagnostics
+Only in new-project: doc
+Only in new-project: graphs
+Only in new-project: lib
+Only in new-project: logs
+Common subdirectories: new-project/munge and new-project-minimal/munge
+Only in new-project: profiling
+Only in new-project: reports
+Common subdirectories: new-project/src and new-project-minimal/src
+Only in new-project: tests
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h1>見てみた感想<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-markdown:見てみた感想.md"><div class="highlight"><pre><span></span>- 初めて見たものが多い
+- RStudioでEmptyProject作る時よりはマシ
+- Package作る時に含まれるR/manは存在しない
+- 有名なRepository(hadley氏)を参考にしてみるとやっぱり違う
+- しかし、data/src/testsは共通している
+- inst/revdep/vignettesなど知らないものがあった
+    - http://r-pkgs.had.co.nz/
+    - ここに詳しく書いてある
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>疑問<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-markdown:疑問.md"><div class="highlight"><pre><span></span>- packageは上の情報を見ればよいが、固有のprojectの場合どうすればよいのか
+- 例えば、Project共通のUtilityではあるがProject外では使えないものの共通化
+- これを読み込む時の方法がわかってない(´・ω・｀)
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>まとめ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-markdown:まとめ.md"><div class="highlight"><pre><span></span>- 専用Packageは使わなくてよさそう
+- .gitignoreとRprojファイル目当てでRStudioからProject作成する
+- とりあえず、Rディレクトリを作ってそこにRコード入れる
+- srcはCompiledって書いてあったので今のところ気にしない
+- ほかにもいろいろ調べて見る必要があるので追記する
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

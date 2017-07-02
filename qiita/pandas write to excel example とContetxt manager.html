@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>to excel &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">to excel</a></li>
+<li><a class="reference internal" href="#enter-and-exit">enter and exit</a></li>
+<li><a class="reference internal" href="#pandas-excel-module-and-base-excel-module">pandas excel module and base excel module</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>to excel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/pandas write to excel example とContetxt manager.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="to-excel">
+<span id="to-excel"></span><h1>to excel<a class="headerlink" href="#to-excel" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:pandas_excel_example.py"><div class="highlight"><pre><span></span>import pandas as pd
+import numpy as np
+
+
+writer = pd.ExcelWriter(&quot;excel_file_path.xlsx&quot;)
+
+df = pd.DataFrame(np.random.randn(50, 2), columns=list(&#39;ab&#39;))
+df.to_excel(writer, sheet_name=&quot;sheet_name1&quot;, index=False)
+df.to_excel(writer, sheet_name=&quot;sheet_name2&quot;, index=False)
+
+writer.save()
+</pre></div>
+</div>
+<p>‐ 使うだけならここまででよかったんだけど</p>
+<ul class="simple">
+<li>ioが絡むのになんでcontext managerが一切出てこないのかな？と思い調べてみた。</li>
+<li>結果withと一緒に使えるので、使おう。勝手にsaveされるようにもなる</li>
+</ul>
+<div class="highlight-py3:pandas_excel_cm_example.py"><div class="highlight"><pre><span></span>with pd.ExcelWriter(&quot;excel_file_path.xlsx&quot;) as witer:
+    df.to_excel(writer, sheet_name=&quot;sheet_name1&quot;, index=False)
+    df.to_excel(writer, sheet_name=&quot;sheet_name2&quot;, index=False)
+</pre></div>
+</div>
+<p>以下調査過程</p>
+</div>
+<div class="section" id="enter-and-exit">
+<span id="enter-and-exit"></span><h1>enter and exit<a class="headerlink" href="#enter-and-exit" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-py3:pandas_excel_enter_exit.py"><div class="highlight"><pre><span></span>help(writer.__exit__)
+Help on method __exit__ in module pandas.io.excel:
+__exit__(exc_type, exc_value, traceback) method of pandas.io.excel._XlsxWriter instance
+
+
+help(writer.__enter__)
+Help on method __enter__ in module pandas.io.excel:
+__enter__() method of pandas.io.excel._XlsxWriter instance
+    # Allow use as a contextmanager
+
+
+[a for a in dir(writer) if not a.startswith(&#39;_&#39;)]
+[&#39;book&#39;,
+ &#39;check_extension&#39;,
+ &#39;close&#39;,
+ &#39;cur_sheet&#39;,
+ &#39;curr_sheet&#39;,
+ &#39;date_format&#39;,
+ &#39;datetime_format&#39;,
+ &#39;engine&#39;,
+ &#39;path&#39;,
+ &#39;save&#39;,
+ &#39;sheets&#39;,
+ &#39;supported_extensions&#39;,
+ &#39;write_cells&#39;]
+</pre></div>
+</div>
+</div>
+<div class="section" id="pandas-excel-module-and-base-excel-module">
+<span id="pandas-excel-module-and-base-excel-module"></span><h1>pandas excel module and base excel module<a class="headerlink" href="#pandas-excel-module-and-base-excel-module" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>抜粋</li>
+<li>抽象クラスとxlsx実装クラスがある</li>
+<li>抽象クラス内でcontext managerとしてのInterfaceが決めてある</li>
+<li>実装クラス内でsave実装</li>
+<li>実際はimportしているmoduleにまかせている</li>
+<li>最終的にはzipファイルcloseしているが、ここではwithがない…</li>
+</ul>
+<div class="highlight-py3:pandas_excel_module_and_base_excel_module.py"><div class="highlight"><pre><span></span># pandas/io/excel.py
+@add_metaclass(abc.ABCMeta)
+class ExcelWriter(object):
+    @abc.abstractmethod
+    def save(self):
+        pass
+
+    # Allow use as a contextmanager
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close()
+    
+    def close(self):
+        &quot;&quot;&quot;synonym for save, to make it more file-like&quot;&quot;&quot;
+        return self.save()
+
+class _XlsxWriter(ExcelWriter):
+    def __init__(self, ):
+        # Use the xlsxwriter module as the Excel writer.
+        import xlsxwriter
+        # https://pypi.python.org/pypi/XlsxWriter
+        # https://github.com/jmcnamara/XlsxWriter
+
+        super(_XlsxWriter, self).__init__
+        self.book = xlsxwriter.Workbook(path, **engine_kwargs)
+
+    def save(self):
+        &quot;&quot;&quot;
+        Save workbook to disk.
+        &quot;&quot;&quot;
+        return self.book.close()
+
+# xlsxwriter/__init__.py
+from .workbook import Workbook
+
+# xlsxwriter/workbook.py
+class Workbook(xmlwriter.XMLwriter):
+    def __enter__(self):
+        &quot;&quot;&quot;Return self object to use with &quot;with&quot; statement.&quot;&quot;&quot;
+        return self
+
+    def __exit__(self, type, value, traceback):
+        &quot;&quot;&quot;Close workbook when exiting &quot;with&quot; statement.&quot;&quot;&quot;
+        self.close()
+        
+    def close(self):
+        &quot;&quot;&quot;
+        Call finalization code and close file.
+        Args:
+            None.
+        Returns:
+            Nothing.
+        &quot;&quot;&quot;
+        if not self.fileclosed:
+            self.fileclosed = 1
+            self._store_workbook()
+            
+    def _store_workbook(self):
+        xlsx_file = ZipFile(self.filename, &quot;w&quot;, compression=ZIP_DEFLATED,
+                            allowZip64=self.allow_zip64)
+        xlsx_file.close()
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/note aws boto3 and wrapper.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="highlight-py3:aws_boto3_wrapper.py"><div class="highlight"><pre><span></span>import boto3
+from botocore.exceptions import ClientError
+
+
+class S3():
+    def __init__(self, setting):
+        # proxy設定が必要な場合は事前に設定
+        session = boto3.session.Session(aws_access_key_id=setting.accesskey,
+                                        aws_secret_access_key=setting.secretkey,
+                                        region_name=setting.region)
+        self.session = session.session
+        self.s3_client = self.session.client(&#39;s3&#39;)
+        self.s3 = self.session.resource(&#39;s3&#39;)
+        self.bucket = self.s3.Bucket(self.setting.bucket_name)
+
+    def get_available_resources(self):
+        # [&#39;cloudformation&#39;, &#39;dynamodb&#39;, &#39;ec2&#39;, &#39;glacier&#39;, &#39;iam&#39;, &#39;opsworks&#39;, &#39;s3&#39;, &#39;sns&#39;, &#39;sqs&#39;]
+        self.session.get_available_resources()
+
+    def get_available_services(self):
+        &quot;&quot;&quot;一部リソース
+        [&#39;autoscaling&#39;, &#39;cloudfront&#39;, &#39;cloudhsm&#39;, &#39;cloudsearch&#39;,
+        &#39;cloudsearchdomain&#39;, &#39;cloudtrail&#39;,
+        &#39;cloudwatch&#39;, &#39;codecommit&#39;, &#39;codedeploy&#39;, &#39;codepipeline&#39;,
+        &#39;cognito-identity&#39;, &#39;cognito-sync&#39;,
+        &#39;config&#39;, &#39;datapipeline&#39;, &#39;devicefarm&#39;, &#39;directconnect&#39;, &#39;ds&#39;,
+        &#39;dynamodbstreams&#39;, &#39;ecs&#39;, &#39;efs&#39;,
+        &#39;elasticache&#39;, &#39;elasticbeanstalk&#39;, &#39;elastictranscoder&#39;,
+        &#39;elb&#39;, &#39;emr&#39;, &#39;importexport&#39;, &#39;kinesis&#39;,
+        &#39;kms&#39;, &#39;lambda&#39;, &#39;logs&#39;, &#39;machinelearning&#39;,
+        &#39;rds&#39;, &#39;redshift&#39;, &#39;route53&#39;, &#39;route53domains&#39;, &#39;sdb&#39;,
+        &#39;ses&#39;, &#39;ssm&#39;, &#39;storagegateway&#39;, &#39;sts&#39;, &#39;support&#39;, &#39;swf&#39;, &#39;workspaces&#39;]
+        &quot;&quot;&quot;
+        self.session.get_available_services()
+
+    def upload(self, file_path, key, bucket_name=None):
+        if bucket_name:
+            self.s3_client.upload_file(file_path, bucket_name, key)
+        else:
+            with open(file_path, &#39;rb&#39;) as f:
+                r = self.bucket.put_object(Key=key, Body=f)
+                print(r)
+                # s3.Object(bucket_name=&#39;&#39;, key=&#39;&#39;)
+
+    def download(self, key, download_path, bucket_name=None):
+        if not bucket_name:
+            bucket_name = self.setting.bucket_name
+        try:
+            self.s3_client.download_file(bucket_name, key, download_path)
+        except ClientError as e:
+            print(e)
+            # print(e.parsed_response, e.operation_name)
+            raise e
+
+    def exists_bucket(self):
+        exists = True
+        try:
+            self.s3.meta.client.head_bucket(Bucket=self.bucket_name)
+        except Exception as e:
+            # If a client error is thrown, then check that it was a 404 error.
+            # If it was a 404 error, then the bucket does not exist.
+            error_code = int(e.response[&#39;Error&#39;][&#39;Code&#39;])
+            # print(e.response)
+            if error_code == 404:
+                exists = False
+        return exists
+
+    def object_all(self):
+        for v in self.bucket.objects.all():
+            print(v)
+
+    def bucket_dir(self, key):
+        bucket_dir = self.s3.Bucket(self.bucket_name + key)
+        print(dir(bucket_dir.objects))
+        # s3.Bucket.objectsCollectionManager(
+        #   s3.Bucket(name=&#39;/&#39;), s3.ObjectSummary)
+        #     [&#39;all&#39;, &#39;delete&#39;, &#39;filter&#39;, &#39;iterator&#39;, &#39;limit&#39;, &#39;page_size&#39;, &#39;pages&#39;]
+        for v in bucket_dir.objects.pages():
+            print(v)
+
+    def list_objects(self, prefix):
+        response = self.s3_c.list_objects(Bucket=self.bucket_name, Prefix=prefix)
+        if &#39;Contents&#39; in response:
+            # 該当する key がないと response に &#39;Contents&#39; が含まれない
+            for content in response[&#39;Contents&#39;]:
+                # &lt;class &#39;boto3.resources.factory.s3.Object&#39;&gt;
+                print(content)
+                print(dir(content))
+
+    def s3_object(self, key):
+        try:
+            obj = self.s3.Object(bucket_name=self.bucket_name, key=key)
+            # key not exists, directory, file
+            print(dir(obj))
+            # &lt;class &#39;boto3.resources.factory.s3.Object&#39;&gt;
+            # [&#39;Acl&#39;, &#39;Bucket&#39;, &#39;MultipartUpload&#39;, &#39;Version&#39;]
+            # [&#39;accept_ranges&#39;, &#39;bucket_name&#39;, &#39;cache_control&#39;,
+            # &#39;content_disposition&#39;, &#39;content_encoding&#39;, &#39;content_language&#39;,
+            # content_length&#39;, &#39;content_type&#39;, &#39;copy_from&#39;,
+            # &#39;delete&#39;, &#39;delete_marker&#39;, &#39;e_tag&#39;, &#39;expiration&#39;, &#39;expires&#39;, &#39;get&#39;,
+            # initiate_multipart_upload&#39;, &#39;key&#39;, &#39;last_modified&#39;,
+            # &#39;load&#39;, &#39;meta&#39;, &#39;metadata&#39;, &#39;missing_meta&#39;, &#39;put&#39;, &#39;reload&#39;,
+            # replication_status&#39;, &#39;request_charged&#39;, &#39;restore&#39;,
+            # &#39;server_side_encryption&#39;, &#39;sse_customer_algorithm&#39;, &#39;sse_customer_key_md5&#39;,
+            # ssekms_key_id&#39;, &#39;storage_class&#39;, &#39;version_id&#39;,
+            # &#39;wait_until_exists&#39;, &#39;wait_until_not_exists&#39;, &#39;website_redirect_location&#39;]
+
+            # content not found when obj is dir
+            # obj.content_length
+            # obj.content_type
+            # obj.content_encoding
+            # obj.content_language
+            # obj.content_disposition
+
+            print(obj.key)
+            print(obj.meta)
+            print(obj.metadata)
+
+            # response
+            response = obj.get()
+            # {&#39;ContentType&#39;: &#39;text/tab-separated-values&#39;,
+            # &#39;LastModified&#39;: datetime.datetime(yyyy, m, d, h, m, s, tzinfo=tzutc()),
+            # &#39;ETag&#39;: &#39;&quot;&quot;&#39;,
+            # &#39;ResponseMetadata&#39;: {
+            #    &#39;HostId&#39;:
+            #       &#39;&#39;,
+            #    &#39;RequestId&#39;: &#39;&#39;, &#39;HTTPStatusCode&#39;: 200},
+            # &#39;Body&#39;: &lt;botocore.response.StreamingBody object at 0x00000000055D6CC0&gt;,
+            # &#39;ContentLength&#39;: 1103, &#39;Metadata&#39;: {}, &#39;AcceptRanges&#39;: &#39;bytes&#39;}
+            # &lt;class &#39;dict&#39;&gt;
+
+            data = response[&#39;Body&#39;].read()
+            print(data)
+        except Exception as e:
+            # except ClientError as e: -&gt; &lt;class &#39;botocore.exceptions.ClientError&#39;&gt;
+            print(e)
+
+    def buckets_all(self):
+        for bucket in self.s3.buckets.all():
+            pass
+</pre></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

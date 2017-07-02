@@ -1,0 +1,1027 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>動機 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">動機</a></li>
+<li><a class="reference internal" href="#">感想</a></li>
+<li><a class="reference internal" href="#">正方行列</a></li>
+<li><a class="reference internal" href="#">三角行列</a><ul>
+<li><a class="reference internal" href="#">上三角行列</a></li>
+<li><a class="reference internal" href="#">下三角行列</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">対角行列</a></li>
+<li><a class="reference internal" href="#">単位行列</a></li>
+<li><a class="reference internal" href="#trace">trace</a></li>
+<li><a class="reference internal" href="#">行列式</a><ul>
+<li><a class="reference internal" href="#">性質</a></li>
+<li><a class="reference internal" href="#">クラメルの公式</a><ul>
+<li><a class="reference internal" href="#">置換</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">逆行列</a><ul>
+<li><a class="reference internal" href="#">特異行列</a></li>
+<li><a class="reference internal" href="#">余因子展開</a><ul>
+<li><a class="reference internal" href="#">余因子分解とサラスの方法</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">行列式の積</a></li>
+<li><a class="reference internal" href="#">ようやく逆行列の公式</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">ベクトル空間</a></li>
+<li><a class="reference internal" href="#">線形変換</a></li>
+<li><a class="reference internal" href="#">線形変換と定数倍と固有値分解</a><ul>
+<li><a class="reference internal" href="#">連立方程式と行列式 = 0の意味</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">随伴行列</a></li>
+<li><a class="reference internal" href="#">エルミート行列とユニタリ行列と対角化</a><ul>
+<li><a class="reference internal" href="#">標準化とジョルダン標準化</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">その他</a><ul>
+<li><a class="reference internal" href="#">直交行列</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">総和と平均</a><ul>
+<li><a class="reference internal" href="#">例：単回帰分析の係数と切片</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">総和と微分</a></li>
+<li><a class="reference internal" href="#">内積</a><ul>
+<li><a class="reference internal" href="#">意味</a></li>
+<li><a class="reference internal" href="#">数式の解釈</a><ul>
+<li><a class="reference internal" href="#">上記の解説</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">分散共分散行列</a></li>
+<li><a class="reference internal" href="#">転置行列</a><ul>
+<li><a class="reference internal" href="#">用途</a></li>
+<li><a class="reference internal" href="#">手順と使った性質</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">指数</a></li>
+<li><a class="reference internal" href="#">対数</a><ul>
+<li><a class="reference internal" href="#odds-logit-logistic">odds/logit/logistic関数</a></li>
+<li><a class="reference internal" href="#">指数型分布族</a><ul>
+<li><a class="reference internal" href="#exp-log-p-p-e">exp(log(p)) = p: 底はe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">微分</a><ul>
+<li><a class="reference internal" href="#">ベクトルの微分</a></li>
+<li><a class="reference internal" href="#convex">2階微分とconvex</a></li>
+<li><a class="reference internal" href="#">正定値、半正定値とその意味</a></li>
+<li><a class="reference internal" href="#">ヘッセ行列</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">テーラー展開</a></li>
+<li><a class="reference internal" href="#">ラプラス近似</a></li>
+<li><a class="reference internal" href="#">期待値</a></li>
+<li><a class="reference internal" href="#">分散</a></li>
+<li><a class="reference internal" href="#">記号</a></li>
+<li><a class="reference internal" href="#">集合</a></li>
+<li><a class="reference internal" href="#">論理</a></li>
+<li><a class="reference internal" href="#">数列</a></li>
+<li><a class="reference internal" href="#">級数</a><ul>
+<li><a class="reference internal" href="#">時系列分析での例</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">差分方程式</a></li>
+<li><a class="reference internal" href="#">微分方程式</a></li>
+<li><a class="reference internal" href="#">特性方程式</a></li>
+<li><a class="reference internal" href="#">順列</a></li>
+<li><a class="reference internal" href="#">組み合わせ</a><ul>
+<li><a class="reference internal" href="#">二項定理</a></li>
+<li><a class="reference internal" href="#">多項定理</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">極限</a></li>
+<li><a class="reference internal" href="#">積分</a><ul>
+<li><a class="reference internal" href="#">重積分</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">ガンマ関数</a></li>
+<li><a class="reference internal" href="#">ベータ関数</a></li>
+<li><a class="reference internal" href="#">テイラー展開</a></li>
+<li><a class="reference internal" href="#">フーリエ変換</a><ul>
+<li><a class="reference internal" href="#">フーリエ級数</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">ラプラス近似</a></li>
+<li><a class="reference internal" href="#">ラグランジュの未定乗数法</a></li>
+<li><a class="reference internal" href="#">三角関数</a></li>
+<li><a class="reference internal" href="#">複素数</a></li>
+<li><a class="reference internal" href="#">線形代数</a><ul>
+<li><a class="reference internal" href="#">ベクトル</a></li>
+<li><a class="reference internal" href="#">行列</a><ul>
+<li><a class="reference internal" href="#">フロベニウスノルム</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">行列分解</a><ul>
+<li><a class="reference internal" href="#">対角化</a></li>
+<li><a class="reference internal" href="#">正定値</a></li>
+<li><a class="reference internal" href="#">固有値分解</a></li>
+<li><a class="reference internal" href="#">線形独立</a></li>
+<li><a class="reference internal" href="#">小行列式</a></li>
+<li><a class="reference internal" href="#rank">rank</a></li>
+<li><a class="reference internal" href="#">特異値分解</a></li>
+<li><a class="reference internal" href="#qr">QR分解</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">行列変換?投影</a><ul>
+<li><a class="reference internal" href="#">剛体変換</a></li>
+<li><a class="reference internal" href="#">相似変換</a></li>
+<li><a class="reference internal" href="#affine">affine変換</a></li>
+<li><a class="reference internal" href="#">射影変換</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#">統計学</a></li>
+<li><a class="reference internal" href="#">距離</a></li>
+<li><a class="reference internal" href="#">数式慣れ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>動機</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/note: 行列の性質や数式テクニック.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>だいぶゆるくまとめている</p>
+<div class="section" id="">
+<span id="id1"></span><h1>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>以下の本を読んだり、書籍以外を読んだのでまとめて理解を深める</p>
+<ul class="simple">
+<li>キーポイント線形代数<ul>
+<li>行列やベクトルについては別の本が必要</li>
+</ul>
+</li>
+<li>ITエンジニアのための機械学習理論入門<ul>
+<li>数式ありでPythonコード有り</li>
+<li>ただし、NNやるならゼロから本の方がよさそう</li>
+</ul>
+</li>
+<li>データマイニングの基礎<ul>
+<li>数式多め詳しい</li>
+<li>情報量やエントロピー(KL, JS)</li>
+</ul>
+</li>
+<li>Python機械学習<ul>
+<li>数式はそんなに出てこないが、説明が丁寧</li>
+<li>機械学習の学習中に行う微分や行列系</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://www.udemy.com/computervision/learn/v4/overview">ベイズ推定とグラフィカルモデル：コンピュータビジョン基礎1</a><ul>
+<li>ベイズの定理だけでなく、ベイズ推定まで学べる(特に周辺化重要)</li>
+<li>ベイズ推定で使う事前分布と便利な共役分布について</li>
+<li>基本的な確率分布から複雑な確率分布を追加始める理由<ul>
+<li>途中でEMアルゴリズム(K-Means/混合正規分布)</li>
+<li>ラグランジュの未定乗数法(SVM/混合正規分布)</li>
+</ul>
+</li>
+<li>まだ途中</li>
+</ul>
+</li>
+</ul>
+<p>線形代数・行列の導出と意味を忘れ、機械学習のなんとか関数のブレにいつも悩まされるので、ここだけ見れば思い返せるようにする。また、他の書籍でわからなかったことも混じっている。</p>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h1>感想<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>キーポイント線形代数はそれほど機械学習のための行列関連には直接関係なさそう</li>
+<li>ただし、直接関係ある公式などの理解を深めるための知識となる気がする</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h1>正方行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>行と列が等しい行列 N<em>N, not N</em>M (N≠M)</p>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h1>三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>正方行列に関すること</p>
+<div class="section" id="">
+<span id="id5"></span><h2>上三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>行列Xの成分を $X_{ij}$ としたとき $i &gt; j$ が0である行列</p>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h2>下三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>行列Xの成分を $X_{ij}$ としたとき $i &lt; j$ が0である行列</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id7"></span><h1>対角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>上三角行列かつ下三角行列、つまり
+行列Xの成分を $X_{ij}$ としたとき $i ≠ j$ が0である行列</p>
+<p>正方行列 = 上三角行列 + 下三角行列 - 対角行列</p>
+</div>
+<div class="section" id="">
+<span id="id8"></span><h1>単位行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>対角行列の対角成分がすべて1</li>
+<li>他の行列をかけてもその行列の成分が変わらない</li>
+</ul>
+</div>
+<div class="section" id="trace">
+<span id="trace"></span><h1>trace<a class="headerlink" href="#trace" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>正方行列の対角成分の和</p>
+</div>
+<div class="section" id="">
+<span id="id9"></span><h1>行列式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>サラスの方法を使う（3次まで）</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">+</span> <span class="n">by</span> <span class="o">=</span> <span class="n">p</span>
+<span class="n">cx</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">q</span>
+</pre></div>
+</div>
+<p>の連立方程式,つまり</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">=</span> <span class="n">p</span>
+<span class="n">c</span> <span class="n">d</span>   <span class="n">y</span>   <span class="n">q</span>
+</pre></div>
+</div>
+<p>より、xとyの分母 ad - bc のこと</p>
+<div class="section" id="">
+<span id="id10"></span><h2>性質<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ol class="simple">
+<li>転置しても変わらない</li>
+<li>２つの行または列を入れ替えると、-1倍</li>
+<li>行が等しい、または列が等しいと、0</li>
+<li>ある行または列をk倍すると、k倍</li>
+<li>ある行または列の要素が２つの数の和になっていると、分解できる(和になっていない行または列はそのまま変化しない)</li>
+<li>別の行のk倍を加えても元の結果と変わらない<ul>
+<li>5によるもとの行列式と別の行列式に分解</li>
+<li>4によるk倍行列式への変換</li>
+<li>それによる3の出現で消える</li>
+</ul>
+</li>
+<li>上三角行列の対角要素の積と等しい<ul>
+<li>性質というより、単純に0になる要素の積を無視するとそうなる</li>
+<li>行列式の行列部分を上三角行列にするとき、性質6を利用する</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="">
+<span id="id11"></span><h2>クラメルの公式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>公式より下記のほうが重要だと思う</p>
+<ul class="simple">
+<li>3元1次連立方程式による解の導出時に現れる、3次の行列式の2次の行列式への分解<ul>
+<li>逆行列の導出のときに使う</li>
+<li>導出途中、性質を使うと簡単に変換できる</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="">
+<span id="id12"></span><h3>置換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>符号</li>
+<li>あんまり重要度が分かっていない</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id13"></span><h1>逆行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>行列における逆数は？というところから始まる</li>
+<li>よって行列の積が出てくる</li>
+<li>単位行列だけでなく、なぜかゼロ行列も出てくる</li>
+</ul>
+<div class="section" id="">
+<span id="id14"></span><h2>特異行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>逆行列が存在しない正方行列</li>
+<li>行列式が0</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id15"></span><h2>余因子展開<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>クラメルの公式のときに出てきた分解を使う</li>
+<li>余因子を導入</li>
+<li>余因子を使った行列式の余因子展開</li>
+</ul>
+<div class="section" id="">
+<span id="id16"></span><h3>余因子分解とサラスの方法<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>行列の次数？を下げることができるので、4次を3次にしてサラスの方法を使うことで行列式を求めることが出来る</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id17"></span><h2>行列式の積<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>AとBの行列の積の行列式から|A||B|の導出<ul>
+<li>ここでも性質を使う</li>
+<li>置換による行列式の定義を使う</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id18"></span><h2>ようやく逆行列の公式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>逆行列の定義 AA-1=Eから求める</li>
+<li>ここでクラメルの公式が活躍</li>
+<li>余因子の別の書き方が出てくる</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id19"></span><h1>ベクトル空間<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id20"></span><h1>線形変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id21"></span><h1>線形変換と定数倍と固有値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>行列Aでゼロでないベクトルxを変換した時、変換後にベクトルxの定数倍になっている時、xを固有ベクトル、定数を固有値という。定数倍にならないベクトルが多い。</p>
+<div class="highlight-math"><div class="highlight"><pre><span></span>Ax = \lambda x \\
+(A - \lambda I)x = 0 \\
+\
+\left[\begin{matrix}
+a_{11}-\lambda &amp; a_{12} \\
+a_{21}         &amp; a_{22}-\lambda
+\end{matrix}\right]
+\left[\begin{matrix}
+x_{1} \\
+x_{2}
+\end{matrix}\right]
+= 0
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id22"></span><h2>連立方程式と行列式 = 0の意味<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>TODO</p>
+<ul class="simple">
+<li>固有値を求める</li>
+<li>固有値を代入して固有ベクトルを求める</li>
+</ul>
+<p>入力行列の分散共分散行列 = 固有ベクトル * 固有値対角行列 * 固有ベクトル(転置)
+変換後行列 = 入力行列 * 固有ベクトル</p>
+<p>変換を</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id23"></span><h1>随伴行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>随伴行列は、行列の転置をしたあと、各成分の虚部の符号反転をしたもの。</p>
+</div>
+<div class="section" id="">
+<span id="id24"></span><h1>エルミート行列とユニタリ行列と対角化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>エルミート行列は行列と随伴行列が同じであること。 行列の成分が実数のみで対称行列であればエルミート行列である。 シャルル・エルミート（Charles Hermite)。</p>
+<p>ユニタリ行列とは、ある行列成分に虚部があるとき、行列と随伴行列の積が単位行列になる行列のことである。つまり、この時の随伴行列は逆行列でもある。また成分が実数のみである場合と比較すると、直交行列の拡張となる。</p>
+<p>エルミート行列に対するユニタリ行列での対角化では、得られる対角行列の成分がすべて実数となるためである。エルミート行列を利用する理由はこれである（共分散分析が実数のみの対角行列であるため）。</p>
+<p>TODO:対角化</p>
+<div class="section" id="">
+<span id="id25"></span><h2>標準化とジョルダン標準化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+<div class="section" id="">
+<span id="id26"></span><h1>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id27"></span><h2>直交行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>逆行列をかけると単位行列になる行列</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id28"></span><h1>総和と平均<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ol class="simple">
+<li>$\sum_{i=0}^n y_i ...①$</li>
+<li>$① / n = \bar{y}$</li>
+<li>$① = \bar{y}n$</li>
+</ol>
+<div class="section" id="">
+<span id="id29"></span><h2>例：単回帰分析の係数と切片<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>最小二乗法より、 $\sum{(y - \hat{y})^2} = 0$となるときのa, bを求める</li>
+<li>bは関係なく、aを求める時に使う<ul>
+<li>連立方程式でbを消す</li>
+<li>解を共分散に変形する</li>
+</ul>
+</li>
+</ul>
+<p>参考: http://www.sist.ac.jp/~kanakubo/research/statistic/tankaiki.html</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id30"></span><h1>総和と微分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>内側の式を微分してよいことが多い</li>
+<li>行列に対して偏微分を用いて係数を求める際によく使う</li>
+<li>indexと関係ない場合はN倍すればよく、関係あるならばそのままにしておく</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id31"></span><h1>内積<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id32"></span><h2>意味<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>数学ガール秘密のノートに書いてあった</p>
+<ul class="simple">
+<li>直角三角形における斜辺/底辺</li>
+<li>単位円での角度の拡張</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id33"></span><h2>数式の解釈<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>ベクトルで考えた時、n要素 * n要素の転置　= スカラー</li>
+<li>各ベクトルの添字が同じものを掛けあわせて、足し込む</li>
+<li>Σ(a_i * b_i) -&gt; A*B^T と書ける(式変形を理解しておくと、本の理解も進む)</li>
+<li>行列の場合も同じ、nm * mn -&gt; nn行列<ul>
+<li>ベクトルの場合 1m * m1 -&gt; 11行列 -&gt; スカラー</li>
+</ul>
+</li>
+<li>行列の外側と内側の次元数を一致させることに慣れれば、最終的な出力の形がわかる</li>
+</ul>
+<div class="section" id="">
+<span id="id34"></span><h3>上記の解説<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>http://d.hatena.ne.jp/rikunora/20130614/p1</li>
+<li>大きさ同士の積を面積を求めると解釈するところから始まる<ul>
+<li>長いベクトルの大きさと短いベクトル(長いベクトルの影)</li>
+<li>片方のベクトルを90度回転して(sin)長方形とする</li>
+<li>成分から面積を求める</li>
+</ul>
+</li>
+</ul>
+<p>すごく理解できたのと、幾何と数値を行き来する感覚がわかった。</p>
+<p>内積の展開式=0=目的変数の分類の基準になるし、2次元平面で考えれば直線の上下での分類になる。
+また0になるということは内積で考えると90°なので法線ベクトルという説明が出てくるのも納得できる。分類する直線に対して法線を引けるように重みを調整するとも考えられる。</p>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id35"></span><h1>分散共分散行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>$\frac{1}{N}XX^{ \mathrm{ T } }$</p>
+<p>各変数の組合せすべての共分散と対角要素に変数の分散を持つ行列</p>
+<ul class="simple">
+<li>対角行列であるとき、変数同士は独立</li>
+<li>対角行列でないとき、回転した座標軸において変数同士は独立(に近い)</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id36"></span><h1>転置行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id37"></span><h2>用途<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>線形回帰の係数を求めるときに使った</li>
+</ul>
+<div class="highlight-math"><div class="highlight"><pre><span></span>(AB)^{ \mathrm{ T } } = B^{ \mathrm{ T } }A^{ \mathrm{ T } }
+</pre></div>
+</div>
+<div class="highlight-math"><div class="highlight"><pre><span></span>\begin{align}
+w^{ \mathrm{ T } }\Phi^{ \mathrm{ T } }\Phi - \boldsymbol{ t }^{ \mathrm{ T } }\Phi &amp;= 0 \\
+(w^{ \mathrm{ T } }\Phi^{ \mathrm{ T } })\Phi &amp;= \boldsymbol{ t }^{ \mathrm{ T } }\Phi \\
+
+\Phi^{ \mathrm{ T } }(w^{ \mathrm{ T } }\Phi^{ \mathrm{ T } })^{ \mathrm{ T } } &amp;= \Phi^{ \mathrm{ T } }\boldsymbol{ t } \\
+左辺 &amp;= \Phi^{ \mathrm{ T } }(\Phi w) \\
+
+w &amp;= (\Phi^{ \mathrm{ T } }\Phi)^{-1} \Phi^{ \mathrm{ T } }\boldsymbol{ t }
+\end{align}
+</pre></div>
+</div>
+<p>行列は可換じゃないので、部分ごとに行う?</p>
+</div>
+<div class="section" id="">
+<span id="id38"></span><h2>手順と使った性質<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>両辺を転置<ul>
+<li>積の転置は積の左右を入れ替えた転置の積を与える<ul>
+<li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E8%BB%A2%E7%BD%AE%E8%A1%8C%E5%88%97">wikipedia:転置行列</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>左から(Φの転置行列とΦ) の逆行列をかけて完了<ul>
+<li>本では、上記が逆行列を持つことの確認をしている(ヘッセ行列)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id39"></span><h1>指数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>累乗の積は、指数部分を和にまとめられる</p>
+</div>
+<div class="section" id="">
+<span id="id40"></span><h1>対数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>対数の真数部分の積は、対数の和に分解できる</li>
+<li>独立事象の確率の積を計算する際によく使う<ul>
+<li>確率の積を何度も計算すると、計算機上ではオーバーフローする</li>
+<li>対数をとって和にすることで防ぐ</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="odds-logit-logistic">
+<span id="odds-logit-logistic"></span><h2>odds/logit/logistic関数<a class="headerlink" href="#odds-logit-logistic" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://qiita.com/ksomemo/items/a65e0d1f17a9c7ef1a07">今更ながらoddsとlogitとlogistic関数</a> にまとめた</p>
+</div>
+<div class="section" id="">
+<span id="id41"></span><h2>指数型分布族<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>読んだ本には出てきてないが、のちのちためになりそうなので読んだ</li>
+<li>ある要素で構成されるなら指数型分布となるらしい</li>
+<li>正規分布やベルヌーイ分布など</li>
+</ul>
+<div class="section" id="exp-log-p-p-e">
+<span id="exp-log-p-p-e"></span><h3>exp(log(p)) = p: 底はe<a class="headerlink" href="#exp-log-p-p-e" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>ベルヌーイ分布を出すときに使った</li>
+<li>結果を知ってからだと当たり前だが、思いつかないということは指数対数の根本が危うい...</li>
+<li>見出しの式の左辺の対数をとる</li>
+<li>log(exp ^ log(p)) = log(p) * log(e) = log(p) = 見出し右辺の対数</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id42"></span><h1>微分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id43"></span><h2>ベクトルの微分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>ベクトルのある要素i番目を例にあげて偏微分することが多い</li>
+<li>i番目以外は定数になるためi番目のみを考える</li>
+<li>その結果は要素i番目以外でも同じ形をする</li>
+<li>それぞれの要素を微分し、ベクトルにまとめなおす</li>
+</ul>
+</div>
+<div class="section" id="convex">
+<span id="convex"></span><h2>2階微分とconvex<a class="headerlink" href="#convex" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>2階微分が正のとき、下に凸なので微分=0で最小化の最適解となる</li>
+<li>1階微分=0だけでは局所解である可能性があるため、最適解とは限らない</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id44"></span><h2>正定値、半正定値とその意味<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="">
+<span id="id45"></span><h2>ヘッセ行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>行列関数の2階微分</li>
+<li>正定値行列、固有値が全て非負</li>
+<li>https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11149976641 が親切だった</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id46"></span><h1>テーラー展開<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>TODO</p>
+</div>
+<div class="section" id="">
+<span id="id47"></span><h1>ラプラス近似<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>TODO</p>
+</div>
+<div class="section" id="">
+<span id="id48"></span><h1>期待値<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-math"><div class="highlight"><pre><span></span>\begin{align}
+E[X] &amp;= \displaystyle \sum_{i=1}^{n} x_i P(X=x_i) \\
+E[X] &amp;= \displaystyle \int_ {-\infty}^{\infty}x P(x) dx \\
+E[aX]  &amp;= aE[X] \\
+E[X+a] &amp;= E[X] + a \\
+E[X+Y] &amp;= E[X] + E[Y]
+\end{align}
+</pre></div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id49"></span><h1>分散<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="highlight-math"><div class="highlight"><pre><span></span>\begin{align}
+V[X] &amp;= E[(X-E(X))^{2}] \\
+&amp;= \sum_{i=1}^{n} {(x_i - E[X] )^2 P(X=x_i)} \\
+&amp;= \sum_{i=1}^{n} {(x_i^{2}P(X=x_i) - 2x_iE[X]P(X=x_i) + E[X]^2P(X=x_i))} \\
+&amp;= \sum_{i=1}^{n} {x_i^{2}P(X=x_i)}
+   -2E[X]\sum_{i=1}^{n} {x_iP(X=x_i)} 
+   + (E[X])^2 \sum_{i=1}^{n} {P(X=x_i)} \\
+&amp;= E[X^{2}] -2(E[X])^2 + (E[X])^2 \\
+&amp;= E[X^{2}] - (E[X])^2
+\end{align}
+</pre></div>
+</div>
+<div class="highlight-math"><div class="highlight"><pre><span></span>\begin{align}
+V[aX]  &amp;=&amp; a^2 V[X] \\
+V[X+a] &amp;=&amp; V[X] 
+\end{align}
+</pre></div>
+</div>
+<p>忘れるのでメモする</p>
+</div>
+<div class="section" id="">
+<span id="id50"></span><h1>記号<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id51"></span><h1>集合<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id52"></span><h1>論理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id53"></span><h1>数列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id54"></span><h1>級数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>多項式の列を１つの項で近似？</li>
+</ul>
+<div class="section" id="">
+<span id="id55"></span><h2>時系列分析での例<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ホワイトノイズやARで出てくる</p>
+<ul class="simple">
+<li>上記の差分方程式に存在するlagを適用した差分項を除外する</li>
+<li>上記は時系列項(確率変数)の式とするために行う</li>
+</ul>
+</div>
+</div>
+<div class="section" id="">
+<span id="id56"></span><h1>差分方程式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id57"></span><h1>微分方程式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id58"></span><h1>特性方程式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id59"></span><h1>順列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id60"></span><h1>組み合わせ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id61"></span><h2>二項定理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id62"></span><h2>多項定理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+<div class="section" id="">
+<span id="id63"></span><h1>極限<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id64"></span><h1>積分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id65"></span><h2>重積分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+<div class="section" id="">
+<span id="id66"></span><h1>ガンマ関数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>確率分布</p>
+</div>
+<div class="section" id="">
+<span id="id67"></span><h1>ベータ関数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>確率分布</p>
+</div>
+<div class="section" id="">
+<span id="id68"></span><h1>テイラー展開<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>ベイジアン</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id69"></span><h1>フーリエ変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id70"></span><h2>フーリエ級数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>http://www.ic.is.tohoku.ac.jp/~swk/lecture/yaruodsp/toc.html</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id71"></span><h1>ラプラス近似<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>ベイジアン</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id72"></span><h1>ラグランジュの未定乗数法<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ある項を条件付けないと、解が複数出てくるときによく使われている。
+B=1であるとしたとき、λ(B-1)と差し引き0になるようにしたあとに係数をかける。
+詳細はまだわかってない…</p>
+<ul class="simple">
+<li>SVM</li>
+<li>ベイジアン</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id73"></span><h1>三角関数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id74"></span><h1>複素数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id75"></span><h1>線形代数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="">
+<span id="id76"></span><h2>ベクトル<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id77"></span><h2>行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="">
+<span id="id78"></span><h3>フロベニウスノルム<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ある行列と回転行列をかけた行列の差分についてL2ノルムをとると、traceを利用した形になる</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id79"></span><h2>行列分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>https://ja.wikipedia.org/wiki/%E8%A1%8C%E5%88%97%E3%81%AE%E5%88%86%E8%A7%A3</p>
+<div class="section" id="">
+<span id="id80"></span><h3>対角化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="">
+<span id="id81"></span><h3>正定値<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>正定値行列</li>
+<li>半正定値行列</li>
+<li>半正定値対称行列</li>
+</ul>
+</div>
+<div class="section" id="">
+<span id="id82"></span><h3>固有値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>説明済み</p>
+</div>
+<div class="section" id="">
+<span id="id83"></span><h3>線形独立<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>TODO：わかるけど説明できない</p>
+</div>
+<div class="section" id="">
+<span id="id84"></span><h3>小行列式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ある行列からr個の行と列を取り出して作った行列式(r次小行列式)</p>
+</div>
+<div class="section" id="rank">
+<span id="rank"></span><h3>rank<a class="headerlink" href="#rank" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>いろいろな定義があるが、意味は同じらしい。</p>
+<ol class="simple">
+<li>行数。ただし、ガウスの消去法適用終了時に、成分のうち１つは0である行(0ベクトルでない行)の数。</li>
+<li>線形独立な列ベクトルの最大数。</li>
+<li>小行列式が0でない最大の次数r。ガウスの消去法を適用した上で0ベクトルが含まれる時、対角成分の積が0になる説明がわかりやすい<ul>
+<li>ガウスの消去法適用時の行列が特異値分解する前提の行列に似ている</li>
+</ul>
+</li>
+<li>2の行ベクトル版</li>
+</ol>
+</div>
+<div class="section" id="">
+<span id="id85"></span><h3>特異値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>正方行列でなくてもよい(主成分分析における特異値分解では、分散共分散行列の正方行列なので、理解が進んでいない)</p>
+<p>TODO:いかを読む</p>
+<ul class="simple">
+<li>ttp://qiita.com/horiem/items/71380db4b659fb9307b4</li>
+<li>https://abicky.net/2010/09/05/131612/</li>
+</ul>
+</div>
+<div class="section" id="qr">
+<span id="qr"></span><h3>QR分解<a class="headerlink" href="#qr" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>正方行列 = 直交行列 * 上三角行列</p>
+</div>
+</div>
+<div class="section" id="">
+<span id="id86"></span><h2>行列変換?投影<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="">
+<span id="id87"></span><h3>剛体変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Euclidean</p>
+<p>平行移動＋回転</p>
+</div>
+<div class="section" id="">
+<span id="id88"></span><h3>相似変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Similarity</p>
+<p>剛体変換＋拡大縮小(奥行き移動)より相似</p>
+</div>
+<div class="section" id="affine">
+<span id="affine"></span><h3>affine変換<a class="headerlink" href="#affine" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>相似＋回転ではなく傾き</p>
+</div>
+<div class="section" id="">
+<span id="id89"></span><h3>射影変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>homography</p>
+<p>TODO: affineとの違いをどう説明するか</p>
+</div>
+</div>
+</div>
+<div class="section" id="">
+<span id="id90"></span><h1>統計学<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id91"></span><h1>距離<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+</div>
+<div class="section" id="">
+<span id="id92"></span><h1>数式慣れ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>数式 to numpy code</p>
+<ul class="simple">
+<li>sum</li>
+<li>product</li>
+<li>dot</li>
+<li>argmin/max</li>
+<li>min/max</li>
+<li>log</li>
+<li>exp</li>
+<li>ndarray.T</li>
+<li>etc.</li>
+</ul>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

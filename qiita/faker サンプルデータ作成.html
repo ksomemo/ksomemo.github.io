@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../genindex.html"/>
+        <link rel="search" title="検索" href="../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/qiita/faker サンプルデータ作成.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="highlight-0_faker サンプルデータ作成.txt"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-bash:install-fake-factory.sh"><div class="highlight"><pre><span></span># http://fake-factory.readthedocs.org/en/master/locales/ja_JP.html
+# pip install fake-factory
+
+# http://faker.readthedocs.org/en/master/locales/ja_JP.html
+pip install faker
+</pre></div>
+</div>
+<div class="highlight-py3:faker_sample.py"><div class="highlight"><pre><span></span>from faker import Factory
+fake = Factory.create(&#39;ja_JP&#39;)
+((fake.city(), fake.month()), (fake.city(), fake.month()))
+# =&gt; ((&#39;東久留米市&#39;, &#39;05&#39;), (&#39;鴨川市&#39;, &#39;09&#39;))
+
+# サンプルデータを引数無しで作成するための確認
+import pandas as pd
+import inspect
+
+# https://docs.python.org/3/library/inspect.html#inspect.Parameter
+# https://docs.python.org/3/library/inspect.html#introspecting-callables-with-the-signature-object
+
+def add(x, y):
+    return x + y
+
+class MyClass:
+    def __init__(self, a, b, c=&quot;default&quot;):
+        pass
+    
+for p in inspect.signature(MyClass.__init__).parameters.values():
+    print(p, type(p), p.kind, p.default, type(p.default))
+    print(p.KEYWORD_ONLY and p.default is param.empty)
+
+(
+    p.KEYWORD_ONLY,
+    p.POSITIONAL_ONLY,
+    p.POSITIONAL_OR_KEYWORD,
+    p.VAR_KEYWORD,
+    p.VAR_POSITIONAL,
+    
+)
+
+def sample_fake():
+    for name, method in inspect.getmembers(fake, inspect.ismethod):
+        if name.startswith(&quot;_&quot;):
+            print(name)
+            continue
+        try:
+            sig = inspect.signature(method)
+            params = sig.parameters.values()
+            
+            n_args = len(params)
+            n_kwargs = sum(1 for p in params
+                           if p.default is not p.empty)
+
+            if n_args == 0 or n_kwargs == n_args:
+                value = method()
+            else:
+                value = None
+            
+            yield {&quot;key&quot;: name, &quot;value&quot;: value,
+                   &quot;n_args&quot;: n_args,
+                   &quot;n_kwargs&quot;: n_kwargs}
+        except Exception as e:
+            print(&quot;method error:&quot;, name)
+
+from IPython.display import display
+with pd.option_context(&quot;display.max_rows&quot;, 300):
+    display(pd.DataFrame(sample_fake()))
+
+</pre></div>
+</div>
+<div class="highlight-txt:faker.log"><div class="highlight"><pre><span></span>## module
+faker.providers.address
+faker.providers.barcode
+faker.providers.color
+faker.providers.company
+faker.providers.credit_card
+faker.providers.currency
+faker.providers.date_time
+faker.providers.file
+faker.providers.internet
+faker.providers.job
+faker.providers.lorem
+faker.providers.misc
+faker.providers.person
+faker.providers.phone_number
+faker.providers.profile
+faker.providers.python
+faker.providers.ssn
+faker.providers.user_agent
+
+## with argument
+fake.geo_coordinate(center=None, radius=0.001)
+fake.ean(length=13)
+fake.credit_card_security_code(card_type=None)
+fake.credit_card_provider(card_type=None)
+fake.credit_card_full(card_type=None)
+fake.credit_card_expire(start=&quot;now&quot;, end=&quot;+10y&quot;, date_format=&quot;%m/%y&quot;)
+fake.credit_card_number(card_type=None)
+fake.date_time_this_year(before_now=True, after_now=False, tzinfo=None)
+fake.date_time_between_dates(datetime_start=None, datetime_end=None, tzinfo=None)
+fake.date_time_between(start_date=&quot;-30y&quot;, end_date=&quot;now&quot;, tzinfo=None)
+fake.time(pattern=&quot;%H:%M:%S&quot;)
+fake.date_time_ad(tzinfo=None)
+fake.date_time_this_month(before_now=True, after_now=False, tzinfo=None)
+fake.date_time_this_decade(before_now=True, after_now=False, tzinfo=None)
+fake.date(pattern=&quot;%Y-%m-%d&quot;)
+fake.iso8601(tzinfo=None)
+fake.date_time(tzinfo=None)
+fake.date_time_this_century(before_now=True, after_now=False, tzinfo=None)
+fake.mime_type(category=None)
+fake.file_name(category=None, extension=None)
+fake.file_extension(category=None)
+fake.domain_word(*args, **kwargs)
+fake.image_url(width=None, height=None)
+fake.slug(*args, **kwargs)
+fake.user_name(*args, **kwargs)
+fake.uri_path(deep=None)
+fake.text(max_nb_chars=200)
+fake.sentence(nb_words=6, variable_nb_words=True)
+fake.paragraphs(nb=3)
+fake.words(nb=3)
+fake.paragraph(nb_sentences=3, variable_nb_sentences=True)
+fake.sentences(nb=3)
+fake.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)
+fake.md5(raw_output=False)
+fake.sha1(raw_output=False)
+fake.sha256(raw_output=False)
+fake.boolean(chance_of_getting_true=50)
+fake.profile(fields=None)
+fake.pyiterable(nb_elements=10, variable_nb_elements=True, *value_types)
+fake.pystr(max_chars=20)
+fake.pyfloat(left_digits=None, right_digits=None, positive=False)
+fake.pystruct(count=10, *value_types)
+fake.pydecimal(left_digits=None, right_digits=None, positive=False)
+fake.pylist(nb_elements=10, variable_nb_elements=True, *value_types)
+fake.pytuple(nb_elements=10, variable_nb_elements=True, *value_types)
+fake.pyset(nb_elements=10, variable_nb_elements=True, *value_types)
+fake.pydict(nb_elements=10, variable_nb_elements=True, *value_types)
+</pre></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
