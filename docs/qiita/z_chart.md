@@ -16,7 +16,7 @@ sales
 
 ![z chart](z_chart.png)
 
-rder="1" class="dataframe">
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
