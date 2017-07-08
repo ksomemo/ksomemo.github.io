@@ -1,0 +1,632 @@
+\documentclass[a4j]{jarticle}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{url}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+\makeatletter
+\def\@pdfm@dest#1{%
+	\Hy@SaveLastskip
+	\@pdfm@mark{dest (#1) [@thispage /\@pdfview\space @xpos @ypos null]}%
+	\Hy@RestoreLastskip
+}
+\makeatother
+
+% 目次にページ番号をつけないようにするため
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
+
+\usepackage{listings}
+
+\bibliographystyle{plain}
+
+\input{macro}
+
+
+
+\title{データ分析プロセス\\「3.2.9 完全情報最尤推定法」に関する補足}
+\date{\today}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+\西暦
+\maketitle
+
+%\pagestyle{empty}
+%\tableofcontents
+%\newpage
+
+%\input{macro}
+
+%\section{完全情報最尤推定法で欠損値を補完していない理由}
+\section{完全情報最尤推定法についての補足}
+
+完全情報最尤推定法は拙著で取り上げている他の手法と異なり，
+欠損値を削除したり，代入することに重きが置かれているのではなく，
+平均値や分散などの統計量をバイアスを極力減らして推定するための手法です．
+そのため，
+本書でも平均値 $\vec{\mu}$ と分散共分散行列 $\vec{\Sigma}$ を
+求めているに留めています．
+
+p.45の図3.8「欠損値への対応のフロー」では，
+「欠損値の特定」の後に，
+「欠損値の削除」，
+「最尤推定法」，
+「欠損値の代入」
+とあり，
+最尤推定法だけが特別扱いされているのは，
+欠損値を削除する対応でも，
+補完した値を代入する対応でもないことを表しています．
+この図は，
+Kabacoff\cite{Kabacoff2011}で取り上げられているものですが，
+この図からも完全情報最尤推定法が，
+欠損値を削除したり値を補完する手法とは異なることがわかります．
+
+また，
+p.46の表3.1「欠損値への対応手法」には，
+完全情報最尤推定法の概要として，
+「サンプルごとに欠損パターンに応じた尤度関数を仮定して
+最尤推定を実施して得られる多変量正規分布を用いて
+平均値や分散共分散行列を推定」
+と記載しました．
+
+%ただし，
+%p.57では，
+%「完全情報最尤推定法(full information maximum likelihood method; FIML)は，
+%ケースごとに欠損パターンに応じた個別の尤度関数を仮定した最尤推定により
+%欠損値を補完する方法」
+%と記述しました．
+%しかし，先にもご説明したように，
+%完全情報最尤推定法は，
+%多重代入法のように欠損値自体を補完する方法ではなく，
+%欠損値を考慮した上でバイアスを極力減らして平均値や分散などの統計量を
+%推定するための手法です．
+%そのため，
+%「欠損値に対応して，平均値や分散などの統計量を推定する方法」
+%などと記述したほうが誤解を招く恐れを軽減できたのではないかと思っています．
+
+
+\section{サンプルデータを用いた完全情報最尤推定法に関する補足}
+
+従業員のIQと業務のパフォーマンスの関係を表すデータに対して，
+p.58--p.59では
+\package{mvnmle}パッケージの\function{mlest}関数を用いて
+完全情報最尤推定法を実行しています．
+本書では紙面の関係上，省略しましたが，
+この実行例の背後で
+完全情報最尤推定法がどのように実行されるかについて
+補足説明します．
+
+対象データには，20個のサンプルがあります．
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{> }\hlstd{employee.IQ.JP} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(}\hlstr{"data/missdata/employee_IQ_JP.csv"}\hlstd{,} \hlkwc{row.names}\hlstd{=}\hlkwa{NULL}\hlstd{,}
+\hlstd{+ }  \hlkwc{colClasses}\hlstd{=}\hlkwd{c}\hlstd{(}\hlkwd{rep}\hlstd{(}\hlstr{"integer"}\hlstd{,} \hlnum{3}\hlstd{),} \hlstr{"factor"}\hlstd{,} \hlstr{"integer"}\hlstd{,} \hlstr{"factor"}\hlstd{,} \hlstr{"integer"}\hlstd{,}
+\hlstd{+ }               \hlstr{"factor"}\hlstd{))}
+\hlstd{> }\hlstd{employee.IQ.JP}
+\end{alltt}
+\begin{verbatim}
+    IQ JobPerformance MCAR MCAR.is.missing MAR MAR.is.missing MNAR
+1   78              9   NA               1  NA              1    9
+2   84             13   13               0  NA              1   13
+3   84             10   NA               1  NA              1   10
+4   85              8    8               0  NA              1   NA
+5   87              7    7               0  NA              1   NA
+6   91              7    7               0   7              0   NA
+7   92              9    9               0   9              0    9
+8   94              9    9               0   9              0    9
+9   94             11   11               0  11              0   11
+10  96              7   NA               1   7              0   NA
+11  99              7    7               0   7              0   NA
+12 105             10   10               0  10              0   10
+13 105             11   11               0  11              0   11
+14 106             15   15               0  15              0   15
+15 108             10   10               0  10              0   10
+16 112             10   10               0  10              0   10
+17 113             12   12               0  12              0   12
+18 115             14   14               0  14              0   14
+19 118             16   16               0  16              0   16
+20 134             12   NA               1  12              0   12
+   MNAR.is.missing
+1                0
+2                0
+3                0
+4                1
+5                1
+6                1
+7                0
+8                0
+9                0
+10               1
+11               1
+12               0
+13               0
+14               0
+15               0
+16               0
+17               0
+18               0
+19               0
+20               0
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+平均値 $\vec{\mu}$，分散共分散行列 $\vec{\Sigma}$ が与えられている前提で，
+それぞれのサンプルが生起する確率密度関数は，
+次式
+\begin{equation}
+f(\vec{x}_{i} | \vec{\mu}, \, \vec{\Sigma}) = 
+  \frac{1}{(2\pi)^{d/2} |\vec{\Sigma}|^{1/2}} 
+  \exp{\left(
+         -\frac{1}{2}
+            \transpose{(\vec{x}_{i} - \vec{\mu})}
+            \vec{\Sigma}^{-1}
+            (\vec{x}_{i} - \vec{\mu})
+       \right)
+  }
+\end{equation}
+で与えられます．
+ここで，
+$d$ は $\vec{x}$ の次元です．
+%本書では紙面の関係もあり詳しくは説明していませんが，
+%以下，このサンプルデータに対して
+%完全情報最尤推定法がどのように実行されるかについてご説明します．
+
+ここでは，
+IQとJobPerformanceの平均値 $\vec{\mu}$ が
+次式
+\begin{equation}
+\vec{\mu} = 
+  \left(
+		\begin{array}{c}
+		  \mu_{\IQ} \\
+      \mu_{\JP}
+    \end{array}
+  \right)
+\end{equation}
+で表されているとします．
+ここで，
+$\mu_{\IQ}$ はIQの平均値，
+$\mu_{\JP}$ はJobPerformanceの平均値を
+表します．
+また，
+分散共分散行列 $\vec{\Sigma}$ は，
+次式
+\begin{equation}
+\vec{\Sigma} = 
+  \left(
+    \begin{array}{cc}
+     \sigma_{\IQ}^2 & \sigma_{\IQ, \JP} \\
+     \sigma_{\JP, \IQ} & \sigma_{\JP}^2
+    \end{array}
+  \right)
+\end{equation}
+で表されているとします．
+ここで，
+$\sigma_{\IQ}^2$ と $\sigma_{\JP}^2$ は
+それぞれIQとJobPerformanceの分散，
+$\sigma_{\IQ, \JP}$ と $\sigma_{\JP, \IQ}$ は
+IQとJobPerformanceの共分散を
+表します．
+なお，
+$\sigma_{\IQ, \JP} = \sigma_{\JP, \IQ}$ なので，
+以下では特に断りがない限り $\sigma_{\IQ, \JP}$ のみを用います．
+
+
+まず，1番目のサンプルはIQが $78$，JobPerformanceが $\NA$(欠損値)のため，
+\begin{equation}
+\vec{x}_{1} =
+  \left(
+    \begin{array}{c}
+      78 \\
+      \NA
+    \end{array}
+  \right)
+\end{equation}
+と表されます．
+しかし，
+この1番目のサンプルでは
+JobPerformanceが欠損しているため，
+JobPerformanceの平均値，
+IQとJobPerformanceの共分散 $\sigma_{\IQ, \JP}(=\sigma_{\JP, \IQ})$ の
+推定に
+このサンプルを役立てることは困難です．
+したがって，データはIQだけの1行のベクトルであると考えて，
+\begin{equation}
+\vec{x}_{1} = (78)
+\end{equation}
+と表記します．
+また，平均値はIQの平均だけの1行のベクトル
+\begin{equation}
+\vec{\mu} = (\mu_{\IQ})
+\end{equation}
+であり，
+分散共分散行列も単にIQの分散だけの1行1列の行列
+\begin{equation}
+\vec{\Sigma}_{1} = (\sigma_{\IQ}^2)
+\end{equation}
+となります．
+このとき，
+1番目のサンプルの確率密度関数は次式
+\begin{align}
+f(\vec{x}_{1} | \vec{\mu}, \vec{\Sigma})
+&= \frac{1}{\sqrt{2\pi} |\vec{\Sigma}_{1}|^{1/2}} 
+       \exp{
+         \left\{
+           -\frac{1}{2}
+             \left(
+               (78 - \mu_{\IQ})
+               \frac{1}{\sigma_{\IQ}^2}
+               (78 - \mu_{\IQ})
+             \right)
+         \right\}
+       } \\
+&= \frac{1}{\sqrt{2\pi} \, \sigma_{\IQ}}
+       \exp{
+         \left\{
+           -\frac{1}{2\sigma_{\IQ}^2} (78 - \mu_{\IQ})^2
+         \right\}
+       }
+\end{align}
+で与えられます．
+5番目のサンプルまではJobPerformanceが欠損値であるため，
+1番目のサンプルと同様にして確率密度関数は，次式
+\begin{align}
+f(\vec{x}_{2} | \vec{\mu}, \vec{\Sigma})
+&= \frac{1}{\sqrt{2\pi} \, \sigma_{\IQ}}
+       \exp{
+         \left(
+           -\frac{1}{2\sigma_{\IQ}^2} (84 - \mu_{\IQ})^2
+         \right)
+       } \\
+f(\vec{x}_{3} | \vec{\mu}, \vec{\Sigma})
+  &= \frac{1}{\sqrt{2\pi} \, \sigma_{\IQ}}
+       \exp{
+         \left(
+           -\frac{1}{2\sigma_{\IQ}^2} (84 - \mu_{\IQ})^2
+         \right)
+       } \\
+f(\vec{x}_{4} | \vec{\mu}, \vec{\Sigma})
+  &= \frac{1}{\sqrt{2\pi} \, \sigma_{\IQ}}
+       \exp{
+         \left(
+           -\frac{1}{2\sigma_{\IQ}^2} (85 - \mu_{\IQ})^2
+         \right)
+       } \\
+f(\vec{x}_{5} | \vec{\mu}, \vec{\Sigma})
+  &= \frac{1}{\sqrt{2\pi} \, \sigma_{\IQ}}
+       \exp{
+         \left(
+           -\frac{1}{2\sigma_{\IQ}^2} (87 - \mu_{\IQ})^2
+         \right)
+       }
+\end{align}
+で求められます．
+
+6番目から20番目までのサンプルでは，
+IQとJobPerformanceはともに欠損がなく
+値が観測されています．
+そのため，
+各サンプルの平均値と分散共分散行列は等しく，
+次式
+\begin{align}
+\vec{\mu}_{6} = \dots = \vec{\mu}_{20} &= 
+  \left(
+    \begin{array}{c}
+    \mu_{\IQ} \\
+    \mu_{\JP}
+    \end{array}
+  \right) \\
+\vec{\Sigma}_{6} = \dots = \vec{\Sigma}_{20} &=
+  \left(
+    \begin{array}{cc}
+    \sigma_{\IQ}^2 & \sigma_{\IQ, \JP} \\
+    \sigma_{\JP, \IQ} & \sigma_{\JP}^2
+    \end{array}
+  \right)
+= \left(
+    \begin{array}{cc}
+    \sigma_{\IQ}^2 & \sigma_{\IQ, \JP} \\
+    \sigma_{\IQ, \JP} & \sigma_{\JP}^2
+    \end{array}
+  \right)
+\end{align}
+で表されます．
+また，分散共分散行列の行列式は，
+次式
+\begin{equation}
+|\vec{\Sigma}_{6}| = \dots = |\vec{\Sigma}_{20}| =
+  \sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2
+\end{equation}
+で表されます．
+
+6番目のサンプルの確率密度関数は，
+次式
+\begin{align}
+&f(\vec{x}_{6} | \vec{\mu}, \vec{\Sigma})  \nonumber \\
+  &= \frac{1}{2\pi |\vec{\Sigma}_{6}|^{1/2}} 
+       \exp{
+         \left(
+           -\frac{1}{2}
+             \transpose{
+               (\vec{x}_{6} - \vec{\mu})
+             }
+             \Sigma^{-1}
+             (\vec{x}_{6} - \vec{\mu})
+         \right)
+       } \\
+  &= \frac{1}{2\pi\sqrt{\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2}} \times \nonumber \\
+  & \, \, \,
+       \exp{
+         \left\{
+           -\frac{1}{2} 
+             (91 - \mu_{\IQ}, 7 - \mu_{\JP}) 
+             \frac{1}{\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2} 
+             \left(
+               \begin{array}{cc}
+                 \sigma_{\JP}^2 & -\sigma_{\IQ, \JP} \\
+                 -\sigma_{\IQ, \JP} & \sigma_{\IQ}^2
+               \end{array}
+             \right)
+             \left(
+               \begin{array}{c}
+                 91 - \mu_{\IQ} \\
+                 7 - \mu_{\JP}
+               \end{array}
+             \right)
+         \right\}
+       } \\
+  &= \frac{1}{2\pi\sqrt{\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2}} \times \nonumber \\
+  & \, \, \,
+       \exp{
+         \left\{
+           -\frac{1}{2(\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2)}
+             \transpose{
+               \left(
+                 \begin{array}{c}
+                 (91-\mu_{\IQ}) \sigma_{\JP}^2 - (7-\mu_{\JP}) \sigma_{\IQ, \JP} \\
+                 -(91-\mu_{\IQ}) \sigma_{\IQ, \JP} + (7-\mu_{\JP}) \sigma_{\IQ}^2
+                 \end{array}
+               \right)
+             }
+             \left(
+               \begin{array}{c}
+                 91 - \mu_{\IQ} \\
+                 7 - \mu_{\JP}
+               \end{array}
+             \right)
+         \right\}
+       } \\
+  &= \frac{1}{2\pi\sqrt{\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2}} \times \nonumber \\
+  & \, \, \,
+       \exp{
+         \left\{
+           -\frac{(91-\mu_{\IQ})^2\sigma_{\JP}^2 - 2(91-\mu_{\IQ})(7-\mu_{\JP})\sigma_{\IQ, \JP} + (7 - \mu_{\JP})^2 \sigma_{\IQ}^2}{2(\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2)}
+         \right\}
+       }
+\end{align}
+で算出されます．
+以下同様に，
+7番目から20番目のサンプルの確率密度関数も算出できます．
+\begin{align}
+f(\vec{x}_{7} | \vec{\mu}, \vec{\Sigma}) 
+&=  \frac{1}{2\pi\sqrt{\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2}} \times \nonumber \\
+  & \, \, \,
+       \exp{
+         \left\{
+           -\frac{(92-\mu_{\IQ})^2\sigma_{\JP}^2 - 2(92-\mu_{\IQ})(9-\mu_{\JP})\sigma_{\IQ, \JP} + (9 - \mu_{\JP})^2 \sigma_{\IQ}^2}{2(\sigma_{\IQ}^2 \sigma_{\IQ}^2 - \sigma_{\IQ, \JP}^2)}
+         \right\}
+       } \\
+  &\vdots \nonumber \\
+f(\vec{x}_{20} | \vec{\mu}, \vec{\Sigma}) &= 
+  \frac{1}{2\pi\sqrt{\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2}} \times \nonumber \\
+  & \, \, \,
+       \exp{
+         \left\{
+           -\frac{(134-\mu_{\IQ})^2\sigma_{\JP}^2 - 2(134-\mu_{\IQ})(12-\mu_{\JP})\sigma_{\IQ,\JP} + (12 - \mu_{\JP})^2 \sigma_{\IQ}^2}{2(\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2)}
+         \right\}
+       } 
+\end{align}
+
+以上により，
+サンプルの独立性を仮定すると，
+$\vec{x}_{1}, \, \dots, \, \vec{x}_{20}$ の同時確率密度関数は，
+次式
+\begin{align}
+f(\vec{x}_{1}, \, \dots, \, \vec{x}_{20} | \vec{\mu}, \vec{\Sigma})
+  &= f(\vec{x}_{1} | \vec{\mu}, \vec{\Sigma}) \dots 
+     f(\vec{x}_{20} | \vec{\mu}, \vec{\Sigma}) \\
+  &= \prod_{i=1}^{20} \, f(\vec{x}_{i} | \vec{\mu}, \vec{\Sigma})
+\label{eq:join_pdf_sample}
+\end{align}
+で与えられます．
+(\ref{eq:join_pdf_sample})式の両辺に対数をとると，
+\begin{align}
+&\log{f(\vec{x}_{1}, \, \dots, \, \vec{x}_{20} | \vec{\mu}, \vec{\Sigma})} \nonumber \\
+&= \sum_{i=1}^{20} \, \log{f(\vec{x}_{i} | \vec{\mu}, \vec{\Sigma})} \\
+&= \underbrace{
+     -\frac{1}{2} \log{2\pi} - \log{\sigma_{\IQ}} 
+     -\frac{(78-\mu_{\IQ})^2}{2\sigma_{\IQ}^2}
+   }_{\mathrm{1番目のサンプルの対数尤度}}
+   \underbrace{
+     -\frac{1}{2} \log{2\pi} - \log{\sigma_{\IQ}} 
+     -\frac{(84-\mu_{\IQ})^2}{2\sigma_{\IQ}^2}
+   }_{\mathrm{2番目のサンプルの対数尤度}}
+   \dots \nonumber \\
+& \, \, \, \, \,
+   \underbrace{
+     -\log{2\pi}
+     - \frac{1}{2} \log{(\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2)} 
+     -\frac{(134-\mu_{\IQ})^2\sigma_{\JP}^2 - 2(134-\mu_{\IQ})(12-\mu_{\JP})\sigma_{\IQ,\JP} + (12 - \mu_{\JP})^2 \sigma_{\IQ}^2}{2(\sigma_{\IQ}^2 \sigma_{\JP}^2 - \sigma_{\IQ, \JP}^2)}
+   }_{\mathrm{20番目のサンプルの対数尤度}}
+\label{eq:log_likelihood}
+\end{align}
+
+(\ref{eq:log_likelihood})式が最大となるように，
+EMアルゴリズムを適用して，
+$\mu_{\IQ}, \, \mu_{\JP}$，
+および $\sigma_{\IQ}^2, \, \sigma_{\IQ, \JP}(=\sigma_{\JP, \IQ}), \, \sigma_{\JP}^2$ を求めます．
+本文中で
+\package{mvnmle}パッケージの\function{mlest}関数を用いて
+完全情報最尤推定法を実行した結果，
+平均値 $\vec{\mu}$ と
+分散共分散行列 $\vec{\Sigma}$ は，
+次式
+\begin{align}
+\vec{\mu} &=
+  \left(
+    \begin{array}{c}
+    99.99989 \\
+    9.84867
+    \end{array}
+  \right) \\
+\vec{\Sigma} &= 
+  \left(
+    \begin{array}{cc}
+    189.60050 & 28.369839 \\
+    28.36984 &  8.617752
+    \end{array}
+  \right)
+\end{align}
+のように求まります．
+この結果を用いて，
+確率密度関数は次式
+\begin{align}
+f(\vec{x} | \vec{\mu}, \vec{\Sigma})
+&= \frac{1}{(2\pi)^{d/2}|\vec{\Sigma}|^{1/2}} 
+   \exp{\left(
+     -\frac{1}{2}
+     \transpose{(\vec{x} - \vec{\mu})}
+     \vec{\Sigma}^{-1}
+     (\vec{x} - \vec{\mu})
+   \right)} \\
+&= \frac{1}{(2\pi)^{d/2}|\vec{\Sigma}|^{1/2}} \times \nonumber \\
+&\, \, \, 
+   \exp{\left\{
+     -\frac{1}{2}
+     \transpose{\left(
+                 \vec{x} -
+                 \left(
+                   \begin{array}{c}
+										99.99989 \\
+                    9.84867
+                   \end{array}
+                 \right)
+                \right)}
+    \left(
+      \begin{array}{cc}
+      189.60050 & 28.369839 \\
+      28.36984 & 8.617752
+      \end{array}
+    \right)^{-1}
+		\left(
+       \vec{x} -
+       \left(
+         \begin{array}{c}
+					99.99989 \\
+          9.84867
+         \end{array}
+       \right)
+    \right)
+  \right\}} \\
+&= \frac{1}{(2\pi)^{d/2}|\vec{\Sigma}|^{1/2}} \times \nonumber \\
+&\, \, \, 
+   \exp{\left\{
+     -\frac{1}{2}
+     \transpose{\left(
+                 \vec{x} -
+                 \left(
+                   \begin{array}{c}
+										99.99989 \\
+                    9.84867
+                   \end{array}
+                 \right)
+                \right)}
+    \left(
+      \begin{array}{cc}
+      0.01039433 & -0.03421836 \\
+      -0.03421836 & 0.22868718
+      \end{array}
+    \right)
+		\left(
+       \vec{x} -
+       \left(
+         \begin{array}{c}
+					99.99989 \\
+          9.84867
+         \end{array}
+       \right)
+    \right)
+  \right\}} 
+\end{align}
+で表されることがわかります．
+このようにして，
+平均値 $\vec{\mu}$，
+分散共分散行列 $\vec{\Sigma}$ を求めると，
+データの確率密度関数は求まりますが，
+各サンプルの補完すべき値まではわかりません．
+
+以上の詳細については，
+本文中でも引用しているEnders\cite{Enders2010}
+を参照すると良いでしょう．
+%を参照されると良いかと思います．
+また，
+本文中では引用していませんでしたが，
+Enders\cite{Enders2010}の内容をコンパクトにまとめた
+村山\cite{Murayama2011}は説明がわかりやすく，
+%この資料から読まれるのが良いかもしれません．
+この資料から読むと理解が深まるかもしれません．
+
+\bibliography{suppl}
+
+\end{document}
