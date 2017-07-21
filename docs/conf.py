@@ -82,7 +82,7 @@ exclude_patterns = [
     '_build',
     'Thumbs.db',
     '.DS_Store',
-    '**ipynb_checkpoints'
+    '**.ipynb_checkpoints'
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
