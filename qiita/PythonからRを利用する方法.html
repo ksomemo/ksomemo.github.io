@@ -150,7 +150,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>何番煎じか分からないけど、PythonからRを利用する方法</p>
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<p>何番煎じか分からないけど、PythonからRを利用する方法</p>
 <div class="highlight-bash:install_pyper.sh"><div class="highlight"><pre><span></span># http://d.hatena.ne.jp/dichika/20130213/1360718736
 # http://qiita.com/ynakayama/items/f84dc659f1337d71dd9e
 # http://nekopuni.holy.jp/2014/12/rpythonr%E3%81%A8python%E3%81%AE%E9%80%A3%E6%90%BA/
@@ -279,6 +313,7 @@ my.summary(iris)
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -149,7 +149,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <blockquote>
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<blockquote>
 <div><a class="reference external" href="http://qiita.com/yyu/items/d7483b63f701ae1d1c50">QiitaはTwitterのツイートを埋め込める</a></div></blockquote>
 <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href="https://twitter.com/ksomemo">@ksomemo</a> Rmdを切り離して編集しながらプレビューできる <a href="https://t.co/9X9RCly80p">https://t.co/9X9RCly80p</a> というのがあります</p>&mdash; ホクのうむ (@u_ribo) <a href="https://twitter.com/u_ribo/status/685406431059677184">2016年1月8日</a></blockquote><div class="highlight-概要.md"><div class="highlight"><pre><span></span>## Twitterで教えてもらったeditRを試した
 
@@ -224,6 +258,7 @@ library(editR)
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

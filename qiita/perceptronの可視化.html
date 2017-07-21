@@ -149,7 +149,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p><a class="reference external" href="http://qiita.com/s-kiriki/items/b7e5b87e526153dc3611">パーセプトロンの学習規則をPythonで実装</a> を参考に可視化した</p>
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<p><a class="reference external" href="http://qiita.com/s-kiriki/items/b7e5b87e526153dc3611">パーセプトロンの学習規則をPythonで実装</a> を参考に可視化した</p>
 <div class="highlight-note.md"><div class="highlight"><pre><span></span>## いろんな関数
 - 損失関数(loss) or 誤差関数(error)
     - ある学習手法の損失関数はxxxである
@@ -324,6 +358,7 @@ f(X_moons, Y_moons)()
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
