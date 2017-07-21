@@ -1,0 +1,3858 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Symbol &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Symbol</a></li>
+<li><a class="reference internal" href="#expression">expression</a><ul>
+<li><a class="reference internal" href="#単項式">単項式</a></li>
+<li><a class="reference internal" href="#複素数">複素数</a></li>
+<li><a class="reference internal" href="#多項式">多項式</a></li>
+<li><a class="reference internal" href="#分数">分数</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#累乗">累乗</a></li>
+<li><a class="reference internal" href="#展開と因数分解">展開と因数分解</a></li>
+<li><a class="reference internal" href="#簡略化">簡略化</a></li>
+<li><a class="reference internal" href="#自然対数">自然対数</a></li>
+<li><a class="reference internal" href="#代入">代入</a></li>
+<li><a class="reference internal" href="#無限と極限">無限と極限</a></li>
+<li><a class="reference internal" href="#微分">微分</a></li>
+<li><a class="reference internal" href="#積分">積分</a></li>
+<li><a class="reference internal" href="#多変数">多変数</a></li>
+<li><a class="reference internal" href="#累乗根">累乗根</a></li>
+<li><a class="reference internal" href="#円周率">円周率</a></li>
+<li><a class="reference internal" href="#三角関数">三角関数</a></li>
+<li><a class="reference internal" href="#自然対数の底">自然対数の底</a></li>
+<li><a class="reference internal" href="#符号関数">符号関数</a></li>
+<li><a class="reference internal" href="#テイラー展開">テイラー展開</a></li>
+<li><a class="reference internal" href="#ランダウの記号">ランダウの記号</a></li>
+<li><a class="reference internal" href="#Sum">Sum</a></li>
+<li><a class="reference internal" href="#Product">Product</a></li>
+<li><a class="reference internal" href="#Max/Min">Max/Min</a></li>
+<li><a class="reference internal" href="#方程式">方程式</a></li>
+<li><a class="reference internal" href="#　不等式">　不等式</a><ul>
+<li><a class="reference internal" href="#連立方程式（Ex:鶴亀）">連立方程式（Ex:鶴亀）</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#名前付き">名前付き</a></li>
+<li><a class="reference internal" href="#ガンマ関数">ガンマ関数</a></li>
+<li><a class="reference internal" href="#Lambda">Lambda</a></li>
+<li><a class="reference internal" href="#関数定義？">関数定義？</a></li>
+<li><a class="reference internal" href="#微分方程式">微分方程式</a></li>
+<li><a class="reference internal" href="#vectorize">vectorize</a></li>
+<li><a class="reference internal" href="#その他関数">その他関数</a><ul>
+<li><a class="reference internal" href="#論理式">論理式</a></li>
+<li><a class="reference internal" href="#行列">行列</a></li>
+<li><a class="reference internal" href="#行列定義と転置">行列定義と転置</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#単位行列">単位行列</a></li>
+<li><a class="reference internal" href="#すべての要素が1">すべての要素が1</a></li>
+<li><a class="reference internal" href="#ゼロ行列">ゼロ行列</a></li>
+<li><a class="reference internal" href="#要素の参照">要素の参照</a></li>
+<li><a class="reference internal" href="#代入">代入</a></li>
+<li><a class="reference internal" href="#演算">演算</a></li>
+<li><a class="reference internal" href="#内積">内積</a></li>
+<li><a class="reference internal" href="#逆行列">逆行列</a></li>
+<li><a class="reference internal" href="#行列式">行列式</a></li>
+<li><a class="reference internal" href="#グラフ">グラフ</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Symbol</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/sympy/sympy_sample.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import sympy
+from sympy import (
+    init_printing,
+    # よく使いそうなものはImport
+    Symbol, symbols,
+    Abs,
+    Rational,
+    simplify, expand, factor,
+    limit, Limit,
+    diff, Derivative, dsolve,
+    integrate, Integral,
+    ln, log, expand_log,
+    sqrt, root, exp,
+    cos, sin, tan,
+    acos, asin, atan,
+    cosh, sinh, tanh,
+    acosh, asinh, atanh,
+    pi, oo, EulerGamma, Catalan, GoldenRatio,
+    I, E, # ImaginaryUnit, Exp(1)
+    sign,
+    Sum, Product, Min, Max,
+    Eq, solve, roots, Ne, # Equality, Unequality
+    gamma, loggamma, polygamma, uppergamma,
+    Function,
+    satisfiable,
+    Matrix
+)
+import sympy.abc
+from sympy.plotting.plot import Plot
+
+import matplotlib
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>init_printing()
+sympy.__version__
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&#39;0.7.6.1&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="Symbol">
+<h1>Symbol<a class="headerlink" href="#Symbol" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x = Symbol(&#39;x&#39;)
+y = Symbol(&#39;y&#39;)
+x, y, symbols(&#39;a b c&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( x, \quad y, \quad \left ( a, \quad b, \quad c\right )\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>type(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[4]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>sympy.core.symbol.Symbol
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in dir(x) if not a.startswith(&#39;_&#39;)]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[5]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;adjoint&#39;,
+ &#39;apart&#39;,
+ &#39;args&#39;,
+ &#39;args_cnc&#39;,
+ &#39;as_base_exp&#39;,
+ &#39;as_coeff_Add&#39;,
+ &#39;as_coeff_Mul&#39;,
+ &#39;as_coeff_add&#39;,
+ &#39;as_coeff_exponent&#39;,
+ &#39;as_coeff_mul&#39;,
+ &#39;as_coefficient&#39;,
+ &#39;as_coefficients_dict&#39;,
+ &#39;as_content_primitive&#39;,
+ &#39;as_dummy&#39;,
+ &#39;as_expr&#39;,
+ &#39;as_independent&#39;,
+ &#39;as_leading_term&#39;,
+ &#39;as_numer_denom&#39;,
+ &#39;as_ordered_factors&#39;,
+ &#39;as_ordered_terms&#39;,
+ &#39;as_poly&#39;,
+ &#39;as_powers_dict&#39;,
+ &#39;as_real_imag&#39;,
+ &#39;as_terms&#39;,
+ &#39;assumptions0&#39;,
+ &#39;atoms&#39;,
+ &#39;cancel&#39;,
+ &#39;canonical_variables&#39;,
+ &#39;class_key&#39;,
+ &#39;coeff&#39;,
+ &#39;collect&#39;,
+ &#39;combsimp&#39;,
+ &#39;compare&#39;,
+ &#39;compute_leading_term&#39;,
+ &#39;conjugate&#39;,
+ &#39;copy&#39;,
+ &#39;could_extract_minus_sign&#39;,
+ &#39;count&#39;,
+ &#39;count_ops&#39;,
+ &#39;default_assumptions&#39;,
+ &#39;diff&#39;,
+ &#39;doit&#39;,
+ &#39;dummy_eq&#39;,
+ &#39;equals&#39;,
+ &#39;evalf&#39;,
+ &#39;expand&#39;,
+ &#39;extract_additively&#39;,
+ &#39;extract_branch_factor&#39;,
+ &#39;extract_multiplicatively&#39;,
+ &#39;factor&#39;,
+ &#39;find&#39;,
+ &#39;free_symbols&#39;,
+ &#39;fromiter&#39;,
+ &#39;func&#39;,
+ &#39;getO&#39;,
+ &#39;getn&#39;,
+ &#39;has&#39;,
+ &#39;integrate&#39;,
+ &#39;invert&#39;,
+ &#39;is_Add&#39;,
+ &#39;is_AlgebraicNumber&#39;,
+ &#39;is_Atom&#39;,
+ &#39;is_Boolean&#39;,
+ &#39;is_Derivative&#39;,
+ &#39;is_Dummy&#39;,
+ &#39;is_Equality&#39;,
+ &#39;is_Float&#39;,
+ &#39;is_Function&#39;,
+ &#39;is_Integer&#39;,
+ &#39;is_Matrix&#39;,
+ &#39;is_Mul&#39;,
+ &#39;is_Not&#39;,
+ &#39;is_Number&#39;,
+ &#39;is_NumberSymbol&#39;,
+ &#39;is_Order&#39;,
+ &#39;is_Piecewise&#39;,
+ &#39;is_Poly&#39;,
+ &#39;is_Pow&#39;,
+ &#39;is_Rational&#39;,
+ &#39;is_Relational&#39;,
+ &#39;is_Symbol&#39;,
+ &#39;is_Vector&#39;,
+ &#39;is_Wild&#39;,
+ &#39;is_algebraic&#39;,
+ &#39;is_algebraic_expr&#39;,
+ &#39;is_antihermitian&#39;,
+ &#39;is_bounded&#39;,
+ &#39;is_commutative&#39;,
+ &#39;is_comparable&#39;,
+ &#39;is_complex&#39;,
+ &#39;is_composite&#39;,
+ &#39;is_constant&#39;,
+ &#39;is_even&#39;,
+ &#39;is_finite&#39;,
+ &#39;is_hermitian&#39;,
+ &#39;is_hypergeometric&#39;,
+ &#39;is_imaginary&#39;,
+ &#39;is_infinite&#39;,
+ &#39;is_infinitesimal&#39;,
+ &#39;is_integer&#39;,
+ &#39;is_irrational&#39;,
+ &#39;is_negative&#39;,
+ &#39;is_noninteger&#39;,
+ &#39;is_nonnegative&#39;,
+ &#39;is_nonpositive&#39;,
+ &#39;is_nonzero&#39;,
+ &#39;is_number&#39;,
+ &#39;is_odd&#39;,
+ &#39;is_polar&#39;,
+ &#39;is_polynomial&#39;,
+ &#39;is_positive&#39;,
+ &#39;is_prime&#39;,
+ &#39;is_rational&#39;,
+ &#39;is_rational_function&#39;,
+ &#39;is_real&#39;,
+ &#39;is_transcendental&#39;,
+ &#39;is_unbounded&#39;,
+ &#39;is_zero&#39;,
+ &#39;iter_basic_args&#39;,
+ &#39;leadterm&#39;,
+ &#39;limit&#39;,
+ &#39;lseries&#39;,
+ &#39;match&#39;,
+ &#39;matches&#39;,
+ &#39;n&#39;,
+ &#39;name&#39;,
+ &#39;normal&#39;,
+ &#39;nseries&#39;,
+ &#39;nsimplify&#39;,
+ &#39;powsimp&#39;,
+ &#39;primitive&#39;,
+ &#39;radsimp&#39;,
+ &#39;ratsimp&#39;,
+ &#39;rcall&#39;,
+ &#39;refine&#39;,
+ &#39;removeO&#39;,
+ &#39;replace&#39;,
+ &#39;rewrite&#39;,
+ &#39;round&#39;,
+ &#39;separate&#39;,
+ &#39;series&#39;,
+ &#39;simplify&#39;,
+ &#39;sort_key&#39;,
+ &#39;subs&#39;,
+ &#39;taylor_term&#39;,
+ &#39;together&#39;,
+ &#39;transpose&#39;,
+ &#39;trigsimp&#39;,
+ &#39;xreplace&#39;]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>abc_symblos = [sympy.abc.a, sympy.abc.b, sympy.abc.c, sympy.abc.x, sympy.abc.y, sympy.abc.z, sympy.abc.X, sympy.abc.Y, sympy.abc.Z]
+abc_symblos
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left [ a, \quad b, \quad c, \quad x, \quad y, \quad z, \quad X, \quad Y, \quad Z\right ]$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[type(s) for s in abc_symblos]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[sympy.core.symbol.Symbol,
+ sympy.core.symbol.Symbol,
+ sympy.core.symbol.Symbol,
+ sympy.core.symbol.Symbol,
+ sympy.core.symbol.Symbol,
+ sympy.core.symbol.Symbol,
+ sympy.core.symbol.Symbol,
+ sympy.core.symbol.Symbol,
+ sympy.core.symbol.Symbol]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>onechar_symbols = &#39;&#39;.join([a for a in dir(sympy.abc) if len(a) == 1])
+onechar_symbols
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&#39;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import string
+onechar_symbols == string.ascii_uppercase + string.ascii_lowercase
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>True
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.var(&#39;a:c&#39;)
+a, b, c
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( a, \quad b, \quad c\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>a_list = sympy.var(&#39;a0:5&#39;)
+a_list
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( a_{0}, \quad a_{1}, \quad a_{2}, \quad a_{3}, \quad a_{4}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>a0
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$a_{0}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>b_list = symbols(&#39;b0:5&#39;)
+b_list
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( b_{0}, \quad b_{1}, \quad b_{2}, \quad b_{3}, \quad b_{4}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>try:
+    b0
+except NameError as e:
+    print(e)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+name &#39;b0&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>symbols(&#39;c1:5&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( c_{1}, \quad c_{2}, \quad c_{3}, \quad c_{4}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>symbols(&#39;d0:5:2&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( d_{00}, \quad d_{01}, \quad d_{10}, \quad d_{11}, \quad d_{20}, \quad d_{21}, \quad d_{30}, \quad d_{31}, \quad d_{40}, \quad d_{41}\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="expression">
+<h1>expression<a class="headerlink" href="#expression" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="単項式">
+<h2>単項式<a class="headerlink" href="#単項式" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>+x
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>-x
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$- x$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Abs(1), Abs(-1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 1, \quad 1\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Abs(x)
+# RuntimeError: latex program is not installed
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left\lvert{x}\right\rvert$$</div></div>
+</div>
+</div>
+<div class="section" id="複素数">
+<h2>複素数<a class="headerlink" href="#複素数" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x+1j
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x + 1.0 i$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x + 1j*y
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x + 1.0 i y$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>1+3.1*I
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$1 + 3.1 i$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>type(I)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[24]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>sympy.core.numbers.ImaginaryUnit
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="多項式">
+<h2>多項式<a class="headerlink" href="#多項式" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x + y
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x + y$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x - y
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x - y$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x * y
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x y$$</div></div>
+</div>
+</div>
+<div class="section" id="分数">
+<h2>分数<a class="headerlink" href="#分数" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>1 / 3
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$0.3333333333333333$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Rational(1, 3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\frac{1}{3}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x / y
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\frac{x}{y}$$</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="累乗">
+<h1>累乗<a class="headerlink" href="#累乗" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x ** 2
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x^{2}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x ** y
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[32]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x^{y}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x ** (y + 1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[33]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x^{y + 1}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_exp = (x + y) ** 2
+expr_exp
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[34]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left(x + y\right)^{2}$$</div></div>
+</div>
+</div>
+<div class="section" id="展開と因数分解">
+<h1>展開と因数分解<a class="headerlink" href="#展開と因数分解" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_exp.expand(), expand(expr_exp)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[35]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( x^{2} + 2 x y + y^{2}, \quad x^{2} + 2 x y + y^{2}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expanded = expr_exp.expand()
+expanded.factor(), factor(expanded)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left(x + y\right)^{2}, \quad \left(x + y\right)^{2}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>(x ** 2 + 2 * x + 2).factor()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[37]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x^{2} + 2 x + 2$$</div></div>
+</div>
+</div>
+<div class="section" id="簡略化">
+<h1>簡略化<a class="headerlink" href="#簡略化" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>complexity_expr = (x + x * y) / x
+complexity_expr
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\frac{1}{x} \left(x y + x\right)$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>complexity_expr.simplify(), simplify(complexity_expr)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( y + 1, \quad y + 1\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="自然対数">
+<h1>自然対数<a class="headerlink" href="#自然対数" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>ln(x), log(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[40]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \log{\left (x \right )}, \quad \log{\left (x \right )}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>ln(x, y)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[41]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\frac{\log{\left (x \right )}}{\log{\left (y \right )}}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>ln(x) + ln(y)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[42]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\log{\left (x \right )} + \log{\left (y \right )}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>ln(x + y)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[43]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\log{\left (x + y \right )}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expand_log(log(x + y), force=True)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[44]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\log{\left (x + y \right )}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>ln(x ** 2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[45]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\log{\left (x^{2} \right )}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expand_log(log(x ** 2), force=True)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[46]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$2 \log{\left (x \right )}$$</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import sympy.mpmath
+sympy.mpmath.log(2)
+import math
+sympy.asinh
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[47]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>asinh
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="代入">
+<h1>代入<a class="headerlink" href="#代入" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex = x ** 2
+expr_ex
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[48]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x^{2}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex.subs(x, 2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[49]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$4$$</div></div>
+</div>
+</div>
+<div class="section" id="無限と極限">
+<h1>無限と極限<a class="headerlink" href="#無限と極限" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>oo, -oo
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[50]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \infty, \quad -\infty\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex.limit(x, oo), limit(expr_ex, x, oo)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[51]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \infty, \quad \infty\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>limit(expr_ex, x, 0), limit(expr_ex, x, -oo)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[52]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 0, \quad \infty\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Limit(expr_ex, x, 0), Limit(expr_ex, x, 0, &#39;-&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[53]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \lim_{x \to 0^+} x^{2}, \quad \lim_{x \to 0^-} x^{2}\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="微分">
+<h1>微分<a class="headerlink" href="#微分" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex.diff(), diff(expr_ex)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[54]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 2 x, \quad 2 x\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [55]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Derivative(expr_ex)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[55]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\frac{d}{d x} x^{2}$$</div></div>
+</div>
+</div>
+<div class="section" id="積分">
+<h1>積分<a class="headerlink" href="#積分" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [56]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex.integrate(), integrate(expr_ex)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[56]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \frac{x^{3}}{3}, \quad \frac{x^{3}}{3}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [57]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Integral(expr_ex, (x, -oo, oo))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[57]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\int_{-\infty}^{\infty} x^{2}\, dx$$</div></div>
+</div>
+</div>
+<div class="section" id="多変数">
+<h1>多変数<a class="headerlink" href="#多変数" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex2 = x ** 3 + y ** 3
+expr_ex2
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[58]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x^{3} + y^{3}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex2.subs(x, 2), expr_ex2.subs(y, 2), expr_ex2.subs([(x, 2), (y, 2)])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[59]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( y^{3} + 8, \quad x^{3} + 8, \quad 16\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [60]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex2.diff(x), expr_ex2.diff(y), expr_ex2.diff(x, y)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[60]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 3 x^{2}, \quad 3 y^{2}, \quad 0\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex2.diff(y, y), expr_ex2.diff(y, y, y), expr_ex2.diff(y, 3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[61]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 6 y, \quad 6, \quad 6\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex2.integrate(x), expr_ex2.integrate(y), expr_ex2.integrate(x, y)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[62]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \frac{x^{4}}{4} + x y^{3}, \quad x^{3} y + \frac{y^{4}}{4}, \quad \frac{x^{4} y}{4} + \frac{x y^{4}}{4}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>integrate(expr_ex2, (x, 0, 1)), integrate(expr_ex2, (x, 0, oo))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[63]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( y^{3} + \frac{1}{4}, \quad \infty \operatorname{sign}{\left (y^{3} \right )} + \infty\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Integral(expr_ex2, (x, 0, 1)), Integral(expr_ex2, (x, 0, oo))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[64]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \int_{0}^{1} x^{3} + y^{3}\, dx, \quad \int_{0}^{\infty} x^{3} + y^{3}\, dx\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="累乗根">
+<h1>累乗根<a class="headerlink" href="#累乗根" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [65]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sqrt(x), root(x, 3), root(x, -2), root(x, -3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[65]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \sqrt{x}, \quad \sqrt[3]{x}, \quad \frac{1}{\sqrt{x}}, \quad \frac{1}{\sqrt[3]{x}}\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="円周率">
+<h1>円周率<a class="headerlink" href="#円周率" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [66]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>pi
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[66]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\pi$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [67]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>type(pi)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[67]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>sympy.core.numbers.Pi
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>pi.evalf()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[68]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$3.14159265358979$$</div></div>
+</div>
+</div>
+<div class="section" id="三角関数">
+<h1>三角関数<a class="headerlink" href="#三角関数" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [69]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>cos(x), sin(x), tan(x), cos(pi), sin(pi), tan(pi)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[69]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \cos{\left (x \right )}, \quad \sin{\left (x \right )}, \quad \tan{\left (x \right )}, \quad -1, \quad 0, \quad 0\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [70]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>cos(x) ** 2 + sin(x) ** 2
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[70]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\sin^{2}{\left (x \right )} + \cos^{2}{\left (x \right )}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [71]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># only tan
+tan(x).rewrite(sin), tan(x).rewrite(cos)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[71]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \frac{2 \sin^{2}{\left (x \right )}}{\sin{\left (2 x \right )}}, \quad \frac{\sin{\left (x \right )}}{\cos{\left (x \right )}}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [72]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>acos(x), asin(x), atan(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[72]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \operatorname{acos}{\left (x \right )}, \quad \operatorname{asin}{\left (x \right )}, \quad \operatorname{atan}{\left (x \right )}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [73]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>cosh(x), sinh(x), tanh(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[73]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \cosh{\left (x \right )}, \quad \sinh{\left (x \right )}, \quad \tanh{\left (x \right )}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [74]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>acosh(x), asinh(x), atanh(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[74]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \operatorname{acosh}{\left (x \right )}, \quad \operatorname{asinh}{\left (x \right )}, \quad \operatorname{atanh}{\left (x \right )}\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="自然対数の底">
+<h1>自然対数の底<a class="headerlink" href="#自然対数の底" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [75]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>exp(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[75]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$e^{x}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [76]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>type(exp)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[76]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>sympy.core.function.FunctionClass
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [77]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>E, exp(1), E.evalf()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[77]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( e, \quad e, \quad 2.71828182845905\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [78]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>type(E), type(exp(1)), type(exp(2))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[78]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(sympy.core.numbers.Exp1, sympy.core.numbers.Exp1, exp)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="符号関数">
+<h1>符号関数<a class="headerlink" href="#符号関数" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [79]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sign(-2), sign(2), sign(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[79]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( -1, \quad 1, \quad \operatorname{sign}{\left (x \right )}\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="テイラー展開">
+<h1>テイラー展開<a class="headerlink" href="#テイラー展開" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [80]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>cos(x).series(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[80]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$1 - \frac{x^{2}}{2} + \frac{x^{4}}{24} + \mathcal{O}\left(x^{6}\right)$$</div></div>
+</div>
+</div>
+<div class="section" id="ランダウの記号">
+<h1>ランダウの記号<a class="headerlink" href="#ランダウの記号" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [81]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.O(x ** 2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[81]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\mathcal{O}\left(x^{2}\right)$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [82]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># ??
+sympy.O(x ** 2).getn()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[82]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$2$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [83]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>(x + sympy.O(x ** 2)).getO()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[83]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\mathcal{O}\left(x^{2}\right)$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [84]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>(x**2 - 1).invert(2*x - 1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[84]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$- \frac{4}{3}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [85]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>(x - 1).invert(x + 1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[85]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$- \frac{1}{2}$$</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [86]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># sympy.plotting.plot(x**2 - 1, 2*x - 1, (x, -5, 5))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Sum">
+<h1>Sum<a class="headerlink" href="#Sum" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [87]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Sum(x, (x, 1, y))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[87]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\sum_{x=1}^{y} x$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [88]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Sum(x, (x, 1, 10)), Sum(x, (x, 1, 10)).doit()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[88]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \sum_{x=1}^{10} x, \quad 55\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="Product">
+<h1>Product<a class="headerlink" href="#Product" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [89]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Product(x, (x, 1, y))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[89]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\prod_{x=1}^{y} x$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [90]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Product(x, (x, 1, 10)), Product(x, (x, 1, 10)).doit()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[90]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \prod_{x=1}^{10} x, \quad 3628800\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="Max/Min">
+<h1>Max/Min<a class="headerlink" href="#Max/Min" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [91]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Max(x, y), Min(x, y)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[91]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \max\left(x, y\right), \quad \min\left(x, y\right)\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="方程式">
+<h1>方程式<a class="headerlink" href="#方程式" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [92]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>equation = Eq(x ** 2 + 2 * x, 0)
+equation
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[92]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x^{2} + 2 x = 0$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [93]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>solve(equation)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[93]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left [ -2, \quad 0\right ]$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [94]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># expr = 0 の方程式
+solve(x ** 2 + 2 * x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[94]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left [ -2, \quad 0\right ]$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [95]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>roots(x ** 2 + 2 * x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[95]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left \{ -2 : 1, \quad 0 : 1\right \}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [96]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>expr_ex3 = x ** 2 + 2 * x + 1
+solve(expr_ex3), roots(expr_ex3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[96]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left [ -1\right ], \quad \left \{ -1 : 2\right \}\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="　不等式">
+<h1>　不等式<a class="headerlink" href="#　不等式" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [97]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>type(1 &gt; x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[97]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>sympy.core.relational.StrictLessThan
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [98]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>1 &gt; x, 1 &gt;= x, 1 &lt; x, 1 &lt;= x, Ne(1, x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[98]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( x &lt; 1, \quad x \leq 1, \quad x &gt; 1, \quad x \geq 1, \quad 1 \neq x\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [99]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>## ??
+solve(1 &gt; x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[99]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\Im{x} = 0 \wedge -\infty &lt; \Re{x} \wedge \Re{x} &lt; 1$$</div></div>
+</div>
+<div class="section" id="連立方程式（Ex:鶴亀）">
+<h2>連立方程式（Ex:鶴亀）<a class="headerlink" href="#連立方程式（Ex:鶴亀）" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [100]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>solve([x + y - 3, 2 * x + 4 * y - 8], [x, y])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[100]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left \{ x : 2, \quad y : 1\right \}$$</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="名前付き">
+<h1>名前付き<a class="headerlink" href="#名前付き" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [101]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>EulerGamma, Catalan, GoldenRatio
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[101]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \gamma, \quad Catalan, \quad \phi\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="ガンマ関数">
+<h1>ガンマ関数<a class="headerlink" href="#ガンマ関数" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [102]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>gamma(x), loggamma(x), polygamma(x, y), uppergamma(x, y)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[102]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \Gamma{\left(x \right)}, \quad \operatorname{loggamma}{\left (x \right )}, \quad \operatorname{polygamma}{\left (x,y \right )}, \quad \Gamma\left(x, y\right)\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="Lambda">
+<h1>Lambda<a class="headerlink" href="#Lambda" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [103]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.Lambda(x, x+1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[103]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left( x \mapsto x + 1 \right)$$</div></div>
+</div>
+</div>
+<div class="section" id="関数定義？">
+<h1>関数定義？<a class="headerlink" href="#関数定義？" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [104]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>f_ = Function(&#39;f&#39;)
+f_(x), f_(2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[104]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( f{\left (x \right )}, \quad f{\left (2 \right )}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [105]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>f2_ = symbols(&#39;f2&#39;, cls=Function)
+f2_(x), f2_(2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[105]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \operatorname{f_{2}}{\left (x \right )}, \quad \operatorname{f_{2}}{\left (2 \right )}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [106]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>f_(x).limit(x, oo), f_(x).limit(x, -oo)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[106]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( f{\left (\infty \right )}, \quad f{\left (-\infty \right )}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [107]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>f_(x).diff(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[107]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\frac{d}{d x} f{\left (x \right )}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [108]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>f_(x).integrate(x), f_(x).integrate((x, 1, 10))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[108]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \int f{\left (x \right )}\, dx, \quad \int_{1}^{10} f{\left (x \right )}\, dx\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [109]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>g_ = Function(&#39;g&#39;)(x)
+g_
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[109]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$g{\left (x \right )}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [110]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>g_.limit(x, oo), g_.limit(x, -oo)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[110]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( g{\left (\infty \right )}, \quad g{\left (-\infty \right )}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [111]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>g_.diff(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[111]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\frac{d}{d x} g{\left (x \right )}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [112]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>g_.integrate(x), g_.integrate((x, 1, 10))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[112]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \int g{\left (x \right )}\, dx, \quad \int_{1}^{10} g{\left (x \right )}\, dx\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="微分方程式">
+<h1>微分方程式<a class="headerlink" href="#微分方程式" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [113]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>f1 = Function(&#39;f&#39;)(x)
+f2 = Derivative(f1) + f1
+f2
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[113]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$f{\left (x \right )} + \frac{d}{d x} f{\left (x \right )}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [114]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>dsolve(f2, f1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[114]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$f{\left (x \right )} = C_{1} e^{- x}$$</div></div>
+</div>
+</div>
+<div class="section" id="vectorize">
+<h1>vectorize<a class="headerlink" href="#vectorize" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [115]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>## http://docs.sympy.org/dev/modules/core.html#vectorize
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="その他関数">
+<h1>その他関数<a class="headerlink" href="#その他関数" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [116]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.factorial(x)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[116]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x!$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [117]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>comb = sympy.binomial(x, y)
+comb
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[117]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$${\binom{x}{y}}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [118]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>type(comb)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[118]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>binomial
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [119]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.binomial(4, 2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[119]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$6$$</div></div>
+</div>
+<div class="section" id="論理式">
+<h2>論理式<a class="headerlink" href="#論理式" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [120]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x | y
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[120]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x \vee y$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [121]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x &amp; y
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[121]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x \wedge y$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [122]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x ^ y
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[122]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$x \veebar y$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [123]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>~ x
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[123]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\neg x$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [124]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>(x | y).subs({x: True}), (x | y).subs({x: False}), (x &amp; y).subs({x: True}), (x &amp; y).subs({x: False})
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[124]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \mathrm{True}, \quad y, \quad y, \quad \mathrm{False}\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [125]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>satisfiable(x | y), satisfiable(x &amp; y), satisfiable(x ^ y), satisfiable(x), satisfiable(~ x), satisfiable(True)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[125]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>({y: True, x: True},
+ {y: True, x: True},
+ {y: False, x: True},
+ {x: True},
+ {x: False},
+ {True: True})
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [126]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import sympy.logic.boolalg
+type(sympy.Nor)
+sympy.Nor(x, y), sympy.Nand(x, y)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[126]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \neg (x \vee y), \quad \neg (x \wedge y)\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [127]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># if then else
+sympy.ITE(x, True, False)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[127]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$ITE(x, True, False)$$</div></div>
+</div>
+</div>
+<div class="section" id="行列">
+<h2>行列<a class="headerlink" href="#行列" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="行列定義と転置">
+<h2>行列定義と転置<a class="headerlink" href="#行列定義と転置" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [128]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat = Matrix([
+        [x, 1, 2],
+        [3, y, 5],
+        [6, 7, 8]])
+mat, mat.T
+# RuntimeError: latex program is not installed
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[128]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left[\begin{matrix}x &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 8\end{matrix}\right], \quad \left[\begin{matrix}x &amp; 3 &amp; 6\\1 &amp; y &amp; 7\\2 &amp; 5 &amp; 8\end{matrix}\right]\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [129]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>vec = Matrix([x, y, 2])
+vec, vec.T
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[129]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left[\begin{matrix}x\\y\\2\end{matrix}\right], \quad \left[\begin{matrix}x &amp; y &amp; 2\end{matrix}\right]\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [130]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Matrix(2, 3, [1, 2, 3, 4, 5, 6]), Matrix(2, 3, range(6))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[130]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left[\begin{matrix}1 &amp; 2 &amp; 3\\4 &amp; 5 &amp; 6\end{matrix}\right], \quad \left[\begin{matrix}0 &amp; 1 &amp; 2\\3 &amp; 4 &amp; 5\end{matrix}\right]\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [131]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Matrix(3, 4, lambda i, j: i + j)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[131]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}0 &amp; 1 &amp; 2 &amp; 3\\1 &amp; 2 &amp; 3 &amp; 4\\2 &amp; 3 &amp; 4 &amp; 5\end{matrix}\right]$$</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="単位行列">
+<h1>単位行列<a class="headerlink" href="#単位行列" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [132]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.eye(3)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[132]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}1 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 1\end{matrix}\right]$$</div></div>
+</div>
+</div>
+<div class="section" id="すべての要素が1">
+<h1>すべての要素が1<a class="headerlink" href="#すべての要素が1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [133]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.ones(3), sympy.ones(3, 4)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[133]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left[\begin{matrix}1 &amp; 1 &amp; 1\\1 &amp; 1 &amp; 1\\1 &amp; 1 &amp; 1\end{matrix}\right], \quad \left[\begin{matrix}1 &amp; 1 &amp; 1 &amp; 1\\1 &amp; 1 &amp; 1 &amp; 1\\1 &amp; 1 &amp; 1 &amp; 1\end{matrix}\right]\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="ゼロ行列">
+<h1>ゼロ行列<a class="headerlink" href="#ゼロ行列" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [134]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.zeros(3), sympy.zeros(3, 4)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[134]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left[\begin{matrix}0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\end{matrix}\right], \quad \left[\begin{matrix}0 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 0\end{matrix}\right]\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="要素の参照">
+<h1>要素の参照<a class="headerlink" href="#要素の参照" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [135]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat[1], mat[4], mat[7]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[135]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 1, \quad y, \quad 7\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [136]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat[0, 1], mat[1, 1], mat[2, 1]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[136]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 1, \quad y, \quad 7\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [137]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat[0:2, 0:3]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[137]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}x &amp; 1 &amp; 2\\3 &amp; y &amp; 5\end{matrix}\right]$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [138]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat[:, 0:2], mat[0:2, :]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[138]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left[\begin{matrix}x &amp; 1\\3 &amp; y\\6 &amp; 7\end{matrix}\right], \quad \left[\begin{matrix}x &amp; 1 &amp; 2\\3 &amp; y &amp; 5\end{matrix}\right]\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [139]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>vec[0], vec[1], vec[2]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[139]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( x, \quad y, \quad 2\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [140]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat2 = mat[:, :]
+mat2[0, 0] = mat2[2, 2] = 100
+mat2, mat
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[140]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left[\begin{matrix}100 &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 100\end{matrix}\right], \quad \left[\begin{matrix}x &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 8\end{matrix}\right]\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [141]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat3 = mat2
+mat3[0, 0] = mat3[2, 2] = 10
+mat3, mat2
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[141]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \left[\begin{matrix}10 &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 10\end{matrix}\right], \quad \left[\begin{matrix}10 &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 10\end{matrix}\right]\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="代入">
+<h1>代入<a class="headerlink" href="#代入" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [142]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat.subs(x, 50)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[142]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}50 &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 8\end{matrix}\right]$$</div></div>
+</div>
+</div>
+<div class="section" id="演算">
+<h1>演算<a class="headerlink" href="#演算" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [143]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat + mat
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[143]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}2 x &amp; 2 &amp; 4\\6 &amp; 2 y &amp; 10\\12 &amp; 14 &amp; 16\end{matrix}\right]$$</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [144]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># mat + 2
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [145]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat - mat
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[145]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\end{matrix}\right]$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [146]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat * mat
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[146]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}x^{2} + 15 &amp; x + y + 14 &amp; 2 x + 21\\3 x + 3 y + 30 &amp; y^{2} + 38 &amp; 5 y + 46\\6 x + 69 &amp; 7 y + 62 &amp; 111\end{matrix}\right]$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [147]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>3 * mat
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[147]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}3 x &amp; 3 &amp; 6\\9 &amp; 3 y &amp; 15\\18 &amp; 21 &amp; 24\end{matrix}\right]$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [148]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat / mat
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[148]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}x &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 8\end{matrix}\right] \left(\left[\begin{matrix}x &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 8\end{matrix}\right]\right)^{-1}$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [149]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat / 3
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[149]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}\frac{x}{3} &amp; \frac{1}{3} &amp; \frac{2}{3}\\1 &amp; \frac{y}{3} &amp; \frac{5}{3}\\2 &amp; \frac{7}{3} &amp; \frac{8}{3}\end{matrix}\right]$$</div></div>
+</div>
+</div>
+<div class="section" id="内積">
+<h1>内積<a class="headerlink" href="#内積" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [150]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat.dot(vec)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[150]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left [ x^{2} + y + 4, \quad 3 x + y^{2} + 10, \quad 6 x + 7 y + 16\right ]$$</div></div>
+</div>
+</div>
+<div class="section" id="逆行列">
+<h1>逆行列<a class="headerlink" href="#逆行列" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [151]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat.inv()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[151]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}- \frac{\left(x y - 3\right) \left(- \frac{5 - \frac{6}{x}}{x \left(y - \frac{3}{x}\right)} + \frac{2}{x}\right) \left(\frac{21 - \frac{18}{x}}{x \left(y - \frac{3}{x}\right)} - \frac{6}{x}\right)}{8 x y - 35 x - 12 y + 48} + \frac{1}{x} + \frac{3}{x^{2} \left(y - \frac{3}{x}\right)} &amp; \frac{\left(7 - \frac{6}{x}\right) \left(x y - 3\right) \left(- \frac{5 - \frac{6}{x}}{x \left(y - \frac{3}{x}\right)} + \frac{2}{x}\right)}{\left(y - \frac{3}{x}\right) \left(8 x y - 35 x - 12 y + 48\right)} - \frac{1}{x \left(y - \frac{3}{x}\right)} &amp; - \frac{\left(x y - 3\right) \left(- \frac{5 - \frac{6}{x}}{x \left(y - \frac{3}{x}\right)} + \frac{2}{x}\right)}{8 x y - 35 x - 12 y + 48}\\- \frac{\left(5 - \frac{6}{x}\right) \left(x y - 3\right) \left(\frac{21 - \frac{18}{x}}{x \left(y - \frac{3}{x}\right)} - \frac{6}{x}\right)}{\left(y - \frac{3}{x}\right) \left(8 x y - 35 x - 12 y + 48\right)} - \frac{3}{x \left(y - \frac{3}{x}\right)} &amp; \frac{\left(5 - \frac{6}{x}\right) \left(7 - \frac{6}{x}\right) \left(x y - 3\right)}{\left(y - \frac{3}{x}\right)^{2} \left(8 x y - 35 x - 12 y + 48\right)} + \frac{1}{y - \frac{3}{x}} &amp; - \frac{\left(5 - \frac{6}{x}\right) \left(x y - 3\right)}{\left(y - \frac{3}{x}\right) \left(8 x y - 35 x - 12 y + 48\right)}\\\frac{\left(x y - 3\right) \left(\frac{21 - \frac{18}{x}}{x \left(y - \frac{3}{x}\right)} - \frac{6}{x}\right)}{8 x y - 35 x - 12 y + 48} &amp; - \frac{\left(7 - \frac{6}{x}\right) \left(x y - 3\right)}{\left(y - \frac{3}{x}\right) \left(8 x y - 35 x - 12 y + 48\right)} &amp; \frac{x y - 3}{8 x y - 35 x - 12 y + 48}\end{matrix}\right]$$</div></div>
+</div>
+</div>
+<div class="section" id="行列式">
+<h1>行列式<a class="headerlink" href="#行列式" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [152]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat.det()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[152]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$8 x y - 35 x - 12 y + 48$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [153]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mat_a = Matrix([
+        [2, 3, 5],
+        [3, 6, 2],
+        [8, 3, 6]])
+mat_x = Matrix(3, 1, [3,7,5])
+mat_b = mat_a * mat_x
+mat_a.LUsolve(mat_b)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[153]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
+</div>
+</div>
+<div class="section" id="グラフ">
+<h1>グラフ<a class="headerlink" href="#グラフ" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [154]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.plotting.plot(x ** 2)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sympy_sympy_sample_202_0.png" src="../../_images/notebooks_sympy_sympy_sample_202_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[154]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;sympy.plotting.plot.Plot at 0x10832a550&gt;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [155]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.plotting.plot(x ** 2, (x, -3, 5))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sympy_sympy_sample_203_0.png" src="../../_images/notebooks_sympy_sympy_sample_203_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[155]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;sympy.plotting.plot.Plot at 0x1083e2f60&gt;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [156]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.plotting.plot(-x, x, (x, -3, 3))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sympy_sympy_sample_204_0.png" src="../../_images/notebooks_sympy_sympy_sample_204_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[156]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;sympy.plotting.plot.Plot at 0x10882eb00&gt;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [157]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.plotting.plot((-x, (x, -3, 0)), (x, (x, 0, 3)))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sympy_sympy_sample_205_0.png" src="../../_images/notebooks_sympy_sympy_sample_205_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[157]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;sympy.plotting.plot.Plot at 0x10851dd30&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

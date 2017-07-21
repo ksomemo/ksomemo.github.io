@@ -1,0 +1,1474 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>データサイエンティスト養成読本vol.1（Python 機械学習） &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">データサイエンティスト養成読本vol.1（Python 機械学習）</a></li>
+<li><a class="reference internal" href="#irisデータ読み込み(from-pandas-repogitory)">irisデータ読み込み(from pandas repogitory)</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>データサイエンティスト養成読本vol.1（Python 機械学習）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/books/datascientist_mook_vol1.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="データサイエンティスト養成読本vol.1（Python-機械学習）">
+<h1>データサイエンティスト養成読本vol.1（Python 機械学習）<a class="headerlink" href="#データサイエンティスト養成読本vol.1（Python-機械学習）" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="irisデータ読み込み(from-pandas-repogitory)">
+<h1>irisデータ読み込み(from pandas repogitory)<a class="headerlink" href="#irisデータ読み込み(from-pandas-repogitory)" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import os
+
+iris_pandas_url = &quot;https://raw.githubusercontent.com/pydata/pandas/master/doc/data/iris.data&quot;
+iris_data_file_name = &quot;iris.data.csv&quot;
+if os.path.exists(iris_data_file_name):
+    iris = pd.read_csv(iris_data_file_name)
+else:
+    iris = pd.read_csv(iris_pandas_url)
+    iris.to_csv(iris_data_file_name, index=False)
+iris.info()
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+SepalLength    150 non-null float64
+SepalWidth     150 non-null float64
+PetalLength    150 non-null float64
+PetalWidth     150 non-null float64
+Name           150 non-null object
+dtypes: float64(4), object(1)
+memory usage: 5.9+ KB
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>setosa = iris[iris.Name == &quot;Iris-setosa&quot;]
+versicolor = iris[iris.Name == &quot;Iris-versicolor&quot;]
+virginica = iris[iris.Name == &quot;Iris-virginica&quot;]
+len(setosa), len(versicolor), len(virginica),
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(50, 50, 50)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>iris.pivot_table(index=&quot;Name&quot;, aggfunc=np.mean)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PetalLength</th>
+      <th>PetalWidth</th>
+      <th>SepalLength</th>
+      <th>SepalWidth</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Iris-setosa</th>
+      <td>1.464</td>
+      <td>0.244</td>
+      <td>5.006</td>
+      <td>3.418</td>
+    </tr>
+    <tr>
+      <th>Iris-versicolor</th>
+      <td>4.260</td>
+      <td>1.326</td>
+      <td>5.936</td>
+      <td>2.770</td>
+    </tr>
+    <tr>
+      <th>Iris-virginica</th>
+      <td>5.552</td>
+      <td>2.026</td>
+      <td>6.588</td>
+      <td>2.974</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>pd.concat(
+    [
+        setosa.sum(),
+        setosa.mean(), setosa.median(),
+        setosa.min(), setosa.max(),
+        setosa.var(), setosa.std(),
+    ], axis=1,
+    keys=[&quot;sum&quot;, &quot;mean&quot;, &quot;median&quot;, &quot;min&quot;, &quot;max&quot;, &quot;var&quot;, &quot;std&quot;]
+)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sum</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>min</th>
+      <th>max</th>
+      <th>var</th>
+      <th>std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <td>Iris-setosaIris-setosaIris-setosaIris-setosaIr...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Iris-setosa</td>
+      <td>Iris-setosa</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>PetalLength</th>
+      <td>73.2</td>
+      <td>1.464</td>
+      <td>1.5</td>
+      <td>1</td>
+      <td>1.9</td>
+      <td>0.030106</td>
+      <td>0.173511</td>
+    </tr>
+    <tr>
+      <th>PetalWidth</th>
+      <td>12.2</td>
+      <td>0.244</td>
+      <td>0.2</td>
+      <td>0.1</td>
+      <td>0.6</td>
+      <td>0.011494</td>
+      <td>0.107210</td>
+    </tr>
+    <tr>
+      <th>SepalLength</th>
+      <td>250.3</td>
+      <td>5.006</td>
+      <td>5.0</td>
+      <td>4.3</td>
+      <td>5.8</td>
+      <td>0.124249</td>
+      <td>0.352490</td>
+    </tr>
+    <tr>
+      <th>SepalWidth</th>
+      <td>170.9</td>
+      <td>3.418</td>
+      <td>3.4</td>
+      <td>2.3</td>
+      <td>4.4</td>
+      <td>0.145180</td>
+      <td>0.381024</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>setosa.describe().T
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SepalLength</th>
+      <td>50.0</td>
+      <td>5.006</td>
+      <td>0.352490</td>
+      <td>4.3</td>
+      <td>4.800</td>
+      <td>5.0</td>
+      <td>5.200</td>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>SepalWidth</th>
+      <td>50.0</td>
+      <td>3.418</td>
+      <td>0.381024</td>
+      <td>2.3</td>
+      <td>3.125</td>
+      <td>3.4</td>
+      <td>3.675</td>
+      <td>4.4</td>
+    </tr>
+    <tr>
+      <th>PetalLength</th>
+      <td>50.0</td>
+      <td>1.464</td>
+      <td>0.173511</td>
+      <td>1.0</td>
+      <td>1.400</td>
+      <td>1.5</td>
+      <td>1.575</td>
+      <td>1.9</td>
+    </tr>
+    <tr>
+      <th>PetalWidth</th>
+      <td>50.0</td>
+      <td>0.244</td>
+      <td>0.107210</td>
+      <td>0.1</td>
+      <td>0.200</td>
+      <td>0.2</td>
+      <td>0.300</td>
+      <td>0.6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[
+    np.arange(0, 1.1, 0.1),
+    np.linspace(0, 1, 11)
+]
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[array([ 0. ,  0.1,  0.2,  0.3,  0.4,  0.5,  0.6,  0.7,  0.8,  0.9,  1. ]),
+ array([ 0. ,  0.1,  0.2,  0.3,  0.4,  0.5,  0.6,  0.7,  0.8,  0.9,  1. ])]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>setosa.describe(include=&quot;all&quot;, percentiles=np.linspace(0.1, 0.9, 9)).T
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>10%</th>
+      <th>20%</th>
+      <th>30.0%</th>
+      <th>40%</th>
+      <th>50%</th>
+      <th>60%</th>
+      <th>70%</th>
+      <th>80%</th>
+      <th>90%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SepalLength</th>
+      <td>50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.006</td>
+      <td>0.35249</td>
+      <td>4.3</td>
+      <td>4.59</td>
+      <td>4.7</td>
+      <td>4.8</td>
+      <td>4.96</td>
+      <td>5</td>
+      <td>5.1</td>
+      <td>5.1</td>
+      <td>5.32</td>
+      <td>5.41</td>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <th>SepalWidth</th>
+      <td>50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.418</td>
+      <td>0.381024</td>
+      <td>2.3</td>
+      <td>3</td>
+      <td>3.1</td>
+      <td>3.2</td>
+      <td>3.36</td>
+      <td>3.4</td>
+      <td>3.5</td>
+      <td>3.53</td>
+      <td>3.72</td>
+      <td>3.9</td>
+      <td>4.4</td>
+    </tr>
+    <tr>
+      <th>PetalLength</th>
+      <td>50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.464</td>
+      <td>0.173511</td>
+      <td>1</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>1.6</td>
+      <td>1.7</td>
+      <td>1.9</td>
+    </tr>
+    <tr>
+      <th>PetalWidth</th>
+      <td>50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.244</td>
+      <td>0.10721</td>
+      <td>0.1</td>
+      <td>0.1</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.3</td>
+      <td>0.3</td>
+      <td>0.4</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>50</td>
+      <td>1</td>
+      <td>Iris-setosa</td>
+      <td>50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>setosa.corr()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SepalLength</th>
+      <th>SepalWidth</th>
+      <th>PetalLength</th>
+      <th>PetalWidth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SepalLength</th>
+      <td>1.000000</td>
+      <td>0.746780</td>
+      <td>0.263874</td>
+      <td>0.279092</td>
+    </tr>
+    <tr>
+      <th>SepalWidth</th>
+      <td>0.746780</td>
+      <td>1.000000</td>
+      <td>0.176695</td>
+      <td>0.279973</td>
+    </tr>
+    <tr>
+      <th>PetalLength</th>
+      <td>0.263874</td>
+      <td>0.176695</td>
+      <td>1.000000</td>
+      <td>0.306308</td>
+    </tr>
+    <tr>
+      <th>PetalWidth</th>
+      <td>0.279092</td>
+      <td>0.279973</td>
+      <td>0.306308</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>setosa.cov()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SepalLength</th>
+      <th>SepalWidth</th>
+      <th>PetalLength</th>
+      <th>PetalWidth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SepalLength</th>
+      <td>0.124249</td>
+      <td>0.100298</td>
+      <td>0.016139</td>
+      <td>0.010547</td>
+    </tr>
+    <tr>
+      <th>SepalWidth</th>
+      <td>0.100298</td>
+      <td>0.145180</td>
+      <td>0.011682</td>
+      <td>0.011437</td>
+    </tr>
+    <tr>
+      <th>PetalLength</th>
+      <td>0.016139</td>
+      <td>0.011682</td>
+      <td>0.030106</td>
+      <td>0.005698</td>
+    </tr>
+    <tr>
+      <th>PetalWidth</th>
+      <td>0.010547</td>
+      <td>0.011437</td>
+      <td>0.005698</td>
+      <td>0.011494</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fig, axes = plt.subplots(1, 2, figsize=(8, 4))
+iris.SepalLength.plot.hist(ax=axes[0])
+axes[0].set_xlabel(&quot;SepalLength&quot;)
+
+setosa.SepalLength.plot.hist(ax=axes[1])
+
+plt.tight_layout()
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_books_datascientist_mook_vol1_12_0.png" src="../../_images/notebooks_books_datascientist_mook_vol1_12_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>pd.concat(
+    {
+        &quot;setosa&quot;: setosa.SepalLength,
+        &quot;versicolor&quot;: versicolor.SepalLength,
+        &quot;virginica&quot;: virginica.SepalLength
+    }, axis=1
+).plot.box()
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[12]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x117375e10&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_books_datascientist_mook_vol1_13_1.png" src="../../_images/notebooks_books_datascientist_mook_vol1_13_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>data = [setosa.SepalLength, versicolor.SepalLength, virginica.SepalLength]
+plt.boxplot(data)
+&quot;dummy&quot;
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[13]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&#39;dummy&#39;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_books_datascientist_mook_vol1_14_1.png" src="../../_images/notebooks_books_datascientist_mook_vol1_14_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>setosa.plot.scatter(x=&quot;SepalLength&quot;,y=&quot;SepalWidth&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[14]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x119eff4e0&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_books_datascientist_mook_vol1_15_1.png" src="../../_images/notebooks_books_datascientist_mook_vol1_15_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>setosa.corr().ix[&quot;SepalLength&quot;, &quot;SepalWidth&quot;]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[15]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>0.74678037326392688
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sns.pairplot(setosa)
+plt.tight_layout()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_books_datascientist_mook_vol1_17_0.png" src="../../_images/notebooks_books_datascientist_mook_vol1_17_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from sklearn import linear_model
+np.random.seed(0)
+
+linear_regr = linear_model.LinearRegression()
+X = setosa[[&quot;SepalLength&quot;]]
+Y = setosa[[&quot;SepalWidth&quot;]]
+linear_regr.fit(X, Y)
+
+plt.scatter(X, Y)
+# http://sucrose.hatenablog.com/entry/2013/03/16/162019
+px = np.arange(X.min(), X.max(), 0.01)[:, np.newaxis]
+py = linear_regr.predict(px)
+# print(px.shape, py.shape)
+
+plt.plot(px, py, color=&quot;blue&quot;, linewidth=3)
+plt.xlabel(&quot;SepalLength&quot;)
+plt.ylabel(&quot;SepalWidth&quot;)
+
+linear_regr.coef_, linear_regr.intercept_, linear_regr.score(X, Y)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[17]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(array([[ 0.80723367]]), array([-0.62301173]), 0.55768092589220974)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_books_datascientist_mook_vol1_18_1.png" src="../../_images/notebooks_books_datascientist_mook_vol1_18_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>linear_regr = linear_model.LinearRegression()
+X = setosa[[&quot;SepalLength&quot;, &quot;PetalLength&quot;, &quot;PetalWidth&quot;]]
+Y = setosa[[&quot;SepalWidth&quot;]]
+linear_regr.fit(X, Y)
+linear_regr.coef_, linear_regr.intercept_, linear_regr.score(X, Y)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[18]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(array([[ 0.79303981, -0.09677873,  0.31530122]]),
+ array([-0.48720671]),
+ 0.56492621264573206)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import pyper
+import os
+
+image_file_name = &quot;image.png&quot;
+r_source = &quot;&quot;&quot;library(dplyr)
+png(&quot;{0}&quot;, width = 480, height = 480, pointsize = 12, bg = &quot;white&quot;, res = NA)
+pairs(select(r_data, c(-Name)))
+dev.off()
+&quot;&quot;&quot;.format(image_file_name)
+
+r = pyper.R(use_pandas = &quot;True&quot;)
+r_source_file = &quot;example.R&quot;
+r.assign(&quot;r_data&quot;, iris)
+print(r(&quot;summary(r_data)&quot;))
+
+with open(r_source_file, &quot;w&quot;, encoding=&quot;sjis&quot;) as f:
+    f.write(r_source)
+print(r(&quot;source(file=&#39;{}&#39;)&quot;.format(r_source_file)))
+os.remove(r_source_file)
+
+from IPython.core.display import Image
+Image(image_file_name)
+#os.remove(image_file_name)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+try({summary(r_data)})
+  SepalLength      SepalWidth     PetalLength      PetalWidth
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300
+ Mean   :5.843   Mean   :3.054   Mean   :3.759   Mean   :1.199
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500
+              Name
+ Iris-setosa    :50
+ Iris-versicolor:50
+ Iris-virginica :50
+
+
+
+
+&lt;pyper.R object at 0x11b7455f8&gt;
+try({source(file=&#39;example.R&#39;)})
+
+ 次のパッケージを付け加えます: ‘dplyr’
+
+ 以下のオブジェクトは ‘package:stats’ からマスクされています:
+
+     filter, lag
+
+ 以下のオブジェクトは ‘package:base’ からマスクされています:
+
+     intersect, setdiff, setequal, union
+
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_books_datascientist_mook_vol1_20_1.png" src="../../_images/notebooks_books_datascientist_mook_vol1_20_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># k-means
+def category2int(x):
+    category = {
+        &quot;Iris-setosa&quot;: 0,
+        &quot;Iris-versicolor&quot;: 1,
+        &quot;Iris-virginica&quot;: 2,
+    }
+    return category[x]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from sklearn.cluster import KMeans
+
+X = iris[[&quot;SepalLength&quot;, &quot;SepalWidth&quot;]]
+kmeansCls = KMeans(n_clusters=3)
+kmeansCls.fit(X)
+
+[print(a, &quot;\n&quot;, getattr(kmeansCls, a)) for a in dir(kmeansCls) if not a.startswith(&quot;_&quot;) and a.endswith(&quot;_&quot;)]
+
+Y = iris.Name.map(category2int)
+xMin = X.SepalLength.min()
+xMax = X.SepalLength.max()
+yMin = X.SepalWidth.min()
+yMax = X.SepalWidth.max()
+xx, yy = np.meshgrid(np.arange(xMin, xMax, 0.01), np.arange(yMin, yMax, 0.01))
+Z = kmeansCls.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)
+
+plt.xlim(xx.min(), xx.max())
+plt.ylim(yy.min(), yy.max())
+plt.pcolormesh(xx, yy, Z, cmap=plt.cm.Reds)
+plt.scatter(X.SepalLength, X.SepalWidth, c=np.array(Y), cmap=plt.cm.Blues)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+cluster_centers_
+ [[ 5.006       3.418     ]
+ [ 6.81276596  3.07446809]
+ [ 5.77358491  2.69245283]]
+inertia_
+ 37.1237021277
+labels_
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 2 1 2 1 2 1 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2
+ 1 1 1 1 2 2 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 1 1 1 1 2 1 1 1 1
+ 1 1 2 2 1 1 1 1 2 1 2 1 2 1 1 2 2 1 1 1 1 1 2 2 1 1 1 2 1 1 1 2 1 1 1 2 1
+ 1 2]
+n_iter_
+ 6
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[45]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.collections.PathCollection at 0x11cebd710&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_books_datascientist_mook_vol1_22_2.png" src="../../_images/notebooks_books_datascientist_mook_vol1_22_2.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>plt.pcolormesh(xx, yy, Z, cmap=plt.cm.Reds)
+plt.scatter(X.SepalLength, X.SepalWidth, c=kmeansCls.labels_, cmap=plt.cm.Blues)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[47]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.collections.PathCollection at 0x11afeb940&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_books_datascientist_mook_vol1_23_1.png" src="../../_images/notebooks_books_datascientist_mook_vol1_23_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>kmeansCls.predict(np.c_[xx.ravel(), yy.ravel()])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[42]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([1, 1, 1, ..., 0, 0, 0], dtype=int32)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

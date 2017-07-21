@@ -1,0 +1,848 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/pandas/df_to_str_and_zip_write_str.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import numpy as np
+import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>np.random.seed(0)
+
+_1_to_3less = np.random.randint(1, 3, size=(7, 5))
+_1_to_3less
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[2]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([[1, 2, 2, 1, 2],
+       [2, 2, 2, 2, 2],
+       [2, 1, 1, 2, 1],
+       [1, 1, 1, 1, 2],
+       [1, 2, 2, 1, 1],
+       [2, 2, 2, 2, 1],
+       [2, 1, 2, 1, 2]])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>_1_to_3 = np.random.random_integers(1, 3, size=(7, 5))
+_1_to_3
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([[2, 3, 1, 3, 1],
+       [2, 2, 3, 1, 2],
+       [2, 2, 1, 3, 1],
+       [3, 3, 1, 3, 1],
+       [1, 1, 2, 2, 3],
+       [1, 1, 2, 1, 2],
+       [3, 3, 1, 2, 2]])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>df = pd.DataFrame(_1_to_3, columns=list(&quot;abcde&quot;))
+df
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>print(df.to_string(index=False, header=False), end=&quot;&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ 2  3  1  3  1
+ 2  2  3  1  2
+ 2  2  1  3  1
+ 3  3  1  3  1
+ 1  1  2  2  3
+ 1  1  2  1  2
+ 3  3  1  2  2
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import io
+
+strio = io.StringIO()
+_str = df.to_string(buf=strio)
+
+print(_str)
+print(strio.getvalue())
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+None
+   a  b  c  d  e
+0  2  3  1  3  1
+1  2  2  3  1  2
+2  2  2  1  3  1
+3  3  3  1  3  1
+4  1  1  2  2  3
+5  1  1  2  1  2
+6  3  3  1  2  2
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>strio = io.StringIO()
+df.to_string(buf=strio)
+for l in strio:
+    print(l)
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>strio = io.StringIO(df.to_string())
+for l in strio:
+    print(l)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   a  b  c  d  e
+
+0  2  3  1  3  1
+
+1  2  2  3  1  2
+
+2  2  2  1  3  1
+
+3  3  3  1  3  1
+
+4  1  1  2  2  3
+
+5  1  1  2  1  2
+
+6  3  3  1  2  2
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [72]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import zipfile
+from contextlib import ExitStack
+
+with ExitStack() as s:
+    _bio = s.enter_context(io.BytesIO())
+    z = s.enter_context(zipfile.ZipFile(_bio, &quot;w&quot;, compression=zipfile.ZIP_DEFLATED))
+    z.writestr(&quot;a.txt&quot;, &quot;aaaa&quot;)
+    z.writestr(&quot;c/d.txt&quot;, &quot;ccdd&quot;)
+    print(_bio.getvalue()[:4])
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+b&#39;PK\x03\x04&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [65]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import zipfile
+
+_zio = io.StringIO()
+with zipfile.ZipFile(_zio, &quot;w&quot;, compression=zipfile.ZIP_DEFLATED) as z:
+    z.writestr(&quot;a.txt&quot;, &quot;aaaa&quot;)
+    # z.writestr(&quot;a.txt&quot;, bytes(&quot;aaaa&quot;))
+    # z.writestr(&quot;b.txt&quot;, &quot;bbb&quot;.encode())
+    # z.writestr(&quot;c/d.txt&quot;, &quot;ccdd&quot;)
+
+_zio.getvalue()[:4]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-65-112a2cb7597a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">with</span> zipfile<span class="ansi-blue-fg">.</span>ZipFile<span class="ansi-blue-fg">(</span>_zio<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;w&#34;</span><span class="ansi-blue-fg">,</span> compression<span class="ansi-blue-fg">=</span>zipfile<span class="ansi-blue-fg">.</span>ZIP_DEFLATED<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> z<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">     </span>z<span class="ansi-blue-fg">.</span>writestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;a.txt&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;aaaa&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     <span class="ansi-red-fg"># z.writestr(&#34;a.txt&#34;, bytes(&#34;aaaa&#34;))</span>
+
+<span class="ansi-green-fg">/Users/knt/.pyenv/versions/anaconda3-2.5.0/lib/python3.5/zipfile.py</span> in <span class="ansi-cyan-fg">writestr</span><span class="ansi-blue-fg">(self, zinfo_or_arcname, data, compress_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1578</span>                 <span class="ansi-green-fg">raise</span> LargeZipFile<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Filesize would require ZIP64 extensions&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1579</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>fp<span class="ansi-blue-fg">.</span>write<span class="ansi-blue-fg">(</span>zinfo<span class="ansi-blue-fg">.</span>FileHeader<span class="ansi-blue-fg">(</span>zip64<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1580</span>             self<span class="ansi-blue-fg">.</span>fp<span class="ansi-blue-fg">.</span>write<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: string argument expected, got &#39;bytes&#39;
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-65-112a2cb7597a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> _zio <span class="ansi-blue-fg">=</span> io<span class="ansi-blue-fg">.</span>StringIO<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">with</span> zipfile<span class="ansi-blue-fg">.</span>ZipFile<span class="ansi-blue-fg">(</span>_zio<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;w&#34;</span><span class="ansi-blue-fg">,</span> compression<span class="ansi-blue-fg">=</span>zipfile<span class="ansi-blue-fg">.</span>ZIP_DEFLATED<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> z<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">     </span>z<span class="ansi-blue-fg">.</span>writestr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;a.txt&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;aaaa&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     <span class="ansi-red-fg"># z.writestr(&#34;a.txt&#34;, bytes(&#34;aaaa&#34;))</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     <span class="ansi-red-fg"># z.writestr(&#34;b.txt&#34;, &#34;bbb&#34;.encode())</span>
+
+<span class="ansi-green-fg">/Users/knt/.pyenv/versions/anaconda3-2.5.0/lib/python3.5/zipfile.py</span> in <span class="ansi-cyan-fg">__exit__</span><span class="ansi-blue-fg">(self, type, value, traceback)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1067</span>
+<span class="ansi-green-intense-fg ansi-bold">   1068</span>     <span class="ansi-green-fg">def</span> __exit__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> type<span class="ansi-blue-fg">,</span> value<span class="ansi-blue-fg">,</span> traceback<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1069</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>close<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1070</span>
+<span class="ansi-green-intense-fg ansi-bold">   1071</span>     <span class="ansi-green-fg">def</span> __repr__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/Users/knt/.pyenv/versions/anaconda3-2.5.0/lib/python3.5/zipfile.py</span> in <span class="ansi-cyan-fg">close</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1604</span>                     <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_seekable<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1605</span>                         self<span class="ansi-blue-fg">.</span>fp<span class="ansi-blue-fg">.</span>seek<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>start_dir<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 1606</span><span class="ansi-red-fg">                     </span>self<span class="ansi-blue-fg">.</span>_write_end_record<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1607</span>         <span class="ansi-green-fg">finally</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1608</span>             fp <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>fp
+
+<span class="ansi-green-fg">/Users/knt/.pyenv/versions/anaconda3-2.5.0/lib/python3.5/zipfile.py</span> in <span class="ansi-cyan-fg">_write_end_record</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1707</span>                              <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> centDirCount<span class="ansi-blue-fg">,</span> centDirCount<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1708</span>                              centDirSize, centDirOffset, len(self._comment))
+<span class="ansi-green-fg">-&gt; 1709</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>fp<span class="ansi-blue-fg">.</span>write<span class="ansi-blue-fg">(</span>endrec<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1710</span>         self<span class="ansi-blue-fg">.</span>fp<span class="ansi-blue-fg">.</span>write<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_comment<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1711</span>         self<span class="ansi-blue-fg">.</span>fp<span class="ansi-blue-fg">.</span>flush<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: string argument expected, got &#39;bytes&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import zipfile
+
+with zipfile.ZipFile(&quot;file.zip&quot;, &quot;w&quot;, zipfile.ZIP_DEFLATED) as z:
+    z.writestr(&quot;file.txt&quot;, df.to_string())
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import os
+now = pd.to_datetime(&quot;now&quot;).date().isoformat()
+df.to_csv(now, index=False, header=False)
+with open(now) as f:
+    print(f.read())
+os.remove(now)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2,3,1,3,1
+2,2,3,1,2
+2,2,1,3,1
+3,3,1,3,1
+1,1,2,2,3
+1,1,2,1,2
+3,3,1,2,2
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sns.pairplot(data=df, hue=&quot;d&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[43]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;seaborn.axisgrid.PairGrid at 0x12094fc88&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_pandas_df_to_str_and_zip_write_str_12_1.png" src="../../_images/notebooks_pandas_df_to_str_and_zip_write_str_12_1.png" />
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

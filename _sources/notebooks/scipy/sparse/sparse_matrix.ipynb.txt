@@ -1,0 +1,1232 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T19:50:01.401282",
+     "start_time": "2016-05-28T19:50:01.395647"
+    }
+   },
+   "source": [
+    "## 動機\n",
+    "sparseとよく聞くけど、概要しか分かっていないのでnumpyの力を借りて学ぶことにした\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- scipyだった\n",
+    "- https://ja.wikipedia.org/wiki/%E7%96%8E%E8%A1%8C%E5%88%97 はあまり詳しく書いてない\n",
+    "- なので、http://docs.scipy.org/doc/scipy/reference/sparse.html から各項目について学ぶのがよさそう\n",
+    "- データ構造とその利点は学べるけど、その構造を活かした計算については調べてない\n",
+    "- 概要は、利用されていない・関係を表さない0という値ばかりに対してメモリを使いすぎるのは無駄だからコンパクトにする"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:23:34.042520",
+     "start_time": "2016-05-28T12:23:34.039260"
+    }
+   },
+   "source": [
+    "## 疎行列(sparse matrix) の準備"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T00:35:24.567604",
+     "start_time": "2017-02-19T00:35:24.097955"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0.,  0.,  0.,  0.],\n",
+       "       [ 0.,  1.,  0.,  0.],\n",
+       "       [ 1.,  0.,  0.,  0.],\n",
+       "       [ 1.,  0.,  0.,  1.]])"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "sparse_arr = np.zeros((4, 4))\n",
+    "sparse_arr[2, 0] = 1\n",
+    "sparse_arr[1, 1] = 1\n",
+    "sparse_arr[3, 0] = 1\n",
+    "sparse_arr[3, 3] = 1\n",
+    "sparse_arr\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T19:13:43.874501",
+     "start_time": "2016-05-28T19:13:43.863782"
+    }
+   },
+   "source": [
+    "## 疎行列用のデータ構造"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T00:35:28.625023",
+     "start_time": "2017-02-19T00:35:28.560927"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "from scipy.sparse import (\n",
+    "    dok_matrix,\n",
+    "    lil_matrix,\n",
+    "    coo_matrix,\n",
+    "    csr_matrix,\n",
+    "    csc_matrix,\n",
+    "    dia_matrix,\n",
+    "    bsr_matrix\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T19:16:22.786087",
+     "start_time": "2016-05-28T19:16:22.779534"
+    }
+   },
+   "source": [
+    "## DOK(Dictionary of Key)\n",
+    "ゼロでない値を (行, 列): 値 となる辞書に対応させる"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### constructorからの作成\n",
+    "なにも値を持たない状態の疎行列を作成し、値を設定していく"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T00:35:32.790817",
+     "start_time": "2017-02-19T00:35:32.782651"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<2x3 sparse matrix of type '<class 'numpy.float32'>'\n",
+       "\twith 0 stored elements in Dictionary Of Keys format>"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.dok_matrix.html#scipy.sparse.dok_matrix\n",
+    "S = dok_matrix((2, 3), dtype=np.float32)\n",
+    "S"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T00:36:41.558747",
+     "start_time": "2017-02-19T00:36:41.552307"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<2x3 sparse matrix of type '<class 'numpy.float32'>'\n",
+       "\twith 2 stored elements in Dictionary Of Keys format>"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S[0, 1], S[1, 2] = 1, 1\n",
+    "S"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T00:36:42.752749",
+     "start_time": "2017-02-19T00:36:42.744774"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(0, 1) 1.0\n",
+      "(1, 2) 1.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "for k, v in S.items():\n",
+    "    print(k, v)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T00:36:44.767743",
+     "start_time": "2017-02-19T00:36:44.761396"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1, 2) 1.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "S[0, 1] = 0\n",
+    "for k, v in S.items():\n",
+    "    print(k, v)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T19:28:42.712669",
+     "start_time": "2016-05-28T19:28:42.709955"
+    }
+   },
+   "source": [
+    "### ndarrayからの変換"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T22:34:22.431689",
+     "start_time": "2017-02-19T22:34:22.317598"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "((4, 4),\n",
+       " <4x4 sparse matrix of type '<class 'numpy.float64'>'\n",
+       "\twith 3 stored elements in Dictionary Of Keys format>)"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S = dok_matrix(sparse_arr)\n",
+    "S[3, 3] = 0\n",
+    "S.shape, S"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T00:40:22.146431",
+     "start_time": "2017-02-19T00:40:22.137568"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(3, 0) 1.0\n",
+      "(2, 0) 1.0\n",
+      "(1, 1) 1.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "for k, v in S.items():\n",
+    "    print(k, v)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Row-based linked list sparse matrix"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T22:39:30.757964",
+     "start_time": "2017-02-19T22:39:30.744099"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([[], [1.0], [1.0], [1.0, 1.0]], dtype=object),\n",
+       " array([[], [1], [0], [0, 3]], dtype=object),\n",
+       " array([[ 0.,  0.,  0.,  0.],\n",
+       "        [ 0.,  1.,  0.,  0.],\n",
+       "        [ 1.,  0.,  0.,  0.],\n",
+       "        [ 1.,  0.,  0.,  1.]]))"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.lil_matrix.html#scipy.sparse.lil_matrix\n",
+    "S = lil_matrix(sparse_arr)\n",
+    "S.data, S.rows, sparse_arr"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### sparse matrixからの変換"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 108,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T19:27:28.227560",
+     "start_time": "2016-05-28T19:27:28.221401"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<4x4 sparse matrix of type '<class 'numpy.float64'>'\n",
+       "\twith 4 stored elements in LInked List format>"
+      ]
+     },
+     "execution_count": 108,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S = lil_matrix(dok_matrix(sparse_arr))\n",
+    "S"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### ndarrayへの変換"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:41:08.124470",
+     "start_time": "2016-05-28T12:41:08.118955"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0.,  0.,  0.,  0.],\n",
+       "       [ 0.,  1.,  0.,  0.],\n",
+       "       [ 1.,  0.,  0.,  0.],\n",
+       "       [ 1.,  0.,  0.,  1.]])"
+      ]
+     },
+     "execution_count": 62,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.toarray()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:41:10.348307",
+     "start_time": "2016-05-28T12:41:10.342389"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "matrix([[ 0.,  0.,  0.,  0.],\n",
+       "        [ 0.,  1.,  0.,  0.],\n",
+       "        [ 1.,  0.,  0.,  0.],\n",
+       "        [ 1.,  0.,  0.,  1.]])"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.todense()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T19:31:28.456776",
+     "start_time": "2016-05-28T19:31:28.453740"
+    }
+   },
+   "source": [
+    "### sparse matrixへの変換"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:41:42.346950",
+     "start_time": "2016-05-28T12:41:42.341453"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<4x4 sparse matrix of type '<class 'numpy.float64'>'\n",
+       "\twith 4 stored elements in LInked List format>"
+      ]
+     },
+     "execution_count": 71,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.tolil()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:41:11.313115",
+     "start_time": "2016-05-28T12:41:11.308059"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<4x4 sparse matrix of type '<class 'numpy.float64'>'\n",
+       "\twith 4 stored elements (blocksize = 1x1) in Block Sparse Row format>"
+      ]
+     },
+     "execution_count": 64,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.tobsr()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:41:12.201131",
+     "start_time": "2016-05-28T12:41:12.195732"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<4x4 sparse matrix of type '<class 'numpy.float64'>'\n",
+       "\twith 4 stored elements in COOrdinate format>"
+      ]
+     },
+     "execution_count": 65,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.tocoo()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:41:14.793891",
+     "start_time": "2016-05-28T12:41:14.787428"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<4x4 sparse matrix of type '<class 'numpy.float64'>'\n",
+       "\twith 4 stored elements in Compressed Sparse Column format>"
+      ]
+     },
+     "execution_count": 66,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.tocsc()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:41:14.793891",
+     "start_time": "2016-05-28T12:41:14.787428"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<4x4 sparse matrix of type '<class 'numpy.float64'>'\n",
+       "\twith 4 stored elements in Compressed Sparse Row format>"
+      ]
+     },
+     "execution_count": 67,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.tocsr()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:41:14.793891",
+     "start_time": "2016-05-28T12:41:14.787428"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<4x4 sparse matrix of type '<class 'numpy.float64'>'\n",
+       "\twith 7 stored elements (3 diagonals) in DIAgonal format>"
+      ]
+     },
+     "execution_count": 68,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.todia()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:41:15.888646",
+     "start_time": "2016-05-28T12:41:15.883107"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<4x4 sparse matrix of type '<class 'numpy.float64'>'\n",
+       "\twith 4 stored elements in Dictionary Of Keys format>"
+      ]
+     },
+     "execution_count": 69,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.todok()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## A sparse matrix in COOrdinate format.\n",
+    "Also known as the ‘ijv’ or ‘triplet’ format."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:50:04.022627",
+     "start_time": "2016-05-28T12:50:04.012543"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([ 1.,  1.,  1.,  1.]),\n",
+       " array([1, 2, 3, 3], dtype=int32),\n",
+       " array([1, 0, 0, 3], dtype=int32))"
+      ]
+     },
+     "execution_count": 82,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix\n",
+    "S = coo_matrix(sparse_arr)\n",
+    "S.data, S.row, S.col"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T19:33:52.313725",
+     "start_time": "2016-05-28T19:33:52.302537"
+    }
+   },
+   "source": [
+    "ここまでは単純なのですぐわかった"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Compressed Sparse Row matrix"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:49:49.702918",
+     "start_time": "2016-05-28T12:49:49.693957"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([ 1.,  1.,  1.,  1.]),\n",
+       " array([1, 0, 0, 3], dtype=int32),\n",
+       " array([0, 0, 1, 2, 4], dtype=int32))"
+      ]
+     },
+     "execution_count": 81,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix\n",
+    "S = csr_matrix(sparse_arr)\n",
+    "S.data, S.indices, S.indptr\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Compressed Sparse Column matrix"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 91,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:54:33.521132",
+     "start_time": "2016-05-28T12:54:33.511834"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([ 1.,  1.,  1.,  1.]),\n",
+       " array([2, 3, 1, 3], dtype=int32),\n",
+       " array([0, 2, 3, 3, 4], dtype=int32))"
+      ]
+     },
+     "execution_count": 91,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csc_matrix.html#scipy.sparse.csc_matrix\n",
+    "S = csc_matrix(sparse_arr)\n",
+    "S.data, S.indices, S.indptr\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T22:47:37.340538",
+     "start_time": "2017-02-19T22:47:37.298290"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0.,  0.,  0.,  0.],\n",
+       "       [ 0.,  1.,  0.,  0.],\n",
+       "       [ 1.,  0.,  0.,  0.],\n",
+       "       [ 1.,  0.,  0.,  1.]])"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "S.toarray()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### よくわからないので、Wikipediaの例でやってみる"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T23:05:44.053849",
+     "start_time": "2017-02-19T23:05:44.038066"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[1, 2, 3, 0],\n",
+       "       [0, 0, 0, 1],\n",
+       "       [2, 0, 0, 2],\n",
+       "       [0, 0, 0, 1],\n",
+       "       [0, 0, 0, 0],\n",
+       "       [0, 0, 0, 1]])"
+      ]
+     },
+     "execution_count": 34,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a = np.array([\n",
+    " [1, 2, 3, 0],\n",
+    " [0, 0, 0, 1],\n",
+    " [2, 0, 0, 2],\n",
+    " [0, 0, 0, 1],\n",
+    "    # 以下、追加\n",
+    " [0, 0, 0, 0],\n",
+    " [0, 0, 0, 1],\n",
+    "])\n",
+    "a\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-29T14:31:35.380050",
+     "start_time": "2016-05-29T14:31:35.373302"
+    }
+   },
+   "source": [
+    "> \n",
+    "```\n",
+    "A = [1 2 3 1 2 2 1] 非零要素リスト\n",
+    "IA = [1 1 1 2 3 3 4] i行\n",
+    "JA = [1 2 3 4 1 4 4] j列\n",
+    "```\n",
+    "\n",
+    "これはCOOなので、以下より求められる"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T23:05:46.996791",
+     "start_time": "2017-02-19T23:05:46.984993"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([1, 2, 3, 1, 2, 2, 1, 1]),\n",
+       " array([0, 0, 0, 1, 2, 2, 3, 5], dtype=int32),\n",
+       " array([0, 1, 2, 3, 0, 3, 3, 3], dtype=int32))"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "coo_a = coo_matrix(a)\n",
+    "coo_a.data, coo_a.row, coo_a.col\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "indexの基準がずれてるけど、ずらせば結果は同じ"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "> \n",
+    "```\n",
+    "配列IAというのは同じ数字がずっと続くので、これを圧縮して何番目の要素からiが始まるかを書きならべる\n",
+    "この場合だと、IAの中で、\n",
+    "1が初めに出現するのは1番目\n",
+    "2が初めに出現するのは4番目\n",
+    "3が初めに出現するのは5番目\n",
+    "4が初めに出現するのは7番目\n",
+    "よってIA' = [1 4 5 7] \n",
+    "```\n",
+    "\n",
+    "実際にCSRにしてみる"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T23:05:54.014642",
+     "start_time": "2017-02-19T23:05:53.999377"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([1, 2, 3, 1, 2, 2, 1, 1], dtype=int64),\n",
+       " array([0, 1, 2, 3, 0, 3, 3, 3], dtype=int32),\n",
+       " array([0, 3, 4, 6, 7, 7, 8], dtype=int32))"
+      ]
+     },
+     "execution_count": 36,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "csr_a = csr_matrix(coo_a)\n",
+    "csr_a.data, csr_a.indices, csr_a.indptr"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- ポインタ部分の結果がおなじになった\n",
+    "- indicesは列を表す\n",
+    "- 列のどの部分までが、どの行を表すかを圧縮しつつ表現できるようになった\n",
+    "    - 0行は0から3未満\n",
+    "    - 1行は3から4未満\n",
+    "    - 2行は4から6未満\n",
+    "    - 3行は6から7未満"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 列もやってみる\n",
+    "- やることは変わらない\n",
+    "- ただし列方向になるので転置して考える"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T23:25:57.421334",
+     "start_time": "2017-02-19T23:25:57.410356"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[1, 0, 2, 0, 0, 0],\n",
+       "       [2, 0, 0, 0, 0, 0],\n",
+       "       [3, 0, 0, 0, 0, 0],\n",
+       "       [0, 1, 2, 1, 0, 1]])"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a.T"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T23:26:00.589723",
+     "start_time": "2017-02-19T23:26:00.576972"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([1, 2, 2, 3, 1, 2, 1, 1]),\n",
+       " array([0, 0, 1, 2, 3, 3, 3, 3], dtype=int32),\n",
+       " array([0, 2, 0, 0, 1, 2, 3, 5], dtype=int32))"
+      ]
+     },
+     "execution_count": 38,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "coo_at = coo_matrix(a.T)\n",
+    "coo_at.data, coo_at.row, coo_at.col\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-02-19T23:26:01.382995",
+     "start_time": "2017-02-19T23:26:01.361908"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([1, 2, 2, 3, 1, 2, 1, 1], dtype=int64),\n",
+       " array([0, 2, 0, 0, 1, 2, 3, 5], dtype=int32),\n",
+       " array([0, 2, 3, 4, 8], dtype=int32))"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "csc_a = csc_matrix(coo_a)\n",
+    "csc_a.data, csc_a.indices, csc_a.indptr"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-29T14:43:49.157872",
+     "start_time": "2016-05-29T14:43:49.153112"
+    }
+   },
+   "source": [
+    "- 転置に対して考えるので、indicesは行になる\n",
+    "- あとはCSRと同じ"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Sparse matrix with DIAgonal storage"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 95,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T12:58:55.588768",
+     "start_time": "2016-05-28T12:58:55.580481"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([[ 1.,  0.,  0.,  0.],\n",
+       "        [ 1.,  0.,  0.,  0.],\n",
+       "        [ 0.,  1.,  0.,  1.]]), array([-3, -2,  0], dtype=int32))"
+      ]
+     },
+     "execution_count": 95,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.dia_matrix.html#scipy.sparse.dia_matrix\n",
+    "S = dia_matrix(sparse_arr)\n",
+    "S.data, S.offsets"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 131,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-29T14:45:14.624896",
+     "start_time": "2016-05-29T14:45:14.617789"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0.,  0.,  0.,  0.],\n",
+       "       [ 0.,  1.,  0.,  0.],\n",
+       "       [ 1.,  0.,  0.,  0.],\n",
+       "       [ 1.,  0.,  0.,  1.]])"
+      ]
+     },
+     "execution_count": 131,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sparse_arr"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Block Sparse Row matrix\n",
+    "- https://ja.wikipedia.org/wiki/%E5%8C%BA%E5%88%86%E8%A1%8C%E5%88%97\n",
+    "- どのときに役に立つか書いてある資料を見つけられなかった\n",
+    "    - 公式の導入に役に立つものもあるし、とりあえず保留"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 97,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-28T13:00:28.048395",
+     "start_time": "2016-05-28T13:00:28.038401"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([[[ 1.]],\n",
+       " \n",
+       "        [[ 1.]],\n",
+       " \n",
+       "        [[ 1.]],\n",
+       " \n",
+       "        [[ 1.]]]),\n",
+       " array([1, 0, 0, 3], dtype=int32),\n",
+       " array([0, 0, 1, 2, 4], dtype=int32),\n",
+       " (1, 1))"
+      ]
+     },
+     "execution_count": 97,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.bsr_matrix.html#scipy.sparse.bsr_matrix\n",
+    "S = bsr_matrix(sparse_arr)\n",
+    "S.data, S.indices, S.indptr, S.blocksize"
+   ]
+  }
+ ],
+ "metadata": {
+  "hide_input": false,
+  "kernelspec": {
+   "display_name": "Python [default]",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.2"
+  },
+  "toc": {
+   "toc_cell": false,
+   "toc_number_sections": true,
+   "toc_threshold": 6,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}

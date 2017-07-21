@@ -1,0 +1,1360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>母平均の比較値との差のz検定 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">母平均の比較値との差のz検定</a><ul>
+<li><a class="reference internal" href="#データ準備">データ準備</a></li>
+<li><a class="reference internal" href="#検定統計量">検定統計量</a></li>
+<li><a class="reference internal" href="#検定統計量の算出">検定統計量の算出</a></li>
+<li><a class="reference internal" href="#(おまけ)Sympyの式のグラフ化">(おまけ)Sympyの式のグラフ化</a><ul>
+<li><a class="reference internal" href="#statsmodels">statsmodels</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#1.-ztest-function">1. ztest function</a></li>
+<li><a class="reference internal" href="#自由度の変更">自由度の変更</a></li>
+<li><a class="reference internal" href="#2.-descriptive-statistics-and-tests-with-weights-for-case-weights">2. descriptive statistics and tests with weights for case weights</a></li>
+<li><a class="reference internal" href="#3.-class-for-two-sample-comparison-(2を利用)">3. class for two sample comparison (2を利用)</a><ul>
+<li><a class="reference internal" href="#R">R</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#下記を参考にscipyとの対応を確認できるようにしておく">下記を参考にscipyとの対応を確認できるようにしておく</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>母平均の比較値との差のz検定</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/notebooks/statistics/44-tests/母平均の比較値との差のz検定.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="母平均の比較値との差のz検定">
+<h1>母平均の比較値との差のz検定<a class="headerlink" href="#母平均の比較値との差のz検定" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>sympyとscipyで試してみる</li>
+<li>statsmodels</li>
+<li>R</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>%matplotlib inline
+
+import numpy as np
+import pandas as pd
+from scipy import stats
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+import seaborn as sns
+import sympy
+from sympy import symbols, Symbol, Rational
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import sys
+print(sys.version)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12)
+[GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.28)]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>%load_ext rpy2.ipython
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import rpy2
+rpy2.__version__
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[4]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&#39;2.8.5&#39;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>!R --version
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+R version 3.4.0 (2017-04-21) -- &#34;You Stupid Darkness&#34;
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+http://www.gnu.org/licenses/.
+
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.init_printing()
+</pre></div>
+</div>
+</div>
+<div class="section" id="データ準備">
+<h2>データ準備<a class="headerlink" href="#データ準備" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>np.random.seed(0)
+mean = 1183000
+std = 101000
+size = 250
+other_mean = 1150000
+x = np.random.normal(size=size)
+x.mean(), x.std()
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 0.0317806978638, \quad 0.99610052371\right )$$</div></div>
+</div>
+<p>平均と標準偏差を調整する</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x1 = x / x.std() * std
+x1 = x1 + (mean - x1.mean())
+x1.mean(), x1.std()
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 1183000.0, \quad 101000.0\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x2 = x + (other_mean - x.mean())
+x2.mean(), x2.std()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 1150000.0, \quad 0.996100523709\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sns.kdeplot(x1)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[10]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x115a4d518&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/notebooks_statistics_44-tests_母平均の比較値との差のz検定_12_1.png" src="../../../_images/notebooks_statistics_44-tests_母平均の比較値との差のz検定_12_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="検定統計量">
+<h2>検定統計量<a class="headerlink" href="#検定統計量" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>x_, μ0, σ, n = symbols(&quot;\overline{x} mu_0 sigma n&quot;)
+x_, μ0, σ, n
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( \overline{x}, \quad \mu_{0}, \quad \sigma, \quad n\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>T = (x_ -  μ0) / (σ / sympy.sqrt(n))
+T
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\frac{\sqrt{n}}{\sigma} \left(\overline{x} - \mu_{0}\right)$$</div></div>
+</div>
+<p>symbolを用意して式を組み立てたが、定義どおりの形にならない</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.S(&quot;x - mu_0&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$- \mu_{0} + x$$</div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>#sympy.S(&quot;overline{x} + 1&quot;)
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li>アルファベット順のため定義どおりの順序にならない</li>
+<li>latexの一部は自由に使えない</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>T = sympy.S(&quot;(X_overline - mu_0) / (sigma / sqrt(n))&quot;, evaluate=False)
+T
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\frac{X_{overline} - \mu_{0}}{\sigma \frac{1}{\sqrt{n}}}$$</div></div>
+</div>
+<p>妥協して順序を考慮した式の組み立てに成功</p>
+</div>
+<div class="section" id="検定統計量の算出">
+<h2>検定統計量の算出<a class="headerlink" href="#検定統計量の算出" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>書籍と同じ値になることの確認</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>T_value = T.subs(
+    dict(
+        X_overline=mean,
+        mu_0=other_mean,
+        sigma=std,
+        n=size)).evalf()
+T_value
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$5.16609716760181$$</div></div>
+</div>
+<p>有意水準0.05片側での統計量の確認</p>
+<p>有意であるか確認</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>stats.norm.ppf(1 - 0.05)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$1.64485362695$$</div></div>
+</div>
+<p>書籍と同じ値で確認</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>stats.norm.sf(5.17)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$1.17046997373e-07$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>1 - stats.norm.cdf(float(T_value))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$1.19516280317e-07$$</div></div>
+</div>
+<p>不偏の場合？の確認</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>T_value_n_1 = T.subs(
+    dict(
+        X_overline=mean,
+        mu_0=other_mean,
+        sigma=std,
+        n=size-1)).evalf()
+T_value_n_1
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$5.15575462035607$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>1 - stats.norm.cdf(float(T_value_n_1))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$1.26305760739e-07$$</div></div>
+</div>
+</div>
+<div class="section" id="(おまけ)Sympyの式のグラフ化">
+<h2>(おまけ)Sympyの式のグラフ化<a class="headerlink" href="#(おまけ)Sympyの式のグラフ化" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sympy.srepr(T)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[22]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&quot;Mul(Pow(Mul(Symbol(&#39;sigma&#39;), Pow(Pow(Symbol(&#39;n&#39;), Rational(1, 2)), Integer(-1))), Integer(-1)), Add(Symbol(&#39;X_overline&#39;), Mul(Integer(-1), Symbol(&#39;mu_0&#39;))))&quot;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from sympy.printing.dot import dotprint
+import pydot_ng
+from IPython.display import Image
+
+graph = pydot_ng.graph_from_dot_data(dotprint(T))
+Image(graph.create_png())
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/notebooks_statistics_44-tests_母平均の比較値との差のz検定_36_0.png" src="../../../_images/notebooks_statistics_44-tests_母平均の比較値との差のz検定_36_0.png" />
+</div>
+</div>
+<div class="section" id="statsmodels">
+<h3>statsmodels<a class="headerlink" href="#statsmodels" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>3とおり</p>
+<ol class="arabic simple">
+<li>ztest function</li>
+<li>descriptive statistics and tests with weights for case weights</li>
+<li>class for two sample comparison (2を利用)</li>
+</ol>
+</div>
+</div>
+<div class="section" id="1.-ztest-function">
+<h2>1. ztest function<a class="headerlink" href="#1.-ztest-function" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://www.statsmodels.org/stable/generated/statsmodels.stats.weightstats.ztest.html">http://www.statsmodels.org/stable/generated/statsmodels.stats.weightstats.ztest.html</a></p>
+<ul class="simple">
+<li>データセット１つとその他の平均値</li>
+<li>データセット２つ</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sm.stats.ztest(x1, alternative=&quot;larger&quot;, value=other_mean)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 5.15575462036, \quad 1.26305760785e-07\right )$$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sm.stats.ztest(x1, x2=x2, alternative=&quot;larger&quot;)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 5.15575462011, \quad 1.26305760954e-07\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="自由度の変更">
+<h2>自由度の変更<a class="headerlink" href="#自由度の変更" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sm.stats.ztest(x1, alternative=&quot;larger&quot;, value=other_mean, ddof=0)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 5.1660971676, \quad 1.19516280322e-07\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="2.-descriptive-statistics-and-tests-with-weights-for-case-weights">
+<h2>2. descriptive statistics and tests with weights for case weights<a class="headerlink" href="#2.-descriptive-statistics-and-tests-with-weights-for-case-weights" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://www.statsmodels.org/stable/generated/statsmodels.stats.weightstats.DescrStatsW.html">http://www.statsmodels.org/stable/generated/statsmodels.stats.weightstats.DescrStatsW.html</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>d1 = sm.stats.DescrStatsW(x1)
+d2 = sm.stats.DescrStatsW(x2)
+d1
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[27]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;statsmodels.stats.weightstats.DescrStatsW at 0x11878cd30&gt;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>d1.ztest_mean(other_mean, alternative=&quot;larger&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 5.15575462036, \quad 1.26305760785e-07\right )$$</div></div>
+</div>
+</div>
+<div class="section" id="3.-class-for-two-sample-comparison-(2を利用)">
+<h2>3. class for two sample comparison (2を利用)<a class="headerlink" href="#3.-class-for-two-sample-comparison-(2を利用)" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://www.statsmodels.org/devel/generated/statsmodels.stats.weightstats.CompareMeans.html">http://www.statsmodels.org/devel/generated/statsmodels.stats.weightstats.CompareMeans.html</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>compare_means = sm.stats.CompareMeans(d1, d2)
+compare_means
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[29]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;statsmodels.stats.weightstats.CompareMeans at 0x11878cb38&gt;
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>compare_means.ztest_ind(alternative=&quot;larger&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math">
+$$\left ( 5.15575462011, \quad 1.26305760954e-07\right )$$</div></div>
+</div>
+<div class="section" id="R">
+<h3>R<a class="headerlink" href="#R" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>z.testはなかったので、単純に計算</p>
+<ul class="simple">
+<li><a class="reference external" href="http://rpy.sourceforge.net/rpy2/doc-2.4/html/interactive.html">http://rpy.sourceforge.net/rpy2/doc-2.4/html/interactive.html</a></li>
+<li><a class="reference external" href="https://www.slideshare.net/Prunus1350/5-r-14210894">https://www.slideshare.net/Prunus1350/5-r-14210894</a></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [31]:
+</pre></div>
+</div>
+<div class="input_area highlight-r"><div class="highlight"><pre>
+<span></span><span class="o">%%</span>R <span class="o">-</span>i x1 <span class="o">--</span>input std <span class="o">-</span>i size <span class="o">-</span>i other_mean <span class="o">--</span>output r2py_output
+
+Z分子 <span class="o">&lt;-</span> <span class="kp">mean</span><span class="p">(</span>x1<span class="p">)</span> <span class="o">-</span> other_mean
+Z分母 <span class="o">&lt;-</span> std <span class="o">/</span> <span class="kp">sqrt</span><span class="p">(</span>size<span class="p">)</span>
+Z統計量 <span class="o">&lt;-</span> Z分子 <span class="o">/</span> Z分母
+p値 <span class="o">&lt;-</span> pnorm<span class="p">(</span>Z統計量<span class="p">,</span> lower.tail <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+r2py_output <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>Z統計量<span class="p">,</span> p値<span class="p">)</span>
+r2py_output
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[1] 5.166097e+00 1.195163e-07
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>r2py_output
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[32]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([  5.16609717e+00,   1.19516280e-07])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="下記を参考にscipyとの対応を確認できるようにしておく">
+<h2>下記を参考にscipyとの対応を確認できるようにしておく<a class="headerlink" href="#下記を参考にscipyとの対応を確認できるようにしておく" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://cse.naro.affrc.go.jp/takezawa/r-tips/r/60.html">http://cse.naro.affrc.go.jp/takezawa/r-tips/r/60.html</a></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [33]:
+</pre></div>
+</div>
+<div class="input_area highlight-r"><div class="highlight"><pre>
+<span></span><span class="o">%%</span>R
+
+<span class="c1"># for help</span>
+<span class="o">?</span>dnorm
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+R Help on ‘dnorm’Normal                  package:stats                  R Documentation
+
+_T_h_e _N_o_r_m_a_l _D_i_s_t_r_i_b_u_t_i_o_n
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Density, distribution function, quantile function and random
+     generation for the normal distribution with mean equal to ‘mean’
+     and standard deviation equal to ‘sd’.
+
+_U_s_a_g_e:
+
+     dnorm(x, mean = 0, sd = 1, log = FALSE)
+     pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+     qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+     rnorm(n, mean = 0, sd = 1)
+
+_A_r_g_u_m_e_n_t_s:
+
+    x, q: vector of quantiles.
+
+       p: vector of probabilities.
+
+       n: number of observations. If ‘length(n) &gt; 1’, the length is
+          taken to be the number required.
+
+    mean: vector of means.
+
+      sd: vector of standard deviations.
+
+log, log.p: logical; if TRUE, probabilities p are given as log(p).
+
+lower.tail: logical; if TRUE (default), probabilities are P[X &lt;= x]
+          otherwise, P[X &gt; x].
+
+_D_e_t_a_i_l_s:
+
+     If ‘mean’ or ‘sd’ are not specified they assume the default
+     values of ‘0’ and ‘1’, respectively.
+
+     The normal distribution has density
+
+            f(x) = 1/(sqrt(2 pi) sigma) e^-((x - mu)^2/(2 sigma^2))
+
+     where mu is the mean of the distribution and sigma the standard
+     deviation.
+
+_V_a_l_u_e:
+
+     ‘dnorm’ gives the density, ‘pnorm’ gives the distribution
+     function, ‘qnorm’ gives the quantile function, and ‘rnorm’
+     generates random deviates.
+
+     The length of the result is determined by ‘n’ for ‘rnorm’, and
+     is the maximum of the lengths of the numerical arguments for the
+     other functions.
+
+     The numerical arguments other than ‘n’ are recycled to the
+     length of the result.  Only the first elements of the logical
+     arguments are used.
+
+     For ‘sd = 0’ this gives the limit as ‘sd’ decreases to 0, a
+     point mass at ‘mu’.  ‘sd &lt; 0’ is an error and returns ‘NaN’.
+
+_S_o_u_r_c_e:
+
+     For ‘pnorm’, based on
+
+     Cody, W. D. (1993) Algorithm 715: SPECFUN - A portable FORTRAN
+     package of special function routines and test drivers.  _ACM
+     Transactions on Mathematical Software_ *19*, 22-32.
+
+     For ‘qnorm’, the code is a C translation of
+
+     Wichura, M. J. (1988) Algorithm AS 241: The percentage points of
+     the normal distribution.  _Applied Statistics_, *37*, 477-484.
+
+     which provides precise results up to about 16 digits.
+
+     For ‘rnorm’, see RNG for how to select the algorithm and for
+     references to the supplied methods.
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+     Language_.  Wadsworth &amp; Brooks/Cole.
+
+     Johnson, N. L., Kotz, S. and Balakrishnan, N. (1995) _Continuous
+     Univariate Distributions_, volume 1, chapter 13.  Wiley, New York.
+
+_S_e_e _A_l_s_o:
+
+     Distributions for other standard distributions, including
+     ‘dlnorm’ for the _Log_normal distribution.
+
+_E_x_a_m_p_l_e_s:
+
+     require(graphics)
+
+     dnorm(0) == 1/sqrt(2*pi)
+     dnorm(1) == exp(-1/2)/sqrt(2*pi)
+     dnorm(1) == 1/sqrt(2*pi*exp(1))
+
+     ## Using &#34;log = TRUE&#34; for an extended range :
+     par(mfrow = c(2,1))
+     plot(function(x) dnorm(x, log = TRUE), -60, 50,
+          main = &#34;log { Normal density }&#34;)
+     curve(log(dnorm(x)), add = TRUE, col = &#34;red&#34;, lwd = 2)
+     mtext(&#34;dnorm(x, log=TRUE)&#34;, adj = 0)
+     mtext(&#34;log(dnorm(x))&#34;, col = &#34;red&#34;, adj = 1)
+
+     plot(function(x) pnorm(x, log.p = TRUE), -50, 10,
+          main = &#34;log { Normal Cumulative }&#34;)
+     curve(log(pnorm(x)), add = TRUE, col = &#34;red&#34;, lwd = 2)
+     mtext(&#34;pnorm(x, log=TRUE)&#34;, adj = 0)
+     mtext(&#34;log(pnorm(x))&#34;, col = &#34;red&#34;, adj = 1)
+
+     ## if you want the so-called &#39;error function&#39;
+     erf &lt;- function(x) 2 * pnorm(x * sqrt(2)) - 1
+     ## (see Abramowitz and Stegun 29.2.29)
+     ## and the so-called &#39;complementary error function&#39;
+     erfc &lt;- function(x) 2 * pnorm(x * sqrt(2), lower = FALSE)
+     ## and the inverses
+     erfinv &lt;- function (x) qnorm((1 + x)/2)/sqrt(2)
+     erfcinv &lt;- function (x) qnorm(x/2, lower = FALSE)/sqrt(2)
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [34]:
+</pre></div>
+</div>
+<div class="input_area highlight-r"><div class="highlight"><pre>
+<span></span><span class="o">%%</span>R
+norm_list <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span>
+
+<span class="kp">set.seed</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+
+norm_list<span class="p">[[</span><span class="s">&quot;pdf_dnorm&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> dnorm<span class="p">(</span><span class="m">5.17</span><span class="p">)</span>
+norm_list<span class="p">[[</span><span class="s">&quot;cdf_pnrom_T&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> pnorm<span class="p">(</span><span class="m">5.17</span><span class="p">,</span> lower.tail <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+norm_list<span class="p">[[</span><span class="s">&quot;cdf_pnrom_F&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> pnorm<span class="p">(</span><span class="m">5.17</span><span class="p">,</span> lower.tail <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+norm_list<span class="p">[[</span><span class="s">&quot;quantile_qnorm_T&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> qnorm<span class="p">(</span><span class="m">0.05</span><span class="p">,</span> lower.tail <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+norm_list<span class="p">[[</span><span class="s">&quot;quantile_qnorm_F&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> qnorm<span class="p">(</span><span class="m">0.05</span><span class="p">,</span> lower.tail <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+norm_list<span class="p">[[</span><span class="s">&quot;random_variable_rnorm&quot;</span><span class="p">]]</span> <span class="o">&lt;-</span> rnorm<span class="p">(</span>n<span class="o">=</span><span class="m">10</span><span class="p">,</span> mean<span class="o">=</span><span class="m">5</span><span class="p">,</span> sd<span class="o">=</span><span class="m">10</span><span class="p">)</span>
+
+norm_list
+
+<span class="c1">#      dnorm(x, mean = 0, sd = 1, log = FALSE)</span>
+<span class="c1">#      pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)</span>
+<span class="c1">#      qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)</span>
+<span class="c1">#      rnorm(n, mean = 0, sd = 1)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>$pdf_dnorm
+[1] 6.263299e-07
+
+$cdf_pnrom_T
+[1] 0.9999999
+
+$cdf_pnrom_F
+[1] 1.17047e-07
+
+$quantile_qnorm_T
+[1] -1.644854
+
+$quantile_qnorm_F
+[1] 1.644854
+
+$random_variable_rnorm
+ [1]  17.629543   1.737666  18.297993  17.724293   9.146414 -10.399500
+ [7]  -4.285670   2.052796   4.942328  29.046534
+
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

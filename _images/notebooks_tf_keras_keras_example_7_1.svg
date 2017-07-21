@@ -1,0 +1,51 @@
+<svg height="337pt" viewBox="0.00 0.00 175.24 337.00" width="175pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(4 333)">
+<title>G</title>
+<polygon fill="white" points="-4,4 -4,-333 171.238,-333 171.238,4 -4,4" stroke="none"/>
+<!-- 4623639888 -->
+<g class="node" id="node1"><title>4623639888</title>
+<polygon fill="none" points="0,-292.5 0,-328.5 167.238,-328.5 167.238,-292.5 0,-292.5" stroke="black"/>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="83.6191" y="-306.3">dense_input_1: InputLayer</text>
+</g>
+<!-- 4623639496 -->
+<g class="node" id="node2"><title>4623639496</title>
+<polygon fill="none" points="31.4932,-219.5 31.4932,-255.5 135.745,-255.5 135.745,-219.5 31.4932,-219.5" stroke="black"/>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="83.6191" y="-233.3">dense_1: Dense</text>
+</g>
+<!-- 4623639888&#45;&gt;4623639496 -->
+<g class="edge" id="edge1"><title>4623639888-&gt;4623639496</title>
+<path d="M83.6191,-292.313C83.6191,-284.289 83.6191,-274.547 83.6191,-265.569" fill="none" stroke="black"/>
+<polygon fill="black" points="87.1192,-265.529 83.6191,-255.529 80.1192,-265.529 87.1192,-265.529" stroke="black"/>
+</g>
+<!-- 4623639720 -->
+<g class="node" id="node3"><title>4623639720</title>
+<polygon fill="none" points="8.15869,-146.5 8.15869,-182.5 159.08,-182.5 159.08,-146.5 8.15869,-146.5" stroke="black"/>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="83.6191" y="-160.3">activation_1: Activation</text>
+</g>
+<!-- 4623639496&#45;&gt;4623639720 -->
+<g class="edge" id="edge2"><title>4623639496-&gt;4623639720</title>
+<path d="M83.6191,-219.313C83.6191,-211.289 83.6191,-201.547 83.6191,-192.569" fill="none" stroke="black"/>
+<polygon fill="black" points="87.1192,-192.529 83.6191,-182.529 80.1192,-192.529 87.1192,-192.529" stroke="black"/>
+</g>
+<!-- 4623793904 -->
+<g class="node" id="node4"><title>4623793904</title>
+<polygon fill="none" points="31.4932,-73.5 31.4932,-109.5 135.745,-109.5 135.745,-73.5 31.4932,-73.5" stroke="black"/>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="83.6191" y="-87.3">dense_2: Dense</text>
+</g>
+<!-- 4623639720&#45;&gt;4623793904 -->
+<g class="edge" id="edge3"><title>4623639720-&gt;4623793904</title>
+<path d="M83.6191,-146.313C83.6191,-138.289 83.6191,-128.547 83.6191,-119.569" fill="none" stroke="black"/>
+<polygon fill="black" points="87.1192,-119.529 83.6191,-109.529 80.1192,-119.529 87.1192,-119.529" stroke="black"/>
+</g>
+<!-- 4623794016 -->
+<g class="node" id="node5"><title>4623794016</title>
+<polygon fill="none" points="8.15869,-0.5 8.15869,-36.5 159.08,-36.5 159.08,-0.5 8.15869,-0.5" stroke="black"/>
+<text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="83.6191" y="-14.3">activation_2: Activation</text>
+</g>
+<!-- 4623793904&#45;&gt;4623794016 -->
+<g class="edge" id="edge4"><title>4623793904-&gt;4623794016</title>
+<path d="M83.6191,-73.3129C83.6191,-65.2895 83.6191,-55.5475 83.6191,-46.5691" fill="none" stroke="black"/>
+<polygon fill="black" points="87.1192,-46.5288 83.6191,-36.5288 80.1192,-46.5289 87.1192,-46.5288" stroke="black"/>
+</g>
+</g>
+</svg>

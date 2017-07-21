@@ -1,0 +1,330 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "%matplotlib inline\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import scipy.stats\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>1_t</th>\n",
+       "      <th>2_sha</th>\n",
+       "      <th>3_ba</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>23.0</td>\n",
+       "      <td>25.0</td>\n",
+       "      <td>15</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>26.0</td>\n",
+       "      <td>26.0</td>\n",
+       "      <td>16</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>27.0</td>\n",
+       "      <td>29.0</td>\n",
+       "      <td>18</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>28.0</td>\n",
+       "      <td>32.0</td>\n",
+       "      <td>22</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>NaN</td>\n",
+       "      <td>33.0</td>\n",
+       "      <td>26</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>29</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    1_t  2_sha  3_ba\n",
+       "0  23.0   25.0    15\n",
+       "1  26.0   26.0    16\n",
+       "2  27.0   29.0    18\n",
+       "3  28.0   32.0    22\n",
+       "4   NaN   33.0    26\n",
+       "5   NaN    NaN    29"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# マンガでわかる統計学: p121-126\n",
+    "observed = pd.DataFrame({\n",
+    "    \"1_t\": [23, 26, 27, 28, np.nan, np.nan],\n",
+    "    \"2_sha\": [25, 26, 29, 32, 33, np.nan],\n",
+    "    \"3_ba\": [15, 16, 18, 22, 26, 29]\n",
+    "})\n",
+    "observed"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(10, 40)"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\nRK5CYII=\n",
+      "text/plain": [
+       "<matplotlib.figure.Figure at 0x10ee69c18>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "sns.swarmplot(data=observed)\n",
+    "plt.ylim(10, 40)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def corr_ratio(observed):\n",
+    "    # 級内変動\n",
+    "    ssw = ((observed - observed.mean()) ** 2).sum().sum()\n",
+    "\n",
+    "    # 級間変動\n",
+    "    ssb = (observed.count() * ((observed.mean() - np.nanmean(observed)) ** 2)).sum()\n",
+    "\n",
+    "    # sst\n",
+    "    sst = ((observed - np.nanmean(observed)) ** 2).sum().sum()\n",
+    "\n",
+    "    # 相関比\n",
+    "    ratio = ssb / (ssb + ssw)\n",
+    "    \n",
+    "    # F\n",
+    "    dfn = observed.shape[1] - 1\n",
+    "    dfd = (observed.count() - 1).sum()\n",
+    "    f = (ssb / dfn) / (ssw / dfd)\n",
+    "    \n",
+    "    # p\n",
+    "    p = scipy.stats.f.sf(f, dfn, dfd)\n",
+    "    \n",
+    "    return (ssw, ssb, ratio, sst, f, p)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(224.0,\n",
+       " 180.0,\n",
+       " 0.44554455445544555,\n",
+       " 404.0,\n",
+       " 4.821428571428571,\n",
+       " 0.029053597747097693)"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "corr_ratio(observed)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "F_onewayResult(statistic=4.8214285714285712, pvalue=0.029053597747097693)"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "scipy.stats.f_oneway(observed[\"1_t\"].dropna(),\n",
+    "                             observed[\"2_sha\"].dropna(),\n",
+    "                             observed[\"3_ba\"].dropna())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# https://en.wikipedia.org/wiki/Correlation_ratio\n",
+    "df_math_scores = pd.DataFrame({\n",
+    "    \"Algebra\": [45, 70, 29, 15, 21, np.nan],\n",
+    "    \"Geometry\": [40, 20, 30, 42, np.nan, np.nan],\n",
+    "    \"Statistics\": [65, 95, 80, 70, 85, 73]\n",
+    "})\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "$$\n",
+    "\\eta ^{2}={\\frac  {6780}{9640}}=0.7033\\ldots \n",
+    "$$"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(2860.0,\n",
+       " 6780.0,\n",
+       " 0.7033195020746889,\n",
+       " 9640.0,\n",
+       " 14.223776223776223,\n",
+       " 0.000681920890799404)"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "corr_ratio(df_math_scores)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "9640.0"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sum(corr_ratio(df_math_scores)[:2])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [default]",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

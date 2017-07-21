@@ -1,0 +1,2129 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/sklearn/roc_auc_learning_curve.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import numpy as np
+from sklearn import metrics
+import pandas as pd
+from sklearn import datasets
+from IPython.display import display
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>y = np.array([1, 1, 2, 2])
+pred = np.array([0.1, 0.4, 0.35, 0.8])
+fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=2)
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fpr
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[4]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([ 0. ,  0.5,  0.5,  1. ])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>tpr
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[5]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([ 0.5,  0.5,  1. ,  1. ])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>thresholds
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([ 0.8 ,  0.4 ,  0.35,  0.1 ])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>metrics.auc(fpr, tpr)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>0.75
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>titanic = sns.load_dataset(&quot;titanic&quot;)
+titanic = titanic.select_dtypes(include=[&quot;number&quot;])
+titanic.age = titanic.age.fillna(titanic.age.mean())
+titanic.info()
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 6 columns):
+survived    891 non-null int64
+pclass      891 non-null int64
+age         891 non-null float64
+sibsp       891 non-null int64
+parch       891 non-null int64
+fare        891 non-null float64
+dtypes: float64(2), int64(4)
+memory usage: 41.8 KB
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>titanic_features = titanic.drop(&quot;survived&quot;, axis=1)
+titanic_target = titanic.survived
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from sklearn import linear_model
+from sklearn import model_selection
+from sklearn import metrics
+X_train, X_test, y_train, y_test = model_selection.train_test_split(titanic_features, titanic_target, test_size=0.3)
+t_lr = linear_model.LogisticRegression().fit(X_train, y_train)
+proba = t_lr.predict_proba(X_test)
+predict = t_lr.predict(X_test)
+
+fpr, tpr, thresholds = metrics.roc_curve(y_test, proba[:, 1])
+metrics.auc(fpr, tpr), metrics.roc_auc_score(y_test, proba[:, 1])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[59]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(0.72904761904761894, 0.72904761904761894)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [124]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>X_train.shape, X_test.shape
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[124]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>((623, 5), (268, 5))
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [60]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>t_lr.classes_
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[60]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([0, 1])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [123]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>(proba[:, 1] &gt; 0.5).sum(), proba.shape
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[123]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(59, (268, 2))
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fpr.shape, tpr.shape, thresholds.shape
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[62]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>((109,), (109,), (109,))
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [125]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>_fpr, _tpr, _thresholds = metrics.roc_curve(y_test, proba[:, 1], drop_intermediate=False)
+_fpr.shape, _tpr.shape, _thresholds.shape, proba.shape[0] - _fpr.shape[0]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[125]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>((237,), (237,), (237,), 31)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [113]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>plt.plot(fpr)
+plt.plot(tpr)
+plt.plot(thresholds)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[113]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&lt;matplotlib.lines.Line2D at 0x1161aad68&gt;]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_15_1.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_15_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [120]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>plt.plot(_fpr)
+plt.plot(_tpr)
+plt.plot(_thresholds)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[120]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&lt;matplotlib.lines.Line2D at 0x116310e10&gt;]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_16_1.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_16_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [305]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>np.where(np.r_[True,False,True, np.logical_or([1,0,2], [0,1,1])])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[305]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(array([0, 2, 3, 4, 5]),)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [307]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># 縦軸にTrue Positive、横軸にFalse Positiveの割合
+roc_df = pd.DataFrame(np.c_[y_test, proba[:, 1], proba[:, 1] &gt; 0.5])
+roc_df.columns = [&quot;y&quot;, &quot;proba&quot;, &quot;pred&quot;]
+
+roc_df = roc_df.sort_values(&quot;proba&quot;, ascending=False).reset_index()
+roc_df[&quot;proba_diff&quot;] = roc_df[&quot;proba&quot;].diff()
+#roc_df = roc_df.dropna()
+roc_df = roc_df[roc_df[&quot;proba_diff&quot;] != 0].reset_index(drop=True)
+roc_df[&quot;tps&quot;] = roc_df[&quot;y&quot;].cumsum()
+roc_df[&quot;fps&quot;] = 1 + roc_df.index - roc_df[&quot;tps&quot;]
+
+roc_df[&quot;fps_diff&quot;] = roc_df[&quot;fps&quot;].diff().diff().shift(-1).fillna(1)
+roc_df[&quot;tps_diff&quot;] = roc_df[&quot;tps&quot;].diff().diff().shift(-1).fillna(1)
+roc_df[&quot;ps_diff_0&quot;] = (roc_df[&quot;fps_diff&quot;] != 0) | (roc_df[&quot;fps_diff&quot;] != 0)
+
+drop_intermediate = True
+if drop_intermediate and len(roc_df[&quot;fps&quot;]) &gt; 2:
+    roc_df = roc_df[roc_df[&quot;ps_diff_0&quot;]].reset_index(drop=True)
+else:
+    roc_df[&quot;_fpr&quot;] = _fpr
+    roc_df[&quot;_tpr&quot;] = _tpr
+roc_df[&quot;tps_norm&quot;] = roc_df[&quot;tps&quot;] / roc_df[&quot;tps&quot;].max()
+roc_df[&quot;fps_norm&quot;] = roc_df[&quot;fps&quot;] / roc_df[&quot;fps&quot;].max()
+
+roc_df
+#roc_df.plot(x=&quot;fps_norm&quot;, y=&quot;tps_norm&quot;); plt.plot([0,1], [0,1])
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[307]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>y</th>
+      <th>proba</th>
+      <th>pred</th>
+      <th>proba_diff</th>
+      <th>tps</th>
+      <th>fps</th>
+      <th>fps_diff</th>
+      <th>tps_diff</th>
+      <th>ps_diff_0</th>
+      <th>tps_norm</th>
+      <th>fps_norm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>99</td>
+      <td>1.0</td>
+      <td>0.932104</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.010753</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>98</td>
+      <td>1.0</td>
+      <td>0.926251</td>
+      <td>1.0</td>
+      <td>-0.005853</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.021505</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>93</td>
+      <td>0.0</td>
+      <td>0.872601</td>
+      <td>1.0</td>
+      <td>-0.033082</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.021505</td>
+      <td>0.013889</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>257</td>
+      <td>1.0</td>
+      <td>0.714187</td>
+      <td>1.0</td>
+      <td>-0.002086</td>
+      <td>18.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.193548</td>
+      <td>0.013889</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>189</td>
+      <td>0.0</td>
+      <td>0.711957</td>
+      <td>1.0</td>
+      <td>-0.002230</td>
+      <td>18.0</td>
+      <td>3.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.193548</td>
+      <td>0.020833</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>104</td>
+      <td>1.0</td>
+      <td>0.675602</td>
+      <td>1.0</td>
+      <td>-0.022820</td>
+      <td>22.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.236559</td>
+      <td>0.020833</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>163</td>
+      <td>0.0</td>
+      <td>0.661268</td>
+      <td>1.0</td>
+      <td>-0.014334</td>
+      <td>22.0</td>
+      <td>4.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.236559</td>
+      <td>0.027778</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>77</td>
+      <td>1.0</td>
+      <td>0.655571</td>
+      <td>1.0</td>
+      <td>-0.005697</td>
+      <td>23.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.247312</td>
+      <td>0.027778</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>222</td>
+      <td>0.0</td>
+      <td>0.649628</td>
+      <td>1.0</td>
+      <td>-0.000305</td>
+      <td>23.0</td>
+      <td>7.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.247312</td>
+      <td>0.048611</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>182</td>
+      <td>1.0</td>
+      <td>0.647242</td>
+      <td>1.0</td>
+      <td>-0.001402</td>
+      <td>25.0</td>
+      <td>7.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.268817</td>
+      <td>0.048611</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>44</td>
+      <td>0.0</td>
+      <td>0.646640</td>
+      <td>1.0</td>
+      <td>-0.000602</td>
+      <td>25.0</td>
+      <td>8.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.268817</td>
+      <td>0.055556</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>61</td>
+      <td>1.0</td>
+      <td>0.622325</td>
+      <td>1.0</td>
+      <td>-0.001325</td>
+      <td>27.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.290323</td>
+      <td>0.055556</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>195</td>
+      <td>0.0</td>
+      <td>0.611768</td>
+      <td>1.0</td>
+      <td>-0.010557</td>
+      <td>27.0</td>
+      <td>9.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.290323</td>
+      <td>0.062500</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>33</td>
+      <td>1.0</td>
+      <td>0.610921</td>
+      <td>1.0</td>
+      <td>-0.000847</td>
+      <td>28.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.301075</td>
+      <td>0.062500</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>186</td>
+      <td>0.0</td>
+      <td>0.601489</td>
+      <td>1.0</td>
+      <td>-0.009432</td>
+      <td>28.0</td>
+      <td>10.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.301075</td>
+      <td>0.069444</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>51</td>
+      <td>1.0</td>
+      <td>0.579769</td>
+      <td>1.0</td>
+      <td>-0.008188</td>
+      <td>32.0</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.344086</td>
+      <td>0.069444</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>31</td>
+      <td>0.0</td>
+      <td>0.578852</td>
+      <td>1.0</td>
+      <td>-0.000917</td>
+      <td>32.0</td>
+      <td>11.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.344086</td>
+      <td>0.076389</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>229</td>
+      <td>1.0</td>
+      <td>0.542517</td>
+      <td>1.0</td>
+      <td>-0.001301</td>
+      <td>36.0</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.387097</td>
+      <td>0.076389</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>187</td>
+      <td>0.0</td>
+      <td>0.542236</td>
+      <td>1.0</td>
+      <td>-0.000281</td>
+      <td>36.0</td>
+      <td>12.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.387097</td>
+      <td>0.083333</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>264</td>
+      <td>1.0</td>
+      <td>0.540829</td>
+      <td>1.0</td>
+      <td>-0.001406</td>
+      <td>37.0</td>
+      <td>12.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.397849</td>
+      <td>0.083333</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>227</td>
+      <td>0.0</td>
+      <td>0.540596</td>
+      <td>1.0</td>
+      <td>-0.000234</td>
+      <td>37.0</td>
+      <td>13.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.397849</td>
+      <td>0.090278</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>190</td>
+      <td>1.0</td>
+      <td>0.528790</td>
+      <td>1.0</td>
+      <td>-0.000949</td>
+      <td>40.0</td>
+      <td>13.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.430108</td>
+      <td>0.090278</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>96</td>
+      <td>0.0</td>
+      <td>0.521248</td>
+      <td>1.0</td>
+      <td>-0.007542</td>
+      <td>40.0</td>
+      <td>14.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.430108</td>
+      <td>0.097222</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>4</td>
+      <td>1.0</td>
+      <td>0.520023</td>
+      <td>1.0</td>
+      <td>-0.001225</td>
+      <td>41.0</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.440860</td>
+      <td>0.097222</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>220</td>
+      <td>0.0</td>
+      <td>0.519490</td>
+      <td>1.0</td>
+      <td>-0.000532</td>
+      <td>41.0</td>
+      <td>15.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.440860</td>
+      <td>0.104167</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>78</td>
+      <td>1.0</td>
+      <td>0.499988</td>
+      <td>0.0</td>
+      <td>-0.004243</td>
+      <td>43.0</td>
+      <td>15.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.462366</td>
+      <td>0.104167</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>237</td>
+      <td>0.0</td>
+      <td>0.488286</td>
+      <td>0.0</td>
+      <td>-0.001619</td>
+      <td>43.0</td>
+      <td>19.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.462366</td>
+      <td>0.131944</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>204</td>
+      <td>1.0</td>
+      <td>0.486151</td>
+      <td>0.0</td>
+      <td>-0.002135</td>
+      <td>44.0</td>
+      <td>19.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.473118</td>
+      <td>0.131944</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>232</td>
+      <td>0.0</td>
+      <td>0.454173</td>
+      <td>0.0</td>
+      <td>-0.009898</td>
+      <td>44.0</td>
+      <td>25.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.473118</td>
+      <td>0.173611</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>217</td>
+      <td>1.0</td>
+      <td>0.444851</td>
+      <td>0.0</td>
+      <td>-0.009322</td>
+      <td>45.0</td>
+      <td>25.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.483871</td>
+      <td>0.173611</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>166</td>
+      <td>1.0</td>
+      <td>0.265476</td>
+      <td>0.0</td>
+      <td>-0.011778</td>
+      <td>76.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.817204</td>
+      <td>0.555556</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>152</td>
+      <td>0.0</td>
+      <td>0.264115</td>
+      <td>0.0</td>
+      <td>-0.001362</td>
+      <td>76.0</td>
+      <td>81.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.817204</td>
+      <td>0.562500</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>75</td>
+      <td>1.0</td>
+      <td>0.262040</td>
+      <td>0.0</td>
+      <td>-0.002075</td>
+      <td>77.0</td>
+      <td>81.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.827957</td>
+      <td>0.562500</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>141</td>
+      <td>0.0</td>
+      <td>0.250243</td>
+      <td>0.0</td>
+      <td>-0.002058</td>
+      <td>77.0</td>
+      <td>88.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.827957</td>
+      <td>0.611111</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>169</td>
+      <td>1.0</td>
+      <td>0.250230</td>
+      <td>0.0</td>
+      <td>-0.000013</td>
+      <td>78.0</td>
+      <td>88.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.838710</td>
+      <td>0.611111</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>11</td>
+      <td>0.0</td>
+      <td>0.242056</td>
+      <td>0.0</td>
+      <td>-0.000125</td>
+      <td>78.0</td>
+      <td>92.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.838710</td>
+      <td>0.638889</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>83</td>
+      <td>1.0</td>
+      <td>0.242043</td>
+      <td>0.0</td>
+      <td>-0.000013</td>
+      <td>79.0</td>
+      <td>92.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.849462</td>
+      <td>0.638889</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>7</td>
+      <td>0.0</td>
+      <td>0.242003</td>
+      <td>0.0</td>
+      <td>-0.000040</td>
+      <td>79.0</td>
+      <td>93.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.849462</td>
+      <td>0.645833</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>258</td>
+      <td>1.0</td>
+      <td>0.241959</td>
+      <td>0.0</td>
+      <td>-0.000044</td>
+      <td>80.0</td>
+      <td>93.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.860215</td>
+      <td>0.645833</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>25</td>
+      <td>0.0</td>
+      <td>0.241939</td>
+      <td>0.0</td>
+      <td>-0.000020</td>
+      <td>80.0</td>
+      <td>94.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.860215</td>
+      <td>0.652778</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>107</td>
+      <td>1.0</td>
+      <td>0.241929</td>
+      <td>0.0</td>
+      <td>-0.000010</td>
+      <td>81.0</td>
+      <td>94.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.870968</td>
+      <td>0.652778</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>8</td>
+      <td>0.0</td>
+      <td>0.236222</td>
+      <td>0.0</td>
+      <td>-0.000238</td>
+      <td>81.0</td>
+      <td>103.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.870968</td>
+      <td>0.715278</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>225</td>
+      <td>1.0</td>
+      <td>0.233435</td>
+      <td>0.0</td>
+      <td>-0.000078</td>
+      <td>83.0</td>
+      <td>103.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.892473</td>
+      <td>0.715278</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>191</td>
+      <td>0.0</td>
+      <td>0.232782</td>
+      <td>0.0</td>
+      <td>-0.000653</td>
+      <td>83.0</td>
+      <td>104.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.892473</td>
+      <td>0.722222</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>0</td>
+      <td>1.0</td>
+      <td>0.229373</td>
+      <td>0.0</td>
+      <td>-0.003409</td>
+      <td>84.0</td>
+      <td>104.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.903226</td>
+      <td>0.722222</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>221</td>
+      <td>0.0</td>
+      <td>0.225902</td>
+      <td>0.0</td>
+      <td>-0.003471</td>
+      <td>84.0</td>
+      <td>105.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.903226</td>
+      <td>0.729167</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>245</td>
+      <td>1.0</td>
+      <td>0.224496</td>
+      <td>0.0</td>
+      <td>-0.001351</td>
+      <td>86.0</td>
+      <td>105.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.924731</td>
+      <td>0.729167</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>43</td>
+      <td>0.0</td>
+      <td>0.220303</td>
+      <td>0.0</td>
+      <td>-0.000726</td>
+      <td>86.0</td>
+      <td>107.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.924731</td>
+      <td>0.743056</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>192</td>
+      <td>1.0</td>
+      <td>0.219365</td>
+      <td>0.0</td>
+      <td>-0.000938</td>
+      <td>87.0</td>
+      <td>107.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.935484</td>
+      <td>0.743056</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>50</td>
+      <td>0.0</td>
+      <td>0.219000</td>
+      <td>0.0</td>
+      <td>-0.000091</td>
+      <td>87.0</td>
+      <td>110.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.935484</td>
+      <td>0.763889</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>254</td>
+      <td>1.0</td>
+      <td>0.214019</td>
+      <td>0.0</td>
+      <td>-0.004982</td>
+      <td>88.0</td>
+      <td>110.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.946237</td>
+      <td>0.763889</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>157</td>
+      <td>0.0</td>
+      <td>0.208116</td>
+      <td>0.0</td>
+      <td>-0.000011</td>
+      <td>88.0</td>
+      <td>117.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.946237</td>
+      <td>0.812500</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>162</td>
+      <td>1.0</td>
+      <td>0.207681</td>
+      <td>0.0</td>
+      <td>-0.000435</td>
+      <td>89.0</td>
+      <td>117.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.956989</td>
+      <td>0.812500</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>60</td>
+      <td>0.0</td>
+      <td>0.183371</td>
+      <td>0.0</td>
+      <td>-0.005874</td>
+      <td>89.0</td>
+      <td>129.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.956989</td>
+      <td>0.895833</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>260</td>
+      <td>1.0</td>
+      <td>0.177140</td>
+      <td>0.0</td>
+      <td>-0.006231</td>
+      <td>90.0</td>
+      <td>129.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.967742</td>
+      <td>0.895833</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>247</td>
+      <td>0.0</td>
+      <td>0.175714</td>
+      <td>0.0</td>
+      <td>-0.001073</td>
+      <td>90.0</td>
+      <td>131.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.967742</td>
+      <td>0.909722</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>22</td>
+      <td>1.0</td>
+      <td>0.172461</td>
+      <td>0.0</td>
+      <td>-0.003253</td>
+      <td>91.0</td>
+      <td>131.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>0.978495</td>
+      <td>0.909722</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>246</td>
+      <td>0.0</td>
+      <td>0.154211</td>
+      <td>0.0</td>
+      <td>-0.004246</td>
+      <td>91.0</td>
+      <td>138.0</td>
+      <td>-1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>0.978495</td>
+      <td>0.958333</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>6</td>
+      <td>1.0</td>
+      <td>0.149162</td>
+      <td>0.0</td>
+      <td>-0.004977</td>
+      <td>93.0</td>
+      <td>138.0</td>
+      <td>1.0</td>
+      <td>-1.0</td>
+      <td>True</td>
+      <td>1.000000</td>
+      <td>0.958333</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>200</td>
+      <td>0.0</td>
+      <td>0.078597</td>
+      <td>0.0</td>
+      <td>-0.006344</td>
+      <td>93.0</td>
+      <td>144.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>True</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>95 rows × 12 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [154]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>## Confusion Matrix
+confusion_matrix = metrics.confusion_matrix(y_test, predict)
+print(confusion_matrix)
+print(confusion_matrix/ confusion_matrix.sum())
+PNTF_labels = np.array([[&quot;TP&quot;, &quot;FP&quot;], [&quot;FN&quot;, &quot;TN&quot;]])
+sns.heatmap(confusion_matrix, annot=PNTF_labels, fmt=&quot;&quot;) #annot=True)
+confusion_s = pd.Series(confusion_matrix.flatten(), index=PNTF_labels.flatten())
+confusion_s
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[152  16]
+ [ 57  43]]
+[[ 0.56716418  0.05970149]
+ [ 0.21268657  0.16044776]]
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[154]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>TP    152
+FP     16
+FN     57
+TN     43
+dtype: int64
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_19_2.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_19_2.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [153]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>confusion_matrix.flatten()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[153]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([152,  16,  57,  43])
+</pre></div>
+</div>
+</div>
+<p>xy xは予測した結果、正解/不正解(T/F)
+yは予測した結果が正解ならそのまま、不正解なら逆 Pは正例、Nは負例、</p>
+<ul class="simple">
+<li>TP</li>
+<li>TN</li>
+<li>FP</li>
+<li>FN</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [159]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># ROC曲線は，分類器のパラメータを変化させながら，縦軸に TP/TP+FN，横軸に FP/FP+TN をとった曲線．
+_cfs = confusion_s
+[
+    _cfs[&quot;TP&quot;] / (_cfs[&quot;TP&quot;] + _cfs[&quot;FN&quot;]), # 正解は正のうち、ただしく予測できた割合(再現率: recall)
+    _cfs[&quot;FP&quot;] / (_cfs[&quot;FP&quot;] + _cfs[&quot;TN&quot;]), # 正解は負のうち、間違って予測した割合
+    _cfs[&quot;TP&quot;] / (_cfs[&quot;TP&quot;] + _cfs[&quot;FP&quot;]), # 正と予測したデータのうち，実際に正であるものの割合（精度、適合率、Precsion）
+    (_cfs[&quot;TP&quot;] + _cfs[&quot;TN&quot;]) / _cfs.sum(), # 予測正解率
+]
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[159]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[0.72727272727272729,
+ 0.2711864406779661,
+ 0.90476190476190477,
+ 0.72761194029850751]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [145]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>_cfmx.loc[&quot;T&quot;].sum(), _cfmx.sum()
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[145]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(168, P    209
+ N     59
+ dtype: int64)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [87]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>print(metrics.classification_report(y_test, predict))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+             precision    recall  f1-score   support
+
+          0       0.73      0.90      0.81       168
+          1       0.73      0.43      0.54       100
+
+avg / total       0.73      0.73      0.71       268
+
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [73]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>## ROC曲線
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [109]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
+ax1.plot(fpr, tpr, [0,1],[0,1])
+#plt.plot(tpr, fpr, [0,1],[0,1])
+
+pd.Series(tpr, index=fpr).plot(ax=ax2)
+pd.Series([-0.05, 0, 1, 1.05], index=[-0.05, 0,1, 1.05]).plot(ax=ax2)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[109]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x115b73c88&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_26_1.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_26_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [160]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>## 正解率
+[
+    metrics.accuracy_score(y_test, predict),
+    (y_test == (proba[:, 1] &gt; 0.5).astype(int)).sum() / y_test.shape[0]
+]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[160]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[0.72761194029850751, 0.72761194029850751]
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># learning curve
+# http://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.03-Hyperparameters-and-Model-Validation.ipynb
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+#from sklearn.learning_curve import learning_curve
+from sklearn.model_selection import learning_curve
+
+def PolynomialRegression(degree=2, **kwargs):
+    return make_pipeline(PolynomialFeatures(degree),
+                         LinearRegression(**kwargs))
+
+def make_data(N, err=1.0, rseed=1):
+    # randomly sample the data
+    rng = np.random.RandomState(rseed)
+    X = rng.rand(N, 1) ** 2
+    y = 10 - 1. / (X.ravel() + 0.1)
+    if err &gt; 0:
+        y += err * rng.randn(N)
+    return X, y
+
+X, y = make_data(40)
+
+fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+fig.subplots_adjust(left=0.0625, right=0.95, wspace=0.1)
+
+degrees = [2, 9]
+for degree, ax in zip(degrees, axes):
+    N, train_lc, val_lc = learning_curve(PolynomialRegression(degree),
+                                         X, y, cv=7,
+                                         train_sizes=np.linspace(0.3, 1, 25))
+
+    ax.plot(N, np.mean(train_lc, 1), color=&#39;blue&#39;, label=&#39;training score&#39;)
+    ax.plot(N, np.mean(val_lc, 1), color=&#39;red&#39;, label=&#39;validation score&#39;)
+    ax.hlines(np.mean([train_lc[-1], val_lc[-1]]), N[0], N[-1],
+                 color=&#39;gray&#39;, linestyle=&#39;dashed&#39;)
+
+    ax.set_ylim(0, 1)
+    ax.set_xlim(N[0], N[-1])
+    ax.set_xlabel(&#39;training size&#39;)
+    ax.set_ylabel(&#39;score&#39;)
+    ax.set_title(&#39;degree = {0}&#39;.format(degree), size=14)
+    ax.legend(loc=&#39;best&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_29_0.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_29_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># validation curve
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>#from sklearn.learning_curve import validation_curve
+from sklearn.model_selection import validation_curve
+
+degree = np.arange(0, 21)
+train_score, val_score = validation_curve(PolynomialRegression(), X, y,
+                                          &#39;polynomialfeatures__degree&#39;, degree, cv=7)
+
+plt.plot(degree, np.median(train_score, 1), color=&#39;blue&#39;, label=&#39;training score&#39;)
+plt.plot(degree, np.median(val_score, 1), color=&#39;red&#39;, label=&#39;validation score&#39;)
+plt.legend(loc=&#39;best&#39;)
+plt.ylim(0, 1)
+plt.xlabel(&#39;degree&#39;)
+plt.ylabel(&#39;score&#39;);
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_31_0.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_31_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

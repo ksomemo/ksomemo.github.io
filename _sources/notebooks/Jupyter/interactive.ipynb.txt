@@ -1,0 +1,285 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-27T01:46:51.436524",
+     "start_time": "2016-05-27T01:46:49.027851"
+    },
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import scipy as sp\n",
+    "import seaborn as sns\n",
+    "\n",
+    "%matplotlib inline"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- http://qiita.com/tanemaki/items/e965cd9c25acbeed860c\n",
+    "- http://qiita.com/y__sama/items/654ed8ab7464718876f"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "- conda install pivottablejs\n",
+    "- conda install ipywidgets\n",
+    "- https://github.com/damianavila/RISE\n",
+    "\n",
+    "```bash\n",
+    "mkdir -p ~/.local/share/jupyter/nbextensions && cd $_\n",
+    "git clone git@github.com:damianavila/RISE.git && cd RISE\n",
+    "python setup.py install\n",
+    "```\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-27T01:46:51.483634",
+     "start_time": "2016-05-27T01:46:51.438486"
+    },
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "import bokeh\n",
+    "import ipywidgets\n",
+    "import pivottablejs\n",
+    "\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "%matplotlib inline\n",
+    "\n",
+    "iris = sns.load_dataset(\"iris\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-27T01:46:51.503027",
+     "start_time": "2016-05-27T01:46:51.486245"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Accordion',\n",
+       " 'BoundedFloatText',\n",
+       " 'BoundedIntText',\n",
+       " 'Box',\n",
+       " 'Button',\n",
+       " 'CallbackDispatcher',\n",
+       " 'Checkbox',\n",
+       " 'Color',\n",
+       " 'ColorPicker',\n",
+       " 'CommInfo',\n",
+       " 'Controller',\n",
+       " 'DOMWidget',\n",
+       " 'Dropdown',\n",
+       " 'EventfulDict',\n",
+       " 'EventfulList',\n",
+       " 'FlexBox',\n",
+       " 'FloatProgress',\n",
+       " 'FloatRangeSlider',\n",
+       " 'FloatSlider',\n",
+       " 'FloatText',\n",
+       " 'HBox',\n",
+       " 'HTML',\n",
+       " 'Image',\n",
+       " 'IntProgress',\n",
+       " 'IntRangeSlider',\n",
+       " 'IntSlider',\n",
+       " 'IntText',\n",
+       " 'Latex',\n",
+       " 'Output',\n",
+       " 'PlaceProxy',\n",
+       " 'Proxy',\n",
+       " 'RadioButtons',\n",
+       " 'Select',\n",
+       " 'SelectMultiple',\n",
+       " 'Tab',\n",
+       " 'Text',\n",
+       " 'Textarea',\n",
+       " 'ToggleButton',\n",
+       " 'ToggleButtons',\n",
+       " 'VBox',\n",
+       " 'Valid',\n",
+       " 'Widget']"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import string\n",
+    "\n",
+    "[w for w in dir(ipywidgets) if w[0] in string.ascii_uppercase]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-27T01:46:51.532647",
+     "start_time": "2016-05-27T01:46:51.506836"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "ipywidgets.Checkbox()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-27T01:46:52.190790",
+     "start_time": "2016-05-27T01:46:51.535916"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a = 10\n",
+      "b = 5.0\n",
+      "check = True\n"
+     ]
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<matplotlib.figure.Figure at 0x119dded30>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "@ipywidgets.interact(\n",
+    "    a=(-10, 10, 1),\n",
+    "    b={'a': 1, 'b': 2.0, 'c': 5.0},\n",
+    "    check=True,\n",
+    ")\n",
+    "def plot_linear_func(a=10, b=1, check=False):\n",
+    "    print(\"a =\", a)\n",
+    "    print(\"b =\", b)\n",
+    "    print(\"check =\", check)\n",
+    "    \n",
+    "    x = pd.Series(range(10))\n",
+    "    y = a * x + check * b\n",
+    "    plt.plot(y)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-05-27T01:46:52.206393",
+     "start_time": "2016-05-27T01:46:52.194031"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "        <iframe\n",
+       "            width=\"100%\"\n",
+       "            height=\"500\"\n",
+       "            src=\"pivottablejs.html\"\n",
+       "            frameborder=\"0\"\n",
+       "            allowfullscreen\n",
+       "        ></iframe>\n",
+       "        "
+      ],
+      "text/plain": [
+       "<IPython.lib.display.IFrame at 0x104491f98>"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pivottablejs.pivot_ui(iris)"
+   ]
+  }
+ ],
+ "metadata": {
+  "_draft": {
+   "nbviewer_url": "https://gist.github.com/9c89d0f6764276c7ebd3"
+  },
+  "celltoolbar": "Slideshow",
+  "gist": {
+   "data": {
+    "description": "transform.ipynb",
+    "public": true
+   },
+   "id": "9c89d0f6764276c7ebd3"
+  },
+  "hide_input": false,
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.1"
+  },
+  "toc": {
+   "toc_cell": false,
+   "toc_number_sections": true,
+   "toc_threshold": 6,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}

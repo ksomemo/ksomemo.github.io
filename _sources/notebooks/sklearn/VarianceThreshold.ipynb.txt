@@ -1,0 +1,311 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:04:51.031095",
+     "start_time": "2017-03-06T11:04:50.359966"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "from sklearn.feature_selection import VarianceThreshold\n",
+    "import numpy as np\n",
+    "import pandas as pd\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:10:16.140951",
+     "start_time": "2017-03-06T11:10:16.134522"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "rng = np.random.RandomState(0)\n",
+    "data = np.c_[\n",
+    "    rng.rand(100).reshape(-1, 1),\n",
+    "    rng.randn(100).reshape(-1, 1)\n",
+    "]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:10:18.190371",
+     "start_time": "2017-03-06T11:10:18.183642"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[ 0.5488135 , -1.16514984],\n",
+       "       [ 0.71518937,  0.90082649],\n",
+       "       [ 0.60276338,  0.46566244],\n",
+       "       [ 0.54488318, -1.53624369],\n",
+       "       [ 0.4236548 ,  1.48825219]])"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "data[:5, :]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:11:15.654549",
+     "start_time": "2017-03-06T11:11:15.638280"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 0.08311782,  0.99276922])"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.var(data, axis=0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:11:14.529329",
+     "start_time": "2017-03-06T11:11:14.525336"
+    },
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "vt = VarianceThreshold(threshold=0.8 *(1 - 0.8))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:11:15.654549",
+     "start_time": "2017-03-06T11:11:15.638280"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "ename": "ValueError",
+     "evalue": "No feature in X meets the variance threshold 0.16000",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-28-4b88c5698496>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mvt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfit_transform\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata_uni\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m/Users/knt/.pyenv/versions/anaconda3-4.2.0/lib/python3.5/site-packages/sklearn/base.py\u001b[0m in \u001b[0;36mfit_transform\u001b[0;34m(self, X, y, **fit_params)\u001b[0m\n\u001b[1;32m    492\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0my\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    493\u001b[0m             \u001b[0;31m# fit method of arity 1 (unsupervised transformation)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 494\u001b[0;31m             \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mX\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mfit_params\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtransform\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mX\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    495\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    496\u001b[0m             \u001b[0;31m# fit method of arity 2 (supervised transformation)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/Users/knt/.pyenv/versions/anaconda3-4.2.0/lib/python3.5/site-packages/sklearn/feature_selection/variance_threshold.py\u001b[0m in \u001b[0;36mfit\u001b[0;34m(self, X, y)\u001b[0m\n\u001b[1;32m     73\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mX\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mshape\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     74\u001b[0m                 \u001b[0mmsg\u001b[0m \u001b[0;34m+=\u001b[0m \u001b[0;34m\" (X contains only one sample)\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 75\u001b[0;31m             \u001b[0;32mraise\u001b[0m \u001b[0mValueError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmsg\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mformat\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mthreshold\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     76\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     77\u001b[0m         \u001b[0;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mValueError\u001b[0m: No feature in X meets the variance threshold 0.16000"
+     ]
+    }
+   ],
+   "source": [
+    "vt.fit_transform(data_uni)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:15:53.297903",
+     "start_time": "2017-03-06T11:15:53.286134"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([[0, 0, 1],\n",
+       "        [0, 1, 0],\n",
+       "        [1, 0, 0],\n",
+       "        [0, 1, 1],\n",
+       "        [0, 1, 0],\n",
+       "        [0, 1, 1]]), VarianceThreshold(threshold=0.15999999999999998))"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from sklearn.feature_selection import VarianceThreshold\n",
+    "X = np.array([\n",
+    "    [0, 0, 1],\n",
+    "    [0, 1, 0],\n",
+    "    [1, 0, 0],\n",
+    "    [0, 1, 1],\n",
+    "    [0, 1, 0],\n",
+    "    [0, 1, 1]])\n",
+    "sel = VarianceThreshold(threshold=(.8 * (1 - .8)))\n",
+    "X, sel"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:15:55.510509",
+     "start_time": "2017-03-06T11:15:55.502907"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[0, 1],\n",
+       "       [1, 0],\n",
+       "       [0, 0],\n",
+       "       [1, 1],\n",
+       "       [1, 0],\n",
+       "       [1, 1]])"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sel.fit_transform(X)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:17:07.211917",
+     "start_time": "2017-03-06T11:17:07.204569"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([ 0.13888889,  0.22222222,  0.25      ]),\n",
+       " array([ 0.13888889,  0.22222222,  0.25      ]))"
+      ]
+     },
+     "execution_count": 47,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "X.var(axis=0), sel.variances_"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2017-03-06T11:16:23.970941",
+     "start_time": "2017-03-06T11:16:23.962306"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([False,  True,  True], dtype=bool)"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sel.variances_ > sel.threshold"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "hide_input": false,
+  "kernelspec": {
+   "display_name": "Python [default]",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.2"
+  },
+  "toc": {
+   "toc_cell": false,
+   "toc_number_sections": true,
+   "toc_threshold": 6,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

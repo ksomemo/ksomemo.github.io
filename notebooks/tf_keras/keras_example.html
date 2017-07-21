@@ -1,0 +1,1446 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>参考 &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">参考</a></li>
+<li><a class="reference internal" href="#モジュール性">モジュール性</a><ul>
+<li><a class="reference internal" href="#ニューラルネットワーク">ニューラルネットワーク</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#SequentialモデルでKerasに触れてみよう">SequentialモデルでKerasに触れてみよう</a></li>
+<li><a class="reference internal" href="#モデルの可視化">モデルの可視化</a><ul>
+<li><a class="reference internal" href="#入力の形を指定する">入力の形を指定する</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Compile">Compile</a><ul>
+<li><a class="reference internal" href="#最適化-optimize">最適化 optimize</a></li>
+<li><a class="reference internal" href="#目的関数">目的関数</a><ul>
+<li><a class="reference internal" href="#complileのloss">complileのloss</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>参考</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/tf_keras/keras_example.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import keras
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+Using TensorFlow backend.
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import tensorflow
+</pre></div>
+</div>
+</div>
+<div class="section" id="参考">
+<h1>参考<a class="headerlink" href="#参考" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="https://keras.io/ja/">https://keras.io/ja/</a></li>
+<li><a class="reference external" href="https://keras.io/">https://keras.io/</a></li>
+</ul>
+</div>
+<div class="section" id="モジュール性">
+<h1>モジュール性<a class="headerlink" href="#モジュール性" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>モデルとは、できるだけ制約を少なく接続可能</li>
+<li>完全構成可能な独立したモジュールのシーケンスまたはグラフとして理解されています。</li>
+</ul>
+<div class="section" id="ニューラルネットワーク">
+<h2>ニューラルネットワーク<a class="headerlink" href="#ニューラルネットワーク" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>すべて新しいモデルを作成するために組み合わせられる独立したモジュールです。</p>
+<ul class="simple">
+<li>層</li>
+<li>損失関数</li>
+<li>最適化</li>
+<li>初期化</li>
+<li>活性化関数</li>
+<li>正規化</li>
+</ul>
+</div>
+</div>
+<div class="section" id="SequentialモデルでKerasに触れてみよう">
+<h1>SequentialモデルでKerasに触れてみよう<a class="headerlink" href="#SequentialモデルでKerasに触れてみよう" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>Sequential (系列) モデルは層を積み重ねたもの。</li>
+<li>Sequential
+モデルはコンストラクタに層のインスタンスのリストを与えることで作れる</li>
+<li>単純に .add() メソッドを用いて層を追加できる。</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from keras.models import Sequential
+from keras.layers import Dense, Activation
+
+model = Sequential([
+    Dense(32, input_dim=784),
+    Activation(&#39;relu&#39;),
+])
+model.add(Dense(10))
+model.add(Activation(&#39;softmax&#39;))
+model
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;keras.models.Sequential at 0x1139724e0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="モデルの可視化">
+<h1>モデルの可視化<a class="headerlink" href="#モデルの可視化" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="https://keras.io/ja/visualization/">https://keras.io/ja/visualization/</a></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>!pip freeze | grep pydot
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pydot-ng==1.0.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from IPython.display import Image, display, SVG
+from keras.utils.visualize_util import plot
+from keras.utils.visualize_util import model_to_dot
+
+# plot using model_to_dot
+plot(model, to_file=&#39;model.png&#39;)
+display(Image(&quot;model.png&quot;))
+
+SVG(model_to_dot(model).create(prog=&#39;dot&#39;, format=&#39;svg&#39;))
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_tf_keras_keras_example_7_0.png" src="../../_images/notebooks_tf_keras_keras_example_7_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_tf_keras_keras_example_7_1.svg" src="../../_images/notebooks_tf_keras_keras_example_7_1.svg" /></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>model.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+____________________________________________________________________________________________________
+Layer (type)                     Output Shape          Param #     Connected to
+====================================================================================================
+dense_1 (Dense)                  (None, 32)            25120       dense_input_1[0][0]
+____________________________________________________________________________________________________
+activation_1 (Activation)        (None, 32)            0           dense_1[0][0]
+____________________________________________________________________________________________________
+dense_2 (Dense)                  (None, 10)            330         activation_1[0][0]
+____________________________________________________________________________________________________
+activation_2 (Activation)        (None, 10)            0           dense_2[0][0]
+====================================================================================================
+Total params: 25,450
+Trainable params: 25,450
+Non-trainable params: 0
+____________________________________________________________________________________________________
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>Sequential.from_config(model.get_config()).set_weights(model.get_weights())
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import yaml
+import io
+import json
+json.loads(model.to_json()) == yaml.load(io.StringIO(model.to_yaml()))
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[28]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>False
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from keras.models import model_from_json, model_from_yaml, model_from_config
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>model.save_weights(&quot;model_weights_hdf5&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>!ls -lh *hdf*
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-rw-r--r-- 1 knt staff 107K  2 17 04:17 model_weights_hdf5
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [79]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># https://github.com/h5py/h5py
+import h5py
+with h5py.File(&quot;model_weights_hdf5&quot;, &quot;r&quot;) as h5:
+    print(type(h5), h5.name)
+    for k, v in h5.items():
+        print(k, v, type(v), v.name)
+    print(&quot;-&quot;*10)
+
+    h5.visit(print)
+    print(&quot;-&quot;*10)
+
+    print(list(h5.attrs))
+    print(h5.attrs[&quot;layer_names&quot;])
+    #h5.attrs[&quot;new_attr&quot;] = &quot;values&quot;
+    #print(list(h5.attrs), h5.attrs[&quot;new_attr&quot;])
+    print(&quot;-&quot;*10)
+
+    print(list(h5[&quot;/activation_1&quot;].values()))
+    print(h5.get(&quot;/dense_1&quot;))
+    print(h5.get(&quot;/dense_3&quot;, &quot;default&quot;))
+    print(list(h5[&quot;/dense_1&quot;].values()))
+    print(&quot;-&quot;*10)
+    print(h5[&quot;/dense_1/dense_1_b:0&quot;].value)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;h5py._hl.files.File&#39;&gt; /
+activation_1 &lt;HDF5 group &#34;/activation_1&#34; (0 members)&gt; &lt;class &#39;h5py._hl.group.Group&#39;&gt; /activation_1
+activation_2 &lt;HDF5 group &#34;/activation_2&#34; (0 members)&gt; &lt;class &#39;h5py._hl.group.Group&#39;&gt; /activation_2
+dense_1 &lt;HDF5 group &#34;/dense_1&#34; (2 members)&gt; &lt;class &#39;h5py._hl.group.Group&#39;&gt; /dense_1
+dense_2 &lt;HDF5 group &#34;/dense_2&#34; (2 members)&gt; &lt;class &#39;h5py._hl.group.Group&#39;&gt; /dense_2
+----------
+activation_1
+activation_2
+dense_1
+dense_1/dense_1_W:0
+dense_1/dense_1_b:0
+dense_2
+dense_2/dense_2_W:0
+dense_2/dense_2_b:0
+----------
+[&#39;layer_names&#39;]
+[b&#39;dense_1&#39; b&#39;activation_1&#39; b&#39;dense_2&#39; b&#39;activation_2&#39;]
+----------
+[]
+&lt;HDF5 group &#34;/dense_1&#34; (2 members)&gt;
+default
+[&lt;HDF5 dataset &#34;dense_1_W:0&#34;: shape (784, 32), type &#34;&lt;f4&#34;&gt;, &lt;HDF5 dataset &#34;dense_1_b:0&#34;: shape (32,), type &#34;&lt;f4&#34;&gt;]
+----------
+[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.
+  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [88]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import numpy as np
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [130]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>with h5py.File(&quot;file.hdf5&quot;, &quot;w&quot;) as f:
+    dset = f.create_dataset(&quot;mydataset&quot;, shape=(100,), dtype=&#39;i&#39;, data=np.arange(100))
+    print(type(dset), dset, dset.name, dset.shape)
+    print(dset.value, type(dset.value))
+    print(dset[0:2])
+    print(&quot;-&quot;*10)
+
+    group = f.create_group(&quot;group&quot;)
+    print(type(group), group, group.name)
+    print(&quot;-&quot;*10)
+
+    dset2 = group.create_dataset(&quot;another_dataset&quot;, data=np.arange(6).reshape(2, 3), dtype=&quot;f&quot;)
+    dset2
+    print(type(dset2), dset2, dset2.name, dset2[0, 1])
+    print(&quot;-&quot;*10)
+
+    sub_group = group.create_group(&quot;sub_group&quot;)
+    sub_group[&quot;v1_ndarray&quot;] = np.array([1.0])
+    sub_group[&quot;v2_float&quot;] = 2.0
+    sub_group[&quot;v3_int&quot;] = 3
+    print(type(sub_group), sub_group, sub_group.name)
+    print(&quot;-&quot;*10)
+
+    soft_link = h5py.SoftLink(&quot;/group&quot;)
+    external_link = h5py.ExternalLink(&quot;model_weights_hdf5&quot;, &quot;/dense_1/dense_1_b:0&quot;)
+    print(type(soft_link), soft_link, soft_link.path)
+    print(type(external_link), external_link, external_link.path, external_link.filename)
+    print(&quot;-&quot;*10)
+
+    sub_group[&quot;alias_group&quot;] = soft_link
+    sub_group[&#39;ext_link&#39;] = external_link
+    print(type(sub_group[&quot;alias_group&quot;]), sub_group[&quot;alias_group&quot;])
+    print(type(sub_group[&quot;ext_link&quot;]), sub_group[&quot;ext_link&quot;])
+    print(&quot;-&quot;*10)
+
+    f.visit(print)
+    print(&quot;-&quot;*10)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;h5py._hl.dataset.Dataset&#39;&gt; &lt;HDF5 dataset &#34;mydataset&#34;: shape (100,), type &#34;&lt;i4&#34;&gt; /mydataset (100,)
+[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
+ 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
+ 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74
+ 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99] &lt;class &#39;numpy.ndarray&#39;&gt;
+[0 1]
+----------
+&lt;class &#39;h5py._hl.group.Group&#39;&gt; &lt;HDF5 group &#34;/group&#34; (0 members)&gt; /group
+----------
+&lt;class &#39;h5py._hl.dataset.Dataset&#39;&gt; &lt;HDF5 dataset &#34;another_dataset&#34;: shape (2, 3), type &#34;&lt;f4&#34;&gt; /group/another_dataset 1.0
+----------
+&lt;class &#39;h5py._hl.group.Group&#39;&gt; &lt;HDF5 group &#34;/group/sub_group&#34; (3 members)&gt; /group/sub_group
+----------
+&lt;class &#39;h5py._hl.group.SoftLink&#39;&gt; &lt;SoftLink to &#34;/group&#34;&gt; /group
+&lt;class &#39;h5py._hl.group.ExternalLink&#39;&gt; &lt;ExternalLink to &#34;/dense_1/dense_1_b:0&#34; in file &#34;model_weights_hdf5&#34; /dense_1/dense_1_b:0 model_weights_hdf5
+----------
+&lt;class &#39;h5py._hl.group.Group&#39;&gt; &lt;HDF5 group &#34;/group/sub_group/alias_group&#34; (2 members)&gt;
+&lt;class &#39;h5py._hl.dataset.Dataset&#39;&gt; &lt;HDF5 dataset &#34;dense_1_b:0&#34;: shape (32,), type &#34;&lt;f4&#34;&gt;
+----------
+group
+group/another_dataset
+group/sub_group
+group/sub_group/v1_ndarray
+group/sub_group/v2_float
+group/sub_group/v3_int
+mydataset
+----------
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [132]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import pandas as pd
+import seaborn as sns
+from IPython.display import display
+
+titanic = sns.load_dataset(&quot;titanic&quot;)
+titanic.head(2)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[132]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>pclass</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>adult_male</th>
+      <th>deck</th>
+      <th>embark_town</th>
+      <th>alive</th>
+      <th>alone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7.2500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>71.2833</td>
+      <td>C</td>
+      <td>First</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>C</td>
+      <td>Cherbourg</td>
+      <td>yes</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [160]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># http://pandas.pydata.org/pandas-docs/stable/io.html#hdf5-pytables
+# http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_hdf.html
+with pd.HDFStore(&#39;titanic_head_export.h5&#39;, mode=&quot;w&quot;) as store_export:
+    print(store_export)
+    print(&quot;-&quot;*10)
+
+    store_export.append(&#39;key&#39;, titanic.head())
+    store_export.append(&#39;key&#39;, titanic.tail(), data_columns=titanic.columns)
+    print(store_export)
+    print(&quot;-&quot;*10)
+
+    store_export.remove(&#39;key&#39;)
+    store_export.put(&#39;key2/sub&#39;, titanic.tail(), data_columns=titanic.columns, format=&quot;table&quot;)
+    store_export.append(&#39;key2/sub&#39;, titanic.tail())
+    print(store_export)
+    print(&quot;-&quot;*10)
+
+    display(store_export[&quot;key2/sub&quot;].head(2))
+    display(store_export.select(&quot;key2/sub&quot;).tail(2))
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;pandas.io.pytables.HDFStore&#39;&gt;
+File path: titanic_head_export.h5
+Empty
+----------
+&lt;class &#39;pandas.io.pytables.HDFStore&#39;&gt;
+File path: titanic_head_export.h5
+/key                                     frame_table  (typ-&gt;appendable,nrows-&gt;10,ncols-&gt;15,indexers-&gt;[index])
+/key/meta/values_block_0/meta            series_table (typ-&gt;appendable,nrows-&gt;3,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values])
+/key/meta/values_block_1/meta            series_table (typ-&gt;appendable,nrows-&gt;7,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values])
+----------
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="stderr output_area docutils container">
+<div class="highlight"><pre>
+/Users/knt/.pyenv/versions/anaconda3-4.2.0/lib/python3.5/site-packages/tables/path.py:118: NaturalNameWarning: object name is a Python keyword: &#39;class&#39;; you will not be able to use natural naming to access this object; using ``getattr()`` will still work, though
+  % (name, _warnInfo), NaturalNameWarning)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;pandas.io.pytables.HDFStore&#39;&gt;
+File path: titanic_head_export.h5
+/key2/sub                            frame_table  (typ-&gt;appendable,nrows-&gt;10,ncols-&gt;15,indexers-&gt;[index],dc-&gt;[survived,pclass,sex,age,sibsp,parch,fare,embarked,class,who,adult_male,deck,embark_town,alive,alone])
+/key2/sub/meta/class/meta            series_table (typ-&gt;appendable,nrows-&gt;3,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values])
+/key2/sub/meta/deck/meta             series_table (typ-&gt;appendable,nrows-&gt;7,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values])
+----------
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>pclass</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>adult_male</th>
+      <th>deck</th>
+      <th>embark_town</th>
+      <th>alive</th>
+      <th>alone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>886</th>
+      <td>0</td>
+      <td>2</td>
+      <td>male</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13.0</td>
+      <td>S</td>
+      <td>Second</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>887</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>19.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>30.0</td>
+      <td>S</td>
+      <td>First</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>B</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>pclass</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>adult_male</th>
+      <th>deck</th>
+      <th>embark_town</th>
+      <th>alive</th>
+      <th>alone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>889</th>
+      <td>1</td>
+      <td>1</td>
+      <td>male</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>30.00</td>
+      <td>C</td>
+      <td>First</td>
+      <td>man</td>
+      <td>True</td>
+      <td>C</td>
+      <td>Cherbourg</td>
+      <td>yes</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>890</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>32.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.75</td>
+      <td>Q</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Queenstown</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [144]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>titanic.head().to_hdf(&quot;titanic_head.hdf5&quot;, &quot;key_hdf&quot;, mode=&quot;w&quot;, format=&quot;table&quot;)
+titanic_df = pd.read_hdf(&quot;titanic_head.hdf5&quot;)
+display(titanic_df)
+
+with h5py.File(&quot;titanic_head.hdf5&quot;, mode=&quot;r&quot;) as titanic_hdf:
+    titanic_hdf.visit(print)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>survived</th>
+      <th>pclass</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>fare</th>
+      <th>embarked</th>
+      <th>class</th>
+      <th>who</th>
+      <th>adult_male</th>
+      <th>deck</th>
+      <th>embark_town</th>
+      <th>alive</th>
+      <th>alone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7.2500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>71.2833</td>
+      <td>C</td>
+      <td>First</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>C</td>
+      <td>Cherbourg</td>
+      <td>yes</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.9250</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>53.1000</td>
+      <td>S</td>
+      <td>First</td>
+      <td>woman</td>
+      <td>False</td>
+      <td>C</td>
+      <td>Southampton</td>
+      <td>yes</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>3</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.0500</td>
+      <td>S</td>
+      <td>Third</td>
+      <td>man</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>Southampton</td>
+      <td>no</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+key_hdf
+key_hdf/_i_table
+key_hdf/_i_table/index
+key_hdf/_i_table/index/abounds
+key_hdf/_i_table/index/bounds
+key_hdf/_i_table/index/indices
+key_hdf/_i_table/index/indicesLR
+key_hdf/_i_table/index/mbounds
+key_hdf/_i_table/index/mranges
+key_hdf/_i_table/index/ranges
+key_hdf/_i_table/index/sorted
+key_hdf/_i_table/index/sortedLR
+key_hdf/_i_table/index/zbounds
+key_hdf/meta
+key_hdf/meta/values_block_0
+key_hdf/meta/values_block_0/meta
+key_hdf/meta/values_block_0/meta/_i_table
+key_hdf/meta/values_block_0/meta/_i_table/index
+key_hdf/meta/values_block_0/meta/_i_table/index/abounds
+key_hdf/meta/values_block_0/meta/_i_table/index/bounds
+key_hdf/meta/values_block_0/meta/_i_table/index/indices
+key_hdf/meta/values_block_0/meta/_i_table/index/indicesLR
+key_hdf/meta/values_block_0/meta/_i_table/index/mbounds
+key_hdf/meta/values_block_0/meta/_i_table/index/mranges
+key_hdf/meta/values_block_0/meta/_i_table/index/ranges
+key_hdf/meta/values_block_0/meta/_i_table/index/sorted
+key_hdf/meta/values_block_0/meta/_i_table/index/sortedLR
+key_hdf/meta/values_block_0/meta/_i_table/index/zbounds
+key_hdf/meta/values_block_0/meta/_i_table/values
+key_hdf/meta/values_block_0/meta/_i_table/values/abounds
+key_hdf/meta/values_block_0/meta/_i_table/values/bounds
+key_hdf/meta/values_block_0/meta/_i_table/values/indices
+key_hdf/meta/values_block_0/meta/_i_table/values/indicesLR
+key_hdf/meta/values_block_0/meta/_i_table/values/mbounds
+key_hdf/meta/values_block_0/meta/_i_table/values/mranges
+key_hdf/meta/values_block_0/meta/_i_table/values/ranges
+key_hdf/meta/values_block_0/meta/_i_table/values/sorted
+key_hdf/meta/values_block_0/meta/_i_table/values/sortedLR
+key_hdf/meta/values_block_0/meta/_i_table/values/zbounds
+key_hdf/meta/values_block_0/meta/table
+key_hdf/meta/values_block_1
+key_hdf/meta/values_block_1/meta
+key_hdf/meta/values_block_1/meta/_i_table
+key_hdf/meta/values_block_1/meta/_i_table/index
+key_hdf/meta/values_block_1/meta/_i_table/index/abounds
+key_hdf/meta/values_block_1/meta/_i_table/index/bounds
+key_hdf/meta/values_block_1/meta/_i_table/index/indices
+key_hdf/meta/values_block_1/meta/_i_table/index/indicesLR
+key_hdf/meta/values_block_1/meta/_i_table/index/mbounds
+key_hdf/meta/values_block_1/meta/_i_table/index/mranges
+key_hdf/meta/values_block_1/meta/_i_table/index/ranges
+key_hdf/meta/values_block_1/meta/_i_table/index/sorted
+key_hdf/meta/values_block_1/meta/_i_table/index/sortedLR
+key_hdf/meta/values_block_1/meta/_i_table/index/zbounds
+key_hdf/meta/values_block_1/meta/_i_table/values
+key_hdf/meta/values_block_1/meta/_i_table/values/abounds
+key_hdf/meta/values_block_1/meta/_i_table/values/bounds
+key_hdf/meta/values_block_1/meta/_i_table/values/indices
+key_hdf/meta/values_block_1/meta/_i_table/values/indicesLR
+key_hdf/meta/values_block_1/meta/_i_table/values/mbounds
+key_hdf/meta/values_block_1/meta/_i_table/values/mranges
+key_hdf/meta/values_block_1/meta/_i_table/values/ranges
+key_hdf/meta/values_block_1/meta/_i_table/values/sorted
+key_hdf/meta/values_block_1/meta/_i_table/values/sortedLR
+key_hdf/meta/values_block_1/meta/_i_table/values/zbounds
+key_hdf/meta/values_block_1/meta/table
+key_hdf/table
+</pre></div></div>
+</div>
+<div class="section" id="入力の形を指定する">
+<h2>入力の形を指定する<a class="headerlink" href="#入力の形を指定する" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>最初の層では入力の形を指定しなければならない
+(それ以降の層では必要ない) 。 指定する方法は複数ある:</li>
+<li>最初の層にinput_shape引数を与える。これは形を表すタプル
+(タプルの要素は整数かNoneでNoneはどんなサイズでも良いことを表す。)
+input_shapeにbatchサイズは含まれない。</li>
+<li>代わりにbatch_input_shape引数を与える。ここではbatchサイズが含まれる。これは固定長のbatchサイズを指定するときに便利である
+(例えば stateful RNN) 。</li>
+<li>Denseなどの一部の2Dの層では入力の形をinput_dimで指定でき、一部の3Dの層ではinput_dimとinput_lengthで指定できる。</li>
+<li>したがって、次の3つのコードは等価である。</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">784</span><span class="p">,)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">batch_input_shape</span><span class="o">=</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">784</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">))</span>
+
+<span class="c1"># 2nd</span>
+<span class="c1"># note that batch dimension is &quot;None&quot; here,</span>
+<span class="c1"># so the model will be able to process batches of any size.</span>
+
+<span class="c1"># 次の3つのコードも等価である。</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">64</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">batch_input_shape</span><span class="o">=</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">64</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Compile">
+<h1>Compile<a class="headerlink" href="#Compile" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="最適化-optimize">
+<h2>最適化 optimize<a class="headerlink" href="#最適化-optimize" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>最適化アルゴリズムの利用方法</p>
+<p><a class="reference external" href="https://keras.io/ja/optimizers/">https://keras.io/ja/optimizers/</a></p>
+</div>
+<div class="section" id="目的関数">
+<h2>目的関数<a class="headerlink" href="#目的関数" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://keras.io/ja/objectives/">https://keras.io/ja/objectives/</a></li>
+<li><a class="reference external" href="https://github.com/fchollet/keras/blob/master/keras/objectives.py">https://github.com/fchollet/keras/blob/master/keras/objectives.py</a></li>
+</ul>
+<div class="section" id="complileのloss">
+<h3>complileのloss<a class="headerlink" href="#complileのloss" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>regression ?<ul>
+<li>mean_squared_error / mse</li>
+<li>mean_absolute_error / mae</li>
+<li>mean_absolute_percentage_error / mape</li>
+<li>mean_squared_logarithmic_error / msle</li>
+</ul>
+</li>
+<li>squared_hinge</li>
+<li>hinge</li>
+<li>binary_crossentropy<ul>
+<li>logloss</li>
+</ul>
+</li>
+<li>categorical_crossentropy<ul>
+<li>multi-class-loglossとしても知られています</li>
+<li>Note:
+この目的関数を使うには，ラベルがバイナリ配列であり，その形状が(nb_samples,
+nb_classes)であることが必要です．</li>
+</ul>
+</li>
+<li>sparse_categorical_crossentropy<ul>
+<li>categorical_crossentropyと同じですが，スパースラベルを取る点で違います</li>
+<li>Note: ラベルの次元と出力の次元が同じである必要があります</li>
+<li>例えば，ラベル形状を拡張するために，np.expand_dims(y,
+-1)を用いて新しく次元を追加する必要があるかもしれません．</li>
+</ul>
+</li>
+<li>kullback_leibler_divergence<ul>
+<li>kld</li>
+<li>予測した確率分布Qから真の確率分布Pへの情報ゲイン．2つの分布の異なりの度合いを得る．</li>
+</ul>
+</li>
+<li>poisson<ul>
+<li>(予測 - 正解 * log(予測))の平均</li>
+</ul>
+</li>
+<li>cosine_proximity<ul>
+<li>予測と正解間のコサイン近似の負の平均．</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

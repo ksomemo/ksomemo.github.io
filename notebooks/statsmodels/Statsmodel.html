@@ -1,0 +1,1114 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>model と 学習済みモデル &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">model と 学習済みモデル</a></li>
+<li><a class="reference internal" href="#statsmodel-api">statsmodel api</a></li>
+<li><a class="reference internal" href="#statsmodels-formula-api">statsmodels formula api</a></li>
+<li><a class="reference internal" href="#statsmodels">statsmodels</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>model と 学習済みモデル</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/statsmodels/Statsmodel.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>iris = sns.load_dataset(&quot;iris&quot;)
+iris.tail()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>145</th>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>6.2</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>virginica</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>virginica</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>sns.pairplot(iris)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;seaborn.axisgrid.PairGrid at 0x1053c7358&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_statsmodels_Statsmodel_2_1.png" src="../../_images/notebooks_statsmodels_Statsmodel_2_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>model = sm.OLS(iris.sepal_length, iris.sepal_width)
+fitted = model.fit()
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fitted.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>      <td>sepal_length</td>   <th>  R-squared:         </th> <td>   0.957</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.956</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   3277.</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sun, 03 Apr 2016</td> <th>  Prob (F-statistic):</th> <td>2.42e-103</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>01:31:50</td>     <th>  Log-Likelihood:    </th> <td> -243.98</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   150</td>      <th>  AIC:               </th> <td>   490.0</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   149</td>      <th>  BIC:               </th> <td>   493.0</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+       <td></td>          <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th> <th>[95.0% Conf. Int.]</th>
+</tr>
+<tr>
+  <th>sepal_width</th> <td>    1.8690</td> <td>    0.033</td> <td>   57.246</td> <td> 0.000</td> <td>    1.804     1.934</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>18.144</td> <th>  Durbin-Watson:     </th> <td>   0.427</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>   7.909</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.338</td> <th>  Prob(JB):          </th> <td>  0.0192</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 2.101</td> <th>  Cond. No.          </th> <td>    1.00</td>
+</tr>
+</table></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fitted.params
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>sepal_width    1.869009
+dtype: float64
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>def attrs(obj):
+    return [a for a in dir(obj) if not a.startswith(&quot;_&quot;)]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>%pprint
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pretty printing has been turned OFF
+</pre></div></div>
+</div>
+<div class="section" id="model-と-学習済みモデル">
+<h1>model と 学習済みモデル<a class="headerlink" href="#model-と-学習済みモデル" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>attrs(model)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[9]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;data&#39;, &#39;df_model&#39;, &#39;df_resid&#39;, &#39;endog&#39;, &#39;endog_names&#39;, &#39;exog&#39;, &#39;exog_names&#39;, &#39;fit&#39;, &#39;fit_regularized&#39;, &#39;from_formula&#39;, &#39;hessian&#39;, &#39;information&#39;, &#39;initialize&#39;, &#39;k_constant&#39;, &#39;loglike&#39;, &#39;nobs&#39;, &#39;normalized_cov_params&#39;, &#39;pinv_wexog&#39;, &#39;predict&#39;, &#39;rank&#39;, &#39;score&#39;, &#39;weights&#39;, &#39;wendog&#39;, &#39;wexog&#39;, &#39;wexog_singular_values&#39;, &#39;whiten&#39;]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>attrs(fitted)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[10]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;HC0_se&#39;, &#39;HC1_se&#39;, &#39;HC2_se&#39;, &#39;HC3_se&#39;, &#39;aic&#39;, &#39;bic&#39;, &#39;bse&#39;, &#39;centered_tss&#39;, &#39;compare_f_test&#39;, &#39;compare_lm_test&#39;, &#39;compare_lr_test&#39;, &#39;condition_number&#39;, &#39;conf_int&#39;, &#39;conf_int_el&#39;, &#39;cov_HC0&#39;, &#39;cov_HC1&#39;, &#39;cov_HC2&#39;, &#39;cov_HC3&#39;, &#39;cov_kwds&#39;, &#39;cov_params&#39;, &#39;cov_type&#39;, &#39;df_model&#39;, &#39;df_resid&#39;, &#39;diagn&#39;, &#39;eigenvals&#39;, &#39;el_test&#39;, &#39;ess&#39;, &#39;f_pvalue&#39;, &#39;f_test&#39;, &#39;fittedvalues&#39;, &#39;fvalue&#39;, &#39;get_influence&#39;, &#39;get_robustcov_results&#39;, &#39;initialize&#39;, &#39;k_constant&#39;, &#39;llf&#39;, &#39;load&#39;, &#39;model&#39;, &#39;mse_model&#39;, &#39;mse_resid&#39;, &#39;mse_total&#39;, &#39;nobs&#39;, &#39;normalized_cov_params&#39;, &#39;outlier_test&#39;, &#39;params&#39;, &#39;predict&#39;, &#39;pvalues&#39;, &#39;remove_data&#39;, &#39;resid&#39;, &#39;resid_pearson&#39;, &#39;rsquared&#39;, &#39;rsquared_adj&#39;, &#39;save&#39;, &#39;scale&#39;, &#39;ssr&#39;, &#39;summary&#39;, &#39;summary2&#39;, &#39;t_test&#39;, &#39;tvalues&#39;, &#39;uncentered_tss&#39;, &#39;use_t&#39;, &#39;wald_test&#39;, &#39;wresid&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="statsmodel-api">
+<h1>statsmodel api<a class="headerlink" href="#statsmodel-api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in attrs(sm) if a.isupper()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[11]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;GEE&#39;, &#39;GLM&#39;, &#39;GLS&#39;, &#39;GLSAR&#39;, &#39;OLS&#39;, &#39;RLM&#39;, &#39;WLS&#39;]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in attrs(sm) if a[0].isupper()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[12]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;GEE&#39;, &#39;GLM&#39;, &#39;GLS&#39;, &#39;GLSAR&#39;, &#39;Logit&#39;, &#39;MNLogit&#39;, &#39;MixedLM&#39;, &#39;NegativeBinomial&#39;, &#39;NominalGEE&#39;, &#39;OLS&#39;, &#39;OrdinalGEE&#39;, &#39;PHReg&#39;, &#39;Poisson&#39;, &#39;ProbPlot&#39;, &#39;Probit&#39;, &#39;QuantReg&#39;, &#39;RLM&#39;, &#39;WLS&#39;]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in attrs(sm) if a.islower()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[13]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;add_constant&#39;, &#39;categorical&#39;, &#39;cov_struct&#39;, &#39;datasets&#39;, &#39;distributions&#39;, &#39;emplike&#39;, &#39;families&#39;, &#39;formula&#39;, &#39;genmod&#39;, &#39;graphics&#39;, &#39;iolib&#39;, &#39;load&#39;, &#39;nonparametric&#39;, &#39;qqline&#39;, &#39;qqplot&#39;, &#39;qqplot_2samples&#39;, &#39;regression&#39;, &#39;robust&#39;, &#39;show_versions&#39;, &#39;stats&#39;, &#39;test&#39;, &#39;tools&#39;, &#39;tsa&#39;, &#39;version&#39;, &#39;webdoc&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="statsmodels-formula-api">
+<h1>statsmodels formula api<a class="headerlink" href="#statsmodels-formula-api" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in attrs(smf) if a.isupper()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[14]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;GEE&#39;, &#39;GLM&#39;, &#39;GLS&#39;, &#39;GLSAR&#39;, &#39;OLS&#39;, &#39;RLM&#39;, &#39;WLS&#39;]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in attrs(smf) if a[0].isupper()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[15]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;GEE&#39;, &#39;GLM&#39;, &#39;GLS&#39;, &#39;GLSAR&#39;, &#39;Logit&#39;, &#39;MNLogit&#39;, &#39;MixedLM&#39;, &#39;NegativeBinomial&#39;, &#39;NominalGEE&#39;, &#39;OLS&#39;, &#39;OrdinalGEE&#39;, &#39;PHReg&#39;, &#39;Poisson&#39;, &#39;Probit&#39;, &#39;QuantReg&#39;, &#39;RLM&#39;, &#39;WLS&#39;]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in attrs(smf) if a.islower()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[16]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;gee&#39;, &#39;glm&#39;, &#39;gls&#39;, &#39;glsar&#39;, &#39;logit&#39;, &#39;mixedlm&#39;, &#39;mnlogit&#39;, &#39;negativebinomial&#39;, &#39;nominal_gee&#39;, &#39;ols&#39;, &#39;ordinal_gee&#39;, &#39;phreg&#39;, &#39;poisson&#39;, &#39;probit&#39;, &#39;quantreg&#39;, &#39;rlm&#39;, &#39;wls&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="statsmodels">
+<h1>statsmodels<a class="headerlink" href="#statsmodels" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import statsmodels
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in attrs(statsmodels) if a.isupper()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[18]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in attrs(statsmodels) if a[0].isupper()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[19]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;CacheWriteWarning&#39;, &#39;ConvergenceWarning&#39;, &#39;InvalidTestWarning&#39;, &#39;IterationLimitWarning&#39;, &#39;NoseWrapper&#39;, &#39;Tester&#39;]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in attrs(statsmodels) if a.islower()]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[20]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;api&#39;, &#39;base&#39;, &#39;compat&#39;, &#39;datasets&#39;, &#39;discrete&#39;, &#39;distributions&#39;, &#39;duration&#39;, &#39;emplike&#39;, &#39;errstate&#39;, &#39;formula&#39;, &#39;genmod&#39;, &#39;graphics&#39;, &#39;info&#39;, &#39;iolib&#39;, &#39;nonparametric&#39;, &#39;print_function&#39;, &#39;regression&#39;, &#39;robust&#39;, &#39;sandbox&#39;, &#39;simplefilter&#39;, &#39;stats&#39;, &#39;test&#39;, &#39;tools&#39;, &#39;tsa&#39;, &#39;version&#39;]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>{k for k in plt.rcParams.keys() if &quot;text&quot; in k} | {k for k in plt.rcParams.keys() if &quot;size&quot; in k}
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[21]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>{&#39;mathtext.bf&#39;, &#39;mathtext.rm&#39;, &#39;text.latex.preamble&#39;, &#39;text.hinting&#39;, &#39;ytick.minor.size&#39;, &#39;figure.titlesize&#39;, &#39;agg.path.chunksize&#39;, &#39;mathtext.fontset&#39;, &#39;mathtext.fallback_to_cm&#39;, &#39;text.hinting_factor&#39;, &#39;mathtext.tt&#39;, &#39;mathtext.cal&#39;, &#39;xtick.labelsize&#39;, &#39;mathtext.it&#39;, &#39;text.color&#39;, &#39;legend.handletextpad&#39;, &#39;legend.fontsize&#39;, &#39;axes.formatter.use_mathtext&#39;, &#39;figure.figsize&#39;, &#39;xtick.minor.size&#39;, &#39;text.dvipnghack&#39;, &#39;text.antialiased&#39;, &#39;errorbar.capsize&#39;, &#39;axes.titlesize&#39;, &#39;text.latex.unicode&#39;, &#39;lines.markersize&#39;, &#39;text.latex.preview&#39;, &#39;xtick.major.size&#39;, &#39;mathtext.default&#39;, &#39;axes.labelsize&#39;, &#39;ytick.labelsize&#39;, &#39;ps.papersize&#39;, &#39;boxplot.flierprops.markersize&#39;, &#39;mathtext.sf&#39;, &#39;ytick.major.size&#39;, &#39;font.size&#39;, &#39;text.usetex&#39;}
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from statsmodels.graphics.mosaicplot import mosaic
+
+iris_copy = iris.copy()
+iris_copy[&quot;sepal_length_round&quot;] = iris_copy.sepal_length.round()
+
+# http://matplotlib.org/users/customizing.html
+# http://statsmodels.sourceforge.net/stable/generated/statsmodels.graphics.mosaicplot.mosaic.html
+plot_context = {
+    &#39;figure.figsize&#39;: (10, 8),
+    &#39;font.size&#39;: 18,
+    &#39;font.stretch&#39;: 18,
+    &#39;figure.dpi&#39;: 100,
+    &#39;axes.labelsize&#39;: 18,
+    &#39;axes.titlesize&#39;: 20,
+    &#39;xtick.labelsize&#39;: 15,
+    &#39;ytick.labelsize&#39;: 20,
+    &#39;legend.fontsize&#39;: 15,
+    &#39;lines.markersize&#39;: 15,
+}
+with plt.rc_context(plot_context):
+    fig, rects = mosaic(iris_copy, [&quot;sepal_length_round&quot;, &quot;species&quot;], gap=0.01)
+    plt.savefig(&quot;mosaic_cm.png&quot;)
+
+pd.DataFrame(rects)
+# 0, 1, : ??
+# 2: 横軸を全体とした時の構成比率
+# 3: 各横軸内での構成比率
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">5.0</th>
+      <th colspan="3" halign="left">4.0</th>
+      <th colspan="3" halign="left">6.0</th>
+      <th colspan="3" halign="left">7.0</th>
+      <th colspan="3" halign="left">8.0</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+      <th>setosa</th>
+      <th>versicolor</th>
+      <th>virginica</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.310897</td>
+      <td>0.310897</td>
+      <td>0.310897</td>
+      <td>0.352564</td>
+      <td>0.352564</td>
+      <td>0.352564</td>
+      <td>0.798077</td>
+      <td>0.798077</td>
+      <td>0.798077</td>
+      <td>0.961538</td>
+      <td>0.961538</td>
+      <td>0.961538</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.846445</td>
+      <td>0.979003</td>
+      <td>0.000000</td>
+      <td>0.993421</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.079141</td>
+      <td>0.608166</td>
+      <td>0.000000</td>
+      <td>0.006579</td>
+      <td>0.342105</td>
+      <td>0.000000</td>
+      <td>0.006579</td>
+      <td>0.013158</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.301282</td>
+      <td>0.301282</td>
+      <td>0.301282</td>
+      <td>0.032051</td>
+      <td>0.032051</td>
+      <td>0.032051</td>
+      <td>0.435897</td>
+      <td>0.435897</td>
+      <td>0.435897</td>
+      <td>0.153846</td>
+      <td>0.153846</td>
+      <td>0.153846</td>
+      <td>0.038462</td>
+      <td>0.038462</td>
+      <td>0.038462</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.839866</td>
+      <td>0.125980</td>
+      <td>0.020997</td>
+      <td>0.986842</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.072562</td>
+      <td>0.522446</td>
+      <td>0.391834</td>
+      <td>0.000000</td>
+      <td>0.328947</td>
+      <td>0.657895</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.986842</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_statsmodels_Statsmodel_25_1.png" src="../../_images/notebooks_statsmodels_Statsmodel_25_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>fig, axes = plt.subplots(1, 2, figsize=(10, 5))
+index = [&quot;sepal_length_round&quot;, &quot;species&quot;]
+mosaic(iris_copy, index, gap=0.01, ax=axes[0])
+mosaic(iris_copy, index[::-1], gap=0.01, ax=axes[1])
+plt.tight_layout()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_statsmodels_Statsmodel_26_0.png" src="../../_images/notebooks_statsmodels_Statsmodel_26_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>mosaic?
+
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

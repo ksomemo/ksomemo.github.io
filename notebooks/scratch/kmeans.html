@@ -1,0 +1,1067 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul class="simple">
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/scratch/kmeans.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>%matplotlib inline
+
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import animation as ani
+import seaborn as sns
+import pandas as pd
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>cluster.
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># k-means
+from sklearn import cluster
+from sklearn import preprocessing
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>iris = sns.load_dataset(&quot;iris&quot;)
+le = preprocessing.LabelEncoder()
+le.fit_transform(iris.species)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[3]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>clf = cluster.KMeans(n_clusters=3, verbose=1)
+clf.fit(iris[[&quot;sepal_length&quot;, &quot;sepal_width&quot;]], iris.species)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Initialization complete
+Iteration  0, inertia 67.390
+Iteration  1, inertia 46.036
+Iteration  2, inertia 43.245
+Iteration  3, inertia 39.989
+Iteration  4, inertia 37.769
+Iteration  5, inertia 37.200
+Iteration  6, inertia 37.147
+Iteration  7, inertia 37.100
+Iteration  8, inertia 37.086
+Converged at iteration 8
+Initialization complete
+Iteration  0, inertia 51.920
+Iteration  1, inertia 37.765
+Iteration  2, inertia 37.063
+Iteration  3, inertia 37.051
+Converged at iteration 3
+Initialization complete
+Iteration  0, inertia 62.230
+Iteration  1, inertia 46.873
+Iteration  2, inertia 40.701
+Iteration  3, inertia 38.881
+Iteration  4, inertia 38.221
+Iteration  5, inertia 37.817
+Iteration  6, inertia 37.351
+Iteration  7, inertia 37.063
+Iteration  8, inertia 37.051
+Converged at iteration 8
+Initialization complete
+Iteration  0, inertia 54.320
+Iteration  1, inertia 47.605
+Iteration  2, inertia 43.791
+Iteration  3, inertia 40.970
+Iteration  4, inertia 38.957
+Iteration  5, inertia 38.221
+Iteration  6, inertia 37.817
+Iteration  7, inertia 37.351
+Iteration  8, inertia 37.063
+Iteration  9, inertia 37.051
+Converged at iteration 9
+Initialization complete
+Iteration  0, inertia 51.670
+Iteration  1, inertia 38.183
+Iteration  2, inertia 37.476
+Iteration  3, inertia 37.101
+Iteration  4, inertia 37.063
+Iteration  5, inertia 37.051
+Converged at iteration 5
+Initialization complete
+Iteration  0, inertia 73.500
+Iteration  1, inertia 52.003
+Iteration  2, inertia 49.497
+Iteration  3, inertia 47.448
+Iteration  4, inertia 45.700
+Iteration  5, inertia 44.161
+Iteration  6, inertia 43.045
+Iteration  7, inertia 40.095
+Iteration  8, inertia 38.468
+Iteration  9, inertia 37.935
+Iteration 10, inertia 37.430
+Iteration 11, inertia 37.193
+Iteration 12, inertia 37.063
+Iteration 13, inertia 37.051
+Converged at iteration 13
+Initialization complete
+Iteration  0, inertia 53.330
+Iteration  1, inertia 41.359
+Iteration  2, inertia 39.876
+Iteration  3, inertia 38.468
+Iteration  4, inertia 38.251
+Iteration  5, inertia 38.074
+Iteration  6, inertia 37.999
+Iteration  7, inertia 37.878
+Iteration  8, inertia 37.802
+Iteration  9, inertia 37.714
+Iteration 10, inertia 37.654
+Iteration 11, inertia 37.439
+Iteration 12, inertia 37.328
+Iteration 13, inertia 37.260
+Iteration 14, inertia 37.147
+Iteration 15, inertia 37.100
+Iteration 16, inertia 37.086
+Converged at iteration 16
+Initialization complete
+Iteration  0, inertia 70.220
+Iteration  1, inertia 49.673
+Iteration  2, inertia 47.651
+Iteration  3, inertia 45.908
+Iteration  4, inertia 44.658
+Iteration  5, inertia 44.004
+Iteration  6, inertia 42.193
+Iteration  7, inertia 39.743
+Iteration  8, inertia 38.221
+Iteration  9, inertia 37.817
+Iteration 10, inertia 37.351
+Iteration 11, inertia 37.063
+Iteration 12, inertia 37.051
+Converged at iteration 12
+Initialization complete
+Iteration  0, inertia 54.410
+Iteration  1, inertia 43.316
+Iteration  2, inertia 39.994
+Iteration  3, inertia 38.334
+Iteration  4, inertia 38.171
+Iteration  5, inertia 37.999
+Iteration  6, inertia 37.878
+Iteration  7, inertia 37.802
+Iteration  8, inertia 37.714
+Iteration  9, inertia 37.654
+Iteration 10, inertia 37.439
+Iteration 11, inertia 37.328
+Iteration 12, inertia 37.260
+Iteration 13, inertia 37.147
+Iteration 14, inertia 37.100
+Iteration 15, inertia 37.086
+Converged at iteration 15
+Initialization complete
+Iteration  0, inertia 51.720
+Iteration  1, inertia 41.585
+Iteration  2, inertia 39.876
+Iteration  3, inertia 38.468
+Iteration  4, inertia 38.251
+Iteration  5, inertia 38.074
+Iteration  6, inertia 37.999
+Iteration  7, inertia 37.878
+Iteration  8, inertia 37.802
+Iteration  9, inertia 37.714
+Iteration 10, inertia 37.654
+Iteration 11, inertia 37.439
+Iteration 12, inertia 37.328
+Iteration 13, inertia 37.260
+Iteration 14, inertia 37.147
+Iteration 15, inertia 37.100
+Iteration 16, inertia 37.086
+Converged at iteration 16
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[4]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>KMeans(copy_x=True, init=&#39;k-means++&#39;, max_iter=300, n_clusters=3, n_init=10,
+    n_jobs=1, precompute_distances=&#39;auto&#39;, random_state=None, tol=0.0001,
+    verbose=1)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>[a for a in dir(clf) if not a.startswith(&quot;_&quot;) and a.endswith(&quot;_&quot;)]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[5]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>[&#39;cluster_centers_&#39;, &#39;inertia_&#39;, &#39;labels_&#39;, &#39;n_iter_&#39;]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>clf.inertia_, clf.n_iter_
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[6]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(37.050702127659569, 4)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>clf.cluster_centers_
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[7]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([[ 5.006     ,  3.428     ],
+       [ 6.81276596,  3.07446809],
+       [ 5.77358491,  2.69245283]])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>iris_kmeans = iris.copy()
+iris_kmeans[&quot;species&quot;] = clf.labels_
+sns.lmplot(data=iris_kmeans, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue=&quot;species&quot;, fit_reg=False)
+sns.lmplot(data=iris, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue=&quot;species&quot;, fit_reg=False)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[11]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>&lt;seaborn.axisgrid.FacetGrid at 0x117f5aa58&gt;
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_scratch_kmeans_8_1.png" src="../../_images/notebooks_scratch_kmeans_8_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_scratch_kmeans_8_2.png" src="../../_images/notebooks_scratch_kmeans_8_2.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>from scipy.spatial import distance
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>distance.euclidean([0, 0], [1, 1])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[30]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>1.4142135623730951
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># http://stackoverflow.com/questions/1401712/how-can-the-euclidean-distance-be-calculated-with-numpy
+np.linalg.norm(np.array([0, 0]) - np.array([1, 1]))
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[32]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>1.4142135623730951
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [65]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html
+np.argmin([2,3,1]), np.argmax([2,3,1])
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[65]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(2, 1)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [69]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>reshaped = np.array([4,5,6,1,2,3]).reshape(2, 3)
+reshaped
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[69]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([[4, 5, 6],
+       [1, 2, 3]])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [78]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>np.argmin(reshaped), np.argmax(reshaped)
+# flattenしたときのIndex
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[78]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(3, 2)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [279]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import pandas as pd
+print(pd.isnull(np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, np.nan])))
+print(pd.isnull(np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])))
+np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[False False False False False]
+[False False False  True  True]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[279]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>array([&#39;a&#39;, 1, &#39;b&#39;, nan, None], dtype=object)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span># ランダムにクラスタとなるデータをK個選ぶ
+# 各データは、K個のデータうち、一番近いクラスタに属させる
+# クラスタ内の重心を変更する
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [60]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import collections
+
+def kmeans(data, n_cluster=3, max_iter=300, random_state=None, verbose=None):
+    # 初期化
+    centroids = init_centroids(data, random_state)
+
+    # 所属クラスタ
+    old_centroids = centroids
+    old_clusters = np.zeros(len(data))
+
+    for i in range(max_iter):
+        new_clusters = clusters(data, centroids)
+        if verbose:
+            print(i, collections.Counter(new_clusters), centroids)
+
+        centroids = move_centroids(data, n_cluster, new_clusters)
+        if old_centroids == centroids:
+            print(&quot;old_centroids == centroids&quot;)
+            print(old_centroids)
+            print(centroids)
+            break
+        old_centroids = centroids
+    return new_clusters
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>def init_centroids(data, random_state):
+    np.random.seed(random_state)
+    centroids_idx = np.random.choice(data.index, n_cluster)
+    centroids = [(data.loc[idx, &quot;sepal_length&quot;], data.loc[idx, &quot;sepal_width&quot;]) for idx in centroids_idx]
+    return centroids
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>def clusters(data, centroids):
+    d_centroids = []
+    for length, width in centroids:
+        d_centroids.append(np.linalg.norm(
+            np.c_[data.sepal_length - length, data.sepal_width - width], axis=1))
+
+    d_centroids = np.array(d_centroids).T
+    clusters = np.argmin(d_centroids, axis=1)
+    return clusters
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>def move_centroids(data, n_cluster, clusters):
+    new_centroids = []
+    for c in range(n_cluster):
+        c_data = data[clusters == c]
+        center = c_data.sepal_length.mean(), c_data.sepal_width.mean()
+        new_centroids.append(center)
+    return new_centroids
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import ipywidgets
+
+@ipywidgets.interact(
+    n_cluster=(2, 6, 1),
+    max_iter=(1, 100, 1),
+    verbose=False
+)
+def run_my_kmeans(n_cluster=3, max_iter=30, verbose=False):
+    iris_my_kmeans = iris.copy()
+    iris_my_kmeans[&quot;species&quot;] = kmeans(iris_my_kmeans,
+                                                       n_cluster=n_cluster,
+                                                       max_iter=max_iter,
+                                                       random_state=0,
+                                                       verbose=verbose)
+    sns.lmplot(data=iris_my_kmeans, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue=&quot;species&quot;, fit_reg=False)
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0 Counter({2: 85, 0: 47, 1: 18}) [(4.5999999999999996, 3.2000000000000002), (7.7000000000000002, 3.7999999999999998), (5.7999999999999998, 2.7000000000000002)]
+1 Counter({2: 67, 0: 56, 1: 27}) [(4.9425531914893615, 3.3659574468085105), (7.283333333333336, 3.1333333333333337), (6.036470588235295, 2.870588235294118)]
+2 Counter({2: 63, 0: 56, 1: 31}) [(5.014285714285713, 3.3357142857142863), (7.096296296296296, 3.1148148148148134), (6.031343283582089, 2.8014925373134334)]
+3 Counter({2: 60, 0: 56, 1: 34}) [(5.014285714285713, 3.3357142857142863), (7.032258064516128, 3.0870967741935478), (5.995238095238095, 2.795238095238096)]
+4 Counter({2: 58, 0: 56, 1: 36}) [(5.014285714285713, 3.3357142857142863), (6.985294117647057, 3.079411764705882), (5.97, 2.785000000000001)]
+5 Counter({0: 56, 2: 56, 1: 38}) [(5.014285714285713, 3.3357142857142863), (6.952777777777776, 3.0861111111111104), (5.955172413793104, 2.770689655172414)]
+6 Counter({0: 56, 2: 55, 1: 39}) [(5.014285714285713, 3.3357142857142863), (6.926315789473683, 3.0789473684210518), (5.9375, 2.7642857142857147)]
+7 Counter({0: 55, 2: 54, 1: 41}) [(5.014285714285713, 3.3357142857142863), (6.910256410256409, 3.0871794871794864), (5.930909090909091, 2.752727272727273)]
+8 Counter({0: 54, 2: 54, 1: 42}) [(5.014545454545454, 3.354545454545455), (6.8804878048780465, 3.0975609756097553), (5.9, 2.724074074074074)]
+9 Counter({2: 54, 0: 53, 1: 43}) [(5.012962962962962, 3.3703703703703707), (6.869047619047618, 3.0928571428571425), (5.875925925925925, 2.7166666666666663)]
+10 Counter({2: 53, 0: 52, 1: 45}) [(5.00943396226415, 3.383018867924529), (6.853488372093022, 3.0999999999999996), (5.857407407407408, 2.7037037037037037)]
+11 Counter({2: 54, 0: 51, 1: 45}) [(5.0019230769230765, 3.390384615384616), (6.83333333333333, 3.086666666666666), (5.828301886792453, 2.70566037735849)]
+12 Counter({2: 53, 0: 51, 1: 46}) [(5.003921568627451, 3.409803921568628), (6.83333333333333, 3.086666666666666), (5.811111111111113, 2.6999999999999997)]
+13 Counter({2: 53, 0: 51, 1: 46}) [(5.003921568627451, 3.409803921568628), (6.823913043478258, 3.0782608695652165), (5.800000000000001, 2.6999999999999997)]
+old_centroids == centroids
+[(5.003921568627451, 3.409803921568628), (6.823913043478258, 3.0782608695652165), (5.800000000000001, 2.6999999999999997)]
+[(5.003921568627451, 3.409803921568628), (6.823913043478258, 3.0782608695652165), (5.800000000000001, 2.6999999999999997)]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_scratch_kmeans_21_1.png" src="../../_images/notebooks_scratch_kmeans_21_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>labels = pd.DataFrame({
+        &quot;sk&quot;: iris_kmeans.species,
+        &quot;my&quot;: iris_my_kmeans.species
+    })
+labels[&quot;same&quot;] = labels.sk == labels.my
+labels.same.sum(), labels.shape[0]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[58]:
+</pre></div>
+</div>
+<div class="output_area highlight-none"><div class="highlight"><pre>
+<span></span>(148, 150)
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

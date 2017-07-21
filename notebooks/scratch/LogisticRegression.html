@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>オッズとlogit &mdash; gh-pages  ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="索引"
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> gh-pages
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">オッズとlogit</a></li>
+<li><a class="reference internal" href="#logitの逆関数(ロジスティック関数)">logitの逆関数(ロジスティック関数)</a><ul>
+<li><a class="reference internal" href="#http://www012.upp.so-net.ne.jp/doi/biostat/CT39/glm.pdf">http://www012.upp.so-net.ne.jp/doi/biostat/CT39/glm.pdf</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">gh-pages</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>オッズとlogit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/notebooks/scratch/LogisticRegression.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+%matplotlib inline
+</pre></div>
+</div>
+</div>
+<div class="section" id="オッズとlogit">
+<h1>オッズとlogit<a class="headerlink" href="#オッズとlogit" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>p / (1- p)</li>
+<li>上記に対数関数適用</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>def odds(p):
+    return p / (1 - p)
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [105]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>def plot_logit(ps):
+    figure, axes = plt.subplots(1, 4, figsize=(20, 5))
+
+    s_odds = np.vectorize(odds)(ps)
+    s_logit = np.log(s_odds)
+    df = pd.DataFrame({
+            &quot;p&quot;: ps,
+            &quot;odds&quot;: s_odds,
+            &quot;logit&quot;: s_logit
+        })
+    df.plot(x=&quot;p&quot;, y=&quot;odds&quot;, ax=axes[0])
+    df.plot(x=&quot;odds&quot;, y=&quot;logit&quot;, ax=axes[1])
+    df.plot(x=&quot;p&quot;, y=&quot;logit&quot;, ax=axes[2])
+    df.plot(y=&quot;p&quot;, x=&quot;logit&quot;, ax=axes[3])
+
+    return df.T
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [101]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>plot_logit(np.linspace(0.001, 0.999, 999))
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[101]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>989</th>
+      <th>990</th>
+      <th>991</th>
+      <th>992</th>
+      <th>993</th>
+      <th>994</th>
+      <th>995</th>
+      <th>996</th>
+      <th>997</th>
+      <th>998</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>logit</th>
+      <td>-6.906755</td>
+      <td>-6.212606</td>
+      <td>-5.806138</td>
+      <td>-5.517453</td>
+      <td>-5.293305</td>
+      <td>-5.109978</td>
+      <td>-4.954821</td>
+      <td>-4.820282</td>
+      <td>-4.701490</td>
+      <td>-4.595120</td>
+      <td>...</td>
+      <td>4.59512</td>
+      <td>4.701490</td>
+      <td>4.820282</td>
+      <td>4.954821</td>
+      <td>5.109978</td>
+      <td>5.293305</td>
+      <td>5.517453</td>
+      <td>5.806138</td>
+      <td>6.212606</td>
+      <td>6.906755</td>
+    </tr>
+    <tr>
+      <th>odds</th>
+      <td>0.001001</td>
+      <td>0.002004</td>
+      <td>0.003009</td>
+      <td>0.004016</td>
+      <td>0.005025</td>
+      <td>0.006036</td>
+      <td>0.007049</td>
+      <td>0.008065</td>
+      <td>0.009082</td>
+      <td>0.010101</td>
+      <td>...</td>
+      <td>99.00000</td>
+      <td>110.111111</td>
+      <td>124.000000</td>
+      <td>141.857143</td>
+      <td>165.666667</td>
+      <td>199.000000</td>
+      <td>249.000000</td>
+      <td>332.333333</td>
+      <td>499.000000</td>
+      <td>999.000000</td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>0.001000</td>
+      <td>0.002000</td>
+      <td>0.003000</td>
+      <td>0.004000</td>
+      <td>0.005000</td>
+      <td>0.006000</td>
+      <td>0.007000</td>
+      <td>0.008000</td>
+      <td>0.009000</td>
+      <td>0.010000</td>
+      <td>...</td>
+      <td>0.99000</td>
+      <td>0.991000</td>
+      <td>0.992000</td>
+      <td>0.993000</td>
+      <td>0.994000</td>
+      <td>0.995000</td>
+      <td>0.996000</td>
+      <td>0.997000</td>
+      <td>0.998000</td>
+      <td>0.999000</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 999 columns</p>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_scratch_LogisticRegression_4_1.png" src="../../_images/notebooks_scratch_LogisticRegression_4_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="logitの逆関数(ロジスティック関数)">
+<h1>logitの逆関数(ロジスティック関数)<a class="headerlink" href="#logitの逆関数(ロジスティック関数)" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li>y = log(p/ (1 - p))</li>
+<li>-y = log((1 - p) / p) = log(1/p - 1)</li>
+<li>exp(-y) = (1/p - 1)</li>
+<li>exp(-y) + 1 = 1/p</li>
+<li>p = 1 / (exp(-y) + 1)</li>
+</ul>
+<div class="section" id="http://www012.upp.so-net.ne.jp/doi/biostat/CT39/glm.pdf">
+<h2><a class="reference external" href="http://www012.upp.so-net.ne.jp/doi/biostat/CT39/glm.pdf">http://www012.upp.so-net.ne.jp/doi/biostat/CT39/glm.pdf</a><a class="headerlink" href="#http://www012.upp.so-net.ne.jp/doi/biostat/CT39/glm.pdf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [121]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>def a(x):
+    return 1.0 / (1.0 + np.exp(-x))
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [122]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>def plot_a(xs):
+    s_a = np.vectorize(a)(xs)
+    df = pd.DataFrame({
+            &quot;x&quot;: xs,
+            &quot;a&quot;: s_a
+        })
+    df.plot(x=&quot;x&quot;, y=&quot;a&quot;)
+
+    return df.T
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [127]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3"><div class="highlight"><pre>
+<span></span>plot_a(np.arange(-10, 11))
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>Out[127]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>0.000045</td>
+      <td>0.000123</td>
+      <td>0.000335</td>
+      <td>0.000911</td>
+      <td>0.002473</td>
+      <td>0.006693</td>
+      <td>0.017986</td>
+      <td>0.047426</td>
+      <td>0.119203</td>
+      <td>0.268941</td>
+      <td>...</td>
+      <td>0.731059</td>
+      <td>0.880797</td>
+      <td>0.952574</td>
+      <td>0.982014</td>
+      <td>0.993307</td>
+      <td>0.997527</td>
+      <td>0.999089</td>
+      <td>0.999665</td>
+      <td>0.999877</td>
+      <td>0.999955</td>
+    </tr>
+    <tr>
+      <th>x</th>
+      <td>-10.000000</td>
+      <td>-9.000000</td>
+      <td>-8.000000</td>
+      <td>-7.000000</td>
+      <td>-6.000000</td>
+      <td>-5.000000</td>
+      <td>-4.000000</td>
+      <td>-3.000000</td>
+      <td>-2.000000</td>
+      <td>-1.000000</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>6.000000</td>
+      <td>7.000000</td>
+      <td>8.000000</td>
+      <td>9.000000</td>
+      <td>10.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 21 columns</p>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/notebooks_scratch_LogisticRegression_9_1.png" src="../../_images/notebooks_scratch_LogisticRegression_9_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, ksomemo.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

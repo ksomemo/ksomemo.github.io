@@ -1,0 +1,758 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "2013-11\n",
+    "\n",
+    "## Q1\n",
+    "- 級：順序\n",
+    "- 信号機の色：名義\n",
+    "- 体重計で測定した体重：比例\n",
+    "- 温度計で測定した気温：間隔\n",
+    "\n",
+    "### A1\n",
+    "1\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T18:08:33.105256",
+     "start_time": "2016-09-23T18:08:33.095160"
+    },
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "import io\n",
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "%matplotlib inline"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T16:13:18.445527",
+     "start_time": "2016-09-23T16:13:18.435019"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0 29 1850\n",
+      "100 11 1360\n",
+      "200 5 1150\n",
+      "300 1 310\n",
+      "400 1 440\n"
+     ]
+    }
+   ],
+   "source": [
+    "zu  = \"\"\"#\n",
+    "#百の位|十の位\n",
+    "#------|-------\n",
+    "     0|34445555556666667778888888999\n",
+    "     1|00011122379\n",
+    "     2|02247\n",
+    "     3|1\n",
+    "     4|4\n",
+    "#\"\"\"\n",
+    "nums = []\n",
+    "for line in zu.split(\"\\n\"):\n",
+    "    if line.startswith(\"#\"):\n",
+    "        continue\n",
+    "    h, t = line.strip().split(\"|\")\n",
+    "    h = int(h) * 100\n",
+    "    ns =  [h + int(n) * 10 for n in list(t)]\n",
+    "    nums.extend(ns)\n",
+    "    print(h, len(ns), sum(ns))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T16:13:33.601294",
+     "start_time": "2016-09-23T16:13:33.594225"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "import statistics"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T16:13:53.703539",
+     "start_time": "2016-09-23T16:13:53.694652"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(108.72340425531915, 80)"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "statistics.mean(nums), statistics.median(nums)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T16:09:41.094919",
+     "start_time": "2016-09-23T16:09:41.079041"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>h</th>\n",
+       "      <th>nums</th>\n",
+       "      <th>_sum</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>0</td>\n",
+       "      <td>29</td>\n",
+       "      <td>1850</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>100</td>\n",
+       "      <td>11</td>\n",
+       "      <td>1360</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>200</td>\n",
+       "      <td>5</td>\n",
+       "      <td>1150</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>300</td>\n",
+       "      <td>1</td>\n",
+       "      <td>310</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>400</td>\n",
+       "      <td>1</td>\n",
+       "      <td>440</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     h  nums  _sum\n",
+       "0    0    29  1850\n",
+       "1  100    11  1360\n",
+       "2  200     5  1150\n",
+       "3  300     1   310\n",
+       "4  400     1   440"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df = pd.read_csv(io.StringIO(\"\"\"0 29 1850\n",
+    "100 11 1360\n",
+    "200 5 1150\n",
+    "300 1 310\n",
+    "400 1 440\"\"\"), names=[\"h\", \"nums\", \"_sum\"], sep=\" \")\n",
+    "df"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T16:23:17.870475",
+     "start_time": "2016-09-23T16:23:17.508088"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<matplotlib.axes._subplots.AxesSubplot at 0x118950f28>"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\npIH7fzWidjkwGjs7AAAAAElFTkSuQmCC\n",
+      "text/plain": [
+       "<matplotlib.figure.Figure at 0x118a05940>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "nums_series = pd.Series(nums)\n",
+    "nums_series.hist(bins=list(range(0, 500, 50)))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### A2\n",
+    "2\n",
+    "\n",
+    "### A3\n",
+    "1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q3\n",
+    "### A4\n",
+    "1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q4\n",
+    "### A5\n",
+    "4"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q5\n",
+    "\n",
+    "### A6\n",
+    "[1] 2\n",
+    "\n",
+    "### A7\n",
+    "[2] 3"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q6\n",
+    "### A8\n",
+    "[1] 3\n",
+    "\n",
+    "### A9\n",
+    "[2] 2\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q7\n",
+    "### A10"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T17:23:52.437546",
+     "start_time": "2016-09-23T17:23:52.429906"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Fraction(11, 4)"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from fractions import Fraction\n",
+    "\n",
+    "(\n",
+    "    Fraction(1*1, 8)\n",
+    "    + Fraction(2*3, 8)\n",
+    "    + Fraction(3*1, 8)\n",
+    "    + Fraction(4*3, 8)\n",
+    ")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q8\n",
+    "- 菓子8個まとめ売りの箱の重さの分布\n",
+    "- 正規分布：N(μ, σ^2)\n",
+    "- 菓子1個：N(90, 9)\n",
+    "- 箱1個：N(30, 1)\n",
+    "\n",
+    "### A11\n",
+    "全然わからない"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q9\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T17:34:48.174487",
+     "start_time": "2016-09-23T17:34:48.129244"
+    },
+    "collapsed": false,
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th>診断結果</th>\n",
+       "      <th>_陽性</th>\n",
+       "      <th>陰性</th>\n",
+       "      <th>All</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>癌</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>あり</th>\n",
+       "      <td>0.82</td>\n",
+       "      <td>0.18</td>\n",
+       "      <td>1.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>なし</th>\n",
+       "      <td>0.13</td>\n",
+       "      <td>0.87</td>\n",
+       "      <td>1.0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "診断結果   _陽性    陰性  All\n",
+       "癌                    \n",
+       "あり    0.82  0.18  1.0\n",
+       "なし    0.13  0.87  1.0"
+      ]
+     },
+     "execution_count": 44,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pd.DataFrame(\n",
+    "    {\n",
+    "        \"癌\": [\"あり\",\"あり\",\"なし\",\"なし\"],\n",
+    "        \"診断結果\": [\"_陽性\", \"陰性\", \"_陽性\", \"陰性\"],\n",
+    "        \"確率\": [0.82, 0.18, 0.13, 0.87]\n",
+    "    }).pivot_table(index=\"癌\", columns=\"診断結果\", values=\"確率\", aggfunc=sum, margins=True).drop(\"All\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T17:35:11.959953",
+     "start_time": "2016-09-23T17:35:11.956258"
+    }
+   },
+   "source": [
+    "### A12\n",
+    "- 癌の発症率：0.07\n",
+    "- Bさん：陽性\n",
+    "- Bさんがガンである確率\n",
+    "\n",
+    "癌の発症率 * 陽性であるときの癌の発症率  \n",
+    "陽性全体：上記＋陽性である確率×ガンなしである確率\n",
+    "\n",
+    "1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q10"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T18:12:37.922028",
+     "start_time": "2016-09-23T18:12:37.885655"
+    },
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>rate</th>\n",
+       "      <th>hour</th>\n",
+       "      <th>v_hour</th>\n",
+       "      <th>v_hour_cumusm</th>\n",
+       "      <th>v_hour_cumusm_rate</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>[0-1)</th>\n",
+       "      <td>0.29</td>\n",
+       "      <td>0.5</td>\n",
+       "      <td>0.145</td>\n",
+       "      <td>0.145</td>\n",
+       "      <td>0.090625</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>[1-2)</th>\n",
+       "      <td>0.46</td>\n",
+       "      <td>1.5</td>\n",
+       "      <td>0.690</td>\n",
+       "      <td>0.835</td>\n",
+       "      <td>0.521875</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>[2-3)</th>\n",
+       "      <td>0.16</td>\n",
+       "      <td>2.5</td>\n",
+       "      <td>0.400</td>\n",
+       "      <td>1.235</td>\n",
+       "      <td>0.771875</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>[3-4)</th>\n",
+       "      <td>0.05</td>\n",
+       "      <td>3.5</td>\n",
+       "      <td>0.175</td>\n",
+       "      <td>1.410</td>\n",
+       "      <td>0.881250</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>[4-5)</th>\n",
+       "      <td>0.03</td>\n",
+       "      <td>4.5</td>\n",
+       "      <td>0.135</td>\n",
+       "      <td>1.545</td>\n",
+       "      <td>0.965625</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>[5-6)</th>\n",
+       "      <td>0.01</td>\n",
+       "      <td>5.5</td>\n",
+       "      <td>0.055</td>\n",
+       "      <td>1.600</td>\n",
+       "      <td>1.000000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       rate  hour  v_hour  v_hour_cumusm  v_hour_cumusm_rate\n",
+       "[0-1)  0.29   0.5   0.145          0.145            0.090625\n",
+       "[1-2)  0.46   1.5   0.690          0.835            0.521875\n",
+       "[2-3)  0.16   2.5   0.400          1.235            0.771875\n",
+       "[3-4)  0.05   3.5   0.175          1.410            0.881250\n",
+       "[4-5)  0.03   4.5   0.135          1.545            0.965625\n",
+       "[5-6)  0.01   5.5   0.055          1.600            1.000000"
+      ]
+     },
+     "execution_count": 71,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a = pd.DataFrame(dict(dummy=range(1)))\n",
+    "a[\"[0-1)\"] = 0.29\n",
+    "a[\"[1-2)\"] = 0.46\n",
+    "a[\"[2-3)\"] = 0.16\n",
+    "a[\"[3-4)\"] = 0.05\n",
+    "a[\"[4-5)\"] = 0.03\n",
+    "a[\"[5-6)\"] = 0.01\n",
+    "a = a.drop(\"dummy\", axis=1).T\n",
+    "a.columns = [\"rate\"]\n",
+    "a[\"hour\"] = np.arange(0.5, 6.5)\n",
+    "a[\"v_hour\"] = a.rate * a.hour\n",
+    "a[\"v_hour_cumusm\"] = a.v_hour.cumsum()\n",
+    "a[\"v_hour_cumusm_rate\"] = a.v_hour_cumusm / a.v_hour.sum()\n",
+    "a\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2016-09-23T17:58:02.910813",
+     "start_time": "2016-09-23T17:58:02.905115"
+    }
+   },
+   "source": [
+    "### A13\n",
+    "[1] 3\n",
+    "\n",
+    "### A14\n",
+    "[2] 4\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "## Q11\n",
+    "1008人対象：内閣支持率62%\n",
+    "\n",
+    "### A15\n",
+    "[1]\n",
+    "\n",
+    "### A16\n",
+    "[2]\n",
+    "\n",
+    "### A17\n",
+    "[3]\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q12"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q13"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q14"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q15"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q16"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q17"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Q"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "hide_input": false,
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.1"
+  },
+  "toc": {
+   "toc_cell": false,
+   "toc_number_sections": true,
+   "toc_threshold": 6,
+   "toc_window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
