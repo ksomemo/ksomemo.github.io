@@ -10,9 +10,9 @@ Welcome to gh-pages's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-    qiita
-    memo
-    notebooks
+    qiita/*
+    memo/*
+    notebooks/*
 
 
 Indices and tables
