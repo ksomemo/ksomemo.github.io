@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/numpy/numpy_色々.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/numpy/numpy_色々.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,12 +349,12 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%matplotlib inline
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib import animation as ani
-import seaborn as sns
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span> <span class="k">as</span> <span class="n">ani</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
 </div>
@@ -364,8 +364,8 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>vstacked = np.vstack(([1, 2], [3, 4]))
-vstacked
+<span></span><span class="n">vstacked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="n">vstacked</span>
 </pre></div>
 </div>
 </div>
@@ -386,7 +386,7 @@ vstacked
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.hstack(([1, 2], [3, 4]))
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -406,7 +406,7 @@ vstacked
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.hstack((vstacked, vstacked))
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">vstacked</span><span class="p">,</span> <span class="n">vstacked</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -427,7 +427,7 @@ vstacked
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.stack([[1, 2], [3, 4]])
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
@@ -448,7 +448,7 @@ vstacked
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.stack([[1, 2], [3, 4]], axis=1)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -469,8 +469,8 @@ vstacked
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat = np.matrix([[1, 2, 3], [4, 5, 6]])
-mat
+<span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -491,8 +491,8 @@ mat
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ary = np.array(mat)
-ary
+<span></span><span class="n">ary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="n">ary</span>
 </pre></div>
 </div>
 </div>
@@ -513,7 +513,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(mat), type(ary)
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">mat</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -533,7 +533,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ary + mat
+<span></span><span class="n">ary</span> <span class="o">+</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -554,7 +554,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat + ary
+<span></span><span class="n">mat</span> <span class="o">+</span> <span class="n">ary</span>
 </pre></div>
 </div>
 </div>
@@ -575,7 +575,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat + mat
+<span></span><span class="n">mat</span> <span class="o">+</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -596,7 +596,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat * mat.T
+<span></span><span class="n">mat</span> <span class="o">*</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -617,7 +617,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat.T * mat
+<span></span><span class="n">mat</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -639,7 +639,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat.T @ mat
+<span></span><span class="n">mat</span><span class="o">.</span><span class="n">T</span> <span class="err">@</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -661,7 +661,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ary @ ary.T
+<span></span><span class="n">ary</span> <span class="err">@</span> <span class="n">ary</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -682,7 +682,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.zeros(10)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -702,7 +702,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from scipy.spatial import distance
+<span></span><span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance</span>
 </pre></div>
 </div>
 </div>
@@ -712,7 +712,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>distance.euclidean([0, 0], [1, 1])
+<span></span><span class="n">distance</span><span class="o">.</span><span class="n">euclidean</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -732,8 +732,8 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://stackoverflow.com/questions/1401712/how-can-the-euclidean-distance-be-calculated-with-numpy
-np.linalg.norm(np.array([0, 0]) - np.array([1, 1]))
+<span></span><span class="c1"># http://stackoverflow.com/questions/1401712/how-can-the-euclidean-distance-be-calculated-with-numpy</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
 
 </pre></div>
 </div>
@@ -754,7 +754,7 @@ np.linalg.norm(np.array([0, 0]) - np.array([1, 1]))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.array([[0, 0], [1, 1]])
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
@@ -775,7 +775,7 @@ np.linalg.norm(np.array([0, 0]) - np.array([1, 1]))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.sum(np.array([[0, 0], [1, 1]]), axis=1)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -795,7 +795,7 @@ np.linalg.norm(np.array([0, 0]) - np.array([1, 1]))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.sqrt(np.sum(np.array([[0, 0], [1, 1]]), axis=1))
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -815,8 +815,8 @@ np.linalg.norm(np.array([0, 0]) - np.array([1, 1]))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html
-np.argmin([2,3,1]), np.argmax([2,3,1])
+<span></span><span class="c1"># http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html</span>
+<span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -836,8 +836,8 @@ np.argmin([2,3,1]), np.argmax([2,3,1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>reshaped = np.array([4,5,6,1,2,3]).reshape(2, 3)
-reshaped
+<span></span><span class="n">reshaped</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">reshaped</span>
 </pre></div>
 </div>
 </div>
@@ -858,8 +858,8 @@ reshaped
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.argmin(reshaped), np.argmax(reshaped)
-# flattenしたときのIndex
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">reshaped</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">reshaped</span><span class="p">)</span>
+<span class="c1"># flattenしたときのIndex</span>
 </pre></div>
 </div>
 </div>
@@ -879,10 +879,10 @@ reshaped
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-print(pd.isnull(np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, np.nan])))
-print(pd.isnull(np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])))
-np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="bp">None</span><span class="p">])))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="bp">None</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -911,7 +911,7 @@ np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(np.linalg.norm(np.array([3.33, 2.67]) - np.array([5, 1])) ) ** 2
+<span></span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.33</span><span class="p">,</span> <span class="mf">2.67</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -931,9 +931,9 @@ np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># ランダムにクラスタとなるデータをK個選ぶ
-# 各データは、K個のデータうち、一番近いクラスタに属させる
-# クラスタ内の重心を変更する
+<span></span><span class="c1"># ランダムにクラスタとなるデータをK個選ぶ</span>
+<span class="c1"># 各データは、K個のデータうち、一番近いクラスタに属させる</span>
+<span class="c1"># クラスタ内の重心を変更する</span>
 </pre></div>
 </div>
 </div>
@@ -943,7 +943,7 @@ np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>round(1.16, 1)
+<span></span><span class="nb">round</span><span class="p">(</span><span class="mf">1.16</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -963,7 +963,7 @@ np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.where(np.array([1,2,3,4]) == np.array([4,2,3,1]))
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
 
 </pre></div>
 </div>
@@ -984,7 +984,7 @@ np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.array([1,2,3]) == np.array([1,2,3])
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1053,7 +1053,7 @@ np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1061,17 +1061,17 @@ np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

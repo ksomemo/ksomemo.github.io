@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -116,7 +116,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -144,7 +144,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>データ</li>
     
@@ -152,7 +152,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pandas/new_pivot_unstack_melt_MultiIndex.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/pandas/new_pivot_unstack_melt_MultiIndex.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -365,8 +365,8 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import pandas as pd
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -384,19 +384,19 @@ import pandas as pd
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import io
-df = pd.read_csv(io.StringIO(&quot;&quot;&quot;
-id sex age year weight
-a f 10 2016 49
-b m 10 2016 59
-c f 10 2016 54
-d m 10 2016 64
-a f 10 2017 49
-b m 10 2017 59
-c f 10 2017 54
-d m 10 2017 64
-&quot;&quot;&quot;), sep=&quot; &quot;)
-df
+<span></span><span class="kn">import</span> <span class="nn">io</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">id sex age year weight</span>
+<span class="s2">a f 10 2016 49</span>
+<span class="s2">b m 10 2016 59</span>
+<span class="s2">c f 10 2016 54</span>
+<span class="s2">d m 10 2016 64</span>
+<span class="s2">a f 10 2017 49</span>
+<span class="s2">b m 10 2017 59</span>
+<span class="s2">c f 10 2017 54</span>
+<span class="s2">d m 10 2017 64</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -496,7 +496,7 @@ df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df.pivot(index=&quot;id&quot;, columns=&quot;year&quot;, values=&quot;weight&quot;)
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -555,20 +555,20 @@ df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>try:
-    df.pivot(index=[&quot;id&quot;, &quot;sex&quot;], columns=&quot;year&quot;, values=&quot;weight&quot;)
-except:
-    print(&quot;err multi index&quot;)
+<span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;err multi index&quot;</span><span class="p">)</span>
 
-try:
-    df.pivot(index=&quot;id&quot;, columns=[&quot;year&quot;, &quot;sex&quot;], values=&quot;weight&quot;)
-except:
-    print(&quot;err multi columns&quot;)
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;err multi columns&quot;</span><span class="p">)</span>
 
-try:
-    df.pivot(index=&quot;id&quot;, columns=&quot;year&quot;, values=[&quot;weight&quot;, &quot;age&quot;])
-except:
-    print(&quot;err multi values&quot;)
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">])</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;err multi values&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -593,8 +593,8 @@ err multi values
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>indexed_unstacked = df.set_index([&quot;id&quot;, &quot;sex&quot;, &quot;year&quot;]).unstack([&quot;year&quot;, &quot;sex&quot;])
-indexed_unstacked
+<span></span><span class="n">indexed_unstacked</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">unstack</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">])</span>
+<span class="n">indexed_unstacked</span>
 </pre></div>
 </div>
 </div>
@@ -704,7 +704,7 @@ indexed_unstacked
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>indexed_unstacked.columns
+<span></span><span class="n">indexed_unstacked</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
@@ -726,7 +726,7 @@ indexed_unstacked
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>list(indexed_unstacked.columns)
+<span></span><span class="nb">list</span><span class="p">(</span><span class="n">indexed_unstacked</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -753,8 +753,8 @@ indexed_unstacked
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>indexed_unstacked.columns = [&quot;_&quot;.join(map(str, c)) for c in indexed_unstacked.columns]
-indexed_unstacked
+<span></span><span class="n">indexed_unstacked</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">indexed_unstacked</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">indexed_unstacked</span>
 </pre></div>
 </div>
 </div>
@@ -850,9 +850,9 @@ indexed_unstacked
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_unite = df.copy()
-df_unite[&quot;year_sex&quot;] = df_unite[&quot;year&quot;].apply(str) + &quot;_&quot; + df_unite[&quot;sex&quot;]
-df_unite
+<span></span><span class="n">df_unite</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_unite</span><span class="p">[</span><span class="s2">&quot;year_sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_unite</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">df_unite</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span>
+<span class="n">df_unite</span>
 </pre></div>
 </div>
 </div>
@@ -958,7 +958,7 @@ df_unite
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_unite.pivot(index=&quot;id&quot;, columns=&quot;year_sex&quot;, values=&quot;weight&quot;)
+<span></span><span class="n">df_unite</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;year_sex&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1027,10 +1027,10 @@ df_unite
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># startswith(tuple) で複数対応できる, builtinも/endswithも
-all_columns = indexed_unstacked.columns[
-    indexed_unstacked.columns.str.startswith((&quot;age&quot;, &quot;weight&quot;,))]
-all_columns
+<span></span><span class="c1"># startswith(tuple) で複数対応できる, builtinも/endswithも</span>
+<span class="n">all_columns</span> <span class="o">=</span> <span class="n">indexed_unstacked</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span>
+    <span class="n">indexed_unstacked</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,))]</span>
+<span class="n">all_columns</span>
 </pre></div>
 </div>
 </div>
@@ -1052,8 +1052,8 @@ all_columns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>melted = pd.melt(indexed_unstacked.reset_index(), id_vars=&#39;id&#39;, value_vars=list(all_columns))
-melted.head()
+<span></span><span class="n">melted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">indexed_unstacked</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">all_columns</span><span class="p">))</span>
+<span class="n">melted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1114,14 +1114,14 @@ melted.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>melted = melted.dropna().reset_index(drop=True)
-melted = (melted
-    # join: index join
-    .join(melted.variable.str.split(&quot;_&quot;, expand=True).reset_index(drop=True))
-    .drop(&quot;variable&quot;, axis=1)
-    .rename(columns={0: &quot;column&quot;, 1: &quot;year&quot;, 2: &quot;sex&quot;})
-)
-pd.concat([melted.head(), melted.tail()])
+<span></span><span class="n">melted</span> <span class="o">=</span> <span class="n">melted</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">melted</span> <span class="o">=</span> <span class="p">(</span><span class="n">melted</span>
+    <span class="c1"># join: index join</span>
+    <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">melted</span><span class="o">.</span><span class="n">variable</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;column&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;sex&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">melted</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">melted</span><span class="o">.</span><span class="n">tail</span><span class="p">()])</span>
 </pre></div>
 </div>
 </div>
@@ -1234,11 +1234,11 @@ pd.concat([melted.head(), melted.tail()])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.concat(
-    [
-        melted[melted.column == &quot;age&quot;].drop(&quot;column&quot;, axis=1).rename(columns={&quot;value&quot;: &quot;age&quot;}),
-        melted[melted.column == &quot;weight&quot;][&quot;value&quot;].rename(&quot;weight&quot;).reset_index(drop=True),
-    ], axis=1)
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">melted</span><span class="p">[</span><span class="n">melted</span><span class="o">.</span><span class="n">column</span> <span class="o">==</span> <span class="s2">&quot;age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;column&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">}),</span>
+        <span class="n">melted</span><span class="p">[</span><span class="n">melted</span><span class="o">.</span><span class="n">column</span> <span class="o">==</span> <span class="s2">&quot;weight&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;weight&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+    <span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -1346,8 +1346,8 @@ pd.concat([melted.head(), melted.tail()])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pivot_table = df.pivot_table(index=&quot;id&quot;, columns=[&quot;year&quot;, &quot;sex&quot;], values=&quot;weight&quot;, aggfunc=np.sum)
-pivot_table
+<span></span><span class="n">pivot_table</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+<span class="n">pivot_table</span>
 </pre></div>
 </div>
 </div>
@@ -1428,8 +1428,8 @@ pivot_table
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>diff = pivot_table.loc[:, 2017] - pivot_table.loc[:, 2016]
-diff
+<span></span><span class="n">diff</span> <span class="o">=</span> <span class="n">pivot_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2017</span><span class="p">]</span> <span class="o">-</span> <span class="n">pivot_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2016</span><span class="p">]</span>
+<span class="n">diff</span>
 </pre></div>
 </div>
 </div>
@@ -1484,7 +1484,7 @@ diff
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>diff.columns
+<span></span><span class="n">diff</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
@@ -1504,8 +1504,8 @@ diff
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>diff.columns = pd.MultiIndex.from_product([(&quot;diff&quot;,), (&quot;f&quot;, &quot;m&quot;)])
-diff
+<span></span><span class="n">diff</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([(</span><span class="s2">&quot;diff&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">)])</span>
+<span class="n">diff</span>
 </pre></div>
 </div>
 </div>
@@ -1564,7 +1564,7 @@ diff
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.concat([pivot_table, diff], axis=1)
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pivot_table</span><span class="p">,</span> <span class="n">diff</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1690,7 +1690,7 @@ diff
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1698,17 +1698,17 @@ diff
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

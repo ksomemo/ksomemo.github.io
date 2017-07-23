@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../../genindex.html"/>
-        <link rel="search" title="検索" href="../../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
+              href="../../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../../index.html"/> 
 
   
-  <script src="../../../_static/js/modernizr.min.js"></script>
+  <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">gh-pages</a>
+          <a href="../../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/scipy/stats/corr_ratio_fvalue.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/contents/notebooks/scipy/stats/corr_ratio_fvalue.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,12 +349,12 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%matplotlib inline
-import numpy as np
-import pandas as pd
-import scipy.stats
-import matplotlib.pyplot as plt
-import seaborn as sns
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
 </div>
@@ -364,13 +364,13 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># マンガでわかる統計学: p121-126
-observed = pd.DataFrame({
-    &quot;1_t&quot;: [23, 26, 27, 28, np.nan, np.nan],
-    &quot;2_sha&quot;: [25, 26, 29, 32, 33, np.nan],
-    &quot;3_ba&quot;: [15, 16, 18, 22, 26, 29]
-})
-observed
+<span></span><span class="c1"># マンガでわかる統計学: p121-126</span>
+<span class="n">observed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;1_t&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+    <span class="s2">&quot;2_sha&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+    <span class="s2">&quot;3_ba&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">observed</span>
 </pre></div>
 </div>
 </div>
@@ -437,8 +437,8 @@ observed
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sns.swarmplot(data=observed)
-plt.ylim(10, 40)
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">observed</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -456,7 +456,7 @@ plt.ylim(10, 40)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_scipy_stats_corr_ratio_fvalue_2_1.png" src="../../../_images/notebooks_scipy_stats_corr_ratio_fvalue_2_1.png" />
+<img alt="../../../../_images/contents_notebooks_scipy_stats_corr_ratio_fvalue_2_1.png" src="../../../../_images/contents_notebooks_scipy_stats_corr_ratio_fvalue_2_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -465,28 +465,28 @@ plt.ylim(10, 40)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def corr_ratio(observed):
-    # 級内変動
-    ssw = ((observed - observed.mean()) ** 2).sum().sum()
+<span></span><span class="k">def</span> <span class="nf">corr_ratio</span><span class="p">(</span><span class="n">observed</span><span class="p">):</span>
+    <span class="c1"># 級内変動</span>
+    <span class="n">ssw</span> <span class="o">=</span> <span class="p">((</span><span class="n">observed</span> <span class="o">-</span> <span class="n">observed</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-    # 級間変動
-    ssb = (observed.count() * ((observed.mean() - np.nanmean(observed)) ** 2)).sum()
+    <span class="c1"># 級間変動</span>
+    <span class="n">ssb</span> <span class="o">=</span> <span class="p">(</span><span class="n">observed</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">*</span> <span class="p">((</span><span class="n">observed</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">observed</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-    # sst
-    sst = ((observed - np.nanmean(observed)) ** 2).sum().sum()
+    <span class="c1"># sst</span>
+    <span class="n">sst</span> <span class="o">=</span> <span class="p">((</span><span class="n">observed</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">observed</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-    # 相関比
-    ratio = ssb / (ssb + ssw)
+    <span class="c1"># 相関比</span>
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">ssb</span> <span class="o">/</span> <span class="p">(</span><span class="n">ssb</span> <span class="o">+</span> <span class="n">ssw</span><span class="p">)</span>
 
-    # F
-    dfn = observed.shape[1] - 1
-    dfd = (observed.count() - 1).sum()
-    f = (ssb / dfn) / (ssw / dfd)
+    <span class="c1"># F</span>
+    <span class="n">dfn</span> <span class="o">=</span> <span class="n">observed</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">dfd</span> <span class="o">=</span> <span class="p">(</span><span class="n">observed</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">ssb</span> <span class="o">/</span> <span class="n">dfn</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">ssw</span> <span class="o">/</span> <span class="n">dfd</span><span class="p">)</span>
 
-    # p
-    p = scipy.stats.f.sf(f, dfn, dfd)
+    <span class="c1"># p</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dfn</span><span class="p">,</span> <span class="n">dfd</span><span class="p">)</span>
 
-    return (ssw, ssb, ratio, sst, f, p)
+    <span class="k">return</span> <span class="p">(</span><span class="n">ssw</span><span class="p">,</span> <span class="n">ssb</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">sst</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -497,7 +497,7 @@ plt.ylim(10, 40)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>corr_ratio(observed)
+<span></span><span class="n">corr_ratio</span><span class="p">(</span><span class="n">observed</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -522,9 +522,9 @@ plt.ylim(10, 40)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>scipy.stats.f_oneway(observed[&quot;1_t&quot;].dropna(),
-                             observed[&quot;2_sha&quot;].dropna(),
-                             observed[&quot;3_ba&quot;].dropna())
+<span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">observed</span><span class="p">[</span><span class="s2">&quot;1_t&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span>
+                             <span class="n">observed</span><span class="p">[</span><span class="s2">&quot;2_sha&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span>
+                             <span class="n">observed</span><span class="p">[</span><span class="s2">&quot;3_ba&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -544,12 +544,12 @@ plt.ylim(10, 40)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># https://en.wikipedia.org/wiki/Correlation_ratio
-df_math_scores = pd.DataFrame({
-    &quot;Algebra&quot;: [45, 70, 29, 15, 21, np.nan],
-    &quot;Geometry&quot;: [40, 20, 30, 42, np.nan, np.nan],
-    &quot;Statistics&quot;: [65, 95, 80, 70, 85, 73]
-})
+<span></span><span class="c1"># https://en.wikipedia.org/wiki/Correlation_ratio</span>
+<span class="n">df_math_scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Algebra&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+    <span class="s2">&quot;Geometry&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+    <span class="s2">&quot;Statistics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">73</span><span class="p">]</span>
+<span class="p">})</span>
 
 </pre></div>
 </div>
@@ -562,7 +562,7 @@ df_math_scores = pd.DataFrame({
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>corr_ratio(df_math_scores)
+<span></span><span class="n">corr_ratio</span><span class="p">(</span><span class="n">df_math_scores</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -587,7 +587,7 @@ df_math_scores = pd.DataFrame({
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sum(corr_ratio(df_math_scores)[:2])
+<span></span><span class="nb">sum</span><span class="p">(</span><span class="n">corr_ratio</span><span class="p">(</span><span class="n">df_math_scores</span><span class="p">)[:</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -646,7 +646,7 @@ df_math_scores = pd.DataFrame({
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
+            URL_ROOT:'../../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -654,17 +654,17 @@ df_math_scores = pd.DataFrame({
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
   
 
   

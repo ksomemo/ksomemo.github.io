@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../genindex.html"/>
-        <link rel="search" title="検索" href="../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
+  <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> gh-pages
+            <a href="../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -119,7 +119,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">gh-pages</a>
+          <a href="../../index.html">gh-pages</a>
         
       </nav>
 
@@ -147,7 +147,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
         
       <li>Table of Contents</li>
     
@@ -155,7 +155,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/notebooks/Standardize_other.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/contents/notebooks/Standardize_other.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -396,13 +396,13 @@ pyenv local anaconda3-2.5.0
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
-plt.style.use(&#39;ggplot&#39;)
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -415,7 +415,7 @@ plt.style.use(&#39;ggplot&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>nrow, ncol = 2, 3
+<span></span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </div>
@@ -427,7 +427,7 @@ plt.style.use(&#39;ggplot&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.rand(nrow, ncol)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -452,7 +452,7 @@ plt.style.use(&#39;ggplot&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.randn(row_count, col_count)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">row_count</span><span class="p">,</span> <span class="n">col_count</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -473,7 +473,7 @@ plt.style.use(&#39;ggplot&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.Series(np.random.randn(1, 10000)[0], name=&quot;a&quot;).hist()
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -491,7 +491,7 @@ plt.style.use(&#39;ggplot&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_Standardize_other_9_1.png" src="../_images/notebooks_Standardize_other_9_1.png" />
+<img alt="../../_images/contents_notebooks_Standardize_other_9_1.png" src="../../_images/contents_notebooks_Standardize_other_9_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -500,7 +500,7 @@ plt.style.use(&#39;ggplot&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.randn(1, 10000)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -521,7 +521,7 @@ plt.style.use(&#39;ggplot&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.randint(1, 100, 10)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -541,19 +541,19 @@ plt.style.use(&#39;ggplot&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import string
+<span></span><span class="kn">import</span> <span class="nn">string</span>
 
-np.random.seed(0)
-data = {
-    &quot;a&quot;: range(1, 1000+1),
-    &quot;b&quot;: list(string.ascii_letters[:25] * 40),
-    &quot;c&quot;: [1,2,3,4] * 250,
-    &quot;d&quot;: np.random.rand(1000),
-    &quot;e&quot;: np.random.randn(1000),
-    &quot;f&quot;: np.random.randint(1, 100, 1000)
-}
-df = pd.DataFrame(data)
-df.head(5)
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">[:</span><span class="mi">25</span><span class="p">]</span> <span class="o">*</span> <span class="mi">40</span><span class="p">),</span>
+    <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="mi">250</span><span class="p">,</span>
+    <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="s2">&quot;e&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="s2">&quot;f&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -632,7 +632,7 @@ df.head(5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df[&quot;c&quot;].head(1)
+<span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -655,8 +655,8 @@ Name: c, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df[&quot;c&quot;] = df.c.astype(&quot;category&quot;)
-df[&quot;c&quot;].head(1)
+<span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -682,7 +682,7 @@ Categories (4, int64): [1, 2, 3, 4]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df.quantile()
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">quantile</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -706,8 +706,8 @@ dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>decile = list(map(lambda x: x / 10, range(0, 10+1)))
-decile
+<span></span><span class="n">decile</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">10</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">decile</span>
 </pre></div>
 </div>
 </div>
@@ -727,8 +727,8 @@ decile
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>deciled = df.quantile(decile)
-deciled
+<span></span><span class="n">deciled</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">decile</span><span class="p">)</span>
+<span class="n">deciled</span>
 </pre></div>
 </div>
 </div>
@@ -845,8 +845,8 @@ deciled
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mean = pd.DataFrame(df.mean()).T
-mean
+<span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">T</span>
+<span class="n">mean</span>
 </pre></div>
 </div>
 </div>
@@ -885,8 +885,8 @@ mean
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>median = pd.DataFrame(df.median()).T
-median
+<span></span><span class="n">median</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">())</span><span class="o">.</span><span class="n">T</span>
+<span class="n">median</span>
 </pre></div>
 </div>
 </div>
@@ -925,7 +925,7 @@ median
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df[&quot;d&quot;].plot(kind=&quot;hist&quot;, bins=20)
+<span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -943,7 +943,7 @@ median
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_Standardize_other_23_1.png" src="../_images/notebooks_Standardize_other_23_1.png" />
+<img alt="../../_images/contents_notebooks_Standardize_other_23_1.png" src="../../_images/contents_notebooks_Standardize_other_23_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -952,7 +952,7 @@ median
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df[&quot;d&quot;].plot.hist(bins=20)
+<span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -970,7 +970,7 @@ median
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_Standardize_other_24_1.png" src="../_images/notebooks_Standardize_other_24_1.png" />
+<img alt="../../_images/contents_notebooks_Standardize_other_24_1.png" src="../../_images/contents_notebooks_Standardize_other_24_1.png" />
 </div>
 </div>
 </div>
@@ -982,12 +982,12 @@ median
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sklearn.preprocessing import scale
-# normalize はベクトルの正規化だった
-figure, axes = plt.subplots(1, 3, figsize=(15, 5))
-df[&quot;f&quot;].hist(ax=axes[0])
-(df.f - df.f.mean()).div(df.f.std()).hist(ax=axes[1])
-plt.hist(scale(df[&quot;f&quot;].astype(&quot;float&quot;)))
+<span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">scale</span>
+<span class="c1"># normalize はベクトルの正規化だった</span>
+<span class="n">figure</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">f</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">std</span><span class="p">())</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1009,7 +1009,7 @@ plt.hist(scale(df[&quot;f&quot;].astype(&quot;float&quot;)))
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_Standardize_other_26_1.png" src="../_images/notebooks_Standardize_other_26_1.png" />
+<img alt="../../_images/contents_notebooks_Standardize_other_26_1.png" src="../../_images/contents_notebooks_Standardize_other_26_1.png" />
 </div>
 </div>
 </div>
@@ -1021,10 +1021,10 @@ plt.hist(scale(df[&quot;f&quot;].astype(&quot;float&quot;)))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>columns = list(&quot;def&quot;)
-normalized_df = df[columns].div(df[columns].sum())
-print(normalized_df.sum())
-normalized_df[&quot;f&quot;].cumsum().plot()
+<span></span><span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;def&quot;</span><span class="p">)</span>
+<span class="n">normalized_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">normalized_df</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="n">normalized_df</span><span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -1054,7 +1054,7 @@ dtype: float64
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_Standardize_other_28_2.png" src="../_images/notebooks_Standardize_other_28_2.png" />
+<img alt="../../_images/contents_notebooks_Standardize_other_28_2.png" src="../../_images/contents_notebooks_Standardize_other_28_2.png" />
 </div>
 </div>
 </div>
@@ -1193,8 +1193,8 @@ dtype: float64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import patsy
-patsy.dmatrices(&quot;c ~ .&quot;, df, return_type=&quot;dataframe&quot;)
+<span></span><span class="kn">import</span> <span class="nn">patsy</span>
+<span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s2">&quot;c ~ .&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -1217,8 +1217,8 @@ patsy.dmatrices(&quot;c ~ .&quot;, df, return_type=&quot;dataframe&quot;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>y, X = patsy.dmatrices(&quot;c ~ a + b + d + e + f&quot;, df, return_type=&quot;dataframe&quot;)
-X.head()
+<span></span><span class="n">y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s2">&quot;c ~ a + b + d + e + f&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">)</span>
+<span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1388,7 +1388,7 @@ X.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.randint(0, 1+1, 50)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1410,16 +1410,16 @@ X.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_ex = pd.DataFrame(
-    {
-        &quot;a&quot;: np.random.randint(0, 3+1, 50),
-        &quot;b&quot;: range(50),
-        &quot;c&quot;: list(&quot;abcde&quot;) * 10,
-        &quot;d&quot;: [False, True] * 25,
-        &quot;y&quot;: np.random.randint(0, 1+1, 50)
-    }
-)
-df_ex.describe()
+<span></span><span class="n">df_ex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+        <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">]</span> <span class="o">*</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="n">df_ex</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1507,8 +1507,8 @@ df_ex.describe()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>outcome, predictors = patsy.dmatrices(&quot;y ~ C(a) + b + c + d&quot;,  df_ex, return_type=&quot;dataframe&quot;)
-pd.concat([predictors, outcome], axis=1).head()
+<span></span><span class="n">outcome</span><span class="p">,</span> <span class="n">predictors</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s2">&quot;y ~ C(a) + b + c + d&quot;</span><span class="p">,</span>  <span class="n">df_ex</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">predictors</span><span class="p">,</span> <span class="n">outcome</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -1618,7 +1618,7 @@ pd.concat([predictors, outcome], axis=1).head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X.describe()
+<span></span><span class="n">X</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1751,8 +1751,8 @@ pd.concat([predictors, outcome], axis=1).head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>y, X = patsy.dmatrices(&quot;c ~ a + C(b) + d + e + f&quot;, df, return_type=&quot;dataframe&quot;)
-X.head()
+<span></span><span class="n">y</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrices</span><span class="p">(</span><span class="s2">&quot;c ~ a + C(b) + d + e + f&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">)</span>
+<span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1922,7 +1922,7 @@ X.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>y.head()
+<span></span><span class="n">y</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1989,7 +1989,7 @@ X.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.ravel(y), len(np.ravel(y))
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2040,7 +2040,7 @@ X.head()
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
+            URL_ROOT:'../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -2048,17 +2048,17 @@ X.head()
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
   

@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../../genindex.html"/>
-        <link rel="search" title="検索" href="../../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
+              href="../../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../../index.html"/> 
 
   
-  <script src="../../../_static/js/modernizr.min.js"></script>
+  <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -111,7 +111,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">gh-pages</a>
+          <a href="../../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -139,7 +139,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
       <li>統計検定２級テキスト</li>
     
@@ -147,7 +147,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/statistics/grade2excercise/統計検定２級テキスト旧.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/contents/notebooks/statistics/grade2excercise/統計検定２級テキスト旧.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -385,8 +385,8 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import scipy
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
 </pre></div>
 </div>
 </div>
@@ -396,7 +396,7 @@ import scipy
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>scipy.stats
+<span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span>
 </pre></div>
 </div>
 </div>
@@ -419,7 +419,7 @@ import scipy
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from scipy import stats
+<span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 </pre></div>
 </div>
 </div>
@@ -429,7 +429,7 @@ import scipy
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>stats.chi2_contingency
+<span></span><span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span>
 </pre></div>
 </div>
 </div>
@@ -449,7 +449,7 @@ import scipy
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import statsmodels.api as sm
+<span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
 </pre></div>
 </div>
 </div>
@@ -459,7 +459,7 @@ import scipy
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>stats.chi2_contingency?
+<span></span>stats.chi2_contingency<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -469,10 +469,10 @@ import scipy
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://tetsunosuke.hatenablog.com/entry/2014/02/23/145626
-obs = np.array([[10,10,10,10,10,10], [10,10,10,25,1,4]])
-chi2, p, dof, expected = stats.chi2_contingency(obs)
-chi2, p, dof, expected
+<span></span><span class="c1"># http://tetsunosuke.hatenablog.com/entry/2014/02/23/145626</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+<span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span>
 </pre></div>
 </div>
 </div>
@@ -496,8 +496,8 @@ chi2, p, dof, expected
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def chi_2_value(expected, obserbed):
-    return np.sum((np.array(obserbed) - np.array(expected))**2 / np.array(expected))
+<span></span><span class="k">def</span> <span class="nf">chi_2_value</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">obserbed</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obserbed</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">expected</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">expected</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -507,7 +507,7 @@ chi2, p, dof, expected
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>chi_2_value([10,10,10,10,10,10], [10,10,10,25,1,4])
+<span></span><span class="n">chi_2_value</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 
 </pre></div>
 </div>
@@ -528,8 +528,8 @@ chi2, p, dof, expected
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>chi2_sp = scipy.stats.chisquare([10,10,10,10,10,10], [10,10,10,25,1,4])
-chi2_sp
+<span></span><span class="n">chi2_sp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chisquare</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">chi2_sp</span>
 </pre></div>
 </div>
 </div>
@@ -549,11 +549,11 @@ chi2_sp
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>rooms_direction_counts = [38,25,57,29,11,7,10,6]
-chi_2_value(
-    np.repeat(np.mean(rooms_direction_counts), len(rooms_direction_counts)),
-    rooms_direction_counts
-)
+<span></span><span class="n">rooms_direction_counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">57</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">chi_2_value</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rooms_direction_counts</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">rooms_direction_counts</span><span class="p">)),</span>
+    <span class="n">rooms_direction_counts</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -573,10 +573,10 @@ chi_2_value(
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pyper
-# ttp://esu-ko.hatenablog.com/entry/2016/03/07/%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9%E3%82%92Python%E3%81%A7%E8%A9%A6%E3%81%99(1%3A%E6%A4%9C%E5%AE%9A)
-import rpy2
-%load_ext rpy2.ipython
+<span></span><span class="kn">import</span> <span class="nn">pyper</span>
+<span class="c1"># ttp://esu-ko.hatenablog.com/entry/2016/03/07/%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9%E3%82%92Python%E3%81%A7%E8%A9%A6%E3%81%99(1%3A%E6%A4%9C%E5%AE%9A)</span>
+<span class="kn">import</span> <span class="nn">rpy2</span>
+<span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
 </pre></div>
 </div>
 </div>
@@ -586,8 +586,8 @@ import rpy2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_head =%R head(iris)
-iris_head
+<span></span><span class="n">iris_head</span> <span class="o">=%</span><span class="k">R</span> head(iris)
+<span class="n">iris_head</span>
 </pre></div>
 </div>
 </div>
@@ -701,14 +701,14 @@ my.summary<span class="p">(</span>iris<span class="p">)</span>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>r = pyper.R(use_pandas=True)
-r.assign(&quot;obs&quot;, obs)
-r(&quot;&quot;&quot;
-r_chisq_test &lt;- chisq.test(obs)
-&quot;&quot;&quot;
-)
-print(r_chisq_test)
-#r.get(&quot;r_chisq_test&quot;)
+<span></span><span class="n">r</span> <span class="o">=</span> <span class="n">pyper</span><span class="o">.</span><span class="n">R</span><span class="p">(</span><span class="n">use_pandas</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="s2">&quot;obs&quot;</span><span class="p">,</span> <span class="n">obs</span><span class="p">)</span>
+<span class="n">r</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">r_chisq_test &lt;- chisq.test(obs)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r_chisq_test</span><span class="p">)</span>
+<span class="c1">#r.get(&quot;r_chisq_test&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -735,8 +735,8 @@ X-squared = 16.364, df = 5, p-value = 0.005879
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-%matplotlib inline
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -746,20 +746,20 @@ X-squared = 16.364, df = 5, p-value = 0.005879
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mansion = pd.Series(
-    {
-            &quot;-&quot;: 5,
-            &quot;西&quot;: 38,
-            &quot;東&quot;: 25,
-            &quot;南&quot;: 57,
-            &quot;南西&quot;: 29,
-            &quot;南東&quot;: 11,
-            &quot;北&quot;: 7,
-            &quot;北西&quot;: 10,
-            &quot;北東&quot;: 6,
-    }
-)
-mansion.to_frame().T
+<span></span><span class="n">mansion</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+    <span class="p">{</span>
+            <span class="s2">&quot;-&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s2">&quot;西&quot;</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span>
+            <span class="s2">&quot;東&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+            <span class="s2">&quot;南&quot;</span><span class="p">:</span> <span class="mi">57</span><span class="p">,</span>
+            <span class="s2">&quot;南西&quot;</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span>
+            <span class="s2">&quot;南東&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+            <span class="s2">&quot;北&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="s2">&quot;北西&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="s2">&quot;北東&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="n">mansion</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -808,12 +808,12 @@ mansion.to_frame().T
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>without_nan = mansion.drop(&quot;-&quot;)
-(
-    without_nan.count(),
-    without_nan.sum(),
-    without_nan.sum() / without_nan.count()
-)
+<span></span><span class="n">without_nan</span> <span class="o">=</span> <span class="n">mansion</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="p">(</span>
+    <span class="n">without_nan</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span>
+    <span class="n">without_nan</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+    <span class="n">without_nan</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">without_nan</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -924,7 +924,7 @@ mansion.to_frame().T
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
+            URL_ROOT:'../../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -932,17 +932,17 @@ mansion.to_frame().T
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
   
 
   

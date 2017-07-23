@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pandas/df_to_str_and_zip_write_str.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/pandas/df_to_str_and_zip_write_str.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,13 +349,13 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
-import seaborn as sns
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -365,10 +365,10 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.seed(0)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-_1_to_3less = np.random.randint(1, 3, size=(7, 5))
-_1_to_3less
+<span class="n">_1_to_3less</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">_1_to_3less</span>
 </pre></div>
 </div>
 </div>
@@ -394,8 +394,8 @@ _1_to_3less
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>_1_to_3 = np.random.random_integers(1, 3, size=(7, 5))
-_1_to_3
+<span></span><span class="n">_1_to_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">_1_to_3</span>
 </pre></div>
 </div>
 </div>
@@ -421,8 +421,8 @@ _1_to_3
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df = pd.DataFrame(_1_to_3, columns=list(&quot;abcde&quot;))
-df
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">_1_to_3</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">))</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -511,7 +511,7 @@ df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(df.to_string(index=False, header=False), end=&quot;&quot;)
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -535,13 +535,13 @@ df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import io
+<span></span><span class="kn">import</span> <span class="nn">io</span>
 
-strio = io.StringIO()
-_str = df.to_string(buf=strio)
+<span class="n">strio</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="n">_str</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="n">strio</span><span class="p">)</span>
 
-print(_str)
-print(strio.getvalue())
+<span class="k">print</span><span class="p">(</span><span class="n">_str</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">strio</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -567,10 +567,10 @@ None
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>strio = io.StringIO()
-df.to_string(buf=strio)
-for l in strio:
-    print(l)
+<span></span><span class="n">strio</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="n">strio</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">strio</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -581,9 +581,9 @@ for l in strio:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>strio = io.StringIO(df.to_string())
-for l in strio:
-    print(l)
+<span></span><span class="n">strio</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">strio</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -615,15 +615,15 @@ for l in strio:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import zipfile
-from contextlib import ExitStack
+<span></span><span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">ExitStack</span>
 
-with ExitStack() as s:
-    _bio = s.enter_context(io.BytesIO())
-    z = s.enter_context(zipfile.ZipFile(_bio, &quot;w&quot;, compression=zipfile.ZIP_DEFLATED))
-    z.writestr(&quot;a.txt&quot;, &quot;aaaa&quot;)
-    z.writestr(&quot;c/d.txt&quot;, &quot;ccdd&quot;)
-    print(_bio.getvalue()[:4])
+<span class="k">with</span> <span class="n">ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">_bio</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">())</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">_bio</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">))</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="s2">&quot;a.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;aaaa&quot;</span><span class="p">)</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="s2">&quot;c/d.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;ccdd&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">_bio</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()[:</span><span class="mi">4</span><span class="p">])</span>
 
 </pre></div>
 </div>
@@ -642,16 +642,16 @@ b&#39;PK\x03\x04&#39;
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import zipfile
+<span></span><span class="kn">import</span> <span class="nn">zipfile</span>
 
-_zio = io.StringIO()
-with zipfile.ZipFile(_zio, &quot;w&quot;, compression=zipfile.ZIP_DEFLATED) as z:
-    z.writestr(&quot;a.txt&quot;, &quot;aaaa&quot;)
-    # z.writestr(&quot;a.txt&quot;, bytes(&quot;aaaa&quot;))
-    # z.writestr(&quot;b.txt&quot;, &quot;bbb&quot;.encode())
-    # z.writestr(&quot;c/d.txt&quot;, &quot;ccdd&quot;)
+<span class="n">_zio</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">_zio</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="s2">&quot;a.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;aaaa&quot;</span><span class="p">)</span>
+    <span class="c1"># z.writestr(&quot;a.txt&quot;, bytes(&quot;aaaa&quot;))</span>
+    <span class="c1"># z.writestr(&quot;b.txt&quot;, &quot;bbb&quot;.encode())</span>
+    <span class="c1"># z.writestr(&quot;c/d.txt&quot;, &quot;ccdd&quot;)</span>
 
-_zio.getvalue()[:4]
+<span class="n">_zio</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()[:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -714,10 +714,10 @@ During handling of the above exception, another exception occurred:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import zipfile
+<span></span><span class="kn">import</span> <span class="nn">zipfile</span>
 
-with zipfile.ZipFile(&quot;file.zip&quot;, &quot;w&quot;, zipfile.ZIP_DEFLATED) as z:
-    z.writestr(&quot;file.txt&quot;, df.to_string())
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">&quot;file.zip&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+    <span class="n">z</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="s2">&quot;file.txt&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 
 </pre></div>
 </div>
@@ -728,12 +728,12 @@ with zipfile.ZipFile(&quot;file.zip&quot;, &quot;w&quot;, zipfile.ZIP_DEFLATED) 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import os
-now = pd.to_datetime(&quot;now&quot;).date().isoformat()
-df.to_csv(now, index=False, header=False)
-with open(now) as f:
-    print(f.read())
-os.remove(now)
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;now&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">now</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -758,7 +758,7 @@ os.remove(now)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sns.pairplot(data=df, hue=&quot;d&quot;)
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -776,7 +776,7 @@ os.remove(now)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_pandas_df_to_str_and_zip_write_str_12_1.png" src="../../_images/notebooks_pandas_df_to_str_and_zip_write_str_12_1.png" />
+<img alt="../../../_images/contents_notebooks_pandas_df_to_str_and_zip_write_str_12_1.png" src="../../../_images/contents_notebooks_pandas_df_to_str_and_zip_write_str_12_1.png" />
 </div>
 </div>
 
@@ -814,7 +814,7 @@ os.remove(now)
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -822,17 +822,17 @@ os.remove(now)
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

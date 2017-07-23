@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pandas/from_string.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/pandas/from_string.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,18 +349,18 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-import numpy as np
-import io
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">io</span>
 
-def from_string(_str, **kwargs):
-    # http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.from_csv.html
-    return pd.DataFrame.from_csv(io.StringIO(_str), **kwargs)
+<span class="k">def</span> <span class="nf">from_string</span><span class="p">(</span><span class="n">_str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.from_csv.html</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">_str</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-_csv = &quot;&quot;&quot;a,b,c
-1,2,3
-4,5,6
-&quot;&quot;&quot;
+<span class="n">_csv</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;a,b,c</span>
+<span class="s2">1,2,3</span>
+<span class="s2">4,5,6</span>
+<span class="s2">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -370,7 +370,7 @@ _csv = &quot;&quot;&quot;a,b,c
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from_string(_csv)
+<span></span><span class="n">from_string</span><span class="p">(</span><span class="n">_csv</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -415,7 +415,7 @@ _csv = &quot;&quot;&quot;a,b,c
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from_string(_csv, index_col=None)
+<span></span><span class="n">from_string</span><span class="p">(</span><span class="n">_csv</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -458,7 +458,7 @@ _csv = &quot;&quot;&quot;a,b,c
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from_string(_csv[1:])
+<span></span><span class="n">from_string</span><span class="p">(</span><span class="n">_csv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 </pre></div>
 </div>
 </div>
@@ -498,7 +498,7 @@ _csv = &quot;&quot;&quot;a,b,c
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.read_csv(io.StringIO(_csv))
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">_csv</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -541,10 +541,10 @@ _csv = &quot;&quot;&quot;a,b,c
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pyperclip
+<span></span><span class="kn">import</span> <span class="nn">pyperclip</span>
 
-def from_clipboad(**kwargs):
-    return from_string(pyperclip.paste(), **kwargs)
+<span class="k">def</span> <span class="nf">from_clipboad</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">from_string</span><span class="p">(</span><span class="n">pyperclip</span><span class="o">.</span><span class="n">paste</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -554,8 +554,8 @@ def from_clipboad(**kwargs):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pyperclip.copy(_csv)
-from_clipboad(index_col=None)
+<span></span><span class="n">pyperclip</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">_csv</span><span class="p">)</span>
+<span class="n">from_clipboad</span><span class="p">(</span><span class="n">index_col</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -598,8 +598,8 @@ from_clipboad(index_col=None)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pyperclip.copy(_csv)
-pd.read_clipboard(sep=&quot;,&quot;)
+<span></span><span class="n">pyperclip</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">_csv</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_clipboard</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -642,18 +642,18 @@ pd.read_clipboard(sep=&quot;,&quot;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import string
+<span></span><span class="kn">import</span> <span class="nn">string</span>
 
-df_wide = pd.DataFrame(
-    np.random.random_integers(1, size=(1, len(string.ascii_letters))),
-    columns=list(string.ascii_letters))
+<span class="n">df_wide</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">))),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">))</span>
 
-with pd.option_context(&#39;display.max_columns&#39;, 10):
-    print(pd.options.display.max_columns)
-    print(df_wide)
+<span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">df_wide</span><span class="p">)</span>
 
-print(pd.options.display.max_columns)
-print(df_wide)
+<span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df_wide</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -720,7 +720,7 @@ print(df_wide)
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -728,17 +728,17 @@ print(df_wide)
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

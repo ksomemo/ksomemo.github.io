@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../../genindex.html"/>
-        <link rel="search" title="検索" href="../../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
+              href="../../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../../index.html"/> 
 
   
-  <script src="../../../_static/js/modernizr.min.js"></script>
+  <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -118,7 +118,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">gh-pages</a>
+          <a href="../../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -146,7 +146,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
       <li>母平均の比較値との差のz検定</li>
     
@@ -154,7 +154,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/statistics/44-tests/母平均の比較値との差のz検定.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/contents/notebooks/statistics/44-tests/母平均の比較値との差のz検定.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -374,16 +374,16 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%matplotlib inline
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-import numpy as np
-import pandas as pd
-from scipy import stats
-import matplotlib.pyplot as plt
-import statsmodels.api as sm
-import seaborn as sns
-import sympy
-from sympy import symbols, Symbol, Rational
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Symbol</span><span class="p">,</span> <span class="n">Rational</span>
 </pre></div>
 </div>
 </div>
@@ -393,8 +393,8 @@ from sympy import symbols, Symbol, Rational
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import sys
-print(sys.version)
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -413,7 +413,7 @@ print(sys.version)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%load_ext rpy2.ipython
+<span></span><span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
 </pre></div>
 </div>
 </div>
@@ -423,8 +423,8 @@ print(sys.version)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import rpy2
-rpy2.__version__
+<span></span><span class="kn">import</span> <span class="nn">rpy2</span>
+<span class="n">rpy2</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
@@ -444,7 +444,7 @@ rpy2.__version__
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!R --version
+<span></span><span class="o">!</span>R --version
 </pre></div>
 </div>
 </div>
@@ -471,7 +471,7 @@ http://www.gnu.org/licenses/.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.init_printing()
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -483,13 +483,13 @@ http://www.gnu.org/licenses/.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.seed(0)
-mean = 1183000
-std = 101000
-size = 250
-other_mean = 1150000
-x = np.random.normal(size=size)
-x.mean(), x.std()
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="mi">1183000</span>
+<span class="n">std</span> <span class="o">=</span> <span class="mi">101000</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">other_mean</span> <span class="o">=</span> <span class="mi">1150000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -510,9 +510,9 @@ $$\left ( 0.0317806978638, \quad 0.99610052371\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x1 = x / x.std() * std
-x1 = x1 + (mean - x1.mean())
-x1.mean(), x1.std()
+<span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="n">std</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">+</span> <span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">x1</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">x1</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">x1</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -532,8 +532,8 @@ $$\left ( 1183000.0, \quad 101000.0\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x2 = x + (other_mean - x.mean())
-x2.mean(), x2.std()
+<span></span><span class="n">x2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">other_mean</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">x2</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">x2</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -552,7 +552,7 @@ $$\left ( 1150000.0, \quad 0.996100523709\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sns.kdeplot(x1)
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -570,7 +570,7 @@ $$\left ( 1150000.0, \quad 0.996100523709\right )$$</div></div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_statistics_44-tests_母平均の比較値との差のz検定_12_1.png" src="../../../_images/notebooks_statistics_44-tests_母平均の比較値との差のz検定_12_1.png" />
+<img alt="../../../../_images/contents_notebooks_statistics_44-tests_母平均の比較値との差のz検定_12_1.png" src="../../../../_images/contents_notebooks_statistics_44-tests_母平均の比較値との差のz検定_12_1.png" />
 </div>
 </div>
 </div>
@@ -582,8 +582,8 @@ $$\left ( 1150000.0, \quad 0.996100523709\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x_, μ0, σ, n = symbols(&quot;\overline{x} mu_0 sigma n&quot;)
-x_, μ0, σ, n
+<span></span><span class="n">x_</span><span class="p">,</span> <span class="err">μ</span><span class="mi">0</span><span class="p">,</span> <span class="err">σ</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;\overline{x} mu_0 sigma n&quot;</span><span class="p">)</span>
+<span class="n">x_</span><span class="p">,</span> <span class="err">μ</span><span class="mi">0</span><span class="p">,</span> <span class="err">σ</span><span class="p">,</span> <span class="n">n</span>
 </pre></div>
 </div>
 </div>
@@ -602,8 +602,8 @@ $$\left ( \overline{x}, \quad \mu_{0}, \quad \sigma, \quad n\right )$$</div></di
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>T = (x_ -  μ0) / (σ / sympy.sqrt(n))
-T
+<span></span><span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_</span> <span class="o">-</span>  <span class="err">μ</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="err">σ</span> <span class="o">/</span> <span class="n">sympy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -623,7 +623,7 @@ $$\frac{\sqrt{n}}{\sigma} \left(\overline{x} - \mu_{0}\right)$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.S(&quot;x - mu_0&quot;)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="s2">&quot;x - mu_0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -642,7 +642,7 @@ $$- \mu_{0} + x$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>#sympy.S(&quot;overline{x} + 1&quot;)
+<span></span><span class="c1">#sympy.S(&quot;overline{x} + 1&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -656,8 +656,8 @@ $$- \mu_{0} + x$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>T = sympy.S(&quot;(X_overline - mu_0) / (sigma / sqrt(n))&quot;, evaluate=False)
-T
+<span></span><span class="n">T</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="s2">&quot;(X_overline - mu_0) / (sigma / sqrt(n))&quot;</span><span class="p">,</span> <span class="n">evaluate</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -681,13 +681,13 @@ $$\frac{X_{overline} - \mu_{0}}{\sigma \frac{1}{\sqrt{n}}}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>T_value = T.subs(
-    dict(
-        X_overline=mean,
-        mu_0=other_mean,
-        sigma=std,
-        n=size)).evalf()
-T_value
+<span></span><span class="n">T_value</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span>
+    <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">X_overline</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span>
+        <span class="n">mu_0</span><span class="o">=</span><span class="n">other_mean</span><span class="p">,</span>
+        <span class="n">sigma</span><span class="o">=</span><span class="n">std</span><span class="p">,</span>
+        <span class="n">n</span><span class="o">=</span><span class="n">size</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
+<span class="n">T_value</span>
 </pre></div>
 </div>
 </div>
@@ -708,7 +708,7 @@ $$5.16609716760181$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>stats.norm.ppf(1 - 0.05)
+<span></span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -728,7 +728,7 @@ $$1.64485362695$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>stats.norm.sf(5.17)
+<span></span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="mf">5.17</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -747,7 +747,7 @@ $$1.17046997373e-07$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>1 - stats.norm.cdf(float(T_value))
+<span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">T_value</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -767,13 +767,13 @@ $$1.19516280317e-07$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>T_value_n_1 = T.subs(
-    dict(
-        X_overline=mean,
-        mu_0=other_mean,
-        sigma=std,
-        n=size-1)).evalf()
-T_value_n_1
+<span></span><span class="n">T_value_n_1</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span>
+    <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">X_overline</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span>
+        <span class="n">mu_0</span><span class="o">=</span><span class="n">other_mean</span><span class="p">,</span>
+        <span class="n">sigma</span><span class="o">=</span><span class="n">std</span><span class="p">,</span>
+        <span class="n">n</span><span class="o">=</span><span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
+<span class="n">T_value_n_1</span>
 </pre></div>
 </div>
 </div>
@@ -792,7 +792,7 @@ $$5.15575462035607$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>1 - stats.norm.cdf(float(T_value_n_1))
+<span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">T_value_n_1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -814,7 +814,7 @@ $$1.26305760739e-07$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.srepr(T)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">srepr</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -834,12 +834,12 @@ $$1.26305760739e-07$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sympy.printing.dot import dotprint
-import pydot_ng
-from IPython.display import Image
+<span></span><span class="kn">from</span> <span class="nn">sympy.printing.dot</span> <span class="kn">import</span> <span class="n">dotprint</span>
+<span class="kn">import</span> <span class="nn">pydot_ng</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 
-graph = pydot_ng.graph_from_dot_data(dotprint(T))
-Image(graph.create_png())
+<span class="n">graph</span> <span class="o">=</span> <span class="n">pydot_ng</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dotprint</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -849,7 +849,7 @@ Image(graph.create_png())
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_statistics_44-tests_母平均の比較値との差のz検定_36_0.png" src="../../../_images/notebooks_statistics_44-tests_母平均の比較値との差のz検定_36_0.png" />
+<img alt="../../../../_images/contents_notebooks_statistics_44-tests_母平均の比較値との差のz検定_36_0.png" src="../../../../_images/contents_notebooks_statistics_44-tests_母平均の比較値との差のz検定_36_0.png" />
 </div>
 </div>
 <div class="section" id="statsmodels">
@@ -875,7 +875,7 @@ Image(graph.create_png())
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sm.stats.ztest(x1, alternative=&quot;larger&quot;, value=other_mean)
+<span></span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ztest</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;larger&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">other_mean</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -894,7 +894,7 @@ $$\left ( 5.15575462036, \quad 1.26305760785e-07\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sm.stats.ztest(x1, x2=x2, alternative=&quot;larger&quot;)
+<span></span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ztest</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="o">=</span><span class="n">x2</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;larger&quot;</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -917,7 +917,7 @@ $$\left ( 5.15575462011, \quad 1.26305760954e-07\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sm.stats.ztest(x1, alternative=&quot;larger&quot;, value=other_mean, ddof=0)
+<span></span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ztest</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;larger&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">other_mean</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -940,9 +940,9 @@ $$\left ( 5.1660971676, \quad 1.19516280322e-07\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>d1 = sm.stats.DescrStatsW(x1)
-d2 = sm.stats.DescrStatsW(x2)
-d1
+<span></span><span class="n">d1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">DescrStatsW</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">DescrStatsW</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<span class="n">d1</span>
 </pre></div>
 </div>
 </div>
@@ -962,7 +962,7 @@ d1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>d1.ztest_mean(other_mean, alternative=&quot;larger&quot;)
+<span></span><span class="n">d1</span><span class="o">.</span><span class="n">ztest_mean</span><span class="p">(</span><span class="n">other_mean</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;larger&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -985,8 +985,8 @@ $$\left ( 5.15575462036, \quad 1.26305760785e-07\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>compare_means = sm.stats.CompareMeans(d1, d2)
-compare_means
+<span></span><span class="n">compare_means</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">CompareMeans</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
+<span class="n">compare_means</span>
 </pre></div>
 </div>
 </div>
@@ -1006,7 +1006,7 @@ compare_means
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>compare_means.ztest_ind(alternative=&quot;larger&quot;)
+<span></span><span class="n">compare_means</span><span class="o">.</span><span class="n">ztest_ind</span><span class="p">(</span><span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;larger&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1058,7 +1058,7 @@ r2py_output
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>r2py_output
+<span></span><span class="n">r2py_output</span>
 </pre></div>
 </div>
 </div>
@@ -1326,7 +1326,7 @@ $random_variable_rnorm
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
+            URL_ROOT:'../../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1334,17 +1334,17 @@ $random_variable_rnorm
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
   
 
   

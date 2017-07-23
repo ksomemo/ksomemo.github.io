@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pandas/pandoc_tabulate.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/pandas/pandoc_tabulate.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,7 +349,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import sphinx
+<span></span><span class="kn">import</span> <span class="nn">sphinx</span>
 </pre></div>
 </div>
 </div>
@@ -359,8 +359,8 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-import seaborn as sns
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
 </div>
@@ -370,8 +370,8 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>titanic = sns.load_dataset(&quot;titanic&quot;)
-titanic.tail()
+<span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -505,7 +505,7 @@ titanic.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>help(titanic_tail.to_html)
+<span></span><span class="n">help</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">to_html</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -581,7 +581,7 @@ to_html(buf=None, columns=None, col_space=None, colSpace=None, header=True, inde
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(titanic_tail.to_html())
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">to_html</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -712,7 +712,7 @@ to_html(buf=None, columns=None, col_space=None, colSpace=None, header=True, inde
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pypandoc
+<span></span><span class="kn">import</span> <span class="nn">pypandoc</span>
 </pre></div>
 </div>
 </div>
@@ -722,7 +722,7 @@ to_html(buf=None, columns=None, col_space=None, colSpace=None, header=True, inde
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>help(pypandoc.convert)
+<span></span><span class="n">help</span><span class="p">(</span><span class="n">pypandoc</span><span class="o">.</span><span class="n">convert</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -770,7 +770,7 @@ convert(source, to, format=None, extra_args=(), encoding=&#39;utf-8&#39;, output
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pypandoc.get_pandoc_formats()
+<span></span><span class="n">pypandoc</span><span class="o">.</span><span class="n">get_pandoc_formats</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -850,20 +850,20 @@ convert(source, to, format=None, extra_args=(), encoding=&#39;utf-8&#39;, output
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>titanic_tail = titanic.tail()
+<span></span><span class="n">titanic_tail</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 
-pypandoc.convert(titanic_tail.to_html(), &quot;markdown&quot;,             format=&quot;html&quot;, outputfile=&quot;titanic_tail.md&quot;)
-pypandoc.convert(titanic_tail.to_html(), &quot;markdown_github&quot;,    format=&quot;html&quot;, outputfile=&quot;titanic_tail_github.md&quot;)
-pypandoc.convert(titanic_tail.to_html(), &quot;markdown_mmd&quot;,      format=&quot;html&quot;, outputfile=&quot;titanic_tail_mmd.md&quot;)
-pypandoc.convert(titanic_tail.to_html(), &quot;markdown_phpextra&quot;, format=&quot;html&quot;, outputfile=&quot;titanic_tail_phpex.md&quot;)
+<span class="n">pypandoc</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">to_html</span><span class="p">(),</span> <span class="s2">&quot;markdown&quot;</span><span class="p">,</span>             <span class="n">format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="s2">&quot;titanic_tail.md&quot;</span><span class="p">)</span>
+<span class="n">pypandoc</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">to_html</span><span class="p">(),</span> <span class="s2">&quot;markdown_github&quot;</span><span class="p">,</span>    <span class="n">format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="s2">&quot;titanic_tail_github.md&quot;</span><span class="p">)</span>
+<span class="n">pypandoc</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">to_html</span><span class="p">(),</span> <span class="s2">&quot;markdown_mmd&quot;</span><span class="p">,</span>      <span class="n">format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="s2">&quot;titanic_tail_mmd.md&quot;</span><span class="p">)</span>
+<span class="n">pypandoc</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">to_html</span><span class="p">(),</span> <span class="s2">&quot;markdown_phpextra&quot;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="s2">&quot;titanic_tail_phpex.md&quot;</span><span class="p">)</span>
 
-pypandoc.convert(titanic_tail.to_html(index=False), &quot;markdown_github&quot;, format=&quot;html&quot;, outputfile=&quot;titanic_tail_github_noindex.md&quot;)
+<span class="n">pypandoc</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span> <span class="s2">&quot;markdown_github&quot;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="s2">&quot;titanic_tail_github_noindex.md&quot;</span><span class="p">)</span>
 
-titanic_tail.index.names = [&quot;index&quot;]
-pypandoc.convert(titanic_tail.to_html(), &quot;markdown_github&quot;, format=&quot;html&quot;, outputfile=&quot;titanic_tail_github_index.md&quot;)
+<span class="n">titanic_tail</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span>
+<span class="n">pypandoc</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">to_html</span><span class="p">(),</span> <span class="s2">&quot;markdown_github&quot;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="s2">&quot;titanic_tail_github_index.md&quot;</span><span class="p">)</span>
 
-print(titanic_tail.to_html())
-titanic_tail
+<span class="k">print</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">to_html</span><span class="p">())</span>
+<span class="n">titanic_tail</span>
 
 </pre></div>
 </div>
@@ -1154,7 +1154,7 @@ titanic_tail
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import tabulate
+<span></span><span class="kn">import</span> <span class="nn">tabulate</span>
 </pre></div>
 </div>
 </div>
@@ -1164,18 +1164,18 @@ titanic_tail
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>titanic_tail = titanic.tail()
+<span></span><span class="n">titanic_tail</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 
-print(tabulate.tabulate(titanic_tail, list(titanic_tail.columns), tablefmt=&quot;pipe&quot;))
+<span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">titanic_tail</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">))</span>
 
-#titanic_tail.index.name = &quot;index&quot;
-print(tabulate.tabulate(titanic_tail, [&quot;index&quot;] + list(titanic_tail.columns), tablefmt=&quot;pipe&quot;))
+<span class="c1">#titanic_tail.index.name = &quot;index&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">titanic_tail</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">titanic_tail</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">))</span>
 
-titanic_group = titanic.sex.value_counts()
-print(tabulate.tabulate(titanic_group.reset_index(), [&quot;sex&quot;, &quot;counts&quot;], tablefmt=&quot;pipe&quot;))
+<span class="n">titanic_group</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">sex</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">titanic_group</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;counts&quot;</span><span class="p">],</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">))</span>
 
-titanic_crosstab = pd.crosstab(titanic.sex, titanic[&quot;class&quot;])
-print(tabulate.tabulate(titanic_crosstab, list(titanic[&quot;class&quot;].unique()), tablefmt=&quot;pipe&quot;))
+<span class="n">titanic_crosstab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">titanic</span><span class="o">.</span><span class="n">sex</span><span class="p">,</span> <span class="n">titanic</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">titanic_crosstab</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">))</span>
 
 </pre></div>
 </div>
@@ -1274,7 +1274,7 @@ print(tabulate.tabulate(titanic_crosstab, list(titanic[&quot;class&quot;].unique
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1282,17 +1282,17 @@ print(tabulate.tabulate(titanic_crosstab, list(titanic[&quot;class&quot;].unique
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

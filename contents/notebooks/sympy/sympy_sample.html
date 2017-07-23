@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -154,7 +154,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -182,7 +182,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>Symbol</li>
     
@@ -190,7 +190,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/sympy/sympy_sample.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/sympy/sympy_sample.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -403,40 +403,40 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import sympy
-from sympy import (
-    init_printing,
-    # よく使いそうなものはImport
-    Symbol, symbols,
-    Abs,
-    Rational,
-    simplify, expand, factor,
-    limit, Limit,
-    diff, Derivative, dsolve,
-    integrate, Integral,
-    ln, log, expand_log,
-    sqrt, root, exp,
-    cos, sin, tan,
-    acos, asin, atan,
-    cosh, sinh, tanh,
-    acosh, asinh, atanh,
-    pi, oo, EulerGamma, Catalan, GoldenRatio,
-    I, E, # ImaginaryUnit, Exp(1)
-    sign,
-    Sum, Product, Min, Max,
-    Eq, solve, roots, Ne, # Equality, Unequality
-    gamma, loggamma, polygamma, uppergamma,
-    Function,
-    satisfiable,
-    Matrix
-)
-import sympy.abc
-from sympy.plotting.plot import Plot
+<span></span><span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">init_printing</span><span class="p">,</span>
+    <span class="c1"># よく使いそうなものはImport</span>
+    <span class="n">Symbol</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span>
+    <span class="n">Abs</span><span class="p">,</span>
+    <span class="n">Rational</span><span class="p">,</span>
+    <span class="n">simplify</span><span class="p">,</span> <span class="n">expand</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span>
+    <span class="n">limit</span><span class="p">,</span> <span class="n">Limit</span><span class="p">,</span>
+    <span class="n">diff</span><span class="p">,</span> <span class="n">Derivative</span><span class="p">,</span> <span class="n">dsolve</span><span class="p">,</span>
+    <span class="n">integrate</span><span class="p">,</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="n">ln</span><span class="p">,</span> <span class="n">log</span><span class="p">,</span> <span class="n">expand_log</span><span class="p">,</span>
+    <span class="n">sqrt</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">exp</span><span class="p">,</span>
+    <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">tan</span><span class="p">,</span>
+    <span class="n">acos</span><span class="p">,</span> <span class="n">asin</span><span class="p">,</span> <span class="n">atan</span><span class="p">,</span>
+    <span class="n">cosh</span><span class="p">,</span> <span class="n">sinh</span><span class="p">,</span> <span class="n">tanh</span><span class="p">,</span>
+    <span class="n">acosh</span><span class="p">,</span> <span class="n">asinh</span><span class="p">,</span> <span class="n">atanh</span><span class="p">,</span>
+    <span class="n">pi</span><span class="p">,</span> <span class="n">oo</span><span class="p">,</span> <span class="n">EulerGamma</span><span class="p">,</span> <span class="n">Catalan</span><span class="p">,</span> <span class="n">GoldenRatio</span><span class="p">,</span>
+    <span class="n">I</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="c1"># ImaginaryUnit, Exp(1)</span>
+    <span class="n">sign</span><span class="p">,</span>
+    <span class="n">Sum</span><span class="p">,</span> <span class="n">Product</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span>
+    <span class="n">Eq</span><span class="p">,</span> <span class="n">solve</span><span class="p">,</span> <span class="n">roots</span><span class="p">,</span> <span class="n">Ne</span><span class="p">,</span> <span class="c1"># Equality, Unequality</span>
+    <span class="n">gamma</span><span class="p">,</span> <span class="n">loggamma</span><span class="p">,</span> <span class="n">polygamma</span><span class="p">,</span> <span class="n">uppergamma</span><span class="p">,</span>
+    <span class="n">Function</span><span class="p">,</span>
+    <span class="n">satisfiable</span><span class="p">,</span>
+    <span class="n">Matrix</span>
+<span class="p">)</span>
+<span class="kn">import</span> <span class="nn">sympy.abc</span>
+<span class="kn">from</span> <span class="nn">sympy.plotting.plot</span> <span class="kn">import</span> <span class="n">Plot</span>
 
-import matplotlib
-import matplotlib.pyplot as plt
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -446,8 +446,8 @@ import matplotlib.pyplot as plt
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>init_printing()
-sympy.__version__
+<span></span><span class="n">init_printing</span><span class="p">()</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
@@ -469,9 +469,9 @@ sympy.__version__
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x = Symbol(&#39;x&#39;)
-y = Symbol(&#39;y&#39;)
-x, y, symbols(&#39;a b c&#39;)
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;a b c&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -490,7 +490,7 @@ $$\left ( x, \quad y, \quad \left ( a, \quad b, \quad c\right )\right )$$</div><
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(x)
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -510,7 +510,7 @@ $$\left ( x, \quad y, \quad \left ( a, \quad b, \quad c\right )\right )$$</div><
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>[a for a in dir(x) if not a.startswith(&#39;_&#39;)]
+<span></span><span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -678,8 +678,8 @@ $$\left ( x, \quad y, \quad \left ( a, \quad b, \quad c\right )\right )$$</div><
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>abc_symblos = [sympy.abc.a, sympy.abc.b, sympy.abc.c, sympy.abc.x, sympy.abc.y, sympy.abc.z, sympy.abc.X, sympy.abc.Y, sympy.abc.Z]
-abc_symblos
+<span></span><span class="n">abc_symblos</span> <span class="o">=</span> <span class="p">[</span><span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">c</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Z</span><span class="p">]</span>
+<span class="n">abc_symblos</span>
 </pre></div>
 </div>
 </div>
@@ -698,7 +698,7 @@ $$\left [ a, \quad b, \quad c, \quad x, \quad y, \quad z, \quad X, \quad Y, \qua
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>[type(s) for s in abc_symblos]
+<span></span><span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">abc_symblos</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -726,8 +726,8 @@ $$\left [ a, \quad b, \quad c, \quad x, \quad y, \quad z, \quad X, \quad Y, \qua
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>onechar_symbols = &#39;&#39;.join([a for a in dir(sympy.abc) if len(a) == 1])
-onechar_symbols
+<span></span><span class="n">onechar_symbols</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">abc</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">onechar_symbols</span>
 </pre></div>
 </div>
 </div>
@@ -747,8 +747,8 @@ onechar_symbols
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import string
-onechar_symbols == string.ascii_uppercase + string.ascii_lowercase
+<span></span><span class="kn">import</span> <span class="nn">string</span>
+<span class="n">onechar_symbols</span> <span class="o">==</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_uppercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span>
 </pre></div>
 </div>
 </div>
@@ -768,8 +768,8 @@ onechar_symbols == string.ascii_uppercase + string.ascii_lowercase
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.var(&#39;a:c&#39;)
-a, b, c
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a:c&#39;</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
 </pre></div>
 </div>
 </div>
@@ -788,8 +788,8 @@ $$\left ( a, \quad b, \quad c\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a_list = sympy.var(&#39;a0:5&#39;)
-a_list
+<span></span><span class="n">a_list</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a0:5&#39;</span><span class="p">)</span>
+<span class="n">a_list</span>
 </pre></div>
 </div>
 </div>
@@ -808,7 +808,7 @@ $$\left ( a_{0}, \quad a_{1}, \quad a_{2}, \quad a_{3}, \quad a_{4}\right )$$</d
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a0
+<span></span><span class="n">a0</span>
 </pre></div>
 </div>
 </div>
@@ -827,8 +827,8 @@ $$a_{0}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>b_list = symbols(&#39;b0:5&#39;)
-b_list
+<span></span><span class="n">b_list</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;b0:5&#39;</span><span class="p">)</span>
+<span class="n">b_list</span>
 </pre></div>
 </div>
 </div>
@@ -847,10 +847,10 @@ $$\left ( b_{0}, \quad b_{1}, \quad b_{2}, \quad b_{3}, \quad b_{4}\right )$$</d
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>try:
-    b0
-except NameError as e:
-    print(e)
+<span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">b0</span>
+<span class="k">except</span> <span class="ne">NameError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -868,7 +868,7 @@ name &#39;b0&#39; is not defined
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>symbols(&#39;c1:5&#39;)
+<span></span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;c1:5&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -887,7 +887,7 @@ $$\left ( c_{1}, \quad c_{2}, \quad c_{3}, \quad c_{4}\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>symbols(&#39;d0:5:2&#39;)
+<span></span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;d0:5:2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -911,7 +911,7 @@ $$\left ( d_{00}, \quad d_{01}, \quad d_{10}, \quad d_{11}, \quad d_{20}, \quad 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>+x
+<span></span><span class="o">+</span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -930,7 +930,7 @@ $$x$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>-x
+<span></span><span class="o">-</span><span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -949,7 +949,7 @@ $$- x$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Abs(1), Abs(-1)
+<span></span><span class="n">Abs</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">Abs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -968,8 +968,8 @@ $$\left ( 1, \quad 1\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Abs(x)
-# RuntimeError: latex program is not installed
+<span></span><span class="n">Abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># RuntimeError: latex program is not installed</span>
 </pre></div>
 </div>
 </div>
@@ -991,7 +991,7 @@ $$\left\lvert{x}\right\rvert$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x+1j
+<span></span><span class="n">x</span><span class="o">+</span><span class="mi">1j</span>
 </pre></div>
 </div>
 </div>
@@ -1010,7 +1010,7 @@ $$x + 1.0 i$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x + 1j*y
+<span></span><span class="n">x</span> <span class="o">+</span> <span class="mi">1j</span><span class="o">*</span><span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -1029,7 +1029,7 @@ $$x + 1.0 i y$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>1+3.1*I
+<span></span><span class="mi">1</span><span class="o">+</span><span class="mf">3.1</span><span class="o">*</span><span class="n">I</span>
 </pre></div>
 </div>
 </div>
@@ -1048,7 +1048,7 @@ $$1 + 3.1 i$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(I)
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1071,7 +1071,7 @@ $$1 + 3.1 i$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x + y
+<span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -1090,7 +1090,7 @@ $$x + y$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x - y
+<span></span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -1109,7 +1109,7 @@ $$x - y$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x * y
+<span></span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -1131,7 +1131,7 @@ $$x y$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>1 / 3
+<span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </div>
@@ -1150,7 +1150,7 @@ $$0.3333333333333333$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Rational(1, 3)
+<span></span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1169,7 +1169,7 @@ $$\frac{1}{3}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x / y
+<span></span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -1192,7 +1192,7 @@ $$\frac{x}{y}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x ** 2
+<span></span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -1211,7 +1211,7 @@ $$x^{2}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x ** y
+<span></span><span class="n">x</span> <span class="o">**</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -1230,7 +1230,7 @@ $$x^{y}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x ** (y + 1)
+<span></span><span class="n">x</span> <span class="o">**</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1249,8 +1249,8 @@ $$x^{y + 1}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_exp = (x + y) ** 2
-expr_exp
+<span></span><span class="n">expr_exp</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">expr_exp</span>
 </pre></div>
 </div>
 </div>
@@ -1272,7 +1272,7 @@ $$\left(x + y\right)^{2}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_exp.expand(), expand(expr_exp)
+<span></span><span class="n">expr_exp</span><span class="o">.</span><span class="n">expand</span><span class="p">(),</span> <span class="n">expand</span><span class="p">(</span><span class="n">expr_exp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1291,8 +1291,8 @@ $$\left ( x^{2} + 2 x y + y^{2}, \quad x^{2} + 2 x y + y^{2}\right )$$</div></di
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expanded = expr_exp.expand()
-expanded.factor(), factor(expanded)
+<span></span><span class="n">expanded</span> <span class="o">=</span> <span class="n">expr_exp</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span>
+<span class="n">expanded</span><span class="o">.</span><span class="n">factor</span><span class="p">(),</span> <span class="n">factor</span><span class="p">(</span><span class="n">expanded</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1311,7 +1311,7 @@ $$\left ( \left(x + y\right)^{2}, \quad \left(x + y\right)^{2}\right )$$</div></
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(x ** 2 + 2 * x + 2).factor()
+<span></span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">factor</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1333,8 +1333,8 @@ $$x^{2} + 2 x + 2$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>complexity_expr = (x + x * y) / x
-complexity_expr
+<span></span><span class="n">complexity_expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span>
+<span class="n">complexity_expr</span>
 </pre></div>
 </div>
 </div>
@@ -1353,7 +1353,7 @@ $$\frac{1}{x} \left(x y + x\right)$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>complexity_expr.simplify(), simplify(complexity_expr)
+<span></span><span class="n">complexity_expr</span><span class="o">.</span><span class="n">simplify</span><span class="p">(),</span> <span class="n">simplify</span><span class="p">(</span><span class="n">complexity_expr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1375,7 +1375,7 @@ $$\left ( y + 1, \quad y + 1\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ln(x), log(x)
+<span></span><span class="n">ln</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1394,7 +1394,7 @@ $$\left ( \log{\left (x \right )}, \quad \log{\left (x \right )}\right )$$</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ln(x, y)
+<span></span><span class="n">ln</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1413,7 +1413,7 @@ $$\frac{\log{\left (x \right )}}{\log{\left (y \right )}}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ln(x) + ln(y)
+<span></span><span class="n">ln</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">ln</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1432,7 +1432,7 @@ $$\log{\left (x \right )} + \log{\left (y \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ln(x + y)
+<span></span><span class="n">ln</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1451,7 +1451,7 @@ $$\log{\left (x + y \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expand_log(log(x + y), force=True)
+<span></span><span class="n">expand_log</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">),</span> <span class="n">force</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1470,7 +1470,7 @@ $$\log{\left (x + y \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ln(x ** 2)
+<span></span><span class="n">ln</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1489,7 +1489,7 @@ $$\log{\left (x^{2} \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expand_log(log(x ** 2), force=True)
+<span></span><span class="n">expand_log</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">),</span> <span class="n">force</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1518,10 +1518,10 @@ $$2 \log{\left (x \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import sympy.mpmath
-sympy.mpmath.log(2)
-import math
-sympy.asinh
+<span></span><span class="kn">import</span> <span class="nn">sympy.mpmath</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">mpmath</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">asinh</span>
 </pre></div>
 </div>
 </div>
@@ -1544,8 +1544,8 @@ sympy.asinh
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex = x ** 2
-expr_ex
+<span></span><span class="n">expr_ex</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">expr_ex</span>
 </pre></div>
 </div>
 </div>
@@ -1564,7 +1564,7 @@ $$x^{2}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex.subs(x, 2)
+<span></span><span class="n">expr_ex</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1586,7 +1586,7 @@ $$4$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>oo, -oo
+<span></span><span class="n">oo</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span>
 </pre></div>
 </div>
 </div>
@@ -1605,7 +1605,7 @@ $$\left ( \infty, \quad -\infty\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex.limit(x, oo), limit(expr_ex, x, oo)
+<span></span><span class="n">expr_ex</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">oo</span><span class="p">),</span> <span class="n">limit</span><span class="p">(</span><span class="n">expr_ex</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">oo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1624,7 +1624,7 @@ $$\left ( \infty, \quad \infty\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>limit(expr_ex, x, 0), limit(expr_ex, x, -oo)
+<span></span><span class="n">limit</span><span class="p">(</span><span class="n">expr_ex</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">limit</span><span class="p">(</span><span class="n">expr_ex</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1643,7 +1643,7 @@ $$\left ( 0, \quad \infty\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Limit(expr_ex, x, 0), Limit(expr_ex, x, 0, &#39;-&#39;)
+<span></span><span class="n">Limit</span><span class="p">(</span><span class="n">expr_ex</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Limit</span><span class="p">(</span><span class="n">expr_ex</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1665,7 +1665,7 @@ $$\left ( \lim_{x \to 0^+} x^{2}, \quad \lim_{x \to 0^-} x^{2}\right )$$</div></
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex.diff(), diff(expr_ex)
+<span></span><span class="n">expr_ex</span><span class="o">.</span><span class="n">diff</span><span class="p">(),</span> <span class="n">diff</span><span class="p">(</span><span class="n">expr_ex</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1684,7 +1684,7 @@ $$\left ( 2 x, \quad 2 x\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Derivative(expr_ex)
+<span></span><span class="n">Derivative</span><span class="p">(</span><span class="n">expr_ex</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1706,7 +1706,7 @@ $$\frac{d}{d x} x^{2}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex.integrate(), integrate(expr_ex)
+<span></span><span class="n">expr_ex</span><span class="o">.</span><span class="n">integrate</span><span class="p">(),</span> <span class="n">integrate</span><span class="p">(</span><span class="n">expr_ex</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1725,7 +1725,7 @@ $$\left ( \frac{x^{3}}{3}, \quad \frac{x^{3}}{3}\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Integral(expr_ex, (x, -oo, oo))
+<span></span><span class="n">Integral</span><span class="p">(</span><span class="n">expr_ex</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1747,8 +1747,8 @@ $$\int_{-\infty}^{\infty} x^{2}\, dx$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex2 = x ** 3 + y ** 3
-expr_ex2
+<span></span><span class="n">expr_ex2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="n">expr_ex2</span>
 </pre></div>
 </div>
 </div>
@@ -1767,7 +1767,7 @@ $$x^{3} + y^{3}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex2.subs(x, 2), expr_ex2.subs(y, 2), expr_ex2.subs([(x, 2), (y, 2)])
+<span></span><span class="n">expr_ex2</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">expr_ex2</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">expr_ex2</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
 </pre></div>
 </div>
 </div>
@@ -1786,7 +1786,7 @@ $$\left ( y^{3} + 8, \quad x^{3} + 8, \quad 16\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex2.diff(x), expr_ex2.diff(y), expr_ex2.diff(x, y)
+<span></span><span class="n">expr_ex2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">expr_ex2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">expr_ex2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1805,7 +1805,7 @@ $$\left ( 3 x^{2}, \quad 3 y^{2}, \quad 0\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex2.diff(y, y), expr_ex2.diff(y, y, y), expr_ex2.diff(y, 3)
+<span></span><span class="n">expr_ex2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">expr_ex2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">expr_ex2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1824,7 +1824,7 @@ $$\left ( 6 y, \quad 6, \quad 6\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex2.integrate(x), expr_ex2.integrate(y), expr_ex2.integrate(x, y)
+<span></span><span class="n">expr_ex2</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">expr_ex2</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">expr_ex2</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1843,7 +1843,7 @@ $$\left ( \frac{x^{4}}{4} + x y^{3}, \quad x^{3} y + \frac{y^{4}}{4}, \quad \fra
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>integrate(expr_ex2, (x, 0, 1)), integrate(expr_ex2, (x, 0, oo))
+<span></span><span class="n">integrate</span><span class="p">(</span><span class="n">expr_ex2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">integrate</span><span class="p">(</span><span class="n">expr_ex2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1862,7 +1862,7 @@ $$\left ( y^{3} + \frac{1}{4}, \quad \infty \operatorname{sign}{\left (y^{3} \ri
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Integral(expr_ex2, (x, 0, 1)), Integral(expr_ex2, (x, 0, oo))
+<span></span><span class="n">Integral</span><span class="p">(</span><span class="n">expr_ex2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">Integral</span><span class="p">(</span><span class="n">expr_ex2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">oo</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1884,7 +1884,7 @@ $$\left ( \int_{0}^{1} x^{3} + y^{3}\, dx, \quad \int_{0}^{\infty} x^{3} + y^{3}
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sqrt(x), root(x, 3), root(x, -2), root(x, -3)
+<span></span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">root</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">root</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="n">root</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1906,7 +1906,7 @@ $$\left ( \sqrt{x}, \quad \sqrt[3]{x}, \quad \frac{1}{\sqrt{x}}, \quad \frac{1}{
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pi
+<span></span><span class="n">pi</span>
 </pre></div>
 </div>
 </div>
@@ -1925,7 +1925,7 @@ $$\pi$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(pi)
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1945,7 +1945,7 @@ $$\pi$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pi.evalf()
+<span></span><span class="n">pi</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1967,7 +1967,7 @@ $$3.14159265358979$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cos(x), sin(x), tan(x), cos(pi), sin(pi), tan(pi)
+<span></span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="p">),</span> <span class="n">tan</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1986,7 +1986,7 @@ $$\left ( \cos{\left (x \right )}, \quad \sin{\left (x \right )}, \quad \tan{\le
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cos(x) ** 2 + sin(x) ** 2
+<span></span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -2005,8 +2005,8 @@ $$\sin^{2}{\left (x \right )} + \cos^{2}{\left (x \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># only tan
-tan(x).rewrite(sin), tan(x).rewrite(cos)
+<span></span><span class="c1"># only tan</span>
+<span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">rewrite</span><span class="p">(</span><span class="n">sin</span><span class="p">),</span> <span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">rewrite</span><span class="p">(</span><span class="n">cos</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2025,7 +2025,7 @@ $$\left ( \frac{2 \sin^{2}{\left (x \right )}}{\sin{\left (2 x \right )}}, \quad
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>acos(x), asin(x), atan(x)
+<span></span><span class="n">acos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">asin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">atan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2044,7 +2044,7 @@ $$\left ( \operatorname{acos}{\left (x \right )}, \quad \operatorname{asin}{\lef
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cosh(x), sinh(x), tanh(x)
+<span></span><span class="n">cosh</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2063,7 +2063,7 @@ $$\left ( \cosh{\left (x \right )}, \quad \sinh{\left (x \right )}, \quad \tanh{
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>acosh(x), asinh(x), atanh(x)
+<span></span><span class="n">acosh</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">asinh</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">atanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2085,7 +2085,7 @@ $$\left ( \operatorname{acosh}{\left (x \right )}, \quad \operatorname{asinh}{\l
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>exp(x)
+<span></span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2104,7 +2104,7 @@ $$e^{x}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(exp)
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">exp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2124,7 +2124,7 @@ $$e^{x}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>E, exp(1), E.evalf()
+<span></span><span class="n">E</span><span class="p">,</span> <span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">E</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2143,7 +2143,7 @@ $$\left ( e, \quad e, \quad 2.71828182845905\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(E), type(exp(1)), type(exp(2))
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">E</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="nb">type</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2166,7 +2166,7 @@ $$\left ( e, \quad e, \quad 2.71828182845905\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sign(-2), sign(2), sign(x)
+<span></span><span class="n">sign</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="n">sign</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2188,7 +2188,7 @@ $$\left ( -1, \quad 1, \quad \operatorname{sign}{\left (x \right )}\right )$$</d
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cos(x).series(x)
+<span></span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2210,7 +2210,7 @@ $$1 - \frac{x^{2}}{2} + \frac{x^{4}}{24} + \mathcal{O}\left(x^{6}\right)$$</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.O(x ** 2)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">O</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2229,8 +2229,8 @@ $$\mathcal{O}\left(x^{2}\right)$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># ??
-sympy.O(x ** 2).getn()
+<span></span><span class="c1"># ??</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">O</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">getn</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2249,7 +2249,7 @@ $$2$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(x + sympy.O(x ** 2)).getO()
+<span></span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">O</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">getO</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2268,7 +2268,7 @@ $$\mathcal{O}\left(x^{2}\right)$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(x**2 - 1).invert(2*x - 1)
+<span></span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2287,7 +2287,7 @@ $$- \frac{4}{3}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(x - 1).invert(x + 1)
+<span></span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2306,7 +2306,7 @@ $$- \frac{1}{2}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># sympy.plotting.plot(x**2 - 1, 2*x - 1, (x, -5, 5))
+<span></span><span class="c1"># sympy.plotting.plot(x**2 - 1, 2*x - 1, (x, -5, 5))</span>
 </pre></div>
 </div>
 </div>
@@ -2319,7 +2319,7 @@ $$- \frac{1}{2}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Sum(x, (x, 1, y))
+<span></span><span class="n">Sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2338,7 +2338,7 @@ $$\sum_{x=1}^{y} x$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Sum(x, (x, 1, 10)), Sum(x, (x, 1, 10)).doit()
+<span></span><span class="n">Sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="n">Sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2360,7 +2360,7 @@ $$\left ( \sum_{x=1}^{10} x, \quad 55\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Product(x, (x, 1, y))
+<span></span><span class="n">Product</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2379,7 +2379,7 @@ $$\prod_{x=1}^{y} x$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Product(x, (x, 1, 10)), Product(x, (x, 1, 10)).doit()
+<span></span><span class="n">Product</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span> <span class="n">Product</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2401,7 +2401,7 @@ $$\left ( \prod_{x=1}^{10} x, \quad 3628800\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Max(x, y), Min(x, y)
+<span></span><span class="n">Max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">Min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2423,8 +2423,8 @@ $$\left ( \max\left(x, y\right), \quad \min\left(x, y\right)\right )$$</div></di
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>equation = Eq(x ** 2 + 2 * x, 0)
-equation
+<span></span><span class="n">equation</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">equation</span>
 </pre></div>
 </div>
 </div>
@@ -2443,7 +2443,7 @@ $$x^{2} + 2 x = 0$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>solve(equation)
+<span></span><span class="n">solve</span><span class="p">(</span><span class="n">equation</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2462,8 +2462,8 @@ $$\left [ -2, \quad 0\right ]$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># expr = 0 の方程式
-solve(x ** 2 + 2 * x)
+<span></span><span class="c1"># expr = 0 の方程式</span>
+<span class="n">solve</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2482,7 +2482,7 @@ $$\left [ -2, \quad 0\right ]$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>roots(x ** 2 + 2 * x)
+<span></span><span class="n">roots</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2501,8 +2501,8 @@ $$\left \{ -2 : 1, \quad 0 : 1\right \}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>expr_ex3 = x ** 2 + 2 * x + 1
-solve(expr_ex3), roots(expr_ex3)
+<span></span><span class="n">expr_ex3</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">solve</span><span class="p">(</span><span class="n">expr_ex3</span><span class="p">),</span> <span class="n">roots</span><span class="p">(</span><span class="n">expr_ex3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2524,7 +2524,7 @@ $$\left ( \left [ -1\right ], \quad \left \{ -1 : 2\right \}\right )$$</div></di
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(1 &gt; x)
+<span></span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2544,7 +2544,7 @@ $$\left ( \left [ -1\right ], \quad \left \{ -1 : 2\right \}\right )$$</div></di
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>1 &gt; x, 1 &gt;= x, 1 &lt; x, 1 &lt;= x, Ne(1, x)
+<span></span><span class="mi">1</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">,</span> <span class="n">Ne</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2563,8 +2563,8 @@ $$\left ( x &lt; 1, \quad x \leq 1, \quad x &gt; 1, \quad x \geq 1, \quad 1 \neq
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## ??
-solve(1 &gt; x)
+<span></span><span class="c1">## ??</span>
+<span class="n">solve</span><span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2585,7 +2585,7 @@ $$\Im{x} = 0 \wedge -\infty &lt; \Re{x} \wedge \Re{x} &lt; 1$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>solve([x + y - 3, 2 * x + 4 * y - 8], [x, y])
+<span></span><span class="n">solve</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -2608,7 +2608,7 @@ $$\left \{ x : 2, \quad y : 1\right \}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>EulerGamma, Catalan, GoldenRatio
+<span></span><span class="n">EulerGamma</span><span class="p">,</span> <span class="n">Catalan</span><span class="p">,</span> <span class="n">GoldenRatio</span>
 </pre></div>
 </div>
 </div>
@@ -2630,7 +2630,7 @@ $$\left ( \gamma, \quad Catalan, \quad \phi\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>gamma(x), loggamma(x), polygamma(x, y), uppergamma(x, y)
+<span></span><span class="n">gamma</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">loggamma</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">polygamma</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">uppergamma</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2652,7 +2652,7 @@ $$\left ( \Gamma{\left(x \right)}, \quad \operatorname{loggamma}{\left (x \right
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.Lambda(x, x+1)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">Lambda</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2674,8 +2674,8 @@ $$\left( x \mapsto x + 1 \right)$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>f_ = Function(&#39;f&#39;)
-f_(x), f_(2)
+<span></span><span class="n">f_</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">f_</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">f_</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2694,8 +2694,8 @@ $$\left ( f{\left (x \right )}, \quad f{\left (2 \right )}\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>f2_ = symbols(&#39;f2&#39;, cls=Function)
-f2_(x), f2_(2)
+<span></span><span class="n">f2_</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f2&#39;</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Function</span><span class="p">)</span>
+<span class="n">f2_</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">f2_</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2714,7 +2714,7 @@ $$\left ( \operatorname{f_{2}}{\left (x \right )}, \quad \operatorname{f_{2}}{\l
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>f_(x).limit(x, oo), f_(x).limit(x, -oo)
+<span></span><span class="n">f_</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">oo</span><span class="p">),</span> <span class="n">f_</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2733,7 +2733,7 @@ $$\left ( f{\left (\infty \right )}, \quad f{\left (-\infty \right )}\right )$$<
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>f_(x).diff(x)
+<span></span><span class="n">f_</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2752,7 +2752,7 @@ $$\frac{d}{d x} f{\left (x \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>f_(x).integrate(x), f_(x).integrate((x, 1, 10))
+<span></span><span class="n">f_</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">f_</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">integrate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2771,8 +2771,8 @@ $$\left ( \int f{\left (x \right )}\, dx, \quad \int_{1}^{10} f{\left (x \right 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>g_ = Function(&#39;g&#39;)(x)
-g_
+<span></span><span class="n">g_</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">g_</span>
 </pre></div>
 </div>
 </div>
@@ -2791,7 +2791,7 @@ $$g{\left (x \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>g_.limit(x, oo), g_.limit(x, -oo)
+<span></span><span class="n">g_</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">oo</span><span class="p">),</span> <span class="n">g_</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">oo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2810,7 +2810,7 @@ $$\left ( g{\left (\infty \right )}, \quad g{\left (-\infty \right )}\right )$$<
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>g_.diff(x)
+<span></span><span class="n">g_</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2829,7 +2829,7 @@ $$\frac{d}{d x} g{\left (x \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>g_.integrate(x), g_.integrate((x, 1, 10))
+<span></span><span class="n">g_</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">g_</span><span class="o">.</span><span class="n">integrate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2851,9 +2851,9 @@ $$\left ( \int g{\left (x \right )}\, dx, \quad \int_{1}^{10} g{\left (x \right 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>f1 = Function(&#39;f&#39;)(x)
-f2 = Derivative(f1) + f1
-f2
+<span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">Function</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">Derivative</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span> <span class="o">+</span> <span class="n">f1</span>
+<span class="n">f2</span>
 </pre></div>
 </div>
 </div>
@@ -2872,7 +2872,7 @@ $$f{\left (x \right )} + \frac{d}{d x} f{\left (x \right )}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>dsolve(f2, f1)
+<span></span><span class="n">dsolve</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2894,7 +2894,7 @@ $$f{\left (x \right )} = C_{1} e^{- x}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## http://docs.sympy.org/dev/modules/core.html#vectorize
+<span></span><span class="c1">## http://docs.sympy.org/dev/modules/core.html#vectorize</span>
 </pre></div>
 </div>
 </div>
@@ -2907,7 +2907,7 @@ $$f{\left (x \right )} = C_{1} e^{- x}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.factorial(x)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2926,8 +2926,8 @@ $$x!$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>comb = sympy.binomial(x, y)
-comb
+<span></span><span class="n">comb</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">comb</span>
 </pre></div>
 </div>
 </div>
@@ -2946,7 +2946,7 @@ $${\binom{x}{y}}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(comb)
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">comb</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2966,7 +2966,7 @@ $${\binom{x}{y}}$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.binomial(4, 2)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2987,7 +2987,7 @@ $$6$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x | y
+<span></span><span class="n">x</span> <span class="o">|</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -3006,7 +3006,7 @@ $$x \vee y$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x &amp; y
+<span></span><span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -3025,7 +3025,7 @@ $$x \wedge y$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x ^ y
+<span></span><span class="n">x</span> <span class="o">^</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
@@ -3044,7 +3044,7 @@ $$x \veebar y$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>~ x
+<span></span><span class="o">~</span> <span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -3063,7 +3063,7 @@ $$\neg x$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(x | y).subs({x: True}), (x | y).subs({x: False}), (x &amp; y).subs({x: True}), (x &amp; y).subs({x: False})
+<span></span><span class="p">(</span><span class="n">x</span> <span class="o">|</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="bp">True</span><span class="p">}),</span> <span class="p">(</span><span class="n">x</span> <span class="o">|</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="bp">False</span><span class="p">}),</span> <span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="bp">True</span><span class="p">}),</span> <span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -3082,7 +3082,7 @@ $$\left ( \mathrm{True}, \quad y, \quad y, \quad \mathrm{False}\right )$$</div><
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>satisfiable(x | y), satisfiable(x &amp; y), satisfiable(x ^ y), satisfiable(x), satisfiable(~ x), satisfiable(True)
+<span></span><span class="n">satisfiable</span><span class="p">(</span><span class="n">x</span> <span class="o">|</span> <span class="n">y</span><span class="p">),</span> <span class="n">satisfiable</span><span class="p">(</span><span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span><span class="p">),</span> <span class="n">satisfiable</span><span class="p">(</span><span class="n">x</span> <span class="o">^</span> <span class="n">y</span><span class="p">),</span> <span class="n">satisfiable</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">satisfiable</span><span class="p">(</span><span class="o">~</span> <span class="n">x</span><span class="p">),</span> <span class="n">satisfiable</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3107,9 +3107,9 @@ $$\left ( \mathrm{True}, \quad y, \quad y, \quad \mathrm{False}\right )$$</div><
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import sympy.logic.boolalg
-type(sympy.Nor)
-sympy.Nor(x, y), sympy.Nand(x, y)
+<span></span><span class="kn">import</span> <span class="nn">sympy.logic.boolalg</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">sympy</span><span class="o">.</span><span class="n">Nor</span><span class="p">)</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">Nor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Nand</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3128,8 +3128,8 @@ $$\left ( \neg (x \vee y), \quad \neg (x \wedge y)\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># if then else
-sympy.ITE(x, True, False)
+<span></span><span class="c1"># if then else</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">ITE</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3154,12 +3154,12 @@ $$ITE(x, True, False)$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat = Matrix([
-        [x, 1, 2],
-        [3, y, 5],
-        [6, 7, 8]])
-mat, mat.T
-# RuntimeError: latex program is not installed
+<span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span>
+        <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="n">mat</span><span class="p">,</span> <span class="n">mat</span><span class="o">.</span><span class="n">T</span>
+<span class="c1"># RuntimeError: latex program is not installed</span>
 </pre></div>
 </div>
 </div>
@@ -3178,8 +3178,8 @@ $$\left ( \left[\begin{matrix}x &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &a
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>vec = Matrix([x, y, 2])
-vec, vec.T
+<span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">vec</span><span class="p">,</span> <span class="n">vec</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -3198,7 +3198,7 @@ $$\left ( \left[\begin{matrix}x\\y\\2\end{matrix}\right], \quad \left[\begin{mat
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Matrix(2, 3, [1, 2, 3, 4, 5, 6]), Matrix(2, 3, range(6))
+<span></span><span class="n">Matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="n">Matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -3217,7 +3217,7 @@ $$\left ( \left[\begin{matrix}1 &amp; 2 &amp; 3\\4 &amp; 5 &amp; 6\end{matrix}\r
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Matrix(3, 4, lambda i, j: i + j)
+<span></span><span class="n">Matrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3240,7 +3240,7 @@ $$\left[\begin{matrix}0 &amp; 1 &amp; 2 &amp; 3\\1 &amp; 2 &amp; 3 &amp; 4\\2 &a
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.eye(3)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3262,7 +3262,7 @@ $$\left[\begin{matrix}1 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 1\en
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.ones(3), sympy.ones(3, 4)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">sympy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3284,7 +3284,7 @@ $$\left ( \left[\begin{matrix}1 &amp; 1 &amp; 1\\1 &amp; 1 &amp; 1\\1 &amp; 1 &a
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.zeros(3), sympy.zeros(3, 4)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">sympy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3306,7 +3306,7 @@ $$\left ( \left[\begin{matrix}0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\\0 &amp; 0 &a
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat[1], mat[4], mat[7]
+<span></span><span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mat</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">mat</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -3325,7 +3325,7 @@ $$\left ( 1, \quad y, \quad 7\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat[0, 1], mat[1, 1], mat[2, 1]
+<span></span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">mat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -3344,7 +3344,7 @@ $$\left ( 1, \quad y, \quad 7\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat[0:2, 0:3]
+<span></span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -3363,7 +3363,7 @@ $$\left[\begin{matrix}x &amp; 1 &amp; 2\\3 &amp; y &amp; 5\end{matrix}\right]$$<
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat[:, 0:2], mat[0:2, :]
+<span></span><span class="n">mat</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -3382,7 +3382,7 @@ $$\left ( \left[\begin{matrix}x &amp; 1\\3 &amp; y\\6 &amp; 7\end{matrix}\right]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>vec[0], vec[1], vec[2]
+<span></span><span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -3401,9 +3401,9 @@ $$\left ( x, \quad y, \quad 2\right )$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat2 = mat[:, :]
-mat2[0, 0] = mat2[2, 2] = 100
-mat2, mat
+<span></span><span class="n">mat2</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[:,</span> <span class="p">:]</span>
+<span class="n">mat2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat2</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">mat2</span><span class="p">,</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -3422,9 +3422,9 @@ $$\left ( \left[\begin{matrix}100 &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat3 = mat2
-mat3[0, 0] = mat3[2, 2] = 10
-mat3, mat2
+<span></span><span class="n">mat3</span> <span class="o">=</span> <span class="n">mat2</span>
+<span class="n">mat3</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat3</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">mat3</span><span class="p">,</span> <span class="n">mat2</span>
 </pre></div>
 </div>
 </div>
@@ -3446,7 +3446,7 @@ $$\left ( \left[\begin{matrix}10 &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat.subs(x, 50)
+<span></span><span class="n">mat</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3468,7 +3468,7 @@ $$\left[\begin{matrix}50 &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 8\e
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat + mat
+<span></span><span class="n">mat</span> <span class="o">+</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -3487,7 +3487,7 @@ $$\left[\begin{matrix}2 x &amp; 2 &amp; 4\\6 &amp; 2 y &amp; 10\\12 &amp; 14 &am
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># mat + 2
+<span></span><span class="c1"># mat + 2</span>
 </pre></div>
 </div>
 </div>
@@ -3497,7 +3497,7 @@ $$\left[\begin{matrix}2 x &amp; 2 &amp; 4\\6 &amp; 2 y &amp; 10\\12 &amp; 14 &am
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat - mat
+<span></span><span class="n">mat</span> <span class="o">-</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -3516,7 +3516,7 @@ $$\left[\begin{matrix}0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 0\en
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat * mat
+<span></span><span class="n">mat</span> <span class="o">*</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -3535,7 +3535,7 @@ $$\left[\begin{matrix}x^{2} + 15 &amp; x + y + 14 &amp; 2 x + 21\\3 x + 3 y + 30
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>3 * mat
+<span></span><span class="mi">3</span> <span class="o">*</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -3554,7 +3554,7 @@ $$\left[\begin{matrix}3 x &amp; 3 &amp; 6\\9 &amp; 3 y &amp; 15\\18 &amp; 21 &am
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat / mat
+<span></span><span class="n">mat</span> <span class="o">/</span> <span class="n">mat</span>
 </pre></div>
 </div>
 </div>
@@ -3573,7 +3573,7 @@ $$\left[\begin{matrix}x &amp; 1 &amp; 2\\3 &amp; y &amp; 5\\6 &amp; 7 &amp; 8\en
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat / 3
+<span></span><span class="n">mat</span> <span class="o">/</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </div>
@@ -3595,7 +3595,7 @@ $$\left[\begin{matrix}\frac{x}{3} &amp; \frac{1}{3} &amp; \frac{2}{3}\\1 &amp; \
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat.dot(vec)
+<span></span><span class="n">mat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3617,7 +3617,7 @@ $$\left [ x^{2} + y + 4, \quad 3 x + y^{2} + 10, \quad 6 x + 7 y + 16\right ]$$<
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat.inv()
+<span></span><span class="n">mat</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3639,7 +3639,7 @@ $$\left[\begin{matrix}- \frac{\left(x y - 3\right) \left(- \frac{5 - \frac{6}{x}
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat.det()
+<span></span><span class="n">mat</span><span class="o">.</span><span class="n">det</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3658,13 +3658,13 @@ $$8 x y - 35 x - 12 y + 48$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>mat_a = Matrix([
-        [2, 3, 5],
-        [3, 6, 2],
-        [8, 3, 6]])
-mat_x = Matrix(3, 1, [3,7,5])
-mat_b = mat_a * mat_x
-mat_a.LUsolve(mat_b)
+<span></span><span class="n">mat_a</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">mat_x</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">mat_b</span> <span class="o">=</span> <span class="n">mat_a</span> <span class="o">*</span> <span class="n">mat_x</span>
+<span class="n">mat_a</span><span class="o">.</span><span class="n">LUsolve</span><span class="p">(</span><span class="n">mat_b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3686,7 +3686,7 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.plotting.plot(x ** 2)
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3694,7 +3694,7 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sympy_sympy_sample_202_0.png" src="../../_images/notebooks_sympy_sympy_sample_202_0.png" />
+<img alt="../../../_images/contents_notebooks_sympy_sympy_sample_202_0.png" src="../../../_images/contents_notebooks_sympy_sympy_sample_202_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -3713,7 +3713,7 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.plotting.plot(x ** 2, (x, -3, 5))
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -3721,7 +3721,7 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sympy_sympy_sample_203_0.png" src="../../_images/notebooks_sympy_sympy_sample_203_0.png" />
+<img alt="../../../_images/contents_notebooks_sympy_sympy_sample_203_0.png" src="../../../_images/contents_notebooks_sympy_sympy_sample_203_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -3740,7 +3740,7 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.plotting.plot(-x, x, (x, -3, 3))
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -3748,7 +3748,7 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sympy_sympy_sample_204_0.png" src="../../_images/notebooks_sympy_sympy_sample_204_0.png" />
+<img alt="../../../_images/contents_notebooks_sympy_sympy_sample_204_0.png" src="../../../_images/contents_notebooks_sympy_sympy_sample_204_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -3767,7 +3767,7 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sympy.plotting.plot((-x, (x, -3, 0)), (x, (x, 0, 3)))
+<span></span><span class="n">sympy</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -3775,7 +3775,7 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sympy_sympy_sample_205_0.png" src="../../_images/notebooks_sympy_sympy_sample_205_0.png" />
+<img alt="../../../_images/contents_notebooks_sympy_sympy_sample_205_0.png" src="../../../_images/contents_notebooks_sympy_sympy_sample_205_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -3824,7 +3824,7 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -3832,17 +3832,17 @@ $$\left[\begin{matrix}3\\7\\5\end{matrix}\right]$$</div></div>
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

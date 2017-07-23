@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/titanic/gendermodel.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/titanic/gendermodel.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,12 +349,12 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot; This simple code is desinged to teach a basic user to read in the files in python, simply find what proportion of males and females survived and make a predictive model based on this
-Author : AstroDave
-Date : 18 September 2012
-Revised: 28 March 2014
+<span></span><span class="sd">&quot;&quot;&quot; This simple code is desinged to teach a basic user to read in the files in python, simply find what proportion of males and females survived and make a predictive model based on this</span>
+<span class="sd">Author : AstroDave</span>
+<span class="sd">Date : 18 September 2012</span>
+<span class="sd">Revised: 28 March 2014</span>
 
-&quot;&quot;&quot;
+<span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -374,8 +374,8 @@ Revised: 28 March 2014
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import csv as csv
-import numpy as np
+<span></span><span class="kn">import</span> <span class="nn">csv</span> <span class="kn">as</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 </pre></div>
 </div>
@@ -386,21 +386,21 @@ import numpy as np
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Load in the csv file
-csv_file_object = csv.reader(open(&#39;train.csv&#39;, &#39;r&#39;))
-# Skip the fist line as it is a header
-header = next(csv_file_object)
-# Create a variable to hold the data
-data = []
+<span></span><span class="c1"># Load in the csv file</span>
+<span class="n">csv_file_object</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;train.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">))</span>
+<span class="c1"># Skip the fist line as it is a header</span>
+<span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">csv_file_object</span><span class="p">)</span>
+<span class="c1"># Create a variable to hold the data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 
-# Skip through each row in the csv file,
-for row in csv_file_object:
-    # adding each row to the data variable
-    data.append(row[0:])
-# Then convert from a list to an array.
-data = np.array(data)
+<span class="c1"># Skip through each row in the csv file,</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_file_object</span><span class="p">:</span>
+    <span class="c1"># adding each row to the data variable</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">:])</span>
+<span class="c1"># Then convert from a list to an array.</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-header, data
+<span class="n">header</span><span class="p">,</span> <span class="n">data</span>
 </pre></div>
 </div>
 </div>
@@ -439,16 +439,16 @@ header, data
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Now I have an array of 12 columns and 891 rows
-# I can access any element I want, so the entire first column would
-# be data[0::,0].astype(np.float) -- This means all of the rows (from start to end), in column 0
-# I have to add the .astype() command, because
-# when appending the rows, python thought it was a string - so needed to convert
+<span></span><span class="c1"># Now I have an array of 12 columns and 891 rows</span>
+<span class="c1"># I can access any element I want, so the entire first column would</span>
+<span class="c1"># be data[0::,0].astype(np.float) -- This means all of the rows (from start to end), in column 0</span>
+<span class="c1"># I have to add the .astype() command, because</span>
+<span class="c1"># when appending the rows, python thought it was a string - so needed to convert</span>
 
-# Set some variables
-number_passengers = np.size(data[0::,1].astype(np.float))
-number_survived = np.sum(data[0::,1].astype(np.float))
-proportion_survivors = number_survived / number_passengers
+<span class="c1"># Set some variables</span>
+<span class="n">number_passengers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">::,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">))</span>
+<span class="n">number_survived</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">::,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">))</span>
+<span class="n">proportion_survivors</span> <span class="o">=</span> <span class="n">number_survived</span> <span class="o">/</span> <span class="n">number_passengers</span>
 </pre></div>
 </div>
 </div>
@@ -458,7 +458,7 @@ proportion_survivors = number_survived / number_passengers
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>number_passengers
+<span></span><span class="n">number_passengers</span>
 </pre></div>
 </div>
 </div>
@@ -478,7 +478,7 @@ proportion_survivors = number_survived / number_passengers
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>number_survived
+<span></span><span class="n">number_survived</span>
 </pre></div>
 </div>
 </div>
@@ -498,7 +498,7 @@ proportion_survivors = number_survived / number_passengers
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>proportion_survivors
+<span></span><span class="n">proportion_survivors</span>
 </pre></div>
 </div>
 </div>
@@ -518,10 +518,10 @@ proportion_survivors = number_survived / number_passengers
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># I can now find the stats of all the women on board,
-# by making an array that lists True/False whether each row is female
-women_only_stats = data[0::,4] == &quot;female&quot;  # This finds where all the women are
-men_only_stats = data[0::,4] != &quot;female&quot;    # This finds where all the men are (note != means &#39;not equal&#39;)
+<span></span><span class="c1"># I can now find the stats of all the women on board,</span>
+<span class="c1"># by making an array that lists True/False whether each row is female</span>
+<span class="n">women_only_stats</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">::,</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span>  <span class="c1"># This finds where all the women are</span>
+<span class="n">men_only_stats</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">::,</span><span class="mi">4</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;female&quot;</span>    <span class="c1"># This finds where all the men are (note != means &#39;not equal&#39;)</span>
 
 </pre></div>
 </div>
@@ -532,7 +532,7 @@ men_only_stats = data[0::,4] != &quot;female&quot;    # This finds where all the
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>women_only_stats[:5]
+<span></span><span class="n">women_only_stats</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -552,7 +552,7 @@ men_only_stats = data[0::,4] != &quot;female&quot;    # This finds where all the
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>men_only_stats[:5]
+<span></span><span class="n">men_only_stats</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -572,12 +572,12 @@ men_only_stats = data[0::,4] != &quot;female&quot;    # This finds where all the
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># I can now filter the whole data, to find statistics for just women, by just placing
-# women_only_stats as a &quot;mask&quot; on my full data -- Use it in place of the &#39;0::&#39; part of the array index.
-# You can test it by placing it there, and requesting column index [4], and the output should all read &#39;female&#39;
-# e.g. try typing this:   data[women_only_stats,4]
-women_onboard = data[women_only_stats,1].astype(np.float)
-men_onboard = data[men_only_stats,1].astype(np.float)
+<span></span><span class="c1"># I can now filter the whole data, to find statistics for just women, by just placing</span>
+<span class="c1"># women_only_stats as a &quot;mask&quot; on my full data -- Use it in place of the &#39;0::&#39; part of the array index.</span>
+<span class="c1"># You can test it by placing it there, and requesting column index [4], and the output should all read &#39;female&#39;</span>
+<span class="c1"># e.g. try typing this:   data[women_only_stats,4]</span>
+<span class="n">women_onboard</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">women_only_stats</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="n">men_onboard</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">men_only_stats</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -588,7 +588,7 @@ men_onboard = data[men_only_stats,1].astype(np.float)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>women_onboard[:5]
+<span></span><span class="n">women_onboard</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -608,7 +608,7 @@ men_onboard = data[men_only_stats,1].astype(np.float)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>men_onboard[:5]
+<span></span><span class="n">men_onboard</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -628,12 +628,12 @@ men_onboard = data[men_only_stats,1].astype(np.float)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># and derive some statistics about them
-proportion_women_survived = np.sum(women_onboard) / np.size(women_onboard)
-proportion_men_survived = np.sum(men_onboard) / np.size(men_onboard)
+<span></span><span class="c1"># and derive some statistics about them</span>
+<span class="n">proportion_women_survived</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">women_onboard</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">women_onboard</span><span class="p">)</span>
+<span class="n">proportion_men_survived</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">men_onboard</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">men_onboard</span><span class="p">)</span>
 
-print(&#39;Proportion of women who survived is %s&#39; % proportion_women_survived)
-print(&#39;Proportion of men who survived is %s&#39; % proportion_men_survived)
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Proportion of women who survived is </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">proportion_women_survived</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Proportion of men who survived is </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">proportion_men_survived</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -653,17 +653,17 @@ Proportion of men who survived is 0.188908145581
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Now that I have my indicator that women were much more likely to survive,
-# I am done with the training set.
-# Now I will read in the test file and write out my simplistic prediction:
-# if female, then model that she survived (1)
-# if male, then model that he did not survive (0)
+<span></span><span class="c1"># Now that I have my indicator that women were much more likely to survive,</span>
+<span class="c1"># I am done with the training set.</span>
+<span class="c1"># Now I will read in the test file and write out my simplistic prediction:</span>
+<span class="c1"># if female, then model that she survived (1)</span>
+<span class="c1"># if male, then model that he did not survive (0)</span>
 
-# First, read in test.csv
-test_file = open(&#39;test.csv&#39;, &#39;r&#39;)
-test_file_object = csv.reader(test_file)
-header = next(test_file_object)
-header
+<span class="c1"># First, read in test.csv</span>
+<span class="n">test_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">test_file_object</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">test_file</span><span class="p">)</span>
+<span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">test_file_object</span><span class="p">)</span>
+<span class="n">header</span>
 </pre></div>
 </div>
 </div>
@@ -693,27 +693,27 @@ header
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Also open the a new file so I can write to it. Call it something descriptive
-# Finally, loop through each row in the train file, and look in column index [3] (which is &#39;Sex&#39;)
-# Write out the PassengerId, and my prediction.
+<span></span><span class="c1"># Also open the a new file so I can write to it. Call it something descriptive</span>
+<span class="c1"># Finally, loop through each row in the train file, and look in column index [3] (which is &#39;Sex&#39;)</span>
+<span class="c1"># Write out the PassengerId, and my prediction.</span>
 
-predictions_file = open(&quot;gendermodel.csv&quot;, &quot;w&quot;)
-predictions_file_object = csv.writer(predictions_file)
-predictions_file_object.writerow([&quot;PassengerId&quot;, &quot;Survived&quot;])       # write the column headers
-# For each row in test file,
-for row in test_file_object:
-    if row[3] == &#39;female&#39;:
-        # is it a female, if yes then
-        # write the PassengerId, and predict 1
-        predictions_file_object.writerow([row[0], &quot;1&quot;])
-    else:
-        # or else if male,
-        # write the PassengerId, and predict 0.
-        predictions_file_object.writerow([row[0], &quot;0&quot;])
+<span class="n">predictions_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;gendermodel.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">predictions_file_object</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">predictions_file</span><span class="p">)</span>
+<span class="n">predictions_file_object</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;PassengerId&quot;</span><span class="p">,</span> <span class="s2">&quot;Survived&quot;</span><span class="p">])</span>       <span class="c1"># write the column headers</span>
+<span class="c1"># For each row in test file,</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">test_file_object</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span><span class="p">:</span>
+        <span class="c1"># is it a female, if yes then</span>
+        <span class="c1"># write the PassengerId, and predict 1</span>
+        <span class="n">predictions_file_object</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;1&quot;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># or else if male,</span>
+        <span class="c1"># write the PassengerId, and predict 0.</span>
+        <span class="n">predictions_file_object</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;0&quot;</span><span class="p">])</span>
 
-# Close out the files.
-test_file.close()
-predictions_file.close()
+<span class="c1"># Close out the files.</span>
+<span class="n">test_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">predictions_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -753,7 +753,7 @@ predictions_file.close()
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -761,17 +761,17 @@ predictions_file.close()
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

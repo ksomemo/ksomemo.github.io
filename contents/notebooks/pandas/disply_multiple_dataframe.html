@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pandas/disply_multiple_dataframe.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/pandas/disply_multiple_dataframe.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,32 +349,32 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-import IPython.core.display as display
-import IPython.display
-&quot;&quot;&quot;
-↑
-from IPython.core.display import *
-from IPython.lib.display import *
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">IPython.core.display</span> <span class="kn">as</span> <span class="nn">display</span>
+<span class="kn">import</span> <span class="nn">IPython.display</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">↑</span>
+<span class="sd">from IPython.core.display import *</span>
+<span class="sd">from IPython.lib.display import *</span>
 
-lib.display includes
-__all__ = [&#39;Audio&#39;, &#39;IFrame&#39;, &#39;YouTubeVideo&#39;, &#39;VimeoVideo&#39;, &#39;ScribdDocument&#39;,
-           &#39;FileLink&#39;, &#39;FileLinks&#39;]
-&quot;&quot;&quot;
+<span class="sd">lib.display includes</span>
+<span class="sd">__all__ = [&#39;Audio&#39;, &#39;IFrame&#39;, &#39;YouTubeVideo&#39;, &#39;VimeoVideo&#39;, &#39;ScribdDocument&#39;,</span>
+<span class="sd">           &#39;FileLink&#39;, &#39;FileLinks&#39;]</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
-df = pd.DataFrame(dict(a=range(4)))
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span>
 
-print(&quot;index: 0 (print)&quot;)
-IPython.display.display(df[0:1])
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;index: 0 (print)&quot;</span><span class="p">)</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>
 
-print(&quot;index: 1 (print)&quot;)
-display.display(df[1:2])
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;index: 1 (print)&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 
-print(&quot;index: 2 (print)&quot;)
-display.display_html(df[2:3])
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;index: 2 (print)&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="o">.</span><span class="n">display_html</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 
-print(&quot;index: 3 (Out to Cell)&quot;)
-df[3:]
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;index: 3 (Out to Cell)&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -502,21 +502,21 @@ index: 3 (Out to Cell)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-from IPython.display import display
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 
-df = pd.DataFrame(dict(a=range(4)))
-class HorizontalDisplay:
-    def __init__(self, *args):
-        self.args = args
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span>
+<span class="k">class</span> <span class="nc">HorizontalDisplay</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">args</span>
 
-    def _repr_html_(self):
-        template = &#39;&lt;div style=&quot;float: left; padding: 10px;&quot;&gt;{0}&lt;/div&gt;&#39;
-        return &quot;\n&quot;.join(template.format(arg._repr_html_())
-                              for arg in self.args)
+    <span class="k">def</span> <span class="nf">_repr_html_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">template</span> <span class="o">=</span> <span class="s1">&#39;&lt;div style=&quot;float: left; padding: 10px;&quot;&gt;{0}&lt;/div&gt;&#39;</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="o">.</span><span class="n">_repr_html_</span><span class="p">())</span>
+                              <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 
-display(HorizontalDisplay(df, df))
-HorizontalDisplay(df, df)
+<span class="n">display</span><span class="p">(</span><span class="n">HorizontalDisplay</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df</span><span class="p">))</span>
+<span class="n">HorizontalDisplay</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -679,7 +679,7 @@ HorizontalDisplay(df, df)
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -687,17 +687,17 @@ HorizontalDisplay(df, df)
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

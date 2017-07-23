@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pandas/execl.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/pandas/execl.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,17 +349,17 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-import numpy as np
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 
-writer = pd.ExcelWriter(&quot;excel_file_path.xlsx&quot;)
+<span class="n">writer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="s2">&quot;excel_file_path.xlsx&quot;</span><span class="p">)</span>
 
-df = pd.DataFrame(np.random.randn(50, 2), columns=list(&#39;ab&#39;))
-df.to_excel(writer, sheet_name=&quot;sheet_name1&quot;, index=False)
-df.to_excel(writer, sheet_name=&quot;sheet_name2&quot;, index=False)
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;sheet_name1&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;sheet_name2&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
-writer.save()
+<span class="n">writer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -370,7 +370,7 @@ writer.save()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>help(writer.__exit__)
+<span></span><span class="n">help</span><span class="p">(</span><span class="n">writer</span><span class="o">.</span><span class="n">__exit__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -391,7 +391,7 @@ __exit__(exc_type, exc_value, traceback) method of pandas.io.excel._XlsxWriter i
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>help(writer.__enter__)
+<span></span><span class="n">help</span><span class="p">(</span><span class="n">writer</span><span class="o">.</span><span class="n">__enter__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -413,71 +413,71 @@ __enter__() method of pandas.io.excel._XlsxWriter instance
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># pandas/io/excel.py
-@add_metaclass(abc.ABCMeta)
-class ExcelWriter(object):
-    @abc.abstractmethod
-    def save(self):
-        pass
+<span></span><span class="c1"># pandas/io/excel.py</span>
+<span class="nd">@add_metaclass</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">ExcelWriter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@abc.abstractmethod</span>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
 
-    # Allow use as a contextmanager
-    def __enter__(self):
-        return self
+    <span class="c1"># Allow use as a contextmanager</span>
+    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
 
-    def __exit__(self, exc_type, exc_value, traceback):
-        self.close()
+    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-    def close(self):
-        &quot;&quot;&quot;synonym for save, to make it more file-like&quot;&quot;&quot;
-        return self.save()
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;synonym for save, to make it more file-like&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 
-class _XlsxWriter(ExcelWriter):
-    def __init__(self, ):
-        # Use the xlsxwriter module as the Excel writer.
-        import xlsxwriter
-        # https://pypi.python.org/pypi/XlsxWriter
-        # https://github.com/jmcnamara/XlsxWriter
+<span class="k">class</span> <span class="nc">_XlsxWriter</span><span class="p">(</span><span class="n">ExcelWriter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">):</span>
+        <span class="c1"># Use the xlsxwriter module as the Excel writer.</span>
+        <span class="kn">import</span> <span class="nn">xlsxwriter</span>
+        <span class="c1"># https://pypi.python.org/pypi/XlsxWriter</span>
+        <span class="c1"># https://github.com/jmcnamara/XlsxWriter</span>
 
-        super(_XlsxWriter, self).__init__
-        self.book = xlsxwriter.Workbook(path, **engine_kwargs)
+        <span class="nb">super</span><span class="p">(</span><span class="n">_XlsxWriter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="n">xlsxwriter</span><span class="o">.</span><span class="n">Workbook</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="o">**</span><span class="n">engine_kwargs</span><span class="p">)</span>
 
-    def save(self):
-        &quot;&quot;&quot;
-        Save workbook to disk.
-        &quot;&quot;&quot;
-        return self.book.close()
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save workbook to disk.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">book</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-# xlsxwriter/__init__.py
-from .workbook import Workbook
+<span class="c1"># xlsxwriter/__init__.py</span>
+<span class="kn">from</span> <span class="nn">.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
 
-# xlsxwriter/workbook.py
-class Workbook(xmlwriter.XMLwriter):
-    pass
+<span class="c1"># xlsxwriter/workbook.py</span>
+<span class="k">class</span> <span class="nc">Workbook</span><span class="p">(</span><span class="n">xmlwriter</span><span class="o">.</span><span class="n">XMLwriter</span><span class="p">):</span>
+    <span class="k">pass</span>
 
-    def __enter__(self):
-        &quot;&quot;&quot;Return self object to use with &quot;with&quot; statement.&quot;&quot;&quot;
-        return self
+    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return self object to use with &quot;with&quot; statement.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span>
 
-    def __exit__(self, type, value, traceback):
-        &quot;&quot;&quot;Close workbook when exiting &quot;with&quot; statement.&quot;&quot;&quot;
-        self.close()
+    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Close workbook when exiting &quot;with&quot; statement.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-    def close(self):
-        &quot;&quot;&quot;
-        Call finalization code and close file.
-        Args:
-            None.
-        Returns:
-            Nothing.
-        &quot;&quot;&quot;
-        if not self.fileclosed:
-            self.fileclosed = 1
-            self._store_workbook()
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Call finalization code and close file.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            None.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Nothing.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">fileclosed</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fileclosed</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_store_workbook</span><span class="p">()</span>
 
-    def _store_workbook(self):
-        xlsx_file = ZipFile(self.filename, &quot;w&quot;, compression=ZIP_DEFLATED,
-                            allowZip64=self.allow_zip64)
-        xlsx_file.close()
+    <span class="k">def</span> <span class="nf">_store_workbook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">xlsx_file</span> <span class="o">=</span> <span class="n">ZipFile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">ZIP_DEFLATED</span><span class="p">,</span>
+                            <span class="n">allowZip64</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">allow_zip64</span><span class="p">)</span>
+        <span class="n">xlsx_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -487,7 +487,7 @@ class Workbook(xmlwriter.XMLwriter):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>[a for a in dir(writer) if not a.startswith(&#39;_&#39;)]
+<span></span><span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -519,10 +519,10 @@ class Workbook(xmlwriter.XMLwriter):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>with pd.ExcelWriter(&quot;excel_file_path.xlsx&quot;) as witer:
-    df = pd.DataFrame(np.random.randn(50, 2), columns=list(&#39;ab&#39;))
-    df.to_excel(writer, sheet_name=&quot;sheet_name1&quot;, index=False)
-    df.to_excel(writer, sheet_name=&quot;sheet_name2&quot;, index=False)
+<span></span><span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelWriter</span><span class="p">(</span><span class="s2">&quot;excel_file_path.xlsx&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">witer</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">))</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;sheet_name1&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;sheet_name2&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -572,7 +572,7 @@ class Workbook(xmlwriter.XMLwriter):
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -580,17 +580,17 @@ class Workbook(xmlwriter.XMLwriter):
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pandas/time_series.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/pandas/time_series.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,13 +349,13 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
-%matplotlib inline
-matplotlib.style.use(&quot;ggplot&quot;)
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -365,8 +365,8 @@ matplotlib.style.use(&quot;ggplot&quot;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>dates = pd.date_range(start=&quot;2016-03-01&quot;, end=&quot;2016-03-31&quot;)
-dates, len(dates)
+<span></span><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2016-03-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2016-03-31&quot;</span><span class="p">)</span>
+<span class="n">dates</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -394,9 +394,9 @@ dates, len(dates)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># b is business
-bdates = pd.bdate_range(start=&quot;2016-03-01&quot;, end=&quot;2016-03-31&quot;)
-bdates, len(bdates)
+<span></span><span class="c1"># b is business</span>
+<span class="n">bdates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">bdate_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2016-03-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2016-03-31&quot;</span><span class="p">)</span>
+<span class="n">bdates</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bdates</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -422,7 +422,7 @@ bdates, len(bdates)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.timedelta_range(start=&quot;1 days&quot;, end=&quot;31 days&quot;)
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">timedelta_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;1 days&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;31 days&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -449,7 +449,7 @@ bdates, len(bdates)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.period_range
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">period_range</span>
 </pre></div>
 </div>
 </div>
@@ -469,8 +469,8 @@ bdates, len(bdates)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pindex = pd.period_range(start=&quot;2016-03-01&quot;, end=&quot;2016-03-31&quot;)
-pindex
+<span></span><span class="n">pindex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2016-03-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2016-03-31&quot;</span><span class="p">)</span>
+<span class="n">pindex</span>
 </pre></div>
 </div>
 </div>
@@ -498,7 +498,7 @@ pindex
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pindex[0], type(pindex[0])
+<span></span><span class="n">pindex</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="n">pindex</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -518,7 +518,7 @@ pindex
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.Period, pd.DataFrame
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
 </pre></div>
 </div>
 </div>
@@ -538,22 +538,22 @@ pindex
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.python.jp/3/library/io.html
-# http://stackoverflow.com/questions/4330812/how-do-i-clear-a-stringio-object
-import sys
-import io
-from contextlib import contextmanager
+<span></span><span class="c1"># http://docs.python.jp/3/library/io.html</span>
+<span class="c1"># http://stackoverflow.com/questions/4330812/how-do-i-clear-a-stringio-object</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
 
 
-@contextmanager
-def capture():
-    _stdout = sys.stdout
-    with io.StringIO() as strio:
-        try:
-            sys.stdout = strio
-            yield strio
-        finally:
-            sys.stdout = _stdout
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">capture</span><span class="p">():</span>
+    <span class="n">_stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">strio</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">strio</span>
+            <span class="k">yield</span> <span class="n">strio</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">_stdout</span>
 </pre></div>
 </div>
 </div>
@@ -563,23 +563,23 @@ def capture():
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
-with capture() as c:
-    print(c, c.closed)
-    c.flush()
-    c_log1 = c.getvalue()
-    c.truncate()
-    c_log2 = c.getvalue()
-    c.truncate(0)
-    help(pd.Period)
-    help_doc = c.getvalue()
+<span class="k">with</span> <span class="n">capture</span><span class="p">()</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="n">c_log1</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
+    <span class="n">c_log2</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">)</span>
+    <span class="n">help_doc</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 
-print(&quot;output&quot;)
-print(c_log1.strip())
-print(c_log2.strip())
-print(&quot;\n&quot;.join(help_doc.splitlines()[:20]))
-print(c.closed)
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c_log1</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c_log2</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">help_doc</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[:</span><span class="mi">20</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -621,7 +621,7 @@ True
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.Period?
+<span></span>pd.Period<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -631,8 +631,8 @@ True
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>period = pd.Period(year=2016, month=3, day=6, freq=&quot;D&quot;)
-period
+<span></span><span class="n">period</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">period</span>
 </pre></div>
 </div>
 </div>
@@ -652,7 +652,7 @@ period
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.Period(&quot;2016-03-06&quot;)
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s2">&quot;2016-03-06&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -672,7 +672,7 @@ period
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>period.start_time, period.end_time
+<span></span><span class="n">period</span><span class="o">.</span><span class="n">start_time</span><span class="p">,</span> <span class="n">period</span><span class="o">.</span><span class="n">end_time</span>
 </pre></div>
 </div>
 </div>
@@ -692,15 +692,15 @@ period
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import datetime
-dt_start = datetime.datetime(2016, 3, 6)
-dt_end = datetime.datetime(2016, 3, 6, 23, 59, 59)
-[
-    period.start_time &lt;  dt_start &lt;= period.end_time,
-    period.start_time &lt;= dt_start &lt;= period.end_time,
-    period.start_time &lt;= dt_end &lt;= period.end_time,
-    period.start_time &lt;= dt_end &lt; period.end_time,
-]
+<span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">dt_start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">dt_end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">59</span><span class="p">)</span>
+<span class="p">[</span>
+    <span class="n">period</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&lt;</span>  <span class="n">dt_start</span> <span class="o">&lt;=</span> <span class="n">period</span><span class="o">.</span><span class="n">end_time</span><span class="p">,</span>
+    <span class="n">period</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&lt;=</span> <span class="n">dt_start</span> <span class="o">&lt;=</span> <span class="n">period</span><span class="o">.</span><span class="n">end_time</span><span class="p">,</span>
+    <span class="n">period</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&lt;=</span> <span class="n">dt_end</span> <span class="o">&lt;=</span> <span class="n">period</span><span class="o">.</span><span class="n">end_time</span><span class="p">,</span>
+    <span class="n">period</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&lt;=</span> <span class="n">dt_end</span> <span class="o">&lt;</span> <span class="n">period</span><span class="o">.</span><span class="n">end_time</span><span class="p">,</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -720,9 +720,9 @@ dt_end = datetime.datetime(2016, 3, 6, 23, 59, 59)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>date_range = pd.date_range(&quot;2016-03-01&quot;, periods=31)
-end_exclude = date_range.shift(1)
-end_exclude
+<span></span><span class="n">date_range</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2016-03-01&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">31</span><span class="p">)</span>
+<span class="n">end_exclude</span> <span class="o">=</span> <span class="n">date_range</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end_exclude</span>
 </pre></div>
 </div>
 </div>
@@ -750,11 +750,11 @@ end_exclude
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>date_df = pd.DataFrame({
-    &quot;start_date&quot;: date_range,
-     &quot;end_exclude&quot;: end_exclude
-})
-date_df.tail()
+<span></span><span class="n">date_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;start_date&quot;</span><span class="p">:</span> <span class="n">date_range</span><span class="p">,</span>
+     <span class="s2">&quot;end_exclude&quot;</span><span class="p">:</span> <span class="n">end_exclude</span>
+<span class="p">})</span>
+<span class="n">date_df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -838,7 +838,7 @@ date_df.tail()
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -846,17 +846,17 @@ date_df.tail()
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

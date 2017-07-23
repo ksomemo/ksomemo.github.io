@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pandas/corr_pair_scatter.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/pandas/corr_pair_scatter.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,7 +349,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://qiita.com/ksomemo/items/69ae8eec98b795781586(load datasets in python)
+<span></span><span class="c1"># http://qiita.com/ksomemo/items/69ae8eec98b795781586(load datasets in python)</span>
 </pre></div>
 </div>
 </div>
@@ -359,13 +359,13 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
-import seaborn as sns
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -375,14 +375,14 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sklearn import datasets
-iris = datasets.load_iris()
-# cm邪魔なので削除
-columns = map(lambda c: c.replace(&quot; (cm)&quot;, &quot;&quot;), iris.feature_names[:4])
-iris_data = pd.DataFrame(iris.data, columns=columns)
-iris_data[&quot;target&quot;] = pd.Series(iris.target)
-iris_data[&quot;target_names&quot;] = iris_data[&quot;target&quot;].apply(lambda x: iris.target_names[x])
-iris_data.tail()
+<span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="c1"># cm邪魔なので削除</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; (cm)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">iris_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">iris_data</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+<span class="n">iris_data</span><span class="p">[</span><span class="s2">&quot;target_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">iris_data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -461,8 +461,8 @@ iris_data.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_data_feature = iris_data[iris_data.columns[:4]]
-iris_data_feature.tail()
+<span></span><span class="n">iris_data_feature</span> <span class="o">=</span> <span class="n">iris_data</span><span class="p">[</span><span class="n">iris_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">4</span><span class="p">]]</span>
+<span class="n">iris_data_feature</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -529,7 +529,7 @@ iris_data_feature.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_data.groupby(&quot;target_names&quot;).describe()
+<span></span><span class="n">iris_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;target_names&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -767,7 +767,7 @@ iris_data_feature.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_data.target_names.value_counts().plot.bar()
+<span></span><span class="n">iris_data</span><span class="o">.</span><span class="n">target_names</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -785,7 +785,7 @@ iris_data_feature.tail()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_pandas_corr_pair_scatter_5_1.png" src="../../_images/notebooks_pandas_corr_pair_scatter_5_1.png" />
+<img alt="../../../_images/contents_notebooks_pandas_corr_pair_scatter_5_1.png" src="../../../_images/contents_notebooks_pandas_corr_pair_scatter_5_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -794,7 +794,7 @@ iris_data_feature.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_data_feature.plot.scatter(x=&quot;sepal length&quot;, y=&quot;sepal width&quot;)
+<span></span><span class="n">iris_data_feature</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;sepal length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;sepal width&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -812,7 +812,7 @@ iris_data_feature.tail()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_pandas_corr_pair_scatter_6_1.png" src="../../_images/notebooks_pandas_corr_pair_scatter_6_1.png" />
+<img alt="../../../_images/contents_notebooks_pandas_corr_pair_scatter_6_1.png" src="../../../_images/contents_notebooks_pandas_corr_pair_scatter_6_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -821,8 +821,8 @@ iris_data_feature.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_data_feature[&quot;sepal length&quot;].plot.line()
-iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
+<span></span><span class="n">iris_data_feature</span><span class="p">[</span><span class="s2">&quot;sepal length&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
+<span class="n">iris_data_feature</span><span class="p">[</span><span class="s2">&quot;sepal width&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">secondary_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -841,7 +841,7 @@ iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_pandas_corr_pair_scatter_7_1.png" src="../../_images/notebooks_pandas_corr_pair_scatter_7_1.png" />
+<img alt="../../../_images/contents_notebooks_pandas_corr_pair_scatter_7_1.png" src="../../../_images/contents_notebooks_pandas_corr_pair_scatter_7_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -850,10 +850,10 @@ iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>with pd.plot_params.use(&#39;x_compat&#39;, True):
-    iris_data_feature[&quot;sepal length&quot;].plot(color=&#39;r&#39;)
-    iris_data_feature[&quot;sepal width&quot;].plot(color=&#39;g&#39;)
-    iris_data_feature[&quot;petal length&quot;].plot(color=&#39;b&#39;)
+<span></span><span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">plot_params</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;x_compat&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">):</span>
+    <span class="n">iris_data_feature</span><span class="p">[</span><span class="s2">&quot;sepal length&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">iris_data_feature</span><span class="p">[</span><span class="s2">&quot;sepal width&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+    <span class="n">iris_data_feature</span><span class="p">[</span><span class="s2">&quot;petal length&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -861,7 +861,7 @@ iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_pandas_corr_pair_scatter_8_0.png" src="../../_images/notebooks_pandas_corr_pair_scatter_8_0.png" />
+<img alt="../../../_images/contents_notebooks_pandas_corr_pair_scatter_8_0.png" src="../../../_images/contents_notebooks_pandas_corr_pair_scatter_8_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -870,7 +870,7 @@ iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_data_feature.plot(subplots=True, figsize=(16, 8), layout=(2, 2))
+<span></span><span class="n">iris_data_feature</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -891,7 +891,7 @@ iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_pandas_corr_pair_scatter_9_1.png" src="../../_images/notebooks_pandas_corr_pair_scatter_9_1.png" />
+<img alt="../../../_images/contents_notebooks_pandas_corr_pair_scatter_9_1.png" src="../../../_images/contents_notebooks_pandas_corr_pair_scatter_9_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -900,7 +900,7 @@ iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_data_feature.corr()
+<span></span><span class="n">iris_data_feature</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -960,7 +960,7 @@ iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_data_feature.corr(method=&quot;kendall&quot;)
+<span></span><span class="n">iris_data_feature</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;kendall&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1020,7 +1020,7 @@ iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_data_feature.corr(method=&quot;spearman&quot;)
+<span></span><span class="n">iris_data_feature</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,9 +1080,9 @@ iris_data_feature[&quot;sepal width&quot;].plot.line(secondary_y=True)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from pandas.tools.plotting import scatter_matrix
+<span></span><span class="kn">from</span> <span class="nn">pandas.tools.plotting</span> <span class="kn">import</span> <span class="n">scatter_matrix</span>
 
-scatter_matrix(iris_data_feature, alpha=0.2, figsize=(6, 6), diagonal=&#39;kde&#39;)
+<span class="n">scatter_matrix</span><span class="p">(</span><span class="n">iris_data_feature</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">diagonal</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1115,7 +1115,7 @@ scatter_matrix(iris_data_feature, alpha=0.2, figsize=(6, 6), diagonal=&#39;kde&#
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_pandas_corr_pair_scatter_13_1.png" src="../../_images/notebooks_pandas_corr_pair_scatter_13_1.png" />
+<img alt="../../../_images/contents_notebooks_pandas_corr_pair_scatter_13_1.png" src="../../../_images/contents_notebooks_pandas_corr_pair_scatter_13_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1124,8 +1124,8 @@ scatter_matrix(iris_data_feature, alpha=0.2, figsize=(6, 6), diagonal=&#39;kde&#
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># sns.pairplot(iris_data, hue=&#39;target&#39;)
-sns.pairplot(iris_data, hue=&#39;target_names&#39;)
+<span></span><span class="c1"># sns.pairplot(iris_data, hue=&#39;target&#39;)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris_data</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;target_names&#39;</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -1144,7 +1144,7 @@ sns.pairplot(iris_data, hue=&#39;target_names&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_pandas_corr_pair_scatter_14_1.png" src="../../_images/notebooks_pandas_corr_pair_scatter_14_1.png" />
+<img alt="../../../_images/contents_notebooks_pandas_corr_pair_scatter_14_1.png" src="../../../_images/contents_notebooks_pandas_corr_pair_scatter_14_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1153,7 +1153,7 @@ sns.pairplot(iris_data, hue=&#39;target_names&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>price = pd.Series(np.random.randn(150).cumsum(), index=pd.date_range(&#39;2000-1-1&#39;, periods=150, freq=&#39;B&#39;))
+<span></span><span class="n">price</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2000-1-1&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1192,7 +1192,7 @@ sns.pairplot(iris_data, hue=&#39;target_names&#39;)
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1200,17 +1200,17 @@ sns.pairplot(iris_data, hue=&#39;target_names&#39;)
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

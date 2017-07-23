@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/sklearn/sklern_samples_generator.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/sklearn/sklern_samples_generator.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,12 +349,12 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%matplotlib inline
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-import numpy as np
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -364,7 +364,7 @@ import matplotlib.pyplot as plt
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%pwd
+<span></span><span class="o">%</span><span class="k">pwd</span>
 </pre></div>
 </div>
 </div>
@@ -384,8 +384,8 @@ import matplotlib.pyplot as plt
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>work_dir = _
-work_dir
+<span></span><span class="n">work_dir</span> <span class="o">=</span> <span class="n">_</span>
+<span class="n">work_dir</span>
 </pre></div>
 </div>
 </div>
@@ -405,9 +405,9 @@ work_dir
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## http://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets
-## Samples generator
-from  sklearn import datasets
+<span></span><span class="c1">## http://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets</span>
+<span class="c1">## Samples generator</span>
+<span class="kn">from</span>  <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 </pre></div>
 </div>
 </div>
@@ -417,10 +417,10 @@ from  sklearn import datasets
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate isotropic Gaussian blobs for clustering.
-# datasets.make_blobs([n_samples, n_features, ...])
-X, y = datasets.make_blobs(n_samples=100, n_features=2, centers=3, cluster_std=1.0, center_box=(-10.0, 10.0), shuffle=True, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate isotropic Gaussian blobs for clustering.</span>
+<span class="c1"># datasets.make_blobs([n_samples, n_features, ...])</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">center_box</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -438,7 +438,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_4_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_4_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_4_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_4_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -447,12 +447,12 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a random n-class classification problem.
-#datasets.make_classification([n_samples, ...])
-X, y = datasets.make_classification(
-    n_samples=100, n_features=20, n_informative=2, n_redundant=2, n_repeated=0, n_classes=2, n_clusters_per_class=2,
-    weights=None, flip_y=0.01, class_sep=1.0, hypercube=True, shift=0.0, scale=1.0, shuffle=True, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate a random n-class classification problem.</span>
+<span class="c1">#datasets.make_classification([n_samples, ...])</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_repeated</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">weights</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">flip_y</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">class_sep</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">hypercube</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -471,7 +471,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_5_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_5_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_5_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_5_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -480,9 +480,9 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Make a large circle containing a smaller circle in 2d.
-X, y = datasets.make_circles(n_samples=100, shuffle=True, noise=None, random_state=None, factor=0.8)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Make a large circle containing a smaller circle in 2d.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -501,7 +501,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_6_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_6_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_6_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_6_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -510,9 +510,9 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate the “Friedman #1” regression problem
-X, y = datasets.make_friedman1(n_samples=100, n_features=10, noise=0.0, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate the “Friedman #1” regression problem</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_friedman1</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -530,7 +530,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_7_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_7_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_7_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_7_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -539,9 +539,9 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate the “Friedman #2” regression problem
-X, y = datasets.make_friedman2(n_samples=100, noise=0.0, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate the “Friedman #2” regression problem</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_friedman2</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -559,7 +559,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_8_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_8_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_8_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_8_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -568,9 +568,9 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate the “Friedman #3” regression problem
-X, y = datasets.make_friedman3(n_samples=100, noise=0.0, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate the “Friedman #3” regression problem</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_friedman3</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -588,7 +588,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_9_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_9_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_9_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_9_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -597,11 +597,11 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate isotropic Gaussian and label samples by quantile
-X, y = datasets.make_gaussian_quantiles(
-    mean=None, cov=1.0, n_samples=100, n_features=2, n_classes=3,
-    shuffle=True, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate isotropic Gaussian and label samples by quantile</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_gaussian_quantiles</span><span class="p">(</span>
+    <span class="n">mean</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -619,7 +619,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_10_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_10_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_10_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_10_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -628,10 +628,10 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generates data for binary classification used in Hastie et al.
-X, y = datasets.make_hastie_10_2(n_samples=12000, random_state=None)
-X, y = datasets.make_hastie_10_2(n_samples=1000, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generates data for binary classification used in Hastie et al.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_hastie_10_2</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">12000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_hastie_10_2</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -649,7 +649,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_11_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_11_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_11_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_11_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -658,10 +658,10 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a mostly low rank matrix with bell-shaped singular values
-#X, y =
-X = datasets.make_low_rank_matrix(n_samples=100, n_features=100, effective_rank=10, tail_strength=0.5, random_state=None)
-plt.scatter(X[:, 0], X[:, 1])#, c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate a mostly low rank matrix with bell-shaped singular values</span>
+<span class="c1">#X, y =</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_low_rank_matrix</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">effective_rank</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tail_strength</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="c1">#, c=y, cmap=plt.cm.Paired)</span>
 </pre></div>
 </div>
 </div>
@@ -679,7 +679,7 @@ plt.scatter(X[:, 0], X[:, 1])#, c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_12_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_12_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_12_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_12_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -688,9 +688,9 @@ plt.scatter(X[:, 0], X[:, 1])#, c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Make two interleaving half circles
-X, y = datasets.make_moons(n_samples=100, shuffle=True, noise=None, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Make two interleaving half circles</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -708,7 +708,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_13_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_13_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_13_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_13_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -717,12 +717,12 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a random multilabel classification problem.
-X, y = datasets.make_multilabel_classification(
-    n_samples=100, n_features=20, n_classes=5, n_labels=2,
-    length=50, allow_unlabeled=True, sparse=False,
-    return_indicator=&#39;dense&#39;, return_distributions=False, random_state=None)
-#plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate a random multilabel classification problem.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_multilabel_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_labels</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">allow_unlabeled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">return_indicator</span><span class="o">=</span><span class="s1">&#39;dense&#39;</span><span class="p">,</span> <span class="n">return_distributions</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="c1">#plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)</span>
 </pre></div>
 </div>
 </div>
@@ -732,11 +732,11 @@ X, y = datasets.make_multilabel_classification(
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a random regression problem.
-X, y = datasets.make_regression(
-    n_samples=100, n_features=100, n_informative=10, n_targets=1,
-    bias=0.0, effective_rank=None, tail_strength=0.5, noise=0.0, shuffle=True, coef=False, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate a random regression problem.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_targets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">bias</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">effective_rank</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">tail_strength</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">coef</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -754,7 +754,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_15_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_15_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_15_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_15_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -763,9 +763,9 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate an S curve dataset.
-X, y = datasets.make_s_curve(n_samples=100, noise=0.0, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate an S curve dataset.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_s_curve</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -783,7 +783,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_16_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_16_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_16_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_16_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -792,11 +792,11 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a signal as a sparse combination of dictionary elements.
-#X, y =
-X = datasets.make_sparse_coded_signal(
-    n_samples=1000, n_components=10, n_features=10, n_nonzero_coefs=10, random_state=None)
-plt.scatter(X[:, 0], X[:, 1])#, c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate a signal as a sparse combination of dictionary elements.</span>
+<span class="c1">#X, y =</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_sparse_coded_signal</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_components</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_nonzero_coefs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="c1">#, c=y, cmap=plt.cm.Paired)</span>
 </pre></div>
 </div>
 </div>
@@ -821,10 +821,10 @@ plt.scatter(X[:, 0], X[:, 1])#, c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a sparse symmetric definite positive matrix.
-#X, y =
-X = datasets.make_sparse_spd_matrix(dim=1, alpha=0.95, norm_diag=False, smallest_coef=0.1, largest_coef=0.9, random_state=None)
-plt.scatter(X[:, 0], X[:, 1])#, c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate a sparse symmetric definite positive matrix.</span>
+<span class="c1">#X, y =</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_sparse_spd_matrix</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">norm_diag</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">smallest_coef</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">largest_coef</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="c1">#, c=y, cmap=plt.cm.Paired)</span>
 </pre></div>
 </div>
 </div>
@@ -849,9 +849,9 @@ plt.scatter(X[:, 0], X[:, 1])#, c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a random regression problem with sparse uncorrelated design
-X, y = datasets.make_sparse_uncorrelated(n_samples=100, n_features=10, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate a random regression problem with sparse uncorrelated design</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_sparse_uncorrelated</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -869,7 +869,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_19_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_19_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_19_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_19_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -878,10 +878,10 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a random symmetric, positive-definite matrix.
-X, y = datasets.make_spd_matrix(n_dim=10, random_state=None)
-X, y
-#plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate a random symmetric, positive-definite matrix.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_spd_matrix</span><span class="p">(</span><span class="n">n_dim</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+<span class="c1">#plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)</span>
 </pre></div>
 </div>
 </div>
@@ -907,9 +907,9 @@ X, y
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a swiss roll dataset.
-X, y = datasets.make_swiss_roll(n_samples=100, noise=0.0, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate a swiss roll dataset.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_swiss_roll</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -927,7 +927,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_sklern_samples_generator_21_1.png" src="../../_images/notebooks_sklearn_sklern_samples_generator_21_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_21_1.png" src="../../../_images/contents_notebooks_sklearn_sklern_samples_generator_21_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -936,9 +936,9 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate an array with constant block diagonal structure for biclustering.
-X, y = datasets.make_biclusters(shape, n_clusters=3, noise=0.0, minval=10, maxval=100, shuffle=True, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate an array with constant block diagonal structure for biclustering.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_biclusters</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -963,9 +963,9 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate an array with block checkerboard structure for biclustering.
-X, y = datasets.make_checkerboard(shape, n_clusters=3, noise=0.0, minval=10, maxval=100, shuffle=True, random_state=None)
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate an array with block checkerboard structure for biclustering.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_checkerboard</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1019,7 +1019,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1027,17 +1027,17 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

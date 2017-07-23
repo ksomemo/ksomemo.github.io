@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/sklearn/roc_auc_learning_curve.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/sklearn/roc_auc_learning_curve.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,15 +349,15 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-from sklearn import metrics
-import pandas as pd
-from sklearn import datasets
-from IPython.display import display
-import matplotlib.pyplot as plt
-import seaborn as sns
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -367,9 +367,9 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>y = np.array([1, 1, 2, 2])
-pred = np.array([0.1, 0.4, 0.35, 0.8])
-fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=2)
+<span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -380,7 +380,7 @@ fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>fpr
+<span></span><span class="n">fpr</span>
 </pre></div>
 </div>
 </div>
@@ -400,7 +400,7 @@ fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>tpr
+<span></span><span class="n">tpr</span>
 </pre></div>
 </div>
 </div>
@@ -420,7 +420,7 @@ fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>thresholds
+<span></span><span class="n">thresholds</span>
 </pre></div>
 </div>
 </div>
@@ -440,7 +440,7 @@ fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>metrics.auc(fpr, tpr)
+<span></span><span class="n">metrics</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -471,10 +471,10 @@ fpr, tpr, thresholds = metrics.roc_curve(y, pred, pos_label=2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>titanic = sns.load_dataset(&quot;titanic&quot;)
-titanic = titanic.select_dtypes(include=[&quot;number&quot;])
-titanic.age = titanic.age.fillna(titanic.age.mean())
-titanic.info()
+<span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
+<span class="n">titanic</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">])</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">titanic</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -503,8 +503,8 @@ memory usage: 41.8 KB
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>titanic_features = titanic.drop(&quot;survived&quot;, axis=1)
-titanic_target = titanic.survived
+<span></span><span class="n">titanic_features</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">titanic_target</span> <span class="o">=</span> <span class="n">titanic</span><span class="o">.</span><span class="n">survived</span>
 </pre></div>
 </div>
 </div>
@@ -514,16 +514,16 @@ titanic_target = titanic.survived
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sklearn import linear_model
-from sklearn import model_selection
-from sklearn import metrics
-X_train, X_test, y_train, y_test = model_selection.train_test_split(titanic_features, titanic_target, test_size=0.3)
-t_lr = linear_model.LogisticRegression().fit(X_train, y_train)
-proba = t_lr.predict_proba(X_test)
-predict = t_lr.predict(X_test)
+<span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">titanic_features</span><span class="p">,</span> <span class="n">titanic_target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">t_lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">proba</span> <span class="o">=</span> <span class="n">t_lr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">predict</span> <span class="o">=</span> <span class="n">t_lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
-fpr, tpr, thresholds = metrics.roc_curve(y_test, proba[:, 1])
-metrics.auc(fpr, tpr), metrics.roc_auc_score(y_test, proba[:, 1])
+<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">metrics</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -543,7 +543,7 @@ metrics.auc(fpr, tpr), metrics.roc_auc_score(y_test, proba[:, 1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X_train.shape, X_test.shape
+<span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -563,7 +563,7 @@ metrics.auc(fpr, tpr), metrics.roc_auc_score(y_test, proba[:, 1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>t_lr.classes_
+<span></span><span class="n">t_lr</span><span class="o">.</span><span class="n">classes_</span>
 </pre></div>
 </div>
 </div>
@@ -583,7 +583,7 @@ metrics.auc(fpr, tpr), metrics.roc_auc_score(y_test, proba[:, 1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(proba[:, 1] &gt; 0.5).sum(), proba.shape
+<span></span><span class="p">(</span><span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">proba</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -603,7 +603,7 @@ metrics.auc(fpr, tpr), metrics.roc_auc_score(y_test, proba[:, 1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>fpr.shape, tpr.shape, thresholds.shape
+<span></span><span class="n">fpr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">tpr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">thresholds</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -623,8 +623,8 @@ metrics.auc(fpr, tpr), metrics.roc_auc_score(y_test, proba[:, 1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>_fpr, _tpr, _thresholds = metrics.roc_curve(y_test, proba[:, 1], drop_intermediate=False)
-_fpr.shape, _tpr.shape, _thresholds.shape, proba.shape[0] - _fpr.shape[0]
+<span></span><span class="n">_fpr</span><span class="p">,</span> <span class="n">_tpr</span><span class="p">,</span> <span class="n">_thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">drop_intermediate</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">_fpr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">_tpr</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">_thresholds</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">proba</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">_fpr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -644,9 +644,9 @@ _fpr.shape, _tpr.shape, _thresholds.shape, proba.shape[0] - _fpr.shape[0]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>plt.plot(fpr)
-plt.plot(tpr)
-plt.plot(thresholds)
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tpr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thresholds</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -665,7 +665,7 @@ plt.plot(thresholds)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_15_1.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_15_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_15_1.png" src="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_15_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -674,9 +674,9 @@ plt.plot(thresholds)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>plt.plot(_fpr)
-plt.plot(_tpr)
-plt.plot(_thresholds)
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_fpr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_tpr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">_thresholds</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -695,7 +695,7 @@ plt.plot(_thresholds)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_16_1.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_16_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_16_1.png" src="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_16_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -704,7 +704,7 @@ plt.plot(_thresholds)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.where(np.r_[True,False,True, np.logical_or([1,0,2], [0,1,1])])
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="bp">True</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">True</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])])</span>
 </pre></div>
 </div>
 </div>
@@ -724,32 +724,32 @@ plt.plot(_thresholds)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># 縦軸にTrue Positive、横軸にFalse Positiveの割合
-roc_df = pd.DataFrame(np.c_[y_test, proba[:, 1], proba[:, 1] &gt; 0.5])
-roc_df.columns = [&quot;y&quot;, &quot;proba&quot;, &quot;pred&quot;]
+<span></span><span class="c1"># 縦軸にTrue Positive、横軸にFalse Positiveの割合</span>
+<span class="n">roc_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">y_test</span><span class="p">,</span> <span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">roc_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;proba&quot;</span><span class="p">,</span> <span class="s2">&quot;pred&quot;</span><span class="p">]</span>
 
-roc_df = roc_df.sort_values(&quot;proba&quot;, ascending=False).reset_index()
-roc_df[&quot;proba_diff&quot;] = roc_df[&quot;proba&quot;].diff()
-#roc_df = roc_df.dropna()
-roc_df = roc_df[roc_df[&quot;proba_diff&quot;] != 0].reset_index(drop=True)
-roc_df[&quot;tps&quot;] = roc_df[&quot;y&quot;].cumsum()
-roc_df[&quot;fps&quot;] = 1 + roc_df.index - roc_df[&quot;tps&quot;]
+<span class="n">roc_df</span> <span class="o">=</span> <span class="n">roc_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;proba&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;proba_diff&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;proba&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="c1">#roc_df = roc_df.dropna()</span>
+<span class="n">roc_df</span> <span class="o">=</span> <span class="n">roc_df</span><span class="p">[</span><span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;proba_diff&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;tps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;fps&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">roc_df</span><span class="o">.</span><span class="n">index</span> <span class="o">-</span> <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;tps&quot;</span><span class="p">]</span>
 
-roc_df[&quot;fps_diff&quot;] = roc_df[&quot;fps&quot;].diff().diff().shift(-1).fillna(1)
-roc_df[&quot;tps_diff&quot;] = roc_df[&quot;tps&quot;].diff().diff().shift(-1).fillna(1)
-roc_df[&quot;ps_diff_0&quot;] = (roc_df[&quot;fps_diff&quot;] != 0) | (roc_df[&quot;fps_diff&quot;] != 0)
+<span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;fps_diff&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;fps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;tps_diff&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;tps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;ps_diff_0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;fps_diff&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;fps_diff&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
 
-drop_intermediate = True
-if drop_intermediate and len(roc_df[&quot;fps&quot;]) &gt; 2:
-    roc_df = roc_df[roc_df[&quot;ps_diff_0&quot;]].reset_index(drop=True)
-else:
-    roc_df[&quot;_fpr&quot;] = _fpr
-    roc_df[&quot;_tpr&quot;] = _tpr
-roc_df[&quot;tps_norm&quot;] = roc_df[&quot;tps&quot;] / roc_df[&quot;tps&quot;].max()
-roc_df[&quot;fps_norm&quot;] = roc_df[&quot;fps&quot;] / roc_df[&quot;fps&quot;].max()
+<span class="n">drop_intermediate</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">if</span> <span class="n">drop_intermediate</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;fps&quot;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">roc_df</span> <span class="o">=</span> <span class="n">roc_df</span><span class="p">[</span><span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;ps_diff_0&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;_fpr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_fpr</span>
+    <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;_tpr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_tpr</span>
+<span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;tps_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;tps&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;tps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;fps_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;fps&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">roc_df</span><span class="p">[</span><span class="s2">&quot;fps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
-roc_df
-#roc_df.plot(x=&quot;fps_norm&quot;, y=&quot;tps_norm&quot;); plt.plot([0,1], [0,1])
+<span class="n">roc_df</span>
+<span class="c1">#roc_df.plot(x=&quot;fps_norm&quot;, y=&quot;tps_norm&quot;); plt.plot([0,1], [0,1])</span>
 
 </pre></div>
 </div>
@@ -1706,14 +1706,14 @@ roc_df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## Confusion Matrix
-confusion_matrix = metrics.confusion_matrix(y_test, predict)
-print(confusion_matrix)
-print(confusion_matrix/ confusion_matrix.sum())
-PNTF_labels = np.array([[&quot;TP&quot;, &quot;FP&quot;], [&quot;FN&quot;, &quot;TN&quot;]])
-sns.heatmap(confusion_matrix, annot=PNTF_labels, fmt=&quot;&quot;) #annot=True)
-confusion_s = pd.Series(confusion_matrix.flatten(), index=PNTF_labels.flatten())
-confusion_s
+<span></span><span class="c1">## Confusion Matrix</span>
+<span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predict</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="o">/</span> <span class="n">confusion_matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="n">PNTF_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="s2">&quot;TP&quot;</span><span class="p">,</span> <span class="s2">&quot;FP&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;FN&quot;</span><span class="p">,</span> <span class="s2">&quot;TN&quot;</span><span class="p">]])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">PNTF_labels</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1">#annot=True)</span>
+<span class="n">confusion_s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">PNTF_labels</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+<span class="n">confusion_s</span>
 </pre></div>
 </div>
 </div>
@@ -1746,7 +1746,7 @@ dtype: int64
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_19_2.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_19_2.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_19_2.png" src="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_19_2.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1755,7 +1755,7 @@ dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>confusion_matrix.flatten()
+<span></span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1783,14 +1783,14 @@ yは予測した結果が正解ならそのまま、不正解なら逆 Pは正�
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># ROC曲線は，分類器のパラメータを変化させながら，縦軸に TP/TP+FN，横軸に FP/FP+TN をとった曲線．
-_cfs = confusion_s
-[
-    _cfs[&quot;TP&quot;] / (_cfs[&quot;TP&quot;] + _cfs[&quot;FN&quot;]), # 正解は正のうち、ただしく予測できた割合(再現率: recall)
-    _cfs[&quot;FP&quot;] / (_cfs[&quot;FP&quot;] + _cfs[&quot;TN&quot;]), # 正解は負のうち、間違って予測した割合
-    _cfs[&quot;TP&quot;] / (_cfs[&quot;TP&quot;] + _cfs[&quot;FP&quot;]), # 正と予測したデータのうち，実際に正であるものの割合（精度、適合率、Precsion）
-    (_cfs[&quot;TP&quot;] + _cfs[&quot;TN&quot;]) / _cfs.sum(), # 予測正解率
-]
+<span></span><span class="c1"># ROC曲線は，分類器のパラメータを変化させながら，縦軸に TP/TP+FN，横軸に FP/FP+TN をとった曲線．</span>
+<span class="n">_cfs</span> <span class="o">=</span> <span class="n">confusion_s</span>
+<span class="p">[</span>
+    <span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;TP&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;TP&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;FN&quot;</span><span class="p">]),</span> <span class="c1"># 正解は正のうち、ただしく予測できた割合(再現率: recall)</span>
+    <span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;FP&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;FP&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;TN&quot;</span><span class="p">]),</span> <span class="c1"># 正解は負のうち、間違って予測した割合</span>
+    <span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;TP&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;TP&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;FP&quot;</span><span class="p">]),</span> <span class="c1"># 正と予測したデータのうち，実際に正であるものの割合（精度、適合率、Precsion）</span>
+    <span class="p">(</span><span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;TP&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">_cfs</span><span class="p">[</span><span class="s2">&quot;TN&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">_cfs</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="c1"># 予測正解率</span>
+<span class="p">]</span>
 
 </pre></div>
 </div>
@@ -1814,7 +1814,7 @@ _cfs = confusion_s
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>_cfmx.loc[&quot;T&quot;].sum(), _cfmx.sum()
+<span></span><span class="n">_cfmx</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">_cfmx</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -1837,7 +1837,7 @@ _cfs = confusion_s
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(metrics.classification_report(y_test, predict))
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predict</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1861,7 +1861,7 @@ avg / total       0.73      0.73      0.71       268
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## ROC曲線
+<span></span><span class="c1">## ROC曲線</span>
 </pre></div>
 </div>
 </div>
@@ -1871,12 +1871,12 @@ avg / total       0.73      0.73      0.71       268
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
-ax1.plot(fpr, tpr, [0,1],[0,1])
-#plt.plot(tpr, fpr, [0,1],[0,1])
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">#plt.plot(tpr, fpr, [0,1],[0,1])</span>
 
-pd.Series(tpr, index=fpr).plot(ax=ax2)
-pd.Series([-0.05, 0, 1, 1.05], index=[-0.05, 0,1, 1.05]).plot(ax=ax2)
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">tpr</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">fpr</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -1895,7 +1895,7 @@ pd.Series([-0.05, 0, 1, 1.05], index=[-0.05, 0,1, 1.05]).plot(ax=ax2)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_26_1.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_26_1.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_26_1.png" src="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_26_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1904,11 +1904,11 @@ pd.Series([-0.05, 0, 1, 1.05], index=[-0.05, 0,1, 1.05]).plot(ax=ax2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## 正解率
-[
-    metrics.accuracy_score(y_test, predict),
-    (y_test == (proba[:, 1] &gt; 0.5).astype(int)).sum() / y_test.shape[0]
-]
+<span></span><span class="c1">## 正解率</span>
+<span class="p">[</span>
+    <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predict</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">y_test</span> <span class="o">==</span> <span class="p">(</span><span class="n">proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1928,8 +1928,8 @@ pd.Series([-0.05, 0, 1, 1.05], index=[-0.05, 0,1, 1.05]).plot(ax=ax2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># learning curve
-# http://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.03-Hyperparameters-and-Model-Validation.ipynb
+<span></span><span class="c1"># learning curve</span>
+<span class="c1"># http://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/05.03-Hyperparameters-and-Model-Validation.ipynb</span>
 
 </pre></div>
 </div>
@@ -1940,47 +1940,47 @@ pd.Series([-0.05, 0, 1, 1.05], index=[-0.05, 0,1, 1.05]).plot(ax=ax2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sklearn.preprocessing import PolynomialFeatures
-from sklearn.linear_model import LinearRegression
-from sklearn.pipeline import make_pipeline
-#from sklearn.learning_curve import learning_curve
-from sklearn.model_selection import learning_curve
+<span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="c1">#from sklearn.learning_curve import learning_curve</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">learning_curve</span>
 
-def PolynomialRegression(degree=2, **kwargs):
-    return make_pipeline(PolynomialFeatures(degree),
-                         LinearRegression(**kwargs))
+<span class="k">def</span> <span class="nf">PolynomialRegression</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span>
+                         <span class="n">LinearRegression</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
 
-def make_data(N, err=1.0, rseed=1):
-    # randomly sample the data
-    rng = np.random.RandomState(rseed)
-    X = rng.rand(N, 1) ** 2
-    y = 10 - 1. / (X.ravel() + 0.1)
-    if err &gt; 0:
-        y += err * rng.randn(N)
-    return X, y
+<span class="k">def</span> <span class="nf">make_data</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">rseed</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># randomly sample the data</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">-</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="n">err</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
 
-X, y = make_data(40)
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_data</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
 
-fig, axes = plt.subplots(1, 2, figsize=(16, 6))
-fig.subplots_adjust(left=0.0625, right=0.95, wspace=0.1)
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.0625</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 
-degrees = [2, 9]
-for degree, ax in zip(degrees, axes):
-    N, train_lc, val_lc = learning_curve(PolynomialRegression(degree),
-                                         X, y, cv=7,
-                                         train_sizes=np.linspace(0.3, 1, 25))
+<span class="n">degrees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">degree</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">degrees</span><span class="p">,</span> <span class="n">axes</span><span class="p">):</span>
+    <span class="n">N</span><span class="p">,</span> <span class="n">train_lc</span><span class="p">,</span> <span class="n">val_lc</span> <span class="o">=</span> <span class="n">learning_curve</span><span class="p">(</span><span class="n">PolynomialRegression</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span>
+                                         <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+                                         <span class="n">train_sizes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
 
-    ax.plot(N, np.mean(train_lc, 1), color=&#39;blue&#39;, label=&#39;training score&#39;)
-    ax.plot(N, np.mean(val_lc, 1), color=&#39;red&#39;, label=&#39;validation score&#39;)
-    ax.hlines(np.mean([train_lc[-1], val_lc[-1]]), N[0], N[-1],
-                 color=&#39;gray&#39;, linestyle=&#39;dashed&#39;)
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_lc</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;training score&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">val_lc</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;validation score&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">train_lc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">val_lc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">N</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">N</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                 <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
 
-    ax.set_ylim(0, 1)
-    ax.set_xlim(N[0], N[-1])
-    ax.set_xlabel(&#39;training size&#39;)
-    ax.set_ylabel(&#39;score&#39;)
-    ax.set_title(&#39;degree = {0}&#39;.format(degree), size=14)
-    ax.legend(loc=&#39;best&#39;)
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">N</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;training size&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;degree = {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1988,7 +1988,7 @@ for degree, ax in zip(degrees, axes):
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_29_0.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_29_0.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_29_0.png" src="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_29_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1997,7 +1997,7 @@ for degree, ax in zip(degrees, axes):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># validation curve
+<span></span><span class="c1"># validation curve</span>
 </pre></div>
 </div>
 </div>
@@ -2007,19 +2007,19 @@ for degree, ax in zip(degrees, axes):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>#from sklearn.learning_curve import validation_curve
-from sklearn.model_selection import validation_curve
+<span></span><span class="c1">#from sklearn.learning_curve import validation_curve</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">validation_curve</span>
 
-degree = np.arange(0, 21)
-train_score, val_score = validation_curve(PolynomialRegression(), X, y,
-                                          &#39;polynomialfeatures__degree&#39;, degree, cv=7)
+<span class="n">degree</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">train_score</span><span class="p">,</span> <span class="n">val_score</span> <span class="o">=</span> <span class="n">validation_curve</span><span class="p">(</span><span class="n">PolynomialRegression</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+                                          <span class="s1">&#39;polynomialfeatures__degree&#39;</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
-plt.plot(degree, np.median(train_score, 1), color=&#39;blue&#39;, label=&#39;training score&#39;)
-plt.plot(degree, np.median(val_score, 1), color=&#39;red&#39;, label=&#39;validation score&#39;)
-plt.legend(loc=&#39;best&#39;)
-plt.ylim(0, 1)
-plt.xlabel(&#39;degree&#39;)
-plt.ylabel(&#39;score&#39;);
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degree</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">train_score</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;training score&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degree</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">val_score</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;validation score&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;degree&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -2027,7 +2027,7 @@ plt.ylabel(&#39;score&#39;);
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_sklearn_roc_auc_learning_curve_31_0.png" src="../../_images/notebooks_sklearn_roc_auc_learning_curve_31_0.png" />
+<img alt="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_31_0.png" src="../../../_images/contents_notebooks_sklearn_roc_auc_learning_curve_31_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2095,7 +2095,7 @@ plt.ylabel(&#39;score&#39;);
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -2103,17 +2103,17 @@ plt.ylabel(&#39;score&#39;);
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

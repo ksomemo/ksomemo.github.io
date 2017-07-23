@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -112,7 +112,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -140,7 +140,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>PEP 448</li>
     
@@ -148,7 +148,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/python/py350.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/python/py350.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -363,7 +363,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(*[1], *[2], 3, *[4, 5])
+<span></span><span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">*</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -381,9 +381,9 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def fn(a, b, c, d):
-     print(a, b, c, d)
-fn(**{&#39;a&#39;: 1, &#39;c&#39;: 3}, **{&#39;b&#39;: 2, &#39;d&#39;: 4})
+<span></span><span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">fn</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -401,7 +401,7 @@ fn(**{&#39;a&#39;: 1, &#39;c&#39;: 3}, **{&#39;b&#39;: 2, &#39;d&#39;: 4})
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>*range(4), 4
+<span></span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
@@ -421,7 +421,7 @@ fn(**{&#39;a&#39;: 1, &#39;c&#39;: 3}, **{&#39;b&#39;: 2, &#39;d&#39;: 4})
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>[*range(4), 4]
+<span></span><span class="p">[</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -441,7 +441,7 @@ fn(**{&#39;a&#39;: 1, &#39;c&#39;: 3}, **{&#39;b&#39;: 2, &#39;d&#39;: 4})
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>{*range(4), 4, *(5, 6, 7)}
+<span></span><span class="p">{</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)}</span>
 </pre></div>
 </div>
 </div>
@@ -461,7 +461,7 @@ fn(**{&#39;a&#39;: 1, &#39;c&#39;: 3}, **{&#39;b&#39;: 2, &#39;d&#39;: 4})
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>{&#39;x&#39;: 1, **{&#39;y&#39;: 2}}
+<span></span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}}</span>
 </pre></div>
 </div>
 </div>
@@ -484,7 +484,7 @@ fn(**{&#39;a&#39;: 1, &#39;c&#39;: 3}, **{&#39;b&#39;: 2, &#39;d&#39;: 4})
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>b&#39;Hello %b!&#39; % b&#39;World&#39;
+<span></span><span class="n">b</span><span class="s1">&#39;Hello %b!&#39;</span> <span class="o">%</span> <span class="n">b</span><span class="s1">&#39;World&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -507,9 +507,9 @@ fn(**{&#39;a&#39;: 1, &#39;c&#39;: 3}, **{&#39;b&#39;: 2, &#39;d&#39;: 4})
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy
-x = numpy.ones(3)
-x
+<span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -529,8 +529,8 @@ x
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>m = numpy.eye(3)
-m
+<span></span><span class="n">m</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -552,7 +552,7 @@ m
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x @ m
+<span></span><span class="n">x</span> <span class="err">@</span> <span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -575,7 +575,7 @@ m
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>numpy.version.version
+<span></span><span class="n">numpy</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">version</span>
 </pre></div>
 </div>
 </div>
@@ -598,9 +598,9 @@ m
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def greeting(name: str) -&gt; str:
-    return &#39;Hello &#39; + name
-greeting(1)
+<span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello &#39;</span> <span class="o">+</span> <span class="n">name</span>
+<span class="n">greeting</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -640,10 +640,10 @@ greeting(1)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import os
-for entry in os.scandir(&#39;.&#39;):
-    if not entry.name.startswith(&#39;.&#39;) and entry.is_file():
-        print(entry.name)
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">scandir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">entry</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">entry</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -664,21 +664,21 @@ Untitled.ipynb
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import asyncio
-async def coro(name, lock):
-    print(&#39;coro {}: waiting for lock&#39;.format(name))
-    async with lock:
-        print(&#39;coro {}: holding the lock&#39;.format(name))
-        await asyncio.sleep(1)
-        print(&#39;coro {}: releasing the lock&#39;.format(name))
+<span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="n">async</span> <span class="k">def</span> <span class="nf">coro</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lock</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;coro {}: waiting for lock&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+    <span class="n">async</span> <span class="k">with</span> <span class="n">lock</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;coro {}: holding the lock&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="n">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;coro {}: releasing the lock&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
 
-loop = asyncio.get_event_loop()
-lock = asyncio.Lock()
-coros = asyncio.gather(coro(1, lock), coro(2, lock))
-try:
-    loop.run_until_complete(coros)
-finally:
-    loop.close()
+<span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+<span class="n">lock</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+<span class="n">coros</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">coro</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lock</span><span class="p">),</span> <span class="n">coro</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">lock</span><span class="p">))</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">loop</span><span class="o">.</span><span class="n">run_until_complete</span><span class="p">(</span><span class="n">coros</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">loop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -704,8 +704,8 @@ coro 1: releasing the lock
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import io
-io.open
+<span></span><span class="kn">import</span> <span class="nn">io</span>
+<span class="n">io</span><span class="o">.</span><span class="n">open</span>
 </pre></div>
 </div>
 </div>
@@ -725,7 +725,7 @@ io.open
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>open
+<span></span><span class="nb">open</span>
 </pre></div>
 </div>
 </div>
@@ -748,9 +748,9 @@ io.open
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import math
-a = 5.0
-b = 4.99998
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">4.99998</span>
 </pre></div>
 </div>
 </div>
@@ -760,7 +760,7 @@ b = 4.99998
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>math.isclose(a, b, rel_tol=1e-5)
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -780,7 +780,7 @@ b = 4.99998
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>math.isclose(a, b, rel_tol=1e-6)
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -800,7 +800,7 @@ b = 4.99998
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>math.isclose(a, b, abs_tol=0.00003)
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.00003</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -820,7 +820,7 @@ b = 4.99998
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>math.isclose(a, b, abs_tol=0.00001)
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -853,9 +853,9 @@ b = 4.99998
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import enum
-Animal = enum.Enum(&#39;Animal&#39;, &#39;cat dog&#39;, start=10)
-Animal
+<span></span><span class="kn">import</span> <span class="nn">enum</span>
+<span class="n">Animal</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span><span class="s1">&#39;Animal&#39;</span><span class="p">,</span> <span class="s1">&#39;cat dog&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">Animal</span>
 </pre></div>
 </div>
 </div>
@@ -875,7 +875,7 @@ Animal
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Animal.cat
+<span></span><span class="n">Animal</span><span class="o">.</span><span class="n">cat</span>
 </pre></div>
 </div>
 </div>
@@ -895,7 +895,7 @@ Animal
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Animal.dog
+<span></span><span class="n">Animal</span><span class="o">.</span><span class="n">dog</span>
 </pre></div>
 </div>
 </div>
@@ -919,9 +919,9 @@ Animal
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import heapq
-a = [&#39;9&#39;, &#39;777&#39;, &#39;55555&#39;]
-b = [&#39;88&#39;, &#39;6666&#39;]
+<span></span><span class="kn">import</span> <span class="nn">heapq</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;777&#39;</span><span class="p">,</span> <span class="s1">&#39;55555&#39;</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;88&#39;</span><span class="p">,</span> <span class="s1">&#39;6666&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -931,7 +931,7 @@ b = [&#39;88&#39;, &#39;6666&#39;]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>list(heapq.merge(a, b, key=len))
+<span></span><span class="nb">list</span><span class="p">(</span><span class="n">heapq</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -951,7 +951,7 @@ b = [&#39;88&#39;, &#39;6666&#39;]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>list(heapq.merge(reversed(a), reversed(b), key=len, reverse=True))
+<span></span><span class="nb">list</span><span class="p">(</span><span class="n">heapq</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -974,11 +974,11 @@ b = [&#39;88&#39;, &#39;6666&#39;]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import logging
-try:
-    1/0
-except ZeroDivisionError as ex:
-    logging.error(&#39;exception&#39;, exc_info=ex)
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;exception&#39;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="n">ex</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1003,8 +1003,8 @@ ZeroDivisionError: division by zero
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import math
-import fractions
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">fractions</span>
 </pre></div>
 </div>
 </div>
@@ -1017,7 +1017,7 @@ fractions.gcd(4, 6)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>math.gcd(4, 6)
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1037,7 +1037,7 @@ fractions.gcd(4, 6)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>math.nan
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">nan</span>
 </pre></div>
 </div>
 </div>
@@ -1057,7 +1057,7 @@ fractions.gcd(4, 6)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(math.nan)
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1077,7 +1077,7 @@ fractions.gcd(4, 6)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>math.inf
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">inf</span>
 </pre></div>
 </div>
 </div>
@@ -1097,7 +1097,7 @@ fractions.gcd(4, 6)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(math.inf)
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1117,7 +1117,7 @@ fractions.gcd(4, 6)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>float(&#39;inf&#39;)
+<span></span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1137,7 +1137,7 @@ fractions.gcd(4, 6)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>float(&#39;nan&#39;)
+<span></span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1160,7 +1160,7 @@ fractions.gcd(4, 6)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(1 for x in [1], *[2])
+<span></span><span class="k">print</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">*</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1182,9 +1182,9 @@ fractions.gcd(4, 6)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># 3.4.3
-# print(1 for x in [1], *[2])
-# &lt;generator object &lt;genexpr&gt; at 0x103e0ffc0&gt; 2
+<span></span><span class="c1"># 3.4.3</span>
+<span class="c1"># print(1 for x in [1], *[2])</span>
+<span class="c1"># &lt;generator object &lt;genexpr&gt; at 0x103e0ffc0&gt; 2</span>
 </pre></div>
 </div>
 </div>
@@ -1224,7 +1224,7 @@ fractions.gcd(4, 6)
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1232,17 +1232,17 @@ fractions.gcd(4, 6)
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

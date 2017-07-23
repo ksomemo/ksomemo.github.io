@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../genindex.html"/>
-        <link rel="search" title="検索" href="../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
+  <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> gh-pages
+            <a href="../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">gh-pages</a>
+          <a href="../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/notebooks/interpolate.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/contents/notebooks/interpolate.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,9 +349,9 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>site_url = &quot;http://www.kyoritsu-pub.co.jp/bookdetail/9784320123656&quot;
-zip_url = &quot;http://www.kyoritsu-pub.co.jp/app/file/goods_contents/2377.zip&quot;
-pdf_url = &quot;http://www.kyoritsu-pub.co.jp/app/file/goods_contents/2324.pdf&quot;
+<span></span><span class="n">site_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.kyoritsu-pub.co.jp/bookdetail/9784320123656&quot;</span>
+<span class="n">zip_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.kyoritsu-pub.co.jp/app/file/goods_contents/2377.zip&quot;</span>
+<span class="n">pdf_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.kyoritsu-pub.co.jp/app/file/goods_contents/2324.pdf&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -361,13 +361,13 @@ pdf_url = &quot;http://www.kyoritsu-pub.co.jp/app/file/goods_contents/2324.pdf&q
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
-import seaborn as sns
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -377,11 +377,11 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import requests
-import io
-import shutil
-import zipfile
-import os
+<span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 </div>
 </div>
@@ -391,24 +391,24 @@ import os
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>data_dir = &quot;suppl_20151001/data/missdata&quot;
-filename = &quot;employee_IQ_JP.csv&quot;
-file_path = data_dir + &quot;/&quot; + filename
-if not os.path.exists(file_path):
-    # headers = {&#39;user-agent&#39;: &#39;my-agent&#39;}
-    # r = requests.get(pdf_url, headers=headers)
-    # shutil.copyfileobj(io.BytesIO(r.content), open(pdf_url.split(&quot;/&quot;)[-1], &quot;wb&quot;))
+<span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;suppl_20151001/data/missdata&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;employee_IQ_JP.csv&quot;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">data_dir</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="c1"># headers = {&#39;user-agent&#39;: &#39;my-agent&#39;}</span>
+    <span class="c1"># r = requests.get(pdf_url, headers=headers)</span>
+    <span class="c1"># shutil.copyfileobj(io.BytesIO(r.content), open(pdf_url.split(&quot;/&quot;)[-1], &quot;wb&quot;))</span>
 
-    proxies={
-        &quot;http&quot;: &quot;http://xxx.xxx.xxx.:xxxx&quot;,
-        &quot;https&quot;: &quot;http://xxx.xxx.xxx.:xxxx&quot;,
-    }
-    r = requests.get(zip_url, proxies=proxies)
-    with zipfile.ZipFile(io.BytesIO(r.content)) as z:
-        z.extractall()
+    <span class="n">proxies</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;http&quot;</span><span class="p">:</span> <span class="s2">&quot;http://xxx.xxx.xxx.:xxxx&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https&quot;</span><span class="p">:</span> <span class="s2">&quot;http://xxx.xxx.xxx.:xxxx&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">zip_url</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+        <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
 
-df = pd.read_csv(file_path)
-df.describe()
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -532,7 +532,7 @@ df.describe()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://ejje.weblio.jp/content/interpolate
+<span></span><span class="c1"># http://ejje.weblio.jp/content/interpolate</span>
 </pre></div>
 </div>
 </div>
@@ -542,8 +542,8 @@ df.describe()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>s = pd.Series([0, 1, np.nan, 3])
-# help(s.interpolate)
+<span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="c1"># help(s.interpolate)</span>
 </pre></div>
 </div>
 </div>
@@ -553,17 +553,17 @@ df.describe()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>methods = [&#39;linear&#39;, &#39;time&#39;, &#39;index&#39;, &#39;values&#39;, &#39;nearest&#39;, &#39;zero&#39;,
-              &#39;slinear&#39;, &#39;quadratic&#39;, &#39;cubic&#39;, &#39;barycentric&#39;, &#39;krogh&#39;,
-              &#39;polynomial&#39;, &#39;spline&#39;, &#39;piecewise_polynomial&#39;, &#39;pchip&#39;]
-methods.remove(&quot;time&quot;)
-methods.remove(&quot;quadratic&quot;)
-methods.remove(&quot;cubic&quot;)
-methods.remove(&quot;polynomial&quot;)
-methods.remove(&quot;spline&quot;)
-methods.remove(&quot;piecewise_polynomial&quot;)
+<span></span><span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">,</span> <span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="s1">&#39;zero&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;slinear&#39;</span><span class="p">,</span> <span class="s1">&#39;quadratic&#39;</span><span class="p">,</span> <span class="s1">&#39;cubic&#39;</span><span class="p">,</span> <span class="s1">&#39;barycentric&#39;</span><span class="p">,</span> <span class="s1">&#39;krogh&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;polynomial&#39;</span><span class="p">,</span> <span class="s1">&#39;spline&#39;</span><span class="p">,</span> <span class="s1">&#39;piecewise_polynomial&#39;</span><span class="p">,</span> <span class="s1">&#39;pchip&#39;</span><span class="p">]</span>
+<span class="n">methods</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">methods</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;quadratic&quot;</span><span class="p">)</span>
+<span class="n">methods</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;cubic&quot;</span><span class="p">)</span>
+<span class="n">methods</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;polynomial&quot;</span><span class="p">)</span>
+<span class="n">methods</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;spline&quot;</span><span class="p">)</span>
+<span class="n">methods</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;piecewise_polynomial&quot;</span><span class="p">)</span>
 
-methods
+<span class="n">methods</span>
 </pre></div>
 </div>
 </div>
@@ -591,11 +591,11 @@ methods
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def _interpolate(m):
-    _s = s.interpolate(method=m)
-    _s.name = m
-    return _s
-pd.concat(map(_interpolate, methods), axis=1)
+<span></span><span class="k">def</span> <span class="nf">_interpolate</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">_s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">_s</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">m</span>
+    <span class="k">return</span> <span class="n">_s</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">_interpolate</span><span class="p">,</span> <span class="n">methods</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -710,7 +710,7 @@ pd.concat(map(_interpolate, methods), axis=1)
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
+            URL_ROOT:'../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -718,17 +718,17 @@ pd.concat(map(_interpolate, methods), axis=1)
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
   

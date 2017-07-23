@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="検索" href="../../../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../../../index.html"/> 
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../../../index.html"/> 
 
   
-  <script src="../../../../_static/js/modernizr.min.js"></script>
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../index.html">gh-pages</a>
+          <a href="../../../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../../_sources/notebooks/statistics/manga/regression/Untitled.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../../_sources/contents/notebooks/statistics/manga/regression/Untitled.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,7 +349,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!curl -Lo kaiki-bunseki.zip ftp://ftp2.ohmsha.co.jp/link/4-274-06614-2/kaiki-bunseki.zip
+<span></span><span class="o">!</span>curl -Lo kaiki-bunseki.zip ftp://ftp2.ohmsha.co.jp/link/4-274-06614-2/kaiki-bunseki.zip
 </pre></div>
 </div>
 </div>
@@ -369,7 +369,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!open .
+<span></span><span class="o">!</span>open .
 </pre></div>
 </div>
 </div>
@@ -379,7 +379,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!ls kaiki-bunseki/
+<span></span><span class="o">!</span>ls kaiki-bunseki/
 </pre></div>
 </div>
 </div>
@@ -397,13 +397,13 @@ Data-Kaiki-kaitou.xls  Data-Kaiki.xls  重回帰分析における予測区間.p
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%matplotlib inline
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-import numpy as np
-import pandas as pd
-import io
-import matplotlib.pyplot as plt
-import seaborn as sns
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
 </div>
@@ -413,27 +413,27 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># 単回帰
-data = &quot;&quot;&quot;最高気温(x),アイスティーの注文数(y)
-29,77
-28,62
-34,93
-31,84
-25,59
-29,64
-32,80
-31,75
-24,58
-33,91
-25,51
-31,73
-26,65
-30,84
-&quot;&quot;&quot;
-df_reg = pd.read_csv(io.StringIO(data))
-df_reg[&quot;day&quot;] = [i for i in range(22, 31+1)] + [1,2,3,4]
-df_reg[&quot;week&quot;] = list(&quot;月火水木金土日&quot;) * 2
-df_reg
+<span></span><span class="c1"># 単回帰</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;最高気温(x),アイスティーの注文数(y)</span>
+<span class="s2">29,77</span>
+<span class="s2">28,62</span>
+<span class="s2">34,93</span>
+<span class="s2">31,84</span>
+<span class="s2">25,59</span>
+<span class="s2">29,64</span>
+<span class="s2">32,80</span>
+<span class="s2">31,75</span>
+<span class="s2">24,58</span>
+<span class="s2">33,91</span>
+<span class="s2">25,51</span>
+<span class="s2">31,73</span>
+<span class="s2">26,65</span>
+<span class="s2">30,84</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">df_reg</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">31</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;week&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;月火水木金土日&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">df_reg</span>
 </pre></div>
 </div>
 </div>
@@ -563,17 +563,17 @@ df_reg
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x = df_reg[&quot;最高気温(x)&quot;]
-y = df_reg[&quot;アイスティーの注文数(y)&quot;]
-x_mean = x.mean()
-y_mean = y.mean()
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;最高気温(x)&quot;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;アイスティーの注文数(y)&quot;</span><span class="p">]</span>
+<span class="n">x_mean</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">y_mean</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
-df_reg[&quot;x - x_m&quot;] = x - x_mean
-df_reg[&quot;y - y_m&quot;] = y - y_mean
-df_reg[&quot;(x - x_m)^2&quot;] = df_reg[&quot;x - x_m&quot;] ** 2
-df_reg[&quot;(y - y_m)^2&quot;] = df_reg[&quot;y - y_m&quot;] ** 2
-df_reg[&quot;(x - x_m)(y - y_m)&quot;] = df_reg[&quot;x - x_m&quot;] * df_reg[&quot;y - y_m&quot;]
-df_reg
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;x - x_m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x_mean</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;y - y_m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_mean</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(x - x_m)^2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;x - x_m&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(y - y_m)^2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;y - y_m&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(x - x_m)(y - y_m)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;x - x_m&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;y - y_m&quot;</span><span class="p">]</span>
+<span class="n">df_reg</span>
 
 </pre></div>
 </div>
@@ -779,8 +779,8 @@ df_reg
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a = df_reg[&quot;(x - x_m)(y - y_m)&quot;].sum() / df_reg[&quot;(x - x_m)^2&quot;].sum()
-a
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(x - x_m)(y - y_m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(x - x_m)^2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">a</span>
 </pre></div>
 </div>
 </div>
@@ -800,8 +800,8 @@ a
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>b = y_mean - x_mean * a
-b
+<span></span><span class="n">b</span> <span class="o">=</span> <span class="n">y_mean</span> <span class="o">-</span> <span class="n">x_mean</span> <span class="o">*</span> <span class="n">a</span>
+<span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -821,9 +821,9 @@ b
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>y_hat = a * x + b
-plt.plot(x, y_hat)
-plt.scatter(x, y)
+<span></span><span class="n">y_hat</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_hat</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -841,7 +841,7 @@ plt.scatter(x, y)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../../_images/notebooks_statistics_manga_regression_Untitled_8_1.png" src="../../../../_images/notebooks_statistics_manga_regression_Untitled_8_1.png" />
+<img alt="../../../../../_images/contents_notebooks_statistics_manga_regression_Untitled_8_1.png" src="../../../../../_images/contents_notebooks_statistics_manga_regression_Untitled_8_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -850,9 +850,9 @@ plt.scatter(x, y)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import matplotlib as mpl
-mpl
-mpl.matplotlib_fname()
+<span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
+<span class="n">mpl</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">matplotlib_fname</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -872,7 +872,7 @@ mpl.matplotlib_fname()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sns.lmplot(&quot;最高気温(x)&quot;, &quot;アイスティーの注文数(y)&quot;, data=df_reg)
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="s2">&quot;最高気温(x)&quot;</span><span class="p">,</span> <span class="s2">&quot;アイスティーの注文数(y)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_reg</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -890,7 +890,7 @@ mpl.matplotlib_fname()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../../_images/notebooks_statistics_manga_regression_Untitled_10_1.png" src="../../../../_images/notebooks_statistics_manga_regression_Untitled_10_1.png" />
+<img alt="../../../../../_images/contents_notebooks_statistics_manga_regression_Untitled_10_1.png" src="../../../../../_images/contents_notebooks_statistics_manga_regression_Untitled_10_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -899,14 +899,14 @@ mpl.matplotlib_fname()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>y_hat_mean = y_hat.mean()
-df_reg[&quot;y_h&quot;] = y_hat
-df_reg[&quot;y_h - y_h_m&quot;] = y_hat - y_hat_mean
-df_reg[&quot;(y_h - y_h_m)^2&quot;] = df_reg[&quot;y_h - y_h_m&quot;] ** 2
-df_reg[&quot;(y - y_m)(y_h - y_h_m)&quot;] = df_reg[&quot;y - y_m&quot;] * df_reg[&quot;y_h - y_h_m&quot;]
-df_reg[&quot;(y - y_h_m)^2&quot;] = (y - y_hat) ** 2
+<span></span><span class="n">y_hat_mean</span> <span class="o">=</span> <span class="n">y_hat</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;y_h&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_hat</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;y_h - y_h_m&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_hat</span> <span class="o">-</span> <span class="n">y_hat_mean</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(y_h - y_h_m)^2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;y_h - y_h_m&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(y - y_m)(y_h - y_h_m)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;y - y_m&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;y_h - y_h_m&quot;</span><span class="p">]</span>
+<span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(y - y_h_m)^2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_hat</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 
-df_reg
+<span class="n">df_reg</span>
 
 </pre></div>
 </div>
@@ -1187,8 +1187,8 @@ df_reg
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S_y_yh = df_reg[&quot;(y - y_m)(y_h - y_h_m)&quot;].sum()
-S_y_yh
+<span></span><span class="n">S_y_yh</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(y - y_m)(y_h - y_h_m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">S_y_yh</span>
 </pre></div>
 </div>
 </div>
@@ -1208,8 +1208,8 @@ S_y_yh
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S_y_y = df_reg[&quot;(y - y_m)^2&quot;].sum()
-S_y_y
+<span></span><span class="n">S_y_y</span> <span class="o">=</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(y - y_m)^2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">S_y_y</span>
 </pre></div>
 </div>
 </div>
@@ -1229,8 +1229,8 @@ S_y_y
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>R = S_y_yh / np.sqrt(S_y_y * S_y_yh)
-R
+<span></span><span class="n">R</span> <span class="o">=</span> <span class="n">S_y_yh</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S_y_y</span> <span class="o">*</span> <span class="n">S_y_yh</span><span class="p">)</span>
+<span class="n">R</span>
 </pre></div>
 </div>
 </div>
@@ -1250,7 +1250,7 @@ R
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>R ** 2
+<span></span><span class="n">R</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -1270,7 +1270,7 @@ R
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a * df_reg[&quot;(x - x_m)(y - y_m)&quot;].sum() / S_y_y
+<span></span><span class="n">a</span> <span class="o">*</span> <span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(x - x_m)(y - y_m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">S_y_y</span>
 </pre></div>
 </div>
 </div>
@@ -1300,7 +1300,7 @@ R
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.sqrt(df_reg[&quot;(y - y_h_m)^2&quot;].sum() / (df_reg.shape[0] - 2))
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df_reg</span><span class="p">[</span><span class="s2">&quot;(y - y_h_m)^2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">df_reg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1350,24 +1350,24 @@ R
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># （重）回帰分析の（偏）回帰係数シート
-data = &quot;&quot;&quot;  お店の面積   最寄り駅からの距離       1ヶ月の売上額
-夢の丘本店       10      80      469
-寺井駅ビル店      8       0       366
-曽根店 8       200     371
-橋本通り店       5       200     208
-桔梗町店        7       300     246
-郵便局前店       8       230     297
-水道町駅前店      7       40      363
-六条駅ビル店      9       0       436
-若葉川沿い店      6       330     198
-美里店 9       180     364
-&quot;&quot;&quot;
-df_mul_reg = pd.read_csv(io.StringIO(data), sep=&quot;\t&quot;)
-columns = df_mul_reg.columns.tolist()
-columns[0] = &quot;shop_name&quot;
-df_mul_reg.columns = columns
-df_mul_reg
+<span></span><span class="c1"># （重）回帰分析の（偏）回帰係数シート</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;  お店の面積   最寄り駅からの距離       1ヶ月の売上額</span>
+<span class="s2">夢の丘本店       10      80      469</span>
+<span class="s2">寺井駅ビル店      8       0       366</span>
+<span class="s2">曽根店 8       200     371</span>
+<span class="s2">橋本通り店       5       200     208</span>
+<span class="s2">桔梗町店        7       300     246</span>
+<span class="s2">郵便局前店       8       230     297</span>
+<span class="s2">水道町駅前店      7       40      363</span>
+<span class="s2">六条駅ビル店      9       0       436</span>
+<span class="s2">若葉川沿い店      6       330     198</span>
+<span class="s2">美里店 9       180     364</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">df_mul_reg</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">df_mul_reg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;shop_name&quot;</span>
+<span class="n">df_mul_reg</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+<span class="n">df_mul_reg</span>
 </pre></div>
 </div>
 </div>
@@ -1529,35 +1529,35 @@ df_mul_reg
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># ロジスティック回帰シート
-data  = &quot;&quot;&quot;         水曜or土曜or日曜      最高気温    ノルンスペシャルの販売状況
-5日  （月）     0       28      1
-6日  （火）     0       24      0
-7日  （水）     1       26      0
-8日  （木）     0       24      0
-9日  （金）     0       23      0
-10日 （土）     1       28      1
-11日 （日）     1       24      0
-12日 （月）     0       26      1
-13日 （火）     0       25      0
-14日 （水）     1       28      1
-15日 （木）     0       21      0
-16日 （金）     0       22      0
-17日 （土）     1       27      1
-18日 （日）     1       26      1
-19日 （月）     0       26      0
-20日 （火）     0       21      0
-21日 （水）     1       21      1
-22日 （木）     0       27      0
-23日 （金）     0       23      0
-24日 （土）     1       22      0
-25日 （日）     1       24      1
-&quot;&quot;&quot;
-df_logistic = pd.read_csv(io.StringIO(data), sep=&quot;\t&quot;)
-columns = df_logistic.columns.tolist()
-columns[:2] = [&quot;day&quot;, &quot;week&quot;]
-df_logistic.columns = columns
-df_logistic
+<span></span><span class="c1"># ロジスティック回帰シート</span>
+<span class="n">data</span>  <span class="o">=</span> <span class="s2">&quot;&quot;&quot;         水曜or土曜or日曜      最高気温    ノルンスペシャルの販売状況</span>
+<span class="s2">5日  （月）     0       28      1</span>
+<span class="s2">6日  （火）     0       24      0</span>
+<span class="s2">7日  （水）     1       26      0</span>
+<span class="s2">8日  （木）     0       24      0</span>
+<span class="s2">9日  （金）     0       23      0</span>
+<span class="s2">10日 （土）     1       28      1</span>
+<span class="s2">11日 （日）     1       24      0</span>
+<span class="s2">12日 （月）     0       26      1</span>
+<span class="s2">13日 （火）     0       25      0</span>
+<span class="s2">14日 （水）     1       28      1</span>
+<span class="s2">15日 （木）     0       21      0</span>
+<span class="s2">16日 （金）     0       22      0</span>
+<span class="s2">17日 （土）     1       27      1</span>
+<span class="s2">18日 （日）     1       26      1</span>
+<span class="s2">19日 （月）     0       26      0</span>
+<span class="s2">20日 （火）     0       21      0</span>
+<span class="s2">21日 （水）     1       21      1</span>
+<span class="s2">22日 （木）     0       27      0</span>
+<span class="s2">23日 （金）     0       23      0</span>
+<span class="s2">24日 （土）     1       22      0</span>
+<span class="s2">25日 （日）     1       24      1</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">df_logistic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">df_logistic</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">columns</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;week&quot;</span><span class="p">]</span>
+<span class="n">df_logistic</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+<span class="n">df_logistic</span>
 </pre></div>
 </div>
 </div>
@@ -1857,7 +1857,7 @@ df_logistic
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../../',
+            URL_ROOT:'../../../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1865,17 +1865,17 @@ df_logistic
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
   
 
   

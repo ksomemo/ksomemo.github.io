@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/scratch/DecisionTree.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/scratch/DecisionTree.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,7 +349,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sklearn import tree
+<span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
 </pre></div>
 </div>
 </div>
@@ -359,13 +359,13 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>dataset = {
-    &quot;天気&quot;: list(&quot;晴晴曇雨雨雨曇晴晴雨晴曇曇雨&quot;),
-    &quot;温度&quot;: list(&quot;暑暑暑暖涼涼涼暖涼暖暖暖暑暖&quot;),
-    &quot;湿度&quot;: list(&quot;高高高高普普普高普普普高普高&quot;),
-    &quot;風&quot;: list(&quot;無有無無無有有無無無有有無有&quot;),
-    &quot;ゴルフプレイ&quot;: list(&quot;☓☓◯◯◯☓◯☓◯◯◯◯◯☓&quot;)
-}
+<span></span><span class="n">dataset</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;天気&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;晴晴曇雨雨雨曇晴晴雨晴曇曇雨&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;温度&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;暑暑暑暖涼涼涼暖涼暖暖暖暑暖&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;湿度&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;高高高高普普普高普普普高普高&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;風&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;無有無無無有有無無無有有無有&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;ゴルフプレイ&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;☓☓◯◯◯☓◯☓◯◯◯◯◯☓&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -375,8 +375,8 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-import numpy as np
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -386,8 +386,8 @@ import numpy as np
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df = pd.DataFrame(dataset)
-df
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -532,9 +532,9 @@ df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sklearn import preprocessing
-df[&quot;ゴルフプレイ&quot;] = preprocessing.label_binarize(df[&quot;ゴルフプレイ&quot;], list(&quot;☓◯&quot;))
-df.head(3)
+<span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;ゴルフプレイ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">label_binarize</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;ゴルフプレイ&quot;</span><span class="p">],</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;☓◯&quot;</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -591,12 +591,12 @@ df.head(3)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import math
-def entropy(t, f):
-    if 0 in (t, f):
-        return 0.0
-    total = t + f
-    return -t/total * math.log2(t/total)  -f/total * math.log2(f/total)
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">f</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">t</span><span class="o">/</span><span class="n">total</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">t</span><span class="o">/</span><span class="n">total</span><span class="p">)</span>  <span class="o">-</span><span class="n">f</span><span class="o">/</span><span class="n">total</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -606,8 +606,8 @@ def entropy(t, f):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cross_tab = pd.crosstab(index=df[&quot;天気&quot;], columns=df[&quot;ゴルフプレイ&quot;])
-cross_tab
+<span></span><span class="n">cross_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;天気&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;ゴルフプレイ&quot;</span><span class="p">])</span>
+<span class="n">cross_tab</span>
 
 </pre></div>
 </div>
@@ -658,7 +658,7 @@ cross_tab
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>entropy(2, 3), entropy(4, 0), entropy(3, 2)
+<span></span><span class="n">entropy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">entropy</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">entropy</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -678,7 +678,7 @@ cross_tab
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>5/14*entropy(2, 3) + 4/14*entropy(4, 0) + 5/14*entropy(3, 2)
+<span></span><span class="mi">5</span><span class="o">/</span><span class="mi">14</span><span class="o">*</span><span class="n">entropy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="o">/</span><span class="mi">14</span><span class="o">*</span><span class="n">entropy</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="o">/</span><span class="mi">14</span><span class="o">*</span><span class="n">entropy</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -698,8 +698,8 @@ cross_tab
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># root
-df[&quot;ゴルフプレイ&quot;].value_counts()
+<span></span><span class="c1"># root</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;ゴルフプレイ&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -721,7 +721,7 @@ Name: ゴルフプレイ, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>entropy(9, 5)
+<span></span><span class="n">entropy</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -741,14 +741,14 @@ Name: ゴルフプレイ, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># using scipy
-from scipy import stats
-[
-    stats.entropy([2/5, 3/5], base=2),
-    stats.entropy([4/4, 0/4]),
-    stats.entropy([2, 3], base=2),
-    stats.entropy([4, 0])
-]
+<span></span><span class="c1"># using scipy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="p">[</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">([</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">],</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">([</span><span class="mi">4</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="o">/</span><span class="mi">4</span><span class="p">]),</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -768,13 +768,13 @@ from scipy import stats
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def gain(df, feature_name, label_name):
-    feature_e = 0.0
-    for _, gdf in df.groupby(feature_name):
-        feature_e += len(gdf) / len(df) * stats.entropy(gdf[label_name].value_counts(), base=2)
-    root_e = stats.entropy(df[label_name].value_counts(), base=2)
-    gain = root_e - feature_e
-    return gain
+<span></span><span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature_name</span><span class="p">,</span> <span class="n">label_name</span><span class="p">):</span>
+    <span class="n">feature_e</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">gdf</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">feature_name</span><span class="p">):</span>
+        <span class="n">feature_e</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="n">gdf</span><span class="p">[</span><span class="n">label_name</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">root_e</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">label_name</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">gain</span> <span class="o">=</span> <span class="n">root_e</span> <span class="o">-</span> <span class="n">feature_e</span>
+    <span class="k">return</span> <span class="n">gain</span>
 
 </pre></div>
 </div>
@@ -785,12 +785,12 @@ from scipy import stats
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>[
-    gain(df, &quot;天気&quot;, &quot;ゴルフプレイ&quot;),
-    gain(df, &quot;温度&quot;, &quot;ゴルフプレイ&quot;),
-    gain(df, &quot;湿度&quot;, &quot;ゴルフプレイ&quot;),
-    gain(df, &quot;風&quot;, &quot;ゴルフプレイ&quot;),
-]
+<span></span><span class="p">[</span>
+    <span class="n">gain</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;天気&quot;</span><span class="p">,</span> <span class="s2">&quot;ゴルフプレイ&quot;</span><span class="p">),</span>
+    <span class="n">gain</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;温度&quot;</span><span class="p">,</span> <span class="s2">&quot;ゴルフプレイ&quot;</span><span class="p">),</span>
+    <span class="n">gain</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;湿度&quot;</span><span class="p">,</span> <span class="s2">&quot;ゴルフプレイ&quot;</span><span class="p">),</span>
+    <span class="n">gain</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;風&quot;</span><span class="p">,</span> <span class="s2">&quot;ゴルフプレイ&quot;</span><span class="p">),</span>
+<span class="p">]</span>
 
 </pre></div>
 </div>
@@ -839,12 +839,12 @@ from scipy import stats
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from collections import OrderedDict
-o_dict1 = OrderedDict(b=1, a=2)
-o_dict2 = OrderedDict()
-o_dict2[&quot;b&quot;] = 1
-o_dict2[&quot;a&quot;] = 2
-o_dict1, o_dict2
+<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">o_dict1</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">o_dict2</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+<span class="n">o_dict2</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">o_dict2</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">o_dict1</span><span class="p">,</span> <span class="n">o_dict2</span>
 </pre></div>
 </div>
 </div>
@@ -903,7 +903,7 @@ o_dict1, o_dict2
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -911,17 +911,17 @@ o_dict1, o_dict2
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

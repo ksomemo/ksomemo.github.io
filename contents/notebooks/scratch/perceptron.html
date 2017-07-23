@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/scratch/perceptron.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/scratch/perceptron.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,13 +349,13 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
-from sklearn import datasets
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 </pre></div>
 </div>
@@ -366,12 +366,12 @@ from sklearn import datasets
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;
-x: 特徴量＋バイアス項(すべてのレコードで一定)
-y: 教師データ
-x: 重み(特徴量の個数のベクトル)
-eta: 学習係数、学習率
-&quot;&quot;&quot;
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">x: 特徴量＋バイアス項(すべてのレコードで一定)</span>
+<span class="sd">y: 教師データ</span>
+<span class="sd">x: 重み(特徴量の個数のベクトル)</span>
+<span class="sd">eta: 学習係数、学習率</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 </pre></div>
 </div>
@@ -382,11 +382,11 @@ eta: 学習係数、学習率
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>bias = 1
-eta = 0.1
-train_x = np.c_[X, np.repeat(bias, 100)]
-train_y = (Y&gt;5).astype(int)
-weight = np.zeros(train_x.shape[1])
+<span></span><span class="n">bias</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">train_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">bias</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span>
+<span class="n">train_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">Y</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">train_x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 </pre></div>
 </div>
@@ -397,7 +397,7 @@ weight = np.zeros(train_x.shape[1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>train_x[:5]
+<span></span><span class="n">train_x</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -421,7 +421,7 @@ weight = np.zeros(train_x.shape[1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>train_y
+<span></span><span class="n">train_y</span>
 </pre></div>
 </div>
 </div>
@@ -445,9 +445,9 @@ weight = np.zeros(train_x.shape[1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def step(y):
-    &quot;&quot;&quot;活性化関数?&quot;&quot;&quot;
-    return 1 if y &gt; 0 else 0
+<span></span><span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;活性化関数?&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -457,13 +457,13 @@ weight = np.zeros(train_x.shape[1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def feedforward(i, w):
-    &quot;&quot;&quot;出力関数
+<span></span><span class="k">def</span> <span class="nf">feedforward</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;出力関数</span>
 
-    特徴量と重みの内積に活性化関数を適用する
-    内積はnumpyを頼る
-    &quot;&quot;&quot;
-    return step(np.dot(i, w))
+<span class="sd">    特徴量と重みの内積に活性化関数を適用する</span>
+<span class="sd">    内積はnumpyを頼る</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">step</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -473,17 +473,17 @@ weight = np.zeros(train_x.shape[1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def train(w, i, y, eta):
-    &quot;&quot;&quot;すべての特徴量にかける重みを更新
+<span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">eta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;すべての特徴量にかける重みを更新</span>
 
-    今回は出力が0/1の二値
-    損失関数・誤差関数にかけて、誤差があるなら(1-0, 0-1の場合)、
-    特徴量に誤差と学習率をかけて重みを調整する
-    &quot;&quot;&quot;
-    o = feedforward(i, w)
-    for j in range(len(w)):
-        w[j] = w[j] + (y - o) * i[j] * eta
-    return w
+<span class="sd">    今回は出力が0/1の二値</span>
+<span class="sd">    損失関数・誤差関数にかけて、誤差があるなら(1-0, 0-1の場合)、</span>
+<span class="sd">    特徴量に誤差と学習率をかけて重みを調整する</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="n">feedforward</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)):</span>
+        <span class="n">w</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">o</span><span class="p">)</span> <span class="o">*</span> <span class="n">i</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">eta</span>
+    <span class="k">return</span> <span class="n">w</span>
 
 </pre></div>
 </div>
@@ -494,12 +494,12 @@ weight = np.zeros(train_x.shape[1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;学習を繰り返す&quot;&quot;&quot;
-# 繰り返し回数
-epoch = 100
-for i in range(epoch):
-    for x, y in zip(train_x, train_y):
-        weight = train(weight, x, y, eta)
+<span></span><span class="sd">&quot;&quot;&quot;学習を繰り返す&quot;&quot;&quot;</span>
+<span class="c1"># 繰り返し回数</span>
+<span class="n">epoch</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epoch</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">):</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -509,11 +509,11 @@ for i in range(epoch):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># ax1+bx2+c = 0
-# x2 = -(a/b)x1 -(c/b)
-x2 = -weight[0]/weight[1] * X[:, 0] -(weight[2]/weight[1])
-plt.plot(X[:,0], x2)
-plt.scatter(X[:, 0], X[:, 1], c=Y&gt;5)
+<span></span><span class="c1"># ax1+bx2+c = 0</span>
+<span class="c1"># x2 = -(a/b)x1 -(c/b)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="n">weight</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">weight</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span><span class="p">(</span><span class="n">weight</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">weight</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -532,7 +532,7 @@ plt.scatter(X[:, 0], X[:, 1], c=Y&gt;5)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_9_1.png" src="../../_images/notebooks_scratch_perceptron_9_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_9_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_9_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -541,7 +541,7 @@ plt.scatter(X[:, 0], X[:, 1], c=Y&gt;5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>weight
+<span></span><span class="n">weight</span>
 </pre></div>
 </div>
 </div>
@@ -561,11 +561,11 @@ plt.scatter(X[:, 0], X[:, 1], c=Y&gt;5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>[
-    step(np.dot(np.array([1, -2, 1]), weight)),
-    step(np.dot(np.array([-1, 2, 1]), weight)),
-    step(np.dot(np.array([1, 0, 1]), weight)),
-]
+<span></span><span class="p">[</span>
+    <span class="n">step</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">weight</span><span class="p">)),</span>
+    <span class="n">step</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">weight</span><span class="p">)),</span>
+    <span class="n">step</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">weight</span><span class="p">)),</span>
+<span class="p">]</span>
 
 </pre></div>
 </div>
@@ -586,42 +586,42 @@ plt.scatter(X[:, 0], X[:, 1], c=Y&gt;5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn import datasets
-import ipywidgets
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
-def f(X, Y):
-    @ipywidgets.interact(
-        etas={&#39;0.01&#39;: 0.01, &#39;0.1&#39;: 0.1, &#39;0.5&#39;: 0.5},
-        with_bias=True,
-        epoch=(1, 100, 1),
-        end=(2,100, 2)
-    )
-    def plot(etas=0.1, with_bias=True, epoch=100, end=100):
-        #bias = 1
-        #eta = 0.1
-        #train_x = np.c_[X, np.repeat(bias, 100)]
-        #train_y = Y
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="nd">@ipywidgets.interact</span><span class="p">(</span>
+        <span class="n">etas</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;0.01&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;0.1&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;0.5&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+        <span class="n">with_bias</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">epoch</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">end</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">etas</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">with_bias</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+        <span class="c1">#bias = 1</span>
+        <span class="c1">#eta = 0.1</span>
+        <span class="c1">#train_x = np.c_[X, np.repeat(bias, 100)]</span>
+        <span class="c1">#train_y = Y</span>
 
-        bias = 1 * with_bias
-        eta = etas
-        train_x = np.c_[X, np.repeat(bias, len(X))][:end]
-        train_y = Y[:end]
-        weight = np.zeros(train_x.shape[1])
+        <span class="n">bias</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">with_bias</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">etas</span>
+        <span class="n">train_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">bias</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))][:</span><span class="n">end</span><span class="p">]</span>
+        <span class="n">train_y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:</span><span class="n">end</span><span class="p">]</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">train_x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-        for i in range(epoch):
-            for x, y in zip(train_x, train_y):
-                weight = train(weight, x, y, eta)
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epoch</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">):</span>
+                <span class="n">weight</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
 
-        # ax1+bx2+c = 0
-        # x2 = -(a/b)x1 -(c/b)
-        x2 = -weight[0]/weight[1] * train_x[:, 0] -(weight[2]/weight[1])
-        plt.plot(train_x[:,0], x2)
-        plt.scatter(train_x[:, 0], train_x[:, 1], c=train_y)
-    return plot
+        <span class="c1"># ax1+bx2+c = 0</span>
+        <span class="c1"># x2 = -(a/b)x1 -(c/b)</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="n">weight</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">weight</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">train_x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span><span class="p">(</span><span class="n">weight</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">weight</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">train_x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">train_x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">train_y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">plot</span>
 </pre></div>
 </div>
 </div>
@@ -631,12 +631,12 @@ def f(X, Y):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate a random regression problem.
-X, Y = datasets.make_regression(
-    n_samples=100, n_features=2, n_informative=2, n_targets=1,
-    bias=0.0, effective_rank=None, tail_strength=0.5, noise=1.0, shuffle=True, coef=False, random_state=0)
+<span></span><span class="c1"># Generate a random regression problem.</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_targets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">bias</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">effective_rank</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">tail_strength</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">coef</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-f(X, Y &gt; 5)()
+<span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)()</span>
 </pre></div>
 </div>
 </div>
@@ -644,7 +644,7 @@ f(X, Y &gt; 5)()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_13_0.png" src="../../_images/notebooks_scratch_perceptron_13_0.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_13_0.png" src="../../../_images/contents_notebooks_scratch_perceptron_13_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -653,14 +653,14 @@ f(X, Y &gt; 5)()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Generate isotropic Gaussian blobs for clustering.
-# datasets.make_blobs([n_samples, n_features, ...])
-X_b, Y_b = datasets.make_blobs(
-    n_samples=100, n_features=2, centers=2, cluster_std=1.0,
-    center_box=(-10.0, 10.0), shuffle=True, random_state=100)
-plt.scatter(X_b[:, 0], X_b[:, 1], c=Y_b, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Generate isotropic Gaussian blobs for clustering.</span>
+<span class="c1"># datasets.make_blobs([n_samples, n_features, ...])</span>
+<span class="n">X_b</span><span class="p">,</span> <span class="n">Y_b</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">center_box</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_b</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_b</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y_b</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 
-f(X_b, Y_b)()
+<span class="n">f</span><span class="p">(</span><span class="n">X_b</span><span class="p">,</span> <span class="n">Y_b</span><span class="p">)()</span>
 </pre></div>
 </div>
 </div>
@@ -668,7 +668,7 @@ f(X_b, Y_b)()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_14_0.png" src="../../_images/notebooks_scratch_perceptron_14_0.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_14_0.png" src="../../../_images/contents_notebooks_scratch_perceptron_14_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -677,13 +677,13 @@ f(X_b, Y_b)()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://scikit-learn.org/dev/auto_examples/gaussian_process/plot_gpc_xor.html
+<span></span><span class="c1"># http://scikit-learn.org/dev/auto_examples/gaussian_process/plot_gpc_xor.html</span>
 
-rng = np.random.RandomState(0)
-X_xor = rng.randn(200, 2)
-Y_xor = np.logical_xor(X_xor[:, 0] &gt; 0, X_xor[:, 1] &gt; 0)
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X_xor</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Y_xor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_xor</span><span class="p">(</span><span class="n">X_xor</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">X_xor</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
 
-f(X_xor, Y_xor)()
+<span class="n">f</span><span class="p">(</span><span class="n">X_xor</span><span class="p">,</span> <span class="n">Y_xor</span><span class="p">)()</span>
 </pre></div>
 </div>
 </div>
@@ -691,7 +691,7 @@ f(X_xor, Y_xor)()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_15_0.png" src="../../_images/notebooks_scratch_perceptron_15_0.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_15_0.png" src="../../../_images/contents_notebooks_scratch_perceptron_15_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -700,11 +700,11 @@ f(X_xor, Y_xor)()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Make a large circle containing a smaller circle in 2d.
-X_circle, Y_circle = datasets.make_circles(n_samples=100, shuffle=True, noise=None, random_state=None, factor=0.8)
-plt.scatter(X_circle[:, 0], X_circle[:, 1], c=Y_circle, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Make a large circle containing a smaller circle in 2d.</span>
+<span class="n">X_circle</span><span class="p">,</span> <span class="n">Y_circle</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_circle</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_circle</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y_circle</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 
-f(X_circle, Y_circle)()
+<span class="n">f</span><span class="p">(</span><span class="n">X_circle</span><span class="p">,</span> <span class="n">Y_circle</span><span class="p">)()</span>
 </pre></div>
 </div>
 </div>
@@ -712,7 +712,7 @@ f(X_circle, Y_circle)()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_16_0.png" src="../../_images/notebooks_scratch_perceptron_16_0.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_16_0.png" src="../../../_images/contents_notebooks_scratch_perceptron_16_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -721,11 +721,11 @@ f(X_circle, Y_circle)()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Make two interleaving half circles
-X_moons, Y_moons = datasets.make_moons(n_samples=100, shuffle=True, noise=None, random_state=None)
-plt.scatter(X_moons[:, 0], X_moons[:, 1], c=Y_moons, cmap=plt.cm.Paired)
+<span></span><span class="c1"># Make two interleaving half circles</span>
+<span class="n">X_moons</span><span class="p">,</span> <span class="n">Y_moons</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_moons</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_moons</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y_moons</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 
-f(X_moons, Y_moons)()
+<span class="n">f</span><span class="p">(</span><span class="n">X_moons</span><span class="p">,</span> <span class="n">Y_moons</span><span class="p">)()</span>
 </pre></div>
 </div>
 </div>
@@ -733,7 +733,7 @@ f(X_moons, Y_moons)()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_17_0.png" src="../../_images/notebooks_scratch_perceptron_17_0.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_17_0.png" src="../../../_images/contents_notebooks_scratch_perceptron_17_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -742,30 +742,30 @@ f(X_moons, Y_moons)()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%matplotlib inline
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib import animation as ani
-import seaborn as sns
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span> <span class="k">as</span> <span class="n">ani</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 
-num_frame = 80.
-x_range= 7
+<span class="n">num_frame</span> <span class="o">=</span> <span class="mf">80.</span>
+<span class="n">x_range</span><span class="o">=</span> <span class="mi">7</span>
 
-def animate(nframe):
-    # global num_frame
-    plt.clf()
-    a = ((5*nframe/num_frame) -.5) * np.pi
-    x = np.linspace(-x_range, x_range, 200)
-    y = np.sin(x+a)
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">nframe</span><span class="p">):</span>
+    <span class="c1"># global num_frame</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">((</span><span class="mi">5</span><span class="o">*</span><span class="n">nframe</span><span class="o">/</span><span class="n">num_frame</span><span class="p">)</span> <span class="o">-.</span><span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">x_range</span><span class="p">,</span> <span class="n">x_range</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">a</span><span class="p">)</span>
 
-    plt.xlim(-x_range, x_range)
-    plt.ylim(-1.1,1.1)
-    plt.plot(x, y, c=&quot;b&quot;)
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="n">x_range</span><span class="p">,</span> <span class="n">x_range</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
 
-fig = plt.figure(figsize=(12,5))
-anim = ani.FuncAnimation(fig, animate, frames=int(num_frame))#, blit=True)
-anim.save(&#39;anim_test.gif&#39;, writer=&#39;imagemagick&#39;, fps=5, dpi=64)
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">anim</span> <span class="o">=</span> <span class="n">ani</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">num_frame</span><span class="p">))</span><span class="c1">#, blit=True)</span>
+<span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;anim_test.gif&#39;</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s1">&#39;imagemagick&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -773,7 +773,7 @@ anim.save(&#39;anim_test.gif&#39;, writer=&#39;imagemagick&#39;, fps=5, dpi=64)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_18_0.png" src="../../_images/notebooks_scratch_perceptron_18_0.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_18_0.png" src="../../../_images/contents_notebooks_scratch_perceptron_18_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -782,7 +782,7 @@ anim.save(&#39;anim_test.gif&#39;, writer=&#39;imagemagick&#39;, fps=5, dpi=64)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>datasets.load_digits?
+<span></span>datasets.load_digits<span class="o">?</span>
 
 </pre></div>
 </div>
@@ -793,10 +793,10 @@ anim.save(&#39;anim_test.gif&#39;, writer=&#39;imagemagick&#39;, fps=5, dpi=64)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>n_class = 10
-digits = datasets.load_digits()
-# https://datamicroscopes.github.io/mnist_predictions.html
-type(digits)
+<span></span><span class="n">n_class</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
+<span class="c1"># https://datamicroscopes.github.io/mnist_predictions.html</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -816,7 +816,7 @@ type(digits)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>digits.target, digits.target.shape
+<span></span><span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -836,7 +836,7 @@ type(digits)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>digits.images.shape, digits.images[:3]
+<span></span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -881,7 +881,7 @@ type(digits)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>digits.images[0]
+<span></span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -908,11 +908,11 @@ type(digits)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>for index, (image, label) in enumerate(zip(digits.images[:10], digits.target[:10])):
-    plt.subplot(1, 10, index + 1)
-    plt.axis(&#39;off&#39;)
-    plt.imshow(image, cmap=plt.cm.gray_r, interpolation=&#39;nearest&#39;)
-    plt.title(&#39;%i&#39; % label)
+<span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="mi">10</span><span class="p">])):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">label</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -920,7 +920,7 @@ type(digits)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_24_0.png" src="../../_images/notebooks_scratch_perceptron_24_0.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_24_0.png" src="../../../_images/contents_notebooks_scratch_perceptron_24_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -929,7 +929,7 @@ type(digits)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>plt.imshow(digits.images[0], cmap=plt.cm.gray_r, interpolation=&#39;nearest&#39;)
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -947,7 +947,7 @@ type(digits)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_25_1.png" src="../../_images/notebooks_scratch_perceptron_25_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_25_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_25_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -956,7 +956,7 @@ type(digits)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>plt.imshow(digits.images[0], cmap=plt.cm.gray_r)
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -974,7 +974,7 @@ type(digits)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_26_1.png" src="../../_images/notebooks_scratch_perceptron_26_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_26_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_26_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -983,7 +983,7 @@ type(digits)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import PIL
+<span></span><span class="kn">import</span> <span class="nn">PIL</span>
 </pre></div>
 </div>
 </div>
@@ -993,8 +993,8 @@ type(digits)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>PIL.Image.fromarray?
-# http://pillow.readthedocs.io/en/3.2.x/handbook/concepts.html#modes
+<span></span>PIL.Image.fromarray<span class="o">?</span>
+<span class="c1"># http://pillow.readthedocs.io/en/3.2.x/handbook/concepts.html#modes</span>
 </pre></div>
 </div>
 </div>
@@ -1004,8 +1004,8 @@ type(digits)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>img = PIL.Image.fromarray(digits.images[0], mode=&quot;L&quot;)
-img
+<span></span><span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">)</span>
+<span class="n">img</span>
 </pre></div>
 </div>
 </div>
@@ -1015,7 +1015,7 @@ img
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_29_0.png" src="../../_images/notebooks_scratch_perceptron_29_0.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_29_0.png" src="../../../_images/contents_notebooks_scratch_perceptron_29_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1024,7 +1024,7 @@ img
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>plt.imshow(img)
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1042,7 +1042,7 @@ img
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_30_1.png" src="../../_images/notebooks_scratch_perceptron_30_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_30_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_30_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1051,7 +1051,7 @@ img
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>img.show()
+<span></span><span class="n">img</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1061,8 +1061,8 @@ img
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>_img = PIL.Image.fromarray(digits.images[0], mode=&quot;1&quot;)
-plt.imshow(_img, cmap=plt.cm.gray_r)
+<span></span><span class="n">_img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1080,7 @@ plt.imshow(_img, cmap=plt.cm.gray_r)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_32_1.png" src="../../_images/notebooks_scratch_perceptron_32_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_32_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_32_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1089,7 +1089,7 @@ plt.imshow(_img, cmap=plt.cm.gray_r)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>plt.imshow(img, cmap=plt.cm.gray_r, interpolation=&#39;nearest&#39;)
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1107,7 +1107,7 @@ plt.imshow(_img, cmap=plt.cm.gray_r)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_33_1.png" src="../../_images/notebooks_scratch_perceptron_33_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_33_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_33_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1116,7 +1116,7 @@ plt.imshow(_img, cmap=plt.cm.gray_r)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>plt.imshow(img, cmap=plt.cm.binary)#, interpolation=&#39;nearest&#39;)
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span><span class="p">)</span><span class="c1">#, interpolation=&#39;nearest&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -1134,7 +1134,7 @@ plt.imshow(_img, cmap=plt.cm.gray_r)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_34_1.png" src="../../_images/notebooks_scratch_perceptron_34_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_34_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_34_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1143,8 +1143,8 @@ plt.imshow(_img, cmap=plt.cm.gray_r)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import PIL.ImageOps
-plt.imshow(PIL.ImageOps.grayscale(img))
+<span></span><span class="kn">import</span> <span class="nn">PIL.ImageOps</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">ImageOps</span><span class="o">.</span><span class="n">grayscale</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1162,7 +1162,7 @@ plt.imshow(PIL.ImageOps.grayscale(img))
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_35_1.png" src="../../_images/notebooks_scratch_perceptron_35_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_35_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_35_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1171,8 +1171,8 @@ plt.imshow(PIL.ImageOps.grayscale(img))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>img = PIL.Image.fromarray(digits.images[0], mode=&quot;1&quot;)
-plt.imshow(img)
+<span></span><span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1190,7 +1190,7 @@ plt.imshow(img)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_36_1.png" src="../../_images/notebooks_scratch_perceptron_36_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_36_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_36_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1199,8 +1199,8 @@ plt.imshow(img)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>img = PIL.Image.fromarray(digits.images[0], mode=&quot;P&quot;)
-plt.imshow(img)
+<span></span><span class="n">img</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1218,7 +1218,7 @@ plt.imshow(img)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_perceptron_37_1.png" src="../../_images/notebooks_scratch_perceptron_37_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_perceptron_37_1.png" src="../../../_images/contents_notebooks_scratch_perceptron_37_1.png" />
 </div>
 </div>
 
@@ -1256,7 +1256,7 @@ plt.imshow(img)
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1264,17 +1264,17 @@ plt.imshow(img)
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

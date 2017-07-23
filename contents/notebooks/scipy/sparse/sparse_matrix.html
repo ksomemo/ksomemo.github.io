@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../../genindex.html"/>
-        <link rel="search" title="検索" href="../../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
+              href="../../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../../index.html"/> 
 
   
-  <script src="../../../_static/js/modernizr.min.js"></script>
+  <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -123,7 +123,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">gh-pages</a>
+          <a href="../../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -151,7 +151,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
       <li>動機</li>
     
@@ -159,7 +159,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/scipy/sparse/sparse_matrix.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/contents/notebooks/scipy/sparse/sparse_matrix.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -387,14 +387,14 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
-sparse_arr = np.zeros((4, 4))
-sparse_arr[2, 0] = 1
-sparse_arr[1, 1] = 1
-sparse_arr[3, 0] = 1
-sparse_arr[3, 3] = 1
-sparse_arr
+<span class="n">sparse_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sparse_arr</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sparse_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sparse_arr</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sparse_arr</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sparse_arr</span>
 
 </pre></div>
 </div>
@@ -421,15 +421,15 @@ sparse_arr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from scipy.sparse import (
-    dok_matrix,
-    lil_matrix,
-    coo_matrix,
-    csr_matrix,
-    csc_matrix,
-    dia_matrix,
-    bsr_matrix
-)
+<span></span><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">dok_matrix</span><span class="p">,</span>
+    <span class="n">lil_matrix</span><span class="p">,</span>
+    <span class="n">coo_matrix</span><span class="p">,</span>
+    <span class="n">csr_matrix</span><span class="p">,</span>
+    <span class="n">csc_matrix</span><span class="p">,</span>
+    <span class="n">dia_matrix</span><span class="p">,</span>
+    <span class="n">bsr_matrix</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -446,9 +446,9 @@ sparse_arr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.dok_matrix.html#scipy.sparse.dok_matrix
-S = dok_matrix((2, 3), dtype=np.float32)
-S
+<span></span><span class="c1"># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.dok_matrix.html#scipy.sparse.dok_matrix</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">dok_matrix</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">S</span>
 </pre></div>
 </div>
 </div>
@@ -469,8 +469,8 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S[0, 1], S[1, 2] = 1, 1
-S
+<span></span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">S</span>
 </pre></div>
 </div>
 </div>
@@ -491,8 +491,8 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>for k, v in S.items():
-    print(k, v)
+<span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">S</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -511,9 +511,9 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S[0, 1] = 0
-for k, v in S.items():
-    print(k, v)
+<span></span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">S</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -534,9 +534,9 @@ for k, v in S.items():
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S = dok_matrix(sparse_arr)
-S[3, 3] = 0
-S.shape, S
+<span></span><span class="n">S</span> <span class="o">=</span> <span class="n">dok_matrix</span><span class="p">(</span><span class="n">sparse_arr</span><span class="p">)</span>
+<span class="n">S</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">S</span>
 </pre></div>
 </div>
 </div>
@@ -558,8 +558,8 @@ S.shape, S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>for k, v in S.items():
-    print(k, v)
+<span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">S</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -583,9 +583,9 @@ S.shape, S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.lil_matrix.html#scipy.sparse.lil_matrix
-S = lil_matrix(sparse_arr)
-S.data, S.rows, sparse_arr
+<span></span><span class="c1"># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.lil_matrix.html#scipy.sparse.lil_matrix</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">lil_matrix</span><span class="p">(</span><span class="n">sparse_arr</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">rows</span><span class="p">,</span> <span class="n">sparse_arr</span>
 </pre></div>
 </div>
 </div>
@@ -612,8 +612,8 @@ S.data, S.rows, sparse_arr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S = lil_matrix(dok_matrix(sparse_arr))
-S
+<span></span><span class="n">S</span> <span class="o">=</span> <span class="n">lil_matrix</span><span class="p">(</span><span class="n">dok_matrix</span><span class="p">(</span><span class="n">sparse_arr</span><span class="p">))</span>
+<span class="n">S</span>
 </pre></div>
 </div>
 </div>
@@ -637,7 +637,7 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.toarray()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -660,7 +660,7 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.todense()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -686,7 +686,7 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.tolil()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">tolil</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -707,7 +707,7 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.tobsr()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">tobsr</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -728,7 +728,7 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.tocoo()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">tocoo</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -749,7 +749,7 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.tocsc()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">tocsc</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -770,7 +770,7 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.tocsr()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -791,7 +791,7 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.todia()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">todia</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -812,7 +812,7 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.todok()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">todok</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -838,9 +838,9 @@ S
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix
-S = coo_matrix(sparse_arr)
-S.data, S.row, S.col
+<span></span><span class="c1"># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">coo_matrix</span><span class="p">(</span><span class="n">sparse_arr</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">col</span>
 </pre></div>
 </div>
 </div>
@@ -866,9 +866,9 @@ S.data, S.row, S.col
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix
-S = csr_matrix(sparse_arr)
-S.data, S.indices, S.indptr
+<span></span><span class="c1"># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">sparse_arr</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">indptr</span>
 
 </pre></div>
 </div>
@@ -894,9 +894,9 @@ S.data, S.indices, S.indptr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csc_matrix.html#scipy.sparse.csc_matrix
-S = csc_matrix(sparse_arr)
-S.data, S.indices, S.indptr
+<span></span><span class="c1"># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csc_matrix.html#scipy.sparse.csc_matrix</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">csc_matrix</span><span class="p">(</span><span class="n">sparse_arr</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">indptr</span>
 
 </pre></div>
 </div>
@@ -919,7 +919,7 @@ S.data, S.indices, S.indptr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>S.toarray()
+<span></span><span class="n">S</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -944,16 +944,16 @@ S.data, S.indices, S.indptr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a = np.array([
- [1, 2, 3, 0],
- [0, 0, 0, 1],
- [2, 0, 0, 2],
- [0, 0, 0, 1],
-    # 以下、追加
- [0, 0, 0, 0],
- [0, 0, 0, 1],
-])
-a
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+ <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="c1"># 以下、追加</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">a</span>
 
 </pre></div>
 </div>
@@ -985,8 +985,8 @@ a
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>coo_a = coo_matrix(a)
-coo_a.data, coo_a.row, coo_a.col
+<span></span><span class="n">coo_a</span> <span class="o">=</span> <span class="n">coo_matrix</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">coo_a</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">coo_a</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">coo_a</span><span class="o">.</span><span class="n">col</span>
 
 </pre></div>
 </div>
@@ -1020,8 +1020,8 @@ coo_a.data, coo_a.row, coo_a.col
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>csr_a = csr_matrix(coo_a)
-csr_a.data, csr_a.indices, csr_a.indptr
+<span></span><span class="n">csr_a</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span><span class="n">coo_a</span><span class="p">)</span>
+<span class="n">csr_a</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">csr_a</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">csr_a</span><span class="o">.</span><span class="n">indptr</span>
 </pre></div>
 </div>
 </div>
@@ -1061,7 +1061,7 @@ csr_a.data, csr_a.indices, csr_a.indptr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a.T
+<span></span><span class="n">a</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -1084,8 +1084,8 @@ csr_a.data, csr_a.indices, csr_a.indptr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>coo_at = coo_matrix(a.T)
-coo_at.data, coo_at.row, coo_at.col
+<span></span><span class="n">coo_at</span> <span class="o">=</span> <span class="n">coo_matrix</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">coo_at</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">coo_at</span><span class="o">.</span><span class="n">row</span><span class="p">,</span> <span class="n">coo_at</span><span class="o">.</span><span class="n">col</span>
 
 </pre></div>
 </div>
@@ -1108,8 +1108,8 @@ coo_at.data, coo_at.row, coo_at.col
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>csc_a = csc_matrix(coo_a)
-csc_a.data, csc_a.indices, csc_a.indptr
+<span></span><span class="n">csc_a</span> <span class="o">=</span> <span class="n">csc_matrix</span><span class="p">(</span><span class="n">coo_a</span><span class="p">)</span>
+<span class="n">csc_a</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">csc_a</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">csc_a</span><span class="o">.</span><span class="n">indptr</span>
 </pre></div>
 </div>
 </div>
@@ -1139,9 +1139,9 @@ csc_a.data, csc_a.indices, csc_a.indptr
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.dia_matrix.html#scipy.sparse.dia_matrix
-S = dia_matrix(sparse_arr)
-S.data, S.offsets
+<span></span><span class="c1"># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.dia_matrix.html#scipy.sparse.dia_matrix</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">dia_matrix</span><span class="p">(</span><span class="n">sparse_arr</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">offsets</span>
 </pre></div>
 </div>
 </div>
@@ -1163,7 +1163,7 @@ S.data, S.offsets
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sparse_arr
+<span></span><span class="n">sparse_arr</span>
 </pre></div>
 </div>
 </div>
@@ -1196,9 +1196,9 @@ S.data, S.offsets
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.bsr_matrix.html#scipy.sparse.bsr_matrix
-S = bsr_matrix(sparse_arr)
-S.data, S.indices, S.indptr, S.blocksize
+<span></span><span class="c1"># http://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.bsr_matrix.html#scipy.sparse.bsr_matrix</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">bsr_matrix</span><span class="p">(</span><span class="n">sparse_arr</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">indptr</span><span class="p">,</span> <span class="n">S</span><span class="o">.</span><span class="n">blocksize</span>
 </pre></div>
 </div>
 </div>
@@ -1257,7 +1257,7 @@ S.data, S.indices, S.indptr, S.blocksize
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
+            URL_ROOT:'../../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1265,17 +1265,17 @@ S.data, S.indices, S.indptr, S.blocksize
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
   
 
   

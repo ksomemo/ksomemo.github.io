@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../../genindex.html"/>
-        <link rel="search" title="検索" href="../../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
+              href="../../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../../index.html"/> 
 
   
-  <script src="../../../_static/js/modernizr.min.js"></script>
+  <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -157,7 +157,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">gh-pages</a>
+          <a href="../../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -185,7 +185,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
       <li>Q1</li>
     
@@ -193,7 +193,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/statistics/grade2excercise/統計検定２級問題集.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/contents/notebooks/statistics/grade2excercise/統計検定２級問題集.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -422,11 +422,11 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import io
-import pandas as pd
-import numpy as np
+<span></span><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -436,24 +436,24 @@ import numpy as np
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>zu  = &quot;&quot;&quot;#
-#百の位|十の位
-#------|-------
-     0|34445555556666667778888888999
-     1|00011122379
-     2|02247
-     3|1
-     4|4
-#&quot;&quot;&quot;
-nums = []
-for line in zu.split(&quot;\n&quot;):
-    if line.startswith(&quot;#&quot;):
-        continue
-    h, t = line.strip().split(&quot;|&quot;)
-    h = int(h) * 100
-    ns =  [h + int(n) * 10 for n in list(t)]
-    nums.extend(ns)
-    print(h, len(ns), sum(ns))
+<span></span><span class="n">zu</span>  <span class="o">=</span> <span class="s2">&quot;&quot;&quot;#</span>
+<span class="s2">#百の位|十の位</span>
+<span class="s2">#------|-------</span>
+<span class="s2">     0|34445555556666667778888888999</span>
+<span class="s2">     1|00011122379</span>
+<span class="s2">     2|02247</span>
+<span class="s2">     3|1</span>
+<span class="s2">     4|4</span>
+<span class="s2">#&quot;&quot;&quot;</span>
+<span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">zu</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">):</span>
+        <span class="k">continue</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">ns</span> <span class="o">=</span>  <span class="p">[</span><span class="n">h</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span>
+    <span class="n">nums</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ns</span><span class="p">),</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -475,7 +475,7 @@ for line in zu.split(&quot;\n&quot;):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import statistics
+<span></span><span class="kn">import</span> <span class="nn">statistics</span>
 </pre></div>
 </div>
 </div>
@@ -485,7 +485,7 @@ for line in zu.split(&quot;\n&quot;):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>statistics.mean(nums), statistics.median(nums)
+<span></span><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">nums</span><span class="p">),</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -505,12 +505,12 @@ for line in zu.split(&quot;\n&quot;):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df = pd.read_csv(io.StringIO(&quot;&quot;&quot;0 29 1850
-100 11 1360
-200 5 1150
-300 1 310
-400 1 440&quot;&quot;&quot;), names=[&quot;h&quot;, &quot;nums&quot;, &quot;_sum&quot;], sep=&quot; &quot;)
-df
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;0 29 1850</span>
+<span class="s2">100 11 1360</span>
+<span class="s2">200 5 1150</span>
+<span class="s2">300 1 310</span>
+<span class="s2">400 1 440&quot;&quot;&quot;</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;nums&quot;</span><span class="p">,</span> <span class="s2">&quot;_sum&quot;</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -571,8 +571,8 @@ df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>nums_series = pd.Series(nums)
-nums_series.hist(bins=list(range(0, 500, 50)))
+<span></span><span class="n">nums_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="n">nums_series</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">50</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -590,7 +590,7 @@ nums_series.hist(bins=list(range(0, 500, 50)))
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_statistics_grade2excercise_統計検定２級問題集_7_1.png" src="../../../_images/notebooks_statistics_grade2excercise_統計検定２級問題集_7_1.png" />
+<img alt="../../../../_images/contents_notebooks_statistics_grade2excercise_統計検定２級問題集_7_1.png" src="../../../../_images/contents_notebooks_statistics_grade2excercise_統計検定２級問題集_7_1.png" />
 </div>
 </div>
 <div class="section" id="A2">
@@ -648,14 +648,14 @@ nums_series.hist(bins=list(range(0, 500, 50)))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from fractions import Fraction
+<span></span><span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
 
-(
-    Fraction(1*1, 8)
-    + Fraction(2*3, 8)
-    + Fraction(3*1, 8)
-    + Fraction(4*3, 8)
-)
+<span class="p">(</span>
+    <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="p">)</span>
 
 </pre></div>
 </div>
@@ -693,12 +693,12 @@ nums_series.hist(bins=list(range(0, 500, 50)))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.DataFrame(
-    {
-        &quot;癌&quot;: [&quot;あり&quot;,&quot;あり&quot;,&quot;なし&quot;,&quot;なし&quot;],
-        &quot;診断結果&quot;: [&quot;_陽性&quot;, &quot;陰性&quot;, &quot;_陽性&quot;, &quot;陰性&quot;],
-        &quot;確率&quot;: [0.82, 0.18, 0.13, 0.87]
-    }).pivot_table(index=&quot;癌&quot;, columns=&quot;診断結果&quot;, values=&quot;確率&quot;, aggfunc=sum, margins=True).drop(&quot;All&quot;)
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;癌&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;あり&quot;</span><span class="p">,</span><span class="s2">&quot;あり&quot;</span><span class="p">,</span><span class="s2">&quot;なし&quot;</span><span class="p">,</span><span class="s2">&quot;なし&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;診断結果&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;_陽性&quot;</span><span class="p">,</span> <span class="s2">&quot;陰性&quot;</span><span class="p">,</span> <span class="s2">&quot;_陽性&quot;</span><span class="p">,</span> <span class="s2">&quot;陰性&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;確率&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.82</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.87</span><span class="p">]</span>
+    <span class="p">})</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;癌&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;診断結果&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;確率&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="nb">sum</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;All&quot;</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -764,20 +764,20 @@ nums_series.hist(bins=list(range(0, 500, 50)))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a = pd.DataFrame(dict(dummy=range(1)))
-a[&quot;[0-1)&quot;] = 0.29
-a[&quot;[1-2)&quot;] = 0.46
-a[&quot;[2-3)&quot;] = 0.16
-a[&quot;[3-4)&quot;] = 0.05
-a[&quot;[4-5)&quot;] = 0.03
-a[&quot;[5-6)&quot;] = 0.01
-a = a.drop(&quot;dummy&quot;, axis=1).T
-a.columns = [&quot;rate&quot;]
-a[&quot;hour&quot;] = np.arange(0.5, 6.5)
-a[&quot;v_hour&quot;] = a.rate * a.hour
-a[&quot;v_hour_cumusm&quot;] = a.v_hour.cumsum()
-a[&quot;v_hour_cumusm_rate&quot;] = a.v_hour_cumusm / a.v_hour.sum()
-a
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">dummy</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;[0-1)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.29</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;[1-2)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.46</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;[2-3)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.16</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;[3-4)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;[4-5)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.03</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;[5-6)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;dummy&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">a</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rate&quot;</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;hour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;v_hour&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">rate</span> <span class="o">*</span> <span class="n">a</span><span class="o">.</span><span class="n">hour</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;v_hour_cumusm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">v_hour</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">a</span><span class="p">[</span><span class="s2">&quot;v_hour_cumusm_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">v_hour_cumusm</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">v_hour</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">a</span>
 
 </pre></div>
 </div>
@@ -1014,7 +1014,7 @@ a
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
+            URL_ROOT:'../../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1022,17 +1022,17 @@ a
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
   
 
   

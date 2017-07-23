@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../../genindex.html"/>
-        <link rel="search" title="検索" href="../../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
+              href="../../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../../index.html"/> 
 
   
-  <script src="../../../_static/js/modernizr.min.js"></script>
+  <script src="../../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">gh-pages</a>
+          <a href="../../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/notebooks/scipy/stats/chi2_and_cramels_v.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/contents/notebooks/scipy/stats/chi2_and_cramels_v.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,11 +349,11 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%matplotlib inline
-import numpy as np
-import pandas as pd
-import scipy.stats
-import matplotlib.pyplot as plt
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 </pre></div>
 </div>
@@ -364,12 +364,12 @@ import matplotlib.pyplot as plt
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># マンガでわかる統計学: p127- 133
-observed = np.array([
-    [34, 61, 53],
-    [38, 40, 74]
-])
-observed
+<span></span><span class="c1"># マンガでわかる統計学: p127- 133</span>
+<span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">53</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">74</span><span class="p">]</span>
+<span class="p">])</span>
+<span class="n">observed</span>
 </pre></div>
 </div>
 </div>
@@ -390,45 +390,45 @@ observed
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def my_chi2_contingency(observed):
-    &quot;&quot;&quot;pearson chi2
+<span></span><span class="k">def</span> <span class="nf">my_chi2_contingency</span><span class="p">(</span><span class="n">observed</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;pearson chi2</span>
 
-    observed type is ndarray.
-    observed shape length is 2.
-    &quot;&quot;&quot;
-    n = observed.sum()
-    colsum = observed.sum(axis=1, keepdims=True)
-    rowsum = observed.sum(axis=0, keepdims=True)
-    outer = colsum @ rowsum
+<span class="sd">    observed type is ndarray.</span>
+<span class="sd">    observed shape length is 2.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">observed</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">colsum</span> <span class="o">=</span> <span class="n">observed</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">rowsum</span> <span class="o">=</span> <span class="n">observed</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">outer</span> <span class="o">=</span> <span class="n">colsum</span> <span class="err">@</span> <span class="n">rowsum</span>
 
-    # not using np.dot
-    outer = np.outer(observed.sum(axis=1),
-                           observed.sum(axis=0))
+    <span class="c1"># not using np.dot</span>
+    <span class="n">outer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">observed</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                           <span class="n">observed</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 
-    expected = outer / n
-    with np.errstate(divide=&quot;ignore&quot;, invalid=&quot;ignore&quot;):
-        terms = (observed - expected) ** 2 / expected
-        chi2 = np.sum(terms)
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">outer</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+        <span class="n">terms</span> <span class="o">=</span> <span class="p">(</span><span class="n">observed</span> <span class="o">-</span> <span class="n">expected</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">expected</span>
+        <span class="n">chi2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">terms</span><span class="p">)</span>
 
-    dof = np.product(np.array(observed.shape) - 1)
-    p = 1 - scipy.stats.chi2.cdf(chi2, dof)
+    <span class="n">dof</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">observed</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">chi2</span><span class="p">,</span> <span class="n">dof</span><span class="p">)</span>
 
-    &quot;&quot;&quot;
-    # scipy
-    dof = expected.size - sum(expected.shape) + expected.ndim - 1
-    size = observed.size
-    ddof = np.array(size - 1 - dof)
-    num_obs = scipy.stats.stats._count(terms, axis=None)
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    # scipy</span>
+<span class="sd">    dof = expected.size - sum(expected.shape) + expected.ndim - 1</span>
+<span class="sd">    size = observed.size</span>
+<span class="sd">    ddof = np.array(size - 1 - dof)</span>
+<span class="sd">    num_obs = scipy.stats.stats._count(terms, axis=None)</span>
 
-    print(&quot;dof:&quot;, dof)
-    print(&quot;size&quot;, size)
-    print(&quot;ddof:&quot;, ddof)
-    print(&quot;num_obs:&quot;, num_obs)
-    print(&quot;num_obs - 1 - ddof:&quot;, num_obs - 1 - ddof)
-    p = scipy.stats.chi2.sf(chi2, num_obs - 1 - ddof)
-    &quot;&quot;&quot;
+<span class="sd">    print(&quot;dof:&quot;, dof)</span>
+<span class="sd">    print(&quot;size&quot;, size)</span>
+<span class="sd">    print(&quot;ddof:&quot;, ddof)</span>
+<span class="sd">    print(&quot;num_obs:&quot;, num_obs)</span>
+<span class="sd">    print(&quot;num_obs - 1 - ddof:&quot;, num_obs - 1 - ddof)</span>
+<span class="sd">    p = scipy.stats.chi2.sf(chi2, num_obs - 1 - ddof)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    return (chi2, p, dof, expected)
+    <span class="k">return</span> <span class="p">(</span><span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -438,11 +438,11 @@ observed
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(
-    scipy.stats.chi2_contingency(observed),
-    &quot;&quot;,
-    my_chi2_contingency(observed),
-)
+<span></span><span class="p">(</span>
+    <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">observed</span><span class="p">),</span>
+    <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">my_chi2_contingency</span><span class="p">(</span><span class="n">observed</span><span class="p">),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -472,10 +472,10 @@ observed
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def cramers_v(observed):
-    chi2, _, _, _ = my_chi2_contingency(observed)
-    n = observed.sum()
-    return np.sqrt(chi2 / (n * (min(observed.shape) - 1)))
+<span></span><span class="k">def</span> <span class="nf">cramers_v</span><span class="p">(</span><span class="n">observed</span><span class="p">):</span>
+    <span class="n">chi2</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">my_chi2_contingency</span><span class="p">(</span><span class="n">observed</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">observed</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">chi2</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">observed</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -485,16 +485,16 @@ observed
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(
-    cramers_v(np.array([
-        [34, 61, 53],
-        [34, 61, 53],
-    ])),
-    cramers_v(np.array([
-        [34, 61, 0],
-        [0, 0, 53],
-    ]))
-)
+<span></span><span class="p">(</span>
+    <span class="n">cramers_v</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">53</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">53</span><span class="p">],</span>
+    <span class="p">])),</span>
+    <span class="n">cramers_v</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">53</span><span class="p">],</span>
+    <span class="p">]))</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -514,14 +514,14 @@ observed
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def cramers_v_list(mesh_a1, mesh_a2):
-    a1 = mesh_a1.flatten()
-    a2 = mesh_a2.flatten()
-    b = np.c_[a1, a2, 100 - a1, 100 - a2]
-    return np.apply_along_axis(
-        lambda x: cramers_v(x.reshape(2, 2, order=&quot;F&quot;)),
-        axis=1, arr=b
-    )
+<span></span><span class="k">def</span> <span class="nf">cramers_v_list</span><span class="p">(</span><span class="n">mesh_a1</span><span class="p">,</span> <span class="n">mesh_a2</span><span class="p">):</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">mesh_a1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">mesh_a2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">a1</span><span class="p">,</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">a2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cramers_v</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)),</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">arr</span><span class="o">=</span><span class="n">b</span>
+    <span class="p">)</span>
 
 </pre></div>
 </div>
@@ -532,14 +532,14 @@ observed
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a = np.arange(0, 100 + 1)
-mesh_a1, mesh_a2 = np.meshgrid(a, a)
-quad_contour_set = plt.contour(mesh_a1, mesh_a2,
-                                           cramers_v_list(mesh_a1, mesh_a2).reshape(mesh_a1.shape))
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">mesh_a1</span><span class="p">,</span> <span class="n">mesh_a2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">quad_contour_set</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">mesh_a1</span><span class="p">,</span> <span class="n">mesh_a2</span><span class="p">,</span>
+                                           <span class="n">cramers_v_list</span><span class="p">(</span><span class="n">mesh_a1</span><span class="p">,</span> <span class="n">mesh_a2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">mesh_a1</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
-plt.colorbar(quad_contour_set, )
-plt.xlim((-5, 105))
-plt.ylim((-5, 105))
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">quad_contour_set</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">105</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">105</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -557,7 +557,7 @@ plt.ylim((-5, 105))
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/notebooks_scipy_stats_chi2_and_cramels_v_7_1.png" src="../../../_images/notebooks_scipy_stats_chi2_and_cramels_v_7_1.png" />
+<img alt="../../../../_images/contents_notebooks_scipy_stats_chi2_and_cramels_v_7_1.png" src="../../../../_images/contents_notebooks_scipy_stats_chi2_and_cramels_v_7_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -605,7 +605,7 @@ plt.ylim((-5, 105))
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
+            URL_ROOT:'../../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -613,17 +613,17 @@ plt.ylim((-5, 105))
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
   
 
   

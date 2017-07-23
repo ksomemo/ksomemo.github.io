@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/datasets-R/Untitled.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/datasets-R/Untitled.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,7 +349,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -359,11 +359,11 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_html.html
-# pip install html5lib
-url = &quot;http://d.hatena.ne.jp/hoxo_m/20120214/p1&quot;
-dfs = pd.read_html(url, header=0)
-type(dfs), len(dfs), type(dfs[0])
+<span></span><span class="c1"># http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_html.html</span>
+<span class="c1"># pip install html5lib</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://d.hatena.ne.jp/hoxo_m/20120214/p1&quot;</span>
+<span class="n">dfs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">dfs</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">dfs</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">dfs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -383,8 +383,8 @@ type(dfs), len(dfs), type(dfs[0])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>dnames = dfs[0]
-dnames.tail()
+<span></span><span class="n">dnames</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dnames</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -457,17 +457,17 @@ dnames.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>#  pip install pyquery
-# Successfully installed cssselect-0.9.1 pyquery-1.2.13
-# http://pyquery.readthedocs.io/en/latest/attributes.html
-import pyquery
+<span></span><span class="c1">#  pip install pyquery</span>
+<span class="c1"># Successfully installed cssselect-0.9.1 pyquery-1.2.13</span>
+<span class="c1"># http://pyquery.readthedocs.io/en/latest/attributes.html</span>
+<span class="kn">import</span> <span class="nn">pyquery</span>
 
-d = pyquery.PyQuery(url)
-# Chrome で copy as selector
-# #days &gt; div &gt; div &gt; div.section &gt; table:nth-child(15) &gt; tbody &gt; tr:nth-child(1) &gt; th:nth-child(4)
-dnames[&quot;詳細_URL&quot;] = pd.Series(pyquery.PyQuery(a).attr(&#39;href&#39;) for a in d.find(&quot;table:first tr td:nth-child(4) &gt; a&quot;))
-dnames[&quot;DL_URL&quot;] = pd.Series(pyquery.PyQuery(a).attr(&#39;href&#39;) for a in d.find(&quot;table:first tr td:nth-child(5) &gt; a&quot;))
-dnames.tail()
+<span class="n">d</span> <span class="o">=</span> <span class="n">pyquery</span><span class="o">.</span><span class="n">PyQuery</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="c1"># Chrome で copy as selector</span>
+<span class="c1"># #days &gt; div &gt; div &gt; div.section &gt; table:nth-child(15) &gt; tbody &gt; tr:nth-child(1) &gt; th:nth-child(4)</span>
+<span class="n">dnames</span><span class="p">[</span><span class="s2">&quot;詳細_URL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pyquery</span><span class="o">.</span><span class="n">PyQuery</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;table:first tr td:nth-child(4) &gt; a&quot;</span><span class="p">))</span>
+<span class="n">dnames</span><span class="p">[</span><span class="s2">&quot;DL_URL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">pyquery</span><span class="o">.</span><span class="n">PyQuery</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;table:first tr td:nth-child(5) &gt; a&quot;</span><span class="p">))</span>
+<span class="n">dnames</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -552,7 +552,7 @@ dnames.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>d, d(&quot;table&quot;), type(d[0])
+<span></span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -572,8 +572,8 @@ dnames.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>methods = pd.read_html(&quot;http://d.hatena.ne.jp/hoxo_m/20120214/p1&quot;)[1]
-methods
+<span></span><span class="n">methods</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s2">&quot;http://d.hatena.ne.jp/hoxo_m/20120214/p1&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">methods</span>
 </pre></div>
 </div>
 </div>
@@ -623,9 +623,9 @@ methods
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>methods.columns = [&quot;method&quot;, &quot;dataset_name&quot;]
-method_expand = methods.dataset_name.str.replace(&quot;, &quot;, &quot;,&quot;).str.split(&quot;,&quot;, expand=True)
-method_expand
+<span></span><span class="n">methods</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">,</span> <span class="s2">&quot;dataset_name&quot;</span><span class="p">]</span>
+<span class="n">method_expand</span> <span class="o">=</span> <span class="n">methods</span><span class="o">.</span><span class="n">dataset_name</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">method_expand</span>
 </pre></div>
 </div>
 </div>
@@ -715,10 +715,10 @@ method_expand
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>melted = pd.melt(
-    pd.concat([methods[[&quot;method&quot;]], method_expand], axis=1),
-    id_vars=&quot;method&quot;)
-melted.tail()
+<span></span><span class="n">melted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">methods</span><span class="p">[[</span><span class="s2">&quot;method&quot;</span><span class="p">]],</span> <span class="n">method_expand</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">id_vars</span><span class="o">=</span><span class="s2">&quot;method&quot;</span><span class="p">)</span>
+<span class="n">melted</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -779,10 +779,10 @@ melted.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>melted = melted.dropna()
-melted[&quot;lower_value&quot;] = melted.value.str.lower()
-method_data_map = melted.sort_values([&quot;method&quot;, &quot;lower_value&quot;])[[&quot;method&quot;, &quot;value&quot;]].reset_index(drop=True)
-method_data_map.tail()
+<span></span><span class="n">melted</span> <span class="o">=</span> <span class="n">melted</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">melted</span><span class="p">[</span><span class="s2">&quot;lower_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">melted</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">method_data_map</span> <span class="o">=</span> <span class="n">melted</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;method&quot;</span><span class="p">,</span> <span class="s2">&quot;lower_value&quot;</span><span class="p">])[[</span><span class="s2">&quot;method&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">method_data_map</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -837,9 +837,9 @@ method_data_map.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>method_data_map[&quot;適用可能&quot;] = &quot;◯&quot;
-method_data_map_pivoted = method_data_map.pivot(index=&quot;value&quot;, columns=&quot;method&quot;, values=&quot;適用可能&quot;).fillna(&quot;☓&quot;).reset_index()
-method_data_map_pivoted.head()
+<span></span><span class="n">method_data_map</span><span class="p">[</span><span class="s2">&quot;適用可能&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;◯&quot;</span>
+<span class="n">method_data_map_pivoted</span> <span class="o">=</span> <span class="n">method_data_map</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;method&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;適用可能&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;☓&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">method_data_map_pivoted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -912,8 +912,8 @@ method_data_map_pivoted.head()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>dnames_detail = dnames.merge(method_data_map_pivoted, left_on=&quot;データセット名&quot;, right_on=&quot;value&quot;, how=&quot;outer&quot;)
-dnames_detail
+<span></span><span class="n">dnames_detail</span> <span class="o">=</span> <span class="n">dnames</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">method_data_map_pivoted</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">&quot;データセット名&quot;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">)</span>
+<span class="n">dnames_detail</span>
 </pre></div>
 </div>
 </div>
@@ -1402,7 +1402,7 @@ dnames_detail
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1410,17 +1410,17 @@ dnames_detail
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

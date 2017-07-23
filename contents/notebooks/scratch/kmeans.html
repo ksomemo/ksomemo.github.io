@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/scratch/kmeans.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/scratch/kmeans.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,13 +349,13 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>%matplotlib inline
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib import animation as ani
-import seaborn as sns
-import pandas as pd
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span> <span class="k">as</span> <span class="n">ani</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -365,7 +365,7 @@ import pandas as pd
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cluster.
+<span></span><span class="n">cluster</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -375,9 +375,9 @@ import pandas as pd
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># k-means
-from sklearn import cluster
-from sklearn import preprocessing
+<span></span><span class="c1"># k-means</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cluster</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
 </pre></div>
 </div>
 </div>
@@ -387,9 +387,9 @@ from sklearn import preprocessing
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris = sns.load_dataset(&quot;iris&quot;)
-le = preprocessing.LabelEncoder()
-le.fit_transform(iris.species)
+<span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -416,8 +416,8 @@ le.fit_transform(iris.species)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf = cluster.KMeans(n_clusters=3, verbose=1)
-clf.fit(iris[[&quot;sepal_length&quot;, &quot;sepal_width&quot;]], iris.species)
+<span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris</span><span class="p">[[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">]],</span> <span class="n">iris</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -581,7 +581,7 @@ Converged at iteration 16
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>[a for a in dir(clf) if not a.startswith(&quot;_&quot;) and a.endswith(&quot;_&quot;)]
+<span></span><span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">a</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -601,7 +601,7 @@ Converged at iteration 16
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf.inertia_, clf.n_iter_
+<span></span><span class="n">clf</span><span class="o">.</span><span class="n">inertia_</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">n_iter_</span>
 </pre></div>
 </div>
 </div>
@@ -621,7 +621,7 @@ Converged at iteration 16
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf.cluster_centers_
+<span></span><span class="n">clf</span><span class="o">.</span><span class="n">cluster_centers_</span>
 </pre></div>
 </div>
 </div>
@@ -643,10 +643,10 @@ Converged at iteration 16
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris_kmeans = iris.copy()
-iris_kmeans[&quot;species&quot;] = clf.labels_
-sns.lmplot(data=iris_kmeans, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue=&quot;species&quot;, fit_reg=False)
-sns.lmplot(data=iris, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue=&quot;species&quot;, fit_reg=False)
+<span></span><span class="n">iris_kmeans</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">iris_kmeans</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">labels_</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris_kmeans</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -665,14 +665,14 @@ sns.lmplot(data=iris, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_kmeans_8_1.png" src="../../_images/notebooks_scratch_kmeans_8_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_kmeans_8_1.png" src="../../../_images/contents_notebooks_scratch_kmeans_8_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_kmeans_8_2.png" src="../../_images/notebooks_scratch_kmeans_8_2.png" />
+<img alt="../../../_images/contents_notebooks_scratch_kmeans_8_2.png" src="../../../_images/contents_notebooks_scratch_kmeans_8_2.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -681,7 +681,7 @@ sns.lmplot(data=iris, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from scipy.spatial import distance
+<span></span><span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance</span>
 </pre></div>
 </div>
 </div>
@@ -691,7 +691,7 @@ sns.lmplot(data=iris, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>distance.euclidean([0, 0], [1, 1])
+<span></span><span class="n">distance</span><span class="o">.</span><span class="n">euclidean</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -711,8 +711,8 @@ sns.lmplot(data=iris, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://stackoverflow.com/questions/1401712/how-can-the-euclidean-distance-be-calculated-with-numpy
-np.linalg.norm(np.array([0, 0]) - np.array([1, 1]))
+<span></span><span class="c1"># http://stackoverflow.com/questions/1401712/how-can-the-euclidean-distance-be-calculated-with-numpy</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
 
 </pre></div>
 </div>
@@ -733,8 +733,8 @@ np.linalg.norm(np.array([0, 0]) - np.array([1, 1]))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html
-np.argmin([2,3,1]), np.argmax([2,3,1])
+<span></span><span class="c1"># http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmin.html</span>
+<span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -754,8 +754,8 @@ np.argmin([2,3,1]), np.argmax([2,3,1])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>reshaped = np.array([4,5,6,1,2,3]).reshape(2, 3)
-reshaped
+<span></span><span class="n">reshaped</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">reshaped</span>
 </pre></div>
 </div>
 </div>
@@ -776,8 +776,8 @@ reshaped
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.argmin(reshaped), np.argmax(reshaped)
-# flattenしたときのIndex
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">reshaped</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">reshaped</span><span class="p">)</span>
+<span class="c1"># flattenしたときのIndex</span>
 </pre></div>
 </div>
 </div>
@@ -797,10 +797,10 @@ reshaped
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-print(pd.isnull(np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, np.nan])))
-print(pd.isnull(np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])))
-np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="bp">None</span><span class="p">])))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="bp">None</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -829,9 +829,9 @@ np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># ランダムにクラスタとなるデータをK個選ぶ
-# 各データは、K個のデータうち、一番近いクラスタに属させる
-# クラスタ内の重心を変更する
+<span></span><span class="c1"># ランダムにクラスタとなるデータをK個選ぶ</span>
+<span class="c1"># 各データは、K個のデータうち、一番近いクラスタに属させる</span>
+<span class="c1"># クラスタ内の重心を変更する</span>
 </pre></div>
 </div>
 </div>
@@ -841,29 +841,29 @@ np.array([&#39;a&#39;, 1, &#39;b&#39;, np.nan, None])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import collections
+<span></span><span class="kn">import</span> <span class="nn">collections</span>
 
-def kmeans(data, n_cluster=3, max_iter=300, random_state=None, verbose=None):
-    # 初期化
-    centroids = init_centroids(data, random_state)
+<span class="k">def</span> <span class="nf">kmeans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_cluster</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="c1"># 初期化</span>
+    <span class="n">centroids</span> <span class="o">=</span> <span class="n">init_centroids</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
 
-    # 所属クラスタ
-    old_centroids = centroids
-    old_clusters = np.zeros(len(data))
+    <span class="c1"># 所属クラスタ</span>
+    <span class="n">old_centroids</span> <span class="o">=</span> <span class="n">centroids</span>
+    <span class="n">old_clusters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 
-    for i in range(max_iter):
-        new_clusters = clusters(data, centroids)
-        if verbose:
-            print(i, collections.Counter(new_clusters), centroids)
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iter</span><span class="p">):</span>
+        <span class="n">new_clusters</span> <span class="o">=</span> <span class="n">clusters</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">centroids</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">new_clusters</span><span class="p">),</span> <span class="n">centroids</span><span class="p">)</span>
 
-        centroids = move_centroids(data, n_cluster, new_clusters)
-        if old_centroids == centroids:
-            print(&quot;old_centroids == centroids&quot;)
-            print(old_centroids)
-            print(centroids)
-            break
-        old_centroids = centroids
-    return new_clusters
+        <span class="n">centroids</span> <span class="o">=</span> <span class="n">move_centroids</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_cluster</span><span class="p">,</span> <span class="n">new_clusters</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">old_centroids</span> <span class="o">==</span> <span class="n">centroids</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;old_centroids == centroids&quot;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">old_centroids</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">centroids</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="n">old_centroids</span> <span class="o">=</span> <span class="n">centroids</span>
+    <span class="k">return</span> <span class="n">new_clusters</span>
 </pre></div>
 </div>
 </div>
@@ -873,11 +873,11 @@ def kmeans(data, n_cluster=3, max_iter=300, random_state=None, verbose=None):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def init_centroids(data, random_state):
-    np.random.seed(random_state)
-    centroids_idx = np.random.choice(data.index, n_cluster)
-    centroids = [(data.loc[idx, &quot;sepal_length&quot;], data.loc[idx, &quot;sepal_width&quot;]) for idx in centroids_idx]
-    return centroids
+<span></span><span class="k">def</span> <span class="nf">init_centroids</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">random_state</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+    <span class="n">centroids_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">n_cluster</span><span class="p">)</span>
+    <span class="n">centroids</span> <span class="o">=</span> <span class="p">[(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">centroids_idx</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">centroids</span>
 </pre></div>
 </div>
 </div>
@@ -887,15 +887,15 @@ def kmeans(data, n_cluster=3, max_iter=300, random_state=None, verbose=None):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def clusters(data, centroids):
-    d_centroids = []
-    for length, width in centroids:
-        d_centroids.append(np.linalg.norm(
-            np.c_[data.sepal_length - length, data.sepal_width - width], axis=1))
+<span></span><span class="k">def</span> <span class="nf">clusters</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">centroids</span><span class="p">):</span>
+    <span class="n">d_centroids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">length</span><span class="p">,</span> <span class="n">width</span> <span class="ow">in</span> <span class="n">centroids</span><span class="p">:</span>
+        <span class="n">d_centroids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">sepal_length</span> <span class="o">-</span> <span class="n">length</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">sepal_width</span> <span class="o">-</span> <span class="n">width</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 
-    d_centroids = np.array(d_centroids).T
-    clusters = np.argmin(d_centroids, axis=1)
-    return clusters
+    <span class="n">d_centroids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">d_centroids</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">d_centroids</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">clusters</span>
 
 </pre></div>
 </div>
@@ -906,13 +906,13 @@ def kmeans(data, n_cluster=3, max_iter=300, random_state=None, verbose=None):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def move_centroids(data, n_cluster, clusters):
-    new_centroids = []
-    for c in range(n_cluster):
-        c_data = data[clusters == c]
-        center = c_data.sepal_length.mean(), c_data.sepal_width.mean()
-        new_centroids.append(center)
-    return new_centroids
+<span></span><span class="k">def</span> <span class="nf">move_centroids</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_cluster</span><span class="p">,</span> <span class="n">clusters</span><span class="p">):</span>
+    <span class="n">new_centroids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cluster</span><span class="p">):</span>
+        <span class="n">c_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">clusters</span> <span class="o">==</span> <span class="n">c</span><span class="p">]</span>
+        <span class="n">center</span> <span class="o">=</span> <span class="n">c_data</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">c_data</span><span class="o">.</span><span class="n">sepal_width</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">new_centroids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">center</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">new_centroids</span>
 
 </pre></div>
 </div>
@@ -923,21 +923,21 @@ def kmeans(data, n_cluster=3, max_iter=300, random_state=None, verbose=None):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import ipywidgets
+<span></span><span class="kn">import</span> <span class="nn">ipywidgets</span>
 
-@ipywidgets.interact(
-    n_cluster=(2, 6, 1),
-    max_iter=(1, 100, 1),
-    verbose=False
-)
-def run_my_kmeans(n_cluster=3, max_iter=30, verbose=False):
-    iris_my_kmeans = iris.copy()
-    iris_my_kmeans[&quot;species&quot;] = kmeans(iris_my_kmeans,
-                                                       n_cluster=n_cluster,
-                                                       max_iter=max_iter,
-                                                       random_state=0,
-                                                       verbose=verbose)
-    sns.lmplot(data=iris_my_kmeans, x=&quot;sepal_length&quot;, y=&quot;sepal_width&quot;, hue=&quot;species&quot;, fit_reg=False)
+<span class="nd">@ipywidgets.interact</span><span class="p">(</span>
+    <span class="n">n_cluster</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">max_iter</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">run_my_kmeans</span><span class="p">(</span><span class="n">n_cluster</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">iris_my_kmeans</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">iris_my_kmeans</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="p">(</span><span class="n">iris_my_kmeans</span><span class="p">,</span>
+                                                       <span class="n">n_cluster</span><span class="o">=</span><span class="n">n_cluster</span><span class="p">,</span>
+                                                       <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
+                                                       <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                       <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris_my_kmeans</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -970,7 +970,7 @@ old_centroids == centroids
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_scratch_kmeans_21_1.png" src="../../_images/notebooks_scratch_kmeans_21_1.png" />
+<img alt="../../../_images/contents_notebooks_scratch_kmeans_21_1.png" src="../../../_images/contents_notebooks_scratch_kmeans_21_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -979,12 +979,12 @@ old_centroids == centroids
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>labels = pd.DataFrame({
-        &quot;sk&quot;: iris_kmeans.species,
-        &quot;my&quot;: iris_my_kmeans.species
-    })
-labels[&quot;same&quot;] = labels.sk == labels.my
-labels.same.sum(), labels.shape[0]
+<span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s2">&quot;sk&quot;</span><span class="p">:</span> <span class="n">iris_kmeans</span><span class="o">.</span><span class="n">species</span><span class="p">,</span>
+        <span class="s2">&quot;my&quot;</span><span class="p">:</span> <span class="n">iris_my_kmeans</span><span class="o">.</span><span class="n">species</span>
+    <span class="p">})</span>
+<span class="n">labels</span><span class="p">[</span><span class="s2">&quot;same&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">sk</span> <span class="o">==</span> <span class="n">labels</span><span class="o">.</span><span class="n">my</span>
+<span class="n">labels</span><span class="o">.</span><span class="n">same</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1033,7 +1033,7 @@ labels.same.sum(), labels.shape[0]
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1041,17 +1041,17 @@ labels.same.sum(), labels.shape[0]
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

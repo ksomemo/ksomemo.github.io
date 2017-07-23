@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -137,7 +137,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -165,7 +165,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>beta</li>
     
@@ -173,7 +173,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/numpy/numpy.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/numpy/numpy.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -386,12 +386,12 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -401,14 +401,14 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.seed(0)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-x = np.arange(-5, 5, 0.1)
-y = np.arange(-5, 5, 0.1)
-xx, yy = np.meshgrid(x, y)#, sparse=True)
-z = np.sin(xx**2 + yy**2) / (xx**2 + yy**2)
-h = plt.contourf(x,y,z)
-plt.colorbar(h)
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="c1">#, sparse=True)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">yy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">xx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">yy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -426,7 +426,7 @@ plt.colorbar(h)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_numpy_numpy_1_1.png" src="../../_images/notebooks_numpy_numpy_1_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_1_1.png" src="../../../_images/contents_notebooks_numpy_numpy_1_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -435,13 +435,13 @@ plt.colorbar(h)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>xx_df = pd.DataFrame(xx)
-yy_df = pd.DataFrame(yy)
+<span></span><span class="n">xx_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
+<span class="n">yy_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span>
 
-xx_df_drop_duplicated = xx_df.drop_duplicates()
-print(len(xx_df), len(yy_df))
-print((xx_df_drop_duplicated == yy_df.T.drop_duplicates()).T.drop_duplicates())
-xx_df_drop_duplicated
+<span class="n">xx_df_drop_duplicated</span> <span class="o">=</span> <span class="n">xx_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xx_df</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">yy_df</span><span class="p">))</span>
+<span class="k">print</span><span class="p">((</span><span class="n">xx_df_drop_duplicated</span> <span class="o">==</span> <span class="n">yy_df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">())</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">())</span>
+<span class="n">xx_df_drop_duplicated</span>
 </pre></div>
 </div>
 </div>
@@ -525,8 +525,8 @@ xx_df_drop_duplicated
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>xx_sp, yy_sp = np.meshgrid(x, y, sparse=True)
-pd.DataFrame(xx_sp == yy_sp.T).sum(axis=1), pd.DataFrame(xx_sp == x).sum(axis=1)
+<span></span><span class="n">xx_sp</span><span class="p">,</span> <span class="n">yy_sp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">xx_sp</span> <span class="o">==</span> <span class="n">yy_sp</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">xx_sp</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -548,15 +548,15 @@ pd.DataFrame(xx_sp == yy_sp.T).sum(axis=1), pd.DataFrame(xx_sp == x).sum(axis=1)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x, y = np.meshgrid([1,2,3,4], [5,6,7])
-x_sp, y_sp = np.meshgrid([1,2,3,4], [5,6,7], sparse=True)
-pd.concat(
-    [pd.DataFrame(x), pd.DataFrame(y), pd.DataFrame(x + y)], axis=1)
+<span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<span class="n">x_sp</span><span class="p">,</span> <span class="n">y_sp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">sparse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-x, y, z = np.meshgrid([1,2,3,4], [5,6,7], [8, 9])
-x_sp, y_sp, z_sp = np.meshgrid([1,2,3,4], [5,6,7], [8,9], sparse=True)
-pd.concat(
-    [pd.Panel(x), pd.Panel(y), pd.Panel(z), pd.Panel(x + y + z)], axis=1)
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="n">x_sp</span><span class="p">,</span> <span class="n">y_sp</span><span class="p">,</span> <span class="n">z_sp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="n">sparse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Panel</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Panel</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Panel</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Panel</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -580,7 +580,7 @@ Minor_axis axis: 0 to 1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>[(v) for l, v in pd.Panel(y).iteritems()]
+<span></span><span class="p">[(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">Panel</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">iteritems</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -612,8 +612,8 @@ Minor_axis axis: 0 to 1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.concat(
-    [pd.DataFrame(x_sp), pd.DataFrame(y_sp.T), pd.DataFrame(x_sp + y_sp)])
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x_sp</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_sp</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x_sp</span> <span class="o">+</span> <span class="n">y_sp</span><span class="p">)])</span>
 </pre></div>
 </div>
 </div>
@@ -658,7 +658,7 @@ Minor_axis axis: 0 to 1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x_sp
+<span></span><span class="n">x_sp</span>
 </pre></div>
 </div>
 </div>
@@ -681,7 +681,7 @@ Minor_axis axis: 0 to 1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>y_sp.T
+<span></span><span class="n">y_sp</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -701,7 +701,7 @@ Minor_axis axis: 0 to 1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x_sp + y_sp
+<span></span><span class="n">x_sp</span> <span class="o">+</span> <span class="n">y_sp</span>
 </pre></div>
 </div>
 </div>
@@ -734,7 +734,7 @@ Minor_axis axis: 0 to 1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>[pd.DataFrame(x_sp), pd.DataFrame(y_sp.T), pd.DataFrame(x_sp + y_sp)]
+<span></span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x_sp</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_sp</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x_sp</span> <span class="o">+</span> <span class="n">y_sp</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -778,8 +778,8 @@ Minor_axis axis: 0 to 1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>contourf = plt.contourf(x, y, x + y)
-plt.colorbar(contourf)
+<span></span><span class="n">contourf</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">contourf</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -857,7 +857,7 @@ plt.colorbar(contourf)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_numpy_numpy_11_1.png" src="../../_images/notebooks_numpy_numpy_11_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_11_1.png" src="../../../_images/contents_notebooks_numpy_numpy_11_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -866,8 +866,8 @@ plt.colorbar(contourf)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ary = np.array([1,2,3,4,5,6,7,8]).reshape(2,2,2).T
-ary
+<span></span><span class="n">ary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">ary</span>
 </pre></div>
 </div>
 </div>
@@ -891,7 +891,7 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>ary.ravel()
+<span></span><span class="n">ary</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -911,19 +911,19 @@ ary
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.c_.html
-# http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.r_.html
-# http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.concatenate.html
-#
-ar1 = np.array(range(6)).reshape(2, 3)
-ar2 = np.array(range(1, 7)).reshape(2, 3)
+<span></span><span class="c1"># http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.c_.html</span>
+<span class="c1"># http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.r_.html</span>
+<span class="c1"># http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.concatenate.html</span>
+<span class="c1">#</span>
+<span class="n">ar1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">ar2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
-c_ = np.c_[ar1, ar2]
-r_ = np.r_[ar1, ar2]
-concat_r = np.concatenate([ar1, ar2])
-concat_c = np.concatenate([ar1, ar2], axis=1)
+<span class="n">c_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">ar1</span><span class="p">,</span> <span class="n">ar2</span><span class="p">]</span>
+<span class="n">r_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">ar1</span><span class="p">,</span> <span class="n">ar2</span><span class="p">]</span>
+<span class="n">concat_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ar1</span><span class="p">,</span> <span class="n">ar2</span><span class="p">])</span>
+<span class="n">concat_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ar1</span><span class="p">,</span> <span class="n">ar2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-pd.DataFrame(c_)
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">c_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -975,7 +975,7 @@ pd.DataFrame(c_)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.DataFrame(r_)
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1030,7 +1030,7 @@ pd.DataFrame(c_)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(pd.DataFrame(r_) == pd.DataFrame(concat_r)).all().sum()
+<span></span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r_</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">concat_r</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1050,7 +1050,7 @@ pd.DataFrame(c_)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(pd.DataFrame(c_) == pd.DataFrame(concat_c)).all().sum()
+<span></span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">c_</span><span class="p">)</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">concat_c</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1070,18 +1070,18 @@ pd.DataFrame(c_)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Function    Description
-diag        対角要素を抜き出す
-dot 内積
-trace       対角要素の和
-det 行列式
-eig 固有値と固有ベクトルへ分解
-inv 転置
-pinv        ムーア-ペンローズの擬似逆行列
-qr  QR分解
-svd SVD分解
-solve       Aが正方行列のときAx=bのxを求める
-stsq        最小二乗解を計算
+<span></span><span class="n">Function</span>    <span class="n">Description</span>
+<span class="n">diag</span>        <span class="err">対角要素を抜き出す</span>
+<span class="n">dot</span> <span class="err">内積</span>
+<span class="n">trace</span>       <span class="err">対角要素の和</span>
+<span class="n">det</span> <span class="err">行列式</span>
+<span class="n">eig</span> <span class="err">固有値と固有ベクトルへ分解</span>
+<span class="n">inv</span> <span class="err">転置</span>
+<span class="n">pinv</span>        <span class="err">ムーア</span><span class="o">-</span><span class="err">ペンローズの擬似逆行列</span>
+<span class="n">qr</span>  <span class="n">QR分解</span>
+<span class="n">svd</span> <span class="n">SVD分解</span>
+<span class="n">solve</span>       <span class="n">Aが正方行列のときAx</span><span class="o">=</span><span class="n">bのxを求める</span>
+<span class="n">stsq</span>        <span class="err">最小二乗解を計算</span>
 </pre></div>
 </div>
 </div>
@@ -1103,7 +1103,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a
+<span></span><span class="n">a</span>
 </pre></div>
 </div>
 </div>
@@ -1124,7 +1124,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.diag(a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1144,7 +1144,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a.diagonal()
+<span></span><span class="n">a</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1164,7 +1164,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.dot(a, a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1185,7 +1185,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a.dot(a)
+<span></span><span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1206,7 +1206,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a @ a
+<span></span><span class="n">a</span> <span class="err">@</span> <span class="n">a</span>
 </pre></div>
 </div>
 </div>
@@ -1227,7 +1227,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.trace(a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1247,7 +1247,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a.trace()
+<span></span><span class="n">a</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1267,7 +1267,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.det(a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1287,7 +1287,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.eig(a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1308,7 +1308,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.inv(a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1329,7 +1329,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.pinv(a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1350,7 +1350,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.qr(a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1372,7 +1372,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.svd(a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1396,7 +1396,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.solve(a, a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1417,7 +1417,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.lstsq(a, a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1441,7 +1441,7 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.invert(a)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1462,13 +1462,13 @@ stsq        最小二乗解を計算
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>&quot;&quot;&quot;
-x + y = 3
-2x + 4y = 10
-([[1, 1],      ([[x],     ([[3],
-             *         =
-   [2, 4]])    [y]])       [10]])
-&quot;&quot;&quot;
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">x + y = 3</span>
+<span class="sd">2x + 4y = 10</span>
+<span class="sd">([[1, 1],      ([[x],     ([[3],</span>
+<span class="sd">             *         =</span>
+<span class="sd">   [2, 4]])    [y]])       [10]])</span>
+<span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1478,7 +1478,7 @@ x + y = 3
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.arange(4).reshape(2, 2)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1499,9 +1499,9 @@ x + y = 3
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a = np.array([[1, 1], [2, 4]])
-b = np.array([[3], [10]])
-print(a, &quot;\n&quot;*2, b)
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1523,8 +1523,8 @@ print(a, &quot;\n&quot;*2, b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>type(a)
-?np.ndarray
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">?</span>np.ndarray
 </pre></div>
 </div>
 </div>
@@ -1534,7 +1534,7 @@ print(a, &quot;\n&quot;*2, b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.solve(a, b)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1555,7 +1555,7 @@ print(a, &quot;\n&quot;*2, b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.inv(a).dot(b)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1576,8 +1576,8 @@ print(a, &quot;\n&quot;*2, b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://docs.scipy.org/doc/numpy/reference/generated/numpy.multiply.html
-np.multiply(np.linalg.inv(a), b)
+<span></span><span class="c1"># http://docs.scipy.org/doc/numpy/reference/generated/numpy.multiply.html</span>
+<span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1598,7 +1598,7 @@ np.multiply(np.linalg.inv(a), b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.linalg.inv(a) @ b
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="err">@</span> <span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -1619,7 +1619,7 @@ np.multiply(np.linalg.inv(a), b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.matrix(np.linalg.inv(a)) * b
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">*</span> <span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -1640,7 +1640,7 @@ np.multiply(np.linalg.inv(a), b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a * b
+<span></span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -1661,7 +1661,7 @@ np.multiply(np.linalg.inv(a), b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>a.dot(b)
+<span></span><span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1682,7 +1682,7 @@ np.multiply(np.linalg.inv(a), b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>b.dot(b.T)
+<span></span><span class="n">b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1703,7 +1703,7 @@ np.multiply(np.linalg.inv(a), b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>b.T.dot(b)
+<span></span><span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1723,7 +1723,7 @@ np.multiply(np.linalg.inv(a), b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.inner(b, b)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1744,7 +1744,7 @@ np.multiply(np.linalg.inv(a), b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.inner(b.T, b.T)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1764,9 +1764,9 @@ np.multiply(np.linalg.inv(a), b)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>outer_ab = np.outer(a, b)
-outer_ba = np.outer(b, a)
-outer_ab == outer_ba.T
+<span></span><span class="n">outer_ab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">outer_ba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">outer_ab</span> <span class="o">==</span> <span class="n">outer_ba</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -1789,7 +1789,7 @@ outer_ab == outer_ba.T
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>outer_ab
+<span></span><span class="n">outer_ab</span>
 </pre></div>
 </div>
 </div>
@@ -1812,7 +1812,7 @@ outer_ab == outer_ba.T
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.dot(a.T, b)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1833,8 +1833,8 @@ outer_ab == outer_ba.T
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># ?np.outer
-np.outer(np.array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=object), [1, 2, 3])
+<span></span><span class="c1"># ?np.outer</span>
+<span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1856,7 +1856,7 @@ np.outer(np.array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=object), [1, 2,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.outer(np.array([1,2,3]), [1, 2, 3])
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1878,7 +1878,7 @@ np.outer(np.array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=object), [1, 2,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.array([1,2,3]).reshape(3, 1)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1900,7 +1900,7 @@ np.outer(np.array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=object), [1, 2,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.array([1,2,3]).reshape(3, 1).dot(np.array([1,2,3]).reshape(1, 3))
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1922,7 +1922,7 @@ np.outer(np.array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=object), [1, 2,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sns.plt.plot([0,1], [0,1]); sns.plt.title(&#39;tofu - 豆腐&#39;)
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span> <span class="n">sns</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;tofu - 豆腐&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1940,7 +1940,7 @@ np.outer(np.array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=object), [1, 2,
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_numpy_numpy_58_1.png" src="../../_images/notebooks_numpy_numpy_58_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_58_1.png" src="../../../_images/contents_notebooks_numpy_numpy_58_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1949,8 +1949,8 @@ np.outer(np.array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=object), [1, 2,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sns.set(font=&#39;IPAexGothic&#39;)
-sns.plt.plot([0,1], [0,1]);  sns.plt.title(&#39;tofu - 豆腐&#39;)
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="s1">&#39;IPAexGothic&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>  <span class="n">sns</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;tofu - 豆腐&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1968,7 +1968,7 @@ sns.plt.plot([0,1], [0,1]);  sns.plt.title(&#39;tofu - 豆腐&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_numpy_numpy_59_1.png" src="../../_images/notebooks_numpy_numpy_59_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_59_1.png" src="../../../_images/contents_notebooks_numpy_numpy_59_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1987,11 +1987,11 @@ sns.plt.plot([0,1], [0,1]);  sns.plt.title(&#39;tofu - 豆腐&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import matplotlib.font_manager as fm
-import pandas as pd
-# フォントの一覧
-fonts = fm.findSystemFonts()
-fonts
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.font_manager</span> <span class="kn">as</span> <span class="nn">fm</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="c1"># フォントの一覧</span>
+<span class="n">fonts</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">findSystemFonts</span><span class="p">()</span>
+<span class="n">fonts</span>
 </pre></div>
 </div>
 </div>
@@ -2335,16 +2335,16 @@ fonts
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># len(fonts) =&gt; 100以上はあるはず
-# データフレームへの詰め込み
-l = []
-for f in fonts:
-    font = fm.FontProperties(fname=f)
-    l.append((f, font.get_name(), font.get_family()))
-df = pd.DataFrame(l, columns=[&#39;path&#39;, &#39;name&#39;, &#39;family&#39;])
-# IPAフォントが存在することの確認
-df[df[&#39;path&#39;].apply(lambda s: &#39;IPA&#39; in s)]
-df
+<span></span><span class="c1"># len(fonts) =&gt; 100以上はあるはず</span>
+<span class="c1"># データフレームへの詰め込み</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fonts</span><span class="p">:</span>
+    <span class="n">font</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">f</span><span class="p">,</span> <span class="n">font</span><span class="o">.</span><span class="n">get_name</span><span class="p">(),</span> <span class="n">font</span><span class="o">.</span><span class="n">get_family</span><span class="p">()))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;family&#39;</span><span class="p">])</span>
+<span class="c1"># IPAフォントが存在することの確認</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="s1">&#39;IPA&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)]</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -2378,20 +2378,20 @@ df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Nx = 100
-Ny = 20
+<span></span><span class="n">Nx</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">Ny</span> <span class="o">=</span> <span class="mi">20</span>
 
-a = np.random.rand(Ny, Nx)
-print(a.shape)
-x = range(Nx)
-y = range(Ny)
-X, Y = np.meshgrid(x, y)
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">Ny</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nx</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">Ny</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-plt.pcolormesh(X, Y, a)
-plt.axis(&quot;image&quot;)
-plt.colorbar()
-# plt.tight_layout()
-#plt
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="c1"># plt.tight_layout()</span>
+<span class="c1">#plt</span>
 </pre></div>
 </div>
 </div>
@@ -2417,7 +2417,7 @@ plt.colorbar()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_numpy_numpy_63_2.png" src="../../_images/notebooks_numpy_numpy_63_2.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_63_2.png" src="../../../_images/contents_notebooks_numpy_numpy_63_2.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2436,43 +2436,43 @@ plt.colorbar()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import matplotlib.pyplot as plt
-from sklearn import linear_model, datasets
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">datasets</span>
 
-# import some data to play with
-iris = datasets.load_iris()
-X = iris.data[:, :2]  # we only take the first two features.
-Y = iris.target
+<span class="c1"># import some data to play with</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># we only take the first two features.</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
 
-h = .02  # step size in the mesh
+<span class="n">h</span> <span class="o">=</span> <span class="o">.</span><span class="mo">02</span>  <span class="c1"># step size in the mesh</span>
 
-# we create an instance of Neighbours Classifier and fit the data.
-logreg = linear_model.LogisticRegression(C=1e5).fit(X, Y)
+<span class="c1"># we create an instance of Neighbours Classifier and fit the data.</span>
+<span class="n">logreg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">1e5</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 
-# Plot the decision boundary. For that, we will assign a color to each
-# point in the mesh [x_min, m_max]x[y_min, y_max].
-x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
-y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5
-xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
-Z = logreg.predict(np.c_[xx.ravel(), yy.ravel()])
+<span class="c1"># Plot the decision boundary. For that, we will assign a color to each</span>
+<span class="c1"># point in the mesh [x_min, m_max]x[y_min, y_max].</span>
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="o">.</span><span class="mi">5</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">logreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
 
-# Put the result into a color plot
-Z = Z.reshape(xx.shape)
-plt.figure(1, figsize=(4, 3))
-plt.pcolormesh(xx, yy, Z, cmap=plt.cm.Paired)
+<span class="c1"># Put the result into a color plot</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
 
-# Plot also the training points
-plt.scatter(X[:, 0], X[:, 1], c=Y, edgecolors=&#39;k&#39;, cmap=plt.cm.Paired)
-#plt.xlabel(&#39;Sepal length&#39;)
-#plt.ylabel(&#39;Sepal width&#39;)
+<span class="c1"># Plot also the training points</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span><span class="p">)</span>
+<span class="c1">#plt.xlabel(&#39;Sepal length&#39;)</span>
+<span class="c1">#plt.ylabel(&#39;Sepal width&#39;)</span>
 
-plt.xlim(xx.min(), xx.max())
-plt.ylim(yy.min(), yy.max())
-#plt.xticks(())
-#plt.yticks(())
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xx</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">yy</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="c1">#plt.xticks(())</span>
+<span class="c1">#plt.yticks(())</span>
 
-#plt.show()
+<span class="c1">#plt.show()</span>
 </pre></div>
 </div>
 </div>
@@ -2490,7 +2490,7 @@ plt.ylim(yy.min(), yy.max())
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_numpy_numpy_65_1.png" src="../../_images/notebooks_numpy_numpy_65_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_65_1.png" src="../../../_images/contents_notebooks_numpy_numpy_65_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2509,12 +2509,12 @@ plt.ylim(yy.min(), yy.max())
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>name        arguments
-beta        (a, b[, size])
-binomial    (n, p[, size])
-chisquare   (df[, size])
-dirichlet   (alpha[, size])
-exponential ([scale, size])
+<span></span><span class="n">name</span>        <span class="n">arguments</span>
+<span class="n">beta</span>        <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">binomial</span>    <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">chisquare</span>   <span class="p">(</span><span class="n">df</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">dirichlet</span>   <span class="p">(</span><span class="n">alpha</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">exponential</span> <span class="p">([</span><span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
 
 </pre></div>
 </div>
@@ -2528,7 +2528,7 @@ exponential ([scale, size])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.beta?
+<span></span>np.random.beta<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -2588,7 +2588,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.beta(a=1, b=1, size=2)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">beta</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2613,7 +2613,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.binomial?
+<span></span>np.random.binomial<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -2645,7 +2645,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.binomial(n=100, p=0.5, size=2)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2669,7 +2669,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.chisquare?
+<span></span>np.random.chisquare<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -2749,7 +2749,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.chisquare(df=2, size=2)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2774,7 +2774,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.dirichlet?
+<span></span>np.random.dirichlet<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -2828,7 +2828,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.dirichlet(alpha=[1,1,1], size=2)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">dirichlet</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2853,7 +2853,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.exponential?
+<span></span>np.random.exponential<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -2907,7 +2907,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.exponential(scale=1.0, size=2)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2937,8 +2937,8 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## f
-https://ja.wikipedia.org/wiki/F%E5%88%86%E5%B8%83
+<span></span><span class="c1">## f</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ja</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">F</span><span class="o">%</span><span class="k">E5</span>%88%86%E5%B8%83
 </pre></div>
 </div>
 </div>
@@ -2948,9 +2948,9 @@ https://ja.wikipedia.org/wiki/F%E5%88%86%E5%B8%83
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.f?
-# dfnum` (degrees of freedom in numerator)` and
-# dfden` (degrees of freedom in denominator)`
+<span></span>np.random.f<span class="o">?</span>
+<span class="c1"># dfnum` (degrees of freedom in numerator)` and</span>
+<span class="c1"># dfden` (degrees of freedom in denominator)`</span>
 </pre></div>
 </div>
 </div>
@@ -2960,7 +2960,7 @@ https://ja.wikipedia.org/wiki/F%E5%88%86%E5%B8%83
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># expression not found
+<span></span><span class="c1"># expression not found</span>
 </pre></div>
 </div>
 </div>
@@ -2970,7 +2970,7 @@ https://ja.wikipedia.org/wiki/F%E5%88%86%E5%B8%83
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.f(dfnum=2, dfden=3, size=2)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="n">dfnum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dfden</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2990,8 +2990,8 @@ https://ja.wikipedia.org/wiki/F%E5%88%86%E5%B8%83
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## gamma
-https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%B3%E3%83%9E%E5%88%86%E5%B8%83
+<span></span><span class="c1">## gamma</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ja</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/%</span><span class="k">E3</span>%82%AC%E3%83%B3%E3%83%9E%E5%88%86%E5%B8%83
 </pre></div>
 </div>
 </div>
@@ -3001,7 +3001,7 @@ https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%B3%E3%83%9E%E5%88%86%E5%B8%83
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.gamma?
+<span></span>np.random.gamma<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3033,8 +3033,8 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># first argument is shape
-np.random.gamma(shape=1.0, scale=2.0, size=2)
+<span></span><span class="c1"># first argument is shape</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3054,8 +3054,8 @@ np.random.gamma(shape=1.0, scale=2.0, size=2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## geometric
-https://ja.wikipedia.org/wiki/%E5%B9%BE%E4%BD%95%E5%88%86%E5%B8%83
+<span></span><span class="c1">## geometric</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ja</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/%</span><span class="k">E5</span>%B9%BE%E4%BD%95%E5%88%86%E5%B8%83
 </pre></div>
 </div>
 </div>
@@ -3065,7 +3065,7 @@ https://ja.wikipedia.org/wiki/%E5%B9%BE%E4%BD%95%E5%88%86%E5%B8%83
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.geometric?
+<span></span>np.random.geometric<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3097,7 +3097,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.geometric(p=0.25, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3121,11 +3121,11 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.gumbel?
-# scipy.stats.gumbel_l
-# scipy.stats.gumbel_r
-# scipy.stats.genextreme
-# weibull
+<span></span>np.random.gumbel<span class="o">?</span>
+<span class="c1"># scipy.stats.gumbel_l</span>
+<span class="c1"># scipy.stats.gumbel_r</span>
+<span class="c1"># scipy.stats.genextreme</span>
+<span class="c1"># weibull</span>
 </pre></div>
 </div>
 </div>
@@ -3159,7 +3159,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.gumbel(loc=0.0, scale=1.0, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gumbel</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3183,7 +3183,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.hypergeometric?
+<span></span>np.random.hypergeometric<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3241,7 +3241,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.hypergeometric(ngood=150, nbad=50, nsample=100, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">hypergeometric</span><span class="p">(</span><span class="n">ngood</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">nbad</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">nsample</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3261,8 +3261,8 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>## laplace
-https://ja.wikipedia.org/wiki/%E3%83%A9%E3%83%97%E3%83%A9%E3%82%B9%E5%88%86%E5%B8%83
+<span></span><span class="c1">## laplace</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ja</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/%</span><span class="k">E3</span>%83%A9%E3%83%97%E3%83%A9%E3%82%B9%E5%88%86%E5%B8%83
 </pre></div>
 </div>
 </div>
@@ -3272,7 +3272,7 @@ https://ja.wikipedia.org/wiki/%E3%83%A9%E3%83%97%E3%83%A9%E3%82%B9%E5%88%86%E5%B
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.laplace?
+<span></span>np.random.laplace<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3306,7 +3306,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.laplace(loc=0.0, scale=1.0, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">laplace</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3330,7 +3330,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.logistic?
+<span></span>np.random.logistic<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3362,7 +3362,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.logistic(loc=0, scale=1, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">logistic</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3386,7 +3386,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.lognormal?
+<span></span>np.random.lognormal<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3420,7 +3420,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.lognormal(mean=0, sigma=1, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3447,7 +3447,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.logseries?
+<span></span>np.random.logseries<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3479,7 +3479,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.logseries(p=0.5, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">logseries</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3503,7 +3503,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.multinomial?
+<span></span>np.random.multinomial<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3553,7 +3553,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.multinomial(n=, pvals=, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="p">,</span> <span class="n">pvals</span><span class="o">=</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3570,7 +3570,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.multivariate_normal?
+<span></span>np.random.multivariate_normal<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3602,7 +3602,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.multivariate_normal(mean=[0, 1], cov=[[1, 0], [0, 1]], size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">cov</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3630,7 +3630,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.negative_binomial?
+<span></span>np.random.negative_binomial<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3662,7 +3662,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.negative_binomial(n=3, p=0.5, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">negative_binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3690,7 +3690,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.noncentral_chisquare?
+<span></span>np.random.noncentral_chisquare<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3726,7 +3726,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.noncentral_chisquare(df=2, nonc=1, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">noncentral_chisquare</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nonc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3752,7 +3752,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.noncentral_f?
+<span></span>np.random.noncentral_f<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3784,7 +3784,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.noncentral_f(dfnum=2, dfden=2, nonc=1, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">noncentral_f</span><span class="p">(</span><span class="n">dfnum</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dfden</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nonc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3808,7 +3808,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.normal?
+<span></span>np.random.normal<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3842,7 +3842,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.normal(loc=0.0, scale=1.0, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3866,7 +3866,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.pareto?
+<span></span>np.random.pareto<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3898,7 +3898,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.pareto(a=, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">pareto</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3912,7 +3912,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.poisson?
+<span></span>np.random.poisson<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -3944,7 +3944,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.poisson(lam=2, size=10)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">lam</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3968,7 +3968,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.power?
+<span></span>np.random.power<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4000,7 +4000,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.power(a=0.5, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4024,7 +4024,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.rayleigh?
+<span></span>np.random.rayleigh<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4056,7 +4056,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.rayleigh(scale=1.0, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4076,7 +4076,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>plt.hist?
+<span></span>plt.hist<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4086,14 +4086,14 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>fig, axes = plt.subplots(4)
-axes[0].hist(np.random.rayleigh(scale=1.0, size=500000), bins=200)
-axes[1].hist(np.random.rayleigh(scale=1.0, size=500000), bins=200, histtype=&quot;step&quot;, color=&quot;red&quot;)
-axes[2].hist(np.random.rayleigh(scale=1.0, size=500000), bins=200, histtype=&quot;stepfilled&quot;, color=&quot;green&quot;)
-axes[3].hist(np.random.rayleigh(scale=1.0, size=500000), bins=200, histtype=&quot;step&quot;, color=&quot;red&quot;, cumulative=True)
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">500000</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">500000</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">500000</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;stepfilled&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">500000</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s2">&quot;step&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 
-&quot;&quot;
+<span class="s2">&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -4111,7 +4111,7 @@ axes[3].hist(np.random.rayleigh(scale=1.0, size=500000), bins=200, histtype=&quo
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_numpy_numpy_174_1.png" src="../../_images/notebooks_numpy_numpy_174_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_174_1.png" src="../../../_images/contents_notebooks_numpy_numpy_174_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -4120,7 +4120,7 @@ axes[3].hist(np.random.rayleigh(scale=1.0, size=500000), bins=200, histtype=&quo
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>rayleigh.ppf(0.01), rayleigh.ppf(0.99), x
+<span></span><span class="n">rayleigh</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">rayleigh</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.99</span><span class="p">),</span> <span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -4165,32 +4165,32 @@ axes[3].hist(np.random.rayleigh(scale=1.0, size=500000), bins=200, histtype=&quo
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from scipy.stats import rayleigh
+<span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">rayleigh</span>
 
-fig, ax = plt.subplots(1, 1)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-# Alternatively, the distribution object can be called (as a function) to fix the shape, location and scale parameters.
-# This returns a “frozen” RV object holding the given parameters fixed.
+<span class="c1"># Alternatively, the distribution object can be called (as a function) to fix the shape, location and scale parameters.</span>
+<span class="c1"># This returns a “frozen” RV object holding the given parameters fixed.</span>
 
-# Freeze the distribution and display the frozen pdf:
-rv = rayleigh()
-mean, var, skew, kurt = rayleigh.stats(moments=&#39;mvsk&#39;)
-x = np.linspace(rayleigh.ppf(0.01), rayleigh.ppf(0.99), 100)
-ax.plot(x, rayleigh.pdf(x), &#39;r--&#39;, lw=10, alpha=0.6, label=&#39;rayleigh pdf&#39;)
-ax.plot(x, rv.pdf(x), &#39;k^&#39;, lw=6, label=&#39;frozen pdf&#39;)
-ax.plot(x, rayleigh.cdf(x), &#39;b--&#39;, lw=3, alpha=0.6, label=&#39;rayleigh cdf&#39;)
-ax.plot(x, rayleigh.pdf(x), &#39;g.&#39;, lw=2, label=&#39;rayleigh pdf&#39;)
-# Check accuracy of cdf and ppf:
+<span class="c1"># Freeze the distribution and display the frozen pdf:</span>
+<span class="n">rv</span> <span class="o">=</span> <span class="n">rayleigh</span><span class="p">()</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">rayleigh</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">rayleigh</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">rayleigh</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.99</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rayleigh</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;rayleigh pdf&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rv</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;k^&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;frozen pdf&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rayleigh</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;rayleigh cdf&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rayleigh</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;g.&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;rayleigh pdf&#39;</span><span class="p">)</span>
+<span class="c1"># Check accuracy of cdf and ppf:</span>
 
-vals = rayleigh.ppf([0.001, 0.5, 0.999])
-np.allclose([0.001, 0.5, 0.999], rayleigh.cdf(vals))
-# True
+<span class="n">vals</span> <span class="o">=</span> <span class="n">rayleigh</span><span class="o">.</span><span class="n">ppf</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">],</span> <span class="n">rayleigh</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">vals</span><span class="p">))</span>
+<span class="c1"># True</span>
 
-# Generate random numbers: And compare the histogram:
-r = rayleigh.rvs(size=1000)
-n, bins, patches = ax.hist(r, normed=True, histtype=&#39;stepfilled&#39;, alpha=0.2)
-ax.legend(loc=&#39;best&#39;, frameon=False)
-n, bins, patches
+<span class="c1"># Generate random numbers: And compare the histogram:</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">rayleigh</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;stepfilled&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span>
 </pre></div>
 </div>
 </div>
@@ -4213,7 +4213,7 @@ n, bins, patches
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_numpy_numpy_177_1.png" src="../../_images/notebooks_numpy_numpy_177_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_177_1.png" src="../../../_images/contents_notebooks_numpy_numpy_177_1.png" />
 </div>
 </div>
 </div>
@@ -4229,7 +4229,7 @@ n, bins, patches
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.standard_cauchy?
+<span></span>np.random.standard_cauchy<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4263,7 +4263,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.standard_cauchy(size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_cauchy</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4287,7 +4287,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.standard_exponential?
+<span></span>np.random.standard_exponential<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4299,7 +4299,7 @@ with a scale parameter of 1.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.standard_exponential(size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_exponential</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4323,7 +4323,7 @@ with a scale parameter of 1.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.standard_gamma?
+<span></span>np.random.standard_gamma<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4355,8 +4355,8 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># scale = 1 ?
-np.random.standard_gamma(shape=7.5, size=5)
+<span></span><span class="c1"># scale = 1 ?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_gamma</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mf">7.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4380,7 +4380,7 @@ np.random.standard_gamma(shape=7.5, size=5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.standard_normal?
+<span></span>np.random.standard_normal<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4390,8 +4390,8 @@ np.random.standard_gamma(shape=7.5, size=5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># Draw samples from a standard Normal distribution (mean=0, stdev=1).
-np.random.standard_normal(size=5)
+<span></span><span class="c1"># Draw samples from a standard Normal distribution (mean=0, stdev=1).</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4415,7 +4415,7 @@ np.random.standard_normal(size=5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.standard_t?
+<span></span>np.random.standard_t<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4450,7 +4450,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.standard_t(df=2, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_t</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4477,7 +4477,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.triangular?
+<span></span>np.random.triangular<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4519,8 +4519,8 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># `left &lt;= mode &lt;= right`
-np.random.triangular(left=2, mode=3, right=5, size=5)
+<span></span><span class="c1"># `left &lt;= mode &lt;= right`</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4547,7 +4547,7 @@ np.random.triangular(left=2, mode=3, right=5, size=5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.uniform?
+<span></span>np.random.uniform<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4579,7 +4579,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.uniform(low=0.0, high=2.0, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4607,7 +4607,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.vonmises?
+<span></span>np.random.vonmises<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4639,8 +4639,8 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># mu: Mode (&quot;center&quot;) of the distribution.
-np.random.vonmises(mu=, kappa=, size=5)
+<span></span><span class="c1"># mu: Mode (&quot;center&quot;) of the distribution.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">vonmises</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="p">,</span> <span class="n">kappa</span><span class="o">=</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4658,7 +4658,7 @@ np.random.vonmises(mu=, kappa=, size=5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.wald?
+<span></span>np.random.wald<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4692,7 +4692,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.wald(mean=1, scale=1, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">wald</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4720,7 +4720,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.weibull?
+<span></span>np.random.weibull<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4776,7 +4776,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.weibull(a=1, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">weibull</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4803,7 +4803,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.zipf?
+<span></span>np.random.zipf<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -4835,7 +4835,7 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.zipf(a=2, size=5)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">zipf</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4855,42 +4855,42 @@ $$</div></div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>name        arguments
-beta        (a, b[, size])
-binomial    (n, p[, size])
-chisquare   (df[, size])
-dirichlet   (alpha[, size])
-exponential ([scale, size])
-f   (dfnum, dfden[, size])
-gamma       (shape[, scale, size])
-geometric   (p[, size])
-gumbel      ([loc, scale, size])
-hypergeometric      (ngood, nbad, nsample[, size])
-laplace     ([loc, scale, size])
-logistic    ([loc, scale, size])
-lognormal   ([mean, sigma, size])
-logseries   (p[, size])
-multinomial (n, pvals[, size])
-multivariate_normal (mean, cov[, size])
-negative_binomial   (n, p[, size])
-noncentral_chisquare        (df, nonc[, size])
-noncentral_f        (dfnum, dfden, nonc[, size])
-normal      ([loc, scale, size])
-pareto      (a[, size])
-poisson     ([lam, size])
-power       (a[, size])
-rayleigh    ([scale, size])
-standard_cauchy     ([size])
-standard_exponential        ([size])
-standard_gamma      (shape[, size])
-standard_normal     ([size])
-standard_t  (df[, size])
-triangular  (left, mode, right[, size])
-uniform     ([low, high, size])
-vonmises    (mu, kappa[, size])
-wald        (mean, scale[, size])
-weibull     (a[, size])
-zipf        (a[, size])
+<span></span><span class="n">name</span>        <span class="n">arguments</span>
+<span class="n">beta</span>        <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">binomial</span>    <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">chisquare</span>   <span class="p">(</span><span class="n">df</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">dirichlet</span>   <span class="p">(</span><span class="n">alpha</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">exponential</span> <span class="p">([</span><span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">f</span>   <span class="p">(</span><span class="n">dfnum</span><span class="p">,</span> <span class="n">dfden</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">gamma</span>       <span class="p">(</span><span class="n">shape</span><span class="p">[,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">geometric</span>   <span class="p">(</span><span class="n">p</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">gumbel</span>      <span class="p">([</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">hypergeometric</span>      <span class="p">(</span><span class="n">ngood</span><span class="p">,</span> <span class="n">nbad</span><span class="p">,</span> <span class="n">nsample</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">laplace</span>     <span class="p">([</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">logistic</span>    <span class="p">([</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">lognormal</span>   <span class="p">([</span><span class="n">mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">logseries</span>   <span class="p">(</span><span class="n">p</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">multinomial</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pvals</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">multivariate_normal</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">negative_binomial</span>   <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">noncentral_chisquare</span>        <span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">nonc</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">noncentral_f</span>        <span class="p">(</span><span class="n">dfnum</span><span class="p">,</span> <span class="n">dfden</span><span class="p">,</span> <span class="n">nonc</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">normal</span>      <span class="p">([</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">pareto</span>      <span class="p">(</span><span class="n">a</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">poisson</span>     <span class="p">([</span><span class="n">lam</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">power</span>       <span class="p">(</span><span class="n">a</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">rayleigh</span>    <span class="p">([</span><span class="n">scale</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">standard_cauchy</span>     <span class="p">([</span><span class="n">size</span><span class="p">])</span>
+<span class="n">standard_exponential</span>        <span class="p">([</span><span class="n">size</span><span class="p">])</span>
+<span class="n">standard_gamma</span>      <span class="p">(</span><span class="n">shape</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">standard_normal</span>     <span class="p">([</span><span class="n">size</span><span class="p">])</span>
+<span class="n">standard_t</span>  <span class="p">(</span><span class="n">df</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">triangular</span>  <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">right</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">uniform</span>     <span class="p">([</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">vonmises</span>    <span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">kappa</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">wald</span>        <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">weibull</span>     <span class="p">(</span><span class="n">a</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
+<span class="n">zipf</span>        <span class="p">(</span><span class="n">a</span><span class="p">[,</span> <span class="n">size</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -4970,7 +4970,7 @@ zipf        (a[, size])
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -4978,17 +4978,17 @@ zipf        (a[, size])
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

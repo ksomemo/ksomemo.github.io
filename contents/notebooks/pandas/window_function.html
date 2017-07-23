@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -128,7 +128,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -136,7 +136,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/pandas/window_function.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/pandas/window_function.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,9 +349,9 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-import numpy as np
-import seaborn as sns
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
 </div>
@@ -361,7 +361,7 @@ import seaborn as sns
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.show_versions()
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">show_versions</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -426,7 +426,7 @@ pandas_datareader: 0.2.1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris = sns.load_dataset(&quot;iris&quot;)
+<span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -436,8 +436,8 @@ pandas_datareader: 0.2.1
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris = pd.concat([iris.head(3), iris.ix[50:52], iris.ix[100:102]]).reset_index(drop=True)
-iris
+<span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">iris</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">52</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">102</span><span class="p">]])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">iris</span>
 
 </pre></div>
 </div>
@@ -543,11 +543,11 @@ iris
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.concat([
-    pd.rolling_sum(iris.sepal_length, window=3),
-    pd.expanding_sum(iris.sepal_length),
-    iris.groupby(&quot;species&quot;)[&quot;sepal_length&quot;].transform(pd.expanding_sum),
-], axis=1).T
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">rolling_sum</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">expanding_sum</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="p">),</span>
+    <span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">expanding_sum</span><span class="p">),</span>
+<span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -636,41 +636,41 @@ iris
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>res = pd.concat([
-        iris.sepal_length,
-        iris.sepal_length.shift(),
-        iris.sepal_length.shift(periods=-1),
-        iris.sepal_length.cumsum(),
-        iris.sepal_length.rolling(window=3).sum(),
-        iris.sepal_length.rolling(window=3, center=True).sum(),
-        iris.sepal_length.rolling(window=4, center=True).sum(),
-        iris.sepal_length.expanding().sum(),
-        iris.groupby(&quot;species&quot;)[&quot;sepal_length&quot;].transform(np.sum),
-        iris.groupby(&quot;species&quot;)[&quot;sepal_length&quot;].transform(pd.Series.cumsum),
-        iris.groupby(&quot;species&quot;).apply(lambda x: x.expanding().sepal_length.sum()).reset_index(drop=True),
-        iris.groupby(&quot;species&quot;).expanding().sepal_length.sum().reset_index(level=0, drop=True),
-        iris.groupby(&quot;species&quot;).sepal_length.shift(),
-        iris.groupby(&quot;species&quot;).sepal_length.shift(periods=-1),
-    ], axis=1)
-res.columns = [
-    &quot;default&quot;,
-    &quot;shift_down&quot;,
-    &quot;shift_up&quot;,
-    &quot;cumsum&quot;,
-    &quot;roll3_sum&quot;,
-    &quot;roll3_sum_c&quot;,
-    &quot;roll4_sum_c&quot;, # 偶数の場合, どの範囲になるかの確認のため
-    &quot;ex_sum&quot;,      # cumsum
-    &quot;trans_sum&quot;,   # SQL Window関数におけるGroup内すべてと同様
-    &quot;trans_cumsum&quot;,# group内cumsum
-    &quot;g_ex_old_sum&quot;,
-    &quot;g_ex_sum&quot;,    # group内cumsum
-    &quot;g_shift_down&quot;,# group内shift
-    &quot;g_shift_up&quot;,
-]
+<span></span><span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="p">,</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">shift</span><span class="p">(),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">periods</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">cumsum</span><span class="p">),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">expanding</span><span class="p">()</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">shift</span><span class="p">(),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sepal_length</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">periods</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;shift_down&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;shift_up&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cumsum&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roll3_sum&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roll3_sum_c&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roll4_sum_c&quot;</span><span class="p">,</span> <span class="c1"># 偶数の場合, どの範囲になるかの確認のため</span>
+    <span class="s2">&quot;ex_sum&quot;</span><span class="p">,</span>      <span class="c1"># cumsum</span>
+    <span class="s2">&quot;trans_sum&quot;</span><span class="p">,</span>   <span class="c1"># SQL Window関数におけるGroup内すべてと同様</span>
+    <span class="s2">&quot;trans_cumsum&quot;</span><span class="p">,</span><span class="c1"># group内cumsum</span>
+    <span class="s2">&quot;g_ex_old_sum&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;g_ex_sum&quot;</span><span class="p">,</span>    <span class="c1"># group内cumsum</span>
+    <span class="s2">&quot;g_shift_down&quot;</span><span class="p">,</span><span class="c1"># group内shift</span>
+    <span class="s2">&quot;g_shift_up&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
-import tabulate
-print(tabulate.tabulate(res, headers=&quot;keys&quot;, tablefmt=&quot;pipe&quot;))
+<span class="kn">import</span> <span class="nn">tabulate</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -698,19 +698,19 @@ print(tabulate.tabulate(res, headers=&quot;keys&quot;, tablefmt=&quot;pipe&quot;
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>s = pd.Series([1,2,2,3,4])
-rank_df = pd.DataFrame().assign(value=s)
-rank_df = rank_df.assign(
-    default=s.rank(),
-    first_rank=s.rank(method=&quot;first&quot;),
-    dense=s.rank(method=&quot;dense&quot;),
-    min_rank=s.rank(method=&quot;min&quot;),
-    max_rank=s.rank(method=&quot;max&quot;)
-).astype(int)
+<span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">rank_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+<span class="n">rank_df</span> <span class="o">=</span> <span class="n">rank_df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+    <span class="n">default</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">rank</span><span class="p">(),</span>
+    <span class="n">first_rank</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">),</span>
+    <span class="n">dense</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;dense&quot;</span><span class="p">),</span>
+    <span class="n">min_rank</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;min&quot;</span><span class="p">),</span>
+    <span class="n">max_rank</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
-import tabulate
-print(tabulate.tabulate(rank_df, headers=&quot;keys&quot;, tablefmt=&quot;pipe&quot;))
-rank_df
+<span class="kn">import</span> <span class="nn">tabulate</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">rank_df</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">))</span>
+<span class="n">rank_df</span>
 </pre></div>
 </div>
 </div>
@@ -803,32 +803,32 @@ rank_df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df = pd.DataFrame(
-    {
-        &quot;type&quot;: list(&quot;aaaabbbbcccc&quot;),
-        &quot;v&quot;: range(12),
-    }
-)
-print(df.groupby(&quot;type&quot;)[&quot;v&quot;].apply(lambda x: x[x%2==0].sum()))
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;aaaabbbbcccc&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)[</span><span class="s2">&quot;v&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">%</span><span class="k">2</span>==0].sum()))
 
-def _t(x):
-    x[x%2!=0] = 0
-    return x.cumsum()
+<span class="k">def</span> <span class="nf">_t</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">%</span><span class="k">2</span>!=0] = 0
+    <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
 
-conditional_df = pd.concat(
-    [
-        df,
-        df[&quot;v&quot;].apply(lambda x: x if x%2==0 else 0),
-        df[&quot;v&quot;].apply(lambda x: x if x%2==0 else 0).cumsum(),
-        df.groupby(&quot;type&quot;)[&quot;v&quot;].transform(lambda x: x[x%2==0].sum()),
-        df.groupby(&quot;type&quot;)[&quot;v&quot;].transform(lambda x: x[x%2==0].cumsum()),
-        df.groupby(&quot;type&quot;)[&quot;v&quot;].transform(_t),
-    ], axis=1)
-conditional_df.columns = [&quot;type&quot;, &quot;v&quot;, &quot;奇数は0(以後同様に0)&quot;, &quot;cumsum&quot;, &quot;group sum&quot;,  &quot;group cumsum(期待値と異なる)&quot;, &quot;group cumsum&quot;]
+<span class="n">conditional_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">df</span><span class="p">,</span>
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0 else 0),
+        <span class="n">df</span><span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">2</span>==0 else 0).cumsum(),
+        <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)[</span><span class="s2">&quot;v&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">%</span><span class="k">2</span>==0].sum()),
+        <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)[</span><span class="s2">&quot;v&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">%</span><span class="k">2</span>==0].cumsum()),
+        <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)[</span><span class="s2">&quot;v&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">_t</span><span class="p">),</span>
+    <span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">conditional_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;奇数は0(以後同様に0)&quot;</span><span class="p">,</span> <span class="s2">&quot;cumsum&quot;</span><span class="p">,</span> <span class="s2">&quot;group sum&quot;</span><span class="p">,</span>  <span class="s2">&quot;group cumsum(期待値と異なる)&quot;</span><span class="p">,</span> <span class="s2">&quot;group cumsum&quot;</span><span class="p">]</span>
 
-import tabulate
-print(tabulate.tabulate(conditional_df, headers=&quot;keys&quot;, tablefmt=&quot;pipe&quot;))
-conditional_df
+<span class="kn">import</span> <span class="nn">tabulate</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tabulate</span><span class="o">.</span><span class="n">tabulate</span><span class="p">(</span><span class="n">conditional_df</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s2">&quot;keys&quot;</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">))</span>
+<span class="n">conditional_df</span>
 
 </pre></div>
 </div>
@@ -1039,7 +1039,7 @@ Name: v, dtype: int64
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1047,17 +1047,17 @@ Name: v, dtype: int64
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

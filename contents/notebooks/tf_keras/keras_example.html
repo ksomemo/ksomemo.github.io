@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../../genindex.html"/>
-        <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+              href="../../../genindex.html"/>
+        <link rel="search" title="検索" href="../../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
 
   
-  <script src="../../_static/js/modernizr.min.js"></script>
+  <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> gh-pages
+            <a href="../../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -118,7 +118,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">gh-pages</a>
+          <a href="../../../index.html">gh-pages</a>
         
       </nav>
 
@@ -146,7 +146,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
       <li>参考</li>
     
@@ -154,7 +154,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/notebooks/tf_keras/keras_example.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/contents/notebooks/tf_keras/keras_example.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -367,7 +367,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import keras
+<span></span><span class="kn">import</span> <span class="nn">keras</span>
 </pre></div>
 </div>
 </div>
@@ -385,7 +385,7 @@ Using TensorFlow backend.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import tensorflow
+<span></span><span class="kn">import</span> <span class="nn">tensorflow</span>
 </pre></div>
 </div>
 </div>
@@ -429,16 +429,16 @@ Using TensorFlow backend.
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from keras.models import Sequential
-from keras.layers import Dense, Activation
+<span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Activation</span>
 
-model = Sequential([
-    Dense(32, input_dim=784),
-    Activation(&#39;relu&#39;),
-])
-model.add(Dense(10))
-model.add(Activation(&#39;softmax&#39;))
-model
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">),</span>
+    <span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+<span class="n">model</span>
 </pre></div>
 </div>
 </div>
@@ -464,7 +464,7 @@ model
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!pip freeze | grep pydot
+<span></span><span class="o">!</span>pip freeze <span class="p">|</span> grep pydot
 </pre></div>
 </div>
 </div>
@@ -482,15 +482,15 @@ pydot-ng==1.0.0
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from IPython.display import Image, display, SVG
-from keras.utils.visualize_util import plot
-from keras.utils.visualize_util import model_to_dot
+<span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">SVG</span>
+<span class="kn">from</span> <span class="nn">keras.utils.visualize_util</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">keras.utils.visualize_util</span> <span class="kn">import</span> <span class="n">model_to_dot</span>
 
-# plot using model_to_dot
-plot(model, to_file=&#39;model.png&#39;)
-display(Image(&quot;model.png&quot;))
+<span class="c1"># plot using model_to_dot</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">to_file</span><span class="o">=</span><span class="s1">&#39;model.png&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;model.png&quot;</span><span class="p">))</span>
 
-SVG(model_to_dot(model).create(prog=&#39;dot&#39;, format=&#39;svg&#39;))
+<span class="n">SVG</span><span class="p">(</span><span class="n">model_to_dot</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s1">&#39;dot&#39;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">))</span>
 
 </pre></div>
 </div>
@@ -499,7 +499,7 @@ SVG(model_to_dot(model).create(prog=&#39;dot&#39;, format=&#39;svg&#39;))
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_tf_keras_keras_example_7_0.png" src="../../_images/notebooks_tf_keras_keras_example_7_0.png" />
+<img alt="../../../_images/contents_notebooks_tf_keras_keras_example_7_0.png" src="../../../_images/contents_notebooks_tf_keras_keras_example_7_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -508,7 +508,7 @@ SVG(model_to_dot(model).create(prog=&#39;dot&#39;, format=&#39;svg&#39;))
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_tf_keras_keras_example_7_1.svg" src="../../_images/notebooks_tf_keras_keras_example_7_1.svg" /></div>
+<img alt="../../../_images/contents_notebooks_tf_keras_keras_example_7_1.svg" src="../../../_images/contents_notebooks_tf_keras_keras_example_7_1.svg" /></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -516,7 +516,7 @@ SVG(model_to_dot(model).create(prog=&#39;dot&#39;, format=&#39;svg&#39;))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>model.summary()
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -548,7 +548,7 @@ ________________________________________________________________________________
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>Sequential.from_config(model.get_config()).set_weights(model.get_weights())
+<span></span><span class="n">Sequential</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_config</span><span class="p">())</span><span class="o">.</span><span class="n">set_weights</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">())</span>
 
 </pre></div>
 </div>
@@ -559,10 +559,10 @@ ________________________________________________________________________________
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import yaml
-import io
-import json
-json.loads(model.to_json()) == yaml.load(io.StringIO(model.to_yaml()))
+<span></span><span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to_json</span><span class="p">())</span> <span class="o">==</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to_yaml</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
@@ -582,7 +582,7 @@ json.loads(model.to_json()) == yaml.load(io.StringIO(model.to_yaml()))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from keras.models import model_from_json, model_from_yaml, model_from_config
+<span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">model_from_json</span><span class="p">,</span> <span class="n">model_from_yaml</span><span class="p">,</span> <span class="n">model_from_config</span>
 
 </pre></div>
 </div>
@@ -593,7 +593,7 @@ json.loads(model.to_json()) == yaml.load(io.StringIO(model.to_yaml()))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>model.save_weights(&quot;model_weights_hdf5&quot;)
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">save_weights</span><span class="p">(</span><span class="s2">&quot;model_weights_hdf5&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -603,7 +603,7 @@ json.loads(model.to_json()) == yaml.load(io.StringIO(model.to_yaml()))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>!ls -lh *hdf*
+<span></span><span class="o">!</span>ls -lh *hdf*
 </pre></div>
 </div>
 </div>
@@ -621,29 +621,29 @@ json.loads(model.to_json()) == yaml.load(io.StringIO(model.to_yaml()))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># https://github.com/h5py/h5py
-import h5py
-with h5py.File(&quot;model_weights_hdf5&quot;, &quot;r&quot;) as h5:
-    print(type(h5), h5.name)
-    for k, v in h5.items():
-        print(k, v, type(v), v.name)
-    print(&quot;-&quot;*10)
+<span></span><span class="c1"># https://github.com/h5py/h5py</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s2">&quot;model_weights_hdf5&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h5</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">h5</span><span class="p">),</span> <span class="n">h5</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">h5</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    h5.visit(print)
-    print(&quot;-&quot;*10)
+    <span class="n">h5</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    print(list(h5.attrs))
-    print(h5.attrs[&quot;layer_names&quot;])
-    #h5.attrs[&quot;new_attr&quot;] = &quot;values&quot;
-    #print(list(h5.attrs), h5.attrs[&quot;new_attr&quot;])
-    print(&quot;-&quot;*10)
+    <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;layer_names&quot;</span><span class="p">])</span>
+    <span class="c1">#h5.attrs[&quot;new_attr&quot;] = &quot;values&quot;</span>
+    <span class="c1">#print(list(h5.attrs), h5.attrs[&quot;new_attr&quot;])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    print(list(h5[&quot;/activation_1&quot;].values()))
-    print(h5.get(&quot;/dense_1&quot;))
-    print(h5.get(&quot;/dense_3&quot;, &quot;default&quot;))
-    print(list(h5[&quot;/dense_1&quot;].values()))
-    print(&quot;-&quot;*10)
-    print(h5[&quot;/dense_1/dense_1_b:0&quot;].value)
+    <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">h5</span><span class="p">[</span><span class="s2">&quot;/activation_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">h5</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/dense_1&quot;</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">h5</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/dense_3&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">h5</span><span class="p">[</span><span class="s2">&quot;/dense_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">h5</span><span class="p">[</span><span class="s2">&quot;/dense_1/dense_1_b:0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -685,7 +685,7 @@ default
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -695,43 +695,43 @@ default
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>with h5py.File(&quot;file.hdf5&quot;, &quot;w&quot;) as f:
-    dset = f.create_dataset(&quot;mydataset&quot;, shape=(100,), dtype=&#39;i&#39;, data=np.arange(100))
-    print(type(dset), dset, dset.name, dset.shape)
-    print(dset.value, type(dset.value))
-    print(dset[0:2])
-    print(&quot;-&quot;*10)
+<span></span><span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s2">&quot;file.hdf5&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">dset</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s2">&quot;mydataset&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dset</span><span class="p">),</span> <span class="n">dset</span><span class="p">,</span> <span class="n">dset</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">dset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">dset</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">dset</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">dset</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    group = f.create_group(&quot;group&quot;)
-    print(type(group), group, group.name)
-    print(&quot;-&quot;*10)
+    <span class="n">group</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">group</span><span class="p">),</span> <span class="n">group</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    dset2 = group.create_dataset(&quot;another_dataset&quot;, data=np.arange(6).reshape(2, 3), dtype=&quot;f&quot;)
-    dset2
-    print(type(dset2), dset2, dset2.name, dset2[0, 1])
-    print(&quot;-&quot;*10)
+    <span class="n">dset2</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s2">&quot;another_dataset&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;f&quot;</span><span class="p">)</span>
+    <span class="n">dset2</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dset2</span><span class="p">),</span> <span class="n">dset2</span><span class="p">,</span> <span class="n">dset2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">dset2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    sub_group = group.create_group(&quot;sub_group&quot;)
-    sub_group[&quot;v1_ndarray&quot;] = np.array([1.0])
-    sub_group[&quot;v2_float&quot;] = 2.0
-    sub_group[&quot;v3_int&quot;] = 3
-    print(type(sub_group), sub_group, sub_group.name)
-    print(&quot;-&quot;*10)
+    <span class="n">sub_group</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s2">&quot;sub_group&quot;</span><span class="p">)</span>
+    <span class="n">sub_group</span><span class="p">[</span><span class="s2">&quot;v1_ndarray&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">sub_group</span><span class="p">[</span><span class="s2">&quot;v2_float&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>
+    <span class="n">sub_group</span><span class="p">[</span><span class="s2">&quot;v3_int&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">sub_group</span><span class="p">),</span> <span class="n">sub_group</span><span class="p">,</span> <span class="n">sub_group</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    soft_link = h5py.SoftLink(&quot;/group&quot;)
-    external_link = h5py.ExternalLink(&quot;model_weights_hdf5&quot;, &quot;/dense_1/dense_1_b:0&quot;)
-    print(type(soft_link), soft_link, soft_link.path)
-    print(type(external_link), external_link, external_link.path, external_link.filename)
-    print(&quot;-&quot;*10)
+    <span class="n">soft_link</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">SoftLink</span><span class="p">(</span><span class="s2">&quot;/group&quot;</span><span class="p">)</span>
+    <span class="n">external_link</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">ExternalLink</span><span class="p">(</span><span class="s2">&quot;model_weights_hdf5&quot;</span><span class="p">,</span> <span class="s2">&quot;/dense_1/dense_1_b:0&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">soft_link</span><span class="p">),</span> <span class="n">soft_link</span><span class="p">,</span> <span class="n">soft_link</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">external_link</span><span class="p">),</span> <span class="n">external_link</span><span class="p">,</span> <span class="n">external_link</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">external_link</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    sub_group[&quot;alias_group&quot;] = soft_link
-    sub_group[&#39;ext_link&#39;] = external_link
-    print(type(sub_group[&quot;alias_group&quot;]), sub_group[&quot;alias_group&quot;])
-    print(type(sub_group[&quot;ext_link&quot;]), sub_group[&quot;ext_link&quot;])
-    print(&quot;-&quot;*10)
+    <span class="n">sub_group</span><span class="p">[</span><span class="s2">&quot;alias_group&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">soft_link</span>
+    <span class="n">sub_group</span><span class="p">[</span><span class="s1">&#39;ext_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">external_link</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">sub_group</span><span class="p">[</span><span class="s2">&quot;alias_group&quot;</span><span class="p">]),</span> <span class="n">sub_group</span><span class="p">[</span><span class="s2">&quot;alias_group&quot;</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">sub_group</span><span class="p">[</span><span class="s2">&quot;ext_link&quot;</span><span class="p">]),</span> <span class="n">sub_group</span><span class="p">[</span><span class="s2">&quot;ext_link&quot;</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    f.visit(print)
-    print(&quot;-&quot;*10)
+    <span class="n">f</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -776,12 +776,12 @@ mydataset
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import pandas as pd
-import seaborn as sns
-from IPython.display import display
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 
-titanic = sns.load_dataset(&quot;titanic&quot;)
-titanic.head(2)
+<span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -861,25 +861,25 @@ titanic.head(2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://pandas.pydata.org/pandas-docs/stable/io.html#hdf5-pytables
-# http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_hdf.html
-with pd.HDFStore(&#39;titanic_head_export.h5&#39;, mode=&quot;w&quot;) as store_export:
-    print(store_export)
-    print(&quot;-&quot;*10)
+<span></span><span class="c1"># http://pandas.pydata.org/pandas-docs/stable/io.html#hdf5-pytables</span>
+<span class="c1"># http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_hdf.html</span>
+<span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span><span class="s1">&#39;titanic_head_export.h5&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">store_export</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">store_export</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    store_export.append(&#39;key&#39;, titanic.head())
-    store_export.append(&#39;key&#39;, titanic.tail(), data_columns=titanic.columns)
-    print(store_export)
-    print(&quot;-&quot;*10)
+    <span class="n">store_export</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+    <span class="n">store_export</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="n">titanic</span><span class="o">.</span><span class="n">tail</span><span class="p">(),</span> <span class="n">data_columns</span><span class="o">=</span><span class="n">titanic</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">store_export</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    store_export.remove(&#39;key&#39;)
-    store_export.put(&#39;key2/sub&#39;, titanic.tail(), data_columns=titanic.columns, format=&quot;table&quot;)
-    store_export.append(&#39;key2/sub&#39;, titanic.tail())
-    print(store_export)
-    print(&quot;-&quot;*10)
+    <span class="n">store_export</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+    <span class="n">store_export</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;key2/sub&#39;</span><span class="p">,</span> <span class="n">titanic</span><span class="o">.</span><span class="n">tail</span><span class="p">(),</span> <span class="n">data_columns</span><span class="o">=</span><span class="n">titanic</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">)</span>
+    <span class="n">store_export</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;key2/sub&#39;</span><span class="p">,</span> <span class="n">titanic</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">store_export</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 
-    display(store_export[&quot;key2/sub&quot;].head(2))
-    display(store_export.select(&quot;key2/sub&quot;).tail(2))
+    <span class="n">display</span><span class="p">(</span><span class="n">store_export</span><span class="p">[</span><span class="s2">&quot;key2/sub&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">store_export</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;key2/sub&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1062,12 +1062,12 @@ File path: titanic_head_export.h5
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>titanic.head().to_hdf(&quot;titanic_head.hdf5&quot;, &quot;key_hdf&quot;, mode=&quot;w&quot;, format=&quot;table&quot;)
-titanic_df = pd.read_hdf(&quot;titanic_head.hdf5&quot;)
-display(titanic_df)
+<span></span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="s2">&quot;titanic_head.hdf5&quot;</span><span class="p">,</span> <span class="s2">&quot;key_hdf&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">&quot;table&quot;</span><span class="p">)</span>
+<span class="n">titanic_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s2">&quot;titanic_head.hdf5&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">titanic_df</span><span class="p">)</span>
 
-with h5py.File(&quot;titanic_head.hdf5&quot;, mode=&quot;r&quot;) as titanic_hdf:
-    titanic_hdf.visit(print)
+<span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s2">&quot;titanic_head.hdf5&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">titanic_hdf</span><span class="p">:</span>
+    <span class="n">titanic_hdf</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1412,7 +1412,7 @@ nb_classes)であることが必要です．</li>
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
+            URL_ROOT:'../../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -1420,17 +1420,17 @@ nb_classes)であることが必要です．</li>
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
   
 
   

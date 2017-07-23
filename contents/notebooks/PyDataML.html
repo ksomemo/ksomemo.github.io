@@ -26,19 +26,19 @@
 
   
   
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   
 
   
 
   
         <link rel="index" title="索引"
-              href="../genindex.html"/>
-        <link rel="search" title="検索" href="../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../index.html"/> 
+              href="../../genindex.html"/>
+        <link rel="search" title="検索" href="../../search.html"/>
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
 
   
-  <script src="../_static/js/modernizr.min.js"></script>
+  <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -54,7 +54,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> gh-pages
+            <a href="../../index.html" class="icon icon-home"> gh-pages
           
 
           
@@ -67,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -113,7 +113,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">gh-pages</a>
+          <a href="../../index.html">gh-pages</a>
         
       </nav>
 
@@ -141,7 +141,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
         
       <li>PyData Tokyo tutorial Machine Learning</li>
     
@@ -149,7 +149,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/notebooks/PyDataML.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/contents/notebooks/PyDataML.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -386,12 +386,12 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 
-%matplotlib inline
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -402,27 +402,27 @@ import seaborn as sns
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
 
-<span></span>from sklearn.metrics import (
-    accuracy_score,
-    classification_report,
-    confusion_matrix
-)
-from sklearn.cross_validation import (
-    train_test_split,
-    cross_val_score,
-    KFold
-)
-from sklearn.preprocessing import LabelEncoder
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.tree import (
-    DecisionTreeClassifier,
-    export_graphviz
-)
-from sklearn.grid_search import GridSearchCV
+<span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">accuracy_score</span><span class="p">,</span>
+    <span class="n">classification_report</span><span class="p">,</span>
+    <span class="n">confusion_matrix</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">train_test_split</span><span class="p">,</span>
+    <span class="n">cross_val_score</span><span class="p">,</span>
+    <span class="n">KFold</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DecisionTreeClassifier</span><span class="p">,</span>
+    <span class="n">export_graphviz</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 
-from matplotlib.colors import ListedColormap
-from IPython.display import Image
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 
 </pre></div>
 </div>
@@ -433,8 +433,8 @@ from IPython.display import Image
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def estimated_params(estimator):
-    return [a for a in dir(estimator) if a.endswith(&quot;_&quot;) and not a.startswith(&quot;_&quot;)]
+<span></span><span class="k">def</span> <span class="nf">estimated_params</span><span class="p">(</span><span class="n">estimator</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">estimator</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -444,8 +444,8 @@ from IPython.display import Image
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_train = pd.read_csv(&#39;titanic/train.csv&#39;)
-df_test = pd.read_csv(&#39;titanic/test.csv&#39;)
+<span></span><span class="n">df_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;titanic/train.csv&#39;</span><span class="p">)</span>
+<span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;titanic/test.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -455,7 +455,7 @@ df_test = pd.read_csv(&#39;titanic/test.csv&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_train.tail(1)
+<span></span><span class="n">df_train</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -510,7 +510,7 @@ df_test = pd.read_csv(&#39;titanic/test.csv&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_train.describe(include=&quot;all&quot;, percentiles=[0.05] + list(np.linspace(0.1, 0.9, 9)) + [0.95])
+<span></span><span class="n">df_train</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">percentiles</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="mf">0.95</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -861,7 +861,7 @@ df_test = pd.read_csv(&#39;titanic/test.csv&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_test.tail(1)
+<span></span><span class="n">df_test</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -914,8 +914,8 @@ df_test = pd.read_csv(&#39;titanic/test.csv&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>sex = {val:idx for idx, val in enumerate(df_train[&quot;Sex&quot;].unique())}
-sex
+<span></span><span class="n">sex</span> <span class="o">=</span> <span class="p">{</span><span class="n">val</span><span class="p">:</span><span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="s2">&quot;Sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())}</span>
+<span class="n">sex</span>
 </pre></div>
 </div>
 </div>
@@ -935,8 +935,8 @@ sex
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>s_sex  = df_train[&quot;Sex&quot;].map(sex)
-s_sex.plot.hist(bins=2)
+<span></span><span class="n">s_sex</span>  <span class="o">=</span> <span class="n">df_train</span><span class="p">[</span><span class="s2">&quot;Sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span>
+<span class="n">s_sex</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -954,7 +954,7 @@ s_sex.plot.hist(bins=2)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_13_1.png" src="../_images/notebooks_PyDataML_13_1.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_13_1.png" src="../../_images/contents_notebooks_PyDataML_13_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -963,7 +963,7 @@ s_sex.plot.hist(bins=2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_train[&quot;Survived&quot;].value_counts().plot.bar()
+<span></span><span class="n">df_train</span><span class="p">[</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -981,7 +981,7 @@ s_sex.plot.hist(bins=2)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_14_1.png" src="../_images/notebooks_PyDataML_14_1.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_14_1.png" src="../../_images/contents_notebooks_PyDataML_14_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -990,7 +990,7 @@ s_sex.plot.hist(bins=2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_train.pivot_table(index=&quot;Sex&quot;, columns=&quot;Survived&quot;, values=&quot;PassengerId&quot;, aggfunc=len).plot.bar()
+<span></span><span class="n">df_train</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Survived&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;PassengerId&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1008,7 +1008,7 @@ s_sex.plot.hist(bins=2)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_15_1.png" src="../_images/notebooks_PyDataML_15_1.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_15_1.png" src="../../_images/contents_notebooks_PyDataML_15_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1017,15 +1017,15 @@ s_sex.plot.hist(bins=2)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>fig, axes = plt.subplots(1, 2, figsize=(16, 4))
-axes[0].hist([df_train[(df_train[&quot;Sex&quot;] == &quot;female&quot;) &amp; (df_train[&quot;Survived&quot;] == 0)][&quot;Age&quot;],
-          df_train[(df_train[&quot;Sex&quot;] == &quot;female&quot;) &amp; (df_train[&quot;Survived&quot;] == 1)][&quot;Age&quot;]],
-         bins=10 , stacked=True, range=(1, 80))
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">df_train</span><span class="p">[(</span><span class="n">df_train</span><span class="p">[</span><span class="s2">&quot;Sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)][</span><span class="s2">&quot;Age&quot;</span><span class="p">],</span>
+          <span class="n">df_train</span><span class="p">[(</span><span class="n">df_train</span><span class="p">[</span><span class="s2">&quot;Sex&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_train</span><span class="p">[</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)][</span><span class="s2">&quot;Age&quot;</span><span class="p">]],</span>
+         <span class="n">bins</span><span class="o">=</span><span class="mi">10</span> <span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span>
 
-axes[1].hist([df_train[(df_train.Survived==0) &amp; (df_train.Sex==&#39;male&#39;)][&#39;Age&#39;],
-          df_train[(df_train.Survived==1) &amp; (df_train.Sex==&#39;male&#39;)][&#39;Age&#39;]],
-          alpha=0.6, range=(1,80), bins=10, stacked=True,
-          label=(&#39;Died&#39;, &#39;Survived&#39;))
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">df_train</span><span class="p">[(</span><span class="n">df_train</span><span class="o">.</span><span class="n">Survived</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_train</span><span class="o">.</span><span class="n">Sex</span><span class="o">==</span><span class="s1">&#39;male&#39;</span><span class="p">)][</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span>
+          <span class="n">df_train</span><span class="p">[(</span><span class="n">df_train</span><span class="o">.</span><span class="n">Survived</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_train</span><span class="o">.</span><span class="n">Sex</span><span class="o">==</span><span class="s1">&#39;male&#39;</span><span class="p">)][</span><span class="s1">&#39;Age&#39;</span><span class="p">]],</span>
+          <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">80</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+          <span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Died&#39;</span><span class="p">,</span> <span class="s1">&#39;Survived&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1047,7 +1047,7 @@ axes[1].hist([df_train[(df_train.Survived==0) &amp; (df_train.Sex==&#39;male&#39
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_16_1.png" src="../_images/notebooks_PyDataML_16_1.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_16_1.png" src="../../_images/contents_notebooks_PyDataML_16_1.png" />
 </div>
 </div>
 </div>
@@ -1059,9 +1059,9 @@ axes[1].hist([df_train[(df_train.Survived==0) &amp; (df_train.Sex==&#39;male&#39
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x = df_train[&#39;Sex&#39;]
-y = df_train[&#39;Survived&#39;]
-y_pred = x.map({&#39;female&#39;: 1, &#39;male&#39;: 0}).astype(int)
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;female&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1071,7 +1071,7 @@ y_pred = x.map({&#39;female&#39;: 1, &#39;male&#39;: 0}).astype(int)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.concat([y.head(), y_pred.head()], axis=1)
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">y</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">head</span><span class="p">()],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1126,9 +1126,9 @@ y_pred = x.map({&#39;female&#39;: 1, &#39;male&#39;: 0}).astype(int)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>accuracy_score(
-    [1, 0, 1, 0, 0],
-    [0, 0, 1, 1, 1])
+<span></span><span class="n">accuracy_score</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1148,7 +1148,7 @@ y_pred = x.map({&#39;female&#39;: 1, &#39;male&#39;: 0}).astype(int)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>accuracy_score(y, y_pred)
+<span></span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1168,7 +1168,7 @@ y_pred = x.map({&#39;female&#39;: 1, &#39;male&#39;: 0}).astype(int)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(classification_report(y, y_pred))
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1192,10 +1192,10 @@ avg / total       0.78      0.79      0.78       891
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cm = confusion_matrix(y, y_pred)
-# True, Predict
-cm_df = pd.DataFrame(cm, index=[&quot;T(0)&quot;, &quot;T(1)&quot;], columns=[&quot;P(0)&quot;, &quot;P(1)&quot;])
-cm_df
+<span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="c1"># True, Predict</span>
+<span class="n">cm_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T(0)&quot;</span><span class="p">,</span> <span class="s2">&quot;T(1)&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;P(0)&quot;</span><span class="p">,</span> <span class="s2">&quot;P(1)&quot;</span><span class="p">])</span>
+<span class="n">cm_df</span>
 </pre></div>
 </div>
 </div>
@@ -1235,7 +1235,7 @@ cm_df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cm_df.ix[&quot;T(0)&quot;][&quot;P(0)&quot;] / cm_df.ix[&quot;T(0)&quot;][&quot;P(0)&quot;]
+<span></span><span class="n">cm_df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s2">&quot;T(0)&quot;</span><span class="p">][</span><span class="s2">&quot;P(0)&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">cm_df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s2">&quot;T(0)&quot;</span><span class="p">][</span><span class="s2">&quot;P(0)&quot;</span><span class="p">]</span>
 
 </pre></div>
 </div>
@@ -1256,24 +1256,24 @@ cm_df
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def plot_confusion_matrix(cm):
-    fig, ax = plt.subplots()
-    im = ax.imshow(cm, interpolation=&#39;nearest&#39;, cmap=plt.cm.Blues)
-    #ax.set_title(&#39;Confusion Matrix&#39;)
-    fig.colorbar(im)
+<span></span><span class="k">def</span> <span class="nf">plot_confusion_matrix</span><span class="p">(</span><span class="n">cm</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">)</span>
+    <span class="c1">#ax.set_title(&#39;Confusion Matrix&#39;)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 
-    target_names = [&#39;not survived&#39;, &#39;survived&#39;]
+    <span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;not survived&#39;</span><span class="p">,</span> <span class="s1">&#39;survived&#39;</span><span class="p">]</span>
 
-    tick_marks = np.arange(len(target_names))
-    ax.set_xticks(tick_marks)
-    ax.set_xticklabels(target_names, rotation=45)
-    ax.set_yticks(tick_marks)
-    ax.set_yticklabels(target_names)
-    ax.set_ylabel(&#39;True label&#39;)
-    ax.set_xlabel(&#39;Predicted label&#39;)
-    fig.tight_layout()
+    <span class="n">tick_marks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">target_names</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">tick_marks</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">target_names</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">tick_marks</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">target_names</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;True label&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted label&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
-plot_confusion_matrix(cm)
+<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1281,7 +1281,7 @@ plot_confusion_matrix(cm)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_25_0.png" src="../_images/notebooks_PyDataML_25_0.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_25_0.png" src="../../_images/contents_notebooks_PyDataML_25_0.png" />
 </div>
 </div>
 </div>
@@ -1293,8 +1293,8 @@ plot_confusion_matrix(cm)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>x_test = df_test[&#39;Sex&#39;]
-y_test_pred = x_test.map({&#39;female&#39;: 1, &#39;male&#39;: 0}).astype(int)
+<span></span><span class="n">x_test</span> <span class="o">=</span> <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span>
+<span class="n">y_test_pred</span> <span class="o">=</span> <span class="n">x_test</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;female&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1304,9 +1304,9 @@ y_test_pred = x_test.map({&#39;female&#39;: 1, &#39;male&#39;: 0}).astype(int)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>df_kaggle = pd.DataFrame({&#39;PassengerId&#39;: df_test[&#39;PassengerId&#39;], &#39;Survived&#39;:np.array(y_test_pred)})
-df_kaggle.to_csv(&#39;titanic/kaggle_gendermodel.csv&#39;, index=False)
-df_kaggle.tail()
+<span></span><span class="n">df_kaggle</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">:</span> <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">],</span> <span class="s1">&#39;Survived&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_test_pred</span><span class="p">)})</span>
+<span class="n">df_kaggle</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;titanic/kaggle_gendermodel.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">df_kaggle</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1364,10 +1364,10 @@ df_kaggle.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>iris = sns.load_dataset(&quot;iris&quot;)
-iris2 = iris[[&quot;sepal_length&quot;, &quot;sepal_width&quot;]].copy()
-iris2 = iris.loc[: , (&quot;sepal_length&quot;, &quot;sepal_width&quot;)]
-iris2[&quot;lenght_2x&quot;] = iris2[&quot;sepal_length&quot;] * 2
+<span></span><span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<span class="n">iris2</span> <span class="o">=</span> <span class="n">iris</span><span class="p">[[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">iris2</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span> <span class="p">,</span> <span class="p">(</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">)]</span>
+<span class="n">iris2</span><span class="p">[</span><span class="s2">&quot;lenght_2x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris2</span><span class="p">[</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
 
 </pre></div>
 </div>
@@ -1378,7 +1378,7 @@ iris2[&quot;lenght_2x&quot;] = iris2[&quot;sepal_length&quot;] * 2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.options.mode.chained_assignment
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span>
 </pre></div>
 </div>
 </div>
@@ -1398,8 +1398,8 @@ iris2[&quot;lenght_2x&quot;] = iris2[&quot;sepal_length&quot;] * 2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X = df_train[[&#39;Age&#39;, &#39;Pclass&#39;, &#39;Sex&#39;]].copy()
-y = df_train[&#39;Survived&#39;]
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1409,7 +1409,7 @@ y = df_train[&#39;Survived&#39;]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X[&#39;AgeFill&#39;] = X[&#39;Age&#39;].fillna(X[&#39;Age&#39;].mean())
+<span></span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;AgeFill&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1419,10 +1419,10 @@ y = df_train[&#39;Survived&#39;]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X[&#39;AgeFill&#39;] = X[&#39;Age&#39;].fillna(X[&#39;Age&#39;].mean())
-X[&#39;Gender&#39;] = X[&#39;Sex&#39;].map({&#39;female&#39;: 0, &#39;male&#39;: 1}).astype(int)
-X[&#39;Pclass_Gender&#39;] = X[&#39;Pclass&#39;] + X[&#39;Gender&#39;]
-X.tail()
+<span></span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;AgeFill&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;female&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;Pclass_Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span>
+<span class="n">X</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -1502,9 +1502,9 @@ X.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X = X.drop([&#39;Age&#39;], axis=1)
-X = X.drop([&#39;Pclass&#39;, &#39;Sex&#39;, &#39;Gender&#39;], axis=1)
-X.tail()
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Gender&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1559,28 +1559,28 @@ X.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>np.random.seed(0)
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-xmin, xmax = -5, 85
-ymin, ymax = 0.5, 4.5
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">85</span>
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">4.5</span>
 
-index_survived = y[y==0].index
-index_notsurvived = y[y==1].index
+<span class="n">index_survived</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">index_notsurvived</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
 
-fig, ax = plt.subplots()
-cm = plt.cm.RdBu
-cm_bright = ListedColormap([&#39;#FF0000&#39;, &#39;#0000FF&#39;])
-sc = ax.scatter(X.loc[index_survived, &#39;AgeFill&#39;],
-                X.loc[index_survived, &#39;Pclass_Gender&#39;]+(np.random.rand(len(index_survived))-0.5)*0.1,
-                color=&#39;r&#39;, label=&#39;Not Survived&#39;, alpha=0.3)
-sc = ax.scatter(X.loc[index_notsurvived, &#39;AgeFill&#39;],
-                X.loc[index_notsurvived, &#39;Pclass_Gender&#39;]+(np.random.rand(len(index_notsurvived))-0.5)*0.1,
-                color=&#39;b&#39;, label=&#39;Survived&#39;, alpha=0.3)
-ax.set_xlabel(&#39;AgeFill&#39;)
-ax.set_ylabel(&#39;Pclass_Gender&#39;)
-ax.set_xlim(xmin, xmax)
-ax.set_ylim(ymin, ymax)
-ax.legend(bbox_to_anchor=(1.4, 1.03))
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdBu</span>
+<span class="n">cm_bright</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#0000FF&#39;</span><span class="p">])</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_survived</span><span class="p">,</span> <span class="s1">&#39;AgeFill&#39;</span><span class="p">],</span>
+                <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_survived</span><span class="p">,</span> <span class="s1">&#39;Pclass_Gender&#39;</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">index_survived</span><span class="p">))</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Not Survived&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_notsurvived</span><span class="p">,</span> <span class="s1">&#39;AgeFill&#39;</span><span class="p">],</span>
+                <span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index_notsurvived</span><span class="p">,</span> <span class="s1">&#39;Pclass_Gender&#39;</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">index_notsurvived</span><span class="p">))</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;AgeFill&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pclass_Gender&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1598,7 +1598,7 @@ ax.legend(bbox_to_anchor=(1.4, 1.03))
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_36_1.png" src="../_images/notebooks_PyDataML_36_1.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_36_1.png" src="../../_images/contents_notebooks_PyDataML_36_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1607,13 +1607,13 @@ ax.legend(bbox_to_anchor=(1.4, 1.03))
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>_sc_test = X.copy()
-_sc_test.Pclass_Gender = _sc_test.Pclass_Gender.astype(&quot;category&quot;)
-_sc_test[&quot;y&quot;] = y
+<span></span><span class="n">_sc_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">_sc_test</span><span class="o">.</span><span class="n">Pclass_Gender</span> <span class="o">=</span> <span class="n">_sc_test</span><span class="o">.</span><span class="n">Pclass_Gender</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<span class="n">_sc_test</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
 
-sns.swarmplot(x=&quot;AgeFill&quot;, y=&quot;Pclass_Gender&quot;, hue=&quot;y&quot;, data=_sc_test, alpha=0.3, palette=[&quot;red&quot;, &quot;blue&quot;])
-plt.legend(bbox_to_anchor=(1.4, 1.03))
-plt.tight_layout()
+<span class="n">sns</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;AgeFill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Pclass_Gender&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">_sc_test</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1621,7 +1621,7 @@ plt.tight_layout()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_37_0.png" src="../_images/notebooks_PyDataML_37_0.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_37_0.png" src="../../_images/contents_notebooks_PyDataML_37_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1630,22 +1630,22 @@ plt.tight_layout()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>titanic = sns.load_dataset(&quot;titanic&quot;)
-_titanic = pd.DataFrame(
-    [
-        titanic.age.fillna(titanic.age.mean()),
-        titanic.pclass + titanic.sex.map({&#39;female&#39;: 0, &#39;male&#39;: 1}).astype(int),
-        titanic.survived
-    ]).T
-#_titanic[&quot;Unnamed 0&quot;] = _titanic[&quot;Unnamed 0&quot;].astype(&quot;category&quot;)
-#_titanic[&quot;Unnamed 0&quot;] = _titanic[&quot;Unnamed 0&quot;].astype(&quot;category&quot;, categories=[4,3,2,1], ordered=False)
+<span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;titanic&quot;</span><span class="p">)</span>
+<span class="n">_titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">titanic</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">titanic</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span>
+        <span class="n">titanic</span><span class="o">.</span><span class="n">pclass</span> <span class="o">+</span> <span class="n">titanic</span><span class="o">.</span><span class="n">sex</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;female&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;male&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+        <span class="n">titanic</span><span class="o">.</span><span class="n">survived</span>
+    <span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="c1">#_titanic[&quot;Unnamed 0&quot;] = _titanic[&quot;Unnamed 0&quot;].astype(&quot;category&quot;)</span>
+<span class="c1">#_titanic[&quot;Unnamed 0&quot;] = _titanic[&quot;Unnamed 0&quot;].astype(&quot;category&quot;, categories=[4,3,2,1], ordered=False)</span>
 
-#sns.swarmplot(
-sns.stripplot(jitter=0.1,
-    data=_titanic, x=&quot;age&quot;, y=&quot;Unnamed 0&quot;, hue=&quot;survived&quot;,
-    alpha=0.3, palette=[&quot;red&quot;, &quot;blue&quot;])
-plt.legend(bbox_to_anchor=(1.4, 1.03))
-plt.tight_layout()
+<span class="c1">#sns.swarmplot(</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">jitter</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">_titanic</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Unnamed 0&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1653,7 +1653,7 @@ plt.tight_layout()
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_38_0.png" src="../_images/notebooks_PyDataML_38_0.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_38_0.png" src="../../_images/contents_notebooks_PyDataML_38_0.png" />
 </div>
 </div>
 </div>
@@ -1665,7 +1665,7 @@ plt.tight_layout()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X_train, X_val, y_train, y_val = train_test_split(X, y, train_size=0.8, random_state=1)
+<span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1675,7 +1675,7 @@ plt.tight_layout()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X_train.tail().T
+<span></span><span class="n">X_train</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -1724,8 +1724,8 @@ plt.tight_layout()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(&#39;Num of Training Samples: {}&#39;.format(len(X_train)))
-print(&#39;Num of Validation Samples: {}&#39;.format(len(X_val)))
+<span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Num of Training Samples: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Num of Validation Samples: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_val</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1747,9 +1747,9 @@ Num of Validation Samples: 179
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># 学習
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
+<span></span><span class="c1"># 学習</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1772,7 +1772,7 @@ clf.fit(X_train, y_train)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>estimated_params(clf)
+<span></span><span class="n">estimated_params</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1792,7 +1792,7 @@ clf.fit(X_train, y_train)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf.coef_, clf.intercept_
+<span></span><span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">intercept_</span>
 </pre></div>
 </div>
 </div>
@@ -1812,7 +1812,7 @@ clf.fit(X_train, y_train)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf.classes_, clf.n_iter_
+<span></span><span class="n">clf</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">n_iter_</span>
 </pre></div>
 </div>
 </div>
@@ -1832,11 +1832,11 @@ clf.fit(X_train, y_train)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>y_train_pred = clf.predict(X_train)
-y_val_pred = clf.predict(X_val)
+<span></span><span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">y_val_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
 
-print(&#39;Accuracy on Training Set: {:.3f}&#39;.format(accuracy_score(y_train, y_train_pred)))
-print(&#39;Accuracy on Validation Set: {:.3f}&#39;.format(accuracy_score(y_val, y_val_pred)))
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Accuracy on Training Set: {:.3f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Accuracy on Validation Set: {:.3f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_val_pred</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1855,8 +1855,8 @@ Accuracy on Validation Set: 0.760
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cm = confusion_matrix(y_val, y_val_pred)
-print(cm)
+<span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_val_pred</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1875,7 +1875,7 @@ print(cm)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>print(classification_report(y_val, y_val_pred))
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_val_pred</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1899,8 +1899,8 @@ avg / total       0.76      0.76      0.75       179
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X_val
-1
+<span></span><span class="n">X_val</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -1920,24 +1920,24 @@ avg / total       0.76      0.76      0.75       179
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>h = 0.02
-xmin, xmax = -5, 85
-ymin, ymax = 0.5, 4.5
-xx, yy = np.meshgrid(np.arange(xmin, xmax, h), np.arange(ymin, ymax, h))
-Z = clf.predict_proba(np.c_[xx.ravel(), yy.ravel()])[:, 1]
-Z = Z.reshape(xx.shape)
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="mf">0.02</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">85</span>
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">4.5</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-levels = np.linspace(0, 1.0, 5)
-cm = plt.cm.RdBu
-cm_bright = ListedColormap([&#39;#FF0000&#39;, &#39;#0000FF&#39;])
+<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdBu</span>
+<span class="n">cm_bright</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#0000FF&#39;</span><span class="p">])</span>
 
-ax = sns.stripplot(jitter=0.1,
-    data=_titanic,
-    x=&quot;age&quot;, y=&quot;Unnamed 0&quot;, hue=&quot;survived&quot;,
-    alpha=0.5, palette=[&quot;red&quot;, &quot;blue&quot;])
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">jitter</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">_titanic</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Unnamed 0&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;survived&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">])</span>
 
-contour = ax.contourf(xx, yy, Z, cmap=cm, levels=levels, alpha=0.8)
-fig.colorbar(contour)
+<span class="n">contour</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">contour</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1955,7 +1955,7 @@ fig.colorbar(contour)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_52_1.png" src="../_images/notebooks_PyDataML_52_1.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_52_1.png" src="../../_images/contents_notebooks_PyDataML_52_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1964,31 +1964,31 @@ fig.colorbar(contour)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>h = 0.02
-xmin, xmax = -5, 85
-ymin, ymax = 0.5, 4.5
-xx, yy = np.meshgrid(np.arange(xmin, xmax, h), np.arange(ymin, ymax, h))
-Z = clf.predict_proba(np.c_[xx.ravel(), yy.ravel()])[:, 1]
-Z = Z.reshape(xx.shape)
+<span></span><span class="n">h</span> <span class="o">=</span> <span class="mf">0.02</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">85</span>
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">4.5</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-fig, ax = plt.subplots(figsize=(14, 6))
-levels = np.linspace(0, 1.0, 5)
-cm = plt.cm.RdBu
-cm_bright = ListedColormap([&#39;#FF0000&#39;, &#39;#0000FF&#39;])
-contour = ax.contourf(xx, yy, Z, cmap=cm, levels=levels, alpha=0.8)
-ax.scatter(X_train.iloc[:, 0], X_train.iloc[:, 1]+(np.random.rand(len(X_train))-0.5)*0.1, c=y_train, cmap=cm_bright)
-ax.scatter(X_val.iloc[:, 0], X_val.iloc[:, 1]+(np.random.rand(len(X_val))-0.5)*0.1, c=y_val, cmap=cm_bright, alpha=0.5)
-ax.set_xlabel(&#39;AgeFill&#39;)
-ax.set_ylabel(&#39;Pclass_Gender&#39;)
-ax.set_xlim(xmin, xmax)
-ax.set_ylim(ymin, ymax)
-fig.colorbar(contour)
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdBu</span>
+<span class="n">cm_bright</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#0000FF&#39;</span><span class="p">])</span>
+<span class="n">contour</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm_bright</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_val</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_val</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_val</span><span class="p">))</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y_val</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm_bright</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;AgeFill&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pclass_Gender&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">contour</span><span class="p">)</span>
 
-x1 = xmin
-x2 = xmax
-y1 = -1*(clf.intercept_[0]+clf.coef_[0][0]*xmin)/clf.coef_[0][1]
-y2 = -1*(clf.intercept_[0]+clf.coef_[0][0]*xmax)/clf.coef_[0][1]
-ax.plot([xmin, xmax] ,[y1, y2], &#39;k--&#39;)
+<span class="n">x1</span> <span class="o">=</span> <span class="n">xmin</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">xmax</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">xmin</span><span class="p">)</span><span class="o">/</span><span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">xmax</span><span class="p">)</span><span class="o">/</span><span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">]</span> <span class="p">,[</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2006,7 +2006,7 @@ ax.plot([xmin, xmax] ,[y1, y2], &#39;k--&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_53_1.png" src="../_images/notebooks_PyDataML_53_1.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_53_1.png" src="../../_images/contents_notebooks_PyDataML_53_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2015,32 +2015,32 @@ ax.plot([xmin, xmax] ,[y1, y2], &#39;k--&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf_log = LogisticRegression()
-clf_svc_lin = SVC(kernel=&#39;linear&#39;, probability=True)
-clf_svc_rbf = SVC(kernel=&#39;rbf&#39;, probability=True)
-titles = [&#39;Logistic Regression&#39;, &#39;SVC with Linear Kernel&#39;, &#39;SVC with RBF Kernel&#39;,]
+<span></span><span class="n">clf_log</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf_svc_lin</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">clf_svc_rbf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Logistic Regression&#39;</span><span class="p">,</span> <span class="s1">&#39;SVC with Linear Kernel&#39;</span><span class="p">,</span> <span class="s1">&#39;SVC with RBF Kernel&#39;</span><span class="p">,]</span>
 
-h = 0.02
-xmin, xmax = -5, 85
-ymin, ymax = 0.5, 4.5
-xx, yy = np.meshgrid(np.arange(xmin, xmax, h), np.arange(ymin, ymax, h))
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.02</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">85</span>
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">4.5</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
 
-fig, axes = plt.subplots(1, 3, figsize=(12,4))
-levels = np.linspace(0, 1.0, 5)
-cm = plt.cm.RdBu
-cm_bright = ListedColormap([&#39;#FF0000&#39;, &#39;#0000FF&#39;])
-for i, clf in enumerate((clf_log, clf_svc_lin, clf_svc_rbf)):
-    clf.fit(X, y)
-    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
-    Z = Z.reshape(xx.shape)
-    axes[i].contourf(xx, yy, Z, cmap=cm, levels=levels, alpha=0.8)
-    axes[i].scatter(X.iloc[:, 0], X.iloc[:, 1], c=y, cmap=cm_bright)
-    axes[i].set_title(titles[i])
-    axes[i].set_xlabel(&#39;AgeFill&#39;)
-    axes[i].set_ylabel(&#39;Pclass_Gender&#39;)
-    axes[i].set_xlim(xmin, xmax)
-    axes[i].set_ylim(ymin, ymax)
-    fig.tight_layout()
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdBu</span>
+<span class="n">cm_bright</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#0000FF&#39;</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">clf</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="n">clf_log</span><span class="p">,</span> <span class="n">clf_svc_lin</span><span class="p">,</span> <span class="n">clf_svc_rbf</span><span class="p">)):</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm_bright</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;AgeFill&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pclass_Gender&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2048,7 +2048,7 @@ for i, clf in enumerate((clf_log, clf_svc_lin, clf_svc_rbf)):
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_54_0.png" src="../_images/notebooks_PyDataML_54_0.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_54_0.png" src="../../_images/contents_notebooks_PyDataML_54_0.png" />
 </div>
 </div>
 </div>
@@ -2060,13 +2060,13 @@ for i, clf in enumerate((clf_log, clf_svc_lin, clf_svc_rbf)):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf = SVC(kernel=&#39;rbf&#39;, probability=True)
-clf.fit(X_train, y_train)
+<span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
-y_train_pred = clf.predict(X_train)
-y_val_pred = clf.predict(X_val)
+<span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">y_val_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
 
-accuracy_score(y_train, y_train_pred), accuracy_score(y_val, y_val_pred)
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">),</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_val_pred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2086,7 +2086,7 @@ accuracy_score(y_train, y_train_pred), accuracy_score(y_val, y_val_pred)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>estimated_params(clf)
+<span></span><span class="n">estimated_params</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2120,15 +2120,15 @@ accuracy_score(y_train, y_train_pred), accuracy_score(y_val, y_val_pred)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X_train, X_val, y_train, y_val = train_test_split(X, y, train_size=0.8, random_state=33)
+<span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">33</span><span class="p">)</span>
 
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
-y_train_pred = clf.predict(X_train)
-y_val_pred = clf.predict(X_val)
+<span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">y_val_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
 
-accuracy_score(y_train, y_train_pred), accuracy_score(y_val, y_val_pred)
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">),</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_val_pred</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2148,10 +2148,10 @@ accuracy_score(y_train, y_train_pred), accuracy_score(y_val, y_val_pred)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>def cross_val(clf, X, y, K, random_state=0):
-    cv = KFold(len(y), K, shuffle=True, random_state=random_state)
-    scores = cross_val_score(clf, X, y, cv=cv)
-    return scores
+<span></span><span class="k">def</span> <span class="nf">cross_val</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">cv</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">K</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">scores</span>
 </pre></div>
 </div>
 </div>
@@ -2161,10 +2161,10 @@ accuracy_score(y_train, y_train_pred), accuracy_score(y_val, y_val_pred)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf = LogisticRegression()
-scores = cross_val(clf, X, y, 5)
-print(&#39;Scores:&#39;, scores)
-print(&#39;Mean Score: {0:.3f} (+/-{1:.3f})&#39;.format(scores.mean(), scores.std()*2))
+<span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Scores:&#39;</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Mean Score: {0:.3f} (+/-{1:.3f})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2183,7 +2183,7 @@ Mean Score: 0.774 (+/-0.051)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(train_test_split([1,2,3,4], [5,6,7,8], train_size=0.5))
+<span></span><span class="p">(</span><span class="n">train_test_split</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2203,7 +2203,7 @@ Mean Score: 0.774 (+/-0.051)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>(train_test_split([1,2,3,4], [5,6,7,8], train_size=0.5, random_state=33))
+<span></span><span class="p">(</span><span class="n">train_test_split</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">33</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2223,9 +2223,9 @@ Mean Score: 0.774 (+/-0.051)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>shuffled = np.array(range(9))
-np.random.shuffle(shuffled)
-shuffled
+<span></span><span class="n">shuffled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">shuffled</span><span class="p">)</span>
+<span class="n">shuffled</span>
 </pre></div>
 </div>
 </div>
@@ -2245,9 +2245,9 @@ shuffled
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>random_state = np.random.RandomState(seed=0)
-random_state.shuffle(shuffled)
-shuffled
+<span></span><span class="n">random_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">random_state</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">shuffled</span><span class="p">)</span>
+<span class="n">shuffled</span>
 </pre></div>
 </div>
 </div>
@@ -2267,8 +2267,8 @@ shuffled
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.KFold.html
-KFold(len(y), 5, shuffle=True, random_state=random_state)
+<span></span><span class="c1"># http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.KFold.html</span>
+<span class="n">KFold</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2288,9 +2288,9 @@ KFold(len(y), 5, shuffle=True, random_state=random_state)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://scikit-learn.org/stable/modules/cross_validation.html
-# http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.cross_val_score.html
-cross_val_score(LogisticRegression(), X, y, cv=5)
+<span></span><span class="c1"># http://scikit-learn.org/stable/modules/cross_validation.html</span>
+<span class="c1"># http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.cross_val_score.html</span>
+<span class="n">cross_val_score</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2310,12 +2310,12 @@ cross_val_score(LogisticRegression(), X, y, cv=5)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>kf = KFold(len(y), 5, shuffle=True, random_state=random_state)
-print(kf, &quot;\n&quot;)
-for i, (kf_train, kf_test) in enumerate(kf):
-    print(i)
-    print(kf_train)
-    print(kf_test)
+<span></span><span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">kf</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">kf_train</span><span class="p">,</span> <span class="n">kf_test</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kf</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">kf_train</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">kf_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2589,8 +2589,8 @@ sklearn.cross_validation.KFold(n=891, n_folds=5, shuffle=True, random_state=&lt;
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sklearn.cross_validation import StratifiedKFold
-StratifiedKFold(y, 5, shuffle=True, random_state=random_state)
+<span></span><span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
+<span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2634,18 +2634,18 @@ StratifiedKFold(y, 5, shuffle=True, random_state=random_state)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>skf_x = np.array([[1, 2], [3, 4], [1, 2], [3, 4]])
-skf_y = np.array([0, 0, 1, 1])
-skf = StratifiedKFold(skf_y, n_folds=2)
-len(skf)
+<span></span><span class="n">skf_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">skf_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">skf_y</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">skf</span><span class="p">)</span>
 
-print(skf)
+<span class="k">print</span><span class="p">(</span><span class="n">skf</span><span class="p">)</span>
 
 
-for train_index, test_index in skf:
-    print(&quot;TRAIN:&quot;, train_index, &quot;TEST:&quot;, test_index)
-    skf_X_train, skf_X_test = skf_x[train_index], skf_x[test_index]
-    skf_y_train, skf_y_test = skf_y[train_index], skf_y[test_index]
+<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">skf</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;TRAIN:&quot;</span><span class="p">,</span> <span class="n">train_index</span><span class="p">,</span> <span class="s2">&quot;TEST:&quot;</span><span class="p">,</span> <span class="n">test_index</span><span class="p">)</span>
+    <span class="n">skf_X_train</span><span class="p">,</span> <span class="n">skf_X_test</span> <span class="o">=</span> <span class="n">skf_x</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">skf_x</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+    <span class="n">skf_y_train</span><span class="p">,</span> <span class="n">skf_y_test</span> <span class="o">=</span> <span class="n">skf_y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">skf_y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2665,7 +2665,7 @@ TRAIN: [0 2] TEST: [1 3]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>cross_val_score?
+<span></span>cross_val_score<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -2675,9 +2675,9 @@ TRAIN: [0 2] TEST: [1 3]
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://scikit-learn.org/stable/tutorial/statistical_inference/model_selection.html#cross-validated-estimators
-from sklearn.linear_model import LogisticRegressionCV
-#help(LogisticRegressionCV)
+<span></span><span class="c1"># http://scikit-learn.org/stable/tutorial/statistical_inference/model_selection.html#cross-validated-estimators</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegressionCV</span>
+<span class="c1">#help(LogisticRegressionCV)</span>
 </pre></div>
 </div>
 </div>
@@ -2697,11 +2697,11 @@ from sklearn.linear_model import LogisticRegressionCV
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span># http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html
-le = LabelEncoder()
-labels = pd.Series(list(&quot;acb&quot;) * 5)
-#le.fit(labels)
-le.fit_transform(labels), le.transform(labels), le.inverse_transform([0,1,2])
+<span></span><span class="c1"># http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html</span>
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;acb&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1">#le.fit(labels)</span>
+<span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -2723,7 +2723,7 @@ le.fit_transform(labels), le.transform(labels), le.inverse_transform([0,1,2])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>le.fit_transform(labels)
+<span></span><span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2743,7 +2743,7 @@ le.fit_transform(labels), le.transform(labels), le.inverse_transform([0,1,2])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>estimated_params(le), le.classes_
+<span></span><span class="n">estimated_params</span><span class="p">(</span><span class="n">le</span><span class="p">),</span> <span class="n">le</span><span class="o">.</span><span class="n">classes_</span>
 </pre></div>
 </div>
 </div>
@@ -2763,8 +2763,8 @@ le.fit_transform(labels), le.transform(labels), le.inverse_transform([0,1,2])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>classes = {k: v for k, v in enumerate(le.classes_)}
-le.classes_, le.classes_.__class__, classes
+<span></span><span class="n">classes</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">)}</span>
+<span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="o">.</span><span class="n">__class__</span><span class="p">,</span> <span class="n">classes</span>
 </pre></div>
 </div>
 </div>
@@ -2794,26 +2794,26 @@ le.classes_, le.classes_.__class__, classes
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X = df_train[[&#39;Age&#39;, &#39;Pclass&#39;, &#39;Sex&#39;, &#39;SibSp&#39;, &#39;Parch&#39;, &#39;Embarked&#39;]].copy()
-y = df_train[&#39;Survived&#39;].copy()
-X_test = df_test[[&#39;Age&#39;, &#39;Pclass&#39;, &#39;Sex&#39;, &#39;SibSp&#39;, &#39;Parch&#39;, &#39;Embarked&#39;]].copy()
+<span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;SibSp&#39;</span><span class="p">,</span> <span class="s1">&#39;Parch&#39;</span><span class="p">,</span> <span class="s1">&#39;Embarked&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">df_test</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;SibSp&#39;</span><span class="p">,</span> <span class="s1">&#39;Parch&#39;</span><span class="p">,</span> <span class="s1">&#39;Embarked&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-X[&#39;AgeFill&#39;] = X[&#39;Age&#39;].fillna(X[&#39;Age&#39;].mean())
-X_test[&#39;AgeFill&#39;] = X_test[&#39;Age&#39;].fillna(X[&#39;Age&#39;].mean())
-X = X.drop([&#39;Age&#39;], axis=1)
-X_test = X_test.drop([&#39;Age&#39;], axis=1)
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;AgeFill&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;AgeFill&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-le = LabelEncoder()
-le.fit(X[&#39;Sex&#39;])
-X[&#39;Gender&#39;] = le.transform(X[&#39;Sex&#39;])
-X_test[&#39;Gender&#39;] = le.transform(X_test[&#39;Sex&#39;])
+<span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">le</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span>
+<span class="n">X</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">])</span>
 
-X = X.join(pd.get_dummies(X[&#39;Embarked&#39;], prefix=&#39;Embarked&#39;))
-X_test = X_test.join(pd.get_dummies(X[&#39;Embarked&#39;], prefix=&#39;Embarked&#39;))
-X = X.drop([&#39;Sex&#39;, &#39;Embarked&#39;], axis=1)
-X_test = X_test.drop([&#39;Sex&#39;, &#39;Embarked&#39;], axis=1)
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;Embarked&#39;</span><span class="p">))</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;Embarked&#39;</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Embarked&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Embarked&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-X.tail()
+<span class="n">X</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2904,9 +2904,9 @@ X.tail()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf = LogisticRegression()
-scores = cross_val(clf, X, y, 5)
-scores, scores.mean(), scores.std()*2
+<span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">scores</span><span class="p">,</span> <span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -2928,10 +2928,10 @@ scores, scores.mean(), scores.std()*2
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf = DecisionTreeClassifier(criterion=&#39;entropy&#39;, max_depth=2, min_samples_leaf=2)
-scores = cross_val(clf, X, y, 5)
-print(&#39;Scores:&#39;, scores)
-print(&#39;Mean Score: {0:.3f} (+/-{1:.3f})&#39;.format(scores.mean(), scores.std()*2))
+<span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Scores:&#39;</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Mean Score: {0:.3f} (+/-{1:.3f})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2950,7 +2950,7 @@ Mean Score: 0.769 (+/-0.048)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>estimated_params(clf)
+<span></span><span class="n">estimated_params</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2976,10 +2976,10 @@ Mean Score: 0.769 (+/-0.048)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>tree_clf = DecisionTreeClassifier(criterion=&#39;entropy&#39;, max_depth=2, min_samples_leaf=2)
-#tree_clf = DecisionTreeClassifier(criterion=&#39;entropy&#39;, max_depth=3, min_samples_leaf=3)
+<span></span><span class="n">tree_clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#tree_clf = DecisionTreeClassifier(criterion=&#39;entropy&#39;, max_depth=3, min_samples_leaf=3)</span>
 
-tree_clf.fit(X, y)
+<span class="n">tree_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -3013,36 +3013,36 @@ tree_clf.fit(X, y)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sklearn.externals.six import StringIO as SkStringIO
-from IPython.display import Image
-import graphviz
+<span></span><span class="kn">from</span> <span class="nn">sklearn.externals.six</span> <span class="kn">import</span> <span class="n">StringIO</span> <span class="k">as</span> <span class="n">SkStringIO</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">graphviz</span>
 
-def tree_plot(decision_tree, width=500, height=500, max_depth=None,
-         feature_names=None, class_names=None, label=&#39;all&#39;,
-         filled=False, leaves_parallel=False, impurity=True,
-         node_ids=False, proportion=False, rotate=False,
-         rounded=False, special_characters=False):
-    in_memory_dot_file = SkStringIO()
-    export_graphviz(
-            decision_tree, out_file=in_memory_dot_file, max_depth=max_depth,
-            feature_names=feature_names, class_names=class_names, label=label,
-            filled=filled, leaves_parallel=leaves_parallel, impurity=impurity,
-            node_ids=node_ids, proportion=proportion, rotate=rotate,
-            rounded=rounded, special_characters=special_characters)
-    src = graphviz.Source(in_memory_dot_file.getvalue())
-    return Image(src.pipe(format=&#39;png&#39;), height=height, width=width)
+<span class="k">def</span> <span class="nf">tree_plot</span><span class="p">(</span><span class="n">decision_tree</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+         <span class="n">feature_names</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span>
+         <span class="n">filled</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">leaves_parallel</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">impurity</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+         <span class="n">node_ids</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">proportion</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+         <span class="n">rounded</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">special_characters</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">in_memory_dot_file</span> <span class="o">=</span> <span class="n">SkStringIO</span><span class="p">()</span>
+    <span class="n">export_graphviz</span><span class="p">(</span>
+            <span class="n">decision_tree</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">in_memory_dot_file</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">max_depth</span><span class="p">,</span>
+            <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+            <span class="n">filled</span><span class="o">=</span><span class="n">filled</span><span class="p">,</span> <span class="n">leaves_parallel</span><span class="o">=</span><span class="n">leaves_parallel</span><span class="p">,</span> <span class="n">impurity</span><span class="o">=</span><span class="n">impurity</span><span class="p">,</span>
+            <span class="n">node_ids</span><span class="o">=</span><span class="n">node_ids</span><span class="p">,</span> <span class="n">proportion</span><span class="o">=</span><span class="n">proportion</span><span class="p">,</span> <span class="n">rotate</span><span class="o">=</span><span class="n">rotate</span><span class="p">,</span>
+            <span class="n">rounded</span><span class="o">=</span><span class="n">rounded</span><span class="p">,</span> <span class="n">special_characters</span><span class="o">=</span><span class="n">special_characters</span><span class="p">)</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Source</span><span class="p">(</span><span class="n">in_memory_dot_file</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">Image</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">),</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">)</span>
 
-tree_plot(tree_clf,
-#tree_plot(clf,
-    feature_names=X.columns,
-#    class_names=[&quot;0&quot;, &quot;1&quot;],
-    class_names=[&quot;d&quot;, &quot;s&quot;],
-#    class_names={1: &quot;s&quot;, 0: &quot;d&quot;},
-#    class_names=list(y.apply(str)),
-    filled=True,
-    rounded=True,
-    special_characters=True
-)
+<span class="n">tree_plot</span><span class="p">(</span><span class="n">tree_clf</span><span class="p">,</span>
+<span class="c1">#tree_plot(clf,</span>
+    <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+<span class="c1">#    class_names=[&quot;0&quot;, &quot;1&quot;],</span>
+    <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">],</span>
+<span class="c1">#    class_names={1: &quot;s&quot;, 0: &quot;d&quot;},</span>
+<span class="c1">#    class_names=list(y.apply(str)),</span>
+    <span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">rounded</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">special_characters</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
 
 </pre></div>
 </div>
@@ -3053,7 +3053,7 @@ tree_plot(tree_clf,
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_PyDataML_85_0.png" src="../_images/notebooks_PyDataML_85_0.png" />
+<img alt="../../_images/contents_notebooks_PyDataML_85_0.png" src="../../_images/contents_notebooks_PyDataML_85_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -3062,9 +3062,9 @@ tree_plot(tree_clf,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>X_y = pd.concat([X, y], axis=1)
-t1 = X_y[X_y.Gender &lt;= 0.5]
-t1[t1.Pclass &lt;= 2.5].Survived.value_counts()
+<span></span><span class="n">X_y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">X_y</span><span class="p">[</span><span class="n">X_y</span><span class="o">.</span><span class="n">Gender</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">t1</span><span class="p">[</span><span class="n">t1</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">&lt;=</span> <span class="mf">2.5</span><span class="p">]</span><span class="o">.</span><span class="n">Survived</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -3087,7 +3087,7 @@ Name: Survived, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>t1[t1.Pclass &gt; 2.5].Survived.value_counts()
+<span></span><span class="n">t1</span><span class="p">[</span><span class="n">t1</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">&gt;</span> <span class="mf">2.5</span><span class="p">]</span><span class="o">.</span><span class="n">Survived</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 
 </pre></div>
 </div>
@@ -3110,8 +3110,8 @@ Name: Survived, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>f1 = X_y[X_y.Gender &gt; 0.5]
-f1[f1.Pclass &lt;= 1.5].Survived.value_counts()
+<span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">X_y</span><span class="p">[</span><span class="n">X_y</span><span class="o">.</span><span class="n">Gender</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">f1</span><span class="p">[</span><span class="n">f1</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">&lt;=</span> <span class="mf">1.5</span><span class="p">]</span><span class="o">.</span><span class="n">Survived</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3133,7 +3133,7 @@ Name: Survived, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>f1[f1.Pclass &gt; 1.5].Survived.value_counts()
+<span></span><span class="n">f1</span><span class="p">[</span><span class="n">f1</span><span class="o">.</span><span class="n">Pclass</span> <span class="o">&gt;</span> <span class="mf">1.5</span><span class="p">]</span><span class="o">.</span><span class="n">Survived</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3155,7 +3155,7 @@ Name: Survived, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>estimated_params(tree_clf)
+<span></span><span class="n">estimated_params</span><span class="p">(</span><span class="n">tree_clf</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3181,7 +3181,7 @@ Name: Survived, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>tree_clf.classes_, tree_clf.feature_importances_
+<span></span><span class="n">tree_clf</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span> <span class="n">tree_clf</span><span class="o">.</span><span class="n">feature_importances_</span>
 </pre></div>
 </div>
 </div>
@@ -3203,7 +3203,7 @@ Name: Survived, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>tree_clf.max_features_, tree_clf.n_classes_
+<span></span><span class="n">tree_clf</span><span class="o">.</span><span class="n">max_features_</span><span class="p">,</span> <span class="n">tree_clf</span><span class="o">.</span><span class="n">n_classes_</span>
 </pre></div>
 </div>
 </div>
@@ -3223,7 +3223,7 @@ Name: Survived, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>tree_clf.n_features_, tree_clf.n_outputs_
+<span></span><span class="n">tree_clf</span><span class="o">.</span><span class="n">n_features_</span><span class="p">,</span> <span class="n">tree_clf</span><span class="o">.</span><span class="n">n_outputs_</span>
 </pre></div>
 </div>
 </div>
@@ -3243,7 +3243,7 @@ Name: Survived, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>tree_clf.tree_
+<span></span><span class="n">tree_clf</span><span class="o">.</span><span class="n">tree_</span>
 </pre></div>
 </div>
 </div>
@@ -3293,20 +3293,20 @@ Name: Survived, dtype: int64
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>from sklearn.externals.six import StringIO as SkStringIO
-from io import StringIO as SkStringIO
-import pydot
-from IPython.display import Image
-dot_data = SkStringIO()
-export_graphviz(
-    tree_clf, out_file=dot_data,
-    feature_names=X.columns,
-    class_names=y.unique(),
-    filled=True, rounded=True,
-    special_characters=True)
-graph = pydot.graph_from_dot_data(dot_data.getvalue())
-Image(graph.create_png())
-#print(dot_data.getvalue())
+<span></span><span class="kn">from</span> <span class="nn">sklearn.externals.six</span> <span class="kn">import</span> <span class="n">StringIO</span> <span class="k">as</span> <span class="n">SkStringIO</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span> <span class="k">as</span> <span class="n">SkStringIO</span>
+<span class="kn">import</span> <span class="nn">pydot</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">SkStringIO</span><span class="p">()</span>
+<span class="n">export_graphviz</span><span class="p">(</span>
+    <span class="n">tree_clf</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>
+    <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="n">class_names</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span>
+    <span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">special_characters</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">pydot</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+<span class="c1">#print(dot_data.getvalue())</span>
 
 </pre></div>
 </div>
@@ -3352,13 +3352,13 @@ Image(graph.create_png())
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>clf = DecisionTreeClassifier(criterion=&#39;entropy&#39;, max_depth=2, min_samples_leaf=2)
+<span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;entropy&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-param_grid = {&#39;max_depth&#39;: [2, 3, 4, 5], &#39;min_samples_leaf&#39;: [2, 3, 4, 5]}
-cv = KFold(len(y), 5, shuffle=True, random_state=0)
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]}</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-grid_search = GridSearchCV(clf, param_grid, cv=cv, n_jobs=-1, verbose=1)
-grid_search.fit(X, y)
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3402,7 +3402,7 @@ Fitting 5 folds for each of 16 candidates, totalling 80 fits
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>estimated_params(grid_search)
+<span></span><span class="n">estimated_params</span><span class="p">(</span><span class="n">grid_search</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3422,7 +3422,7 @@ Fitting 5 folds for each of 16 candidates, totalling 80 fits
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>grid_search.best_estimator_
+<span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
 </pre></div>
 </div>
 </div>
@@ -3445,7 +3445,7 @@ Fitting 5 folds for each of 16 candidates, totalling 80 fits
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>grid_search.best_score_, grid_search.best_params_
+<span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
 </pre></div>
 </div>
 </div>
@@ -3465,7 +3465,7 @@ Fitting 5 folds for each of 16 candidates, totalling 80 fits
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>grid_search.scorer_
+<span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">scorer_</span>
 </pre></div>
 </div>
 </div>
@@ -3485,7 +3485,7 @@ Fitting 5 folds for each of 16 candidates, totalling 80 fits
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>grid_search.grid_scores_
+<span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">grid_scores_</span>
 </pre></div>
 </div>
 </div>
@@ -3520,7 +3520,7 @@ Fitting 5 folds for each of 16 candidates, totalling 80 fits
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>{&quot;a&quot;: 1, &quot;b&quot;: 2}.values()
+<span></span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3540,13 +3540,13 @@ Fitting 5 folds for each of 16 candidates, totalling 80 fits
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>gs_df = pd.DataFrame(grid_search.grid_scores_)
-params_df = gs_df.parameters.apply(
-    lambda p: pd.Series(list(p.values()), p.keys()))
-pd.concat([
-    gs_df.drop([&quot;parameters&quot;, &quot;cv_validation_scores&quot;], axis=1),
-    params_df
-], axis=1).head(2)
+<span></span><span class="n">gs_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid_search</span><span class="o">.</span><span class="n">grid_scores_</span><span class="p">)</span>
+<span class="n">params_df</span> <span class="o">=</span> <span class="n">gs_df</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">p</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+    <span class="n">gs_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;parameters&quot;</span><span class="p">,</span> <span class="s2">&quot;cv_validation_scores&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">params_df</span>
+<span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -3590,8 +3590,8 @@ pd.concat([
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>s = pd.Series([&quot;k:v&quot;, &quot;k1:v1&quot;])
-s.str.split(&quot;:&quot;, expand=True)
+<span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;k:v&quot;</span><span class="p">,</span> <span class="s2">&quot;k1:v1&quot;</span><span class="p">])</span>
+<span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3631,10 +3631,10 @@ s.str.split(&quot;:&quot;, expand=True)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.concat([
-    s.apply(lambda x: pd.Series(x.split(&quot;:&quot;), index=[&#39;col1&#39;, &#39;col2&#39;])),
-    s.apply(lambda x: (x.split(&quot;:&quot;)))
-], axis=1)
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">])),</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)))</span>
+<span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3677,8 +3677,8 @@ s.str.split(&quot;:&quot;, expand=True)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>series = pd.Series([20, 21, 12], index=[&#39;London&#39;, &#39;New York&#39;,&#39;Helsinki&#39;])
-pd.DataFrame([series, series])
+<span></span><span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">,</span><span class="s1">&#39;Helsinki&#39;</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">series</span><span class="p">,</span> <span class="n">series</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -3721,7 +3721,7 @@ pd.DataFrame([series, series])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>pd.Series(list(&quot;abc&quot;)).str.split
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span>
 </pre></div>
 </div>
 </div>
@@ -3741,8 +3741,8 @@ pd.DataFrame([series, series])
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3"><div class="highlight"><pre>
-<span></span>y_test_pred = grid_search.predict(X_test)
-grid_search.predict
+<span></span><span class="n">y_test_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">predict</span>
 </pre></div>
 </div>
 </div>
@@ -3802,7 +3802,7 @@ grid_search.predict
 
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
+            URL_ROOT:'../../',
             VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
@@ -3810,17 +3810,17 @@ grid_search.predict
             SOURCELINK_SUFFIX: '.txt'
         };
     </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
   
   
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
   
 
   
