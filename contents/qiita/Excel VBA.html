@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Excel &mdash; gh-pages  ドキュメント</title>
+  <title>Excel VBA &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../genindex.html"/>
         <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/>
+        <link rel="next" title="Google Analytics CSV" href="Google Analytics CSV.html"/>
+        <link rel="prev" title="Erlangをはじめるためのまとめ" href="Erlangをはじめるためのまとめ.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -84,24 +86,267 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Excel</a></li>
-<li><a class="reference internal" href="#object">Object</a></li>
-<li><a class="reference internal" href="#enviroment">Enviroment</a><ul>
-<li><a class="reference internal" href="#os">OS</a></li>
-<li><a class="reference internal" href="#version">version</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Excel VBA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#excel">Excel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enviroment">Enviroment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#os">OS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version">version</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#vbe">VBE</a><ul>
-<li><a class="reference internal" href="#development-menu">Development Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vbe">VBE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#development-menu">Development Menu</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#">標準モジュールの追加</a></li>
-<li><a class="reference internal" href="#file-extensions">file extensions</a></li>
-<li><a class="reference internal" href="#processing-cell">Processing Cell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">標準モジュールの追加</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-extensions">file extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processing-cell">Processing Cell</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRedshiftに接続.html">PythonからRedshiftに接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html">Python以外 in jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#r">R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#octave">octave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#scala">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R tips.html">R tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upload package to PyPI By twine.html">Upload package to PyPI By twine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editRを試した.html">editR試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faker サンプルデータ作成.html">faker サンプルデータ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: 行列の性質や数式テクニック.html">note: 行列の性質や数式テクニック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell tips.html">shell tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy.html">numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -144,7 +389,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Excel</li>
+      <li>Excel VBA</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,13 +442,15 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
+<div class="section" id="excel-vba">
+<span id="excel-vba"></span><h1>Excel VBA<a class="headerlink" href="#excel-vba" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>英語で書いたまとめと基本的な文法など</p>
 <ul class="simple">
 <li>Visual Basic for Applications</li>
 <li>programming language</li>
 </ul>
 <div class="section" id="excel">
-<span id="excel"></span><h1>Excel<a class="headerlink" href="#excel" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="excel"></span><h2>Excel<a class="headerlink" href="#excel" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>book</li>
 <li>sheet</li>
@@ -212,25 +459,25 @@
 <p>These are objects in VBA.</p>
 </div>
 <div class="section" id="object">
-<span id="object"></span><h1>Object<a class="headerlink" href="#object" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="object"></span><h2>Object<a class="headerlink" href="#object" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Objects have properties and methods.</p>
 </div>
 <div class="section" id="enviroment">
-<span id="enviroment"></span><h1>Enviroment<a class="headerlink" href="#enviroment" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="enviroment"></span><h2>Enviroment<a class="headerlink" href="#enviroment" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="os">
-<span id="os"></span><h2>OS<a class="headerlink" href="#os" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="os"></span><h3>OS<a class="headerlink" href="#os" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Windows 7</p>
 </div>
 <div class="section" id="version">
-<span id="version"></span><h2>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="version"></span><h3>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Excel 2013</p>
 </div>
 </div>
 <div class="section" id="vbe">
-<span id="vbe"></span><h1>VBE<a class="headerlink" href="#vbe" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="vbe"></span><h2>VBE<a class="headerlink" href="#vbe" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>VBE is Visual Basic Editor. How do I use this editor?</p>
 <div class="section" id="development-menu">
-<span id="development-menu"></span><h2>Development Menu<a class="headerlink" href="#development-menu" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="development-menu"></span><h3>Development Menu<a class="headerlink" href="#development-menu" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="simple">
 <li>Open Excel&#8217;s options. Select File menu and then click Options.</li>
 <li>Select the Ribbon settings. (Customize Ribbon)</li>
@@ -240,11 +487,11 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id1"></span><h1>標準モジュールの追加<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id1"></span><h2>標準モジュールの追加<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>[挿入]-[標準モジュール]</p>
 </div>
 <div class="section" id="file-extensions">
-<span id="file-extensions"></span><h1>file extensions<a class="headerlink" href="#file-extensions" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="file-extensions"></span><h2>file extensions<a class="headerlink" href="#file-extensions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>bas</li>
 <li>frm</li>
@@ -255,315 +502,316 @@
 <li>dsr</li>
 <li>vb</li>
 </ul>
-<div class="highlight-vb"><div class="highlight"><pre><span></span>Attribute VB_Name = &quot;Module1&quot;
-Option Explicit
-&#39; 変数宣言の強制
+<div class="highlight-vbnet"><div class="highlight"><pre><span></span><span class="n">Attribute</span> <span class="n">VB_Name</span> <span class="o">=</span> <span class="s">&quot;Module1&quot;</span>
+<span class="k">Option</span> <span class="n">Explicit</span>
+<span class="c">&#39; 変数宣言の強制</span>
 
-&#39; ユーザー定義型
-Type user
-    name As String
-    birthDateTime As Date
-    birthDate As Date
-    birthTime As Date
-End Type
+<span class="c">&#39; ユーザー定義型</span>
+<span class="n">Type</span> <span class="n">user</span>
+    <span class="n">name</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="n">birthDateTime</span> <span class="ow">As</span> <span class="kt">Date</span>
+    <span class="n">birthDate</span> <span class="ow">As</span> <span class="kt">Date</span>
+    <span class="n">birthTime</span> <span class="ow">As</span> <span class="kt">Date</span>
+<span class="k">End</span> <span class="n">Type</span>
 
 
-Sub Main()
-    &#39; comment
-    Debug.Print &quot;Open imediate window.&quot;
+<span class="k">Sub</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="c">&#39; comment</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Open imediate window.&quot;</span>
 
-    &#39; 数値
-    Dim int_val As Integer
-    Dim long_val As Long
-    Dim single_val As Single
-    Dim double_val As Double
-    Debug.Print &quot;init: &quot; &amp; int_val &amp; long_val &amp; single_val &amp; double_val
-    
-    int_val = 5
-    long_val = 6000
-    single_val = 0.71
-    double_val = 8.2
-    Debug.Print Format(int_val, &quot;Currency&quot;)
-    Debug.Print Format(long_val, &quot;Fixed&quot;)
-    Debug.Print Format(long_val, &quot;Standard&quot;)
-    Debug.Print Format(single_val, &quot;Percent&quot;)
-    Debug.Print Format(0, &quot;Yes/No&quot;)
-    Debug.Print Format(1, &quot;Yes/No&quot;)
-    Debug.Print Format(0, &quot;True/False&quot;)
-    Debug.Print Format(2, &quot;True/False&quot;)
-    Debug.Print Format(0, &quot;On/Off&quot;)
-    Debug.Print Format(-1, &quot;On/Off&quot;)
-    &#39;printf -&gt; http://www.freevbcode.com/ShowCode.asp?ID=5014
+    <span class="c">&#39; 数値</span>
+    <span class="k">Dim</span> <span class="n">int_val</span> <span class="ow">As</span> <span class="kt">Integer</span>
+    <span class="k">Dim</span> <span class="n">long_val</span> <span class="ow">As</span> <span class="kt">Long</span>
+    <span class="k">Dim</span> <span class="n">single_val</span> <span class="ow">As</span> <span class="k">Single</span>
+    <span class="k">Dim</span> <span class="n">double_val</span> <span class="ow">As</span> <span class="kt">Double</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;init: &quot;</span> <span class="o">&amp;</span> <span class="n">int_val</span> <span class="o">&amp;</span> <span class="n">long_val</span> <span class="o">&amp;</span> <span class="n">single_val</span> <span class="o">&amp;</span> <span class="n">double_val</span>
 
-    Debug.Print &quot;5 + 2 = &quot; &amp; (int_val + 2)
-    Debug.Print &quot;5 - 2 = &quot; &amp; (int_val - 2)
-    Debug.Print &quot;5 * 2 = &quot; &amp; (int_val * 2)
-    Debug.Print &quot;-5 * -2 = &quot; &amp; (-int_val * -2)
-    Debug.Print &quot;5 / 2 = &quot; &amp; (int_val / 2)
-    Debug.Print &quot;5 \ 2 = &quot; &amp; (int_val \ 2)
-    Debug.Print &quot;5 mod 2 = &quot; &amp; (int_val Mod 2)
-    Debug.Print &quot;5 ^ 2 = &quot; &amp; (int_val ^ 2)
-    
-    &#39; Boolean
-    Dim bool_f As Boolean
-    Dim bool_t As Boolean
-    Debug.Print &quot;init: &quot; &amp; bool_t
+    <span class="n">int_val</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">long_val</span> <span class="o">=</span> <span class="mi">6000</span>
+    <span class="n">single_val</span> <span class="o">=</span> <span class="mf">0.71</span>
+    <span class="n">double_val</span> <span class="o">=</span> <span class="mf">8.2</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="n">int_val</span><span class="p">,</span> <span class="s">&quot;Currency&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="n">long_val</span><span class="p">,</span> <span class="s">&quot;Fixed&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="n">long_val</span><span class="p">,</span> <span class="s">&quot;Standard&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="n">single_val</span><span class="p">,</span> <span class="s">&quot;Percent&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;Yes/No&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Yes/No&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;True/False&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;True/False&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;On/Off&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">Format</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;On/Off&quot;</span><span class="p">)</span>
+    <span class="c">&#39;printf -&gt; http://www.freevbcode.com/ShowCode.asp?ID=5014</span>
 
-    bool_f = False
-    bool_t = True
-    Debug.Print &quot;False And False is &quot; &amp; (bool_f And bool_f)
-    Debug.Print &quot;False And True  is &quot; &amp; (bool_f And bool_t)
-    Debug.Print &quot;True  And False is &quot; &amp; (bool_t And bool_f)
-    Debug.Print &quot;True  And True  is &quot; &amp; (bool_t And bool_t)
-    
-    Debug.Print &quot;False Or False is &quot; &amp; (bool_f Or bool_f)
-    Debug.Print &quot;False Or True  is &quot; &amp; (bool_f Or bool_t)
-    Debug.Print &quot;True  Or False is &quot; &amp; (bool_t Or bool_f)
-    Debug.Print &quot;True  Or True  is &quot; &amp; (bool_t Or bool_t)
-    
-    Debug.Print &quot;Not True  is &quot; &amp; (Not bool_t)
-    Debug.Print &quot;Not False is &quot; &amp; (Not bool_f)
-    
-    Debug.Print &quot;int_val = long_val is &quot; &amp; (int_val = long_val)
-    Debug.Print &quot;int_val &lt;&gt; long_val is &quot; &amp; (int_val &lt;&gt; long_val)
-    Debug.Print &quot;single_val &gt;= double_val is &quot; &amp; (single_val &gt;= double_val)
-    Debug.Print &quot;single_val &lt;= double_val is &quot; &amp; (int_val &lt;= double_val)
-    Debug.Print &quot;int_val = int_val is &quot; &amp; (int_val = int_val)
-    Debug.Print &quot;Not False is &quot; &amp; (Not bool_f)
-    Debug.Print &quot;Not False is &quot; &amp; (Not bool_f)
-    Debug.Print &quot;Not False is &quot; &amp; (Not bool_f)
-    Debug.Print &quot;Not False is &quot; &amp; (Not bool_f)
-    
-    If False Then
-        Debug.Print &quot;If&quot;
-    ElseIf False Then
-        Debug.Print &quot;ElseIf&quot;
-    Else
-        Debug.Print &quot;Else&quot;
-    End If
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;5 + 2 = &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;5 - 2 = &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;5 * 2 = &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;-5 * -2 = &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">-</span><span class="n">int_val</span> <span class="o">*</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;5 / 2 = &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;5 \ 2 = &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">\</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;5 mod 2 = &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="ow">Mod</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;5 ^ 2 = &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">^</span> <span class="mi">2</span><span class="p">)</span>
 
-    &#39; 文字列型
-    Dim hello As String
-    Dim world As String
-    Dim refVal As String
-    Debug.Print &quot;init: [&quot; &amp; hello &amp; &quot;]&quot;
-    
-    hello = &quot;Hello&quot;
-    world = &quot;World&quot;
-    refVal = &quot;refVal&quot;
-    MySubMsgBox hello, world, refVal
-    Debug.Print world
-    Debug.Print refVal
-    Debug.Print MyFuncLen(hello)
-    Debug.Print MyFuncLen(hello, 2)
-    ExitInSub
-    Debug.Print ExitInFunction
-    Debug.Print RecursiveFactorial(4)
-    
-    &#39; 配列
-    Dim fixary(2) As String
-    fixary(0) = &quot;ab&quot;
-    fixary(1) = &quot;cd&quot;
-    Dim joined As String
-    joined = Join(fixary, &quot;,&quot;)
-    Debug.Print joined
-    
-    &#39; Loop
-    Dim varary() As String
-    varary = Split(joined, &quot;,&quot;)
-    varary(2) = &quot;gh&quot;
-    Dim str As Variant
-    For Each str In varary
-        Debug.Print str
-    Next str
-    Dim idx As Integer
-    For idx = 0 To UBound(varary) Step 2
-        Debug.Print idx &amp; &quot;:&quot; &amp; varary(idx)
-    Next idx
-    
-    Dim i As Integer
-    Do
-        i = i + 1
-        Debug.Print &quot;do statement while:&quot; &amp; i
-    Loop While False
-    Do
-        i = i + 1
-        Debug.Print &quot;do statement until:&quot; &amp; i
-    Loop Until True
-    Do While i &lt; 4
-        i = i + 1
-        Debug.Print &quot;do while statement:&quot; &amp; i
-    Loop
-    Do Until i = 1
-        i = i - 1
-        Debug.Print &quot;do until statement:&quot; &amp; i
-    Loop
-    
-    &#39; 日付型
-    Dim date_val As Date
-    Debug.Print &quot;init: &quot; &amp; date_val
-    
-    Dim my As user
-    Debug.Print &quot;my.name type: &quot; &amp; TypeName(my.name)
-    Debug.Print &quot;my.birthDateTime type: &quot; &amp; TypeName(my.birthDateTime)
-    &#39; Debug.Print &quot;my type: &quot; &amp; TypeName(my)
-    &#39; パブリックオブジェクトモジュール?
-    
-    my.name = &quot;my name&quot;
-    my.birthDateTime = #11/12/2014 1:02:03 AM#
-    my.birthDate = #11/12/2014#
-    my.birthTime = #1:02:03 AM#
-    date_val = #1:24:35 PM#
-    Debug.Print &quot;DateTime: &quot; &amp; my.birthDateTime
-    Debug.Print &quot;Date: &quot; &amp; my.birthDate
-    Debug.Print &quot;AM Time: &quot; &amp; my.birthTime
-    Debug.Print &quot;PM Time: &quot; &amp; date_val
-    Debug.Print vbCrLf &amp; Chr(13) &amp; Chr(10)
+    <span class="c">&#39; Boolean</span>
+    <span class="k">Dim</span> <span class="n">bool_f</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+    <span class="k">Dim</span> <span class="n">bool_t</span> <span class="ow">As</span> <span class="kt">Boolean</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;init: &quot;</span> <span class="o">&amp;</span> <span class="n">bool_t</span>
 
-    my.birthDateTime = &quot;2014/12/11 01:02:03 AM&quot;
-    my.birthDate = &quot;2014/12/11&quot;
-    my.birthTime = &quot;1:02:03 AM&quot;
-    date_val = &quot;01:24:35 PM&quot;
-    Debug.Print &quot;DateTime: &quot; &amp; my.birthDateTime
-    Debug.Print &quot;Date: &quot; &amp; my.birthDate
-    Debug.Print &quot;AM Time: &quot; &amp; my.birthTime
-    Debug.Print &quot;PM Time: &quot; &amp; date_val
+    <span class="n">bool_f</span> <span class="o">=</span> <span class="k">False</span>
+    <span class="n">bool_t</span> <span class="o">=</span> <span class="k">True</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;False And False is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bool_f</span> <span class="ow">And</span> <span class="n">bool_f</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;False And True  is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bool_f</span> <span class="ow">And</span> <span class="n">bool_t</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;True  And False is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bool_t</span> <span class="ow">And</span> <span class="n">bool_f</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;True  And True  is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bool_t</span> <span class="ow">And</span> <span class="n">bool_t</span><span class="p">)</span>
 
-    Debug.Print &quot;my.birthDateTime(from str) type: &quot; &amp; TypeName(my.birthDateTime)
-    Debug.Print &quot;DateTime(from str) type: &quot; &amp; TypeName(&quot;2014/12/11 01:02:03 AM&quot;)
-    Debug.Print &quot;DateTime(from str) type(Casted): &quot; &amp; TypeName(CDate(&quot;2014/12/11 01:02:03 AM&quot;))
-    Debug.Print &quot;DateTime(from str) isDate: &quot; &amp; IsDate(&quot;2014/12/11 01:02:03 AM&quot;)
-    Debug.Print &quot;DateTime(from str) isDate(Casted): &quot; &amp; IsDate(CDate(&quot;2014/12/11 01:02:03 AM&quot;))
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;False Or False is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bool_f</span> <span class="ow">Or</span> <span class="n">bool_f</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;False Or True  is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bool_f</span> <span class="ow">Or</span> <span class="n">bool_t</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;True  Or False is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bool_t</span> <span class="ow">Or</span> <span class="n">bool_f</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;True  Or True  is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">bool_t</span> <span class="ow">Or</span> <span class="n">bool_t</span><span class="p">)</span>
 
-End Sub
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Not True  is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="k">Not</span> <span class="n">bool_t</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Not False is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="k">Not</span> <span class="n">bool_f</span><span class="p">)</span>
 
-&#39; no return value
-Sub MySubMsgBox(ByVal str1 As String, ByVal str2 As String, refVal As String)
-    refVal = &quot;参照渡し&quot;
-    str2 = str2 &amp; &quot;!&quot;
-    MsgBox str1 &amp; &quot;_&quot; &amp; str2
-End Sub
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;int_val = long_val is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">=</span> <span class="n">long_val</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;int_val &lt;&gt; long_val is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">&lt;&gt;</span> <span class="n">long_val</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;single_val &gt;= double_val is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">single_val</span> <span class="o">&gt;=</span> <span class="n">double_val</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;single_val &lt;= double_val is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">&lt;=</span> <span class="n">double_val</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;int_val = int_val is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">int_val</span> <span class="o">=</span> <span class="n">int_val</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Not False is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="k">Not</span> <span class="n">bool_f</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Not False is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="k">Not</span> <span class="n">bool_f</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Not False is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="k">Not</span> <span class="n">bool_f</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Not False is &quot;</span> <span class="o">&amp;</span> <span class="p">(</span><span class="k">Not</span> <span class="n">bool_f</span><span class="p">)</span>
 
-Sub ExitInSub()
-    Debug.Print &quot;Before Exit Sub&quot;
-    Exit Sub
-    Debug.Print &quot;After Exit Sub&quot;
-End Sub
+    <span class="k">If</span> <span class="k">False</span> <span class="k">Then</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;If&quot;</span>
+    <span class="k">ElseIf</span> <span class="k">False</span> <span class="k">Then</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;ElseIf&quot;</span>
+    <span class="k">Else</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Else&quot;</span>
+    <span class="k">End</span> <span class="k">If</span>
 
-&#39; exists return value
-Function MyFuncLen(ByVal str As String, Optional ByVal opt As Integer) As Integer
-    MyFuncLen = Len(str) + opt
-End Function
+    <span class="c">&#39; 文字列型</span>
+    <span class="k">Dim</span> <span class="n">hello</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="k">Dim</span> <span class="n">world</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="k">Dim</span> <span class="n">refVal</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;init: [&quot;</span> <span class="o">&amp;</span> <span class="n">hello</span> <span class="o">&amp;</span> <span class="s">&quot;]&quot;</span>
 
-Function ExitInFunction() As String
-    ExitInFunction = &quot;Before Exit Function&quot;
-    Exit Function
-    ExitInFunction = &quot;After Exit Function&quot;
-End Function
+    <span class="n">hello</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span>
+    <span class="n">world</span> <span class="o">=</span> <span class="s">&quot;World&quot;</span>
+    <span class="n">refVal</span> <span class="o">=</span> <span class="s">&quot;refVal&quot;</span>
+    <span class="n">MySubMsgBox</span> <span class="n">hello</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">refVal</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">world</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">refVal</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">MyFuncLen</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">MyFuncLen</span><span class="p">(</span><span class="n">hello</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ExitInSub</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">ExitInFunction</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">RecursiveFactorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-Function RecursiveFactorial(ByVal num As Integer) As Integer
-    If num &lt;= 0 Then
-        RecursiveFactorial = 1
-    Else
-        RecursiveFactorial = num * RecursiveFactorial(num - 1)
-    End If
-End Function
+    <span class="c">&#39; 配列</span>
+    <span class="k">Dim</span> <span class="n">fixary</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="n">fixary</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;ab&quot;</span>
+    <span class="n">fixary</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;cd&quot;</span>
+    <span class="k">Dim</span> <span class="n">joined</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="n">joined</span> <span class="o">=</span> <span class="n">Join</span><span class="p">(</span><span class="n">fixary</span><span class="p">,</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">joined</span>
+
+    <span class="c">&#39; Loop</span>
+    <span class="k">Dim</span> <span class="n">varary</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="n">varary</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="n">joined</span><span class="p">,</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
+    <span class="n">varary</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;gh&quot;</span>
+    <span class="k">Dim</span> <span class="n">str</span> <span class="ow">As</span> <span class="kt">Variant</span>
+    <span class="k">For</span> <span class="k">Each</span> <span class="n">str</span> <span class="ow">In</span> <span class="n">varary</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">str</span>
+    <span class="k">Next</span> <span class="n">str</span>
+    <span class="k">Dim</span> <span class="n">idx</span> <span class="ow">As</span> <span class="kt">Integer</span>
+    <span class="k">For</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">To</span> <span class="n">UBound</span><span class="p">(</span><span class="n">varary</span><span class="p">)</span> <span class="k">Step</span> <span class="mi">2</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">idx</span> <span class="o">&amp;</span> <span class="s">&quot;:&quot;</span> <span class="o">&amp;</span> <span class="n">varary</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+    <span class="k">Next</span> <span class="n">idx</span>
+
+    <span class="k">Dim</span> <span class="n">i</span> <span class="ow">As</span> <span class="kt">Integer</span>
+    <span class="k">Do</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;do statement while:&quot;</span> <span class="o">&amp;</span> <span class="n">i</span>
+    <span class="k">Loop</span> <span class="k">While</span> <span class="k">False</span>
+    <span class="k">Do</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;do statement until:&quot;</span> <span class="o">&amp;</span> <span class="n">i</span>
+    <span class="k">Loop</span> <span class="n">Until</span> <span class="k">True</span>
+    <span class="k">Do</span> <span class="k">While</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;do while statement:&quot;</span> <span class="o">&amp;</span> <span class="n">i</span>
+    <span class="k">Loop</span>
+    <span class="k">Do</span> <span class="n">Until</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;do until statement:&quot;</span> <span class="o">&amp;</span> <span class="n">i</span>
+    <span class="k">Loop</span>
+
+    <span class="c">&#39; 日付型</span>
+    <span class="k">Dim</span> <span class="n">date_val</span> <span class="ow">As</span> <span class="kt">Date</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;init: &quot;</span> <span class="o">&amp;</span> <span class="n">date_val</span>
+
+    <span class="k">Dim</span> <span class="n">my</span> <span class="ow">As</span> <span class="n">user</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;my.name type: &quot;</span> <span class="o">&amp;</span> <span class="n">TypeName</span><span class="p">(</span><span class="n">my</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;my.birthDateTime type: &quot;</span> <span class="o">&amp;</span> <span class="n">TypeName</span><span class="p">(</span><span class="n">my</span><span class="p">.</span><span class="n">birthDateTime</span><span class="p">)</span>
+    <span class="c">&#39; Debug.Print &quot;my type: &quot; &amp; TypeName(my)</span>
+    <span class="c">&#39; パブリックオブジェクトモジュール?</span>
+
+    <span class="n">my</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;my name&quot;</span>
+    <span class="n">my</span><span class="p">.</span><span class="n">birthDateTime</span> <span class="o">=</span> <span class="p">#</span><span class="mi">11</span><span class="o">/</span><span class="mi">12</span><span class="o">/</span><span class="mi">2014</span> <span class="mi">1</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">03</span> <span class="n">AM#</span>
+    <span class="n">my</span><span class="p">.</span><span class="n">birthDate</span> <span class="o">=</span> <span class="p">#</span><span class="mi">11</span><span class="o">/</span><span class="mi">12</span><span class="o">/</span><span class="mi">2014</span><span class="p">#</span>
+    <span class="n">my</span><span class="p">.</span><span class="n">birthTime</span> <span class="o">=</span> <span class="p">#</span><span class="mi">1</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">03</span> <span class="n">AM#</span>
+    <span class="n">date_val</span> <span class="o">=</span> <span class="p">#</span><span class="mi">1</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">35</span> <span class="n">PM#</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;DateTime: &quot;</span> <span class="o">&amp;</span> <span class="n">my</span><span class="p">.</span><span class="n">birthDateTime</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Date: &quot;</span> <span class="o">&amp;</span> <span class="n">my</span><span class="p">.</span><span class="n">birthDate</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;AM Time: &quot;</span> <span class="o">&amp;</span> <span class="n">my</span><span class="p">.</span><span class="n">birthTime</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;PM Time: &quot;</span> <span class="o">&amp;</span> <span class="n">date_val</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="n">vbCrLf</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Chr</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="n">my</span><span class="p">.</span><span class="n">birthDateTime</span> <span class="o">=</span> <span class="s">&quot;2014/12/11 01:02:03 AM&quot;</span>
+    <span class="n">my</span><span class="p">.</span><span class="n">birthDate</span> <span class="o">=</span> <span class="s">&quot;2014/12/11&quot;</span>
+    <span class="n">my</span><span class="p">.</span><span class="n">birthTime</span> <span class="o">=</span> <span class="s">&quot;1:02:03 AM&quot;</span>
+    <span class="n">date_val</span> <span class="o">=</span> <span class="s">&quot;01:24:35 PM&quot;</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;DateTime: &quot;</span> <span class="o">&amp;</span> <span class="n">my</span><span class="p">.</span><span class="n">birthDateTime</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Date: &quot;</span> <span class="o">&amp;</span> <span class="n">my</span><span class="p">.</span><span class="n">birthDate</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;AM Time: &quot;</span> <span class="o">&amp;</span> <span class="n">my</span><span class="p">.</span><span class="n">birthTime</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;PM Time: &quot;</span> <span class="o">&amp;</span> <span class="n">date_val</span>
+
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;my.birthDateTime(from str) type: &quot;</span> <span class="o">&amp;</span> <span class="n">TypeName</span><span class="p">(</span><span class="n">my</span><span class="p">.</span><span class="n">birthDateTime</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;DateTime(from str) type: &quot;</span> <span class="o">&amp;</span> <span class="n">TypeName</span><span class="p">(</span><span class="s">&quot;2014/12/11 01:02:03 AM&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;DateTime(from str) type(Casted): &quot;</span> <span class="o">&amp;</span> <span class="n">TypeName</span><span class="p">(</span><span class="k">CDate</span><span class="p">(</span><span class="s">&quot;2014/12/11 01:02:03 AM&quot;</span><span class="p">))</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;DateTime(from str) isDate: &quot;</span> <span class="o">&amp;</span> <span class="n">IsDate</span><span class="p">(</span><span class="s">&quot;2014/12/11 01:02:03 AM&quot;</span><span class="p">)</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;DateTime(from str) isDate(Casted): &quot;</span> <span class="o">&amp;</span> <span class="n">IsDate</span><span class="p">(</span><span class="k">CDate</span><span class="p">(</span><span class="s">&quot;2014/12/11 01:02:03 AM&quot;</span><span class="p">))</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="c">&#39; no return value</span>
+<span class="k">Sub</span> <span class="nf">MySubMsgBox</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">str1</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">str2</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="n">refVal</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span>
+    <span class="n">refVal</span> <span class="o">=</span> <span class="s">&quot;参照渡し&quot;</span>
+    <span class="n">str2</span> <span class="o">=</span> <span class="n">str2</span> <span class="o">&amp;</span> <span class="s">&quot;!&quot;</span>
+    <span class="n">MsgBox</span> <span class="n">str1</span> <span class="o">&amp;</span> <span class="s">&quot;_&quot;</span> <span class="o">&amp;</span> <span class="n">str2</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Sub</span> <span class="nf">ExitInSub</span><span class="p">()</span>
+    <span class="n">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;Before Exit Sub&quot;</span>
+    <span class="k">Exit</span> <span class="k">Sub</span>
+    <span class="nf">Debug</span><span class="p">.</span><span class="n">Print</span> <span class="s">&quot;After Exit Sub&quot;</span>
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="c">&#39; exists return value</span>
+<span class="k">Function</span> <span class="nf">MyFuncLen</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">str</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">,</span> <span class="k">Optional</span> <span class="k">ByVal</span> <span class="n">opt</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Integer</span>
+    <span class="n">MyFuncLen</span> <span class="o">=</span> <span class="n">Len</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="o">+</span> <span class="n">opt</span>
+<span class="k">End</span> <span class="k">Function</span>
+
+<span class="k">Function</span> <span class="nf">ExitInFunction</span><span class="p">()</span> <span class="ow">As</span> <span class="kt">String</span>
+    <span class="n">ExitInFunction</span> <span class="o">=</span> <span class="s">&quot;Before Exit Function&quot;</span>
+    <span class="k">Exit</span> <span class="k">Function</span>
+    <span class="nf">ExitInFunction</span> <span class="o">=</span> <span class="s">&quot;After Exit Function&quot;</span>
+<span class="k">End</span> <span class="k">Function</span>
+
+<span class="k">Function</span> <span class="nf">RecursiveFactorial</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">num</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Integer</span>
+    <span class="k">If</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="k">Then</span>
+        <span class="n">RecursiveFactorial</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">Else</span>
+        <span class="n">RecursiveFactorial</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="n">RecursiveFactorial</span><span class="p">(</span><span class="n">num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">End</span> <span class="k">If</span>
+<span class="k">End</span> <span class="k">Function</span>
 </pre></div>
 </div>
-<div class="highlight-vb"><div class="highlight"><pre><span></span>VERSION 1.0 CLASS
-BEGIN
-  MultiUse = -1  &#39;True
-END
-Attribute VB_Name = &quot;Class1&quot;
-Attribute VB_GlobalNameSpace = False
-Attribute VB_Creatable = False
-Attribute VB_PredeclaredId = False
-Attribute VB_Exposed = False
+<div class="highlight-vbnet"><div class="highlight"><pre><span></span><span class="n">VERSION</span> <span class="mf">1.0</span> <span class="k">CLASS</span>
+<span class="nc">BEGIN</span>
+  <span class="n">MultiUse</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c">&#39;True</span>
+<span class="k">END</span>
+<span class="n">Attribute</span> <span class="n">VB_Name</span> <span class="o">=</span> <span class="s">&quot;Class1&quot;</span>
+<span class="n">Attribute</span> <span class="n">VB_GlobalNameSpace</span> <span class="o">=</span> <span class="k">False</span>
+<span class="n">Attribute</span> <span class="n">VB_Creatable</span> <span class="o">=</span> <span class="k">False</span>
+<span class="n">Attribute</span> <span class="n">VB_PredeclaredId</span> <span class="o">=</span> <span class="k">False</span>
+<span class="n">Attribute</span> <span class="n">VB_Exposed</span> <span class="o">=</span> <span class="k">False</span>
 </pre></div>
 </div>
-<div class="highlight-vb"><div class="highlight"><pre><span></span>VERSION 5.00
-Begin {xxxxxx} UserForm1 
-   Caption         =   &quot;UserForm1&quot;
-   ClientHeight    =   3180
-   ClientLeft      =   45
-   ClientTop       =   375
-   ClientWidth     =   4710
-   OleObjectBlob   =   &quot;UserForm1.frx&quot;:0000
-   StartUpPosition =   1  &#39;オーナー フォームの中央
-End
-Attribute VB_Name = &quot;UserForm1&quot;
-Attribute VB_GlobalNameSpace = False
-Attribute VB_Creatable = False
-Attribute VB_PredeclaredId = True
-Attribute VB_Exposed = False
+<div class="highlight-vbnet"><div class="highlight"><pre><span></span><span class="n">VERSION</span> <span class="mf">5.00</span>
+<span class="n">Begin</span> <span class="p">{</span><span class="n">xxxxxx</span><span class="p">}</span> <span class="n">UserForm1</span>
+   <span class="n">Caption</span>         <span class="o">=</span>   <span class="s">&quot;UserForm1&quot;</span>
+   <span class="n">ClientHeight</span>    <span class="o">=</span>   <span class="mi">3180</span>
+   <span class="n">ClientLeft</span>      <span class="o">=</span>   <span class="mi">45</span>
+   <span class="n">ClientTop</span>       <span class="o">=</span>   <span class="mi">375</span>
+   <span class="n">ClientWidth</span>     <span class="o">=</span>   <span class="mi">4710</span>
+   <span class="n">OleObjectBlob</span>   <span class="o">=</span>   <span class="s">&quot;UserForm1.frx&quot;</span><span class="p">:</span><span class="mi">0000</span>
+   <span class="n">StartUpPosition</span> <span class="o">=</span>   <span class="mi">1</span>  <span class="c">&#39;オーナー フォームの中央</span>
+<span class="k">End</span>
+<span class="n">Attribute</span> <span class="n">VB_Name</span> <span class="o">=</span> <span class="s">&quot;UserForm1&quot;</span>
+<span class="n">Attribute</span> <span class="n">VB_GlobalNameSpace</span> <span class="o">=</span> <span class="k">False</span>
+<span class="n">Attribute</span> <span class="n">VB_Creatable</span> <span class="o">=</span> <span class="k">False</span>
+<span class="n">Attribute</span> <span class="n">VB_PredeclaredId</span> <span class="o">=</span> <span class="k">True</span>
+<span class="n">Attribute</span> <span class="n">VB_Exposed</span> <span class="o">=</span> <span class="k">False</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="processing-cell">
-<span id="processing-cell"></span><h1>Processing Cell<a class="headerlink" href="#processing-cell" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-vb"><div class="highlight"><pre><span></span>Sub Main()
-    &#39; select sheet
-    Worksheets(&quot;Sheet1&quot;).Range(&quot;A1&quot;).Value = &quot;a1&quot;
-    
-    &#39; selected sheet
-    Range(&quot;A2&quot;).Value = &quot;a2&quot;
-    Cells(3, 1).Value = &quot;a3&quot;
-    Cells(3, 1).Offset(1, 1).Value = &quot;b4&quot;
-    
-    &#39; cells
-    Range(&quot;A5&quot;, &quot;B6&quot;).Value = &quot;a5 to b6&quot;
-    Range(&quot;A7:C8&quot;).Value = &quot;a7 to c8&quot;
-    
-    &#39; row, column
-    Range(&quot;9:9&quot;).Value = &quot;row9&quot;
-    &#39; Range(&quot;D:D&quot;).Value = &quot;col D&quot;
-    Range(&quot;B9&quot;).Clear
-    Range(&quot;A10&quot;).Value = &quot;A10&quot;
-    
-    &#39; with
-    Dim ary As Variant
-    Dim str As Variant
-    ary = Array(&quot;C1-red&quot;, &quot;D1-blue&quot;, &quot;E1-green&quot;, &quot;F1-other&quot;)
-    For Each str In ary
-        Dim c As Range
-        Dim posColor As Variant
-        posColor = Split(str, &quot;-&quot;)
-        Set c = Range(posColor(0))
-        With c
-            .Value = posColor(0)
-            With .Font
-                .Bold = True
-                .Size = 16
-            End With
-            .Interior.color = color(c:=posColor(1))
-        End With
-    Next str
-    
-    &#39; named arguments
-    Range(&quot;A9&quot;).Delete shift:=xlShiftUp
-            
-    &#39; dialog box
-    btnVal = MsgBox(&quot;すべてのセルを初期化しますか？&quot; _
-        , vbOKCancel, &quot;セルの初期化&quot;)
-    If btnVal = vbOK Then
-        Cells.Clear
-    End If
-        
-End Sub
+<span id="processing-cell"></span><h2>Processing Cell<a class="headerlink" href="#processing-cell" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-vbnet"><div class="highlight"><pre><span></span><span class="k">Sub</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="c">&#39; select sheet</span>
+    <span class="n">Worksheets</span><span class="p">(</span><span class="s">&quot;Sheet1&quot;</span><span class="p">).</span><span class="n">Range</span><span class="p">(</span><span class="s">&quot;A1&quot;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&quot;a1&quot;</span>
 
-Function color(ByVal c As String) As Long
-    Select Case c
-    Case &quot;red&quot;
-        color = vbRed
-    Case &quot;blue&quot;
-        color = vbBlue
-    Case &quot;green&quot;
-        color = vbGreen
-    Case Else
-        color = vbWhite
-    End Select
-End Function
+    <span class="c">&#39; selected sheet</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">&quot;A2&quot;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&quot;a2&quot;</span>
+    <span class="n">Cells</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&quot;a3&quot;</span>
+    <span class="n">Cells</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">Offset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&quot;b4&quot;</span>
+
+    <span class="c">&#39; cells</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">&quot;A5&quot;</span><span class="p">,</span> <span class="s">&quot;B6&quot;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&quot;a5 to b6&quot;</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">&quot;A7:C8&quot;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&quot;a7 to c8&quot;</span>
+
+    <span class="c">&#39; row, column</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">&quot;9:9&quot;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&quot;row9&quot;</span>
+    <span class="c">&#39; Range(&quot;D:D&quot;).Value = &quot;col D&quot;</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">&quot;B9&quot;</span><span class="p">).</span><span class="n">Clear</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">&quot;A10&quot;</span><span class="p">).</span><span class="n">Value</span> <span class="o">=</span> <span class="s">&quot;A10&quot;</span>
+
+    <span class="c">&#39; with</span>
+    <span class="k">Dim</span> <span class="n">ary</span> <span class="ow">As</span> <span class="kt">Variant</span>
+    <span class="k">Dim</span> <span class="n">str</span> <span class="ow">As</span> <span class="kt">Variant</span>
+    <span class="n">ary</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="s">&quot;C1-red&quot;</span><span class="p">,</span> <span class="s">&quot;D1-blue&quot;</span><span class="p">,</span> <span class="s">&quot;E1-green&quot;</span><span class="p">,</span> <span class="s">&quot;F1-other&quot;</span><span class="p">)</span>
+    <span class="k">For</span> <span class="k">Each</span> <span class="n">str</span> <span class="ow">In</span> <span class="n">ary</span>
+        <span class="k">Dim</span> <span class="n">c</span> <span class="ow">As</span> <span class="n">Range</span>
+        <span class="k">Dim</span> <span class="n">posColor</span> <span class="ow">As</span> <span class="kt">Variant</span>
+        <span class="n">posColor</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="s">&quot;-&quot;</span><span class="p">)</span>
+        <span class="k">Set</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Range</span><span class="p">(</span><span class="n">posColor</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">With</span> <span class="n">c</span>
+            <span class="p">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">posColor</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">With</span> <span class="p">.</span><span class="n">Font</span>
+                <span class="p">.</span><span class="n">Bold</span> <span class="o">=</span> <span class="k">True</span>
+                <span class="p">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mi">16</span>
+            <span class="k">End</span> <span class="k">With</span>
+            <span class="p">.</span><span class="n">Interior</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="o">=</span><span class="n">posColor</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">End</span> <span class="k">With</span>
+    <span class="k">Next</span> <span class="n">str</span>
+
+    <span class="c">&#39; named arguments</span>
+    <span class="n">Range</span><span class="p">(</span><span class="s">&quot;A9&quot;</span><span class="p">).</span><span class="n">Delete</span> <span class="n">shift</span><span class="p">:</span><span class="o">=</span><span class="n">xlShiftUp</span>
+
+    <span class="c">&#39; dialog box</span>
+    <span class="n">btnVal</span> <span class="o">=</span> <span class="n">MsgBox</span><span class="p">(</span><span class="s">&quot;すべてのセルを初期化しますか？&quot;</span> _
+        <span class="p">,</span> <span class="n">vbOKCancel</span><span class="p">,</span> <span class="s">&quot;セルの初期化&quot;</span><span class="p">)</span>
+    <span class="k">If</span> <span class="n">btnVal</span> <span class="o">=</span> <span class="n">vbOK</span> <span class="k">Then</span>
+        <span class="n">Cells</span><span class="p">.</span><span class="n">Clear</span>
+    <span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Sub</span>
+
+<span class="k">Function</span> <span class="nf">color</span><span class="p">(</span><span class="k">ByVal</span> <span class="n">c</span> <span class="ow">As</span> <span class="kt">String</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Long</span>
+    <span class="k">Select</span> <span class="k">Case</span> <span class="n">c</span>
+    <span class="k">Case</span> <span class="s">&quot;red&quot;</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">vbRed</span>
+    <span class="k">Case</span> <span class="s">&quot;blue&quot;</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">vbBlue</span>
+    <span class="k">Case</span> <span class="s">&quot;green&quot;</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">vbGreen</span>
+    <span class="k">Case</span> <span class="k">Else</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">vbWhite</span>
+    <span class="k">End</span> <span class="k">Select</span>
+<span class="k">End</span> <span class="k">Function</span>
 </pre></div>
+</div>
 </div>
 </div>
 
@@ -574,6 +822,15 @@ End Function
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Google Analytics CSV.html" class="btn btn-neutral float-right" title="Google Analytics CSV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Erlangをはじめるためのまとめ.html" class="btn btn-neutral" title="Erlangをはじめるためのまとめ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

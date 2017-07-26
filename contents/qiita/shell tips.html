@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>heredoc中でescape &mdash; gh-pages  ドキュメント</title>
+  <title>shell tips &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../genindex.html"/>
         <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/>
+        <link rel="next" title="sqlalchemy_with_mssql" href="sqlalchemy_with_mssql.html"/>
+        <link rel="prev" title="sessionize with pandas memo" href="sessionize with pandas memo.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -84,30 +86,273 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">heredoc中でescape</a></li>
-<li><a class="reference internal" href="#">一時的に環境変数を変更</a></li>
-<li><a class="reference internal" href="#gzip-sample">gzip sample</a></li>
-<li><a class="reference internal" href="#oneliner-get-pip-and-install">oneliner: get-pip and install</a></li>
-<li><a class="reference internal" href="#">日付時刻指定してファイル作成</a></li>
-<li><a class="reference internal" href="#">あるファイルより新しい時刻のファイルの検索</a></li>
-<li><a class="reference internal" href="#wget-with-header">wget with header</a></li>
-<li><a class="reference internal" href="#curl-basic-auth">curl basic auth</a></li>
-<li><a class="reference internal" href="#bash-dollar-mkdir-and-cd">bash の dollar と mkdir and cd</a></li>
-<li><a class="reference internal" href="#awkcut">普段awkしか使わないのでcut のメモ</a></li>
-<li><a class="reference internal" href="#bash">bashで桁の大きい数値文字列の作成</a></li>
-<li><a class="reference internal" href="#expectssh">expectを使った自動パスワード入力でのssh接続</a></li>
-<li><a class="reference internal" href="#">他記事のリンク</a><ul>
-<li><a class="reference internal" href="#iconv-and-nkf">iconv and nkf</a></li>
-<li><a class="reference internal" href="#">改行の変換</a></li>
-<li><a class="reference internal" href="#">シェルでの変数に対する操作</a></li>
-<li><a class="reference internal" href="#awk">awkの中でシェルで作成した変数を扱う</a></li>
-<li><a class="reference internal" href="#n">ファイルをN行に分割する</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Excel VBA.html">Excel VBA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRedshiftに接続.html">PythonからRedshiftに接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html">Python以外 in jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#r">R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#octave">octave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#scala">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R tips.html">R tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upload package to PyPI By twine.html">Upload package to PyPI By twine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editRを試した.html">editR試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faker サンプルデータ作成.html">faker サンプルデータ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: 行列の性質や数式テクニック.html">note: 行列の性質や数式テクニック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">shell tips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#heredocescape">heredoc中でescape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">一時的に環境変数を変更</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gzip-sample">gzip sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oneliner-get-pip-and-install">oneliner: get-pip and install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">日付時刻指定してファイル作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">あるファイルより新しい時刻のファイルの検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wget-with-header">wget with header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#curl-basic-auth">curl basic auth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bash-dollar-mkdir-and-cd">bash の dollar と mkdir and cd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#awkcut">普段awkしか使わないのでcut のメモ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bash">bashで桁の大きい数値文字列の作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expectssh">expectを使った自動パスワード入力でのssh接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">他記事のリンク</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iconv-and-nkf">iconv and nkf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">改行の変換</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">シェルでの変数に対する操作</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#awk">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#n">ファイルをN行に分割する</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy.html">numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -150,7 +395,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>heredoc中でescape</li>
+      <li>shell tips</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -203,187 +448,190 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
+<div class="section" id="shell-tips">
+<span id="shell-tips"></span><h1>shell tips<a class="headerlink" href="#shell-tips" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="heredocescape">
-<span id="heredocescape"></span><h1>heredoc中でescape<a class="headerlink" href="#heredocescape" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:escape_heredoc.sh"><div class="highlight"><pre><span></span># 単純に実行結果をredirectしてるのでescapeする必要がある
-cat &lt;&lt;EOF &gt; escape_heredoc.sh
-echo \`whoami\` home is \$HOME
-EOF
+<span id="heredocescape"></span><h2>heredoc中でescape<a class="headerlink" href="#heredocescape" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># 単純に実行結果をredirectしてるのでescapeする必要がある</span>
+cat <span class="s">&lt;&lt;EOF &gt; escape_heredoc.sh</span>
+<span class="s">echo \`whoami\` home is \$HOME</span>
+<span class="s">EOF</span>
 
 cat escape_heredoc.sh
-echo `whoami` home is $HOME
+<span class="nb">echo</span> <span class="sb">`</span>whoami<span class="sb">`</span> home is <span class="nv">$HOME</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id1"></span><h1>一時的に環境変数を変更<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-zsh:一時的に環境変数を変更.zsh"><div class="highlight"><pre><span></span>echo $LANG         # ja_JP.UTF-8
-       date        # 土  3 25 16:20:03 JST 2017
-LANG=C date        # Sat Mar 25 16:20:18 JST 2017
-echo $LANG         # ja_JP.UTF-8
+<span id="id1"></span><h2>一時的に環境変数を変更<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="nv">$LANG</span>         <span class="c1"># ja_JP.UTF-8</span>
+       date        <span class="c1"># 土  3 25 16:20:03 JST 2017</span>
+<span class="nv">LANG</span><span class="o">=</span>C date        <span class="c1"># Sat Mar 25 16:20:18 JST 2017</span>
+<span class="nb">echo</span> <span class="nv">$LANG</span>         <span class="c1"># ja_JP.UTF-8</span>
 
-LANG=C echo $LANG  # ja_JP.UTF-8 ?? builtin ??
-echo &#39;echo $LANG&#39; &gt; test.sh &amp;&amp; chmod +x test.sh
+<span class="nv">LANG</span><span class="o">=</span>C <span class="nb">echo</span> <span class="nv">$LANG</span>  <span class="c1"># ja_JP.UTF-8 ?? builtin ??</span>
+<span class="nb">echo</span> <span class="s1">&#39;echo $LANG&#39;</span> &gt; test.sh <span class="o">&amp;&amp;</span> chmod +x test.sh
 
-       ./test.sh   # ja_JP.UTF-8
-LANG=C ./test.sh   # C
+       ./test.sh   <span class="c1"># ja_JP.UTF-8</span>
+<span class="nv">LANG</span><span class="o">=</span>C ./test.sh   <span class="c1"># C</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="gzip-sample">
-<span id="gzip-sample"></span><h1>gzip sample<a class="headerlink" href="#gzip-sample" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:gzip_sample.sh"><div class="highlight"><pre><span></span>gzip -V
+<span id="gzip-sample"></span><h2>gzip sample<a class="headerlink" href="#gzip-sample" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gzip -V
 gzip 1.6
 
-gzip -dk data.gz # data
+gzip -dk data.gz <span class="c1"># data</span>
 gzip -dc data.gz &gt; data.tsv
 
-gzip -k data.tsv # data.tsv.gz
+gzip -k data.tsv <span class="c1"># data.tsv.gz</span>
 gzip -c data.tsv &gt; data.gz
 
 gzip -l data.gz
        compressed        uncompressed  ratio uncompressed_name
-          2250139            14046126  84.0% data
+          <span class="m">2250139</span>            <span class="m">14046126</span>  84.0% data
 </pre></div>
 </div>
 </div>
 <div class="section" id="oneliner-get-pip-and-install">
-<span id="oneliner-get-pip-and-install"></span><h1>oneliner: get-pip and install<a class="headerlink" href="#oneliner-get-pip-and-install" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-exec-python-from-stdin.sh"><div class="highlight"><pre><span></span># http://stackoverflow.com/questions/11369964/run-a-python-script-from-url-in-terminal
+<span id="oneliner-get-pip-and-install"></span><h2>oneliner: get-pip and install<a class="headerlink" href="#oneliner-get-pip-and-install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># http://stackoverflow.com/questions/11369964/run-a-python-script-from-url-in-terminal</span>
 
-echo &quot;import sys;print sys.version&quot; | python
-2.7.11+ (default, Apr 17 2016, 14:00:29)
-[GCC 5.3.1 20160413]
+<span class="nb">echo</span> <span class="s2">&quot;import sys;print sys.version&quot;</span> <span class="p">|</span> python
+2.7.11+ <span class="o">(</span>default, Apr <span class="m">17</span> 2016, 14:00:29<span class="o">)</span>
+<span class="o">[</span>GCC 5.3.1 20160413<span class="o">]</span>
 
-# つまり下記で良い
-wget -q -O- https://bootstrap.pypa.io/get-pip.py | python
+<span class="c1"># つまり下記で良い</span>
+wget -q -O- https://bootstrap.pypa.io/get-pip.py <span class="p">|</span> python
 
-# python でpip install, replから抜けたくない時などに
-python -c &quot;import pip; pip.main([&#39;install&#39;, &#39;joblib&#39;])&quot;
+<span class="c1"># python でpip install, replから抜けたくない時などに</span>
+python -c <span class="s2">&quot;import pip; pip.main([&#39;install&#39;, &#39;joblib&#39;])&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id2"></span><h1>日付時刻指定してファイル作成<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:日付時刻指定してファイル作成.sh"><div class="highlight"><pre><span></span># ファイル作成と、作成済みファイルの日時変更は覚えていたので、調べてみた
+<span id="id2"></span><h2>日付時刻指定してファイル作成<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># ファイル作成と、作成済みファイルの日時変更は覚えていたので、調べてみた</span>
 
 touch
 usage:
-touch [-A [-][[hh]mm]SS] [-acfhm] [-r file] [-t [[CC]YY]MMDDhhmm[.SS]] file ...
+touch <span class="o">[</span>-A <span class="o">[</span>-<span class="o">][[</span>hh<span class="o">]</span>mm<span class="o">]</span>SS<span class="o">]</span> <span class="o">[</span>-acfhm<span class="o">]</span> <span class="o">[</span>-r file<span class="o">]</span> <span class="o">[</span>-t <span class="o">[[</span>CC<span class="o">]</span>YY<span class="o">]</span>MMDDhhmm<span class="o">[</span>.SS<span class="o">]]</span> file ...
 
 man touch
 
 touch f1
-touch -t &quot;200012090123.45&quot; f2
-touch -t &quot;202001010123.45&quot; f3
+touch -t <span class="s2">&quot;200012090123.45&quot;</span> f2
+touch -t <span class="s2">&quot;202001010123.45&quot;</span> f3
 </pre></div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id3"></span><h1>あるファイルより新しい時刻のファイルの検索<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:あるファイルより新しい時刻のファイルの検索.sh"><div class="highlight"><pre><span></span># 日付時刻指定してファイル作成で分かりやすくファイルを作成した後に
+<span id="id3"></span><h2>あるファイルより新しい時刻のファイルの検索<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># 日付時刻指定してファイル作成で分かりやすくファイルを作成した後に</span>
 find . -newer f1
 ./f3
 </pre></div>
 </div>
 </div>
 <div class="section" id="wget-with-header">
-<span id="wget-with-header"></span><h1>wget with header<a class="headerlink" href="#wget-with-header" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:wget_with_header_example.sh"><div class="highlight"><pre><span></span># and basic authorization
-wget http://localhost:8080 \
-    --header=&#39;field: value&#39; \
-    --header=&#39;field2: value2&#39; \
-    &#39;--http-user=id&#39; &#39;--http-password=pass&#39;
+<span id="wget-with-header"></span><h2>wget with header<a class="headerlink" href="#wget-with-header" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># and basic authorization</span>
+wget http://localhost:8080 <span class="se">\</span>
+    --header<span class="o">=</span><span class="s1">&#39;field: value&#39;</span> <span class="se">\</span>
+    --header<span class="o">=</span><span class="s1">&#39;field2: value2&#39;</span> <span class="se">\</span>
+    <span class="s1">&#39;--http-user=id&#39;</span> <span class="s1">&#39;--http-password=pass&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="curl-basic-auth">
-<span id="curl-basic-auth"></span><h1>curl basic auth<a class="headerlink" href="#curl-basic-auth" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:curl_basic_auth_example.sh"><div class="highlight"><pre><span></span>curl --user id:pass \
-     -X POST \
-     -d name=value
-     &quot;http://localhost:8080/&quot;
+<span id="curl-basic-auth"></span><h2>curl basic auth<a class="headerlink" href="#curl-basic-auth" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>curl --user id:pass <span class="se">\</span>
+     -X POST <span class="se">\</span>
+     -d <span class="nv">name</span><span class="o">=</span>value
+     <span class="s2">&quot;http://localhost:8080/&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="bash-dollar-mkdir-and-cd">
-<span id="bash-dollar-mkdir-and-cd"></span><h1>bash の dollar と mkdir and cd<a class="headerlink" href="#bash-dollar-mkdir-and-cd" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:mdkir_and_cd.sh"><div class="highlight"><pre><span></span># https://www.gnu.org/software/bash/manual/html_node/Variable-Index.html
+<span id="bash-dollar-mkdir-and-cd"></span><h2>bash の dollar と mkdir and cd<a class="headerlink" href="#bash-dollar-mkdir-and-cd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># https://www.gnu.org/software/bash/manual/html_node/Variable-Index.html</span>
 
-mkdir -p foo/bar &amp;&amp; cd $_
-# 直近のパラメータになるのでちょうどいい
+mkdir -p foo/bar <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$_</span>
+<span class="c1"># 直近のパラメータになるのでちょうどいい</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="awkcut">
-<span id="awkcut"></span><h1>普段awkしか使わないのでcut のメモ<a class="headerlink" href="#awkcut" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:cut_example.sh"><div class="highlight"><pre><span></span>echo &quot;1  2  3&quot; | cut -d&quot; &quot; -f1,2,5
-1  3
-# delimiterの連続は考慮しない
+<span id="awkcut"></span><h2>普段awkしか使わないのでcut のメモ<a class="headerlink" href="#awkcut" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;1  2  3&quot;</span> <span class="p">|</span> cut -d<span class="s2">&quot; &quot;</span> -f1,2,5
+<span class="m">1</span>  3
+<span class="c1"># delimiterの連続は考慮しない</span>
 
-echo &quot;1  2  3&quot; | awk       &#39;{print $1 $2 $5}&#39;
+<span class="nb">echo</span> <span class="s2">&quot;1  2  3&quot;</span> <span class="p">|</span> awk       <span class="s1">&#39;{print $1 $2 $5}&#39;</span>
 12
-echo &quot;1  2  3&quot; | awk -F&#39; &#39; &#39;{print $1 $2 $5}&#39;
+<span class="nb">echo</span> <span class="s2">&quot;1  2  3&quot;</span> <span class="p">|</span> awk -F<span class="s1">&#39; &#39;</span> <span class="s1">&#39;{print $1 $2 $5}&#39;</span>
 12
 </pre></div>
 </div>
 </div>
 <div class="section" id="bash">
-<span id="bash"></span><h1>bashで桁の大きい数値文字列の作成<a class="headerlink" href="#bash" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:bashで桁の大きい数値文字列の作成.sh"><div class="highlight"><pre><span></span># 今回は20桁
-# 10^18になるとオーバーフロー
-# seqだけでも0埋め可能
+<span id="bash"></span><h2>bashで桁の大きい数値文字列の作成<a class="headerlink" href="#bash" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># 今回は20桁</span>
+<span class="c1"># 10^18になるとオーバーフロー</span>
+<span class="c1"># seqだけでも0埋め可能</span>
 
-DIGIT_18=$((10 ** 17))
-FORMAT=&#39;No.%s\n&#39;
-for i in $(seq -w 1 1 30)
-do
-  num=${DIGIT_18}$i
-  printf &quot;${FORMAT}&quot; $num
-done
+<span class="nv">DIGIT_18</span><span class="o">=</span><span class="k">$((</span><span class="m">10</span> <span class="o">**</span> <span class="m">17</span><span class="k">))</span>
+<span class="nv">FORMAT</span><span class="o">=</span><span class="s1">&#39;No.%s\n&#39;</span>
+<span class="k">for</span> i in <span class="k">$(</span>seq -w <span class="m">1</span> <span class="m">1</span> 30<span class="k">)</span>
+<span class="k">do</span>
+  <span class="nv">num</span><span class="o">=</span><span class="si">${</span><span class="nv">DIGIT_18</span><span class="si">}</span><span class="nv">$i</span>
+  <span class="nb">printf</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FORMAT</span><span class="si">}</span><span class="s2">&quot;</span> <span class="nv">$num</span>
+<span class="k">done</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="expectssh">
-<span id="expectssh"></span><h1>expectを使った自動パスワード入力でのssh接続<a class="headerlink" href="#expectssh" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-bash:expectを使った自動パスワード入力でのssh接続_expect_script.sh"><div class="highlight"><pre><span></span>#!/usr/bin/expect
- 
-set timeout 5
-spawn ssh [lindex $argv 0]
-expect &quot;password:&quot;
-send &quot;password\n&quot;
-send exit\n
+<span id="expectssh"></span><h2>expectを使った自動パスワード入力でのssh接続<a class="headerlink" href="#expectssh" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/expect</span>
+
+<span class="nb">set</span> timeout 5
+spawn ssh <span class="o">[</span>lindex <span class="nv">$argv</span> 0<span class="o">]</span>
+expect <span class="s2">&quot;password:&quot;</span>
+send <span class="s2">&quot;password\n&quot;</span>
+send exit<span class="se">\n</span>
 interact
 </pre></div>
 </div>
-<div class="highlight-bash:expectを使った自動パスワード入力でのssh接続_run_expect.sh"><div class="highlight"><pre><span></span>#!/bin/sh
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 
-expect -c &quot;
- set timeout 5
- spawn ssh [lindex $argv 0]
- expect &quot;password:&quot;
- send &quot;password\n&quot;
- send exit\n
- interact
+expect -c <span class="s2">&quot;</span>
+<span class="s2"> set timeout 5</span>
+<span class="s2"> spawn ssh [lindex </span><span class="nv">$argv</span><span class="s2"> 0]</span>
+<span class="s2"> expect &quot;</span>password:<span class="s2">&quot;</span>
+<span class="s2"> send &quot;</span>password<span class="se">\n</span><span class="s2">&quot;</span>
+<span class="s2"> send exit\n</span>
+<span class="s2"> interact</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id4"></span><h1>他記事のリンク<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id4"></span><h2>他記事のリンク<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="iconv-and-nkf">
-<span id="iconv-and-nkf"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/3faace1a175e20cf63dd">iconv and nkf</a><a class="headerlink" href="#iconv-and-nkf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="iconv-and-nkf"></span><h3><a class="reference external" href="http://qiita.com/ksomemo/items/3faace1a175e20cf63dd">iconv and nkf</a><a class="headerlink" href="#iconv-and-nkf" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="">
-<span id="id5"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/ec50044912447636b3ce">改行の変換</a><a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id5"></span><h3><a class="reference external" href="http://qiita.com/ksomemo/items/ec50044912447636b3ce">改行の変換</a><a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="">
-<span id="id6"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/9e5c354944bb6e1cf799">シェルでの変数に対する操作</a><a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id6"></span><h3><a class="reference external" href="http://qiita.com/ksomemo/items/9e5c354944bb6e1cf799">シェルでの変数に対する操作</a><a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="awk">
-<span id="awk"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/2e7389db84f8b416ad9f">awkの中でシェルで作成した変数を扱う</a><a class="headerlink" href="#awk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="awk"></span><h3><a class="reference external" href="http://qiita.com/ksomemo/items/2e7389db84f8b416ad9f">awkの中でシェルで作成した変数を扱う</a><a class="headerlink" href="#awk" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="n">
-<span id="n"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/ab498ad8d6d25728db43">ファイルをN行に分割する</a><a class="headerlink" href="#n" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="n"></span><h3><a class="reference external" href="http://qiita.com/ksomemo/items/ab498ad8d6d25728db43">ファイルをN行に分割する</a><a class="headerlink" href="#n" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
 </div>
 </div>
 
@@ -394,6 +642,15 @@ expect -c &quot;
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sqlalchemy_with_mssql.html" class="btn btn-neutral float-right" title="sqlalchemy_with_mssql" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sessionize with pandas memo.html" class="btn btn-neutral" title="sessionize with pandas memo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

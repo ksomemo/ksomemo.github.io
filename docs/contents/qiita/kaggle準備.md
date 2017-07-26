@@ -1,16 +1,17 @@
+# kaggle準備
 ## steps
 1. create account
 1. login
 1. run prepare-kaggle.sh
 
-```prepare-kaggle.sh
+```bash
 # prepare python environment
 # kg command
 pip install kaggle-cli
 
 # warning: save raw password
 # ~/.kaggle-cli/config
-kg config -u username -p password -g 
+kg config -u username -p password -g
 
 # for accept / python 3.6
 pip install git+https://github.com/ksomemo/kaggle-accept
@@ -31,7 +32,7 @@ mkdir scripts
 ```
 
 ## check data
-```check_data.sh
+```bash
 # size
 ls -lh ./input/*.zip
 ls -lh ./input/*.csv
@@ -45,7 +46,4 @@ do
     head -n 1 $f | awk -F, -v fname="$f" '{print NF "\t" fname}'
 done
 ```
-
-http://qiita.com/ksomemo/items/2e7389db84f8b416ad9f
-
 

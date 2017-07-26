@@ -1,3 +1,4 @@
+# ipython/jupyter tips
 ## help系 magic command と perl
 ### 動機
 ipythonの`%pdoc`というmagic commandをどこかで見たので試していた
@@ -10,7 +11,8 @@ ipythonの`%pdoc`というmagic commandをどこかで見たので試してい�
 - 素直に各言語の処理系とkernelを入れるほうがよさそう
 - `%%python2` はpython2のalias作っておけば便利そう(自分の場合pyenv使っているので無理)
 
-```perl_in_jupyter.pl
+### perl_in_jupyter
+```perl
 %%perl
 # http://ipython.readthedocs.org/en/stable/interactive/magics.html
 my $a = 1;
@@ -51,7 +53,7 @@ pagerはQ or ESCで閉じることを知らないと邪魔だと思ってしま�
 
 
 ## ipythonで自作magicコマンド
-```py3:example.ipynb
+```py3
 %% exmaple line_start line_end
 cell_start
 1
@@ -60,7 +62,7 @@ cell_start
 cell_end
 ```
 
-```py3:example.py
+```py3
 # ~/.ipython/extensions/
 from IPython.core.magic import register_cell_magic
 
@@ -75,13 +77,17 @@ def load_ipython_extension(ipython):
     ipython.register_magic_function(helloworld, 'cell')
 ```
 
-```py3:ipython_config.py
+ipython_config.py
+
+```py3
 # ~/.ipython/profile_default/
 c.InteractiveShellApp.extensions.append("example")
 ```
 
 ## jupyter hook
-```py3:jupyter_notebook_config.py
+jupyter_notebook_config.py
+
+```py3
 # http://jupyter-notebook.readthedocs.org/en/latest/extending/savehooks.html
 # ~/.jupyter
 def scrub_output_pre_save(model, **kwargs):
@@ -143,7 +149,9 @@ c.FileContentsManager.post_save_hook = script_post_save
 - つくってしまえ
 
 ### code
-```open-nbviewer.js
+open-nbviewer.js
+
+```js
 var target = '_target'
 , tab = window.open('about:blank', target)
 , form = document.createElement('form')

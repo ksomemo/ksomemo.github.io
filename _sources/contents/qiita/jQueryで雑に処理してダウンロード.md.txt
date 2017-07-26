@@ -1,10 +1,13 @@
+# jQueryで雑に処理してダウンロード weblio words
 - Weblioの登録単語Exportがしょぼすぎた
 - のでjQueryで雑に処理してダウンロードできるようにした
 - Array.prototype.map の使い方覚えた
 - String.prototype.replace が１つしか置換しなかった
 - Date.prototype.toISOString を覚えた
 
-```js:downloadWeblioRegisteredWord.js
+downloadWeblioRegisteredWord.js
+
+```js
 var now = new Date();
 var sidFuncs = {
   0: function(el) {return $(el).text()},

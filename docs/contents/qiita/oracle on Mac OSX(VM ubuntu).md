@@ -1,3 +1,4 @@
+# oracle on Mac OSX(VM ubuntu)
 ## 概要
 Mac OSXのGuest OSでOracle XEを準備して, Host OSから扱えるようにする
 
@@ -24,7 +25,7 @@ Mac OSX上のubuntu VMにOracleをinstallするVagratFileを提供しているre
 - gitが必要なのでinstallしておくこと(なくてもいけるけど、今後のためにinstall)
 
 ## VMの準備
-```bash:prepare_vm.sh
+```bash
 # 作業フォルダ名は自由に
 mkdir -p /path/to/vagrant-oracle-xe-11-vm && cd $_
 
@@ -49,16 +50,16 @@ vagrant up
 vagrant reload
 ```
 
-## Oracle Instant Client Package 
+## Oracle Instant Client Package
 http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html からダウンロード
 
 今回は、Version 11.2.0.4.0 (64-bit)
 
 - instantclient-basic-macos.x64-11.2.0.4.0.zip (62,794,903 bytes)
-  -	Instant Client Package - Basic: All files required to run OCI, OCCI, and JDBC-OCI applications 
+  -	Instant Client Package - Basic: All files required to run OCI, OCCI, and JDBC-OCI applications
 - instantclient-sqlplus-macos.x64-11.2.0.4.0.zip (884,608 bytes)
   - SQL*Plus: Additional libraries and executable for running SQL*Plus with Instant Client
-- instantclient-sdk-macos.x64-11.2.0.4.0.zip (651,903 bytes)  
+- instantclient-sdk-macos.x64-11.2.0.4.0.zip (651,903 bytes)
   - SDK: Additional header files and an example makefile for developing Oracle applications with Instant Client
 
 
@@ -68,7 +69,7 @@ http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html からダウ�
 
 https://blog.caseylucas.com/2013/03/03/oracle-sqlplus-and-instant-client-on-mac-osx-without-dyld_library_path/
 
-```bash:prepare_sqlplus.sh
+```bash
 cd ..
 mv ~/Downloads/instantclient-*.zip .
 # DLファイルの@を消してあげる

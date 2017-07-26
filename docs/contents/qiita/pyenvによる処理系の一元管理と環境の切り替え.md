@@ -1,4 +1,4 @@
-
+# pyenvによる処理系の一元管理と環境の切り替え
 ## 用途
 * pythonの処理系の一元管理
 * 特定ディレクトリでのpython処理系の切り替え
@@ -13,7 +13,7 @@ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-
 ## 設定
 各shの設定ファイルに以下を追加
 
-```zsh
+```bash
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"

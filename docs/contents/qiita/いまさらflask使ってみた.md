@@ -1,3 +1,4 @@
+# いまさらflask使ってみた
 - いまさらflask使ってみた
 - jinjaは前に使ったことあるので特に問題なし
 
@@ -9,7 +10,7 @@
 - メモアプリとしては未完成…
 - Microな域を超えたらdjangoにしないと消耗しそう
 
-```py3:memo.py
+```python3
 from flask import (
     Flask,
     render_template,
@@ -59,7 +60,7 @@ if __name__ == '__main__':
     app.run(debug=debug)
 ```
 
-```html:template.html
+```html
 <!DOCTYPE html>
 <html>
 <head>

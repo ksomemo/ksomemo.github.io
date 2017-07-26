@@ -1,3 +1,4 @@
+# Rのseqを使って先月を求めるときの注意点
 月末日を利用して先月を求めたときのメモ。
 
 ＜追記あり＞
@@ -7,7 +8,7 @@
 * 2015-03-31の先月は2015-03-03
 * 2015-03-03 -> 2015-02-31
 
-```r
+```R
 x <- "2015-03-31"
 print(seq(as.Date(x), len=12, by="-1 month"))
 
@@ -29,7 +30,7 @@ print(seq(as.Date(x), len=12, by="-1 month"))
 結論は便利。ただし、Timezoneだけめんどう。
 
 ### sample
-```r
+```R
 install.packages("lubridate")
 library(lubridate)
 
@@ -40,12 +41,12 @@ ymd("2015-03-31") %m-% months(1:12)
 ```
 
 ### ymd
-```r
+```R
 ymd("2015-03-31")
 #[1] "2015-03-31 UTC"
 
 class(ymd("2015-03-31"))
-#[1] "POSIXct" "POSIXt" 
+#[1] "POSIXct" "POSIXt"
 
 ?ymd
 #ymd(..., quiet = FALSE, tz = "UTC",
@@ -53,11 +54,11 @@ class(ymd("2015-03-31"))
 ```
 
 ### months
-```r
+```R
 months(1)
 #[1] "1m 0d 0H 0M 0S"
 ?months
-# {base} 
+# {base}
 
 class(months(1))
 #[1] "Period"
@@ -72,7 +73,7 @@ months(1)
 ```
 
 ### Date and POSIXct
-```r
+```R
 class(as.Date("2015-03-31"))
 #[1] "Date"
 
@@ -81,10 +82,10 @@ as.POSIXct(as.Date("2015-03-31"))
 ```
 
 ### tz
-```r
+```R
 ymd("2015-03-31", tz = "JST")
 #[1] "2015-03-31 GMT"
-# 警告メッセージ: 
+# 警告メッセージ:
 #1: In as.POSIXct.POSIXlt(lt) : unknown timezone 'JST'
 #2: In as.POSIXlt.POSIXct(ct) : unknown timezone 'JST'
 #3: In as.POSIXct.POSIXlt(t) : unknown timezone 'JST'
@@ -96,18 +97,18 @@ ymd("2015-03-31", tz = "Asia/Tokyo")
 ```
 
 ### years
-```r
+```R
 years(1:12)
-# [1] "1y 0m 0d 0H 0M 0S"  "2y 0m 0d 0H 0M 0S"  "3y 0m 0d 0H 0M 0S"  "4y 0m 0d 0H 0M 0S" 
-# [5] "5y 0m 0d 0H 0M 0S"  "6y 0m 0d 0H 0M 0S"  "7y 0m 0d 0H 0M 0S"  "8y 0m 0d 0H 0M 0S" 
+# [1] "1y 0m 0d 0H 0M 0S"  "2y 0m 0d 0H 0M 0S"  "3y 0m 0d 0H 0M 0S"  "4y 0m 0d 0H 0M 0S"
+# [5] "5y 0m 0d 0H 0M 0S"  "6y 0m 0d 0H 0M 0S"  "7y 0m 0d 0H 0M 0S"  "8y 0m 0d 0H 0M 0S"
 # [9] "9y 0m 0d 0H 0M 0S"  "10y 0m 0d 0H 0M 0S" "11y 0m 0d 0H 0M 0S" "12y 0m 0d 0H 0M 0S"
 
 ymd("2015-03-31") %y-% years(1:12)
-# エラー:  関数 "%y-%" を見つけることができませんでした 
+# エラー:  関数 "%y-%" を見つけることができませんでした
 ymd("2015-03-31") %Y-% years(1:12)
-# エラー:  関数 "%Y-%" を見つけることができませんでした 
+# エラー:  関数 "%Y-%" を見つけることができませんでした
 ymd("2015-03-31") %d-% years(1:12)
-# エラー:  関数 "%d-%" を見つけることができませんでした 
+# エラー:  関数 "%d-%" を見つけることができませんでした
 
 ymd("2015-03-31") %m-% years(1:12)
 # [1] "2014-03-31 UTC" "2013-03-31 UTC" "2012-03-31 UTC" "2011-03-31 UTC" "2010-03-31 UTC"

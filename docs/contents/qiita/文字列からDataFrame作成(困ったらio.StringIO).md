@@ -1,3 +1,4 @@
+# 文字列からDataFrame作成(困ったらio.StringIO)
 ## from_stringがない
 - read_csvでCSV読み込むのめんどうなとき
 - copyした内容で作りたい
@@ -6,7 +7,7 @@
 - つくったあとに、read_csvでよいことに気づく
 - documentにのってたのでmemoに降格…(http://pandas.pydata.org/pandas-docs/stable/io.html#csv-text-files)
 
-```py3:read_and_from_csv.py
+```python3
 import pandas as pd
 import io
 
@@ -30,7 +31,7 @@ from_string(_csv, index_col=None)
 from_string(_csv[1:])
 
 	b	c
-a		
+a
 1	2	3
 4	5	6
 #################
@@ -53,7 +54,7 @@ a
 - read_ の存在に気づかず、to_しかないのかよーとPyperclipを使ったコードを作成していた…
 - http://qiita.com/ksomemo/items/381191fa95992d81be90#python%E3%81%A7clipboard%E6%93%8D%E4%BD%9C
 
-```py3:from_clipboad.py
+```python3
 import pyperclip
 
 

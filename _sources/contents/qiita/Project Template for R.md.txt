@@ -1,7 +1,11 @@
+# Project Template for R
+
 いつも迷うので検索したら、それっぽいのあったけど、迷い中。
 
 ## install
-```r:install-ProjectTemplate.R
+install-ProjectTemplate.R
+
+```R
 install.packages('ProjectTemplate')
 # or
 # install.packages("devtools")
@@ -10,7 +14,7 @@ devtools::install_github('johnmyleswhite/ProjectTemplate')
 ```
 
 ## create project
-```r:create-project.R
+```R
 require(ProjectTemplate)
 packageVersion("ProjectTemplate")
 [1] ‘0.6’
@@ -20,7 +24,7 @@ create.project(project.name = "new-project-minimal", minimal = TRUE)
 ```
 
 ## list contents of directories
-```text:tree-new-project.txt
+```text
 tree new-project
 
 new-project
@@ -48,7 +52,7 @@ new-project
     └── 1.R
 ```
 
-```text:tree-new-project-minimal.txt
+```text
 tree new-project-minimal
 
 new-project-minimal
@@ -63,7 +67,8 @@ new-project-minimal
     └── eda.R
 ```
 
-```txt:diff-each-project-files.txt
+## diff
+```text
 diff new-project new-project-minimal
 
 Only in new-project: TODO
@@ -83,7 +88,6 @@ Only in new-project: tests
 ```
 
 ## 見てみた感想
-```markdown:見てみた感想.md
 - 初めて見たものが多い
 - RStudioでEmptyProject作る時よりはマシ
 - Package作る時に含まれるR/manは存在しない
@@ -92,20 +96,16 @@ Only in new-project: tests
 - inst/revdep/vignettesなど知らないものがあった
     - http://r-pkgs.had.co.nz/
     - ここに詳しく書いてある
-```
 
 ## 疑問
-```markdown:疑問.md
 - packageは上の情報を見ればよいが、固有のprojectの場合どうすればよいのか
 - 例えば、Project共通のUtilityではあるがProject外では使えないものの共通化
 - これを読み込む時の方法がわかってない(´・ω・｀)
-```
 
 ## まとめ
-```markdown:まとめ.md
 - 専用Packageは使わなくてよさそう
 - .gitignoreとRprojファイル目当てでRStudioからProject作成する
 - とりあえず、Rディレクトリを作ってそこにRコード入れる
 - srcはCompiledって書いてあったので今のところ気にしない
 - ほかにもいろいろ調べて見る必要があるので追記する
-```
+

@@ -1,4 +1,4 @@
-
+# アクティブなBookの全Sheetの一部をSummaryファイルにコピペする
 * セル結合されているので仕方なくコピペマクロ
 * フォーマットは固定されているので、特定セルを対象とする
 
@@ -11,7 +11,7 @@ Sub MacroSheets()
   Dim name As Range
   Dim executed As Boolean
   executed = False
-  
+
   For Each s In Sheets
     Set uu = s.Range("C9")
     Set name = s.Range("B9")
@@ -42,7 +42,7 @@ End Sub
 Sub MacroPaste()
     MacroCopy
     Dim i As Integer
-    
+
     For i = 1 To 2500
         Dim address As String
         Dim c As Range

@@ -1,7 +1,7 @@
-```0_faker サンプルデータ作成.txt
-```
+# faker サンプルデータ作成
 
-```bash:install-fake-factory.sh
+## install
+```bash
 # http://fake-factory.readthedocs.org/en/master/locales/ja_JP.html
 # pip install fake-factory
 
@@ -9,7 +9,8 @@
 pip install faker
 ```
 
-```py3:faker_sample.py
+## example
+```python3
 from faker import Factory
 fake = Factory.create('ja_JP')
 ((fake.city(), fake.month()), (fake.city(), fake.month()))
@@ -28,7 +29,7 @@ def add(x, y):
 class MyClass:
     def __init__(self, a, b, c="default"):
         pass
-    
+
 for p in inspect.signature(MyClass.__init__).parameters.values():
     print(p, type(p), p.kind, p.default, type(p.default))
     print(p.KEYWORD_ONLY and p.default is param.empty)
@@ -39,7 +40,7 @@ for p in inspect.signature(MyClass.__init__).parameters.values():
     p.POSITIONAL_OR_KEYWORD,
     p.VAR_KEYWORD,
     p.VAR_POSITIONAL,
-    
+
 )
 
 def sample_fake():
@@ -50,7 +51,7 @@ def sample_fake():
         try:
             sig = inspect.signature(method)
             params = sig.parameters.values()
-            
+
             n_args = len(params)
             n_kwargs = sum(1 for p in params
                            if p.default is not p.empty)
@@ -59,7 +60,7 @@ def sample_fake():
                 value = method()
             else:
                 value = None
-            
+
             yield {"key": name, "value": value,
                    "n_args": n_args,
                    "n_kwargs": n_kwargs}
@@ -72,7 +73,8 @@ with pd.option_context("display.max_rows", 300):
 
 ```
 
-```txt:faker.log
+## faker.log
+```
 ## module
 faker.providers.address
 faker.providers.barcode

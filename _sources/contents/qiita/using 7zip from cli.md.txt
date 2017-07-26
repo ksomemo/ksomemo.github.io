@@ -1,4 +1,5 @@
-```bat:7za_sample.bat
+# using 7zip from cli
+```bat
 rem windows
 7-Zip (A) 9.20  Copyright (c) 1999-2010 Igor Pavlov  2010-11-18
 
@@ -22,7 +23,8 @@ Type = gzip
                               14046126      2429999  1 files, 0 folders
 ```
 
-```p7zip.sh
+## mac
+```bash
 brew install p7zip
 # or brew upgrade p7zip
 ```

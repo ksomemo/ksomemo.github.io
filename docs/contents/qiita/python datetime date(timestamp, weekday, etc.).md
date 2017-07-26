@@ -1,24 +1,34 @@
-```py3:datetime_datetime.py
+# python datetime date(timestamp, weekday, etc.)
+datetime_datetime.py
+
+```py3
 import datetime
 dt = datetime.datetime.now()
 timestamp = dt.timestamp()
 datetime.datetime.fromtimestamp(timestamp)
 datetime.datetime(2016, 1, 28, 0, 0)
 
+# run
 dt.utctimetuple()
+dt.timetuple()
+```
+
+```pycon
 time.struct_time(tm_year=2016, tm_mon=1, tm_mday=28, tm_hour=0, tm_min=0, tm_
 sec=0, tm_wday=3, tm_yday=28, tm_isdst=0)
 
-dt.timetuple()
 time.struct_time(tm_year=2016, tm_mon=1, tm_mday=28, tm_hour=0, tm_min=0, tm_
 sec=0, tm_wday=3, tm_yday=28, tm_isdst=-1)
 ```
 
-```py3:datetime_date.py
+## datetime_date.py
+```py3
 date = datetime.date.today()
 # print(date.timestamp()) # error
 datetime.datetime(date.year, date.month, date.day)
+```
 
+```pycon
 date.ctime()
 'Fri Jan 28 00:00:00 2016'
 

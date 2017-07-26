@@ -1,4 +1,4 @@
-
+# KGIとKPIと細分化とその後の行動
 忘れちゃいけないのでまとめた
 
 ## Key Goal Indicator

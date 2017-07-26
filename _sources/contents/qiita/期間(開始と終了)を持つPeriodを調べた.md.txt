@@ -1,3 +1,4 @@
+# 期間(開始と終了)を持つPeriodを調べた
 ## 動機
 - [pandas offset aliasまとめ](http://qiita.com/ksomemo/items/cc6f91c70265b0d776ad)　を書いた時に時系列系でpd.period_rangeというものを見た
 - DatetimeIndexとの違いがぱっと見でよくわからないので調べた
@@ -9,7 +10,7 @@
 - 日次だとあまり意味がないけど、月次や４半期などはAliasから作成できるので便利そう
 
 ## code
-```py3:period_range.py
+```python3
 import pandas as pd
 
 # module

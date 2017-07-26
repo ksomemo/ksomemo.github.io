@@ -1,8 +1,15 @@
-
-- jquery事前読み込み済み (http://qiita.com/ksomemo/items/becd4929593e0ffb4dda )
+# javascript basic authorization
+- jquery事前読み込み済み
 - url, user, password は事前に準備済み
 
-```js:basicAuthorization.js
+```js
+// read jquery
+script = document.createElement('script');
+script.src ="https://code.jquery.com/jquery-2.1.4.min.js";
+document.body.appendChild(script);
+```
+
+```js
 $.ajax({
   url: url,
   success: function(data) {console.log(data)},

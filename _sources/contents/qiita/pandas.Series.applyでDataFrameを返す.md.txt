@@ -1,6 +1,8 @@
-
+# pandas.Series.applyでDataFrameを返す
 ## decision tree の hyper parameter
-```py3:grid_search_scores.py
+grid_search_scores.py
+
+```py3
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.cross_validation import KFold
@@ -39,7 +41,7 @@ flatじゃないので、paramsのcolumnにdictが入っていて見づらい
 - pandas committer のblogにapply時にSeriesで返すとよいと書いてあった
 - applyのcodeを見てみるとSeriesの場合にDataFrameで包んで返しているところがあった
 
-```py3:a.py
+```py3
 gs_df = pd.DataFrame(grid_search.grid_scores_)
 #pd.DataFrame(gs_df.parameters)
 params_df = gs_df.parameters.apply(

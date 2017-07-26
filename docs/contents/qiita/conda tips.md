@@ -1,8 +1,11 @@
+# conda tips
 ## conda-launcher
 - Pythonで書かれた?便利アプリを起動するアプリの管理ツールっぽい
 - conda envのGUIとしても使える
 
-```bash:conda-launcher.sh
+conda-launcher.sh
+
+```bash
 # http://docs.continuum.io/anaconda/launcher
 # http://docs.continuum.io/anaconda-launcher/index
 
@@ -22,7 +25,7 @@ conda list | grep gl
 conda list | grep gl
 glueviz                   0.6.0                    py34_1    defaults
 
-# glueviz, click [launch] 
+# glueviz, click [launch]
 # gluevizアプリの起動
 
 # channelはまだよくわかってない
@@ -34,8 +37,9 @@ glueviz                   0.6.0                    py34_1    defaults
 - おもに、jupyter, 決定木用のgraph関連, 形態素解析, R連携, Pandas用, など
 
 ### conda listで解決する
-```pypi_packages.md
+```bash
 conda list | grep "<pip>"
+```
 
 - janome
 - pyper
@@ -56,16 +60,16 @@ conda list | grep "<pip>"
 - <del>seaborn</del> anaconda3.4.3から入っている
 - tabulate
 - kaggle-cli
-```
 
-```conda_packages.md
-- `conda install -c conda-forge jupyterlab`
-```
+#### conda_packages.md
+`conda install -c conda-forge jupyterlab`
 
 ### Anacondaに含まれていて、実際使っているもの
 きちんとvenv / conda envを使うようになったのであげてみる
 
-```requirments_for_analysis.txt
+requirments_for_analysis.txt
+
+```
 numpy
 scipy
 pandas

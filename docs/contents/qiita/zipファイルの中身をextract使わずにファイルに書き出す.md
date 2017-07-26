@@ -1,4 +1,5 @@
-```py3:write_zip_archives.py
+# zipファイルの中身をextract使わずにファイルに書き出す
+```py3
 import zipfile
 import shutil
 

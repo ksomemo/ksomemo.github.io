@@ -1,4 +1,6 @@
-```py3:logging_sample.py
+# python logging
+## logging_sample.py
+```py3
 from logging import (
 	getLogger,
 	StreamHandler,
@@ -6,7 +8,7 @@ from logging import (
 )
 
 
-## logger
+# logger
 logger = getLogger(__name__)
 handler = StreamHandler()
 handler.setLevel(DEBUG)
@@ -37,7 +39,7 @@ http://docs.python.jp/3/howto/logging.html#advanced-logging-tutorial
 - フィルタは、どのログ記録を出力するかを決定する、きめ細かい機能を提供します。
 - フォーマッタは、ログ記録が最終的に出力されるレイアウトを指定します。
 
-- ログイベント情報は LogRecord インスタンスの形で、 
+- ログイベント情報は LogRecord インスタンスの形で、
   - logger, handler, filter, formatter の間でやりとりされます。
 
 ## cookbook
@@ -50,8 +52,7 @@ http://docs.python.jp/3/howto/logging-cookbook.html#filters-contextual
 - NullHandler
 
 ### other
-```markdown:handlers.md
-import logging.handlers
+`import logging.handlers`
 
 - WatchedFileHandler
 - RotatingFileHandler
@@ -65,7 +66,6 @@ import logging.handlers
 - HTTPHandler
 - QueueHandler
   - QueueListener
-```
 
 ## filter
 http://docs.python.jp/3/library/logging.html#filter
@@ -80,7 +80,7 @@ http://docs.python.jp/3/library/logging.html#filter
 
 
 ## format
-```
+```py3
 logging.BASIC_FORMAT
 '%(levelname)s:%(name)s:%(message)s'
 
@@ -90,19 +90,19 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 ```
 
 ### handler
-```
+```py3
 fh.setFormatter(formatter)
 ch.setFormatter(formatter)
 ```
 
 ## warnings ?
-```
+```py3
 logging.warnings
 <module 'warnings' from 'C:\\Anaconda3\\lib\\warnings.py'>
 ```
 
 ## config
-```py3:logging_config.py
+```py3
 # http://docs.python.jp/3/library/logging.config.html
 import logging.config
 
@@ -110,7 +110,7 @@ logging.config.fileConfig('config_file.conf')
 ```
 
 ## example
-```py3:file_handler_example.py
+```py3
 from logging import (
 	getLogger,
 	Formatter,
@@ -123,7 +123,7 @@ from pprint import pprint
 logger = getLogger(__name__)
 
 logrecord_attributes = [
-	'asctime', 'name', 'levelname', 'message', 
+	'asctime', 'name', 'levelname', 'message',
 	'filename', 'funcName', 'lineno', 'module',
 ]
 func = lambda x: '%({0})s'.format(x)
@@ -137,7 +137,7 @@ handler.setLevel(DEBUG)
 logger.setLevel(DEBUG)
 logger.addHandler(handler)
 
-	
+
 print(logger)
 pprint(dir(logger))
 pprint(logger.__dict__)

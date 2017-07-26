@@ -1,8 +1,9 @@
+# pythonでmultiprocess/threadとjoblib
 ## multiprocess/thread
 - interfaceが似ている
 - threadは見たことがない
 
-```py3:multiprocess_thread.py
+```py3
 import multiprocessing as mp
 import threading as th
 import datetime
@@ -51,7 +52,9 @@ if __name__ == "__main__":
 ### arguments
 引数はiterator, keyword引数はdict
 
-```multiprocess_using_arguments.py
+multiprocess_using_arguments.py
+
+```py3
 def print_args(arg1, arg2, kwarg1=3, kwarg2=4, **kwargs):
     print(arg1, arg2)
     print(kwarg1, kwarg2)
@@ -75,7 +78,7 @@ x.start()
     - async版がある
     - context抜ける前に処理しないとダメ
 
-```multiprocess_pool.py
+```py3
 def add(x, y): return x + y
 with mp.Pool() as p:
     results = p.starmap(add, [(1, 2), (3, 4)])
@@ -107,7 +110,7 @@ print(result)
     - https://pythonhosted.org/joblib/parallel.html#bad-interaction-of-multiprocessing-and-third-party-libraries
 - 雑に測定してみた
 
-```example_joblib.py
+```py3
 import joblib
 import time
 

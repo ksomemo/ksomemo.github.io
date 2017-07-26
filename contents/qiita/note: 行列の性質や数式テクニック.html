@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>動機 &mdash; gh-pages  ドキュメント</title>
+  <title>note: 行列の性質や数式テクニック &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../genindex.html"/>
         <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/>
+        <link rel="next" title="note:golang(install／path／package manager)" href="note:golang(install／path／package manager).html"/>
+        <link rel="prev" title="note: vagrant VM／ansible／docker／serverspec(雑まとめ)" href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -84,155 +86,398 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">動機</a></li>
-<li><a class="reference internal" href="#">感想</a></li>
-<li><a class="reference internal" href="#">正方行列</a></li>
-<li><a class="reference internal" href="#">三角行列</a><ul>
-<li><a class="reference internal" href="#">上三角行列</a></li>
-<li><a class="reference internal" href="#">下三角行列</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Excel VBA.html">Excel VBA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRedshiftに接続.html">PythonからRedshiftに接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html">Python以外 in jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#r">R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#octave">octave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#scala">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R tips.html">R tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upload package to PyPI By twine.html">Upload package to PyPI By twine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editRを試した.html">editR試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faker サンプルデータ作成.html">faker サンプルデータ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">note: 行列の性質や数式テクニック</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#">動機</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">感想</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">正方行列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">三角行列</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">上三角行列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">下三角行列</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#">対角行列</a></li>
-<li><a class="reference internal" href="#">単位行列</a></li>
-<li><a class="reference internal" href="#trace">trace</a></li>
-<li><a class="reference internal" href="#">行列式</a><ul>
-<li><a class="reference internal" href="#">性質</a></li>
-<li><a class="reference internal" href="#">クラメルの公式</a><ul>
-<li><a class="reference internal" href="#">置換</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">逆行列</a><ul>
-<li><a class="reference internal" href="#">特異行列</a></li>
-<li><a class="reference internal" href="#">余因子展開</a><ul>
-<li><a class="reference internal" href="#">余因子分解とサラスの方法</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">行列式の積</a></li>
-<li><a class="reference internal" href="#">ようやく逆行列の公式</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">ベクトル空間</a></li>
-<li><a class="reference internal" href="#">線形変換</a></li>
-<li><a class="reference internal" href="#">線形変換と定数倍と固有値分解</a><ul>
-<li><a class="reference internal" href="#">連立方程式と行列式 = 0の意味</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">随伴行列</a></li>
-<li><a class="reference internal" href="#">エルミート行列とユニタリ行列と対角化</a><ul>
-<li><a class="reference internal" href="#">標準化とジョルダン標準化</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">その他</a><ul>
-<li><a class="reference internal" href="#">直交行列</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">総和と平均</a><ul>
-<li><a class="reference internal" href="#">例：単回帰分析の係数と切片</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">総和と微分</a></li>
-<li><a class="reference internal" href="#">内積</a><ul>
-<li><a class="reference internal" href="#">意味</a></li>
-<li><a class="reference internal" href="#">数式の解釈</a><ul>
-<li><a class="reference internal" href="#">上記の解説</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">分散共分散行列</a></li>
-<li><a class="reference internal" href="#">転置行列</a><ul>
-<li><a class="reference internal" href="#">用途</a></li>
-<li><a class="reference internal" href="#">手順と使った性質</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">指数</a></li>
-<li><a class="reference internal" href="#">対数</a><ul>
-<li><a class="reference internal" href="#odds-logit-logistic">odds/logit/logistic関数</a></li>
-<li><a class="reference internal" href="#">指数型分布族</a><ul>
-<li><a class="reference internal" href="#exp-log-p-p-e">exp(log(p)) = p: 底はe</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">微分</a><ul>
-<li><a class="reference internal" href="#">ベクトルの微分</a></li>
-<li><a class="reference internal" href="#convex">2階微分とconvex</a></li>
-<li><a class="reference internal" href="#">正定値、半正定値とその意味</a></li>
-<li><a class="reference internal" href="#">ヘッセ行列</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">テーラー展開</a></li>
-<li><a class="reference internal" href="#">ラプラス近似</a></li>
-<li><a class="reference internal" href="#">期待値</a></li>
-<li><a class="reference internal" href="#">分散</a></li>
-<li><a class="reference internal" href="#">記号</a></li>
-<li><a class="reference internal" href="#">集合</a></li>
-<li><a class="reference internal" href="#">論理</a></li>
-<li><a class="reference internal" href="#">数列</a></li>
-<li><a class="reference internal" href="#">級数</a><ul>
-<li><a class="reference internal" href="#">時系列分析での例</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">差分方程式</a></li>
-<li><a class="reference internal" href="#">微分方程式</a></li>
-<li><a class="reference internal" href="#">特性方程式</a></li>
-<li><a class="reference internal" href="#">順列</a></li>
-<li><a class="reference internal" href="#">組み合わせ</a><ul>
-<li><a class="reference internal" href="#">二項定理</a></li>
-<li><a class="reference internal" href="#">多項定理</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">極限</a></li>
-<li><a class="reference internal" href="#">積分</a><ul>
-<li><a class="reference internal" href="#">重積分</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">ガンマ関数</a></li>
-<li><a class="reference internal" href="#">ベータ関数</a></li>
-<li><a class="reference internal" href="#">テイラー展開</a></li>
-<li><a class="reference internal" href="#">フーリエ変換</a><ul>
-<li><a class="reference internal" href="#">フーリエ級数</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">ラプラス近似</a></li>
-<li><a class="reference internal" href="#">ラグランジュの未定乗数法</a></li>
-<li><a class="reference internal" href="#">三角関数</a></li>
-<li><a class="reference internal" href="#">複素数</a></li>
-<li><a class="reference internal" href="#">線形代数</a><ul>
-<li><a class="reference internal" href="#">ベクトル</a></li>
-<li><a class="reference internal" href="#">行列</a><ul>
-<li><a class="reference internal" href="#">フロベニウスノルム</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">行列分解</a><ul>
-<li><a class="reference internal" href="#">対角化</a></li>
-<li><a class="reference internal" href="#">正定値</a></li>
-<li><a class="reference internal" href="#">固有値分解</a></li>
-<li><a class="reference internal" href="#">線形独立</a></li>
-<li><a class="reference internal" href="#">小行列式</a></li>
-<li><a class="reference internal" href="#rank">rank</a></li>
-<li><a class="reference internal" href="#">特異値分解</a></li>
-<li><a class="reference internal" href="#qr">QR分解</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#">行列変換?投影</a><ul>
-<li><a class="reference internal" href="#">剛体変換</a></li>
-<li><a class="reference internal" href="#">相似変換</a></li>
-<li><a class="reference internal" href="#affine">affine変換</a></li>
-<li><a class="reference internal" href="#">射影変換</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">対角行列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">単位行列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trace">trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">行列式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">性質</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">クラメルの公式</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">置換</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#">統計学</a></li>
-<li><a class="reference internal" href="#">距離</a></li>
-<li><a class="reference internal" href="#">数式慣れ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">逆行列</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">特異行列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">余因子展開</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">余因子分解とサラスの方法</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">行列式の積</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">ようやく逆行列の公式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">ベクトル空間</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">線形変換</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">線形変換と定数倍と固有値分解</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">連立方程式と行列式 = 0の意味</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">随伴行列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">エルミート行列とユニタリ行列と対角化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">標準化とジョルダン標準化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">その他</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">直交行列</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">総和と平均</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">例：単回帰分析の係数と切片</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">総和と微分</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">内積</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">意味</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">数式の解釈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">上記の解説</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">分散共分散行列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">転置行列</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">用途</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">手順と使った性質</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">指数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">対数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#odds-logit-logistic">odds/logit/logistic関数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">指数型分布族</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exp-log-p-p-e">exp(log(p)) = p: 底はe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">微分</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">ベクトルの微分</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convex">2階微分とconvex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">正定値、半正定値とその意味</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">ヘッセ行列</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">テーラー展開</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">ラプラス近似</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">期待値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">分散</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">記号</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">集合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">論理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">数列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">級数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">時系列分析での例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">差分方程式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">微分方程式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">特性方程式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">順列</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">組み合わせ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">二項定理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">多項定理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">極限</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">積分</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">重積分</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">ガンマ関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">ベータ関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">テイラー展開</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">フーリエ変換</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">フーリエ級数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">ラプラス近似</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">ラグランジュの未定乗数法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">三角関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">複素数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">線形代数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">ベクトル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">行列</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">フロベニウスノルム</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">行列分解</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">対角化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">正定値</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">固有値分解</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">線形独立</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">小行列式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rank">rank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">特異値分解</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qr">QR分解</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#">行列変換?投影</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">剛体変換</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">相似変換</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#affine">affine変換</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">射影変換</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">統計学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">距離</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">数式慣れ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell tips.html">shell tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy.html">numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -275,7 +520,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>動機</li>
+      <li>note: 行列の性質や数式テクニック</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -328,9 +573,11 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
+<div class="section" id="note">
+<span id="note"></span><h1>note: 行列の性質や数式テクニック<a class="headerlink" href="#note" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>だいぶゆるくまとめている</p>
 <div class="section" id="">
-<span id="id1"></span><h1>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id1"></span><h2>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下の本を読んだり、書籍以外を読んだのでまとめて理解を深める</p>
 <ul class="simple">
 <li>キーポイント線形代数<ul>
@@ -367,47 +614,47 @@
 <p>線形代数・行列の導出と意味を忘れ、機械学習のなんとか関数のブレにいつも悩まされるので、ここだけ見れば思い返せるようにする。また、他の書籍でわからなかったことも混じっている。</p>
 </div>
 <div class="section" id="">
-<span id="id2"></span><h1>感想<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id2"></span><h2>感想<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>キーポイント線形代数はそれほど機械学習のための行列関連には直接関係なさそう</li>
 <li>ただし、直接関係ある公式などの理解を深めるための知識となる気がする</li>
 </ul>
 </div>
 <div class="section" id="">
-<span id="id3"></span><h1>正方行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id3"></span><h2>正方行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>行と列が等しい行列 N<em>N, not N</em>M (N≠M)</p>
 </div>
 <div class="section" id="">
-<span id="id4"></span><h1>三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id4"></span><h2>三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>正方行列に関すること</p>
 <div class="section" id="">
-<span id="id5"></span><h2>上三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id5"></span><h3>上三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>行列Xの成分を $X_{ij}$ としたとき $i &gt; j$ が0である行列</p>
 </div>
 <div class="section" id="">
-<span id="id6"></span><h2>下三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id6"></span><h3>下三角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>行列Xの成分を $X_{ij}$ としたとき $i &lt; j$ が0である行列</p>
 </div>
 </div>
 <div class="section" id="">
-<span id="id7"></span><h1>対角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id7"></span><h2>対角行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>上三角行列かつ下三角行列、つまり
 行列Xの成分を $X_{ij}$ としたとき $i ≠ j$ が0である行列</p>
 <p>正方行列 = 上三角行列 + 下三角行列 - 対角行列</p>
 </div>
 <div class="section" id="">
-<span id="id8"></span><h1>単位行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id8"></span><h2>単位行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>対角行列の対角成分がすべて1</li>
 <li>他の行列をかけてもその行列の成分が変わらない</li>
 </ul>
 </div>
 <div class="section" id="trace">
-<span id="trace"></span><h1>trace<a class="headerlink" href="#trace" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="trace"></span><h2>trace<a class="headerlink" href="#trace" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>正方行列の対角成分の和</p>
 </div>
 <div class="section" id="">
-<span id="id9"></span><h1>行列式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id9"></span><h2>行列式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>サラスの方法を使う（3次まで）</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">+</span> <span class="n">by</span> <span class="o">=</span> <span class="n">p</span>
 <span class="n">cx</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">q</span>
@@ -420,7 +667,7 @@
 </div>
 <p>より、xとyの分母 ad - bc のこと</p>
 <div class="section" id="">
-<span id="id10"></span><h2>性質<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id10"></span><h3>性質<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="simple">
 <li>転置しても変わらない</li>
 <li>２つの行または列を入れ替えると、-1倍</li>
@@ -441,7 +688,7 @@
 </ol>
 </div>
 <div class="section" id="">
-<span id="id11"></span><h2>クラメルの公式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id11"></span><h3>クラメルの公式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>公式より下記のほうが重要だと思う</p>
 <ul class="simple">
 <li>3元1次連立方程式による解の導出時に現れる、3次の行列式の2次の行列式への分解<ul>
@@ -451,7 +698,7 @@
 </li>
 </ul>
 <div class="section" id="">
-<span id="id12"></span><h3>置換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id12"></span><h4>置換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>符号</li>
 <li>あんまり重要度が分かっていない</li>
@@ -460,33 +707,33 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id13"></span><h1>逆行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id13"></span><h2>逆行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>行列における逆数は？というところから始まる</li>
 <li>よって行列の積が出てくる</li>
 <li>単位行列だけでなく、なぜかゼロ行列も出てくる</li>
 </ul>
 <div class="section" id="">
-<span id="id14"></span><h2>特異行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id14"></span><h3>特異行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>逆行列が存在しない正方行列</li>
 <li>行列式が0</li>
 </ul>
 </div>
 <div class="section" id="">
-<span id="id15"></span><h2>余因子展開<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id15"></span><h3>余因子展開<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>クラメルの公式のときに出てきた分解を使う</li>
 <li>余因子を導入</li>
 <li>余因子を使った行列式の余因子展開</li>
 </ul>
 <div class="section" id="">
-<span id="id16"></span><h3>余因子分解とサラスの方法<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id16"></span><h4>余因子分解とサラスの方法<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>行列の次数？を下げることができるので、4次を3次にしてサラスの方法を使うことで行列式を求めることが出来る</p>
 </div>
 </div>
 <div class="section" id="">
-<span id="id17"></span><h2>行列式の積<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id17"></span><h3>行列式の積<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>AとBの行列の積の行列式から|A||B|の導出<ul>
 <li>ここでも性質を使う</li>
@@ -496,7 +743,7 @@
 </ul>
 </div>
 <div class="section" id="">
-<span id="id18"></span><h2>ようやく逆行列の公式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id18"></span><h3>ようやく逆行列の公式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>逆行列の定義 AA-1=Eから求める</li>
 <li>ここでクラメルの公式が活躍</li>
@@ -505,15 +752,16 @@
 </div>
 </div>
 <div class="section" id="">
-<span id="id19"></span><h1>ベクトル空間<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id19"></span><h2>ベクトル空間<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id20"></span><h1>線形変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id20"></span><h2>線形変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id21"></span><h1>線形変換と定数倍と固有値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id21"></span><h2>線形変換と定数倍と固有値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>行列Aでゼロでないベクトルxを変換した時、変換後にベクトルxの定数倍になっている時、xを固有ベクトル、定数を固有値という。定数倍にならないベクトルが多い。</p>
-<div class="highlight-math"><div class="highlight"><pre><span></span>Ax = \lambda x \\
+<div class="math">
+\[\begin{split}Ax = \lambda x \\
 (A - \lambda I)x = 0 \\
 \
 \left[\begin{matrix}
@@ -525,10 +773,9 @@ x_{1} \\
 x_{2}
 \end{matrix}\right]
 = 0
-</pre></div>
-</div>
+\end{split}\]</div>
 <div class="section" id="">
-<span id="id22"></span><h2>連立方程式と行列式 = 0の意味<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id22"></span><h3>連立方程式と行列式 = 0の意味<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>TODO</p>
 <ul class="simple">
 <li>固有値を求める</li>
@@ -540,35 +787,35 @@ x_{2}
 </div>
 </div>
 <div class="section" id="">
-<span id="id23"></span><h1>随伴行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id23"></span><h2>随伴行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>随伴行列は、行列の転置をしたあと、各成分の虚部の符号反転をしたもの。</p>
 </div>
 <div class="section" id="">
-<span id="id24"></span><h1>エルミート行列とユニタリ行列と対角化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id24"></span><h2>エルミート行列とユニタリ行列と対角化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>エルミート行列は行列と随伴行列が同じであること。 行列の成分が実数のみで対称行列であればエルミート行列である。 シャルル・エルミート（Charles Hermite)。</p>
 <p>ユニタリ行列とは、ある行列成分に虚部があるとき、行列と随伴行列の積が単位行列になる行列のことである。つまり、この時の随伴行列は逆行列でもある。また成分が実数のみである場合と比較すると、直交行列の拡張となる。</p>
 <p>エルミート行列に対するユニタリ行列での対角化では、得られる対角行列の成分がすべて実数となるためである。エルミート行列を利用する理由はこれである（共分散分析が実数のみの対角行列であるため）。</p>
 <p>TODO:対角化</p>
 <div class="section" id="">
-<span id="id25"></span><h2>標準化とジョルダン標準化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id25"></span><h3>標準化とジョルダン標準化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 </div>
 <div class="section" id="">
-<span id="id26"></span><h1>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id26"></span><h2>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="">
-<span id="id27"></span><h2>直交行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id27"></span><h3>直交行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>逆行列をかけると単位行列になる行列</p>
 </div>
 </div>
 <div class="section" id="">
-<span id="id28"></span><h1>総和と平均<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id28"></span><h2>総和と平均<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ol class="simple">
 <li>$\sum_{i=0}^n y_i ...①$</li>
 <li>$① / n = \bar{y}$</li>
 <li>$① = \bar{y}n$</li>
 </ol>
 <div class="section" id="">
-<span id="id29"></span><h2>例：単回帰分析の係数と切片<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id29"></span><h3>例：単回帰分析の係数と切片<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>最小二乗法より、 $\sum{(y - \hat{y})^2} = 0$となるときのa, bを求める</li>
 <li>bは関係なく、aを求める時に使う<ul>
@@ -581,7 +828,7 @@ x_{2}
 </div>
 </div>
 <div class="section" id="">
-<span id="id30"></span><h1>総和と微分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id30"></span><h2>総和と微分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>内側の式を微分してよいことが多い</li>
 <li>行列に対して偏微分を用いて係数を求める際によく使う</li>
@@ -589,9 +836,9 @@ x_{2}
 </ul>
 </div>
 <div class="section" id="">
-<span id="id31"></span><h1>内積<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id31"></span><h2>内積<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="">
-<span id="id32"></span><h2>意味<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id32"></span><h3>意味<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>数学ガール秘密のノートに書いてあった</p>
 <ul class="simple">
 <li>直角三角形における斜辺/底辺</li>
@@ -599,7 +846,7 @@ x_{2}
 </ul>
 </div>
 <div class="section" id="">
-<span id="id33"></span><h2>数式の解釈<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id33"></span><h3>数式の解釈<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>ベクトルで考えた時、n要素 * n要素の転置　= スカラー</li>
 <li>各ベクトルの添字が同じものを掛けあわせて、足し込む</li>
@@ -611,7 +858,7 @@ x_{2}
 <li>行列の外側と内側の次元数を一致させることに慣れれば、最終的な出力の形がわかる</li>
 </ul>
 <div class="section" id="">
-<span id="id34"></span><h3>上記の解説<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id34"></span><h4>上記の解説<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>http://d.hatena.ne.jp/rikunora/20130614/p1</li>
 <li>大きさ同士の積を面積を求めると解釈するところから始まる<ul>
@@ -628,7 +875,7 @@ x_{2}
 </div>
 </div>
 <div class="section" id="">
-<span id="id35"></span><h1>分散共分散行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id35"></span><h2>分散共分散行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>$\frac{1}{N}XX^{ \mathrm{ T } }$</p>
 <p>各変数の組合せすべての共分散と対角要素に変数の分散を持つ行列</p>
 <ul class="simple">
@@ -637,30 +884,26 @@ x_{2}
 </ul>
 </div>
 <div class="section" id="">
-<span id="id36"></span><h1>転置行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id36"></span><h2>転置行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="">
-<span id="id37"></span><h2>用途<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id37"></span><h3>用途<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>線形回帰の係数を求めるときに使った</li>
 </ul>
-<div class="highlight-math"><div class="highlight"><pre><span></span>(AB)^{ \mathrm{ T } } = B^{ \mathrm{ T } }A^{ \mathrm{ T } }
-</pre></div>
-</div>
-<div class="highlight-math"><div class="highlight"><pre><span></span>\begin{align}
+<div class="math">
+\[(AB)^{ \mathrm{ T } } = B^{ \mathrm{ T } }A^{ \mathrm{ T } }
+\]</div>
+<div class="math">
+\[ \begin{align}\begin{aligned}\begin{split}\begin{align}
 w^{ \mathrm{ T } }\Phi^{ \mathrm{ T } }\Phi - \boldsymbol{ t }^{ \mathrm{ T } }\Phi &amp;= 0 \\
-(w^{ \mathrm{ T } }\Phi^{ \mathrm{ T } })\Phi &amp;= \boldsymbol{ t }^{ \mathrm{ T } }\Phi \\
-
-\Phi^{ \mathrm{ T } }(w^{ \mathrm{ T } }\Phi^{ \mathrm{ T } })^{ \mathrm{ T } } &amp;= \Phi^{ \mathrm{ T } }\boldsymbol{ t } \\
-左辺 &amp;= \Phi^{ \mathrm{ T } }(\Phi w) \\
-
-w &amp;= (\Phi^{ \mathrm{ T } }\Phi)^{-1} \Phi^{ \mathrm{ T } }\boldsymbol{ t }
+(w^{ \mathrm{ T } }\Phi^{ \mathrm{ T } })\Phi &amp;= \boldsymbol{ t }^{ \mathrm{ T } }\Phi \\\end{split}\\\begin{split}\Phi^{ \mathrm{ T } }(w^{ \mathrm{ T } }\Phi^{ \mathrm{ T } })^{ \mathrm{ T } } &amp;= \Phi^{ \mathrm{ T } }\boldsymbol{ t } \\
+左辺 &amp;= \Phi^{ \mathrm{ T } }(\Phi w) \\\end{split}\\w &amp;= (\Phi^{ \mathrm{ T } }\Phi)^{-1} \Phi^{ \mathrm{ T } }\boldsymbol{ t }
 \end{align}
-</pre></div>
-</div>
+\end{aligned}\end{align} \]</div>
 <p>行列は可換じゃないので、部分ごとに行う?</p>
 </div>
 <div class="section" id="">
-<span id="id38"></span><h2>手順と使った性質<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id38"></span><h3>手順と使った性質<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>両辺を転置<ul>
 <li>積の転置は積の左右を入れ替えた転置の積を与える<ul>
@@ -677,11 +920,11 @@ w &amp;= (\Phi^{ \mathrm{ T } }\Phi)^{-1} \Phi^{ \mathrm{ T } }\boldsymbol{ t }
 </div>
 </div>
 <div class="section" id="">
-<span id="id39"></span><h1>指数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id39"></span><h2>指数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>累乗の積は、指数部分を和にまとめられる</p>
 </div>
 <div class="section" id="">
-<span id="id40"></span><h1>対数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id40"></span><h2>対数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>対数の真数部分の積は、対数の和に分解できる</li>
 <li>独立事象の確率の積を計算する際によく使う<ul>
@@ -691,18 +934,18 @@ w &amp;= (\Phi^{ \mathrm{ T } }\Phi)^{-1} \Phi^{ \mathrm{ T } }\boldsymbol{ t }
 </li>
 </ul>
 <div class="section" id="odds-logit-logistic">
-<span id="odds-logit-logistic"></span><h2>odds/logit/logistic関数<a class="headerlink" href="#odds-logit-logistic" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="odds-logit-logistic"></span><h3>odds/logit/logistic関数<a class="headerlink" href="#odds-logit-logistic" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="http://qiita.com/ksomemo/items/a65e0d1f17a9c7ef1a07">今更ながらoddsとlogitとlogistic関数</a> にまとめた</p>
 </div>
 <div class="section" id="">
-<span id="id41"></span><h2>指数型分布族<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id41"></span><h3>指数型分布族<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>読んだ本には出てきてないが、のちのちためになりそうなので読んだ</li>
 <li>ある要素で構成されるなら指数型分布となるらしい</li>
 <li>正規分布やベルヌーイ分布など</li>
 </ul>
 <div class="section" id="exp-log-p-p-e">
-<span id="exp-log-p-p-e"></span><h3>exp(log(p)) = p: 底はe<a class="headerlink" href="#exp-log-p-p-e" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="exp-log-p-p-e"></span><h4>exp(log(p)) = p: 底はe<a class="headerlink" href="#exp-log-p-p-e" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>ベルヌーイ分布を出すときに使った</li>
 <li>結果を知ってからだと当たり前だが、思いつかないということは指数対数の根本が危うい...</li>
@@ -713,9 +956,9 @@ w &amp;= (\Phi^{ \mathrm{ T } }\Phi)^{-1} \Phi^{ \mathrm{ T } }\boldsymbol{ t }
 </div>
 </div>
 <div class="section" id="">
-<span id="id42"></span><h1>微分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id42"></span><h2>微分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="">
-<span id="id43"></span><h2>ベクトルの微分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id43"></span><h3>ベクトルの微分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>ベクトルのある要素i番目を例にあげて偏微分することが多い</li>
 <li>i番目以外は定数になるためi番目のみを考える</li>
@@ -724,18 +967,18 @@ w &amp;= (\Phi^{ \mathrm{ T } }\Phi)^{-1} \Phi^{ \mathrm{ T } }\boldsymbol{ t }
 </ul>
 </div>
 <div class="section" id="convex">
-<span id="convex"></span><h2>2階微分とconvex<a class="headerlink" href="#convex" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="convex"></span><h3>2階微分とconvex<a class="headerlink" href="#convex" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>2階微分が正のとき、下に凸なので微分=0で最小化の最適解となる</li>
 <li>1階微分=0だけでは局所解である可能性があるため、最適解とは限らない</li>
 </ul>
 </div>
 <div class="section" id="">
-<span id="id44"></span><h2>正定値、半正定値とその意味<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id44"></span><h3>正定値、半正定値とその意味<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>TODO</p>
 </div>
 <div class="section" id="">
-<span id="id45"></span><h2>ヘッセ行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id45"></span><h3>ヘッセ行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>行列関数の2階微分</li>
 <li>正定値行列、固有値が全て非負</li>
@@ -744,66 +987,66 @@ w &amp;= (\Phi^{ \mathrm{ T } }\Phi)^{-1} \Phi^{ \mathrm{ T } }\boldsymbol{ t }
 </div>
 </div>
 <div class="section" id="">
-<span id="id46"></span><h1>テーラー展開<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id46"></span><h2>テーラー展開<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>TODO</p>
 </div>
 <div class="section" id="">
-<span id="id47"></span><h1>ラプラス近似<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id47"></span><h2>ラプラス近似<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>TODO</p>
 </div>
 <div class="section" id="">
-<span id="id48"></span><h1>期待値<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-math"><div class="highlight"><pre><span></span>\begin{align}
+<span id="id48"></span><h2>期待値<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="math">
+\[\begin{split}\begin{align}
 E[X] &amp;= \displaystyle \sum_{i=1}^{n} x_i P(X=x_i) \\
 E[X] &amp;= \displaystyle \int_ {-\infty}^{\infty}x P(x) dx \\
 E[aX]  &amp;= aE[X] \\
 E[X+a] &amp;= E[X] + a \\
 E[X+Y] &amp;= E[X] + E[Y]
 \end{align}
-</pre></div>
-</div>
+\end{split}\]</div>
 </div>
 <div class="section" id="">
-<span id="id49"></span><h1>分散<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-math"><div class="highlight"><pre><span></span>\begin{align}
+<span id="id49"></span><h2>分散<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="math">
+\[\begin{split}\begin{align}
 V[X] &amp;= E[(X-E(X))^{2}] \\
 &amp;= \sum_{i=1}^{n} {(x_i - E[X] )^2 P(X=x_i)} \\
 &amp;= \sum_{i=1}^{n} {(x_i^{2}P(X=x_i) - 2x_iE[X]P(X=x_i) + E[X]^2P(X=x_i))} \\
 &amp;= \sum_{i=1}^{n} {x_i^{2}P(X=x_i)}
-   -2E[X]\sum_{i=1}^{n} {x_iP(X=x_i)} 
+   -2E[X]\sum_{i=1}^{n} {x_iP(X=x_i)}
    + (E[X])^2 \sum_{i=1}^{n} {P(X=x_i)} \\
 &amp;= E[X^{2}] -2(E[X])^2 + (E[X])^2 \\
 &amp;= E[X^{2}] - (E[X])^2
 \end{align}
-</pre></div>
-</div>
-<div class="highlight-math"><div class="highlight"><pre><span></span>\begin{align}
+\end{split}\]</div>
+<div class="math">
+\[\begin{split}\begin{align}
 V[aX]  &amp;=&amp; a^2 V[X] \\
-V[X+a] &amp;=&amp; V[X] 
+V[X+a] &amp;=&amp; V[X]
 \end{align}
-</pre></div>
-</div>
+\end{split}\]</div>
 <p>忘れるのでメモする</p>
 </div>
 <div class="section" id="">
-<span id="id50"></span><h1>記号<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id50"></span><h2>記号<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id51"></span><h1>集合<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id51"></span><h2>集合<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id52"></span><h1>論理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id52"></span><h2>論理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id53"></span><h1>数列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id53"></span><h2>数列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id54"></span><h1>級数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id54"></span><h2>級数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>多項式の列を１つの項で近似？</li>
 </ul>
 <div class="section" id="">
-<span id="id55"></span><h2>時系列分析での例<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id55"></span><h3>時系列分析での例<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ホワイトノイズやARで出てくる</p>
 <ul class="simple">
 <li>上記の差分方程式に存在するlagを適用した差分項を除外する</li>
@@ -812,64 +1055,64 @@ V[X+a] &amp;=&amp; V[X]
 </div>
 </div>
 <div class="section" id="">
-<span id="id56"></span><h1>差分方程式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id56"></span><h2>差分方程式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id57"></span><h1>微分方程式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id57"></span><h2>微分方程式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id58"></span><h1>特性方程式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id58"></span><h2>特性方程式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id59"></span><h1>順列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id59"></span><h2>順列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id60"></span><h1>組み合わせ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id60"></span><h2>組み合わせ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="">
-<span id="id61"></span><h2>二項定理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id61"></span><h3>二項定理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="">
-<span id="id62"></span><h2>多項定理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</div>
-</div>
-<div class="section" id="">
-<span id="id63"></span><h1>極限<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
-</div>
-<div class="section" id="">
-<span id="id64"></span><h1>積分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="section" id="">
-<span id="id65"></span><h2>重積分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id62"></span><h3>多項定理<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 </div>
 <div class="section" id="">
-<span id="id66"></span><h1>ガンマ関数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id63"></span><h2>極限<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="">
+<span id="id64"></span><h2>積分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="">
+<span id="id65"></span><h3>重積分<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="">
+<span id="id66"></span><h2>ガンマ関数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>確率分布</p>
 </div>
 <div class="section" id="">
-<span id="id67"></span><h1>ベータ関数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id67"></span><h2>ベータ関数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>確率分布</p>
 </div>
 <div class="section" id="">
-<span id="id68"></span><h1>テイラー展開<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id68"></span><h2>テイラー展開<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>ベイジアン</li>
 </ul>
 </div>
 <div class="section" id="">
-<span id="id69"></span><h1>フーリエ変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id69"></span><h2>フーリエ変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="">
-<span id="id70"></span><h2>フーリエ級数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id70"></span><h3>フーリエ級数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>http://www.ic.is.tohoku.ac.jp/~swk/lecture/yaruodsp/toc.html</p>
 </div>
 </div>
 <div class="section" id="">
-<span id="id71"></span><h1>ラプラス近似<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id71"></span><h2>ラプラス近似<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>ベイジアン</li>
 </ul>
 </div>
 <div class="section" id="">
-<span id="id72"></span><h1>ラグランジュの未定乗数法<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id72"></span><h2>ラグランジュの未定乗数法<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ある項を条件付けないと、解が複数出てくるときによく使われている。
 B=1であるとしたとき、λ(B-1)と差し引き0になるようにしたあとに係数をかける。
 詳細はまだわかってない…</p>
@@ -879,31 +1122,31 @@ B=1であるとしたとき、λ(B-1)と差し引き0になるようにしたあ
 </ul>
 </div>
 <div class="section" id="">
-<span id="id73"></span><h1>三角関数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id73"></span><h2>三角関数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id74"></span><h1>複素数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id74"></span><h2>複素数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id75"></span><h1>線形代数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id75"></span><h2>線形代数<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="">
-<span id="id76"></span><h2>ベクトル<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id76"></span><h3>ベクトル<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="">
-<span id="id77"></span><h2>行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id77"></span><h3>行列<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="">
-<span id="id78"></span><h3>フロベニウスノルム<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id78"></span><h4>フロベニウスノルム<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>ある行列と回転行列をかけた行列の差分についてL2ノルムをとると、traceを利用した形になる</p>
 </div>
 </div>
 <div class="section" id="">
-<span id="id79"></span><h2>行列分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id79"></span><h3>行列分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>https://ja.wikipedia.org/wiki/%E8%A1%8C%E5%88%97%E3%81%AE%E5%88%86%E8%A7%A3</p>
 <div class="section" id="">
-<span id="id80"></span><h3>対角化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id80"></span><h4>対角化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 </div>
 <div class="section" id="">
-<span id="id81"></span><h3>正定値<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id81"></span><h4>正定値<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>正定値行列</li>
 <li>半正定値行列</li>
@@ -911,19 +1154,19 @@ B=1であるとしたとき、λ(B-1)と差し引き0になるようにしたあ
 </ul>
 </div>
 <div class="section" id="">
-<span id="id82"></span><h3>固有値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id82"></span><h4>固有値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>説明済み</p>
 </div>
 <div class="section" id="">
-<span id="id83"></span><h3>線形独立<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id83"></span><h4>線形独立<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>TODO：わかるけど説明できない</p>
 </div>
 <div class="section" id="">
-<span id="id84"></span><h3>小行列式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id84"></span><h4>小行列式<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>ある行列からr個の行と列を取り出して作った行列式(r次小行列式)</p>
 </div>
 <div class="section" id="rank">
-<span id="rank"></span><h3>rank<a class="headerlink" href="#rank" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="rank"></span><h4>rank<a class="headerlink" href="#rank" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>いろいろな定義があるが、意味は同じらしい。</p>
 <ol class="simple">
 <li>行数。ただし、ガウスの消去法適用終了時に、成分のうち１つは0である行(0ベクトルでない行)の数。</li>
@@ -936,7 +1179,7 @@ B=1であるとしたとき、λ(B-1)と差し引き0になるようにしたあ
 </ol>
 </div>
 <div class="section" id="">
-<span id="id85"></span><h3>特異値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id85"></span><h4>特異値分解<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>正方行列でなくてもよい(主成分分析における特異値分解では、分散共分散行列の正方行列なので、理解が進んでいない)</p>
 <p>TODO:いかを読む</p>
 <ul class="simple">
@@ -945,41 +1188,41 @@ B=1であるとしたとき、λ(B-1)と差し引き0になるようにしたあ
 </ul>
 </div>
 <div class="section" id="qr">
-<span id="qr"></span><h3>QR分解<a class="headerlink" href="#qr" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="qr"></span><h4>QR分解<a class="headerlink" href="#qr" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>正方行列 = 直交行列 * 上三角行列</p>
 </div>
 </div>
 <div class="section" id="">
-<span id="id86"></span><h2>行列変換?投影<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id86"></span><h3>行列変換?投影<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="">
-<span id="id87"></span><h3>剛体変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id87"></span><h4>剛体変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Euclidean</p>
 <p>平行移動＋回転</p>
 </div>
 <div class="section" id="">
-<span id="id88"></span><h3>相似変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id88"></span><h4>相似変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Similarity</p>
 <p>剛体変換＋拡大縮小(奥行き移動)より相似</p>
 </div>
 <div class="section" id="affine">
-<span id="affine"></span><h3>affine変換<a class="headerlink" href="#affine" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="affine"></span><h4>affine変換<a class="headerlink" href="#affine" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>相似＋回転ではなく傾き</p>
 </div>
 <div class="section" id="">
-<span id="id89"></span><h3>射影変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id89"></span><h4>射影変換<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>homography</p>
 <p>TODO: affineとの違いをどう説明するか</p>
 </div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id90"></span><h1>統計学<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id90"></span><h2>統計学<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id91"></span><h1>距離<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id91"></span><h2>距離<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="">
-<span id="id92"></span><h1>数式慣れ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id92"></span><h2>数式慣れ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>数式 to numpy code</p>
 <ul class="simple">
 <li>sum</li>
@@ -993,6 +1236,7 @@ B=1であるとしたとき、λ(B-1)と差し引き0になるようにしたあ
 <li>etc.</li>
 </ul>
 </div>
+</div>
 
 
            </div>
@@ -1001,6 +1245,15 @@ B=1であるとしたとき、λ(B-1)と差し引き0になるようにしたあ
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="note:golang(install／path／package manager).html" class="btn btn-neutral float-right" title="note:golang(install／path／package manager)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html" class="btn btn-neutral" title="note: vagrant VM／ansible／docker／serverspec(雑まとめ)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

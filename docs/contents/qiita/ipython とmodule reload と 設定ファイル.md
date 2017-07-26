@@ -1,3 +1,4 @@
+# ipython とmodule reload と 設定ファイル
 ## 手順
 
 1. モジュール作成
@@ -11,16 +12,18 @@
 9. 関数実行(自動リロードされる)
 
 ## コードと入力内容
-```py3:py_module.py
+
+py_module.py
+
+```python3
 print("hello")
 
 def hello(msg='world'):
      print('hello ', msg)
-
 ```
 
-```py3
-ipython
+## ipython入力
+```ipython
 
 In [1]: import py_module
 hello
@@ -29,30 +32,32 @@ In [2]: py_module.hello()
 hello world
 ```
 
-
-```py3:py_module.py
+## py_module.pyを変更
+```python3
 print('hello world')
 
 def hello(msg='world !!!'):
      print('hello', msg)
 ```
 
-```
+```ipython
 In [3]: %pfile py_module
 print('hello world')
+```
 
+```py3
 def hello(msg='world !!!'):
     print('hello', msg)
 ```
 
-```py3
+```ipython
 In [4]: import py_module
 
 In [5]: py_module.hello()
 hello world
 ```
 
-```py3
+```ipython
 In [6]: reload(py_module)
 ---------------------------------------------------------------------------
 NameError                                 Traceback (most recent call last)
@@ -69,23 +74,22 @@ Out[8]: <module 'py_module' from '/Users/xxx/test/python/py_module.py'>
 
 In [9]: py_module.hello()
 hello world !!!
-```
 
-```py3
 In [10]: %load_ext autoreload
 
 In [11]: %autoreload 2
 ```
 
-```py3:py_module.py
+py_module.pyを変更
+
+```python3
 print('hello world !!!')
 
 def hello(msg='world !!! ???'):
     print('hello', msg)
-
 ```
 
-```
+```ipython
 In [9]: py_module.hello()
 hello world !!!
 hello world !!! ???
@@ -94,7 +98,7 @@ hello world !!! ???
 ## 設定ファイル
 設定ファイルを作って、この投稿を毎回見なくても大丈夫にした。
 
-```
+```shell-session
 ipython profile create
 
 [ProfileCreate] Generating default config file: 'C:\\Users\\xxx\\.ipython\\profile_default\\ipython_config.py'
@@ -103,7 +107,9 @@ ipython profile create
 [ProfileCreate] Generating default config file: 'C:\\Users\\xxx\\.ipython\\profile_default\\ipython_nbconvert_config.py'
 ```
 
-```py3:ipython_config.py
+ipython_config.py
+
+```python3
 c.InteractiveShellApp.extensions = ['autoreload']
 c.InteractiveShellApp.exec_lines = ['%autoreload 2']
 ```

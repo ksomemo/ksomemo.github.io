@@ -1,4 +1,8 @@
-```py3:titanic_plot.py
+# Category x Quantity のPlot
+
+titanic_plot.py
+
+```python3
 # https://github.com/PyDataTokyo/pydata-tokyo-tutorial-1/blob/master/pydatatokyo_tutorial_ml.ipynb
 
 # のロジスティック回帰による生存者推定 plot をseabornを使って簡潔にやってみた
@@ -23,10 +27,10 @@ _titanic["Unnamed 0"] = _titanic["Unnamed 0"].astype("category")
 
 #sns.swarmplot(
 sns.stripplot(jitter=0.3,
-    data=_titanic, x="age", y="Unnamed 0", hue="survived", 
+    data=_titanic, x="age", y="Unnamed 0", hue="survived",
     alpha=0.3, palette=["red", "blue"])
 plt.legend(bbox_to_anchor=(1.4, 1.03))
 plt.tight_layout()
 ```
-![graph.png](https://qiita-image-store.s3.amazonaws.com/0/6982/bc9e74f6-9ea0-a388-6374-bed1cd482505.png)
+![graph.png](category_quantity_plot.png)
 

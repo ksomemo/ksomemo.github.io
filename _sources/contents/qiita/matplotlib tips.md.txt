@@ -1,5 +1,6 @@
+# matplotlib tips
 ## 定型Import
-```py3:import_snippet.py
+```py3
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
@@ -10,7 +11,7 @@ import matplotlib.pyplot as plt
 
 ## matplotlib
 ### 複数グラフ
-```py3:matplotlib_複数グラフ.py
+```py3
 figure, axes = plt.subplots(3, 2, sharex="col", sharey="row")
 df.plot(ax=axes[0][0], title="title")
 
@@ -24,7 +25,7 @@ plt.tight_layout()
 ```
 
 ### subplotsで作成された軸配列を１次元にする
-```py3:matplotlib_flatten_axes.py
+```py3
 # N行 x M列 (2<=N,M)のグラフを描画する時2重ループになってめんどう
 # subplotsの戻り値axesはndarrayなのでravel, flattenで1次に変換できる
 import matplotlib.pyplot as plt
@@ -45,13 +46,15 @@ for c, ax in zip(columns, axes.flatten()):
 1. C:\Anaconda3\pkgs\matplotlib-1.4.3-np19py34_1\Lib\site-packages\matplotlib\mpl-data\fonts\ttf にコピーして
 1. 設定ファイルにフォント設定を追加する
 
-```py3:ipython_kernel_config.py
+ipython_kernel_config.py
+
+```py3
 c.InlineBackend.rc = {
     'font.family': 'meiryo',
 }
 ```
 
-```py3:matplotlib_font_manager.py
+```py3
 iimport matplotlib.font_manager as fm
 
 # 現在フォント
@@ -65,14 +68,14 @@ prop = fm.FontProperties(fname="ttc or ttf")
 - Windowsの場合、ttcをttfに分解して設定ファイルにて指定すれば良い？
 
 ## 利用可能なフォント一覧
-```py3:matplotlib_find_system_fonts.py
+```py3
 import matplotlib.font_manager as fm
 font_files = pd.DataFrame(fm.findSystemFonts(), columns=list("a"))
 font_files.head()
 ```
 
 ### mac
-```bash:matplotlib_font_setting.sh
+```bash
 #Font Book.appでフォントファイルを見つけて中身を確認する
 #Go2ShellHelper.appとかあると便利
 find `pyenv prefix` -name matplotlib

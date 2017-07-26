@@ -1,3 +1,4 @@
+# 浮動小数点の誤差に関するメモ
 相関係数などの統計数値のテストコードを書いていた時に、丸め誤差により悩んでいた時のメモ。
 
 ## link
@@ -6,7 +7,7 @@
 
 ## numpyの場合
 ### epsilon -> eps
-```py3:numpy_eps.py
+```python3
 In [10]: np.finfo(np.float).eps
 Out[10]: 2.2204460492503131e-16
 
@@ -34,7 +35,7 @@ test codeだけでなく、product codeとissueにも引っかかった
 https://github.com/numpy/numpy/blob/467d4e16d77a2e7c131aac53c639e82b754578c7/numpy/lib/tests/test_financial.py#L49
 
 ## sysの場合
-```py3:sys_float_info.py
+```python3
 In [25]: import sys
 
 In [26]: sys.float_info
@@ -50,7 +51,7 @@ epsだけでなく、最大値や桁数に関する情報があった。
 ## おまけ
 知らなかった…
 
-```py3:float_dot.py
+```python3
 In [15]: 1.
 Out[15]: 1.0
 ```

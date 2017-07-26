@@ -1,7 +1,8 @@
+# pandas/numpy tips
 学んだことまとめ
 
 ## 定型Import
-```py3:import_snippet.py
+```py3
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -17,7 +18,7 @@ matplotlib.style.use("ggplot")
 
 ## numpy
 ### one value
-```py3:numpy_array.py
+```py3
 # 配列確保
 np.zeros
 
@@ -30,7 +31,7 @@ np.ones
 ### range
 実験用データ, モデルのplotなど)
 
-```py3:numpy_range.py
+```py3
 # rangeとほぼ同様
 np.arange
 
@@ -56,7 +57,7 @@ np.linspace
 [ndarrayの結合](http://qiita.com/ksomemo/items/2f0ce6a88e619db0beef)
 
 ### vector同士のmax/min
-```py3:numpy_vector同士のmaxとmin.py
+```py3
 np.maximum([1,4],[3,2])
 array([3, 4])
 
@@ -65,7 +66,7 @@ array([1, 2])
 ```
 
 ### 繰り返し
-```py3:numpy_繰り返しとおまけ.py
+```py3
 x = np.array([[1,2],[3,4]])
 x
 array([[1, 2],
@@ -118,7 +119,7 @@ repeat(1)
 ```
 
 ### 実部/虚部と随伴行列
-```
+```py3
 A = np.array([[1, -1-1j],[1+1j,1j]])
 A
 array([[ 1.+0.j, -1.-1.j],
@@ -131,15 +132,48 @@ array([[ 1.+0.j,  1.-1.j],
 ```
 
 ### 三角行列
-```
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.triu.html
+
+```py3
 mat_for_tri = np.arange(1, 12+1).reshape(4, 3)
 np.tril(mat_for_tri) # lower
 np.triu(mat_for_tri) # upper
 ```
 
+### 上三角行列の抽出
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.triu_indices.html
+
+```py3
+mat_33 = np.arange(9).reshape(3, 3)
+mat_33
+
+# array([[0, 1, 2],
+#        [3, 4, 5],
+#        [6, 7, 8]])
+
+np.triu_indices(3)
+# (array([0, 0, 0, 1, 1, 2]), array([0, 1, 2, 1, 2, 2]))
+
+
+mat_33[np.triu_indices(3)]
+# array([0, 1, 2, 4, 5, 8])
+
+
+def triu_without_diag(arr):
+    # 上三角行列から対角要素を除きpdistと同じ形で返す
+    # scipy: https://github.com/scipy/scipy/blob/v0.19.1/scipy/spatial/distance.py#L1128-L1503
+    triu_index = np.triu_indices(arr.shape[0])
+    diag_idx = triu_index[0] == triu_index[1]
+    return arr[triu_index[0][~diag_idx], triu_index[1][~diag_idx]]
+
+
+triu_without_diag(mat_33)
+# array([1, 2, 5])
+```
+
 ### TODO: 行列分解
 #### 固有値分解
-```
+```py3
 # numpyの場合、素直に共分散行列を求める(行ごと)
 # pandas/Rの場合、勝手に特徴量(列ごと)に対する共分散行列
 
@@ -158,7 +192,7 @@ iris_cov = eig_vec @ np.diag(eig_val) @ eig_vec.T
 逆行列とdot, solveの関係
 
 ### 対角行列
-```py3:numpy_diag.py
+```py3
 # 1-d: の場合、対角行列を作る
 np.diag([2,3])
 array([[2, 0],
@@ -168,7 +202,7 @@ array([[2, 0],
 ```
 
 #### 単位行列
-```py3:numpy_eye.py
+```py3
 np.eye(2) or np.identity(2)
 array([[ 1.,  0.],
        [ 0.,  1.]])
@@ -187,15 +221,17 @@ array([[ 1.,  0.],
     - すべてがTrueであるか
 
 ### 値をindexにしたCounter
-```py3:numpy_bincount.py
+```py3
 np.bincount([1,2,2,4])
 # index:0 based to max value
 # value:indexの値が現れた回数
 # => array([0, 1, 2, 0, 1])
+
 ```
+`np.argmax` と組み合わせれば最大値を取得できる
 
 ### apply axis 0/1
-```py3:numpy_apply_along_axis.py
+```py3
 # each columns, max values
 np.apply_along_axis(lambda x: max(x), 0, iris.values[:, [0,1,2,3]])
 
@@ -212,7 +248,7 @@ np.apply_along_axis(lambda x: max(x), 1, iris.values[:, [0,1,2,3]])
 
 ## pandas
 ### カンマ区切り数値
-```py3:pandas_read_csv_thausans.py
+```py3
 import pandas as pd
 import io
 table_text = """
@@ -223,27 +259,27 @@ pd.read_csv(io.StringIO(table_text), sep=" ", thousands=",")
 ```
 
 ### DataFrameのrow をIndex指定して削除
-```py3:pandas_drop_index.py
+```py3
 # df.pivot_tableやpd.crosstabのmargin片方だけ欲しいときに
 df.drop("All")
 df.drop("All", axis=1)
 ```
 
 ### access cell (row/col)
-```py3:pandas_access_cell.py
+```py3
 # pythonのset/getに関わるmagic methodで対応している
 df.iloc[0, "column"]
 ```
 
 ### filter rows
-```py3:pandas_filter_rows.py
+```py3
 (df.loc[indexer, columns]
    .[lambda d: d.column1 == "a"]
    .pipe(lambda d: d[d.column2.notnull()])
 ```
 
 ### filter columns
-```py3:pandas_filter_columns.py
+```py3
 # 以下`axis=1`で列に対して行った場合
 # 行に対して行う場合は、grouping後などにやりそう（やったことない
 
@@ -261,7 +297,7 @@ iris.filter(regex="th$", axis=1)
 ```
 
 ### filter group
-```py3:pandas_filter_groupby.py
+```py3
 # GroupByオブジェクトのfilterはDataFrameオブジェクトとは違う
 # SQLにおけるhavingでのfilteringに似ているが、返ってくるに値はDataFrame
 df = pd.DataFrame(dict(a=list("aabbbcc"), b=range(7)))
@@ -275,7 +311,7 @@ df.groupby("a").filter(lambda x: x.shape[0] < 3)
 - ただし順番を気にする場合は１つずつ or 昇順に問題がない場合
 
 ### group化後のungroup(multi index -> index)
-```py3:pandas_groupby_after_reset_index.py
+```py3
 # reset_index前提ならば
 assert df.groupby(columns).sum().reset_index() == \
        df.groupby(columns, as_index=False).sum()
@@ -293,7 +329,7 @@ assert df.groupby(columns).sum().reset_index() == \
 
 ### 結合
 #### 縦
-```py3:pandas_concat_row.py
+```py3
 pd.concat(df_list, ingnore_index=True)`
 ```
 
@@ -302,7 +338,7 @@ pd.concat(df_list, ingnore_index=True)`
 ##### append
 DataFrameにしないと(indexがないと)index error
 
-```py3:pandas_append_df_dict_series.py
+```py3
 df = pd.DataFrame([range(3), range(2)])
 s = df.sum()
 df = df.append({0:0,1:2,2:2}, ignore_index=True)
@@ -311,17 +347,17 @@ df = df.append(pd.DataFrame({'sum': s}).T)
 df.append()
 ```
 
-<pre>
+```
      0  1  2
 0    0  1  2
 1    0  1  NaN
 2    0  2  2
 3    0  2  2
 sum  0  2  2
-</pre>
+```
 
 #### 横結合
-```py3:pandas_concat_column.py
+```py3
 # わざわざmergeする必要ないとき
 # dummy作ったあとのmergeなど
 # df_listの一部がset_indexしているとき、indexが合わないと期待する動きにならない
@@ -336,7 +372,7 @@ by column
 
 ### 欠損値
 #### fillna
-```py3:pandas_fillna.py
+```py3
 # 基本scalar
 # padの際のbackfillなどを指定できる
 # 固定値ではなく、Seriesでも埋められる
@@ -365,7 +401,7 @@ http://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html
 ### describeのpercentile
 http://pandas.pydata.org/pandas-docs/version/0.18.0/generated/pandas.DataFrame.describe.html を見ていたら、ふだん出力されないcategoryと4分位のみの部分を変更できるようなのでメモ
 
-```py3:pandas_desc_detail.py
+```py3
 iris_pandas_url = "https://raw.githubusercontent.com/pydata/pandas/master/doc/data/iris.data"
 iris = pd.read_csv(iris_pandas_url)
 percentiles = np.linspace(0.1, 0.9, 9)
@@ -374,7 +410,7 @@ iris.describe(include="all", percentiles=percentiles).T
 ```
 
 ### add suffix/prefix to columns
-```py3:pandas_add_prefix_suffix.py
+```py3
 # https://gist.github.com/ksomemo/20e41f8cd4dad077a2b33c1d914f952d
 import seaborn as sns
 (sns.load_dataset("iris")
@@ -392,7 +428,7 @@ import seaborn as sns
 - window functionも0.18.1から
 
 ### 構成比率を見る時の定型
-```py3:pandas_normalization.py
+```py3
 # ただし正の数に対して
 df.div(df.sum(axis=1), axis=0).plot(kind="bar", stacked=True)
 ```
@@ -415,3 +451,5 @@ df.div(df.sum(axis=1), axis=0).plot(kind="bar", stacked=True)
     - 0,1,2,3 to 1,1,2,2
 - [ランダムデータと正規化・標準化](http://qiita.com/ksomemo/items/ff0cbe63455f70bdf751)
 - [階級作成とDummy変数の作成](http://qiita.com/ksomemo/items/f658742a18ad804caa5f)
+
+

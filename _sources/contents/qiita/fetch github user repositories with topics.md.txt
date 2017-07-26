@@ -1,4 +1,7 @@
-```py3:get_github_user_repositories.py
+# fetch github user repositories with topics
+get_github_user_repositories.py
+
+```py3
 import requests
 import pandas as pd
 import time

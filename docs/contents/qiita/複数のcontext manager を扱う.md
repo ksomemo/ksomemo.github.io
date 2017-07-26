@@ -1,6 +1,8 @@
+# 複数のcontext manager を扱う
 あまりにも雑だったので用途を書いたけど、不適切っぽいのでドキュメントどおりに適切に使おう
 
-```py3:contextlib_exitstack_enter_context.py
+## contextlib.RxitStack
+```python3
 # 普通の書き方
 with open('f1.txt') as f1, \
      open('f2.txt', 'w') as f2:

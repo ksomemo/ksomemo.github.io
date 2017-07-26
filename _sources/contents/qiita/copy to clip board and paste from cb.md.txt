@@ -1,6 +1,9 @@
+# copy to clip board and paste from cb
 いつも忘れるのメモ
 
-```bash:copy-to-clip-board-and-paste.sh
+copy-to-clip-board-and-paste.sh
+
+```bash
 cat filename.txt | pbcopy
 pbpaste
 ```

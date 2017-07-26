@@ -1,4 +1,5 @@
-```py3:seaborn_load_dataset.py
+# seabornのdatasetのload場所
+```py3
 # ダウンロード可能一覧はseabornから調べることができないので、
 # すべてダウンロードしておくとよい
 sns.load_dataset

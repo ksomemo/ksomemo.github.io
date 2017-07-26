@@ -1,3 +1,4 @@
+# seabornのpairplotを実現しているPairGridのメモ
 - PairGridを使えば散布図以外もplot可能
 - 対角線、上三角、下三角、上下三角と必要な部分にplot可能
 - plotしてみた(todo:url)
@@ -16,7 +17,5 @@
         - http://qiita.com/hik0107/items/865b75ae486728cb0006
     - https://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.JointGrid.html
 
+<https://gist.github.com/ksomemo/5c178c662b3e8dcf79a208ebd4acdfe3>
 
-```
-dummy
-```

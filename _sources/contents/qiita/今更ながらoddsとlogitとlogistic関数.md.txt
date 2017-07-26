@@ -1,3 +1,4 @@
+# 今更ながらoddsとlogitとlogistic関数
 ## 雑な概要
 - oddsで確率[0, 1]を[0, ∞]に拡張
 - logitで[0, ∞]を[-∞, ∞]に拡張
@@ -8,7 +9,4 @@
 ## TODO
 - リンク関数
 - 一般化線形モデル
-
-```
-.
-```
+- <https://gist.github.com/ksomemo/964291e6a9d867ab79c63eba6b8e8e5f>

@@ -1,5 +1,5 @@
-
-[editRを試した](http://qiita.com/ksomemo/items/c71e8be21bcdd8c72a0a)でEditorの上の方にあったpublishについて調べた
+# RStudio にあるpublishについて(shinyapps)
+<editRを試した.md>でEditorの上の方にあったpublishについて調べた
 
 ## 概要
 - shinyappsが必要らしい
@@ -26,13 +26,13 @@ New to Shiny? Deploy your applications for FREE.
 Githubアカウントでできた
 
 ## 必要なPackage
-```r:install-package.R
+```R
 install.packages("RCurl")
 devtools::install_github('rstudio/shinyapps')
 ```
 
 ## アカウント設定
-```r:setAccountInfo.R
+```R
 # https://www.shinyapps.io/admin/#/dashboard からTokenを確認
 # 1つ以上作成したらこっちから？ https://www.shinyapps.io/admin/#/tokens
 library(shinyapps)
@@ -106,7 +106,7 @@ Instance Size
 
 Select larger instances if you require more memory for your application. Free and starter plans are limited to a maximum of 1GB (Large).
 
-Instance Idle Timeout	15 min	
+Instance Idle Timeout	15 min
 
 
 ### setting(Advanced)

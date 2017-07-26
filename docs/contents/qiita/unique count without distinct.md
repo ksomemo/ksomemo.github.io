@@ -1,4 +1,5 @@
-```sql:uniq_count_without_distinct.sql
+# unique count without distinct
+```sql
 -- sql server
 with
 tmp as (
@@ -23,7 +24,7 @@ tmp as (
 		union all select 'b' , 3
 		union all select 'b' , 5
 	) as v
-) 
+)
 select
 	*
 	, max(_dense_rank) over (

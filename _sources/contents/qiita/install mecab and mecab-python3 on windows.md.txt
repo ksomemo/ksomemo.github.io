@@ -1,4 +1,4 @@
-
+# install mecab and mecab-python3 on windows
 ## enviroment
 - Windows7
 - 64bit OS
@@ -23,7 +23,8 @@ http://taku910.github.io/mecab/#download
 - add set_result member
 - when edit the sorce code, turn off administrator authentication
 
-```sdk/mecab.h.patch
+# sdk/mecab.h.patch
+```diff
 --- C:/Program Files (x86)/MeCab/sdk/mecab.h.bak	Mon Jan 21 17:02:08 2013
 +++ C:/Program Files (x86)/MeCab/sdk/mecab.h	Tue Jan 24 15:41:25 2017
 @@ -777,6 +777,7 @@
@@ -40,7 +41,7 @@ http://taku910.github.io/mecab/#download
 ### donwload
 - donwload mecab-0.996.tar.gz and ungzip
 
-### edit Makefile and source code 
+### edit Makefile and source code
 mecab-0.996/src
 
 - copy Makefile.msvc.in to Makefile.msvc
@@ -51,12 +52,13 @@ mecab-0.996/src
 - writer.cpp
   - size_t to unsigned int
 
-```Makefile.msvc.patch
+### Makefile.msvc.patch
+```diff
 --- C:/Users/xxx/Downloads/mecab-0.996/src/Makefile.msvc.in	Sun Sep 30 01:44:26 2012
 +++ C:/Users/xxx/Downloads/mecab-0.996/src/Makefile.msvc	Tue Jan 24 12:55:46 2017
 @@ -3,10 +3,10 @@
  LINK=link.exe
- 
+
  CFLAGS = /EHsc /O2 /GL /GA /Ob2 /nologo /W3 /MT /Zi /wd4800 /wd4305 /wd4244
 -LDFLAGS = /nologo /OPT:REF /OPT:ICF /LTCG /NXCOMPAT /DYNAMICBASE /MACHINE:X86 ADVAPI32.LIB
 +LDFLAGS = /nologo /OPT:REF /OPT:ICF /LTCG /NXCOMPAT /DYNAMICBASE /MACHINE:X64 ADVAPI32.LIB
@@ -70,7 +72,8 @@ mecab-0.996/src
  INC = -I. -I..
 ```
 
-```feature_index.cpp.patch
+### feature_index.cpp.patch
+```diff
 --- C:/Users/xxx/Downloads/mecab-0.996/src/feature_index.cpp	Mon Jan 16 16:30:05 2017
 +++ C:/Users/xxx/Downloads/mecab-0.996/src/feature_index.cpp.bak	Sun Nov 25 14:35:32 2012
 @@ -353,7 +353,7 @@
@@ -84,7 +87,8 @@ mecab-0.996/src
                if (path->rnode->stat == MECAB_NOR_NODE) {
 ```
 
-```writer.cpp.patch
+### writer.cpp.patch
+```diff
 --- C:/Users/xxx/Downloads/mecab-0.996/src/writer.cpp	Mon Jan 16 16:31:10 2017
 +++ C:/Users/xxx/Downloads/mecab-0.996/src/writer.cpp.bak	Mon Jan 16 16:30:56 2017
 @@ -257,7 +257,7 @@
@@ -104,7 +108,8 @@ mecab-0.996/src
 - same as `call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64`
 - add to path, add variable, etc.
 
-```diff-path.txt
+### diff-path.txt
+```
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow
 C:\Program Files (x86)\MSBuild\14.0\bin\amd64
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\amd64
@@ -120,7 +125,8 @@ C:\Program Files (x86)\Windows Kits\8.1\bin\x86
 C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\x64\
 ```
 
-```diff-set-command-result.log
+### diff-set-command-result.log
+```
 CommandPromptType=Native
 Framework40Version=v4.0
 FrameworkDir=C:\Windows\Microsoft.NET\Framework64
@@ -169,7 +175,8 @@ WindowsSDK_ExecutablePath_x86=C:\Program Files (x86)\Microsoft SDKs\Windows\v10.
 - edit setup.py
 - `pip install --no-cache-dir -e .`
 
-```setup.py.patch
+### setup.py.patch
+```diff
 --- C:/Users/xxx/AppData/Local/Temp/h80KN9_setup.py	Tue Jan 24 14:08:23 2017
 +++ C:/Users/xxx/tools/mecab-python3/setup.py	Tue Jan 24 14:08:53 2017
 @@ -38,9 +38,9 @@

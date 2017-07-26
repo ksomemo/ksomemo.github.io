@@ -1,3 +1,4 @@
+# DataFrame.to_string と ZipFile.writestr調べた
 ## 本題
 DataFrameをzipに圧縮したかった
 
@@ -14,7 +15,9 @@ DataFrameをzipに圧縮したかった
 - pansas.to_datetime はそれっぽい文字列をparseしてくれる
 - seaborn便利
 
-```py3:df_to_str_and_zip_write_str.py
+df_to_str_and_zip_write_str.py
+
+```python3
 import numpy as np
 import pandas as pd
 import matplotlib
@@ -115,7 +118,7 @@ pd.to_datetime("+1days") # 0.17.1ではエラー以前は文字列のまま返�
 sns.pairplot(data=df, hue="d")
 
     <seaborn.axisgrid.PairGrid at 0x12094fc88>
-![image](https://qiita-image-store.s3.amazonaws.com/0/6982/dcdb26ff-5393-c07d-c28c-56ccb4296856.png)
 ```
 
-![image](https://qiita-image-store.s3.amazonaws.com/0/6982/dcdb26ff-5393-c07d-c28c-56ccb4296856.png)
+![image](DataFrame.to_string と ZipFile.writestr調べた.png)
+

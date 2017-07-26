@@ -1,4 +1,8 @@
-```py3:aws_boto3_wrapper.py
+# note aws boto3 and wrapper
+
+aws_boto3_wrapper.py
+
+```py3
 import boto3
 from botocore.exceptions import ClientError
 

@@ -1,10 +1,13 @@
-```bash:pip_install_janome.sh
-# mecabめんどうだったのでInstall
+# Janomeによる形態素解析と形態素を見やすく整形
+mecabめんどうだったのでInstall
+
+```bash
 # https://github.com/mocobeta/janome
 pip install janome
 ```
 
-```py3:example_janome.py
+## example_janome.py
+```py3
 # 見づらい
 from janome.tokenizer import Tokenizer
 t = Tokenizer()
@@ -17,7 +20,9 @@ for token in t.tokenize(u'すもももももももものうち'):
         attr = getattr(token, attr_name)
         print(attr_name, attr, type(attr))
     break
+```
 
+```
 すもも	名詞,一般,*,*,*,*,すもも,スモモ,スモモ
 <class 'janome.tokenizer.Token'>
 base_form すもも <class 'str'>
@@ -30,7 +35,9 @@ reading スモモ <class 'str'>
 surface すもも <class 'str'>
 ```
 
-```py3:janome_token_dataframe.py
+janome_token_dataframe.py
+
+```py3
 import pandas as pd
 from janome.tokenizer import Tokenizer
 

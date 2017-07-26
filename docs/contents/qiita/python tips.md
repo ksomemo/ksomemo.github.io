@@ -1,5 +1,6 @@
+# python tips
 ## Pythonで0埋め文字列
-```py3:Pythonで0埋め文字列.py
+```py3
 # 方法がたくさんあってややこしいのでメモ。
 [
   '{0:02d}'.format(1),
@@ -14,7 +15,7 @@
 ```
 
 ## regexのmatchとsearchの違い
-```py3:regexのmatchとsearchの違い.py
+```py3
 import re
 
 regex = re.compile("a(.)c")
@@ -27,7 +28,7 @@ assert regex.search(text2).group(1) == "-"
 ```
 
 ## dateとtimeからdatetimeを作成する
-```py3:dateとtimeからdatetimeを作成する.py
+```py3
 import datetime
 
 
@@ -39,7 +40,7 @@ dt
 ```
 
 ## 三重クォートの最初の改行対応
-```py3:三重クォートの最初の改行対応.py
+```py3
 print("""\
 a
 b
@@ -48,7 +49,7 @@ c
 ```
 
 ## 継承クラスの確認
-```py3:継承クラスの確認.py
+```py3
 import inspect
 
 
@@ -67,7 +68,7 @@ print(inspect.getmro(D))
 ```
 
 ## raw string
-```py3:raw_string.py
+```py3
 # https://www.python.org/dev/peps/pep-0498/#raw-f-strings
 new_line = "\n"
 raw_new_line = r"\n"
@@ -75,7 +76,7 @@ raw_new_line = r"\n"
 ```
 
 ## merge dict
-```py3:merge_dict.py
+```py3
 import functools
 import operator
 import collections
@@ -115,7 +116,7 @@ cm2["a"]
 ```
 
 ## error traceback
-```py3:error_traceback.py
+```py3
 import traceback
 
 try:
@@ -126,7 +127,7 @@ except:
 ```
 
 ## Python Append library path and Absolute path
-```py3:add_to_sys_path.py
+```py3
 import os
 import sys
 
@@ -136,7 +137,7 @@ sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/..'))
 ```
 
 ## PythonでYAMLを読み込む
-```py3:PythonでYAMLを読み込む.py
+```py3
 import yaml
 
 FILE_PATH = "example.yaml"
@@ -155,7 +156,7 @@ with open(FILE_PATH) as f:
 ```
 
 ## カウントダウンのためのstdoutの上書き
-```py3:rewrite_stdout_for_countdown.py
+```py3
 import time
 
 for i in range(12)[::-1]:
@@ -168,18 +169,18 @@ print("finished")
 ```
 
 ## date or datetime の月差分
-```py3:date_or_datetimeの月差分.py
+```py3
 # 正直python関係ない
 # 年は12進数の2桁目, 月は1桁目のように思えば良い
 def f(d1, d2):
    diff_year = d1.year - d2.year
    diff_month = d1.month - d2.month
    return (diff_year * 12) + diff_month
-) 
+)
 ```
 
 ## pythonでclipboard操作
-```clipboard操作.py
+```py3
 """
 - package探したらあった
 - 2017年になってもメンテされてた

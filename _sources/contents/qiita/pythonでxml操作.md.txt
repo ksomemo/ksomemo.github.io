@@ -1,4 +1,6 @@
-```py3:create_xml.py
+# pythonでxml操作
+## xml package
+```py3
 import xml.etree.ElementTree as ET
 
 # http://docs.python.jp/3.3/library/xml.etree.elementtree.html
@@ -45,7 +47,7 @@ node.text = "inner text"
 et = ET.ElementTree(document)
 
 f = random.choice(["element_tree.xml", io.BytesIO()])
-et.write(f, encoding='utf-8', xml_declaration=True) 
+et.write(f, encoding='utf-8', xml_declaration=True)
 if not type(f) == str:
     print(f.getvalue().decode())
 

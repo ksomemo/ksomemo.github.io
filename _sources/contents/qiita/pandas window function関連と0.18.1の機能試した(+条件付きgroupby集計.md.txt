@@ -1,3 +1,4 @@
+# pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計
 ## window function code
 
 - window functionを試した
@@ -6,7 +7,7 @@
     - window内全体に同じ結果
     - 累積や移動系の集計
 
-```py3:pandas_window_function.py
+```py3
 import pandas as pd
 import seaborn as sns
 
@@ -40,7 +41,7 @@ res.columns = [
     "roll3_sum_c",
     "roll4_sum_c", # 偶数の場合, どの範囲になるかの確認のため
     "ex_sum",      # cumsum
-    "trans_sum",   # SQL Window関数におけるGroup内すべてと同様 
+    "trans_sum",   # SQL Window関数におけるGroup内すべてと同様
     "trans_cumsum",# group内cumsum
     "g_ex_old_sum",
     "g_ex_sum",    # group内cumsum
@@ -70,7 +71,7 @@ res
 - 今回の例は`sum(case when x % 2 = 0 then x else 0 end)`
 - havingは集計後のfilteringなので違う
 
-```py3:pandas_conditional_aggregation_using_groupby.py
+```py3
 df = pd.DataFrame(
     {
         "type": list("aaaabbbbcccc"),
@@ -120,7 +121,7 @@ conditional_df
 | 11 | c      |  11 |              0 |       30 |          18 |                      18 |             18 |
 
 ## おまけranking
-```pandas_series_rank.py
+```py3
 s = pd.Series([1,2,2,3,4])
 rank_df = pd.DataFrame().assign(value=s)
 rank_df = rank_df.assign(
@@ -138,7 +139,6 @@ rank_df
 # => dictからDataFrameを作ったときと同じ
 ```
 
-```pandas_series_rank_result.md
 |    |   value |   default |   dense |   first_rank |   max_rank |   min_rank |
 |---:|--------:|----------:|--------:|-------------:|-----------:|-----------:|
 |  0 |       1 |         1 |       1 |            1 |          1 |          1 |
@@ -146,4 +146,3 @@ rank_df
 |  2 |       2 |         2 |       2 |            3 |          3 |          2 |
 |  3 |       3 |         4 |       3 |            4 |          4 |          4 |
 |  4 |       4 |         5 |       4 |            5 |          5 |          5 |
-```

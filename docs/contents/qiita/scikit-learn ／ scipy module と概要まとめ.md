@@ -1,3 +1,4 @@
+# scikit-learn ／ scipy module と概要まとめ
 ## scikit-learn module
 http://scikit-learn.org/stable/modules/classes.html
 
@@ -142,7 +143,7 @@ sklearn.xxx
             - Probabilistic PCA
                 - http://d.hatena.ne.jp/ryamada22/20150409/1428549068
             - 比較?, http://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_fa_model_selection.html
-    - fastICA 
+    - fastICA
         - Independent Component Analysis(独立成分分析)
         - 下記の例では第1,2成分が直行していない図がある
         - http://s0sem0y.hatenablog.com/entry/2016/05/01/185044#主成分分析との違い
@@ -461,7 +462,7 @@ sklearn.xxx
 
 sckit-learnのEstimated parameters
 
-```py3:skleran_estimated_params.py
+```py3
 # http://scikit-learn.org/stable/tutorial/statistical_inference/settings.html
 def estimated_params(estimator):
     return [a for a in dir(estimator) if a.endswith("_") and not a.startswith("_")]

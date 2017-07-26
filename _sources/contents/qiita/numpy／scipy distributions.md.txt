@@ -1,3 +1,4 @@
+# numpy/scipy distributions
 ## 分布
 http://docs.scipy.org/doc/numpy/reference/routines.random.html#distributions
 

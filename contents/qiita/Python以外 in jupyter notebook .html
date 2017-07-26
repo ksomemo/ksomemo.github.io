@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>前提 &mdash; gh-pages  ドキュメント</title>
+  <title>Python以外 in jupyter notebook &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../genindex.html"/>
         <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/>
+        <link rel="next" title="R tips" href="R tips.html"/>
+        <link rel="prev" title="PythonでURL encode" href="PythonでURL encode.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -84,60 +86,305 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">前提</a></li>
-<li><a class="reference internal" href="#r">R</a><ul>
-<li><a class="reference internal" href="#conda">condaから</a><ul>
-<li><a class="reference internal" href="#">長くなるのでまとめ</a></li>
-<li><a class="reference internal" href="#channel">インストールとChannelについて</a></li>
-<li><a class="reference internal" href="#kernel">Kernelの設定</a></li>
-<li><a class="reference internal" href="#package-conda">package(conda)</a></li>
-<li><a class="reference internal" href="#jupyter-notebookpackageinstall">jupyter notebookからPackageのInstall</a></li>
-<li><a class="reference internal" href="#default">defaultでインストールされるパッケージ</a></li>
-<li><a class="reference internal" href="#notebookinstallpackage">notebookからInstallしたPackageの場所</a></li>
-<li><a class="reference internal" href="#conda">condaでインストールしてみる</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Excel VBA.html">Excel VBA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRedshiftに接続.html">PythonからRedshiftに接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python以外 in jupyter notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#">前提</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#anaconda-clientinstall">anaconda clientのInstall</a></li>
-<li><a class="reference internal" href="#anaconda-client-usage">anaconda client usage</a><ul>
-<li><a class="reference internal" href="#anaconda-search">anaconda search</a></li>
-<li><a class="reference internal" href="#a3search">A3のsearch</a></li>
-<li><a class="reference internal" href="#">確実に存在するもので試す</a></li>
-<li><a class="reference internal" href="#r">R関連削除</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#r">R</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#conda">condaから</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">長くなるのでまとめ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#channel">インストールとChannelについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kernel">Kernelの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-conda">package(conda)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-notebookpackageinstall">jupyter notebookからPackageのInstall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default">defaultでインストールされるパッケージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notebookinstallpackage">notebookからInstallしたPackageの場所</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conda">condaでインストールしてみる</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#r">Rから</a><ul>
-<li><a class="reference internal" href="#install-requirements">install requirements</a></li>
-<li><a class="reference internal" href="#irkernel-setting">IRkernel setting</a></li>
-<li><a class="reference internal" href="#run-notebook">run notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anaconda-clientinstall">anaconda clientのInstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anaconda-client-usage">anaconda client usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#anaconda-search">anaconda search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a3search">A3のsearch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">確実に存在するもので試す</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#r">R関連削除</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a class="reference internal" href="#octave">octave</a><ul>
-<li><a class="reference internal" href="#courseraoctave">coursera用のoctave</a></li>
-<li><a class="reference internal" href="#install">install</a></li>
-<li><a class="reference internal" href="#">警告</a></li>
-<li><a class="reference internal" href="#ipython-kernel">起動用のipython kernel</a></li>
-<li><a class="reference internal" href="#ipython-notobook">ipython notobook</a></li>
-<li><a class="reference internal" href="#">まとめ</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#hasklell">Hasklell</a></li>
-<li><a class="reference internal" href="#scala">Scala</a><ul>
-<li><a class="reference internal" href="#">動機</a></li>
-<li><a class="reference internal" href="#">身についたこと</a></li>
-<li><a class="reference internal" href="#isntall">isntall</a></li>
-<li><a class="reference internal" href="#">試した結果</a><ul>
-<li><a class="reference internal" href="#">その後</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#kernel">kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#r">Rから</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-requirements">install requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#irkernel-setting">IRkernel setting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-notebook">run notebook</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#octave">octave</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#courseraoctave">coursera用のoctave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install">install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#">警告</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#caveats">caveats</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ipython-kernel">起動用のipython kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ipython-notobook">ipython notobook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">まとめ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#scala">Scala</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#">動機</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">身についたこと</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isntall">isntall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">試した結果</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">その後</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kernel">kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="R tips.html">R tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upload package to PyPI By twine.html">Upload package to PyPI By twine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editRを試した.html">editR試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faker サンプルデータ作成.html">faker サンプルデータ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: 行列の性質や数式テクニック.html">note: 行列の性質や数式テクニック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell tips.html">shell tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy.html">numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -180,7 +427,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>前提</li>
+      <li>Python以外 in jupyter notebook</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -233,8 +480,10 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
+<div class="section" id="python-in-jupyter-notebook">
+<span id="python-in-jupyter-notebook"></span><h1>Python以外 in jupyter notebook<a class="headerlink" href="#python-in-jupyter-notebook" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="">
-<span id="id1"></span><h1>前提<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id1"></span><h2>前提<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>mac</li>
 <li>brewで環境設定</li>
@@ -245,6 +494,7 @@
 </ul>
 </li>
 </ul>
+</div>
 </div>
 <div class="section" id="r">
 <span id="r"></span><h1>R<a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h1>
@@ -270,15 +520,15 @@
 conda create -n my-r-env -c r r-essentials
 -c CHANNEL, --channel CHANNEL
 
-Additional channel to search <span class="k">for</span> packages. 
+Additional channel to search <span class="k">for</span> packages.
 These are URLs searched in the order they are given
-<span class="o">(</span>including file:// <span class="k">for</span> <span class="nb">local</span> directories<span class="o">)</span>. 
+<span class="o">(</span>including file:// <span class="k">for</span> <span class="nb">local</span> directories<span class="o">)</span>.
 Then, the defaults or channels from .condarc are searched
-<span class="o">(</span>unless --override-channels is given<span class="o">)</span>. 
-You can use <span class="s1">&#39;defaults&#39;</span> to get the default packages <span class="k">for</span> conda, 
-and <span class="s1">&#39;system&#39;</span> to get the system packages, 
-which also takes .condarc into account. 
-You can also use any name and the .condarc channel_alias value will be prepended. 
+<span class="o">(</span>unless --override-channels is given<span class="o">)</span>.
+You can use <span class="s1">&#39;defaults&#39;</span> to get the default packages <span class="k">for</span> conda,
+and <span class="s1">&#39;system&#39;</span> to get the system packages,
+which also takes .condarc into account.
+You can also use any name and the .condarc channel_alias value will be prepended.
 The default channel_alias is http://conda.anaconda.org/.
 </pre></div>
 </div>
@@ -311,7 +561,7 @@ r-boot-1.3_17-r3.2.2_0.tar.bz2
 </div>
 <div class="section" id="jupyter-notebookpackageinstall">
 <span id="jupyter-notebookpackageinstall"></span><h3>jupyter notebookからPackageのInstall<a class="headerlink" href="#jupyter-notebookpackageinstall" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-r"><div class="highlight"><pre><span></span>jupyter notebook
+<div class="highlight-R"><div class="highlight"><pre><span></span>jupyter notebook
 <span class="c1"># select R kernel</span>
 <span class="c1"># 今回のRでinstallされたPackageを読み込んでみる</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
@@ -346,7 +596,7 @@ Loading required package<span class="o">:</span> pbapply
 
 <span class="c1"># 当たり前だけど元のRでは失敗</span>
 <span class="kn">library</span><span class="p">(</span>A3<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>A3<span class="p">)</span> でエラー<span class="o">:</span>  ‘A3’ という名前のパッケージはありません 
+<span class="kn">library</span><span class="p">(</span>A3<span class="p">)</span> でエラー<span class="o">:</span>  ‘A3’ という名前のパッケージはありません
 </pre></div>
 </div>
 </div>
@@ -467,7 +717,7 @@ Found <span class="m">0</span> packages
 <div class="highlight-bash"><div class="highlight"><pre><span></span>conda list <span class="p">|</span> awk <span class="s1">&#39;$4==&quot;r&quot; {print $1}&#39;</span> <span class="p">|</span> xargs conda uninstall
 find ~/.pyenv/versions/miniconda3-3.9.1/ -name R <span class="p">|</span> xargs rm -rf
 <span class="c1"># 以下消えてた</span>
-~/.pyenv/versions/miniconda3-3.9.1/bin/R 
+~/.pyenv/versions/miniconda3-3.9.1/bin/R
 ~/.pyenv/versions/miniconda3-3.9.1/share/jupyter/kernels/ir/kernel.json
 </pre></div>
 </div>
@@ -476,23 +726,23 @@ find ~/.pyenv/versions/miniconda3-3.9.1/ -name R <span class="p">|</span> xargs 
 <div class="section" id="r">
 <span id="id6"></span><h2>Rから<a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>めちゃくちゃ簡単</p>
-<div class="highlight-markdown"><div class="highlight"><pre><span></span>- https://github.com/IRkernel/IRkernel
-- http://irkernel.github.io/
-</pre></div>
-</div>
+<ul class="simple">
+<li>https://github.com/IRkernel/IRkernel</li>
+<li>http://irkernel.github.io/</li>
+</ul>
 <div class="section" id="install-requirements">
 <span id="install-requirements"></span><h3>install requirements<a class="headerlink" href="#install-requirements" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-r"><div class="highlight"><pre><span></span>install.packages<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;rzmq&#39;</span><span class="p">,</span><span class="s">&#39;repr&#39;</span><span class="p">,</span><span class="s">&#39;IRkernel&#39;</span><span class="p">,</span><span class="s">&#39;IRdisplay&#39;</span><span class="p">),</span>
+<div class="highlight-R"><div class="highlight"><pre><span></span>install.packages<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;rzmq&#39;</span><span class="p">,</span><span class="s">&#39;repr&#39;</span><span class="p">,</span><span class="s">&#39;IRkernel&#39;</span><span class="p">,</span><span class="s">&#39;IRdisplay&#39;</span><span class="p">),</span>
                  repos <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;http://irkernel.github.io/&#39;</span><span class="p">,</span> <span class="kp">getOption</span><span class="p">(</span><span class="s">&#39;repos&#39;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="irkernel-setting">
 <span id="irkernel-setting"></span><h3>IRkernel setting<a class="headerlink" href="#irkernel-setting" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-r"><div class="highlight"><pre><span></span>IRkernel<span class="o">::</span>installspec<span class="p">()</span>
- <span class="kr">if</span> <span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>a<span class="p">))</span> <span class="kr">return</span><span class="p">(</span><span class="m">-1L</span><span class="p">)</span> でエラー<span class="o">:</span>  引数の長さが <span class="m">0</span> です 
- 追加情報<span class="o">:</span>  警告メッセージ<span class="o">:</span> 
- 命令 <span class="s">&#39;&#39;</span>ipython<span class="s">&#39; --version 2&gt;/dev/null&#39;</span> の実行は状態 <span class="m">126</span> を持ちました  
+<div class="highlight-R"><div class="highlight"><pre><span></span>IRkernel<span class="o">::</span>installspec<span class="p">()</span>
+ <span class="kr">if</span> <span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>a<span class="p">))</span> <span class="kr">return</span><span class="p">(</span><span class="m">-1L</span><span class="p">)</span> でエラー<span class="o">:</span>  引数の長さが <span class="m">0</span> です
+ 追加情報<span class="o">:</span>  警告メッセージ<span class="o">:</span>
+ 命令 <span class="s">&#39;&#39;</span>ipython<span class="s">&#39; --version 2&gt;/dev/null&#39;</span> の実行は状態 <span class="m">126</span> を持ちました
 
 <span class="c1"># RStudioで失敗したのでitermからR実行</span>
 IRkernel<span class="o">::</span>installspec<span class="p">()</span>
@@ -510,7 +760,7 @@ cat <span class="o">~/</span>Library<span class="o">/</span>Jupyter<span class="
 <div class="section" id="run-notebook">
 <span id="run-notebook"></span><h3>run notebook<a class="headerlink" href="#run-notebook" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span>
-<span class="c1"># select kernel </span>
+<span class="c1"># select kernel</span>
 <span class="n">New</span> <span class="o">&gt;</span> <span class="n">R</span>
 <span class="n">library</span><span class="p">(</span><span class="n">devtools</span><span class="p">)</span> <span class="c1"># success</span>
 <span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
@@ -535,82 +785,90 @@ cat <span class="o">~/</span>Library<span class="o">/</span>Jupyter<span class="
 </div>
 <div class="section" id="install">
 <span id="install"></span><h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-sh:install_octave.sh"><div class="highlight"><pre><span></span>brew tap homebrew/science
+<div class="highlight-bash"><div class="highlight"><pre><span></span>brew tap homebrew/science
 brew install octave
 </pre></div>
 </div>
-<div class="highlight-text:dependencies.txt"><div class="highlight"><pre><span></span>- qscintilla2
-- gnuplot
-- tbb
-- suite-sparse
-- veclibfort
-- arpack
-- fftw
-- glpk
-- gl2ps
-- graphicsmagick
-- szip
-- hdf
-  - hdf5
-  - qhull
-  - qrupdate
-  - jbig2dec
-  - ghostscript
-  - epstool
-  - imagemagick
-  - pstoedit
-</pre></div>
+<div class="section" id="dependencies">
+<span id="dependencies"></span><h3>dependencies<a class="headerlink" href="#dependencies" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>qscintilla2</li>
+<li>gnuplot</li>
+<li>tbb</li>
+<li>suite-sparse</li>
+<li>veclibfort</li>
+<li>arpack</li>
+<li>fftw</li>
+<li>glpk</li>
+<li>gl2ps</li>
+<li>graphicsmagick</li>
+<li>szip</li>
+<li>hdf<ul>
+<li>hdf5</li>
+<li>qhull</li>
+<li>qrupdate</li>
+<li>jbig2dec</li>
+<li>ghostscript</li>
+<li>epstool</li>
+<li>imagemagick</li>
+<li>pstoedit</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="">
 <span id="id7"></span><h2>警告<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-text:warning.txt"><div class="highlight"><pre><span></span>Warning: gnuplot dependency libtiff was built with a different C++ standard
-library (libstdc++ from gcc). This may cause problems at runtime.
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ne">Warning</span><span class="p">:</span> <span class="n">gnuplot</span> <span class="n">dependency</span> <span class="n">libtiff</span> <span class="n">was</span> <span class="n">built</span> <span class="k">with</span> <span class="n">a</span> <span class="n">different</span> <span class="n">C</span><span class="o">++</span> <span class="n">standard</span>
+<span class="n">library</span> <span class="p">(</span><span class="n">libstdc</span><span class="o">++</span> <span class="kn">from</span> <span class="nn">gcc</span><span class="p">)</span><span class="o">.</span> <span class="n">This</span> <span class="n">may</span> <span class="n">cause</span> <span class="n">problems</span> <span class="n">at</span> <span class="n">runtime</span><span class="o">.</span>
 
-Warning: pstoedit dependency libtiff was built with a different C++ standard
-library (libstdc++ from gcc). This may cause problems at runtime.
+<span class="ne">Warning</span><span class="p">:</span> <span class="n">pstoedit</span> <span class="n">dependency</span> <span class="n">libtiff</span> <span class="n">was</span> <span class="n">built</span> <span class="k">with</span> <span class="n">a</span> <span class="n">different</span> <span class="n">C</span><span class="o">++</span> <span class="n">standard</span>
+<span class="n">library</span> <span class="p">(</span><span class="n">libstdc</span><span class="o">++</span> <span class="kn">from</span> <span class="nn">gcc</span><span class="p">)</span><span class="o">.</span> <span class="n">This</span> <span class="n">may</span> <span class="n">cause</span> <span class="n">problems</span> <span class="n">at</span> <span class="n">runtime</span><span class="o">.</span>
 
-Warning: octave dependency libtiff was built with a different C++ standard
-library (libstdc++ from gcc). This may cause problems at runtime.
+<span class="ne">Warning</span><span class="p">:</span> <span class="n">octave</span> <span class="n">dependency</span> <span class="n">libtiff</span> <span class="n">was</span> <span class="n">built</span> <span class="k">with</span> <span class="n">a</span> <span class="n">different</span> <span class="n">C</span><span class="o">++</span> <span class="n">standard</span>
+<span class="n">library</span> <span class="p">(</span><span class="n">libstdc</span><span class="o">++</span> <span class="kn">from</span> <span class="nn">gcc</span><span class="p">)</span><span class="o">.</span> <span class="n">This</span> <span class="n">may</span> <span class="n">cause</span> <span class="n">problems</span> <span class="n">at</span> <span class="n">runtime</span><span class="o">.</span>
 </pre></div>
 </div>
-<div class="highlight-text:caveats.txt"><div class="highlight"><pre><span></span>==&gt; Caveats
+<div class="section" id="caveats">
+<span id="caveats"></span><h3>caveats<a class="headerlink" href="#caveats" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">==&gt;</span> <span class="n">Caveats</span>
 
-gnuplot&#39;s Qt terminal is supported by default with the Octave GUI.
-Use other gnuplot graphics terminals by setting the environment variable
-GNUTERM in ~/.octaverc, and building gnuplot with the matching options.
+<span class="n">gnuplot</span><span class="s1">&#39;s Qt terminal is supported by default with the Octave GUI.</span>
+<span class="n">Use</span> <span class="n">other</span> <span class="n">gnuplot</span> <span class="n">graphics</span> <span class="n">terminals</span> <span class="n">by</span> <span class="n">setting</span> <span class="n">the</span> <span class="n">environment</span> <span class="n">variable</span>
+<span class="n">GNUTERM</span> <span class="ow">in</span> <span class="o">~/.</span><span class="n">octaverc</span><span class="p">,</span> <span class="ow">and</span> <span class="n">building</span> <span class="n">gnuplot</span> <span class="k">with</span> <span class="n">the</span> <span class="n">matching</span> <span class="n">options</span><span class="o">.</span>
 
-  setenv(&#39;GNUTERM&#39;,&#39;qt&#39;)    # Default graphics terminal with Octave GUI
-  setenv(&#39;GNUTERM&#39;,&#39;x11&#39;)   # Requires XQuartz; install gnuplot --with-x
-  setenv(&#39;GNUTERM&#39;,&#39;wxt&#39;)   # wxWidgets/pango; install gnuplot --wx
-  setenv(&#39;GNUTERM&#39;,&#39;aqua&#39;)  # Requires AquaTerm; install gnuplot --with-aquaterm
+  <span class="n">setenv</span><span class="p">(</span><span class="s1">&#39;GNUTERM&#39;</span><span class="p">,</span><span class="s1">&#39;qt&#39;</span><span class="p">)</span>    <span class="c1"># Default graphics terminal with Octave GUI</span>
+  <span class="n">setenv</span><span class="p">(</span><span class="s1">&#39;GNUTERM&#39;</span><span class="p">,</span><span class="s1">&#39;x11&#39;</span><span class="p">)</span>   <span class="c1"># Requires XQuartz; install gnuplot --with-x</span>
+  <span class="n">setenv</span><span class="p">(</span><span class="s1">&#39;GNUTERM&#39;</span><span class="p">,</span><span class="s1">&#39;wxt&#39;</span><span class="p">)</span>   <span class="c1"># wxWidgets/pango; install gnuplot --wx</span>
+  <span class="n">setenv</span><span class="p">(</span><span class="s1">&#39;GNUTERM&#39;</span><span class="p">,</span><span class="s1">&#39;aqua&#39;</span><span class="p">)</span>  <span class="c1"># Requires AquaTerm; install gnuplot --with-aquaterm</span>
 
-  You may also set this variable from within Octave.
+  <span class="n">You</span> <span class="n">may</span> <span class="n">also</span> <span class="nb">set</span> <span class="n">this</span> <span class="n">variable</span> <span class="kn">from</span> <span class="nn">within</span> <span class="n">Octave</span><span class="o">.</span>
 
 
-The Octave GUI is experimental and not enabled by default. To use it,
-use the command-line argument &quot;--force-gui&quot;; e.g.,
-    octave --force-gui
+<span class="n">The</span> <span class="n">Octave</span> <span class="n">GUI</span> <span class="ow">is</span> <span class="n">experimental</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">enabled</span> <span class="n">by</span> <span class="n">default</span><span class="o">.</span> <span class="n">To</span> <span class="n">use</span> <span class="n">it</span><span class="p">,</span>
+<span class="n">use</span> <span class="n">the</span> <span class="n">command</span><span class="o">-</span><span class="n">line</span> <span class="n">argument</span> <span class="s2">&quot;--force-gui&quot;</span><span class="p">;</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span>
+    <span class="n">octave</span> <span class="o">--</span><span class="n">force</span><span class="o">-</span><span class="n">gui</span>
 </pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="ipython-kernel">
 <span id="ipython-kernel"></span><h2>起動用のipython kernel<a class="headerlink" href="#ipython-kernel" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>octaveコマンドからREPLによるプログラミングをできるようだけど、KernelについてはPythonしか使っていなかったので、その勉強も込めてインストール。</p>
-<div class="highlight-sh:pip_search_kernel.sh"><div class="highlight"><pre><span></span>pip search _kernel
-octave_kernel           - An Octave kernel for Jupyter/IPython
-bash_kernel             - A bash kernel for Jupyter
-xonsh_kernel            - An Xonsh kernel for Jupyter/IPython
-matlab_kernel           - A Matlab kernel for Jupyter/IPython
-scilab_kernel           - A Scilab kernel for IPython
-r2_kernel               - An R wrapper kernel for IPython
-hy_kernel               - A hy kernel for IPython
-redis_kernel            - A redis kernel for IPython
-jupyter_kernel_test     - Machinery for testing Jupyter kernels via the messaging protocol.
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip search _kernel
+octave_kernel           - An Octave kernel <span class="k">for</span> Jupyter/IPython
+bash_kernel             - A bash kernel <span class="k">for</span> Jupyter
+xonsh_kernel            - An Xonsh kernel <span class="k">for</span> Jupyter/IPython
+matlab_kernel           - A Matlab kernel <span class="k">for</span> Jupyter/IPython
+scilab_kernel           - A Scilab kernel <span class="k">for</span> IPython
+r2_kernel               - An R wrapper kernel <span class="k">for</span> IPython
+hy_kernel               - A hy kernel <span class="k">for</span> IPython
+redis_kernel            - A redis kernel <span class="k">for</span> IPython
+jupyter_kernel_test     - Machinery <span class="k">for</span> testing Jupyter kernels via the messaging protocol.
 </pre></div>
 </div>
-<div class="highlight-sh:pip_install_octave.sh"><div class="highlight"><pre><span></span>pip install octave_kernel
-# kernel設定が追加されている
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install octave_kernel
+<span class="c1"># kernel設定が追加されている</span>
 python -m octave_kernel.install
 </pre></div>
 </div>
@@ -642,65 +900,65 @@ https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages</p>
 <div class="section" id="hasklell">
 <span id="hasklell"></span><h1>Hasklell<a class="headerlink" href="#hasklell" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>note:IHaskell (jupyter + Haskell)</p>
-<div class="highlight-env_ihaskell.sh"><div class="highlight"><pre><span></span># https://remusao.github.io/install-ihaskell-on-ubuntu-1404-with-stack.html
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># https://remusao.github.io/install-ihaskell-on-ubuntu-1404-with-stack.html</span>
 
-# Haskell setup
+<span class="c1"># Haskell setup</span>
 brew install stack
 stack setup
 
-# alias using stack
-export PATH=~/.local/bin:$PATH # stack etc
-# Haskell
-# export PATH=~/.cabal/bin:$PATH
-if which stack &gt; /dev/null; then
-     alias ghc=&quot;stack ghc --&quot;
-     alias ghci=&quot;stack ghci&quot;
-     alias runghc=&quot;stack runghc --&quot;
-     alias runhaskell=&quot;stack runghc --&quot;
-fi
+<span class="c1"># alias using stack</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>~/.local/bin:<span class="nv">$PATH</span> <span class="c1"># stack etc</span>
+<span class="c1"># Haskell</span>
+<span class="c1"># export PATH=~/.cabal/bin:$PATH</span>
+<span class="k">if</span> which stack &gt; /dev/null<span class="p">;</span> <span class="k">then</span>
+     <span class="nb">alias</span> <span class="nv">ghc</span><span class="o">=</span><span class="s2">&quot;stack ghc --&quot;</span>
+     <span class="nb">alias</span> <span class="nv">ghci</span><span class="o">=</span><span class="s2">&quot;stack ghci&quot;</span>
+     <span class="nb">alias</span> <span class="nv">runghc</span><span class="o">=</span><span class="s2">&quot;stack runghc --&quot;</span>
+     <span class="nb">alias</span> <span class="nv">runhaskell</span><span class="o">=</span><span class="s2">&quot;stack runghc --&quot;</span>
+<span class="k">fi</span>
 
-# setupy ihaskell
+<span class="c1"># setupy ihaskell</span>
 stack build ihaskell
 stack exce ihaskell -- install
 
-# いちいちstackを経由をめんどうだと思って使わない場合
-jupyter notebook # then new Haskell notebook
-# -&gt; shelly did not find ghc-pkg in the PATH:
-# The following target packages were not found: ghc-pkg
-# -&gt; alias ghc-pkg=&quot;stack exec ghc-pkg --&quot; しても同じ
+<span class="c1"># いちいちstackを経由をめんどうだと思って使わない場合</span>
+jupyter notebook <span class="c1"># then new Haskell notebook</span>
+<span class="c1"># -&gt; shelly did not find ghc-pkg in the PATH:</span>
+<span class="c1"># The following target packages were not found: ghc-pkg</span>
+<span class="c1"># -&gt; alias ghc-pkg=&quot;stack exec ghc-pkg --&quot; しても同じ</span>
 
-# ok, 参考URLコメントにもあった
-stack exec jupyter -- notebook
+<span class="c1"># ok, 参考URLコメントにもあった</span>
+stack <span class="nb">exec</span> jupyter -- notebook
 
-# とりあえず下記を定義できて、do記法も使えた
-add3 x y z =
-    do
-        let add2 = x + y
+<span class="c1"># とりあえず下記を定義できて、do記法も使えた</span>
+add3 x y <span class="nv">z</span> <span class="o">=</span>
+    <span class="k">do</span>
+        <span class="nb">let</span> <span class="nv">add2</span> <span class="o">=</span> x + y
         add2 + z
-add3 1 2 3
+add3 <span class="m">1</span> <span class="m">2</span> 3
 -- 6
 
-# ghciのように扱えた
+<span class="c1"># ghciのように扱えた</span>
 :t 1
-1 :: forall a. Num a =&gt; a
+<span class="m">1</span> :: forall a. Num <span class="nv">a</span> <span class="o">=</span>&gt; a
 
 :k Maybe
 Maybe :: * -&gt; *
 
-# 型宣言もできた
+<span class="c1"># 型宣言もできた</span>
 add :: Int -&gt; Int -&gt; Int
-add x y = x + y
-add 1 2
+add x <span class="nv">y</span> <span class="o">=</span> x + y
+add <span class="m">1</span> 2
 
-# 拡張の追加とimportもできた
-{-# LANGUAGE OverloadedStrings, ViewPatterns #-}
+<span class="c1"># 拡張の追加とimportもできた</span>
+<span class="o">{</span>-# LANGUAGE OverloadedStrings, ViewPatterns <span class="c1">#-}</span>
 import qualified Data.Text.Lazy as T
 
-# 入力を受け付けるプログラムはテキストボックスが出現してにゅうりょくできるようになる
-# getContents だと止まらなくてkernel落とした
-main = do
+<span class="c1"># 入力を受け付けるプログラムはテキストボックスが出現してにゅうりょくできるようになる</span>
+<span class="c1"># getContents だと止まらなくてkernel落とした</span>
+<span class="nv">main</span> <span class="o">=</span> <span class="k">do</span>
     line &lt;- getLine
-    putStr $ line ++ &quot;!!&quot;
+    putStr $ line ++ <span class="s2">&quot;!!&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -723,19 +981,19 @@ main = do
 <div class="section" id="isntall">
 <span id="isntall"></span><h2>isntall<a class="headerlink" href="#isntall" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">bash</span> <span class="pre">-vxe</span> <span class="pre">下記script</span></code></p>
-<div class="highlight-bash:install-jupyter-scala.sh"><div class="highlight"><pre><span></span># https://github.com/alexarchambault/jupyter-scala
-home_local=$(echo ~)/local
-arc_dir=jupyter-scala_2.11.6-0.2.0-SNAPSHOT
-arc_file=$arc_dir.tar.xz
-url=https://oss.sonatype.org/content/repositories/snapshots/com/github/alexarchambault/jupyter/jupyter-scala-cli_2.11.6/0.2.0-SNAPSHOT/$arc_file
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># https://github.com/alexarchambault/jupyter-scala</span>
+<span class="nv">home_local</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> ~<span class="k">)</span>/local
+<span class="nv">arc_dir</span><span class="o">=</span>jupyter-scala_2.11.6-0.2.0-SNAPSHOT
+<span class="nv">arc_file</span><span class="o">=</span><span class="nv">$arc_dir</span>.tar.xz
+<span class="nv">url</span><span class="o">=</span>https://oss.sonatype.org/content/repositories/snapshots/com/github/alexarchambault/jupyter/jupyter-scala-cli_2.11.6/0.2.0-SNAPSHOT/<span class="nv">$arc_file</span>
 
-mkdir -p $home_local
-wget -O $home_local/$arc_file $url
-tar xJf $home_local/$arc_file -C $home_local/
-cd $home_local/$arc_dir
+mkdir -p <span class="nv">$home_local</span>
+wget -O <span class="nv">$home_local</span>/<span class="nv">$arc_file</span> <span class="nv">$url</span>
+tar xJf <span class="nv">$home_local</span>/<span class="nv">$arc_file</span> -C <span class="nv">$home_local</span>/
+<span class="nb">cd</span> <span class="nv">$home_local</span>/<span class="nv">$arc_dir</span>
 ./bin/jupyter-scala
 jupyter kernelspec list
-cd -
+<span class="nb">cd</span> -
 </pre></div>
 </div>
 </div>
@@ -769,6 +1027,15 @@ cd -
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="R tips.html" class="btn btn-neutral float-right" title="R tips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PythonでURL encode.html" class="btn btn-neutral" title="PythonでURL encode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

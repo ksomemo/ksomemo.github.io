@@ -1,3 +1,4 @@
+# MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト
 PHPで書いてみた。
 
 * INFORMATION_SCHEMA.PARTITIONSからデータ取得
@@ -5,7 +6,7 @@ PHPで書いてみた。
 
 ```php
 <?php
-$partitionsSelectQuery = 
+$partitionsSelectQuery =
     "select
     TABLE_SCHEMA
     , TABLE_NAME

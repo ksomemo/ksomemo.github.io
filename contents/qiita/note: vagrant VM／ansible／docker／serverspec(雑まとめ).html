@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>動機 &mdash; gh-pages  ドキュメント</title>
+  <title>note: vagrant VM／ansible／docker／serverspec(雑まとめ) &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../genindex.html"/>
         <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/>
+        <link rel="next" title="note: 行列の性質や数式テクニック" href="note: 行列の性質や数式テクニック.html"/>
+        <link rel="prev" title="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -84,51 +86,294 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">動機</a></li>
-<li><a class="reference internal" href="#">流れ</a></li>
-<li><a class="reference internal" href="#virtualbox">virtualbox</a></li>
-<li><a class="reference internal" href="#vagrant">vagrant</a><ul>
-<li><a class="reference internal" href="#install">install</a></li>
-<li><a class="reference internal" href="#vm">VM</a></li>
-<li><a class="reference internal" href="#donwload-and-settings">donwload and settings</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Excel VBA.html">Excel VBA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRedshiftに接続.html">PythonからRedshiftに接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html">Python以外 in jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#r">R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#octave">octave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#scala">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R tips.html">R tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upload package to PyPI By twine.html">Upload package to PyPI By twine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editRを試した.html">editR試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faker サンプルデータ作成.html">faker サンプルデータ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#">動機</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">流れ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtualbox">virtualbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vagrant">vagrant</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install">install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vm">VM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#donwload-and-settings">donwload and settings</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ansible">ansible</a><ul>
-<li><a class="reference internal" href="#commands">commands</a></li>
-<li><a class="reference internal" href="#ansible-command">ansible command</a></li>
-<li><a class="reference internal" href="#inventory">inventory</a></li>
-<li><a class="reference internal" href="#ansible-playbook">ansible-playbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ansible">ansible</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commands">commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ansible-command">ansible command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inventory">inventory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ansible-playbook">ansible-playbook</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#install-docker-on-ubuntu">install docker on ubuntu</a></li>
-<li><a class="reference internal" href="#docker-ecosystem">docker ecosystem</a><ul>
-<li><a class="reference internal" href="#brew-serach">brew serachで見つかったもの</a></li>
-<li><a class="reference internal" href="#docker-toolbox">docker toolbox</a><ul>
-<li><a class="reference internal" href="#install">installして使ってみた</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-docker-on-ubuntu">install docker on ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-ecosystem">docker ecosystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#brew-serach">brew serachで見つかったもの</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-toolbox">docker toolbox</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install">installして使ってみた</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#docker-for-mac-windows">docker for mac/windows</a></li>
-<li><a class="reference internal" href="#docker">その他docker関連</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-for-mac-windows">docker for mac/windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker">その他docker関連</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dockerfile">Dockerfile</a><ul>
-<li><a class="reference internal" href="#docker-hub">docker hub</a><ul>
-<li><a class="reference internal" href="#sign-up">sign up</a></li>
-<li><a class="reference internal" href="#">自動化のための連携</a></li>
-<li><a class="reference internal" href="#clilogin">cliからのlogin</a></li>
-<li><a class="reference internal" href="#create-repository-on-github">create repository on github</a></li>
-<li><a class="reference internal" href="#create-automated-build-on-dockerhub">create automated-build on dockerhub</a></li>
-<li><a class="reference internal" href="#etc">etc.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dockerfile">Dockerfile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-hub">docker hub</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sign-up">sign up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">自動化のための連携</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clilogin">cliからのlogin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-repository-on-github">create repository on github</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-automated-build-on-dockerhub">create automated-build on dockerhub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#etc">etc.</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#serverspec">serverspec</a></li>
-<li><a class="reference internal" href="#hashicorp-tool">よくわかってないhashicorp tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serverspec">serverspec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hashicorp-tool">よくわかってないhashicorp tool</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="note: 行列の性質や数式テクニック.html">note: 行列の性質や数式テクニック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell tips.html">shell tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy.html">numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -171,7 +416,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>動機</li>
+      <li>note: vagrant VM／ansible／docker／serverspec(雑まとめ)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -224,15 +469,17 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
+<div class="section" id="note-vagrant-vm-ansible-docker-serverspec">
+<span id="note-vagrant-vm-ansible-docker-serverspec"></span><h1>note: vagrant VM／ansible／docker／serverspec(雑まとめ)<a class="headerlink" href="#note-vagrant-vm-ansible-docker-serverspec" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="">
-<span id="id1"></span><h1>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id1"></span><h2>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>開発環境を整える環境を最新にする</li>
 <li>いいかげんにDockerを触る</li>
 </ul>
 </div>
 <div class="section" id="">
-<span id="id2"></span><h1>流れ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id2"></span><h2>流れ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>MacなのでDockerのためのVMを立ち上げる<ul>
 <li>VagrantでVM立ち上げる(Ubuntu: 今までRedhat系だったので触ってみる)</li>
@@ -255,17 +502,17 @@
 <p>いろいろめんどうだったので、流れが変</p>
 </div>
 <div class="section" id="virtualbox">
-<span id="virtualbox"></span><h1>virtualbox<a class="headerlink" href="#virtualbox" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="virtualbox"></span><h2>virtualbox<a class="headerlink" href="#virtualbox" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>https://www.virtualbox.org/wiki/Downloads</li>
 <li>5.0.20</li>
 </ul>
 </div>
 <div class="section" id="vagrant">
-<span id="vagrant"></span><h1>vagrant<a class="headerlink" href="#vagrant" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="vagrant"></span><h2>vagrant<a class="headerlink" href="#vagrant" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>https://www.vagrantup.com/docs/</p>
 <div class="section" id="install">
-<span id="install"></span><h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="install"></span><h3>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>installer</li>
 <li>https://www.vagrantup.com/downloads.html</li>
@@ -273,7 +520,7 @@
 </ul>
 </div>
 <div class="section" id="vm">
-<span id="vm"></span><h2>VM<a class="headerlink" href="#vm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="vm"></span><h3>VM<a class="headerlink" href="#vm" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>https://atlas.hashicorp.com/boxes/search<ul>
 <li>ubuntu 0.14.0までしかなかった</li>
@@ -288,56 +535,59 @@
 </ul>
 </div>
 <div class="section" id="donwload-and-settings">
-<span id="donwload-and-settings"></span><h2>donwload and settings<a class="headerlink" href="#donwload-and-settings" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-bash:vagrant-vm-setup.sh"><div class="highlight"><pre><span></span>mdkir ~/programming/vagrant/ubuntu &amp;&amp; $_
+<span id="donwload-and-settings"></span><h3>donwload and settings<a class="headerlink" href="#donwload-and-settings" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>vagrant-vm-setup.sh</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>mdkir ~/programming/vagrant/ubuntu <span class="o">&amp;&amp;</span> <span class="nv">$_</span>
 vagrant box add bento/ubuntu-16.04
 vagrant init bento/ubuntu-16.04
 vagrant up
 vagrant ssh
 
-# or
+<span class="c1"># or</span>
 vagrant ssh-config --host ubuntu1604 &gt;&gt; ~/.ssh/config
 ssh ubuntu1604
 
-# host os
+<span class="c1"># host os</span>
 touch synced_folder_test
-# guest os
+<span class="c1"># guest os</span>
 ls /vagrant/synced_folder_test
-# https://www.vagrantup.com/docs/synced-folders/basic_usage.html
+<span class="c1"># https://www.vagrantup.com/docs/synced-folders/basic_usage.html</span>
 </pre></div>
 </div>
-<div class="highlight-vagrant-bootstrap.sh"><div class="highlight"><pre><span></span>#!/usr/bin/env bash
+<p>vagrant-bootstrap.sh</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
 
 sudo apt-get update
 sudo apt-get install -y vim
 sudo apt-get install -y git
-wget -q -O- https://bootstrap.pypa.io/get-pip.py | sudo python
+wget -q -O- https://bootstrap.pypa.io/get-pip.py <span class="p">|</span> sudo python
 sudo apt-get install -y ansible
-# or sudo apt-get install -y python-dev
-# and sudo pip install ansible
+<span class="c1"># or sudo apt-get install -y python-dev</span>
+<span class="c1"># and sudo pip install ansible</span>
 </pre></div>
 </div>
-<div class="highlight-rb:Vagrantfile-provisioning"><div class="highlight"><pre><span></span>Vagrant.configure(&quot;2&quot;) do |config|
-  config.vm.box = &quot;bento/ubuntu-16.04&quot;
-  config.vm.provision :shell, path: &quot;bootstrap.sh&quot;
-end
+<p>Vagrantfile-provisioning</p>
+<div class="highlight-ruby"><div class="highlight"><pre><span></span><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;bento/ubuntu-16.04&quot;</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="ss">:shell</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s2">&quot;bootstrap.sh&quot;</span>
+<span class="k">end</span>
 
-# then vagrant halt &amp;&amp; vagrant up --provision
-# or vagrant reload --provision
-# https://www.vagrantup.com/docs/provisioning/
+<span class="c1"># then vagrant halt &amp;&amp; vagrant up --provision</span>
+<span class="c1"># or vagrant reload --provision</span>
+<span class="c1"># https://www.vagrantup.com/docs/provisioning/</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="ansible">
-<span id="ansible"></span><h1>ansible<a class="headerlink" href="#ansible" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="ansible"></span><h2>ansible<a class="headerlink" href="#ansible" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>python製ssh経由でprovisioning(default)</li>
 <li>python2.7でも動いた</li>
 <li>ansible2系が出てる。騒がれてなかったからbreaking changesは少なさそう</li>
 </ul>
 <div class="section" id="commands">
-<span id="commands"></span><h2>commands<a class="headerlink" href="#commands" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="commands"></span><h3>commands<a class="headerlink" href="#commands" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>ansible</li>
 <li>ansible-playbook</li>
@@ -345,83 +595,86 @@ end
 </ul>
 </div>
 <div class="section" id="ansible-command">
-<span id="ansible-command"></span><h2>ansible command<a class="headerlink" href="#ansible-command" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="ansible-command"></span><h3>ansible command<a class="headerlink" href="#ansible-command" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>playbookを使わない</li>
 <li>hostの指定が必要(port付きでも良い)</li>
 </ul>
 </div>
 <div class="section" id="inventory">
-<span id="inventory"></span><h2>inventory<a class="headerlink" href="#inventory" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="inventory"></span><h3>inventory<a class="headerlink" href="#inventory" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>http://docs.ansible.com/ansible/intro_inventory.html</li>
 <li>default=/etc/ansible/hosts</li>
 <li>-i hostfilepath</li>
 <li>hostはgroup化できる</li>
 </ul>
-<div class="highlight-ansible_example.sh"><div class="highlight"><pre><span></span>cat &lt;&lt;EOF &gt; ansible_hosts
-[local]
-localhost ansible_connection=local
-EOF
+<p>playbook example</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF &gt; ansible_hosts</span>
+<span class="s">[local]</span>
+<span class="s">localhost ansible_connection=local</span>
+<span class="s">EOF</span>
 
-ansible local -i ansible_hosts -m ping
-ansible all   -i ansible_hosts -m shell -a &quot;echo ansible shell module&quot;
+ansible <span class="nb">local</span> -i ansible_hosts -m ping
+ansible all   -i ansible_hosts -m shell -a <span class="s2">&quot;echo ansible shell module&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="ansible-playbook">
-<span id="ansible-playbook"></span><h2>ansible-playbook<a class="headerlink" href="#ansible-playbook" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="ansible-playbook"></span><h3>ansible-playbook<a class="headerlink" href="#ansible-playbook" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>playbookを使うとき</li>
 </ul>
-<div class="highlight-playbook-example.yml"><div class="highlight"><pre><span></span>---
-- hosts: 127.0.0.1
-  tasks:
-    - name: ping
-      ping:
+<p>playbook-example.yml</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">-------</span>
+<span class="l l-Scalar l-Scalar-Plain">- hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+  <span class="l l-Scalar l-Scalar-Plain">tasks</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ping</span>
+      <span class="l l-Scalar l-Scalar-Plain">ping</span><span class="p p-Indicator">:</span>
 
-- hosts: local
-  tasks:
-    - name: shell
-      shell: &quot;echo $item&quot;
-      with_items:
-        - ansible
-        - playbook
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+  <span class="l l-Scalar l-Scalar-Plain">tasks</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">shell</span>
+      <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;echo</span><span class="nv"> </span><span class="s">$item&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ansible</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">playbook</span>
 
-# command
-# ansible-playbook -i ansible_hosts playbook-example.yml
+<span class="c1"># command</span>
+<span class="c1"># ansible-playbook -i ansible_hosts playbook-example.yml</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="install-docker-on-ubuntu">
-<span id="install-docker-on-ubuntu"></span><h1>install docker on ubuntu<a class="headerlink" href="#install-docker-on-ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="install-docker-on-ubuntu"></span><h2>install docker on ubuntu<a class="headerlink" href="#install-docker-on-ubuntu" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>https://docs.docker.com/engine/installation/linux/ubuntulinux/</li>
 <li>設定が思っていたよりめんどうだったので、ansible-playbookやめてbootstrap.shに追加した</li>
 </ul>
-<div class="highlight-docker_install_for_ubuntu.sh"><div class="highlight"><pre><span></span>sudo apt-get install -y apt-transport-https ca-certificates
+<p>docker_install_for_ubuntu.sh</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install -y apt-transport-https ca-certificates
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-echo &quot;deb https://apt.dockerproject.org/repo ubuntu-xenial main&quot; \
+<span class="nb">echo</span> <span class="s2">&quot;deb https://apt.dockerproject.org/repo ubuntu-xenial main&quot;</span> <span class="se">\</span>
    &gt; /etc/apt/sources.list.d/docker.list
 sudo apt-get update
 sudo apt-get purge lxc-docker
 
-sudo apt-get install -y linux-image-extra-$(uname -r)
+sudo apt-get install -y linux-image-extra-<span class="k">$(</span>uname -r<span class="k">)</span>
 sudo apt-get install -y docker.io
 sudo apt-get install -y docker-engine
 sudo service docker start
 
 sudo groupadd docker
 sudo usermod -aG docker vagrant
-docker run hello-world # without sudo
+docker run hello-world <span class="c1"># without sudo</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="docker-ecosystem">
-<span id="docker-ecosystem"></span><h1>docker ecosystem<a class="headerlink" href="#docker-ecosystem" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="docker-ecosystem"></span><h2>docker ecosystem<a class="headerlink" href="#docker-ecosystem" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="brew-serach">
-<span id="brew-serach"></span><h2>brew serachで見つかったもの<a class="headerlink" href="#brew-serach" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="brew-serach"></span><h3>brew serachで見つかったもの<a class="headerlink" href="#brew-serach" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li><del>boot2docker</del></li>
 <li>docker-machine<ul>
@@ -444,7 +697,7 @@ docker run hello-world # without sudo
 </ul>
 </div>
 <div class="section" id="docker-toolbox">
-<span id="docker-toolbox"></span><h2>docker toolbox<a class="headerlink" href="#docker-toolbox" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="docker-toolbox"></span><h3>docker toolbox<a class="headerlink" href="#docker-toolbox" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>https://www.docker.com/products/docker-toolbox, docker関連いろいろ</p>
 <ul class="simple">
 <li>Docker Engine<ul>
@@ -460,7 +713,7 @@ docker run hello-world # without sudo
 </ul>
 <p>なんのためにubuntu用意したんだ…</p>
 <div class="section" id="install">
-<span id="id3"></span><h3>installして使ってみた<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id3"></span><h4>installして使ってみた<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>install時に設定を行うshell scriptを実行された<ul>
 <li><code class="docutils literal"><span class="pre">/.docker/machine/machines/default/boot2docker.iso</span></code></li>
@@ -489,7 +742,7 @@ docker run hello-world # without sudo
 </div>
 </div>
 <div class="section" id="docker-for-mac-windows">
-<span id="docker-for-mac-windows"></span><h2>docker for mac/windows<a class="headerlink" href="#docker-for-mac-windows" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="docker-for-mac-windows"></span><h3>docker for mac/windows<a class="headerlink" href="#docker-for-mac-windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>https://blog.docker.com/2016/03/docker-for-mac-windows-beta/</p>
 <p>Docker for Mac can be used at the same time as Docker Toolbox on the same machine, allowing developers to continue using Toolbox as they evaluate Docker for Mac.</p>
 <ul class="simple">
@@ -499,7 +752,7 @@ docker run hello-world # without sudo
 </ul>
 </div>
 <div class="section" id="docker">
-<span id="docker"></span><h2>その他docker関連<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="docker"></span><h3>その他docker関連<a class="headerlink" href="#docker" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>cloud/hubはdocker社のProduct</li>
 <li>betaのときに登録するdocker IDはhubドメインで作る</li>
@@ -508,50 +761,51 @@ docker run hello-world # without sudo
 </div>
 </div>
 <div class="section" id="dockerfile">
-<span id="dockerfile"></span><h1>Dockerfile<a class="headerlink" href="#dockerfile" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-docker_Dockerfile"><div class="highlight"><pre><span></span># command: docker build -t docker-example:0.0.1 /vagrant/
+<span id="dockerfile"></span><h2>Dockerfile<a class="headerlink" href="#dockerfile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>docker_Dockerfile</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># command: docker build -t docker-example:0.0.1 /vagrant/</span>
 
-# Pull base image.
+<span class="c1"># Pull base image.</span>
 FROM ubuntu:16.04
 
 MAINTAINER ksomemo
 
-# Install.
-RUN \
-  sed -i &#39;s/# \(.*multiverse$\)/\1/g&#39; /etc/apt/sources.list &amp;&amp; \
-  apt-get update &amp;&amp; \
-  apt-get -y upgrade &amp;&amp; \
-  apt-get install -y build-essential &amp;&amp; \
-  apt-get install -y software-properties-common &amp;&amp; \
-  apt-get install -y byobu curl git htop man unzip vim wget &amp;&amp; \
+<span class="c1"># Install.</span>
+RUN <span class="se">\</span>
+  sed -i <span class="s1">&#39;s/# \(.*multiverse$\)/\1/g&#39;</span> /etc/apt/sources.list <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  apt-get -y upgrade <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  apt-get install -y build-essential <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  apt-get install -y software-properties-common <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  apt-get install -y byobu curl git htop man unzip vim wget <span class="o">&amp;&amp;</span> <span class="se">\</span>
   rm -rf /var/lib/apt/lists/*
 
-# Ruby dependencies
-RUN \
-  apt-get update &amp;&amp; \
-  apt-get install -y \
-    git tar gcc openssl \
-    libssl-dev zlib1g-dev libyaml-dev \
+<span class="c1"># Ruby dependencies</span>
+RUN <span class="se">\</span>
+  apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  apt-get install -y <span class="se">\</span>
+    git tar gcc openssl <span class="se">\</span>
+    libssl-dev zlib1g-dev libyaml-dev <span class="se">\</span>
     libreadline-dev libffi-dev libxml2-dev libxslt-dev
 
-# Ruby
+<span class="c1"># Ruby</span>
 RUN git clone https://github.com/rbenv/ruby-build.git
 RUN ./ruby-build/install.sh
 RUN  ruby-build 2.3.1 /usr/local
-  #apt-get update &amp;&amp; \
-  #apt-get install -y ruby2.3 ruby2.3-dev
+  <span class="c1">#apt-get update &amp;&amp; \</span>
+  <span class="c1">#apt-get install -y ruby2.3 ruby2.3-dev</span>
 
-# Install Nginx.
-RUN \
-  add-apt-repository -y ppa:nginx/stable &amp;&amp; \
-  apt-get update &amp;&amp; \
-  apt-get install -y nginx &amp;&amp; \
-  rm -rf /var/lib/apt/lists/* &amp;&amp; \
-  #echo &quot;\ndaemon off;&quot; &gt;&gt; /etc/nginx/nginx.conf &amp;&amp; \
+<span class="c1"># Install Nginx.</span>
+RUN <span class="se">\</span>
+  add-apt-repository -y ppa:nginx/stable <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  apt-get install -y nginx <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  rm -rf /var/lib/apt/lists/* <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  <span class="c1">#echo &quot;\ndaemon off;&quot; &gt;&gt; /etc/nginx/nginx.conf &amp;&amp; \</span>
   chown -R www-data:www-data /var/lib/nginx
 
-# serverspec
-# Add files.
+<span class="c1"># serverspec</span>
+<span class="c1"># Add files.</span>
 ADD .gemrc ~/.gemrc
 ADD Gemfile Gemfile
 
@@ -559,21 +813,21 @@ RUN gem update --system
 RUN gem install bundler
 RUN bundle install
 
-# Set environment variables.
+<span class="c1"># Set environment variables.</span>
 ENV HOME /root
 
-# Define mountable directories.
-VOLUME [&quot;/etc/nginx/sites-enabled&quot;, &quot;/etc/nginx/certs&quot;, &quot;/etc/nginx/conf.d&quot;, &quot;/var/log/nginx&quot;, &quot;/var/www/html&quot;]
+<span class="c1"># Define mountable directories.</span>
+VOLUME <span class="o">[</span><span class="s2">&quot;/etc/nginx/sites-enabled&quot;</span>, <span class="s2">&quot;/etc/nginx/certs&quot;</span>, <span class="s2">&quot;/etc/nginx/conf.d&quot;</span>, <span class="s2">&quot;/var/log/nginx&quot;</span>, <span class="s2">&quot;/var/www/html&quot;</span><span class="o">]</span>
 
-# Define working directory.
+<span class="c1"># Define working directory.</span>
 WORKDIR /etc/nginx
 
-# Expose ports.
+<span class="c1"># Expose ports.</span>
 EXPOSE 80
 EXPOSE 443
 
-# Define default command.
-CMD [&quot;bash&quot;]&quot;
+<span class="c1"># Define default command.</span>
+CMD <span class="o">[</span><span class="s2">&quot;bash&quot;</span><span class="o">]</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -609,9 +863,9 @@ CMD [&quot;bash&quot;]&quot;
 </li>
 </ul>
 <div class="section" id="docker-hub">
-<span id="docker-hub"></span><h2>docker hub<a class="headerlink" href="#docker-hub" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="docker-hub"></span><h3>docker hub<a class="headerlink" href="#docker-hub" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="sign-up">
-<span id="sign-up"></span><h3>sign up<a class="headerlink" href="#sign-up" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="sign-up"></span><h4>sign up<a class="headerlink" href="#sign-up" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>id</li>
 <li>mail</li>
@@ -619,21 +873,21 @@ CMD [&quot;bash&quot;]&quot;
 </ul>
 </div>
 <div class="section" id="">
-<span id="id4"></span><h3>自動化のための連携<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id4"></span><h4>自動化のための連携<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>https://hub.docker.com/account/authorized-services/</li>
 <li>github or bitbucket account</li>
 </ul>
 </div>
 <div class="section" id="clilogin">
-<span id="clilogin"></span><h3>cliからのlogin<a class="headerlink" href="#clilogin" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="clilogin"></span><h4>cliからのlogin<a class="headerlink" href="#clilogin" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>docker login (username/password)</li>
 <li>~/.docker/config.json に情報が作成される</li>
 </ul>
 </div>
 <div class="section" id="create-repository-on-github">
-<span id="create-repository-on-github"></span><h3>create repository on github<a class="headerlink" href="#create-repository-on-github" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="create-repository-on-github"></span><h4>create repository on github<a class="headerlink" href="#create-repository-on-github" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>Dockerfile</li>
 <li>other files</li>
@@ -641,7 +895,7 @@ CMD [&quot;bash&quot;]&quot;
 </ul>
 </div>
 <div class="section" id="create-automated-build-on-dockerhub">
-<span id="create-automated-build-on-dockerhub"></span><h3>create automated-build on dockerhub<a class="headerlink" href="#create-automated-build-on-dockerhub" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="create-automated-build-on-dockerhub"></span><h4>create automated-build on dockerhub<a class="headerlink" href="#create-automated-build-on-dockerhub" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>https://hub.docker.com/add/automated-build/username/</li>
 <li>github の repositoryとの連携</li>
@@ -652,7 +906,7 @@ CMD [&quot;bash&quot;]&quot;
 </ul>
 </div>
 <div class="section" id="etc">
-<span id="etc"></span><h3>etc.<a class="headerlink" href="#etc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="etc"></span><h4>etc.<a class="headerlink" href="#etc" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>docker port (fowarding port)</li>
 <li>docker inspect (docker info json)</li>
@@ -667,16 +921,18 @@ CMD [&quot;bash&quot;]&quot;
 </div>
 </div>
 <div class="section" id="serverspec">
-<span id="serverspec"></span><h1>serverspec<a class="headerlink" href="#serverspec" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="serverspec"></span><h2>serverspec<a class="headerlink" href="#serverspec" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>dockerコンテナでubuntu環境を整えられたので、コピペしてVM ubuntuでもruby環境を整える</p>
-<div class="highlight-rb:serverspec_.gemrc"><div class="highlight"><pre><span></span>gem: --no-ri --no-rdoc
+<p>serverspec.gemrc</p>
+<div class="highlight-ruby"><div class="highlight"><pre><span></span><span class="ss">gem</span><span class="p">:</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ri</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">rdoc</span>
 </pre></div>
 </div>
-<div class="highlight-rb:serverspec_Gemfile"><div class="highlight"><pre><span></span>source &#39;https://rubygems.org&#39;
+<p>serverspec.Gemfile</p>
+<div class="highlight-ruby"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
 
-gem &#39;rake&#39;
-gem &#39;serverspec&#39;
-gem &#39;docker-api&#39;
+<span class="n">gem</span> <span class="s1">&#39;rake&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;serverspec&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;docker-api&#39;</span>
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">serverspec-init</span></code></p>
@@ -689,12 +945,13 @@ gem &#39;docker-api&#39;
 </div>
 </div>
 <div class="section" id="hashicorp-tool">
-<span id="hashicorp-tool"></span><h1>よくわかってないhashicorp tool<a class="headerlink" href="#hashicorp-tool" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="hashicorp-tool"></span><h2>よくわかってないhashicorp tool<a class="headerlink" href="#hashicorp-tool" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>https://speakerdeck.com/muziyoshiz/2015-4q-report</li>
 <li>http://keyamb.hatenablog.com/entry/2015/05/28/004337</li>
 <li>https://thinkit.co.jp/story/2015/04/13/5875</li>
 </ul>
+</div>
 </div>
 
 
@@ -704,6 +961,15 @@ gem &#39;docker-api&#39;
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="note: 行列の性質や数式テクニック.html" class="btn btn-neutral float-right" title="note: 行列の性質や数式テクニック" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html" class="btn btn-neutral" title="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

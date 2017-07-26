@@ -1,4 +1,7 @@
-```py3:openpyxl.py
+# pandasで読み込めないExcelを無理やり読み込む
+openpyxlを利用して読み込む
+
+```py3
 import openpyxl
 import pandas as pd
 

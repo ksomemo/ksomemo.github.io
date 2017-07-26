@@ -1,4 +1,4 @@
-
+# Ruby One-liner
 ## 今までのワンライナー
 
 * (仕方なく使っている)Windowsで気軽にテキスト処理したい
@@ -11,13 +11,13 @@
 * Perlを必死に覚えればいいけど、今更感ある
 * Pythonのほうがよく使うけど、ワンライナーとlambdaが貧弱かつPython2と3の違いを意識したくなかった
 
-## Hello Ruby Oneliner 
-```bash:ruby_oneliner.sh
+## Hello Ruby Oneliner
+```bash
 ruby -e 'puts "Hello Ruby Oneliner"'
 ```
 
 ## 複数行
-```bash:ruby_oneliner_ex.sh
+```bash
 # 省略形がどのように推移しているかまとめた
 seq 1 3 | ruby -e 'while gets; puts $_; end'
 seq 1 3 | ruby -ne 'puts $_'
@@ -29,7 +29,7 @@ seq 1 3 | ruby -npe ''
 ```
 
 ## 出力の評価タイミング
-```bash:ruby_oneliner_ex2.sh
+```bash
 # コマンド実行後に出力される
 seq 1 3 | ruby -pne 'print "-"'
 -1
@@ -38,7 +38,7 @@ seq 1 3 | ruby -pne 'print "-"'
 ```
 
 ## 型の確認
-```bash:ruby_oneliner_ex3.sh
+```bash
 # pで確認すると末尾の改行が残っている
 seq 1 3 | ruby -ne 'p $_'
 "1\n"
@@ -47,7 +47,7 @@ seq 1 3 | ruby -ne 'p $_'
 ```
 
 ## 末尾の改行をとる
-```bash:ruby_oneliner_ex4.sh
+```bash
 # l オプションによって改行が除かれる
 seq 1 3 | ruby -nle 'p $_'
 "1"
@@ -55,7 +55,7 @@ seq 1 3 | ruby -nle 'p $_'
 "3"
 ```
 
-```bash:ruby_oneliner_ex5.sh
+```bash
 # オプションをつけると特殊な変数の内容が変わるらしい
 echo "" | ruby -ne 'p $/; p $\'
 "\n"
@@ -67,7 +67,7 @@ echo "" | ruby -nle 'p $/; p $\'
 ```
 
 ## awkの代わり
-```bash:ruby_oneliner_ex6.sh
+```bash
 echo "1 2 3" | ruby -ane 'p $F'
 ["1", "2", "3"]
 
@@ -79,7 +79,7 @@ echo "1,2,3" | ruby -F, -ane 'p $F'
 ```
 
 ## 区切り文字
-```bash:ruby_oneliner_ex7.sh
+```bash
 echo "" | ruby -ae 'p $;'
 nil
 
@@ -94,7 +94,7 @@ echo "" | ruby -F'\.' -ae 'p $;'
 ```
 
 ## 正規表現区切り
-```bash:ruby_oneliner_ex8.sh
+```bash
 # テスト用
 seq -w 0 .05 .1
 0.00
@@ -102,7 +102,7 @@ seq -w 0 .05 .1
 0.10
 ```
 
-```bash:ruby_oneliner_ex9.sh
+```bash
 seq -w 0 .05 .1 | ruby -F'\.' -anle 'p $F'
 ["0", "00"]
 ["0", "05"]
@@ -110,7 +110,7 @@ seq -w 0 .05 .1 | ruby -F'\.' -anle 'p $F'
 ```
 
 ## 分割した値にアクセス
-```bash:ruby_oneliner_ex10.sh
+```bash
 seq -w 0 .05 .1 | ruby -F'\.' -anle 'p $F[1]'
 "00"
 "05"
@@ -118,7 +118,7 @@ seq -w 0 .05 .1 | ruby -F'\.' -anle 'p $F[1]'
 ```
 
 ## 行へのアクセス
-```bash:ruby_oneliner_ex11.sh
+```bash
 # sedの代わりなら、gsub
 seq -w 0 .05 .1 | ruby -nle 'p $_.to_f'
 0.0

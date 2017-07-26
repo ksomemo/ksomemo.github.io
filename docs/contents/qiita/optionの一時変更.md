@@ -1,6 +1,7 @@
+# pandasのoptionを一時的に変更
 context過敏症なのか、調べてた
 
-```py3:pd_option_context.py
+```py3
 import numpy as np
 import pandas as pd
 import string

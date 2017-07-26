@@ -1,5 +1,5 @@
-
-```py3:sessionize.py
+# sessionize with pandas memo
+```py3
 import pandas as pd
 import numpy as np
 

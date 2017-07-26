@@ -1,3 +1,5 @@
+# Excel VBA
+
 英語で書いたまとめと基本的な文法など
 
 * Visual Basic for Applications
@@ -43,7 +45,7 @@ Accept your changes until you return to the Ribbon. You should now see the devel
 * dsr
 * vb
 
-```vb
+```vbnet
 Attribute VB_Name = "Module1"
 Option Explicit
 ' 変数宣言の強制
@@ -67,7 +69,7 @@ Sub Main()
     Dim single_val As Single
     Dim double_val As Double
     Debug.Print "init: " & int_val & long_val & single_val & double_val
-    
+
     int_val = 5
     long_val = 6000
     single_val = 0.71
@@ -92,7 +94,7 @@ Sub Main()
     Debug.Print "5 \ 2 = " & (int_val \ 2)
     Debug.Print "5 mod 2 = " & (int_val Mod 2)
     Debug.Print "5 ^ 2 = " & (int_val ^ 2)
-    
+
     ' Boolean
     Dim bool_f As Boolean
     Dim bool_t As Boolean
@@ -104,15 +106,15 @@ Sub Main()
     Debug.Print "False And True  is " & (bool_f And bool_t)
     Debug.Print "True  And False is " & (bool_t And bool_f)
     Debug.Print "True  And True  is " & (bool_t And bool_t)
-    
+
     Debug.Print "False Or False is " & (bool_f Or bool_f)
     Debug.Print "False Or True  is " & (bool_f Or bool_t)
     Debug.Print "True  Or False is " & (bool_t Or bool_f)
     Debug.Print "True  Or True  is " & (bool_t Or bool_t)
-    
+
     Debug.Print "Not True  is " & (Not bool_t)
     Debug.Print "Not False is " & (Not bool_f)
-    
+
     Debug.Print "int_val = long_val is " & (int_val = long_val)
     Debug.Print "int_val <> long_val is " & (int_val <> long_val)
     Debug.Print "single_val >= double_val is " & (single_val >= double_val)
@@ -122,7 +124,7 @@ Sub Main()
     Debug.Print "Not False is " & (Not bool_f)
     Debug.Print "Not False is " & (Not bool_f)
     Debug.Print "Not False is " & (Not bool_f)
-    
+
     If False Then
         Debug.Print "If"
     ElseIf False Then
@@ -136,7 +138,7 @@ Sub Main()
     Dim world As String
     Dim refVal As String
     Debug.Print "init: [" & hello & "]"
-    
+
     hello = "Hello"
     world = "World"
     refVal = "refVal"
@@ -148,7 +150,7 @@ Sub Main()
     ExitInSub
     Debug.Print ExitInFunction
     Debug.Print RecursiveFactorial(4)
-    
+
     ' 配列
     Dim fixary(2) As String
     fixary(0) = "ab"
@@ -156,7 +158,7 @@ Sub Main()
     Dim joined As String
     joined = Join(fixary, ",")
     Debug.Print joined
-    
+
     ' Loop
     Dim varary() As String
     varary = Split(joined, ",")
@@ -169,7 +171,7 @@ Sub Main()
     For idx = 0 To UBound(varary) Step 2
         Debug.Print idx & ":" & varary(idx)
     Next idx
-    
+
     Dim i As Integer
     Do
         i = i + 1
@@ -187,17 +189,17 @@ Sub Main()
         i = i - 1
         Debug.Print "do until statement:" & i
     Loop
-    
+
     ' 日付型
     Dim date_val As Date
     Debug.Print "init: " & date_val
-    
+
     Dim my As user
     Debug.Print "my.name type: " & TypeName(my.name)
     Debug.Print "my.birthDateTime type: " & TypeName(my.birthDateTime)
     ' Debug.Print "my type: " & TypeName(my)
     ' パブリックオブジェクトモジュール?
-    
+
     my.name = "my name"
     my.birthDateTime = #11/12/2014 1:02:03 AM#
     my.birthDate = #11/12/2014#
@@ -259,7 +261,7 @@ Function RecursiveFactorial(ByVal num As Integer) As Integer
 End Function
 ```
 
-```vb
+```vbnet
 VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
@@ -272,9 +274,9 @@ Attribute VB_Exposed = False
 ```
 
 
-```vb
+```vbnet
 VERSION 5.00
-Begin {xxxxxx} UserForm1 
+Begin {xxxxxx} UserForm1
    Caption         =   "UserForm1"
    ClientHeight    =   3180
    ClientLeft      =   45
@@ -291,26 +293,26 @@ Attribute VB_Exposed = False
 ```
 
 ## Processing Cell
-```vb
+```vbnet
 Sub Main()
     ' select sheet
     Worksheets("Sheet1").Range("A1").Value = "a1"
-    
+
     ' selected sheet
     Range("A2").Value = "a2"
     Cells(3, 1).Value = "a3"
     Cells(3, 1).Offset(1, 1).Value = "b4"
-    
+
     ' cells
     Range("A5", "B6").Value = "a5 to b6"
     Range("A7:C8").Value = "a7 to c8"
-    
+
     ' row, column
     Range("9:9").Value = "row9"
     ' Range("D:D").Value = "col D"
     Range("B9").Clear
     Range("A10").Value = "A10"
-    
+
     ' with
     Dim ary As Variant
     Dim str As Variant
@@ -329,17 +331,17 @@ Sub Main()
             .Interior.color = color(c:=posColor(1))
         End With
     Next str
-    
+
     ' named arguments
     Range("A9").Delete shift:=xlShiftUp
-            
+
     ' dialog box
     btnVal = MsgBox("すべてのセルを初期化しますか？" _
         , vbOKCancel, "セルの初期化")
     If btnVal = vbOK Then
         Cells.Clear
     End If
-        
+
 End Sub
 
 Function color(ByVal c As String) As Long

@@ -1,17 +1,20 @@
-```links.md
+# click試した
+
+## links
 - http://click.pocoo.org/5/commands/
 - http://click.pocoo.org/5/testing/
 - http://docs.python.jp/3.5/library/argparse.html#parsing-arguments
-```
 
-```0_python_click_impressions.md
+## impressions
 - Clickは簡単に書ける
 - 引数が素直に書ける
 - testも簡単らしい
 - argparseのテストは？と思ったら引数を与えるとできるらしい（知らなかった・・・）
-```
 
-```py3:argparse_parse_args_input_str.py
+## code
+argparse_parse_args_input_str.py
+
+```python3
 import argparse
 
 
@@ -23,7 +26,9 @@ args = parser.parse_args('-y 2015 --month 1'.split(' '))
 # Namespace(month='1', year='2015')
 ```
 
-```py3:click_ex.py
+click_ex.py
+
+```python3
 import click
 
 
@@ -38,7 +43,9 @@ if __name__ == "__main__":
 	cli()
 ```
 
-```py3:click_ex_sub.py
+click_ex_sub.py
+
+```python3
 import click
 
 
@@ -64,7 +71,9 @@ if __name__ == "__main__":
 	cli()
 ```
 
-```py3:click_ex_merge.py
+click_ex_merge.py
+
+```python3
 import click
 
 
@@ -102,7 +111,9 @@ if __name__ == '__main__':
 	cli()
 ```
 
-```txt:run_click.log
+run_click.log
+
+```bash
 $ python click_ex.py
 Usage: click_ex.py [OPTIONS] YEAR MONTH
 

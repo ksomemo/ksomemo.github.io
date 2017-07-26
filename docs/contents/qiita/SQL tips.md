@@ -1,10 +1,11 @@
+# SQL tips
 ## テストのためのテーブル差分確認用のSQL
 ### なぜSQLで行うか
 - exportしてから行うのはめんどう
 - exportする場合、事前にsortする必要がある
 - データ量が多くてexportもdiffとるのも大変
 
-```sql:テストのためのテーブル差分確認用のSQL.sql
+```sql
 select "a-b", * from actual_table
 except
 select "a-b", * from expected_table
@@ -22,7 +23,7 @@ select "b-a", * from actual_table
 - 種類別のレコードM * N行に変換する
 - ただし、IDとサマった結果に加えて種類の列が追加される（M*N * 3）
 
-```横持ちを縦持ちに.sql
+```sql
 create table yoko
 (
 	id int
@@ -78,7 +79,7 @@ cross join names  as p
 https://gist.github.com/ksomemo/bc9b336ab7e0aa604eae
 
 ## with 複数
-```sql:with_複数.sql
+```sql
 with aaa as (
   select 1 as a
 )

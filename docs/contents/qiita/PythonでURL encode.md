@@ -1,4 +1,5 @@
-```py3:encode_url.py
+# PythonでURL encode
+```py3
 import urllib
 
 # http://docs.python.jp/3/library/urllib.parse.html
@@ -10,7 +11,8 @@ print(urllib.parse.unquote(quoted))
 # あいうえお
 ```
 
-```py3:url_parse.py
+## url parse
+```py3
 # URLを各部分にparseしてくれて便利
 # paramsの最後のパス要素に対するパラメータ　とは何かわかってない
 result = urllib.parse.urlparse("http://ksomemo:pass@qiita.com:80/ksomemo/items/bdf2d39fbbefb12d0eb2?param1=value1&param2=value2#hoge")

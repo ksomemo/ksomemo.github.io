@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>動機 &mdash; gh-pages  ドキュメント</title>
+  <title>PythonからRedshiftに接続 &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../genindex.html"/>
         <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/>
+        <link rel="next" title="PythonからRを利用する方法" href="PythonからRを利用する方法.html"/>
+        <link rel="prev" title="Python(Windows)でファイル出力する際に改行コードをLFにする" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -84,43 +86,286 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">動機</a></li>
-<li><a class="reference internal" href="#psycopg2">Psycopg2</a><ul>
-<li><a class="reference internal" href="#install">install</a></li>
-<li><a class="reference internal" href="#">名前付きパラメータ</a></li>
-<li><a class="reference internal" href="#">結果セットのカラム名</a></li>
-<li><a class="reference internal" href="#">応用</a></li>
-<li><a class="reference internal" href="#ssl-certificate">SSL(certificate)</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Excel VBA.html">Excel VBA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PythonからRedshiftに接続</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#">動機</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#psycopg2">Psycopg2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install">install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">名前付きパラメータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">結果セットのカラム名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">応用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssl-certificate">SSL(certificate)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sqlalchemy-redshift">sqlalchemy-redshift</a><ul>
-<li><a class="reference internal" href="#">利点</a></li>
-<li><a class="reference internal" href="#">ハマった点</a></li>
-<li><a class="reference internal" href="#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sqlalchemy-redshift">sqlalchemy-redshift</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">利点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#">ハマった点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install">install</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#code">code</a></li>
-<li><a class="reference internal" href="#ssl-mode-with-sqlalchemy">SSL Mode(with sqlalchemy)</a></li>
-<li><a class="reference internal" href="#sqlalchemy-mysql">SQLAlchemy/MySQL</a></li>
-<li><a class="reference internal" href="#postgresql">Postgresql</a><ul>
-<li><a class="reference internal" href="#ssl">SSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code">code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssl-mode-with-sqlalchemy">SSL Mode(with sqlalchemy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sqlalchemy-mysql">SQLAlchemy/MySQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#postgresql">Postgresql</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ssl">SSL</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#redshift">redshift</a><ul>
-<li><a class="reference internal" href="#ssl-postgresql">SSL/Postgresql</a></li>
-<li><a class="reference internal" href="#sql">SQL</a></li>
-<li><a class="reference internal" href="#transaction">Transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redshift">redshift</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ssl-postgresql">SSL/Postgresql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sql">SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transaction">Transaction</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#">その他</a><ul>
-<li><a class="reference internal" href="#https-wgetrc">HTTPS 時の証明書関連エラーを防ぐための .wgetrc 設定</a></li>
-<li><a class="reference internal" href="#forward-with-paramiko">forward with paramiko</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">その他</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#https-wgetrc">HTTPS 時の証明書関連エラーを防ぐための .wgetrc 設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forward-with-paramiko">forward with paramiko</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html">Python以外 in jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#r">R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#octave">octave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#scala">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R tips.html">R tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upload package to PyPI By twine.html">Upload package to PyPI By twine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editRを試した.html">editR試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faker サンプルデータ作成.html">faker サンプルデータ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: 行列の性質や数式テクニック.html">note: 行列の性質や数式テクニック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell tips.html">shell tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy.html">numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -163,7 +408,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>動機</li>
+      <li>PythonからRedshiftに接続</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -216,21 +461,23 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
+<div class="section" id="pythonredshift">
+<span id="pythonredshift"></span><h1>PythonからRedshiftに接続<a class="headerlink" href="#pythonredshift" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="">
-<span id="id1"></span><h1>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id1"></span><h2>動機<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>PythonからRedshiftに接続してpandasで扱いたい</li>
 <li>元々、SQLServer + sqlalchemy 環境だったのでsqlalchemyも使えるようにしたい</li>
 </ul>
 </div>
 <div class="section" id="psycopg2">
-<span id="psycopg2"></span><h1>Psycopg2<a class="headerlink" href="#psycopg2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="psycopg2"></span><h2>Psycopg2<a class="headerlink" href="#psycopg2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>postgresql driver</li>
 <li>上記単体では使いにくい＋Redshiftは分析用なのでpandas.read_sqlのengineとして利用すると便利</li>
 </ul>
 <div class="section" id="install">
-<span id="install"></span><h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="install"></span><h3>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><del>ハマった。whlとして用意されているものを使うようにした</del></p>
 <p>上記は、Windows環境でのbuild失敗によるもの。しかし、最近はwheel対応したのでpypiからinstall可能である</p>
 <ul class="simple">
@@ -242,32 +489,32 @@
 </ul>
 </div>
 <div class="section" id="">
-<span id="id2"></span><h2>名前付きパラメータ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id2"></span><h3>名前付きパラメータ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>http://initd.org/psycopg/docs/usage.html#passing-parameters-to-sql-queries</li>
 </ul>
 </div>
 <div class="section" id="">
-<span id="id3"></span><h2>結果セットのカラム名<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id3"></span><h3>結果セットのカラム名<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>http://initd.org/psycopg/docs/advanced.html?highlight=column</li>
 <li>http://stackoverflow.com/questions/10252247/how-do-i-get-a-list-of-column-names-from-a-psycopg2-cursor</li>
 </ul>
 </div>
 <div class="section" id="">
-<span id="id4"></span><h2>応用<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id4"></span><h3>応用<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>http://tdoc.info/blog/2012/12/05/psycopg2.html</p>
 </div>
 <div class="section" id="ssl-certificate">
-<span id="ssl-certificate"></span><h2>SSL(certificate)<a class="headerlink" href="#ssl-certificate" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="ssl-certificate"></span><h3>SSL(certificate)<a class="headerlink" href="#ssl-certificate" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>http://stackoverflow.com/questions/28228241/how-to-connect-to-a-remote-postgresql-database-with-python</p>
 </div>
 </div>
 <div class="section" id="sqlalchemy-redshift">
-<span id="sqlalchemy-redshift"></span><h1>sqlalchemy-redshift<a class="headerlink" href="#sqlalchemy-redshift" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="sqlalchemy-redshift"></span><h2>sqlalchemy-redshift<a class="headerlink" href="#sqlalchemy-redshift" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>sqlalchemyのengineにpsycopg2を使うため</p>
 <div class="section" id="">
-<span id="id5"></span><h2>利点<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id5"></span><h3>利点<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>transactionを使う場合など、connection/engine以外の用途でsqlalchemyを利用しつつ、pandasのengineに流用できる</li>
 <li>psycopg2では<code class="docutils literal"><span class="pre">%(parameter_name)s</span></code>による指定をsqlalchemyでは<code class="docutils literal"><span class="pre">:parameter_name</span></code>による指定にできる。<ul>
@@ -277,7 +524,7 @@
 </ul>
 </div>
 <div class="section" id="">
-<span id="id6"></span><h2>ハマった点<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id6"></span><h3>ハマった点<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>sqlalchemyの場合はdefaultで必要な設定になっていた<ul>
 <li>psycopg2では証明書の必要でない設定になっている</li>
@@ -286,8 +533,8 @@
 </ul>
 </div>
 <div class="section" id="install">
-<span id="id7"></span><h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-bash:pip_install_sqlalchemy-redshift.sh"><div class="highlight"><pre><span></span>pip install sqlalchemy-redshift
+<span id="id7"></span><h3>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install sqlalchemy-redshift
 </pre></div>
 </div>
 <ul class="simple">
@@ -297,117 +544,118 @@
 </div>
 </div>
 <div class="section" id="code">
-<span id="code"></span><h1>code<a class="headerlink" href="#code" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-py3:psycopg2_and_sqlalchemy_and_pandas.py"><div class="highlight"><pre><span></span>import sqlalchemy
-import psycopg2
-import psycopg2.extras
-import pandas as pd
+<span id="code"></span><h2>code<a class="headerlink" href="#code" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>psycopg2_and_sqlalchemy_and_pandas.py</p>
+<div class="highlight-py3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlalchemy</span>
+<span class="kn">import</span> <span class="nn">psycopg2</span>
+<span class="kn">import</span> <span class="nn">psycopg2.extras</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-con_info = {
-    &quot;host&quot;: &quot;localhost&quot;,
-    &quot;port&quot;: port,
-    &quot;dbname&quot;: &quot;dbname&quot;,
-    &quot;password&quot;: &quot;password&quot;,
-    &quot;username&quot;: &quot;username&quot;,
-}
+<span class="n">con_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="n">port</span><span class="p">,</span>
+    <span class="s2">&quot;dbname&quot;</span><span class="p">:</span> <span class="s2">&quot;dbname&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
+<span class="p">}</span>
 
 
-def main():
-    example_psycopg2_dict()
-    example_psycopg2()
-    example_redshift_pd()
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">example_psycopg2_dict</span><span class="p">()</span>
+    <span class="n">example_psycopg2</span><span class="p">()</span>
+    <span class="n">example_redshift_pd</span><span class="p">()</span>
 
 
-def con_psycopg2():
-    con_fomart = &quot;dbname={dbname} host={host} user={username} password={password} port={port}&quot;
-    return psycopg2.connect(con_fomart.format(**con_info))
+<span class="k">def</span> <span class="nf">con_psycopg2</span><span class="p">():</span>
+    <span class="n">con_fomart</span> <span class="o">=</span> <span class="s2">&quot;dbname=</span><span class="si">{dbname}</span><span class="s2"> host=</span><span class="si">{host}</span><span class="s2"> user=</span><span class="si">{username}</span><span class="s2"> password=</span><span class="si">{password}</span><span class="s2"> port=</span><span class="si">{port}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">con_fomart</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">con_info</span><span class="p">))</span>
 
 
-def create_engine_redshift():
-    con_format = &#39;redshift+psycopg2://{username}:{password}@{host}:{port}/{dbname}&#39;
-    connect_args = {
-        # &quot;sslmode&quot;: &quot;disable&quot;,
-        # &quot;sslmode&quot;: &quot;require&quot;,
-        &quot;sslmode&quot;: &quot;prefer&quot;,
-    }
-    return sqlalchemy.create_engine(con_format.format(**con_info), connect_args=connect_args)
+<span class="k">def</span> <span class="nf">create_engine_redshift</span><span class="p">():</span>
+    <span class="n">con_format</span> <span class="o">=</span> <span class="s1">&#39;redshift+psycopg2://</span><span class="si">{username}</span><span class="s1">:</span><span class="si">{password}</span><span class="s1">@</span><span class="si">{host}</span><span class="s1">:</span><span class="si">{port}</span><span class="s1">/</span><span class="si">{dbname}</span><span class="s1">&#39;</span>
+    <span class="n">connect_args</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="c1"># &quot;sslmode&quot;: &quot;disable&quot;,</span>
+        <span class="c1"># &quot;sslmode&quot;: &quot;require&quot;,</span>
+        <span class="s2">&quot;sslmode&quot;</span><span class="p">:</span> <span class="s2">&quot;prefer&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="n">con_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">con_info</span><span class="p">),</span> <span class="n">connect_args</span><span class="o">=</span><span class="n">connect_args</span><span class="p">)</span>
 
 
-def example_psycopg2_dict():
-    conn = con_psycopg2()
-    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    cur.execute(&quot;SELECT * FROM table_name limit 2;&quot;)
-    for row in cur.fetchall():
-        # print(row, type(row), dir(row))
-        print(row, row[&quot;birthday&quot;], row[&quot;column2&quot;])
-        # [datetime.date(2016, 4, 1), 1, 0, 1, 1, &#39;&#39;] &lt;class &#39;psycopg2.extras.DictRow&#39;
-        [&#39;_index&#39;, &#39;append&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;count&#39;, &#39;extend&#39;,
-        &#39;get&#39;, &#39;index&#39;, &#39;insert&#39;, &#39;items&#39;, &#39;keys&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;reverse&#39;, &#39;sort&#39;, &#39;values&#39;]
-    cur.close()
-    conn.close()
+<span class="k">def</span> <span class="nf">example_psycopg2_dict</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">con_psycopg2</span><span class="p">()</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">cursor_factory</span><span class="o">=</span><span class="n">psycopg2</span><span class="o">.</span><span class="n">extras</span><span class="o">.</span><span class="n">DictCursor</span><span class="p">)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM table_name limit 2;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+        <span class="c1"># print(row, type(row), dir(row))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;birthday&quot;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;column2&quot;</span><span class="p">])</span>
+        <span class="c1"># [datetime.date(2016, 4, 1), 1, 0, 1, 1, &#39;&#39;] &lt;class &#39;psycopg2.extras.DictRow&#39;</span>
+        <span class="p">[</span><span class="s1">&#39;_index&#39;</span><span class="p">,</span> <span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="s1">&#39;clear&#39;</span><span class="p">,</span> <span class="s1">&#39;copy&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;extend&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;insert&#39;</span><span class="p">,</span> <span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;keys&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;remove&#39;</span><span class="p">,</span> <span class="s1">&#39;reverse&#39;</span><span class="p">,</span> <span class="s1">&#39;sort&#39;</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">]</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-def example_psycopg2():
-    conn = con_psycopg2()
+<span class="k">def</span> <span class="nf">example_psycopg2</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">con_psycopg2</span><span class="p">()</span>
 
-    cur = conn.cursor()
-    cur.execute(&quot;SELECT COUNT(*) FROM table_name;&quot;)
-    print(cur.fetchone())
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT COUNT(*) FROM table_name;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">())</span>
 
-    raw_query = &quot;&quot;&quot;
-        SELECT *
-        FROM table_name
-        WHERE column1 = %(column1)s
-        AND column2 = %(column2)s
-    &quot;&quot;&quot;
-    params = {&quot;column1&quot;: 1, &quot;column2&quot;: 1}
-    cur.execute(raw_query, params)
-    # cur.execute(&quot;SELECT * FROM table_name;&quot;)
-    for row in cur.fetchall():
-        print(row)
+    <span class="n">raw_query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        SELECT *</span>
+<span class="s2">        FROM table_name</span>
+<span class="s2">        WHERE column1 = </span><span class="si">%(column1)s</span><span class="s2"></span>
+<span class="s2">        AND column2 = </span><span class="si">%(column2)s</span><span class="s2"></span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;column1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;column2&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">raw_query</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="c1"># cur.execute(&quot;SELECT * FROM table_name;&quot;)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
-    cur.execute(raw_query, params)
-    # print([a for a in dir(cur) if not a.startswith(&quot;_&quot;)])
-    attrs = [
-        &#39;arraysize&#39;, &#39;binary_types&#39;, &#39;callproc&#39;, &#39;cast&#39;, &#39;close&#39;, &#39;closed&#39;, &#39;connection&#39;,
-        &#39;copy_expert&#39;, &#39;copy_from&#39;, &#39;copy_to&#39;, &#39;description&#39;, &#39;execute&#39;, &#39;executemany&#39;,
-        &#39;fetchall&#39;, &#39;fetchmany&#39;, &#39;fetchone&#39;, &#39;itersize&#39;, &#39;lastrowid&#39;, &#39;mogrify&#39;,
-        &#39;name&#39;, &#39;nextset&#39;, &#39;query&#39;, &#39;row_factory&#39;, &#39;rowcount&#39;, &#39;rownumber&#39;,
-        &#39;scroll&#39;, &#39;scrollable&#39;, &#39;setinputsizes&#39;, &#39;setoutputsize&#39;, &#39;statusmessage&#39;,
-        &#39;string_types&#39;, &#39;typecaster&#39;, &#39;tzinfo_factory&#39;, &#39;withhold&#39;]
-    columns = [d.name for d in cur.description]
-    description = cur.description[0]
-    # print(description, type(description))
-    # Column(
-    #    name=&#39;birthday&#39;, type_code=1082, display_size=None, internal_size=4,
-    #    precision=None, scale=None, null_ok=None)
-    # &lt;class &#39;psycopg2.extensions.Column&#39;&gt;
-    df = pd.DataFrame(cur.fetchall(), columns=columns)
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">raw_query</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="c1"># print([a for a in dir(cur) if not a.startswith(&quot;_&quot;)])</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;arraysize&#39;</span><span class="p">,</span> <span class="s1">&#39;binary_types&#39;</span><span class="p">,</span> <span class="s1">&#39;callproc&#39;</span><span class="p">,</span> <span class="s1">&#39;cast&#39;</span><span class="p">,</span> <span class="s1">&#39;close&#39;</span><span class="p">,</span> <span class="s1">&#39;closed&#39;</span><span class="p">,</span> <span class="s1">&#39;connection&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;copy_expert&#39;</span><span class="p">,</span> <span class="s1">&#39;copy_from&#39;</span><span class="p">,</span> <span class="s1">&#39;copy_to&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;execute&#39;</span><span class="p">,</span> <span class="s1">&#39;executemany&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;fetchall&#39;</span><span class="p">,</span> <span class="s1">&#39;fetchmany&#39;</span><span class="p">,</span> <span class="s1">&#39;fetchone&#39;</span><span class="p">,</span> <span class="s1">&#39;itersize&#39;</span><span class="p">,</span> <span class="s1">&#39;lastrowid&#39;</span><span class="p">,</span> <span class="s1">&#39;mogrify&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;nextset&#39;</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;row_factory&#39;</span><span class="p">,</span> <span class="s1">&#39;rowcount&#39;</span><span class="p">,</span> <span class="s1">&#39;rownumber&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="s1">&#39;scrollable&#39;</span><span class="p">,</span> <span class="s1">&#39;setinputsizes&#39;</span><span class="p">,</span> <span class="s1">&#39;setoutputsize&#39;</span><span class="p">,</span> <span class="s1">&#39;statusmessage&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;string_types&#39;</span><span class="p">,</span> <span class="s1">&#39;typecaster&#39;</span><span class="p">,</span> <span class="s1">&#39;tzinfo_factory&#39;</span><span class="p">,</span> <span class="s1">&#39;withhold&#39;</span><span class="p">]</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">description</span><span class="p">]</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">description</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># print(description, type(description))</span>
+    <span class="c1"># Column(</span>
+    <span class="c1">#    name=&#39;birthday&#39;, type_code=1082, display_size=None, internal_size=4,</span>
+    <span class="c1">#    precision=None, scale=None, null_ok=None)</span>
+    <span class="c1"># &lt;class &#39;psycopg2.extensions.Column&#39;&gt;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
 
-    cur.close()
-    conn.close()
+    <span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-def example_redshift_pd():
-    return pd.read_sql(
-        &quot;&quot;&quot;SELECT *
-        FROM table_name
-        WHERE column1 = %(column1)s;&quot;&quot;&quot;,
-        # 下記2つはsqlalchemy-redshiftを利用
-        # WHERE column1 = :column1;&quot;&quot;&quot;,
-        # con=create_engine_redshift(),
-        con=con_psycopg2(),
-        params={&quot;column1&quot;: 1}
-    )
+<span class="k">def</span> <span class="nf">example_redshift_pd</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
+        <span class="sd">&quot;&quot;&quot;SELECT *</span>
+<span class="sd">        FROM table_name</span>
+<span class="sd">        WHERE column1 = %(column1)s;&quot;&quot;&quot;</span><span class="p">,</span>
+        <span class="c1"># 下記2つはsqlalchemy-redshiftを利用</span>
+        <span class="c1"># WHERE column1 = :column1;&quot;&quot;&quot;,</span>
+        <span class="c1"># con=create_engine_redshift(),</span>
+        <span class="n">con</span><span class="o">=</span><span class="n">con_psycopg2</span><span class="p">(),</span>
+        <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;column1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+    <span class="p">)</span>
 
-if __name__ == &quot;__main__&quot;:
-    main()
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="ssl-mode-with-sqlalchemy">
-<span id="ssl-mode-with-sqlalchemy"></span><h1>SSL Mode(with sqlalchemy)<a class="headerlink" href="#ssl-mode-with-sqlalchemy" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="ssl-mode-with-sqlalchemy"></span><h2>SSL Mode(with sqlalchemy)<a class="headerlink" href="#ssl-mode-with-sqlalchemy" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sslmode</span> <span class="ow">not</span> <span class="n">specify</span>
 
   <span class="n">File</span> <span class="s2">&quot;psycopg2\__init__.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">164</span><span class="p">,</span> <span class="ow">in</span> <span class="n">connect</span>
@@ -421,7 +669,7 @@ if __name__ == &quot;__main__&quot;:
 
   <span class="n">File</span> <span class="s2">&quot;psycopg2\__init__.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">164</span><span class="p">,</span> <span class="ow">in</span> <span class="n">connect</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="k">async</span><span class="o">=</span><span class="k">async</span><span class="p">)</span>
-<span class="n">sqlalchemy</span><span class="o">.</span><span class="n">exc</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span> <span class="p">(</span><span class="n">psycopg2</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">)</span> 
+<span class="n">sqlalchemy</span><span class="o">.</span><span class="n">exc</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span> <span class="p">(</span><span class="n">psycopg2</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">)</span>
 <span class="n">FATAL</span><span class="p">:</span>  <span class="n">no</span> <span class="n">pg_hba</span><span class="o">.</span><span class="n">conf</span> <span class="n">entry</span> <span class="k">for</span> <span class="n">host</span> <span class="s2">&quot;xxx.xxx.xxx.xxx&quot;</span><span class="p">,</span> <span class="n">user</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="n">database</span> <span class="s2">&quot;dbname&quot;</span><span class="p">,</span> <span class="n">SSL</span> <span class="n">off</span>
 
 <span class="n">sslmode</span><span class="p">:</span> <span class="n">prefer</span><span class="p">,</span> <span class="n">require</span> <span class="o">-&gt;</span> <span class="n">no</span> <span class="n">error</span>
@@ -429,16 +677,16 @@ if __name__ == &quot;__main__&quot;:
 </div>
 </div>
 <div class="section" id="sqlalchemy-mysql">
-<span id="sqlalchemy-mysql"></span><h1>SQLAlchemy/MySQL<a class="headerlink" href="#sqlalchemy-mysql" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="sqlalchemy-mysql"></span><h2>SQLAlchemy/MySQL<a class="headerlink" href="#sqlalchemy-mysql" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>engineのconnect_argsを知るきっかけ</li>
 <li>http://stackoverflow.com/questions/8014781/how-to-make-mysql-connection-that-requires-ca-cert-with-sqlalchemy-or-sqlobject</li>
 </ul>
 </div>
 <div class="section" id="postgresql">
-<span id="postgresql"></span><h1>Postgresql<a class="headerlink" href="#postgresql" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="postgresql"></span><h2>Postgresql<a class="headerlink" href="#postgresql" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="ssl">
-<span id="ssl"></span><h2>SSL<a class="headerlink" href="#ssl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="ssl"></span><h3>SSL<a class="headerlink" href="#ssl" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>http://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING</li>
 <li>http://www.postgresql.org/docs/current/static/libpq-ssl.html</li>
@@ -448,9 +696,9 @@ if __name__ == &quot;__main__&quot;:
 </div>
 </div>
 <div class="section" id="redshift">
-<span id="redshift"></span><h1>redshift<a class="headerlink" href="#redshift" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="redshift"></span><h2>redshift<a class="headerlink" href="#redshift" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="ssl-postgresql">
-<span id="ssl-postgresql"></span><h2>SSL/Postgresql<a class="headerlink" href="#ssl-postgresql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="ssl-postgresql"></span><h3>SSL/Postgresql<a class="headerlink" href="#ssl-postgresql" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>http://dev.classmethod.jp/cloud/aws/connect-to-redshift-cluster-with-ssl/</li>
 <li>http://docs.aws.amazon.com/ja_jp/redshift/latest/mgmt/connecting-ssl-support.html</li>
@@ -458,34 +706,35 @@ if __name__ == &quot;__main__&quot;:
 </ul>
 </div>
 <div class="section" id="sql">
-<span id="sql"></span><h2>SQL<a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="sql"></span><h3>SQL<a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>http://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_Examples_with_TOP.html</li>
 <li>http://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_ORDER_BY_clause.html</li>
 </ul>
 </div>
 <div class="section" id="transaction">
-<span id="transaction"></span><h2>Transaction<a class="headerlink" href="#transaction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="transaction"></span><h3>Transaction<a class="headerlink" href="#transaction" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>http://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_BEGIN.html</li>
 </ul>
 </div>
 </div>
 <div class="section" id="">
-<span id="id8"></span><h1>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id8"></span><h2>その他<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="https-wgetrc">
-<span id="https-wgetrc"></span><h2>HTTPS 時の証明書関連エラーを防ぐための .wgetrc 設定<a class="headerlink" href="#https-wgetrc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="https-wgetrc"></span><h3>HTTPS 時の証明書関連エラーを防ぐための .wgetrc 設定<a class="headerlink" href="#https-wgetrc" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>http://friendsnow.hatenablog.com/entry/2014/03/22/012410</li>
 <li>http://qiita.com/cuzic/items/b24803dc0858079b4fb3</li>
 </ul>
 </div>
 <div class="section" id="forward-with-paramiko">
-<span id="forward-with-paramiko"></span><h2>forward with paramiko<a class="headerlink" href="#forward-with-paramiko" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="forward-with-paramiko"></span><h3>forward with paramiko<a class="headerlink" href="#forward-with-paramiko" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>http://stackoverflow.com/questions/31506958/sqlalchemy-through-paramiko-ssh</li>
 <li>https://github.com/paramiko/paramiko/blob/master/demos/forward.py#L54</li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -496,6 +745,15 @@ if __name__ == &quot;__main__&quot;:
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PythonからRを利用する方法.html" class="btn btn-neutral float-right" title="PythonからRを利用する方法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Python(Windows)でファイル出力する際に改行コードをLFにする.html" class="btn btn-neutral" title="Python(Windows)でファイル出力する際に改行コードをLFにする" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

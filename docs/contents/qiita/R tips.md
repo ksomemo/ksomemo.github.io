@@ -1,5 +1,6 @@
+# R tips
 ## packages
-```R:packages.R
+```R
 # data processing
 install.packages("tidyverse")
 install.packages("data.table")
@@ -50,7 +51,7 @@ install.packages("")
 ```
 
 ## Paste from Clip Board
-```R:pasteFromClipBoard.R
+```R
 # win/Linux?
 data <- read.table("clipboard")
 
@@ -59,7 +60,7 @@ data <- read.table(pipe("pbpaste"))
 ```
 
 ## basic functions
-```r:basic_func.R
+```R
 # rangeではない(python脳, range -> output min/max
 seq(1, 9) # 1 to 9
 seq(1, 9, by = 0.1) # step
@@ -80,7 +81,7 @@ matrix(0, nrow=2, ncol=2)
 diag(nrow=2)
 ```
 ## repeat / replicate
-```R:repeat_replicate.R
+```R
 rep(1:3, 2)
 [1] 1 2 3 1 2 3
 
@@ -93,7 +94,7 @@ replicate(2, 1:3)
 ```
 
 ## sub(tract) vector from matrix
-```sub_vector_from_matrix.R
+```R
 (mat <- matrix(1:6, ncol=2))
      [,1] [,2]
 [1,]    1    4
@@ -112,14 +113,14 @@ sweep(mat, 2, mat[1, ])
 ```
 
 ## apply系
-```R:apply.R
+```R
 # MARGIN = c(1,2) のとき成分ごとに適用
 # sumはnumpyと同じで1つのスカラーに集約してしまうので、applyが必要
 apply(df, MARGIN, sum)
 ```
 
 ## dot/outer product
-```R:dot_outer_product.R
+```R
 1:3 %*% 1:3
      [,1]
 [1,]   14
@@ -132,7 +133,7 @@ apply(df, MARGIN, sum)
 ```
 
 ## list
-```R:list.R
+```R
 # append
 l <- list()
 l <- c(l, list(1))
@@ -140,7 +141,7 @@ l <- c(l, list(2), list(3))
 ```
 
 ## dummy
-```dummies.R
+```R
 install.packages("dummies")
 library(dummies)
 a <- 1:5
@@ -151,7 +152,7 @@ dummies::dummy("a", df)
 ```
 
 ## duplicated / drop duplicated
-```duplicated_distinct_unique.R
+```R
 df <- data.frame(d1=c(1,1,2,3,3,4,5,6,6),
                  d2=c(1,1,2,3,3,4,5,5,6))
 df$df_duplicated          <- duplicated(df[, c("d1", "d2")])
@@ -171,14 +172,14 @@ df %>% select(d1, d2) %>% distinct(d1, .keep_all = T)
 ```
 
 ## 標準化
-```scale.R
+```R
 scale(iris[, -5]) == scale(iris[, -5], center = T, scale = T)
 # center, scaleは標準化でなくてもよい
 # 上記2つに数値を渡すこともできるので、min-max scaleもできる
 ```
 
 ## PCA
-```pca.R
+```R
 # デフォルトの変換対象は分散共分散行列(center = T, scale = F)
 iris_pca <- prcomp(iris[, -5])
 
@@ -199,7 +200,7 @@ iris_pca_summary
 ```
 
 ## docallによるlist展開
-```docall.R
+```R
 # cbindにベクトルを渡す
 do.call(cbind, list(1:2, 3:4, 5:6))
      [,1] [,2] [,3]
@@ -211,8 +212,8 @@ myfunc <- function(a, b, c, bias1, bias2 = 2) {
   return(sum(a, b, c) + bias1 + bias2)
 }
 do.call(myfunc, list(1:2, 3:4, bias1 = 1))
- (function (a, b, c, bias1, bias2 = 2)  でエラー: 
-   引数 "c" がありませんし、省略時既定値もありません 
+ (function (a, b, c, bias1, bias2 = 2)  でエラー:
+   引数 "c" がありませんし、省略時既定値もありません
 
 ## デフォルト引数
 do.call(myfunc, list(1:2, 3:4, 5:6, bias1 = 1))
@@ -229,7 +230,7 @@ do.call(variadic_func, list(1, 2, 3, 4, 5, bias1 = 1))
 ```
 
 ## ggplot
-```ggplot.R
+```R
 library(ggplot2)
 library(gridExtra)
 
@@ -253,7 +254,7 @@ library(ggbiplot)
 ```
 
 ## time series
-```time_series.R
+```R
 data("AirPassengers")
 class(AirPassengers)
 # => [1] "ts"
@@ -278,7 +279,7 @@ pacf(AirPassengers)
 ```
 
 ## Rで共分散と相関係数を求める(自作と {stats})
-```r:Rで共分散と相関係数を求める.R
+```R
 ## 数式をプログラムに落とし込む練習
 # Σとか行列・ベクトルを見ても怖がらないように
 # 落ち着けば問題なさそう
@@ -328,7 +329,7 @@ cov(m)
 ```
 
 ## Rで変数削除
-```r:Rで変数削除.R
+```R
 library(dplyr)
 library(caret)
 

@@ -1,6 +1,9 @@
+# PythonからRを利用する方法
 何番煎じか分からないけど、PythonからRを利用する方法
 
-```bash:install_pyper.sh
+## pyper
+### install
+```bash
 # http://d.hatena.ne.jp/dichika/20130213/1360718736
 # http://qiita.com/ynakayama/items/f84dc659f1337d71dd9e
 # http://nekopuni.holy.jp/2014/12/rpythonr%E3%81%A8python%E3%81%AE%E9%80%A3%E6%90%BA/
@@ -21,8 +24,8 @@ Collecting pyper
   Downloading PypeR-1.1.2.tar.gz
 ```
 
-
-```py3:example_pyper.py
+### example
+```py3
 import pandas as pd
 import pyper
 import os
@@ -64,20 +67,22 @@ PIL.Image.open(image_file_name)
 - Rのコードを素直に書くだけで良い
 - ただしrpy2を使うので雑に使って捨てる前提
 
-```py3:load_ext_rpy2_ipython.py
+```py3
 # pip install rpy2
 import rpy2
 %load_ext rpy2.ipython
+py_variable = 1
 ```
 
-```R:r_magic_oneline.R
+```R
 %R head(iris)
 ```
 
 DataFrameの出力はHTML Tableになっている
 
-```R:r_magic_multiline.R
-%%R
+```R
+%%R -i py_variable
+print(py_variable)
 my.summary <- function (df) {
     return(summary(df))
 }

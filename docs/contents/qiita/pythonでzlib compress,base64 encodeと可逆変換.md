@@ -1,6 +1,8 @@
+# pythonでzlib compress,base64 encodeと可逆変換
 * zlibによる文字列の圧縮
 * base64で文字列として扱えるように
 
+## zlib and base64
 ```py3
 import zlib
 import base64

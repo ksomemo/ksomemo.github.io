@@ -1,6 +1,13 @@
 {
  "cells": [
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# LogisticRegression"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": 50,
    "metadata": {

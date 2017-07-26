@@ -1,8 +1,9 @@
+# jupyter notebook extensions python-markdown(markdown + jinja2)
 ## 動機
 - jupyter便利だけど、markdown部分にpython使えないかなー
 - あった
 
-## notebook-extensions python-markdown 
+## notebook-extensions python-markdown
 - https://github.com/ipython-contrib/IPython-notebook-extensions/wiki/python-markdown
 - https://github.com/ipython/ipython/issues/2958
 - https://github.com/jupyter/notebook/issues/1098
@@ -13,7 +14,9 @@
 ## notebook-extensions wiki
 https://github.com/ipython-contrib/IPython-notebook-extensions/wiki
 
-```bash:pip-install-notebook-extensions.sh
+pip-install-notebook-extensions.sh
+
+```bash
 # https://github.com/ipython-contrib/IPython-notebook-extensions/wiki/python-markdown
 # https://github.com/ipython-contrib/IPython-notebook-extensions
 
@@ -60,7 +63,7 @@ source codeを隠したり表示したり、Outputは表示したまま
 
 ### zenmode
 - menuが消える
-- 背景が変わるので、真っ白よりいい 
+- 背景が変わるので、真っ白よりいい
 
 ### ExecuteTime
 - 実行時間の表記

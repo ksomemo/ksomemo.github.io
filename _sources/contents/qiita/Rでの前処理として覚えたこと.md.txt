@@ -1,4 +1,4 @@
-
+# Rでの前処理として覚えたこと
 dataframeを以下、dfとする。
 
 ## の前に、他との比較
@@ -29,7 +29,7 @@ dataframeを以下、dfとする。
 	* 例：セッションログを用いて滞在時間を測るなど
 * ファイルへの書き込みと、そのファイルの読み込む
 
-```r
+```R
 # make dataframe from vector
 df <- data.frame(matrix(1:8, ncol = 2), stringsAsFactors = False)
 df2 <- data.frame(1:2, stringsAsFactors = False)
@@ -48,8 +48,8 @@ df <- cbind(df, cbind(and = (df$odd & df$even),
                       or = (df$odd | df$even)))
 
 df2$square <- df2[, 1] ^ 2
-df2 <- transform(df2, 
-                 up.to.low = tolower(LETTERS[1:3]), 
+df2 <- transform(df2,
+                 up.to.low = tolower(LETTERS[1:3]),
                  low.to.up = toupper(letters[-1:-23]))
 
 # merge, left join
@@ -80,7 +80,7 @@ result <- read.table(file = "output_dataframe.txt", header = TRUE)
 print(result)
 ```
 
-```
+```R
 library(plyr)
 
 # grouping

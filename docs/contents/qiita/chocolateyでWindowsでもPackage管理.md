@@ -1,8 +1,12 @@
+# chocolateyでWindowsでもPackage管理
+
 ## chocolatey
 Windows用ソフトウェアのパッケージ管理ツール
 
 ## chocolateyのインストール
-```bat:chocolatey_install.bat
+chocolatey_install.bat
+
+```bat
 @echo off
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 
@@ -39,7 +43,9 @@ cinst atom --version 1.0.7
 ## 設定ファイル
 packages.configというXMLの設定ファイル
 
-```xml:packages_sample.config
+packages_sample.config
+
+```xml
 <?xml version="1.0"?>
 <packages>
     <package id="curl" />
@@ -93,7 +99,9 @@ ThisPCを選択し、右上のExportからExportできる。
 
 しかも、`clist -l`で表示した時と違ってXMLとして出力される。
 
-```xml:packages_export.config
+packages_export.config
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
   <package id="Atom" version="1.0.7" />

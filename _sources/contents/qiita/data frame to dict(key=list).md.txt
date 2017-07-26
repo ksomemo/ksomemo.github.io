@@ -1,3 +1,4 @@
+# data frame to dict(key=list)
 ## 動機
 - http://qiita.com/haru1977/items/a8bbd177feed148c2eaa
 - 最終アウトプットフォーマットを見たときに、使いそうな形だったので試してみた
@@ -7,7 +8,9 @@
     - 重複レコードができるとuniqにしないとアウトプットがあわない
     - けど頻度を使いたいときはlistの方がいいだろうし気にしないことにした
 
-```py3:df_to_dict_like.py
+df_to_dict_like.py
+
+```python3
 # beign: original
 import pandas as pd
 from collections import defaultdict

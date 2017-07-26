@@ -1,4 +1,5 @@
-```py3:sub_process_stdout_pipe.py
+# sub process stdout／pipe
+```py3
 import os
 import subprocess
 
@@ -25,7 +26,7 @@ def call_with_pipe():
     if os.path.exists(gz_file):
         print("exists")
 
-if __name__ == "__main__":       
+if __name__ == "__main__":
     output()
     call()
 ```

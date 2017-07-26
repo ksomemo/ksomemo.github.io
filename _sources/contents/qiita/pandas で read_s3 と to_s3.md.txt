@@ -1,3 +1,4 @@
+# pandas で read_s3 と to_s3
 ```py3
 # http://stackoverflow.com/questions/35803601/reading-a-file-from-a-private-s3-bucket-to-a-pandas-dataframe
 # 今後の動きはこのissue https://github.com/pydata/pandas/issues/11915
@@ -18,7 +19,7 @@ def to_s3(df, key, **kwargs):
         df.to_csv(buf, **kwargs)
         s3_client = boto3.client('s3')
         s3_client.put_object(
-            Bucket='bucket', Key=key, 
+            Bucket='bucket', Key=key,
             Body=io.BytesIO(buf.getvalue().encode()))
 ```
 

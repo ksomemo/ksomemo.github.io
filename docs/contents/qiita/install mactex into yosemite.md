@@ -1,23 +1,24 @@
+# install mactex into yosemite
 sympyのために仕方なくInstall
 
-```bash:brew-insta-prepare.sh
+## prepare
+```bash
 brew install imagemagic
 brew install ghostscript
 ```
 
-```txt:download-mactex.txt
+# download mactex
 ftp://ftp.u-aizu.ac.jp/pub/tex/CTAN/systems/mac/mactex/
-mactex-20150613.pkg
-```
 
-```markdown:memo.md
+mactex-20150613.pkg
+
 ## memo
 - ghostscript16が内蔵されてた
 - めっちゃ大きい(2.5 GB)
 - インストールすると5 GB以上
-```
 
-```txt:latex-version.txt
+## latex version
+```bash
 latex -version
 
 pdfTeX 3.14159265-2.6-1.40.16 (TeX Live 2015)

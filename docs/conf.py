@@ -46,6 +46,8 @@ templates_path = ['_templates']
 #
 source_suffix = ['.rst', '.md']
 # source_suffix = '.rst'
+import recommonmark
+from recommonmark.transform import AutoStructify
 from recommonmark.parser import CommonMarkParser
 source_parsers = {
     '.md': CommonMarkParser,
@@ -167,5 +169,17 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
+# At the bottom of conf.py
+github_doc_root = 'https://ksomemo.github.io/tree/master/docs'
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+        'url_resolver': lambda url: github_doc_root + url,
+        'auto_toc_tree_section': 'Contents',
+        'enable_auto_doc_ref': True,
+        'enable_math': True,
+        'enable_inline_math': True,
+        'ename_eval_rst': True,
+    }, True)
+    app.add_transform(AutoStructify)
 
 

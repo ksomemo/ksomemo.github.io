@@ -1,6 +1,6 @@
--site検索を複数指定できることに気づいたので、本検索するときに邪魔なドメインのメモ
+# google search without domain
+googleにて、-site検索を複数指定できることに気づいたので、本検索するときに邪魔なドメインのメモ
 
-```excluded_domain.md
 ## excluded
 - kyoritsu-pub.co.jp
 - hmv.co.jp
@@ -17,4 +17,4 @@
 - xsrv.jp
 - suruga-ya.jp
 - google.co.jp
-```
+

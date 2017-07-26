@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>packages &mdash; gh-pages  ドキュメント</title>
+  <title>R tips &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../genindex.html"/>
         <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/>
+        <link rel="next" title="RStudio にあるpublishについて(shinyapps)" href="RStudio にあるpublishについて(shinyapps).html"/>
+        <link rel="prev" title="Python以外 in jupyter notebook" href="Python以外 in jupyter notebook .html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -84,34 +86,277 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">packages</a></li>
-<li><a class="reference internal" href="#paste-from-clip-board">Paste from Clip Board</a></li>
-<li><a class="reference internal" href="#basic-functions">basic functions</a></li>
-<li><a class="reference internal" href="#repeat-replicate">repeat / replicate</a></li>
-<li><a class="reference internal" href="#sub-tract-vector-from-matrix">sub(tract) vector from matrix</a></li>
-<li><a class="reference internal" href="#apply">apply系</a></li>
-<li><a class="reference internal" href="#dot-outer-product">dot/outer product</a></li>
-<li><a class="reference internal" href="#list">list</a></li>
-<li><a class="reference internal" href="#dummy">dummy</a></li>
-<li><a class="reference internal" href="#duplicated-drop-duplicated">duplicated / drop duplicated</a></li>
-<li><a class="reference internal" href="#">標準化</a></li>
-<li><a class="reference internal" href="#pca">PCA</a></li>
-<li><a class="reference internal" href="#docalllist">docallによるlist展開</a></li>
-<li><a class="reference internal" href="#ggplot">ggplot</a></li>
-<li><a class="reference internal" href="#time-series">time series</a></li>
-<li><a class="reference internal" href="#r-stats">Rで共分散と相関係数を求める(自作と {stats})</a></li>
-<li><a class="reference internal" href="#r">Rで変数削除</a></li>
-<li><a class="reference internal" href="#">他記事のリンク</a><ul>
-<li><a class="reference internal" href="#r">Rで簡単に前処理＋クロス集計＋α</a></li>
-<li><a class="reference internal" href="#r">Rでの前処理として覚えたこと</a></li>
-<li><a class="reference internal" href="#rseq">Rのseqを使って先月を求めるときの注意点</a></li>
-<li><a class="reference internal" href="#not-installed-package-names">not installed package names</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Excel VBA.html">Excel VBA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRedshiftに接続.html">PythonからRedshiftに接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html">Python以外 in jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#r">R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#octave">octave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#scala">Scala</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">R tips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#packages">packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paste-from-clip-board">Paste from Clip Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-functions">basic functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#repeat-replicate">repeat / replicate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sub-tract-vector-from-matrix">sub(tract) vector from matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apply">apply系</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dot-outer-product">dot/outer product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list">list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dummy">dummy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#duplicated-drop-duplicated">duplicated / drop duplicated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">標準化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pca">PCA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docalllist">docallによるlist展開</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ggplot">ggplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#time-series">time series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#r-stats">Rで共分散と相関係数を求める(自作と {stats})</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#r">Rで変数削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">他記事のリンク</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#r">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#r">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rseq">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#not-installed-package-names">not installed package names</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upload package to PyPI By twine.html">Upload package to PyPI By twine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editRを試した.html">editR試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faker サンプルデータ作成.html">faker サンプルデータ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: 行列の性質や数式テクニック.html">note: 行列の性質や数式テクニック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell tips.html">shell tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy.html">numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -154,7 +399,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>packages</li>
+      <li>R tips</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -207,382 +452,385 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
+<div class="section" id="r-tips">
+<span id="r-tips"></span><h1>R tips<a class="headerlink" href="#r-tips" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="packages">
-<span id="packages"></span><h1>packages<a class="headerlink" href="#packages" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-R:packages.R"><div class="highlight"><pre><span></span># data processing
-install.packages(&quot;tidyverse&quot;)
-install.packages(&quot;data.table&quot;)
+<span id="packages"></span><h2>packages<a class="headerlink" href="#packages" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># data processing</span>
+install.packages<span class="p">(</span><span class="s">&quot;tidyverse&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;data.table&quot;</span><span class="p">)</span>
 
-# date
-install.packages(&quot;lubridate&quot;)
+<span class="c1"># date</span>
+install.packages<span class="p">(</span><span class="s">&quot;lubridate&quot;</span><span class="p">)</span>
 
-# visualization
-install.packages(&quot;psych&quot;)
-install.packages(&quot;scales&quot;)
-install.packages(&quot;GGally&quot;) # http://www.ggplot2-exts.org/gallery/
+<span class="c1"># visualization</span>
+install.packages<span class="p">(</span><span class="s">&quot;psych&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;scales&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;GGally&quot;</span><span class="p">)</span> <span class="c1"># http://www.ggplot2-exts.org/gallery/</span>
 
-# dev
-install.packages(&quot;devtools&quot;)
-install.packages(&quot;testthat&quot;)
-install.packages(&quot;roxygen2&quot;)
+<span class="c1"># dev</span>
+install.packages<span class="p">(</span><span class="s">&quot;devtools&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;testthat&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;roxygen2&quot;</span><span class="p">)</span>
 
-# machine learning
-install.packages(&quot;caret&quot;)
-#install.packages(&quot;ranger&quot;)
-install.packages(&quot;randomForest&quot;)
-install.packages(&quot;xgboost&quot;)
+<span class="c1"># machine learning</span>
+install.packages<span class="p">(</span><span class="s">&quot;caret&quot;</span><span class="p">)</span>
+<span class="c1">#install.packages(&quot;ranger&quot;)</span>
+install.packages<span class="p">(</span><span class="s">&quot;randomForest&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;xgboost&quot;</span><span class="p">)</span>
 
-# recommendation
-install.packages(&quot;arules&quot;)
-install.packages(&quot;arulesViz&quot;)
+<span class="c1"># recommendation</span>
+install.packages<span class="p">(</span><span class="s">&quot;arules&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;arulesViz&quot;</span><span class="p">)</span>
 
-# stats modeling
-install.packages(&quot;glmnet&quot;)
+<span class="c1"># stats modeling</span>
+install.packages<span class="p">(</span><span class="s">&quot;glmnet&quot;</span><span class="p">)</span>
 
-# time series
-install.packages(&quot;xts&quot;)
-install.packages(&quot;forecast&quot;)
-install.packages(&quot;zoo&quot;)
+<span class="c1"># time series</span>
+install.packages<span class="p">(</span><span class="s">&quot;xts&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;forecast&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;zoo&quot;</span><span class="p">)</span>
 
-# web app
-install.packages(&quot;shiny&quot;)
+<span class="c1"># web app</span>
+install.packages<span class="p">(</span><span class="s">&quot;shiny&quot;</span><span class="p">)</span>
 
-# reporting
-install.packages(&quot;rmarkdown&quot;)
-install.packages(&quot;formatR&quot;) # R notebook
+<span class="c1"># reporting</span>
+install.packages<span class="p">(</span><span class="s">&quot;rmarkdown&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;formatR&quot;</span><span class="p">)</span> <span class="c1"># R notebook</span>
 
-# bayse
-install.packages(&quot;rstan&quot;)
-#install.packages(&quot;dlm&quot;)
+<span class="c1"># bayse</span>
+install.packages<span class="p">(</span><span class="s">&quot;rstan&quot;</span><span class="p">)</span>
+<span class="c1">#install.packages(&quot;dlm&quot;)</span>
 
-install.packages(&quot;&quot;)
+install.packages<span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="paste-from-clip-board">
-<span id="paste-from-clip-board"></span><h1>Paste from Clip Board<a class="headerlink" href="#paste-from-clip-board" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-R:pasteFromClipBoard.R"><div class="highlight"><pre><span></span># win/Linux?
-data &lt;- read.table(&quot;clipboard&quot;)
+<span id="paste-from-clip-board"></span><h2>Paste from Clip Board<a class="headerlink" href="#paste-from-clip-board" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># win/Linux?</span>
+data <span class="o">&lt;-</span> read.table<span class="p">(</span><span class="s">&quot;clipboard&quot;</span><span class="p">)</span>
 
-# mac
-data &lt;- read.table(pipe(&quot;pbpaste&quot;))
+<span class="c1"># mac</span>
+data <span class="o">&lt;-</span> read.table<span class="p">(</span><span class="kp">pipe</span><span class="p">(</span><span class="s">&quot;pbpaste&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="basic-functions">
-<span id="basic-functions"></span><h1>basic functions<a class="headerlink" href="#basic-functions" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-r:basic_func.R"><div class="highlight"><pre><span></span># rangeではない(python脳, range -&gt; output min/max
-seq(1, 9) # 1 to 9
-seq(1, 9, by = 0.1) # step
-seq(1, 9, length.out = 5) # n = 5
+<span id="basic-functions"></span><h2>basic functions<a class="headerlink" href="#basic-functions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># rangeではない(python脳, range -&gt; output min/max</span>
+<span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">9</span><span class="p">)</span> <span class="c1"># 1 to 9</span>
+<span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> by <span class="o">=</span> <span class="m">0.1</span><span class="p">)</span> <span class="c1"># step</span>
+<span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> length.out <span class="o">=</span> <span class="m">5</span><span class="p">)</span> <span class="c1"># n = 5</span>
 
-# log
-log(2, base = exp(1))
+<span class="c1"># log</span>
+<span class="kp">log</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> base <span class="o">=</span> <span class="kp">exp</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
 
-# shuffle/sampling
-sample(1:5)
-sample(1:5, 3)
-sample(1:5, 10, replace=TRUE)
+<span class="c1"># shuffle/sampling</span>
+<span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span>
+<span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> replace<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 
-# zero matrix
-matrix(0, nrow=2, ncol=2)
+<span class="c1"># zero matrix</span>
+<span class="kt">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> nrow<span class="o">=</span><span class="m">2</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
 
-# identity matrix
-diag(nrow=2)
+<span class="c1"># identity matrix</span>
+<span class="kp">diag</span><span class="p">(</span>nrow<span class="o">=</span><span class="m">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="repeat-replicate">
-<span id="repeat-replicate"></span><h1>repeat / replicate<a class="headerlink" href="#repeat-replicate" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-R:repeat_replicate.R"><div class="highlight"><pre><span></span>rep(1:3, 2)
-[1] 1 2 3 1 2 3
+<span id="repeat-replicate"></span><h2>repeat / replicate<a class="headerlink" href="#repeat-replicate" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
 
-# byrowにしたいときはt() で転置
-replicate(2, 1:3)
-     [,1] [,2]
-[1,]    1    1
-[2,]    2    2
-[3,]    3    3
+<span class="c1"># byrowにしたいときはt() で転置</span>
+<span class="kp">replicate</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">)</span>
+     <span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">1</span>    <span class="m">1</span>
+<span class="p">[</span><span class="m">2</span><span class="p">,]</span>    <span class="m">2</span>    <span class="m">2</span>
+<span class="p">[</span><span class="m">3</span><span class="p">,]</span>    <span class="m">3</span>    <span class="m">3</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="sub-tract-vector-from-matrix">
-<span id="sub-tract-vector-from-matrix"></span><h1>sub(tract) vector from matrix<a class="headerlink" href="#sub-tract-vector-from-matrix" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-sub_vector_from_matrix.R"><div class="highlight"><pre><span></span>(mat &lt;- matrix(1:6, ncol=2))
-     [,1] [,2]
-[1,]    1    4
-[2,]    2    5
-[3,]    3    6
+<span id="sub-tract-vector-from-matrix"></span><h2>sub(tract) vector from matrix<a class="headerlink" href="#sub-tract-vector-from-matrix" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="p">(</span>mat <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">))</span>
+     <span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">1</span>    <span class="m">4</span>
+<span class="p">[</span><span class="m">2</span><span class="p">,]</span>    <span class="m">2</span>    <span class="m">5</span>
+<span class="p">[</span><span class="m">3</span><span class="p">,]</span>    <span class="m">3</span>    <span class="m">6</span>
 
-# MARGIN: 1 -&gt; row, 2 -&gt; col
-sweep(mat, 2, mat[1, ])
-     [,1] [,2]
-[1,]    0    0
-[2,]    1    1
-[3,]    2    2
+<span class="c1"># MARGIN: 1 -&gt; row, 2 -&gt; col</span>
+<span class="kp">sweep</span><span class="p">(</span>mat<span class="p">,</span> <span class="m">2</span><span class="p">,</span> mat<span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">])</span>
+     <span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">0</span>    <span class="m">0</span>
+<span class="p">[</span><span class="m">2</span><span class="p">,]</span>    <span class="m">1</span>    <span class="m">1</span>
+<span class="p">[</span><span class="m">3</span><span class="p">,]</span>    <span class="m">2</span>    <span class="m">2</span>
 
-# matrixではなくdataframeの場合、data.matrixで変換してから対応する
-# matrixにしてもカラムは消えない
+<span class="c1"># matrixではなくdataframeの場合、data.matrixで変換してから対応する</span>
+<span class="c1"># matrixにしてもカラムは消えない</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="apply">
-<span id="apply"></span><h1>apply系<a class="headerlink" href="#apply" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-R:apply.R"><div class="highlight"><pre><span></span># MARGIN = c(1,2) のとき成分ごとに適用
-# sumはnumpyと同じで1つのスカラーに集約してしまうので、applyが必要
-apply(df, MARGIN, sum)
+<span id="apply"></span><h2>apply系<a class="headerlink" href="#apply" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># MARGIN = c(1,2) のとき成分ごとに適用</span>
+<span class="c1"># sumはnumpyと同じで1つのスカラーに集約してしまうので、applyが必要</span>
+<span class="kp">apply</span><span class="p">(</span>df<span class="p">,</span> MARGIN<span class="p">,</span> <span class="kp">sum</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="dot-outer-product">
-<span id="dot-outer-product"></span><h1>dot/outer product<a class="headerlink" href="#dot-outer-product" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-R:dot_outer_product.R"><div class="highlight"><pre><span></span>1:3 %*% 1:3
-     [,1]
-[1,]   14
+<span id="dot-outer-product"></span><h2>dot/outer product<a class="headerlink" href="#dot-outer-product" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="m">1</span><span class="o">:</span><span class="m">3</span> <span class="o">%*%</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span>
+     <span class="p">[,</span><span class="m">1</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span>   <span class="m">14</span>
 
-1:3 %o% 1:3
-     [,1] [,2] [,3]
-[1,]    1    2    3
-[2,]    2    4    6
-[3,]    3    6    9
+<span class="m">1</span><span class="o">:</span><span class="m">3</span> <span class="o">%o%</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span>
+     <span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="p">[,</span><span class="m">3</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">1</span>    <span class="m">2</span>    <span class="m">3</span>
+<span class="p">[</span><span class="m">2</span><span class="p">,]</span>    <span class="m">2</span>    <span class="m">4</span>    <span class="m">6</span>
+<span class="p">[</span><span class="m">3</span><span class="p">,]</span>    <span class="m">3</span>    <span class="m">6</span>    <span class="m">9</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="list">
-<span id="list"></span><h1>list<a class="headerlink" href="#list" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-R:list.R"><div class="highlight"><pre><span></span># append
-l &lt;- list()
-l &lt;- c(l, list(1))
-l &lt;- c(l, list(2), list(3))
+<span id="list"></span><h2>list<a class="headerlink" href="#list" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># append</span>
+l <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span>
+l <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>l<span class="p">,</span> <span class="kt">list</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
+l <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>l<span class="p">,</span> <span class="kt">list</span><span class="p">(</span><span class="m">2</span><span class="p">),</span> <span class="kt">list</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="dummy">
-<span id="dummy"></span><h1>dummy<a class="headerlink" href="#dummy" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-dummies.R"><div class="highlight"><pre><span></span>install.packages(&quot;dummies&quot;)
-library(dummies)
-a &lt;- 1:5
-df &lt;- data.frame(a=a)
+<span id="dummy"></span><h2>dummy<a class="headerlink" href="#dummy" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span>install.packages<span class="p">(</span><span class="s">&quot;dummies&quot;</span><span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>dummies<span class="p">)</span>
+a <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>
+df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>a<span class="o">=</span>a<span class="p">)</span>
 
-dummies::dummy(a)
-dummies::dummy(&quot;a&quot;, df)
+dummies<span class="o">::</span>dummy<span class="p">(</span>a<span class="p">)</span>
+dummies<span class="o">::</span>dummy<span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> df<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="duplicated-drop-duplicated">
-<span id="duplicated-drop-duplicated"></span><h1>duplicated / drop duplicated<a class="headerlink" href="#duplicated-drop-duplicated" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-duplicated_distinct_unique.R"><div class="highlight"><pre><span></span>df &lt;- data.frame(d1=c(1,1,2,3,3,4,5,6,6),
-                 d2=c(1,1,2,3,3,4,5,5,6))
-df$df_duplicated          &lt;- duplicated(df[, c(&quot;d1&quot;, &quot;d2&quot;)])
-df$d1_duplicated          &lt;- duplicated(df$d1)
-df$d1_duplicated_fromlast &lt;- duplicated(df$d1, fromLast = T)
-df$d1_duplicated_all      &lt;- duplicated(df$d1) | duplicated(df$d1, fromLast = T)
-# =&gt; https://stackoverflow.com/questions/7854433/finding-all-duplicate-rows-including-elements-with-smaller-subscripts
+<span id="duplicated-drop-duplicated"></span><h2>duplicated / drop duplicated<a class="headerlink" href="#duplicated-drop-duplicated" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span>df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>d1<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">6</span><span class="p">),</span>
+                 d2<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">))</span>
+df<span class="o">$</span>df_duplicated          <span class="o">&lt;-</span> <span class="kp">duplicated</span><span class="p">(</span>df<span class="p">[,</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;d1&quot;</span><span class="p">,</span> <span class="s">&quot;d2&quot;</span><span class="p">)])</span>
+df<span class="o">$</span>d1_duplicated          <span class="o">&lt;-</span> <span class="kp">duplicated</span><span class="p">(</span>df<span class="o">$</span>d1<span class="p">)</span>
+df<span class="o">$</span>d1_duplicated_fromlast <span class="o">&lt;-</span> <span class="kp">duplicated</span><span class="p">(</span>df<span class="o">$</span>d1<span class="p">,</span> fromLast <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+df<span class="o">$</span>d1_duplicated_all      <span class="o">&lt;-</span> <span class="kp">duplicated</span><span class="p">(</span>df<span class="o">$</span>d1<span class="p">)</span> <span class="o">|</span> <span class="kp">duplicated</span><span class="p">(</span>df<span class="o">$</span>d1<span class="p">,</span> fromLast <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="c1"># =&gt; https://stackoverflow.com/questions/7854433/finding-all-duplicate-rows-including-elements-with-smaller-subscripts</span>
 
-# drop duplicated
-unique(df$d1)
-df %&gt;% select(d1, d2) %&gt;% distinct()
+<span class="c1"># drop duplicated</span>
+<span class="kp">unique</span><span class="p">(</span>df<span class="o">$</span>d1<span class="p">)</span>
+df <span class="o">%&gt;%</span> select<span class="p">(</span>d1<span class="p">,</span> d2<span class="p">)</span> <span class="o">%&gt;%</span> distinct<span class="p">()</span>
 
-# drop duplicated/base d1 and drop d2
-# drop duplicated/base d1 and keep d2
-df %&gt;% select(d1, d2) %&gt;% distinct(d1)
-df %&gt;% select(d1, d2) %&gt;% distinct(d1, .keep_all = T)
+<span class="c1"># drop duplicated/base d1 and drop d2</span>
+<span class="c1"># drop duplicated/base d1 and keep d2</span>
+df <span class="o">%&gt;%</span> select<span class="p">(</span>d1<span class="p">,</span> d2<span class="p">)</span> <span class="o">%&gt;%</span> distinct<span class="p">(</span>d1<span class="p">)</span>
+df <span class="o">%&gt;%</span> select<span class="p">(</span>d1<span class="p">,</span> d2<span class="p">)</span> <span class="o">%&gt;%</span> distinct<span class="p">(</span>d1<span class="p">,</span> <span class="m">.</span>keep_all <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id1"></span><h1>標準化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-scale.R"><div class="highlight"><pre><span></span>scale(iris[, -5]) == scale(iris[, -5], center = T, scale = T)
-# center, scaleは標準化でなくてもよい
-# 上記2つに数値を渡すこともできるので、min-max scaleもできる
+<span id="id1"></span><h2>標準化<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kp">scale</span><span class="p">(</span>iris<span class="p">[,</span> <span class="m">-5</span><span class="p">])</span> <span class="o">==</span> <span class="kp">scale</span><span class="p">(</span>iris<span class="p">[,</span> <span class="m">-5</span><span class="p">],</span> center <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> scale <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="c1"># center, scaleは標準化でなくてもよい</span>
+<span class="c1"># 上記2つに数値を渡すこともできるので、min-max scaleもできる</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="pca">
-<span id="pca"></span><h1>PCA<a class="headerlink" href="#pca" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-pca.R"><div class="highlight"><pre><span></span># デフォルトの変換対象は分散共分散行列(center = T, scale = F)
-iris_pca &lt;- prcomp(iris[, -5])
+<span id="pca"></span><h2>PCA<a class="headerlink" href="#pca" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># デフォルトの変換対象は分散共分散行列(center = T, scale = F)</span>
+iris_pca <span class="o">&lt;-</span> prcomp<span class="p">(</span>iris<span class="p">[,</span> <span class="m">-5</span><span class="p">])</span>
 
-# 固有分解
-iris_cov_eigen &lt;- eigen(cov(iris[, -5]))
-## 固有ベクトル
-iris_pca$rotation == iris_cov_eigen$vectors
-## 固有値
-iris_pca$sdev ^ 2 == iris_cov_eigen$values
+<span class="c1"># 固有分解</span>
+iris_cov_eigen <span class="o">&lt;-</span> <span class="kp">eigen</span><span class="p">(</span>cov<span class="p">(</span>iris<span class="p">[,</span> <span class="m">-5</span><span class="p">]))</span>
+<span class="c1">## 固有ベクトル</span>
+iris_pca<span class="o">$</span>rotation <span class="o">==</span> iris_cov_eigen<span class="o">$</span>vectors
+<span class="c1">## 固有値</span>
+iris_pca<span class="o">$</span>sdev <span class="o">^</span> <span class="m">2</span> <span class="o">==</span> iris_cov_eigen<span class="o">$</span>values
 
-# 変換後データ と 元の行列
-iris_pca$x
-scale(iris[, -5], scale = F) == (iris_pca$x %*% t(iris_pca$rotation))
+<span class="c1"># 変換後データ と 元の行列</span>
+iris_pca<span class="o">$</span>x
+<span class="kp">scale</span><span class="p">(</span>iris<span class="p">[,</span> <span class="m">-5</span><span class="p">],</span> scale <span class="o">=</span> <span class="bp">F</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span>iris_pca<span class="o">$</span>x <span class="o">%*%</span> <span class="kp">t</span><span class="p">(</span>iris_pca<span class="o">$</span>rotation<span class="p">))</span>
 
-# 寄与率
-iris_pca_summary &lt;- summary(iris_pca)
+<span class="c1"># 寄与率</span>
+iris_pca_summary <span class="o">&lt;-</span> <span class="kp">summary</span><span class="p">(</span>iris_pca<span class="p">)</span>
 iris_pca_summary
 </pre></div>
 </div>
 </div>
 <div class="section" id="docalllist">
-<span id="docalllist"></span><h1>docallによるlist展開<a class="headerlink" href="#docalllist" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-docall.R"><div class="highlight"><pre><span></span># cbindにベクトルを渡す
-do.call(cbind, list(1:2, 3:4, 5:6))
-     [,1] [,2] [,3]
-[1,]    1    3    5
-[2,]    2    4    6
+<span id="docalllist"></span><h2>docallによるlist展開<a class="headerlink" href="#docalllist" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># cbindにベクトルを渡す</span>
+<span class="kp">do.call</span><span class="p">(</span><span class="kp">cbind</span><span class="p">,</span> <span class="kt">list</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="o">:</span><span class="m">6</span><span class="p">))</span>
+     <span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="p">[,</span><span class="m">3</span><span class="p">]</span>
+<span class="p">[</span><span class="m">1</span><span class="p">,]</span>    <span class="m">1</span>    <span class="m">3</span>    <span class="m">5</span>
+<span class="p">[</span><span class="m">2</span><span class="p">,]</span>    <span class="m">2</span>    <span class="m">4</span>    <span class="m">6</span>
 
-## 引数が足りない場合
-myfunc &lt;- function(a, b, c, bias1, bias2 = 2) {
-  return(sum(a, b, c) + bias1 + bias2)
-}
-do.call(myfunc, list(1:2, 3:4, bias1 = 1))
- (function (a, b, c, bias1, bias2 = 2)  でエラー: 
-   引数 &quot;c&quot; がありませんし、省略時既定値もありません 
+<span class="c1">## 引数が足りない場合</span>
+myfunc <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>a<span class="p">,</span> b<span class="p">,</span> <span class="kt">c</span><span class="p">,</span> bias1<span class="p">,</span> bias2 <span class="o">=</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">return</span><span class="p">(</span><span class="kp">sum</span><span class="p">(</span>a<span class="p">,</span> b<span class="p">,</span> <span class="kt">c</span><span class="p">)</span> <span class="o">+</span> bias1 <span class="o">+</span> bias2<span class="p">)</span>
+<span class="p">}</span>
+<span class="kp">do.call</span><span class="p">(</span>myfunc<span class="p">,</span> <span class="kt">list</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> bias1 <span class="o">=</span> <span class="m">1</span><span class="p">))</span>
+ <span class="p">(</span><span class="kr">function</span> <span class="p">(</span>a<span class="p">,</span> b<span class="p">,</span> <span class="kt">c</span><span class="p">,</span> bias1<span class="p">,</span> bias2 <span class="o">=</span> <span class="m">2</span><span class="p">)</span>  でエラー<span class="o">:</span>
+   引数 <span class="s">&quot;c&quot;</span> がありませんし、省略時既定値もありません
 
-## デフォルト引数
-do.call(myfunc, list(1:2, 3:4, 5:6, bias1 = 1))
-[1] 24
+<span class="c1">## デフォルト引数</span>
+<span class="kp">do.call</span><span class="p">(</span>myfunc<span class="p">,</span> <span class="kt">list</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="o">:</span><span class="m">6</span><span class="p">,</span> bias1 <span class="o">=</span> <span class="m">1</span><span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">24</span>
 
-## 可変長引数関数
-variadic_func &lt;- function(..., bias1, bias2 = 2) {
-  return(sum(...) + bias1 + bias2)
-}
-do.call(variadic_func, list(1:2, 3:4, bias1 = 1))
-[1] 13
-do.call(variadic_func, list(1, 2, 3, 4, 5, bias1 = 1))
-[1] 18
+<span class="c1">## 可変長引数関数</span>
+variadic_func <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span><span class="kc">...</span><span class="p">,</span> bias1<span class="p">,</span> bias2 <span class="o">=</span> <span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">return</span><span class="p">(</span><span class="kp">sum</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span> <span class="o">+</span> bias1 <span class="o">+</span> bias2<span class="p">)</span>
+<span class="p">}</span>
+<span class="kp">do.call</span><span class="p">(</span>variadic_func<span class="p">,</span> <span class="kt">list</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> bias1 <span class="o">=</span> <span class="m">1</span><span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">13</span>
+<span class="kp">do.call</span><span class="p">(</span>variadic_func<span class="p">,</span> <span class="kt">list</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> bias1 <span class="o">=</span> <span class="m">1</span><span class="p">))</span>
+<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="m">18</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="ggplot">
-<span id="ggplot"></span><h1>ggplot<a class="headerlink" href="#ggplot" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-ggplot.R"><div class="highlight"><pre><span></span>library(ggplot2)
-library(gridExtra)
+<span id="ggplot"></span><h2>ggplot<a class="headerlink" href="#ggplot" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>gridExtra<span class="p">)</span>
 
-# 複数グラフ
-plots &lt;- list()
-plots[[1]] &lt;- ggplot2::ggplot() +
-  geom_point(aes(x, y1), data = df)
-plots[[2]] &lt;- ggplot2::ggplot() +
-  geom_point(aes(x, y2), data = df)
+<span class="c1"># 複数グラフ</span>
+plots <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">()</span>
+plots<span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="o">&lt;-</span> ggplot2<span class="o">::</span>ggplot<span class="p">()</span> <span class="o">+</span>
+  geom_point<span class="p">(</span>aes<span class="p">(</span>x<span class="p">,</span> y1<span class="p">),</span> data <span class="o">=</span> df<span class="p">)</span>
+plots<span class="p">[[</span><span class="m">2</span><span class="p">]]</span> <span class="o">&lt;-</span> ggplot2<span class="o">::</span>ggplot<span class="p">()</span> <span class="o">+</span>
+  geom_point<span class="p">(</span>aes<span class="p">(</span>x<span class="p">,</span> y2<span class="p">),</span> data <span class="o">=</span> df<span class="p">)</span>
 
-gridExtra::marrangeGrob(plots, nrow=1, ncol=2)
-# or
-do.call(gridExtra::grid.arrange, c(plots, nrow=1, ncol=2))
+gridExtra<span class="o">::</span>marrangeGrob<span class="p">(</span>plots<span class="p">,</span> nrow<span class="o">=</span><span class="m">1</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="kp">do.call</span><span class="p">(</span>gridExtra<span class="o">::</span>grid.arrange<span class="p">,</span> <span class="kt">c</span><span class="p">(</span>plots<span class="p">,</span> nrow<span class="o">=</span><span class="m">1</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">2</span><span class="p">))</span>
 
-# violin
+<span class="c1"># violin</span>
 geom_violin
 
-# for pca
-install.packages(&quot;ggbiplot&quot;)
-library(ggbiplot)
+<span class="c1"># for pca</span>
+install.packages<span class="p">(</span><span class="s">&quot;ggbiplot&quot;</span><span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>ggbiplot<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="time-series">
-<span id="time-series"></span><h1>time series<a class="headerlink" href="#time-series" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-time_series.R"><div class="highlight"><pre><span></span>data(&quot;AirPassengers&quot;)
-class(AirPassengers)
-# =&gt; [1] &quot;ts&quot;
-tsp(AirPassengers)
-# =&gt; start end frequency
+<span id="time-series"></span><h2>time series<a class="headerlink" href="#time-series" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span>data<span class="p">(</span><span class="s">&quot;AirPassengers&quot;</span><span class="p">)</span>
+<span class="kp">class</span><span class="p">(</span>AirPassengers<span class="p">)</span>
+<span class="c1"># =&gt; [1] &quot;ts&quot;</span>
+tsp<span class="p">(</span>AirPassengers<span class="p">)</span>
+<span class="c1"># =&gt; start end frequency</span>
 
-# plot
-plot(AirPassengers)
-decomposed &lt;-decompose(AirPassengers)
-plot(decomposed)
-# observed, trend, seasonal, random
+<span class="c1"># plot</span>
+plot<span class="p">(</span>AirPassengers<span class="p">)</span>
+decomposed <span class="o">&lt;-</span>decompose<span class="p">(</span>AirPassengers<span class="p">)</span>
+plot<span class="p">(</span>decomposed<span class="p">)</span>
+<span class="c1"># observed, trend, seasonal, random</span>
 
-## 変化率 log近似とdefault
-plot(diff(log(AirPassengers)))
-plot(diff(AirPassengers) / AirPassengers)
+<span class="c1">## 変化率 log近似とdefault</span>
+plot<span class="p">(</span><span class="kp">diff</span><span class="p">(</span><span class="kp">log</span><span class="p">(</span>AirPassengers<span class="p">)))</span>
+plot<span class="p">(</span><span class="kp">diff</span><span class="p">(</span>AirPassengers<span class="p">)</span> <span class="o">/</span> AirPassengers<span class="p">)</span>
 
-## (偏)自己相関
-acf(AirPassengers)
-pacf(AirPassengers)
+<span class="c1">## (偏)自己相関</span>
+acf<span class="p">(</span>AirPassengers<span class="p">)</span>
+pacf<span class="p">(</span>AirPassengers<span class="p">)</span>
 
-# TODO
+<span class="c1"># TODO</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="r-stats">
-<span id="r-stats"></span><h1>Rで共分散と相関係数を求める(自作と {stats})<a class="headerlink" href="#r-stats" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-r:Rで共分散と相関係数を求める.R"><div class="highlight"><pre><span></span>## 数式をプログラムに落とし込む練習
-# Σとか行列・ベクトルを見ても怖がらないように
-# 落ち着けば問題なさそう
-# 作っているうちにイメージしやすくなった
-# forがダサく見える…
-# もっといい方法があったら知りたい
+<span id="r-stats"></span><h2>Rで共分散と相関係数を求める(自作と {stats})<a class="headerlink" href="#r-stats" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1">## 数式をプログラムに落とし込む練習</span>
+<span class="c1"># Σとか行列・ベクトルを見ても怖がらないように</span>
+<span class="c1"># 落ち着けば問題なさそう</span>
+<span class="c1"># 作っているうちにイメージしやすくなった</span>
+<span class="c1"># forがダサく見える…</span>
+<span class="c1"># もっといい方法があったら知りたい</span>
 
-v1 &lt;- 1:9
-v2 &lt;- sample(v1)
-m &lt;- matrix(sample(v2), 3)
+v1 <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">9</span>
+v2 <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span>v1<span class="p">)</span>
+m <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="kp">sample</span><span class="p">(</span>v2<span class="p">),</span> <span class="m">3</span><span class="p">)</span>
 
-# cor
-(function(m){
-  len &lt;- dim(m)[1]
-  mat.cor &lt;- diag(rep(1, len))
-  for (k in 1:len) {
-    for (j in 1:len) {
-      if (k == j) next
-      if (k &gt; j) {
-        cor.kj &lt;- mat.cor[j, k]
-      } else {
-        d1 &lt;- m[, k] - mean(m[, k])
-        d2 &lt;- m[, j] - mean(m[, j])
-        cor.kj &lt;- sum(d1 * d2) / (sqrt(sum(d1 ** 2)) * sqrt(sum(d2 ** 2)))
-      }
-      mat.cor[k, j] &lt;- cor.kj
-    }
-  }
-  return(mat.cor)
-})(m)
-cor(m)
+<span class="c1"># cor</span>
+<span class="p">(</span><span class="kr">function</span><span class="p">(</span>m<span class="p">){</span>
+  len <span class="o">&lt;-</span> <span class="kp">dim</span><span class="p">(</span>m<span class="p">)[</span><span class="m">1</span><span class="p">]</span>
+  mat.cor <span class="o">&lt;-</span> <span class="kp">diag</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> len<span class="p">))</span>
+  <span class="kr">for</span> <span class="p">(</span>k <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>len<span class="p">)</span> <span class="p">{</span>
+    <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>len<span class="p">)</span> <span class="p">{</span>
+      <span class="kr">if</span> <span class="p">(</span>k <span class="o">==</span> j<span class="p">)</span> <span class="kr">next</span>
+      <span class="kr">if</span> <span class="p">(</span>k <span class="o">&gt;</span> j<span class="p">)</span> <span class="p">{</span>
+        cor.kj <span class="o">&lt;-</span> mat.cor<span class="p">[</span>j<span class="p">,</span> k<span class="p">]</span>
+      <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>
+        d1 <span class="o">&lt;-</span> m<span class="p">[,</span> k<span class="p">]</span> <span class="o">-</span> <span class="kp">mean</span><span class="p">(</span>m<span class="p">[,</span> k<span class="p">])</span>
+        d2 <span class="o">&lt;-</span> m<span class="p">[,</span> j<span class="p">]</span> <span class="o">-</span> <span class="kp">mean</span><span class="p">(</span>m<span class="p">[,</span> j<span class="p">])</span>
+        cor.kj <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span>d1 <span class="o">*</span> d2<span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="kp">sqrt</span><span class="p">(</span><span class="kp">sum</span><span class="p">(</span>d1 <span class="o">**</span> <span class="m">2</span><span class="p">))</span> <span class="o">*</span> <span class="kp">sqrt</span><span class="p">(</span><span class="kp">sum</span><span class="p">(</span>d2 <span class="o">**</span> <span class="m">2</span><span class="p">)))</span>
+      <span class="p">}</span>
+      mat.cor<span class="p">[</span>k<span class="p">,</span> j<span class="p">]</span> <span class="o">&lt;-</span> cor.kj
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="kr">return</span><span class="p">(</span>mat.cor<span class="p">)</span>
+<span class="p">})(</span>m<span class="p">)</span>
+cor<span class="p">(</span>m<span class="p">)</span>
 
-# cov
-(function(m){
-  len &lt;- dim(m)[1]
-  mat &lt;- matrix(0, len, len)
-  for (k in 1:len) {
-    for (j in 1:len) {
-      d1 &lt;- m[, k] - mean(m[, k])
-      d2 &lt;- m[, j] - mean(m[, j])
-      mat[k, j] &lt;- sum(d1 * d2)
-    }
-  }
-  return(mat / (len - 1))
-})(m)
-cov(m)
+<span class="c1"># cov</span>
+<span class="p">(</span><span class="kr">function</span><span class="p">(</span>m<span class="p">){</span>
+  len <span class="o">&lt;-</span> <span class="kp">dim</span><span class="p">(</span>m<span class="p">)[</span><span class="m">1</span><span class="p">]</span>
+  mat <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> len<span class="p">,</span> len<span class="p">)</span>
+  <span class="kr">for</span> <span class="p">(</span>k <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>len<span class="p">)</span> <span class="p">{</span>
+    <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>len<span class="p">)</span> <span class="p">{</span>
+      d1 <span class="o">&lt;-</span> m<span class="p">[,</span> k<span class="p">]</span> <span class="o">-</span> <span class="kp">mean</span><span class="p">(</span>m<span class="p">[,</span> k<span class="p">])</span>
+      d2 <span class="o">&lt;-</span> m<span class="p">[,</span> j<span class="p">]</span> <span class="o">-</span> <span class="kp">mean</span><span class="p">(</span>m<span class="p">[,</span> j<span class="p">])</span>
+      mat<span class="p">[</span>k<span class="p">,</span> j<span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">sum</span><span class="p">(</span>d1 <span class="o">*</span> d2<span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="kr">return</span><span class="p">(</span>mat <span class="o">/</span> <span class="p">(</span>len <span class="o">-</span> <span class="m">1</span><span class="p">))</span>
+<span class="p">})(</span>m<span class="p">)</span>
+cov<span class="p">(</span>m<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="r">
-<span id="r"></span><h1>Rで変数削除<a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="highlight-r:Rで変数削除.R"><div class="highlight"><pre><span></span>library(dplyr)
-library(caret)
+<span id="r"></span><h2>Rで変数削除<a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+<span class="kn">library</span><span class="p">(</span>caret<span class="p">)</span>
 
-df.filtered &lt;- df %&gt;%
-  select(-caret::nearZeroVar(df)) %&gt;%
-  select(-caret::findCorrelation(cor(.), cutoff = 任意の閾値))
+df.filtered <span class="o">&lt;-</span> df <span class="o">%&gt;%</span>
+  select<span class="p">(</span><span class="o">-</span>caret<span class="o">::</span>nearZeroVar<span class="p">(</span>df<span class="p">))</span> <span class="o">%&gt;%</span>
+  select<span class="p">(</span><span class="o">-</span>caret<span class="o">::</span>findCorrelation<span class="p">(</span>cor<span class="p">(</span><span class="m">.</span><span class="p">),</span> cutoff <span class="o">=</span> 任意の閾値<span class="p">))</span>
 
-# おまけ
-# tidyr　はたいでぃーあーる
+<span class="c1"># おまけ</span>
+<span class="c1"># tidyr　はたいでぃーあーる</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id2"></span><h1>他記事のリンク<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id2"></span><h2>他記事のリンク<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="r">
-<span id="id3"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/e5df50251402369b978d">Rで簡単に前処理＋クロス集計＋α</a><a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id3"></span><h3><a class="reference external" href="http://qiita.com/ksomemo/items/e5df50251402369b978d">Rで簡単に前処理＋クロス集計＋α</a><a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="r">
-<span id="id4"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/c80802a16e75dd38ea8a">Rでの前処理として覚えたこと</a><a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id4"></span><h3><a class="reference external" href="http://qiita.com/ksomemo/items/c80802a16e75dd38ea8a">Rでの前処理として覚えたこと</a><a class="headerlink" href="#r" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="rseq">
-<span id="rseq"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/2c399a35b8edf087237c">Rのseqを使って先月を求めるときの注意点</a><a class="headerlink" href="#rseq" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="rseq"></span><h3><a class="reference external" href="http://qiita.com/ksomemo/items/2c399a35b8edf087237c">Rのseqを使って先月を求めるときの注意点</a><a class="headerlink" href="#rseq" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="not-installed-package-names">
-<span id="not-installed-package-names"></span><h2><a class="reference external" href="http://qiita.com/ksomemo/items/b6ed564ff247261bd31f">not installed package names</a><a class="headerlink" href="#not-installed-package-names" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="not-installed-package-names"></span><h3><a class="reference external" href="http://qiita.com/ksomemo/items/b6ed564ff247261bd31f">not installed package names</a><a class="headerlink" href="#not-installed-package-names" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>もう一回インストールしたら嵌りそうなもの</li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -593,6 +841,15 @@ df.filtered &lt;- df %&gt;%
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="RStudio にあるpublishについて(shinyapps).html" class="btn btn-neutral float-right" title="RStudio にあるpublishについて(shinyapps)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Python以外 in jupyter notebook .html" class="btn btn-neutral" title="Python以外 in jupyter notebook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

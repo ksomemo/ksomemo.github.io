@@ -1,3 +1,4 @@
+# ipythonで使っているtimeitをpython code内で使ってみた
 ## timeit
 
 ```py3

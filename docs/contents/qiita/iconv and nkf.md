@@ -1,4 +1,4 @@
-
+# iconv and nkf
 - nkfばっかりつかってたのでメモ
 - guessできないっぽい
 - のでnkfの方がいいと思ってnkfも調べてた
@@ -12,13 +12,13 @@ iconv (GNU libiconv 1.11)
 - `iconv --help`
 - `man iconv`
 
-iconv - character set conversion 
+iconv - character set conversion
 
 ### code list
 `iconv -l`
 
 ### example
-```bash:iconv-exmaple.sh
+```bash
 echo 'text' | iconv -f from_encoding -t to_encoding
 iconv -f e -t e from.txt > out.txt
 ```
@@ -35,45 +35,55 @@ help見てたらいろんな変換あったのでメモ
 ### 仮名 to カナ
 エシディシに感謝
 
-```bash:nkf-仮名-to-カナ.sh
+```bash
 echo "あァァァんまりだァァアァ" | nkf --katakana
-アァァァンマリダァァアァ
+# アァァァンマリダァァアァ
 
 echo "あァァァんまりだァァアァ" | nkf --katakana | nkf --hiragana
-あぁぁぁんまりだぁぁあぁ
+# あぁぁぁんまりだぁぁあぁ
 
 echo "あァァァんまりだァァアァ" | nkf --katakana-hiragana
-アぁぁぁンマリダぁぁあぁ
+# アぁぁぁンマリダぁぁあぁ
 ```
 
 ### 半角 to 全角
-```bash:nkf-han-to-zen.sh
+```bash
 echo "ﾊﾟﾊﾟｼﾞｼﾞ" | nkf -X
-パパジジ
+# パパジジ
 ```
 
 ### Z option
 >
-```txt:z-option.txt
+```
 Z[0-4]   Default/0: Convert JISX0208 Alphabet to ASCII
           1: Kankaku to one space  2: to two spaces  3: HTML Entity
           4: JISX0208 Katakana to JISX0201 Katakana
 ```
 
-```bash:nkf-z-exmaple.sh
+nkf-z-exmaple.sh
+
+```bash
 echo "ａ" | nkf -Z0
 a
-# ａ -> 
+# ａ ->
+```
 
+```bash
+echo "ａ" | nkf -Z0
 echo "&<>'\"" | nkf -Z3
-&amp;&lt;&gt;'&quot;
+# &amp;&lt;&gt;'&quot;
+```
 
+```bash
+echo "ａ" | nkf -Z0
 echo "ﾊﾟﾊﾟｼﾞｼﾞ" | nkf -Z4
-パパジジ
+# パパジジ
+```
 
+```bash
+echo "ａ" | nkf -Z0
 echo "ﾊﾟﾊﾟｼﾞｼﾞ" | nkf -Z4 | nkf -Z4
-ﾊﾟﾊﾟｼﾞｼﾞ
-### 
+# ﾊﾟﾊﾟｼﾞｼﾞ
 ```
 
 ### Z1/Z2(全角スペース to 半角スペース)
@@ -83,23 +93,25 @@ echo "ﾊﾟﾊﾟｼﾞｼﾞ" | nkf -Z4 | nkf -Z4
 - Z2: to two spaces
 - Kankakuの定義とは？（TODO）
 
-```bash:nkf-z1-z2-exmaple.sh
+```bash
 echo -n "" | wc -c
-       0
+#       0
 
 # 全角
 echo -n "　" | wc -c
-       3
+#       3
 
 echo -n "　" | nkf -Z2 | wc -c
-       2
+#       2
 
 echo -n "　" | nkf -Z2
-  %
+#  %
 ```
 
 ### おまけ
-```bash:nkf-sjis-to-utf8.sh
+nkf-sjis-to-utf8.sh
+
+```bash
 find . -name "*.R" | xargs nkf -g
 find . -name "*.R" | xargs nkf -w -S -Lu --in-place
 ```

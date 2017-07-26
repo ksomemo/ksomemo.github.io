@@ -1,3 +1,4 @@
+# note: redshift query
 ## sqlserver2014から移行前提のメモ
 
 - with使える
@@ -11,12 +12,13 @@
 - declare @varname type = value が使えない(t-sqlなので当たり前)
 - 使えない＋下記構文より、定型クエリの微調整がめんどうだった
 
-```prepared_statement.sql
-prepare prep_select_plan (int, varchar) 
-as 
+#### prepared_statement.sql
+```sql
+prepare prep_select_plan (int, varchar)
+as
 select
   *
-  , $2 as myvar 
+  , $2 as myvar
 from
   table_name
 where id = $1;
@@ -29,16 +31,16 @@ deallocate prep_select_plan;
 - #になれたせいか、とても面倒に感じた
 - global一時テーブル##table_name に似たものは未調査
 
-```temporary_table.sql
+```sql
 create temporary table temp_table_name1 (id int, name varchar);
 
 select *
 into temporary table temp_table_name
 from (
   select 1 as class, 2 as v1, 3 as v2
-  union all select 1, 4, 5 
-  union all select 2, 6, 7 
-  union all select 2, 8, 9 
+  union all select 1, 4, 5
+  union all select 2, 6, 7
+  union all select 2, 8, 9
 ) t
 ```
 
@@ -46,7 +48,9 @@ from (
 - sqlserverにもあるけど今回初めて知った
 - listagg within groupを初めて見た
 
-```listagg.sql
+listagg.sql
+
+```sql
 select
   class
   , listagg(v1, ',') within group (order by null) as a
@@ -77,7 +81,9 @@ from temp_table_name
 postgresqlにもある
 
 ### 連番テーブル
-```generate_series.sql
+generate_series.sql
+
+```sql
 -- カラムはgenerate_seriesになる
 select
   *
@@ -86,7 +92,9 @@ cross join (select * from generate_series(1, 10)) as b
 ```
 
 ### 配列
-```array_access.sql
+array_access.sql
+
+```sql
 select
   ids
   , case when ids[0] is null then 'null!' else 'not null' end
@@ -100,7 +108,9 @@ from (select array[1, 2, 3] as ids) t
 - array_agg が使えなかった(縦->横)
 - unnest が使えなかった(横->縦)
 
-```array_agg.sql
+array_agg.sql
+
+```sql
 select
   class
   , array_agg(v1)
@@ -109,7 +119,8 @@ group by
   class
 ```
 
-```unnest.sql
+#### unnest.sql
+```sql
 select
   string
   , unnest(array[id1, id2, id3]) as id
@@ -126,8 +137,9 @@ select
 - sqlserver2014にはなかった
 - 2016から使えるらしい (https://blogs.msdn.microsoft.com/jocapc/2015/05/16/json-support-in-sql-server-2016/)
 
-```json.sql
-select 
+#### json.sql
+```sql
+select
   -- ↓使えなかった
   -- json_to_record('{"key1": "value1", "key2": 2}')
     json_extract_path_text('{"key1": {"nest_key": "nest_value"}, "key2": 2}', 'key1', 'nest_key')
@@ -140,10 +152,10 @@ select
 ```
 
 ### udf
-一覧はこれを見る 
+一覧はこれを見る
 
-```
-select * 
+```sql
+select *
 from pg_proc
 order by proname
 ```

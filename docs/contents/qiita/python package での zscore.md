@@ -1,3 +1,4 @@
+# python packageでのz-score
 ## 動機とまとめ
 - pandasでzsore method見ないなと調べていた
 - あるけどAttributeErrorになった
@@ -8,8 +9,10 @@
 ## おまけ
 途中、scipy.statsが急に使えなくなったので、updateやpyenv rehashして復旧させた
 
+<https://gist.github.com/ksomemo/efba1e4eafe28298d572>
+
 ## code
-```py3:zcore.py
+```py3
 import pandas as pd
 import numpy as np
 import scipy as sp

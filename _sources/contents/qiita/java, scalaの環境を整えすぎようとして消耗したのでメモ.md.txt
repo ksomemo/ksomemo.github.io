@@ -1,3 +1,4 @@
+# java, scalaの環境を整えすぎようとして消耗したのでメモ
 ## scala環境
 - scala
     - scalaenv
@@ -27,8 +28,8 @@ http://d.hatena.ne.jp/xuwei/20140203/1391400111
 - installできるversionが比較的新しい
 - 作者は他にもsbt/play framework用のxenvを作っている
 
-```bash:brew_info_scalaenv.sh
-% brew info scalaenv
+```shell-session
+brew info scalaenv
 scalaenv: stable 0.0.7, HEAD
 https://github.com/mazgi/scalaenv
 Not installed
@@ -45,18 +46,18 @@ To enable shims and autocompletion add to your profile:
 - 昔のversionもinstallできる
 - 上記の理由でこちらにした
 
-```bash:svm_install.sh
+```bash
 git clone git@github.com:yuroyoro/svm.git ~/.svm
 ```
 
-```bash:svm_setting.sh
+```bash
 export SCALA_HOME=~/.svm/current/rt
 export PATH=~/.svm:$PATH
 export PATH=$SCALA_HOME/bin:$PATH
 ```
 
 #### install
-```bash:svm_scala_install.sh
+```bash
 svm install 2.11.7
 ```
 
@@ -68,7 +69,7 @@ svm install 2.11.7
 
 とのこと
 
-```bash:jenv_install.sh
+```shell-session
 % brew install jenv
 ==> Downloading https://github.com/gcuisinier/jenv/archive/0.4.2.tar.gz
 ######################################################################## 100.0%
@@ -82,20 +83,21 @@ To use Homebrew's directories rather than ~/.jenv add to your profile:
 
 と上に書いてあったけど、下記設定にした
 
-```bash:jenv_setting.sh
+```bash
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 ```
 
-```bash:jenv_add.sh
+```bash
 jenv add /System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
 jenv add /Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home
 jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
 ```
 
 ### version
-```bash:jenv_versions.sh
-% jenv versions
+```shell-session
+jenv versions
+
 * system (set by $HOME/.jenv/version)
   1.6
   1.6.0.65
@@ -108,7 +110,7 @@ jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home
   oracle64-1.8.0.20
 ```
 
-```bash:jenv_switch_version.sh
+```bash
 jenv shell 1.7
 jenv rehash
 ```
@@ -124,7 +126,7 @@ jenv rehash
 - 2.10/11系は正常に動作する
 
 ### doctor
-```bash:jenv_doctor.sh
+```shell-session
 jenv doctor
 [ERROR]	JAVA_HOME variable already set, scripts that use it directly could not use java version set by jenv
 [OK]	Java binaries in path are jenv shims
@@ -136,7 +138,7 @@ jenv doctor
 
 初期化がうまくいってないのかなと思い、まずはevalしているinitを確認
 
-```bash:echo_jenv_init.sh
+```bash
 export PATH="$HOME/.jenv/shims:${PATH}"
 source "/usr/local/Cellar/jenv/0.4.2/libexec/libexec/../completions/jenv.zsh"
 jenv rehash 2>/dev/null
@@ -171,8 +173,9 @@ JAVA_HOME系で消耗するの他にもありそう…。
 ## plugin
 プラグインがあるらしいのでとりあえず見てみたら、
 
-```bash:jenv_plugins.sh
-% jenv plugins
+```shell-session
+jenv plugins
+
 ant
 export
 golo
@@ -190,8 +193,8 @@ springboot
 - その他build系ツールもたくさんあり、gradleあるならgroovyも
 - さらにClojureのleinまである充実さ
 
-```bash:jenv_enable_plugin.sh
-% jenv enable-plugin
+```shell-session
+jenv enable-plugin
 Usage: jenv enable-plugin <pluginName>
 
 Activate a jEnv plugin
@@ -200,7 +203,7 @@ Activate a jEnv plugin
 pluginを使うのはあとで試してみる
 
 ### 試してみた
-```bash:jenv_enable_plugins.sh
+```bash
 for p in `jenv plugins`; do jenv enable-plugin $p; done
 ll ~/.jenv/plugins/*/etc/jenv.d/exec/*.bash
 # $pluginName-before.bash というファイル
@@ -214,7 +217,7 @@ ll ~/.jenv/plugins/*/etc/jenv.d/rehash/*.bash
 #### Pluginの最有効化
 sbtを `brew install sbt` でインストールしたあとに、実行するとエラーになった
 
-```bash:stb-error.txt
+```shell-session
 sbt
 
 No java installations was detected.

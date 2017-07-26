@@ -1,6 +1,7 @@
+# python date_range (dateutil／pandas and offset aliasまとめ)
 ## date_range
 ### dateutil
-```py3:datetime_range.py
+```py3
 from dateutil import (
     rrule,
     parser
@@ -45,13 +46,13 @@ list(rrule.rrule(rrule.DAILY, dtstart=start_date, until=end_date))
 - pd.offsets.MonthBeginは使う必要なかった
     - http://docs.python.jp/3/library/datetime.html#datetime.datetime.replace
 
-```datetime_replace.py
+```py3
 # pandas.Timestampのまま返ってくる
 dt.replace(year=2000, month=10, day=1, hour=2, minute=3, second=4, microsecond=123456)
 Timestamp('2000-10-01 02:03:04.123456')
 ```
 
-```pandas_offsets.py
+```py3
 """
 (月初/中/末)日付 × 月末offset(0, 1) × (加算減算)の組合せのうち、
 どれを行えば求められるか
@@ -98,7 +99,7 @@ df.pivot_table(index=["offset", "operator"],
 - 月末はMonthBegin(0)を使えば加減どちらでもよい
 - 意味としては足したほうがわかりやすい
 
-```pandas_offsets_result.txt
+```
 correct                   False  True
 offset          operator
 <0 * MonthEnds> add         NaN    3.0

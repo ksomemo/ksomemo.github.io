@@ -1,3 +1,4 @@
+# dotenv in python/ipython
 ## 動機
 django触っていたらSECRET_KEYが出てきたので隠したかった
 

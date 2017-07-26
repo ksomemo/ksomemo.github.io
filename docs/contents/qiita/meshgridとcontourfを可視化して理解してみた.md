@@ -1,4 +1,8 @@
-```py3:numpy_meshgrid.py
+# meshgridとcontourfを可視化して理解してみた
+
+numpy_meshgrid.py
+
+```py3
 # http://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.meshgrid.html
 import numpy as np
 import pandas as pd
@@ -38,4 +42,5 @@ plt.colorbar(contourf)
 
 ```
 
-![numpy_meshgrid.png](https://qiita-image-store.s3.amazonaws.com/0/6982/8261f6d7-c7ac-48ce-f1e5-bc14cc6b9c81.png)
+![numpy_meshgrid.png](meshgridとcontourfを可視化して理解してみた.png)
+

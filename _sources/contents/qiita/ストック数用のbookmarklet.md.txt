@@ -1,3 +1,4 @@
+# ストック用のbookmarklet
 - http://qiita.com/hikarut/items/c71063af8cb79124de72 のextensionが動かなかったので、bookmarkletにした
 - error logをalertにした
 - chromeなのでes6で書いてみた
@@ -5,7 +6,7 @@
 - 一部minifyしてある
 - stockersへのリンク追加
 
-```js:qiita_stock.js
+```js
 javascript:(() => {
     let path = window.location.pathname
     , itemId=path.substr(-20, 20)

@@ -1,7 +1,9 @@
-
+# ndarrayの結合
 http://qiita.com/ksomemo/items/81c88378a1dffa5cbea7 の続き
 
-```py3:numpy_concat.py
+numpy_concat.py
+
+```py3
 import numpy as np
 import pandas as pd
 

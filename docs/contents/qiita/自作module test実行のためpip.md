@@ -1,14 +1,15 @@
+# 自作module test実行のためpip
 実行のためにめんどうな設定を指定たので調べてみた。
 
 ## 今までのmoduleへのPATHを通し方
 - 自分用では、setup.pyからのtest実行時にsys.pathへの追加
 - PYTHONPATHへの設定追加
 
-```py3:sys_path_append.py
+```python3
 sys.path.append('/path/to/module')
 ```
 
-```bash:PYTHONPATH.sh
+```bash
 export PYTHONPATH=path/to/module
 ```
 
@@ -18,11 +19,11 @@ export PYTHONPATH=path/to/module
 - pyvenvでvirtual envの設定(pyenvで今まで済ませていたけど、pyenv使えない環境のための勉強用)
 - test用moduleのinstall
 
-## pip install -e <PATH>
+## pip install -e PATH
 - local pathをmoduleとしてinstallできる(privateなrepositoryも？)
 - pipなので最低限のsetup.pyを用意する必要がある
 
-```py3:setup.py
+```python3
 from setuptools import setup
 
 setup(
@@ -32,7 +33,7 @@ setup(
 
 環境設定と合わせると以下のとおり
 
-```bash:env_setting.sh
+```bash
 cd path/to/module
 pyvenv venv
 pip install pytest
@@ -40,7 +41,7 @@ pip install pytest
 pip install -e .
 ```
 
-```bash:pip_freeze.sh
+```bash
 pip freeze
 py==1.4.30
 pytest==2.7.2
@@ -50,7 +51,7 @@ mymodule==0.0.0
 ## test実行
 pytestのテスト収集規則により、venv/lib/pythonXX/site-packages内のtestが実行されるので自分のtestのみを対象にする
 
-```bash:pytest.sh
+```bash
 py.test test
 ```
 

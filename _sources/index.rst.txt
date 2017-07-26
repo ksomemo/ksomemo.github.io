@@ -7,12 +7,13 @@ Welcome to gh-pages's documentation!
 ====================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
+   :glob:
 
-    qiita/*
-    memo/*
-    notebooks/*
+   contents/qiita/*
+   contents/memo/*
+   contents/notebooks/**/*
 
 
 Indices and tables
@@ -21,3 +22,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+

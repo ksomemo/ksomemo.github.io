@@ -1,3 +1,4 @@
+# Python以外 in jupyter notebook
 ## 前提
 - mac
 - brewで環境設定
@@ -26,15 +27,15 @@ installしたあと、どうなっているのか気になったのでメモ
 conda create -n my-r-env -c r r-essentials
 -c CHANNEL, --channel CHANNEL
 
-Additional channel to search for packages. 
+Additional channel to search for packages.
 These are URLs searched in the order they are given
-(including file:// for local directories). 
+(including file:// for local directories).
 Then, the defaults or channels from .condarc are searched
-(unless --override-channels is given). 
-You can use 'defaults' to get the default packages for conda, 
-and 'system' to get the system packages, 
-which also takes .condarc into account. 
-You can also use any name and the .condarc channel_alias value will be prepended. 
+(unless --override-channels is given).
+You can use 'defaults' to get the default packages for conda,
+and 'system' to get the system packages,
+which also takes .condarc into account.
+You can also use any name and the .condarc channel_alias value will be prepended.
 The default channel_alias is http://conda.anaconda.org/.
 ```
 
@@ -63,7 +64,7 @@ r-boot-1.3_17-r3.2.2_0.tar.bz2
 ```
 
 ### jupyter notebookからPackageのInstall
-```r
+```R
 jupyter notebook
 # select R kernel
 # 今回のRでinstallされたPackageを読み込んでみる
@@ -99,7 +100,7 @@ Loading required package: pbapply
 
 # 当たり前だけど元のRでは失敗
 library(A3)
-library(A3) でエラー:  ‘A3’ という名前のパッケージはありません 
+library(A3) でエラー:  ‘A3’ という名前のパッケージはありません
 ```
 
 ### defaultでインストールされるパッケージ
@@ -211,30 +212,28 @@ Found 3 packages
 conda list | awk '$4=="r" {print $1}' | xargs conda uninstall
 find ~/.pyenv/versions/miniconda3-3.9.1/ -name R | xargs rm -rf
 # 以下消えてた
-~/.pyenv/versions/miniconda3-3.9.1/bin/R 
+~/.pyenv/versions/miniconda3-3.9.1/bin/R
 ~/.pyenv/versions/miniconda3-3.9.1/share/jupyter/kernels/ir/kernel.json
 ```
 
 ## Rから
 めちゃくちゃ簡単
 
-```markdown
 - https://github.com/IRkernel/IRkernel
 - http://irkernel.github.io/
-```
 
 ### install requirements
-```r
+```R
 install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
                  repos = c('http://irkernel.github.io/', getOption('repos')))
 ```
 
 ### IRkernel setting
-```r
+```R
 IRkernel::installspec()
- if (is.na(a)) return(-1L) でエラー:  引数の長さが 0 です 
- 追加情報:  警告メッセージ: 
- 命令 ''ipython' --version 2>/dev/null' の実行は状態 126 を持ちました  
+ if (is.na(a)) return(-1L) でエラー:  引数の長さが 0 です
+ 追加情報:  警告メッセージ:
+ 命令 ''ipython' --version 2>/dev/null' の実行は状態 126 を持ちました
 
 # RStudioで失敗したのでitermからR実行
 IRkernel::installspec()
@@ -251,7 +250,7 @@ cat ~/Library/Jupyter/kernels/ir/kernel.json                                    
 ### run notebook
 ```
 jupyter notebook
-# select kernel 
+# select kernel
 New > R
 library(devtools) # success
 library(ggplot2)
@@ -271,12 +270,12 @@ windowsだとMATLABを、Macならこれをと言われてちょっと調べて�
 - 有料だと知っていたMATLABの互換性がある（完全ではないっぽい
 
 ## install
-```sh:install_octave.sh
+```bash
 brew tap homebrew/science
 brew install octave
 ```
 
-```text:dependencies.txt
+### dependencies
 - qscintilla2
 - gnuplot
 - tbb
@@ -297,10 +296,9 @@ brew install octave
   - epstool
   - imagemagick
   - pstoedit
-```
 
 ## 警告
-```text:warning.txt
+```
 Warning: gnuplot dependency libtiff was built with a different C++ standard
 library (libstdc++ from gcc). This may cause problems at runtime.
 
@@ -311,7 +309,8 @@ Warning: octave dependency libtiff was built with a different C++ standard
 library (libstdc++ from gcc). This may cause problems at runtime.
 ```
 
-```text:caveats.txt
+### caveats
+```
 ==> Caveats
 
 gnuplot's Qt terminal is supported by default with the Octave GUI.
@@ -334,7 +333,7 @@ use the command-line argument "--force-gui"; e.g.,
 ## 起動用のipython kernel
 octaveコマンドからREPLによるプログラミングをできるようだけど、KernelについてはPythonしか使っていなかったので、その勉強も込めてインストール。
 
-```sh:pip_search_kernel.sh
+```bash
 pip search _kernel
 octave_kernel           - An Octave kernel for Jupyter/IPython
 bash_kernel             - A bash kernel for Jupyter
@@ -347,7 +346,7 @@ redis_kernel            - A redis kernel for IPython
 jupyter_kernel_test     - Machinery for testing Jupyter kernels via the messaging protocol.
 ```
 
-```sh:pip_install_octave.sh
+```bash
 pip install octave_kernel
 # kernel設定が追加されている
 python -m octave_kernel.install
@@ -377,7 +376,7 @@ https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages
 # Hasklell
 note:IHaskell (jupyter + Haskell)
 
-```env_ihaskell.sh
+```bash
 # https://remusao.github.io/install-ihaskell-on-ubuntu-1404-with-stack.html
 
 # Haskell setup
@@ -442,7 +441,7 @@ main = do
 ---
 
 # Scala
-install jupyter-scala 
+install jupyter-scala
 ## 動機
 本家・R・Octaveと分析関連のKernel以外を試してみたかった
 
@@ -454,7 +453,7 @@ install jupyter-scala
 ## isntall
 `bash -vxe 下記script`
 
-```bash:install-jupyter-scala.sh
+```bash
 # https://github.com/alexarchambault/jupyter-scala
 home_local=$(echo ~)/local
 arc_dir=jupyter-scala_2.11.6-0.2.0-SNAPSHOT

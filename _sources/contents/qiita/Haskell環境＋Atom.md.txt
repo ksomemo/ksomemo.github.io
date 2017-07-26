@@ -1,3 +1,5 @@
+# Haskell環境＋Atom
+
 またHaskell熱が出てきたので環境を整えてみた
 
 前の環境から最近の環境の流れは以下のとおりらしい
@@ -38,18 +40,15 @@ build後にPATHを通すと書いてあったが、2番目の参考より、inst
 
 ## コマンド
 
-### stack
-```bash:brew_install_stack.sh
+### install stack using brew
+```bash
 #brew update
 brew install haskell-stack
-```
-
-```bash:stack_bin_path.sh
 export PATH=~/.local/bin:$PATH
 ```
 
 ### Haskell packages
-```bash:install_haskell_packages.sh
+```bash
 # LTSな環境でインストール
 stack new projectname
 cd projectname
@@ -67,11 +66,11 @@ stack install ghc-mod
 ```
 
 ### atom packages
-```bash:install_atom_haskell_packages.sh
+```bash
 apm install language-haskell
 apm install haskell-ghc-mod
 apm install ide-haskell
 apm install autocomplete-haskell
 apm install linter
-apm install linter-hlint 
+apm install linter-hlint
 ```

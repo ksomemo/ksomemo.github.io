@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>目的 &mdash; gh-pages  ドキュメント</title>
+  <title>Upload package to PyPI By twine &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../genindex.html"/>
         <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/>
+        <link rel="next" title="Vagrantで立ち上げたVMにSCPでファイル転送" href="Vagrantで立ち上げたVMにSCPでファイル転送.html"/>
+        <link rel="prev" title="US keyboard Cheat Sheet" href="US keyboard Cheat Sheet.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -84,43 +86,286 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">目的</a></li>
-<li><a class="reference internal" href="#setup-py">設定(setup.py)</a><ul>
-<li><a class="reference internal" href="#version">version</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Excel VBA.html">Excel VBA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRedshiftに接続.html">PythonからRedshiftに接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html">Python以外 in jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#r">R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#octave">octave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#scala">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R tips.html">R tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Upload package to PyPI By twine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#">目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-py">設定(setup.py)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version">version</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#upload">uploadするファイルの準備</a><ul>
-<li><a class="reference internal" href="#">成果物</a><ul>
-<li><a class="reference internal" href="#">確認</a></li>
-<li><a class="reference internal" href="#dist">dist</a></li>
-<li><a class="reference internal" href="#wheel">wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload">uploadするファイルの準備</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">成果物</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">確認</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dist">dist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wheel">wheel</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#upload">Upload</a><ul>
-<li><a class="reference internal" href="#">アカウントの登録</a></li>
-<li><a class="reference internal" href="#testpypi">testpypi</a></li>
-<li><a class="reference internal" href="#twine">twine</a><ul>
-<li><a class="reference internal" href="#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload">Upload</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#">アカウントの登録</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testpypi">testpypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#twine">twine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install">install</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pypirc">.pypirc</a><ul>
-<li><a class="reference internal" href="#">アカウント登録前</a></li>
-<li><a class="reference internal" href="#">アカウント登録後</a></li>
-<li><a class="reference internal" href="#packageproject">packageをProjectとして登録</a></li>
-<li><a class="reference internal" href="#tar-gz-whlupload">tar.gz と whlのUpload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypirc">.pypirc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#">アカウント登録前</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#">アカウント登録後</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#packageproject">packageをProjectとして登録</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tar-gz-whlupload">tar.gz と whlのUpload</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#pip-install">pip install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pip-install">pip install</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#">参考</a></li>
-<li><a class="reference internal" href="#">おまけ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">おまけ</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editRを試した.html">editR試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faker サンプルデータ作成.html">faker サンプルデータ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: 行列の性質や数式テクニック.html">note: 行列の性質や数式テクニック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell tips.html">shell tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy.html">numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -163,7 +408,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>目的</li>
+      <li>Upload package to PyPI By twine</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -216,8 +461,10 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
+<div class="section" id="upload-package-to-pypi-by-twine">
+<span id="upload-package-to-pypi-by-twine"></span><h1>Upload package to PyPI By twine<a class="headerlink" href="#upload-package-to-pypi-by-twine" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="">
-<span id="id1"></span><h1>目的<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id1"></span><h2>目的<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>ライブラリ公開に対して気楽になるように経験する</li>
 <li>setup.pyの勉強</li>
@@ -226,7 +473,7 @@
 <p>packageはtravis試した時に作ったがらくた</p>
 </div>
 <div class="section" id="setup-py">
-<span id="setup-py"></span><h1>設定(setup.py)<a class="headerlink" href="#setup-py" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="setup-py"></span><h2>設定(setup.py)<a class="headerlink" href="#setup-py" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>いろいろ設定する</li>
 <li>DRYにしようとすると面倒</li>
@@ -234,7 +481,7 @@
 <li>現在はsetuptoolが主流なので、便利と思って使ってはいけない</li>
 </ul>
 <div class="section" id="version">
-<span id="version"></span><h2>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="version"></span><h3>version<a class="headerlink" href="#version" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>めんどうなものの１つ</li>
 <li>ほかにはREADMEを読み込んでlong_descriptionに設定するもの</li>
@@ -243,46 +490,46 @@
 </div>
 </div>
 <div class="section" id="upload">
-<span id="upload"></span><h1>uploadするファイルの準備<a class="headerlink" href="#upload" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="upload"></span><h2>uploadするファイルの準備<a class="headerlink" href="#upload" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>source codeのtar ball</li>
 <li>userがbuildしなくて済むようにするwheel</li>
 </ul>
 <p>なにを実行しているかわかりやすようにgrepしてみた。詳細は素の出力をみるとわかる</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">sdist</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">running</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python setup.py sdist <span class="p">|</span> grep running
 
-<span class="n">running</span> <span class="n">sdit</span>
-<span class="n">running</span> <span class="n">egg_info</span>
-<span class="n">running</span> <span class="n">check</span>
+running sdit
+running egg_info
+running check
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">bdist_wheel</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">running</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>python setup.py bdist_wheel <span class="p">|</span> grep running
 
-<span class="n">running</span> <span class="n">bdist_wheel</span>
-<span class="n">running</span> <span class="n">build</span>
-<span class="n">running</span> <span class="n">build_py</span>
-<span class="n">running</span> <span class="n">install</span>
-<span class="n">running</span> <span class="n">install_lib</span>
-<span class="n">running</span> <span class="n">install_egg_info</span>
-<span class="n">running</span> <span class="n">egg_info</span>
-<span class="n">running</span> <span class="n">install_scripts</span>
+running bdist_wheel
+running build
+running build_py
+running install
+running install_lib
+running install_egg_info
+running egg_info
+running install_scripts
 </pre></div>
 </div>
 <div class="section" id="">
-<span id="id2"></span><h2>成果物<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id2"></span><h3>成果物<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>build</li>
 <li>ciserviceex.egg-info</li>
 <li>dist</li>
 </ul>
 <div class="section" id="">
-<span id="id3"></span><h3>確認<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="id3"></span><h4>確認<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>eff-infoのPKG_INFOを見ればsetup.pyの設定の反映を確認できる</p>
 </div>
 <div class="section" id="dist">
-<span id="dist"></span><h3>dist<a class="headerlink" href="#dist" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="dist"></span><h4>dist<a class="headerlink" href="#dist" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>uploadするもの</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>tree dist
+<div class="highlight-bash"><div class="highlight"><pre><span></span>tree dist
 
 dist
 ├── ciserviceex-0.0.1-py2.py3-none-any.whl
@@ -291,13 +538,13 @@ dist
 </div>
 </div>
 <div class="section" id="wheel">
-<span id="wheel"></span><h3>wheel<a class="headerlink" href="#wheel" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="wheel"></span><h4>wheel<a class="headerlink" href="#wheel" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pypi</span><span class="o">/</span><span class="n">wheel</span>
-<span class="n">A</span> <span class="n">wheel</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">ZIP</span><span class="o">-</span><span class="nb">format</span> <span class="n">archive</span> <span class="k">with</span> <span class="n">a</span> <span class="n">specially</span> <span class="n">formatted</span> <span class="n">filename</span> <span class="ow">and</span> <span class="n">the</span> <span class="o">.</span><span class="n">whl</span> <span class="n">extension</span><span class="o">.</span> 
+<span class="n">A</span> <span class="n">wheel</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">ZIP</span><span class="o">-</span><span class="nb">format</span> <span class="n">archive</span> <span class="k">with</span> <span class="n">a</span> <span class="n">specially</span> <span class="n">formatted</span> <span class="n">filename</span> <span class="ow">and</span> <span class="n">the</span> <span class="o">.</span><span class="n">whl</span> <span class="n">extension</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>なので下記で確認できる</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>mkdir hoge &amp;&amp; cd $_
+<div class="highlight-bash"><div class="highlight"><pre><span></span>mkdir hoge <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$_</span>
 unzip ../dist/ciserviceex-0.0.1-py2.py3-none-any.whl
 </pre></div>
 </div>
@@ -305,34 +552,34 @@ unzip ../dist/ciserviceex-0.0.1-py2.py3-none-any.whl
 </div>
 </div>
 <div class="section" id="upload">
-<span id="id4"></span><h1>Upload<a class="headerlink" href="#upload" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id4"></span><h2>Upload<a class="headerlink" href="#upload" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="">
-<span id="id5"></span><h2>アカウントの登録<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="id5"></span><h3>アカウントの登録<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>https://pypi.python.org/pypi?%3Aaction=register_form</p>
 </div>
 <div class="section" id="testpypi">
-<span id="testpypi"></span><h2>testpypi<a class="headerlink" href="#testpypi" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="testpypi"></span><h3>testpypi<a class="headerlink" href="#testpypi" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>https://testpypi.python.org/pypi</li>
 <li>pypiのid/passは使えないのでアカウントはこれ用に登録する必要がある</li>
 </ul>
 </div>
 <div class="section" id="twine">
-<span id="twine"></span><h2>twine<a class="headerlink" href="#twine" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="twine"></span><h3>twine<a class="headerlink" href="#twine" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>setup.pyだけでもPyPIへの登録はできるが、こちらを推奨しているようなので使ってみた。理由はgithubに書いてあった</p>
 <ul class="simple">
 <li>https://github.com/pypa/twine</li>
 <li>http://bugs.python.org/issue12226</li>
 </ul>
 <div class="section" id="install">
-<span id="install"></span><h3>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">twine</span>
+<span id="install"></span><h4>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install twine
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="pypirc">
-<span id="pypirc"></span><h2>.pypirc<a class="headerlink" href="#pypirc" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="pypirc"></span><h3>.pypirc<a class="headerlink" href="#pypirc" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>pypi用の設定ファイル</p>
 <p>https://wiki.python.org/moin/EnhancedPyPI</p>
 <ul class="simple">
@@ -342,85 +589,85 @@ unzip ../dist/ciserviceex-0.0.1-py2.py3-none-any.whl
 <li>もしくはpasswordの設定だけ書かない</li>
 <li>passwordを含めた設定は以下のとおり</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">&lt;&lt;</span> <span class="n">EOF</span> <span class="o">&gt;</span> <span class="o">~/.</span><span class="n">pypirc</span>
-<span class="p">[</span><span class="n">distutils</span><span class="p">]</span>
-<span class="n">index</span><span class="o">-</span><span class="n">servers</span><span class="o">=</span>
-    <span class="n">pypi</span>
-    <span class="n">test</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt; EOF &gt; ~/.pypirc</span>
+<span class="s">[distutils]</span>
+<span class="s">index-servers=</span>
+<span class="s">    pypi</span>
+<span class="s">    test</span>
 
-<span class="p">[</span><span class="n">pypi</span><span class="p">]</span>
-<span class="n">repository</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pypi</span>
-<span class="n">username</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">xxx</span><span class="o">&gt;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">xxx</span><span class="o">&gt;</span>
+<span class="s">[pypi]</span>
+<span class="s">repository = https://pypi.python.org/pypi</span>
+<span class="s">username = &lt;xxx&gt;</span>
+<span class="s">password = &lt;xxx&gt;</span>
 
-<span class="p">[</span><span class="n">test</span><span class="p">]</span>
-<span class="n">repository</span> <span class="o">=</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">testpypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pypi</span>
-<span class="n">username</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">xxx</span><span class="o">&gt;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">xxx</span><span class="o">&gt;</span>
-<span class="n">EOF</span>
+<span class="s">[test]</span>
+<span class="s">repository = https://testpypi.python.org/pypi</span>
+<span class="s">username = &lt;xxx&gt;</span>
+<span class="s">password = &lt;xxx&gt;</span>
+<span class="s">EOF</span>
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">python</span> <span class="pre">-c</span> <span class="pre">&quot;import</span> <span class="pre">distutils&quot;</span></code> で一応使えるか確認しておいた</p>
 <div class="section" id="">
-<span id="id6"></span><h3>アカウント登録前<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">twine</span> <span class="n">upload</span> <span class="o">-</span><span class="n">r</span> <span class="n">test</span> <span class="n">dist</span><span class="o">/*</span>
+<span id="id6"></span><h4>アカウント登録前<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>twine upload -r <span class="nb">test</span> dist/*
 
-<span class="n">Uploading</span> <span class="n">distributions</span> <span class="n">to</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">testpypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pypi</span>
-<span class="n">Uploading</span> <span class="n">ciserviceex</span><span class="o">-</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
-<span class="n">HTTPError</span><span class="p">:</span> <span class="mi">401</span> <span class="n">Client</span> <span class="n">Error</span><span class="p">:</span> <span class="n">You</span> <span class="n">must</span> <span class="n">be</span> <span class="n">identified</span> <span class="n">to</span> <span class="n">edit</span> <span class="n">package</span> <span class="n">information</span> <span class="k">for</span> <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">testpypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pypi</span>
+Uploading distributions to https://testpypi.python.org/pypi
+Uploading ciserviceex-0.0.1-py2.py3-none-any.whl
+HTTPError: <span class="m">401</span> Client Error: You must be identified to edit package information <span class="k">for</span> url: https://testpypi.python.org/pypi
 </pre></div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id7"></span><h3>アカウント登録後<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">twine</span> <span class="n">upload</span> <span class="o">-</span><span class="n">r</span> <span class="n">test</span> <span class="n">dist</span><span class="o">/*</span>
+<span id="id7"></span><h4>アカウント登録後<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>twine upload -r <span class="nb">test</span> dist/*
 
-<span class="n">Uploading</span> <span class="n">distributions</span> <span class="n">to</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">testpypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pypi</span>
-<span class="n">Uploading</span> <span class="n">ciserviceex</span><span class="o">-</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
-<span class="n">HTTPError</span><span class="p">:</span> <span class="mi">403</span> <span class="n">Client</span> <span class="n">Error</span><span class="p">:</span> <span class="n">You</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">allowed</span> <span class="n">to</span> <span class="n">edit</span> <span class="s1">&#39;ciserviceex&#39;</span> <span class="n">package</span> <span class="n">information</span> <span class="k">for</span> <span class="n">url</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">testpypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pypi</span>
+Uploading distributions to https://testpypi.python.org/pypi
+Uploading ciserviceex-0.0.1-py2.py3-none-any.whl
+HTTPError: <span class="m">403</span> Client Error: You are not allowed to edit <span class="s1">&#39;ciserviceex&#39;</span> package information <span class="k">for</span> url: https://testpypi.python.org/pypi
 </pre></div>
 </div>
 </div>
 <div class="section" id="packageproject">
-<span id="packageproject"></span><h3>packageをProjectとして登録<a class="headerlink" href="#packageproject" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="packageproject"></span><h4>packageをProjectとして登録<a class="headerlink" href="#packageproject" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li>そもそもの使い方が違っていた</li>
 <li>https://github.com/pypa/twine/issues/21</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">twine</span> <span class="n">register</span> <span class="o">-</span><span class="n">r</span> <span class="n">test</span> <span class="n">dist</span><span class="o">/</span><span class="n">ciserviceex</span><span class="o">-</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">1.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>twine register -r <span class="nb">test</span> dist/ciserviceex-0.0.1.tar.gz
 </pre></div>
 </div>
 <p>Webブラウザでrepository URLにアクセスすると、右上のあたりにYour packages:が追加されている</p>
 </div>
 <div class="section" id="tar-gz-whlupload">
-<span id="tar-gz-whlupload"></span><h3>tar.gz と whlのUpload<a class="headerlink" href="#tar-gz-whlupload" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">twine</span> <span class="n">upload</span> <span class="n">dist</span><span class="o">/*</span>
+<span id="tar-gz-whlupload"></span><h4>tar.gz と whlのUpload<a class="headerlink" href="#tar-gz-whlupload" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>twine upload dist/*
 </pre></div>
 </div>
 <p>ようやくUploadできた</p>
 </div>
 </div>
 <div class="section" id="pip-install">
-<span id="pip-install"></span><h2>pip install<a class="headerlink" href="#pip-install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<span id="pip-install"></span><h3>pip install<a class="headerlink" href="#pip-install" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>-r test を消していままでの流れを実行すればpip install できるだろうけど、testpypiからインストールする方法を調べた</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">h</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install -h
 
-<span class="n">Package</span> <span class="n">Index</span> <span class="n">Options</span> <span class="p">(</span><span class="n">including</span> <span class="n">deprecated</span> <span class="n">options</span><span class="p">):</span>
-  <span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="o">&lt;</span><span class="n">url</span><span class="o">&gt;</span>       <span class="n">Base</span> <span class="n">URL</span> <span class="n">of</span> <span class="n">Python</span> <span class="n">Package</span> <span class="n">Index</span> <span class="p">(</span><span class="n">default</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span><span class="p">)</span><span class="o">.</span>
+Package Index Options <span class="o">(</span>including deprecated options<span class="o">)</span>:
+  -i, --index-url &lt;url&gt;       Base URL of Python Package Index <span class="o">(</span>default https://pypi.python.org/simple<span class="o">)</span>.
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">i</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">testpypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pypi</span> <span class="n">ciserviceex</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install -i https://testpypi.python.org/pypi ciserviceex
 
-<span class="n">Collecting</span> <span class="n">ciserviceex</span>
-  <span class="n">Downloading</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">testpypi</span><span class="o">.</span><span class="n">python</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">ciserviceex</span><span class="o">/</span><span class="n">ciserviceex</span><span class="o">-</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
-<span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">ciserviceex</span>
-<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">ciserviceex</span><span class="o">-</span><span class="mf">0.0</span><span class="o">.</span><span class="mi">1</span>
+Collecting ciserviceex
+  Downloading https://testpypi.python.org/packages/py2.py3/c/ciserviceex/ciserviceex-0.0.1-py2.py3-none-any.whl
+Installing collected packages: ciserviceex
+Successfully installed ciserviceex-0.0.1
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="">
-<span id="id8"></span><h1>参考<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id8"></span><h2>参考<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>https://python-packaging-user-guide.readthedocs.org/en/latest/distributing/</li>
 <li>https://github.com/pypa/sampleproject</li>
@@ -429,13 +676,14 @@ unzip ../dist/ciserviceex-0.0.1-py2.py3-none-any.whl
 </ul>
 </div>
 <div class="section" id="">
-<span id="id9"></span><h1>おまけ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<span id="id9"></span><h2>おまけ<a class="headerlink" href="#" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>uploadするということは事前にimportしてあげないといけないので、pathの通し方について出てきたリンクを貼っておく</p>
 <ul class="simple">
 <li>http://pythonhosted.org//setuptools/setuptools.html#development-mode</li>
 <li>http://stackoverflow.com/questions/19048732/python-setup-py-develop-vs-install</li>
 <li>https://mail.python.org/pipermail/distutils-sig/2014-April/024112.html</li>
 </ul>
+</div>
 </div>
 
 
@@ -445,6 +693,15 @@ unzip ../dist/ciserviceex-0.0.1-py2.py3-none-any.whl
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Vagrantで立ち上げたVMにSCPでファイル転送.html" class="btn btn-neutral float-right" title="Vagrantで立ち上げたVMにSCPでファイル転送" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="US keyboard Cheat Sheet.html" class="btn btn-neutral" title="US keyboard Cheat Sheet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

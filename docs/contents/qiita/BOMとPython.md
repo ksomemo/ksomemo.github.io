@@ -1,3 +1,4 @@
+# BOMとPython
 
 ## 動機
 あるファイルをMac OS Xで扱っていたらおかしかったので調べた
@@ -39,7 +40,9 @@ Pythonにおける扱いのutf_8_sigをencoding指定する
 - awk, sed, nkf等で処理する
 - 定数として存在するので利用する
 
-```py3:codecs_BOM_BE.py
+codecs_BOM_BE.py
+
+```py3
 import codecs
 print(codecs.BOM_BE) # => b'\xfe\xff'
 ```

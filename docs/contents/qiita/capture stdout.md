@@ -1,12 +1,15 @@
+# capture stdout in python
+
 - helpの一部だけ見たくてcapture
 - stream系あんまりわかってない
 - stringIOに溜め込んでいるものに対するflushわかってない
 - 一旦truncateしないとgetvalueしても前にcaptureしたものが残る
 
-[ContextManagerとcontextlibいろいろ](http://qiita.com/ksomemo/items/3d87934f82d5fcb51092)
-を流用
+[ContextManagerとcontextlibいろいろ] を流用
 
-```py3:capture_stdout.py
+capture_stdout.py
+
+```py3
 # http://docs.python.jp/3/library/io.html
 # http://stackoverflow.com/questions/4330812/how-do-i-clear-a-stringio-object
 import sys
@@ -35,7 +38,7 @@ with capture() as c:
     c.truncate(0)
     help(pd.Period)
     help_doc = c.getvalue()
-    
+
 print("output")
 print(c_log1.strip())
 print(c_log2.strip())
@@ -50,7 +53,7 @@ Help on class Period in module pandas._period:
 
 class Period(builtins.object)
  |  Represents an period of time
- |  
+ |
  |  Parameters
  |  ----------
  |  value : Period or compat.string_types, default None
@@ -64,7 +67,7 @@ class Period(builtins.object)
  |  hour : int, default 0
  |  minute : int, default 0
  |  second : int, default 0
- |  
+ |
  |  Methods defined here:
 True
 ```

@@ -1,3 +1,4 @@
+# Notebookに複数のDataFrameを(水平に)出力する+displayについて
 ## 調べた結果
 - core.displayのDisplayObjectを使ったものは出力できる
     - dataframeだけでなくいろいろなものを出力できる
@@ -9,7 +10,9 @@
     - ipythonのrepositoryにsampleがあった
     - pandas.DataFrameにはもちろん実装してあった(実際の処理はto_html)
 
-```display_multiple_df_as_html.py
+<https://gist.github.com/ksomemo/d3d1a47baebcceeafef949895612ec92>
+
+```py3
 import pandas as pd
 import IPython.core.display as display
 import IPython.display
@@ -18,7 +21,7 @@ import IPython.display
 from IPython.core.display import *
 from IPython.lib.display import *
 
-lib.display includes 
+lib.display includes
 __all__ = ['Audio', 'IFrame', 'YouTubeVideo', 'VimeoVideo', 'ScribdDocument',
            'FileLink', 'FileLinks']
 """
@@ -38,7 +41,7 @@ print("index: 3 (Out to Cell)")
 df[3:]
 ```
 
-```horizontal_display.py
+```py3
 class HorizontalDisplay:
     def __init__(self, *args):
         self.args = args

@@ -1,6 +1,7 @@
+# 再帰中に高階関数が交じると混乱する -> 難しく考え過ぎ脳を分解するだけ
 ## 例
 
-```hs:subs.hs
+```hs
 subs [] = [[]]
 subs (x:xs) = yss ++ map (x:) yss
  where
@@ -8,7 +9,7 @@ subs (x:xs) = yss ++ map (x:) yss
 ```
 
 ## そんなことはいいから、基底のところだけ考える
-```hs:subsBase.hs
+```hs
 -- subs [1,2]
 [[]] ++ map (2:) [[]]
 ```

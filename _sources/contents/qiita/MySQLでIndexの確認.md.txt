@@ -1,3 +1,4 @@
+# MySQLでIndexの確認
 ```sql
 show index from xxx
 ```

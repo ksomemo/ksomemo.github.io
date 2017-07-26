@@ -1,3 +1,5 @@
+# argparseのサブコマンドからのdispatchと引数の一致
+
 ## 問題点
 - クラスへ割り当て各メソッドをサブコマンドとする場合、サブコマンド間で異なる引数をInit時にむりくりContextとする
 - ContextObjectを作って各関数に割り当てても同じ
@@ -7,7 +9,9 @@
 というのを考えた時、関数から地道に各サブコマンドに対応するContextを処理して、それぞれのクラスにしたほうがよさそう？Airflowがそうしていた
 
 ## コード
-```py3:arg_context.py
+arg_context.py
+
+```python3
 import argparse
 
 class MyClass:
@@ -45,7 +49,9 @@ if __name__ == '__main__':
 ```
 
 
-```py3:args_to_dict.py
+args_to_dict.py
+
+```python3
 import argparse
 
 if __name__ == "__main__":
@@ -63,5 +69,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print(args) # namespace object
     dict_args = vars(args)
-    #args.func(**dict_args) # TypeError: mytest() got an unexpected keyword argument 'func' 
+    #args.func(**dict_args) # TypeError: mytest() got an unexpected keyword argument 'func'
 ```

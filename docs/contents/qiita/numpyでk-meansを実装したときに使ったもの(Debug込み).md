@@ -1,3 +1,4 @@
+# numpyでk-meansを実装したときに使ったもの(Debug込み)
 ## 概要
 - KMeansをとりあえず実装した(irisの特定カラム用)
     - [gist](https://gist.github.com/ksomemo/cb24c8e070231a6b06b9960ba4163b38)

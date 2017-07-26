@@ -1,3 +1,4 @@
+# pasty触ってみた
 ## formula
 - Rのあれ(y ~ x1 + x2)
 - patsyというpydata提供のpackage
@@ -11,7 +12,7 @@
 - http://patsy.readthedocs.org/en/latest/formulas.html
 - http://patsy.readthedocs.org/en/latest/categorical-coding.html
 
-```py3:df_ex.py
+```py3
 import numpy as np
 import pandas as pd
 import matplotlib
@@ -30,7 +31,7 @@ df_ex = pd.DataFrame(
 )
 ```
 
-```py3:dmatrices_dot.py
+```py3
 patsy.dmatrices("y ~ .", df_ex, return_type="dataframe")
 
   File "<unknown>", line 1
@@ -43,7 +44,7 @@ SyntaxError: invalid syntax
 - .で全ての変数を使うことはできなかった
 - 全部入力して使用＋数値をカテゴリ変数として扱ってみた
 
-```py3:dmatrices.py
+```py3
 outcome, predictors = patsy.dmatrices("y ~ C(a) + b + c + d",  df_ex, return_type="dataframe")
 pd.concat([predictors, outcome], axis=1).head()
 

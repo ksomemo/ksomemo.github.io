@@ -1,12 +1,10 @@
-
-```1_python_handle_byte_str_io.md
+# python handle byte/str io
 - byte/strの変換をよく忘れているのでメモ
 - ioよくわかってなかったけど、なんとなくわかった
 - pandas.read_csv(handle) を覚えた
 - 0.17.1ならgzip可能なので気にしなくて良い
-```
 
-```py3:example.py
+```py3
 import gzip
 import io
 import pandas as pd

@@ -1,9 +1,10 @@
+# numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ
 ## 得られるもの
 - 数式をNumpyで解決できる
 - 数式苦手意識が少なくなる
 - 進捗が生まれる
 
-```py3:matrix_solve.py
+```py3
 """
 x: 鶴, y: 亀 の数
 x + y = 3
@@ -18,7 +19,7 @@ b = np.array([[3], [10]])
 print(a, "\n"*2, b)
 
 [[1 1]
- [2 4]] 
+ [2 4]]
 
  [[ 3]
  [10]]
@@ -39,7 +40,9 @@ np.linalg.solve(a, b)
 ```
 
 ## おまけ
-```numpyのndarrayのmethod確認しようとして消耗した.txt
+numpyのndarrayのmethod確認しようとして消耗した
+
+```
 ?np.ndarray
   File:           ~/.pyenv/versions/anaconda3-2.5.0/lib/python3.5/site-packages/numpy/__init__.py
 
@@ -55,10 +58,10 @@ numpy/core/__init__.py
 
 numpy/__init__.py
   from .core import *
+```
 
 - ndarrayで検索した結果、multiarrayからだと分かる
 - core, module.__init__を通って使われてることが分かる
 - けど、multiarray.pyがないのでgithub上で検索
 - numpy/core/setup.py に multiarray moduleというコメンドとpathはsrcと推測される記述があった
 - numpy/core/src/multiarray/ こっちが本体(ここまで)
-```

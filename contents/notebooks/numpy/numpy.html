@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>beta &mdash; gh-pages  ドキュメント</title>
+  <title>numpy &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../../genindex.html"/>
         <link rel="search" title="検索" href="../../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../../index.html"/>
+        <link rel="next" title="numpy_色々" href="numpy_色々.html"/>
+        <link rel="prev" title="temprary_styling" href="../matplotlib/temprary_styling.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -84,47 +86,290 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">beta</a><ul>
-<li><a class="reference internal" href="#ベータ関数">ベータ関数</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Excel VBA.html">Excel VBA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/PythonからRedshiftに接続.html">PythonからRedshiftに接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Python以外 in jupyter notebook .html">Python以外 in jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Python以外 in jupyter notebook .html#r">R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Python以外 in jupyter notebook .html#octave">octave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Python以外 in jupyter notebook .html#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Python以外 in jupyter notebook .html#scala">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/R tips.html">R tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Upload package to PyPI By twine.html">Upload package to PyPI By twine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/editRを試した.html">editR試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/faker サンプルデータ作成.html">faker サンプルデータ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/note: vagrant VM／ansible／docker／serverspec(雑まとめ).html">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/note: 行列の性質や数式テクニック.html">note: 行列の性質や数式テクニック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/shell tips.html">shell tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../qiita/飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">numpy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#beta">beta</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ベータ関数">ベータ関数</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#binomial">binomial</a></li>
-<li><a class="reference internal" href="#chisquare">chisquare</a><ul>
-<li><a class="reference internal" href="#ガンマ関数">ガンマ関数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#binomial">binomial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chisquare">chisquare</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ガンマ関数">ガンマ関数</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dirichlet">dirichlet</a></li>
-<li><a class="reference internal" href="#exponential">exponential</a></li>
-<li><a class="reference internal" href="#gumbel">gumbel</a></li>
-<li><a class="reference internal" href="#hypergeometric">hypergeometric</a></li>
-<li><a class="reference internal" href="#logistic">logistic</a></li>
-<li><a class="reference internal" href="#lognormal">lognormal</a></li>
-<li><a class="reference internal" href="#logseries">logseries</a></li>
-<li><a class="reference internal" href="#multinomial">multinomial</a></li>
-<li><a class="reference internal" href="#multivariate_normal">multivariate_normal</a></li>
-<li><a class="reference internal" href="#negative_binomial">negative_binomial</a></li>
-<li><a class="reference internal" href="#noncentral_chisquare">noncentral_chisquare</a></li>
-<li><a class="reference internal" href="#noncentral_f">noncentral_f</a></li>
-<li><a class="reference internal" href="#normal">normal</a></li>
-<li><a class="reference internal" href="#pareto">pareto</a></li>
-<li><a class="reference internal" href="#poisson">poisson</a></li>
-<li><a class="reference internal" href="#power">power</a></li>
-<li><a class="reference internal" href="#rayleigh">rayleigh</a></li>
-<li><a class="reference internal" href="#standard_cauchy">standard_cauchy</a></li>
-<li><a class="reference internal" href="#standard_exponential">standard_exponential</a></li>
-<li><a class="reference internal" href="#standard_gamma">standard_gamma</a></li>
-<li><a class="reference internal" href="#standard_normal">standard_normal</a></li>
-<li><a class="reference internal" href="#standard_t">standard_t</a></li>
-<li><a class="reference internal" href="#triangular">triangular</a></li>
-<li><a class="reference internal" href="#uniform">uniform</a></li>
-<li><a class="reference internal" href="#vonmises">vonmises</a></li>
-<li><a class="reference internal" href="#wald">wald</a></li>
-<li><a class="reference internal" href="#weibull">weibull</a></li>
-<li><a class="reference internal" href="#zipf">zipf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dirichlet">dirichlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exponential">exponential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gumbel">gumbel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hypergeometric">hypergeometric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logistic">logistic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lognormal">lognormal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logseries">logseries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multinomial">multinomial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multivariate_normal">multivariate_normal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#negative_binomial">negative_binomial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#noncentral_chisquare">noncentral_chisquare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#noncentral_f">noncentral_f</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#normal">normal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pareto">pareto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#poisson">poisson</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#power">power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rayleigh">rayleigh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard_cauchy">standard_cauchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard_exponential">standard_exponential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard_gamma">standard_gamma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard_normal">standard_normal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard_t">standard_t</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#triangular">triangular</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uniform">uniform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vonmises">vonmises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wald">wald</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weibull">weibull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zipf">zipf</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -167,7 +412,7 @@
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
         
-      <li>beta</li>
+      <li>numpy</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -380,6 +625,8 @@ div.nboutput div.output_area.stderr {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
+<div class="section" id="numpy">
+<h1>numpy<a class="headerlink" href="#numpy" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
@@ -426,7 +673,7 @@ div.nboutput div.output_area.stderr {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/contents_notebooks_numpy_numpy_1_1.png" src="../../../_images/contents_notebooks_numpy_numpy_1_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_2_1.png" src="../../../_images/contents_notebooks_numpy_numpy_2_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -857,7 +1104,7 @@ Minor_axis axis: 0 to 1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/contents_notebooks_numpy_numpy_11_1.png" src="../../../_images/contents_notebooks_numpy_numpy_11_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_12_1.png" src="../../../_images/contents_notebooks_numpy_numpy_12_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1940,7 +2187,7 @@ Minor_axis axis: 0 to 1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/contents_notebooks_numpy_numpy_58_1.png" src="../../../_images/contents_notebooks_numpy_numpy_58_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_59_1.png" src="../../../_images/contents_notebooks_numpy_numpy_59_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1968,7 +2215,7 @@ Minor_axis axis: 0 to 1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/contents_notebooks_numpy_numpy_59_1.png" src="../../../_images/contents_notebooks_numpy_numpy_59_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_60_1.png" src="../../../_images/contents_notebooks_numpy_numpy_60_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2417,7 +2664,7 @@ Minor_axis axis: 0 to 1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/contents_notebooks_numpy_numpy_63_2.png" src="../../../_images/contents_notebooks_numpy_numpy_63_2.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_64_2.png" src="../../../_images/contents_notebooks_numpy_numpy_64_2.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2490,7 +2737,7 @@ Minor_axis axis: 0 to 1
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/contents_notebooks_numpy_numpy_65_1.png" src="../../../_images/contents_notebooks_numpy_numpy_65_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_66_1.png" src="../../../_images/contents_notebooks_numpy_numpy_66_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2520,7 +2767,7 @@ Minor_axis axis: 0 to 1
 </div>
 </div>
 <div class="section" id="beta">
-<h1>beta<a class="headerlink" href="#beta" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>beta<a class="headerlink" href="#beta" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%BC%E3%82%BF%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%BC%E3%82%BF%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -2557,7 +2804,7 @@ f(x; a,b) = \frac{1}{B(\alpha, \beta)} x^{\alpha - 1}
 $$</div></div>
 </div>
 <div class="section" id="ベータ関数">
-<h2>ベータ関数<a class="headerlink" href="#ベータ関数" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>ベータ関数<a class="headerlink" href="#ベータ関数" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [123]:
@@ -2605,7 +2852,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="binomial">
-<h1>binomial<a class="headerlink" href="#binomial" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>binomial<a class="headerlink" href="#binomial" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E4%BA%8C%E9%A0%85%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E4%BA%8C%E9%A0%85%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -2661,7 +2908,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="chisquare">
-<h1>chisquare<a class="headerlink" href="#chisquare" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>chisquare<a class="headerlink" href="#chisquare" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -2720,7 +2967,7 @@ p(x) = \frac{(1/2)^{k/2}}{\Gamma(k/2)}
 $$</div></div>
 </div>
 <div class="section" id="ガンマ関数">
-<h2>ガンマ関数<a class="headerlink" href="#ガンマ関数" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>ガンマ関数<a class="headerlink" href="#ガンマ関数" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [164]:
@@ -2766,7 +3013,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="dirichlet">
-<h1>dirichlet<a class="headerlink" href="#dirichlet" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>dirichlet<a class="headerlink" href="#dirichlet" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%87%E3%82%A3%E3%83%AA%E3%82%AF%E3%83%AC%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%83%87%E3%82%A3%E3%83%AA%E3%82%AF%E3%83%AC%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -2845,7 +3092,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="exponential">
-<h1>exponential<a class="headerlink" href="#exponential" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>exponential<a class="headerlink" href="#exponential" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3113,7 +3360,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="gumbel">
-<h1>gumbel<a class="headerlink" href="#gumbel" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>gumbel<a class="headerlink" href="#gumbel" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%B3%E3%83%99%E3%83%AB%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%B3%E3%83%99%E3%83%AB%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3175,7 +3422,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="hypergeometric">
-<h1>hypergeometric<a class="headerlink" href="#hypergeometric" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>hypergeometric<a class="headerlink" href="#hypergeometric" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E8%B6%85%E5%B9%BE%E4%BD%95%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E8%B6%85%E5%B9%BE%E4%BD%95%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3322,7 +3569,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="logistic">
-<h1>logistic<a class="headerlink" href="#logistic" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>logistic<a class="headerlink" href="#logistic" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%AD%E3%82%B8%E3%82%B9%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%83%AD%E3%82%B8%E3%82%B9%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3378,7 +3625,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="lognormal">
-<h1>lognormal<a class="headerlink" href="#lognormal" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>lognormal<a class="headerlink" href="#lognormal" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E5%AF%BE%E6%95%B0%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E5%AF%BE%E6%95%B0%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3436,7 +3683,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="logseries">
-<h1>logseries<a class="headerlink" href="#logseries" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>logseries<a class="headerlink" href="#logseries" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Logarithmic_distribution">https://en.wikipedia.org/wiki/Logarithmic_distribution</a></li>
 <li>日本語はない？</li>
@@ -3495,7 +3742,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="multinomial">
-<h1>multinomial<a class="headerlink" href="#multinomial" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>multinomial<a class="headerlink" href="#multinomial" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E5%A4%9A%E9%A0%85%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E5%A4%9A%E9%A0%85%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3559,7 +3806,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="multivariate_normal">
-<h1>multivariate_normal<a class="headerlink" href="#multivariate_normal" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>multivariate_normal<a class="headerlink" href="#multivariate_normal" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution">https://en.wikipedia.org/wiki/Multivariate_normal_distribution</a></li>
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83#.E5.A4.9A.E5.A4.89.E9.87.8F.E6.AD.A3.E8.A6.8F.E5.88.86.E5.B8.83">https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83#.E5.A4.9A.E5.A4.89.E9.87.8F.E6.AD.A3.E8.A6.8F.E5.88.86.E5.B8.83</a></li>
@@ -3622,7 +3869,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="negative_binomial">
-<h1>negative_binomial<a class="headerlink" href="#negative_binomial" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>negative_binomial<a class="headerlink" href="#negative_binomial" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E8%B2%A0%E3%81%AE%E4%BA%8C%E9%A0%85%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E8%B2%A0%E3%81%AE%E4%BA%8C%E9%A0%85%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3678,7 +3925,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="noncentral_chisquare">
-<h1>noncentral_chisquare<a class="headerlink" href="#noncentral_chisquare" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>noncentral_chisquare<a class="headerlink" href="#noncentral_chisquare" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E9%9D%9E%E5%BF%83%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E9%9D%9E%E5%BF%83%E3%82%AB%E3%82%A4%E4%BA%8C%E4%B9%97%E5%88%86%E5%B8%83</a></li>
 <li>非心</li>
@@ -3742,7 +3989,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="noncentral_f">
-<h1>noncentral_f<a class="headerlink" href="#noncentral_f" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>noncentral_f<a class="headerlink" href="#noncentral_f" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Noncentral_F-distribution">https://en.wikipedia.org/wiki/Noncentral_F-distribution</a></li>
 </ul>
@@ -3800,7 +4047,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="normal">
-<h1>normal<a class="headerlink" href="#normal" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>normal<a class="headerlink" href="#normal" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3858,7 +4105,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="pareto">
-<h1>pareto<a class="headerlink" href="#pareto" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>pareto<a class="headerlink" href="#pareto" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%AC%E3%83%BC%E3%83%88%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%83%91%E3%83%AC%E3%83%BC%E3%83%88%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3904,7 +4151,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="poisson">
-<h1>poisson<a class="headerlink" href="#poisson" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>poisson<a class="headerlink" href="#poisson" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%A2%E3%82%BD%E3%83%B3%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%A2%E3%82%BD%E3%83%B3%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -3960,7 +4207,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="power">
-<h1>power<a class="headerlink" href="#power" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>power<a class="headerlink" href="#power" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>？？</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -4016,7 +4263,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="rayleigh">
-<h1>rayleigh<a class="headerlink" href="#rayleigh" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>rayleigh<a class="headerlink" href="#rayleigh" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%A4%E3%83%AA%E3%83%BC%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%83%AC%E3%82%A4%E3%83%AA%E3%83%BC%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -4111,7 +4358,7 @@ $$</div></div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/contents_notebooks_numpy_numpy_174_1.png" src="../../../_images/contents_notebooks_numpy_numpy_174_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_175_1.png" src="../../../_images/contents_notebooks_numpy_numpy_175_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -4213,12 +4460,12 @@ $$</div></div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/contents_notebooks_numpy_numpy_177_1.png" src="../../../_images/contents_notebooks_numpy_numpy_177_1.png" />
+<img alt="../../../_images/contents_notebooks_numpy_numpy_178_1.png" src="../../../_images/contents_notebooks_numpy_numpy_178_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="standard_cauchy">
-<h1>standard_cauchy<a class="headerlink" href="#standard_cauchy" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>standard_cauchy<a class="headerlink" href="#standard_cauchy" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%82%B7%E3%83%BC%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%BC%E3%82%B7%E3%83%BC%E5%88%86%E5%B8%83</a></li>
 <li>x0 = 0、γ = 1</li>
@@ -4279,7 +4526,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="standard_exponential">
-<h1>standard_exponential<a class="headerlink" href="#standard_exponential" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>standard_exponential<a class="headerlink" href="#standard_exponential" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -4315,7 +4562,7 @@ with a scale parameter of 1.</p>
 </div>
 </div>
 <div class="section" id="standard_gamma">
-<h1>standard_gamma<a class="headerlink" href="#standard_gamma" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>standard_gamma<a class="headerlink" href="#standard_gamma" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Generalized_gamma_distribution">https://en.wikipedia.org/wiki/Generalized_gamma_distribution</a> ?</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -4372,7 +4619,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="standard_normal">
-<h1>standard_normal<a class="headerlink" href="#standard_normal" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>standard_normal<a class="headerlink" href="#standard_normal" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83#.E6.A8.99.E6.BA.96.E6.AD.A3.E8.A6.8F.E5.88.86.E5.B8.83">https://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83#.E6.A8.99.E6.BA.96.E6.AD.A3.E8.A6.8F.E5.88.86.E5.B8.83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -4407,7 +4654,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="standard_t">
-<h1>standard_t<a class="headerlink" href="#standard_t" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>standard_t<a class="headerlink" href="#standard_t" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://ja.wikipedia.org/wiki/T%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/T%E5%88%86%E5%B8%83</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -4466,7 +4713,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="triangular">
-<h1>triangular<a class="headerlink" href="#triangular" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>triangular<a class="headerlink" href="#triangular" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E4%B8%89%E8%A7%92%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E4%B8%89%E8%A7%92%E5%88%86%E5%B8%83</a></li>
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Triangular_distribution">https://en.wikipedia.org/wiki/Triangular_distribution</a></li>
@@ -4536,7 +4783,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="uniform">
-<h1>uniform<a class="headerlink" href="#uniform" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>uniform<a class="headerlink" href="#uniform" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E9%80%A3%E7%B6%9A%E4%B8%80%E6%A7%98%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E9%80%A3%E7%B6%9A%E4%B8%80%E6%A7%98%E5%88%86%E5%B8%83</a></li>
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E9%9B%A2%E6%95%A3%E4%B8%80%E6%A7%98%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E9%9B%A2%E6%95%A3%E4%B8%80%E6%A7%98%E5%88%86%E5%B8%83</a></li>
@@ -4595,7 +4842,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="vonmises">
-<h1>vonmises<a class="headerlink" href="#vonmises" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>vonmises<a class="headerlink" href="#vonmises" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A9%E3%83%B3%E3%83%BB%E3%83%9F%E3%83%BC%E3%82%BC%E3%82%B9%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A9%E3%83%B3%E3%83%BB%E3%83%9F%E3%83%BC%E3%82%BC%E3%82%B9%E5%88%86%E5%B8%83</a></li>
 <li>フォン・ミーゼス</li>
@@ -4646,7 +4893,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="wald">
-<h1>wald<a class="headerlink" href="#wald" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>wald<a class="headerlink" href="#wald" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E9%80%86%E3%82%AC%E3%82%A6%E3%82%B9%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E9%80%86%E3%82%AC%E3%82%A6%E3%82%B9%E5%88%86%E5%B8%83</a></li>
 <li>ワルド(逆ガウス)分布</li>
@@ -4708,7 +4955,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="weibull">
-<h1>weibull<a class="headerlink" href="#weibull" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>weibull<a class="headerlink" href="#weibull" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%83%AF%E3%82%A4%E3%83%96%E3%83%AB%E5%88%86%E5%B8%83">https://ja.wikipedia.org/wiki/%E3%83%AF%E3%82%A4%E3%83%96%E3%83%AB%E5%88%86%E5%B8%83</a></li>
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Weibull_distribution">https://en.wikipedia.org/wiki/Weibull_distribution</a></li>
@@ -4792,7 +5039,7 @@ $$</div></div>
 </div>
 </div>
 <div class="section" id="zipf">
-<h1>zipf<a class="headerlink" href="#zipf" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>zipf<a class="headerlink" href="#zipf" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%83%E3%83%97%E3%81%AE%E6%B3%95%E5%89%87">https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%83%E3%83%97%E3%81%AE%E6%B3%95%E5%89%87</a></li>
 <li><a class="reference external" href="https://en.wikipedia.org/wiki/Zipf%27s_law">https://en.wikipedia.org/wiki/Zipf%27s_law</a></li>
@@ -4935,6 +5182,7 @@ $$</div></div>
 </div>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -4943,6 +5191,15 @@ $$</div></div>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="numpy_色々.html" class="btn btn-neutral float-right" title="numpy_色々" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../matplotlib/temprary_styling.html" class="btn btn-neutral" title="temprary_styling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

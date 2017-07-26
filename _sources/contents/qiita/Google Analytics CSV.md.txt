@@ -1,4 +1,7 @@
-```js:ga-memo-csv.js
+# Google Analytics CSV
+ga-memo-csv.js
+
+```js
 var records = ["名前,作成者,日付"];
 $('#ID-m-content tbody tr').each(function(idx, el) {
   $el = $(el);

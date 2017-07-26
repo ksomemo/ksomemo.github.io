@@ -1,3 +1,4 @@
+# jenkins memo
 今更Jenkinsの設定等メモ
 
 ## Environments
@@ -42,7 +43,7 @@ Scriptでビルドトリガーを定義できるようにする
 - ビルド定義をGroovyで記述できるようになる
 - Groovyコマンドとスクリプトがある？
 
-### 
+###
 
 ### HTTP Proxyの設定
 しておく
@@ -51,7 +52,7 @@ Scriptでビルドトリガーを定義できるようにする
 - 使った, 便利
 
 ### ビルドの範囲指定削除
-```
+```bash
 java -jar jenkins-cli.jar -s http://yourserver.com delete-builds <JobName> 11-1717 --username user --password pass
 ```
 
@@ -68,18 +69,18 @@ java -jar jenkins-cli.jar -s http://yourserver.com delete-builds <JobName> 11-17
 
 ## build
 ### error
-```bash:build_exapmle.sh
+```bash
 curl -X POST http://localhost:8080/job/job_name/build
 ```
 
 ### authorization
-```bash:build_with_basic_authorization.sh
+```bash
 curl --user id:pass -X POST \
 http://localhost:8080/job/job_name/build
 ```
 
 ### delay
-```bash:build_with_delay_paramter.sh
+```bash
 curl --user id:pass -X POST \
  "http://localhost:8080/job/job_name/build?delay=120sec&cause=test"
 ```

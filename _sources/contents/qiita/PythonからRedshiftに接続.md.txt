@@ -1,3 +1,4 @@
+# PythonからRedshiftに接続
 ## 動機
 - PythonからRedshiftに接続してpandasで扱いたい
 - 元々、SQLServer + sqlalchemy 環境だったのでsqlalchemyも使えるようにしたい
@@ -44,7 +45,7 @@ sqlalchemyのengineにpsycopg2を使うため
     - psycopg2では証明書の必要でない設定になっている
 
 ### install
-```bash:pip_install_sqlalchemy-redshift.sh
+```bash
 pip install sqlalchemy-redshift
 ```
 
@@ -52,7 +53,9 @@ pip install sqlalchemy-redshift
 - https://github.com/sqlalchemy-redshift/sqlalchemy-redshift/blob/master/sqlalchemy_redshift/redshift-ssl-ca-cert.pem ?
 
 ## code
-```py3:psycopg2_and_sqlalchemy_and_pandas.py
+psycopg2_and_sqlalchemy_and_pandas.py
+
+```py3
 import sqlalchemy
 import psycopg2
 import psycopg2.extras
@@ -175,7 +178,7 @@ sslmode: disable
 
   File "psycopg2\__init__.py", line 164, in connect
     conn = _connect(dsn, connection_factory=connection_factory, async=async)
-sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) 
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError)
 FATAL:  no pg_hba.conf entry for host "xxx.xxx.xxx.xxx", user "username", database "dbname", SSL off
 
 sslmode: prefer, require -> no error

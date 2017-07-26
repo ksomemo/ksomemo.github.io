@@ -1,4 +1,5 @@
-```py3:sqlalchemy_with_mssql.py
+# sqlalchemy_with_mssql
+```py3
 import yaml
 import urllib
 import sqlalchemy

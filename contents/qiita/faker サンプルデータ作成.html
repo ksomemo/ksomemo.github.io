@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; gh-pages  ドキュメント</title>
+  <title>faker サンプルデータ作成 &mdash; gh-pages  ドキュメント</title>
   
 
   
@@ -35,7 +35,9 @@
         <link rel="index" title="索引"
               href="../../genindex.html"/>
         <link rel="search" title="検索" href="../../search.html"/>
-    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/> 
+    <link rel="top" title="gh-pages  ドキュメント" href="../../index.html"/>
+        <link rel="next" title="fetch github user repositories with topics" href="fetch github user repositories with topics.html"/>
+        <link rel="prev" title="editR試した" href="editRを試した.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -84,10 +86,256 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul class="simple">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII CODE TABLE.html">ASCII CODE TABLE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOMとPython.html">BOMとPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Category x Quantity のPlot .html">Category x Quantity のPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ContextManagerとcontextlibいろいろ.html">ContextManagerとcontextlibいろいろ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DMP入門.html">DMP入門</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrame.to_string と ZipFile.writestr調べた.html">DataFrame.to_string と ZipFile.writestr調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataFrameが等しいことを確認する.html">DataFrameが等しいことを確認する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Erlangをはじめるためのまとめ.html">Erlangをはじめるためのまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Excel VBA.html">Excel VBA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Google Analytics CSV.html">Google Analytics CSV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haskell環境＋Atom.html">Haskell環境＋Atom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install pandoc and convert to ReST from markdown.html">Install pandoc and convert to ReST from markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Janomeによる形態素解析と形態素を見やすく整形.html">Janomeによる形態素解析と形態素を見やすく整形</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Java クラスファイル逆アセンブラ.html">Java クラスファイル逆アセンブラ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jupyter Content Management Extensions使ってみた.html">Jupyter Content Management Extensions使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KGIとKPIと細分化とその後の行動.html">KGIとKPIと細分化とその後の行動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MacOS tips.html">MacOS tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLでIndexの確認.html">MySQLでIndexの確認</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト.html">MySQLのLISTパーティションをRANGEパーティションに変更する定義文を生成するスクリプト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebookに複数のDataFrameを(水平に)出力する+displayについて.html">Notebookに複数のDataFrameを(水平に)出力する+displayについて</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project Template for R.html">Project Template for R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python(Windows)でファイル出力する際に改行コードをLFにする.html">Python(Windows)でファイル出力する際に改行コードをLFにする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRedshiftに接続.html">PythonからRedshiftに接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonからRを利用する方法.html">PythonからRを利用する方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PythonでURL encode.html">PythonでURL encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html">Python以外 in jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#r">R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#octave">octave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#hasklell">Hasklell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python以外 in jupyter notebook .html#scala">Scala</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R tips.html">R tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RStudio にあるpublishについて(shinyapps).html">RStudio にあるpublishについて(shinyapps)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Radar Chart.html">Radar Chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ruby One-liner .html">Ruby One-liner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rでの前処理として覚えたこと.html">Rでの前処理として覚えたこと</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rで簡単に前処理＋クロス集計＋α.html">Rで簡単に前処理＋クロス集計＋α</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Rのseqを使って先月を求めるときの注意点.html">Rのseqを使って先月を求めるときの注意点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SQL tips.html">SQL tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SeriesのDataFrame化とSeriesの結合.html">SeriesのDataFrame化とSeriesの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tableau tutorial.html">Tableau tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="True／False／None.html">python True／False／None</a></li>
+<li class="toctree-l1"><a class="reference internal" href="US keyboard Cheat Sheet.html">US keyboard Cheat Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Upload package to PyPI By twine.html">Upload package to PyPI By twine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vagrantで立ち上げたVMにSCPでファイル転送.html">Vagrantで立ち上げたVMにSCPでファイル転送</a></li>
+<li class="toctree-l1"><a class="reference internal" href="argparseのサブコマンドからのdispatchと引数の一致.html">argparseのサブコマンドからのdispatchと引数の一致</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awkの中でシェルで作成した変数を扱う.html">awkの中でシェルで作成した変数を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capture stdout.html">capture stdout in python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chatwork apiを試してみた.html">chatwork apiを試してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chocolateyでWindowsでもPackage管理.html">chocolateyでWindowsでもPackage管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="click試した.html">click試した</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda tips.html">conda tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy to clip board and paste from cb.html">copy to clip board and paste from cb</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create new package project and open.html">create new package project and open.md</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data frame to dict(key=list).html">data frame to dict(key=list)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decorator メモ.html">decoratorメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docstringを書く気にさせる最低限のSphinx設定.html">docstringを書く気にさせる最低限のSphinx設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dotenv in python／ipython.html">dotenv in python/ipython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download binary files.html">download binary files with requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editRを試した.html">editR試した</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">faker サンプルデータ作成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faker-log">faker.log</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fetch github user repositories with topics.html">fetch github user repositories with topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き.html">git mergeでコンフリクトしたファイルを,mergeしたブランチのファイルで全て上書き</a></li>
+<li class="toctree-l1"><a class="reference internal" href="google search without domain.html">google search without domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="handle Byte／Str io.*.html">python handle byte/str io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iconv and nkf.html">iconv and nkf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idea plugin.html">idea plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import this と 部分適用.html">import this と 部分適用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html">install mactex into yosemite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mactex into yosemite.html#download-mactex">download mactex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html">install mecab and mecab-python3 on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install mecab and mecab-python3 on windows.html#sdk-mecab-h-patch">sdk/mecab.h.patch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython とmodule reload と 設定ファイル.html">ipython とmodule reload と 設定ファイル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipythonで使っているtimeitをpython code内で使ってみた.html">ipythonで使っているtimeitをpython code内で使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipython／jupyter tips.html">ipython/jupyter tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jQueryで雑に処理してダウンロード.html">jQueryで雑に処理してダウンロード weblio words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java, scalaの環境を整えすぎようとして消耗したのでメモ.html">java, scalaの環境を整えすぎようとして消耗したのでメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript base64 on web browser.html">javascript base64 on web browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="javascript basic authorization.html">javascript basic authorization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jenkins memo.html">jenkins memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jq on windows.html">jq on windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter notebook extensions python-markdown(markdown + jinja2).html">jupyter notebook extensions python-markdown(markdown + jinja2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle準備.html">kaggle準備</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kobitoのデータ とsqlite3.html">qiita kobitoのデータとsqlite3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load datasets in python.html">load_datasets_in_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib tips.html">matplotlib tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlibの設定とcontext manager とmosaic plot.html">matplotlibの設定とcontext manager とmosaic plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meshgridとcontourfを可視化して理解してみた.html">meshgridとcontourfを可視化して理解してみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndarrayの結合.html">ndarrayの結合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="not installed package names.html">not installed package names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note aws boto3 and wrapper.html">note aws boto3 and wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note jinja2 template engine.html">note jinja2 template engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: mecab + python.html">note: mecab + python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ.html">note: pandas.DataFrame／Series, 文字列を時間に変更する方法まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: vagrant VM／ansible／docker／serverspec(雑まとめ).html">note: vagrant VM／ansible／docker／serverspec(雑まとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note: 行列の性質や数式テクニック.html">note: 行列の性質や数式テクニック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:golang(install／path／package manager).html">note:golang(install／path／package manager)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="note:redshift query.html">note: redshift query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook から他のファイル形式へのconvert(html／python／reveal.js slide).html">notebook から他のファイル形式へのconvert(html／python／reveal.js slide)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ.html">numpy で 鶴亀算 とndarrayのmethod確認しようとして消耗したおまけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpyでk-meansを実装したときに使ったもの(Debug込み).html">numpyでk-meansを実装したときに使ったもの(Debug込み)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy／scipy distributions.html">numpy/scipy distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionの一時変更.html">pandasのoptionを一時的に変更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oracle on Mac OSX(VM ubuntu).html">oracle on Mac OSX(VM ubuntu)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計.html">pandas window function関連と0.18.1の機能試した(+条件付きgroupby集計</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas write to excel example とContetxt manager.html">pandas write to excel example とContetxt manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas で read_s3 と to_s3.html">pandas で read_s3 と to_s3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.Series.applyでDataFrameを返す.html">pandas.Series.applyでDataFrameを返す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.read_htmlとlink(a.href).html">pandas.read_htmlとlink(a.href)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasで読み込めないExcelを無理やり読み込む.html">pandasで読み込めないExcelを無理やり読み込む</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandasの結果をJSONで渡すとき.html">pandasの結果をJSONで渡すとき</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas／numpy tips.html">pandas/numpy tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="patsy触ってみた.html">pasty触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.options.mode.chained_assignment.html">pd.options.mode.chained_assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perceptronの可視化.html">perceptronの可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pickleとジョブフローのメモ.html">pickleとジョブフローのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyenvによる処理系の一元管理と環境の切り替え.html">pyenvによる処理系の一元管理と環境の切り替え</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python date_range (dateutil／pandas and offset aliasまとめ).html">python date_range (dateutil／pandas and offset aliasまとめ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python datetime date(timestamp, weekday, etc.).html">python datetime date(timestamp, weekday, etc.)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python logging.html">python logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python package での zscore.html">python packageでのz-score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python setup.(py|cfg) tox.ini .travis.yml.html">python setup.(py|cfg) tox.ini .travis.yml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python tips.html">python tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python でmultiprocess／threadとjoblib.html">pythonでmultiprocess/threadとjoblib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python, decision treeのtree graph plot.html">python, decision treeのtree graph plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python2の参考資料をpython3で実装する際に書き換えたもの.html">python2の参考資料をpython3で実装する際に書き換えたもの</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでxml操作.html">pythonでxml操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythonでzlib compress,base64 encodeと可逆変換.html">pythonでzlib compress,base64 encodeと可逆変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readthedocs memo(雑.html">readthedocs memo(雑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="request build schedule using requests(basic authorization／post and query).html">request build schedule using requests(basic authorization／post and query)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run job and job history(雑).html">run job and job history(雑)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sbt／activator雑まとめ.html">sbt／activator雑まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした.html">scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn ／ scipy module と概要まとめ.html">scikit-learn ／ scipy module と概要まとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのdatasetのload場所.html">seabornのdatasetのload場所</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seabornのpairplotを実現しているPairGridのメモ.html">seabornのpairplotを実現しているPairGridのメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessionize with pandas memo.html">sessionize with pandas memo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell tips.html">shell tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlalchemy_with_mssql.html">sqlalchemy_with_mssql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sub process stdout／pipe.html">sub process stdout／pipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sympyまとめた.html">sympyまとめた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="temporary styling.html">matplotlib temporary styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="try javascript request.html">try javascript request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique count without distinct.html">unique count without distinct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using 7zip from cli.html">using 7zip from cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="windows+pythonでsftp.html">windows+pythonでsftp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z_chart.html">z chart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipファイルの中身をextract使わずにファイルに書き出す.html">zipファイルの中身をextract使わずにファイルに書き出す</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdirenv使ってみる.html">いまさらdirenv使ってみる</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらdjango触ってみた.html">いまさらdjango触ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="いまさらflask使ってみた.html">いまさらflask使ってみた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="アクティブなBookの全Sheetの一部をSummaryファイルにコピペする.html">アクティブなBookの全Sheetの一部をSummaryファイルにコピペする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html">ベイズの定理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#conjugate">共役(conjugate)分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">パラメータ推定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">自己共役</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">識別/生成モデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">潜在変数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">混合分布</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">回帰</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">分類</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">グラフィカルモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#chain-tree-model">chain/tree model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#grid-model">grid model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="グラフィカルモデル自分用.html#">その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する.html">コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="シェルでの変数に対する操作.html">シェルでの変数に対する操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ストック数用のbookmarklet.html">ストック用のbookmarklet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ファイルをN行に分割する.html">ファイルをN行に分割する</a></li>
+<li class="toctree-l1"><a class="reference internal" href="メモリ使用量を少なくしすぎて起動できなかった時の対処.html">メモリ使用量を少なくしすぎて起動できなかった時の対処</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ランダムデータと正規化・標準化.html">ランダムデータと正規化・標準化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="今更ながらoddsとlogitとlogistic関数.html">今更ながらoddsとlogitとlogistic関数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="値と割合.html">値と割合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ.html">再帰中に高階関数が交じると混乱する -&gt; 難しく考え過ぎ脳を分解するだけ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="定点観測のための集計と軸と指標.html">定点観測のための集計と軸と指標</a></li>
+<li class="toctree-l1"><a class="reference internal" href="改行の変換.html">改行の変換</a></li>
+<li class="toctree-l1"><a class="reference internal" href="文字列からDataFrame作成(困ったらio.StringIO).html">文字列からDataFrame作成(困ったらio.StringIO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="最短マッチと含まない行マッチ.html">最短マッチと含まない行マッチ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="期間(開始と終了)を持つPeriodを調べた.html">期間(開始と終了)を持つPeriodを調べた</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html">rpart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#rpart-plot">rpart-plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#fancyrpartplot">fancyRpartPlot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="決定木の描画.html#partykit">partykit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="注釈テスト.html">注釈テスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="浮動小数点の誤差に関するメモ.html">浮動小数点の誤差に関するメモ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="自作module test実行のためpip.html">自作module test実行のためpip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="複数のcontext manager を扱う.html">複数のcontext manager を扱う</a></li>
+<li class="toctree-l1"><a class="reference internal" href="関数の実行順序の検証.html">関数の実行順序の検証</a></li>
+<li class="toctree-l1"><a class="reference internal" href="階級作成とDummy変数の作成.html">階級作成とDummy変数の作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="集計／分析／機械学習の流れ.html">集計／分析／機械学習の流れ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="飛行機本8章の練習問題.html">飛行機本8章の練習問題こうしたほうがいい！という指摘大歓迎です</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../memo/math.html">site</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/AWS/S3.html">S3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/interactive.html">interactive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/jupyter_cms.html">jupyter_cms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/magic_command.html">magic_command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Jupyter/nbextensions.html">nbextensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/Qiita/Calender.html">Calender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/books/datascientist_mook_vol1.html">datascientist_mook_vol1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/datasets-R/datasets-R.html">datasets-R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/kaggle/PyDataML.html">PyDataML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/pyplot_animation.html">pyplot_animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/matplotlib/temprary_styling.html">temprary_styling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy.html">numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/numpy/numpy_色々.html">numpy_色々</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/Standardize_other.html">Standardize_other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/concat_with_column_name.html">concat_with_column_name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/corr_pair_scatter.html">corr_pair_scatter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/cut_and_dummy.html">cut_and_dummy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/datetime-series.html">datetime-series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/df_to_str_and_zip_write_str.html">df_to_str_and_zip_write_str</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/disply_multiple_dataframe.html">disply_multiple_dataframe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/equals.html">equals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/execl.html">execl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/from_string.html">from_string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/groupby.html">groupby</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/new_pivot_unstack_melt_MultiIndex.html">new_pivot_unstack_melt_MultiIndex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/pandoc_tabulate.html">pandoc_tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/time_series.html">time_series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/window_function.html">window_function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/pandas/zscore.html">zscore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/python/py350.html">py350</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/sparse/sparse_matrix.html">sparse_matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/chi2_and_cramels_v.html">chi2_and_cramels_v</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scipy/stats/corr_ratio_fvalue.html">corr_ratio_fvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/DecisionTree.html">DecisionTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/KNN.html">KNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/LogisticRegression.html">LogisticRegression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/kmeans.html">kmeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/perceptron.html">perceptron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/scratch/softmax.html">softmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/seaborn/PairGrid.html">PairGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/VarianceThreshold.html">VarianceThreshold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/pipeline.html">pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/roc_auc_learning_curve.html">roc_auc_learning_curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklearn_processing.html">sklearn_processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sklearn/sklern_samples_generator.html">sklern_samples_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statistics/44-tests/母平均の比較値との差のz検定.html">母平均の比較値との差のz検定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/statsmodels/Statsmodel.html">Statsmodel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/sympy/sympy_sample.html">sympy_sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tf_keras/keras_example.html">keras_example</a></li>
+</ul>
+
             
           
         </div>
@@ -130,7 +378,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>faker サンプルデータ作成</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -183,147 +431,156 @@
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
-<div class="highlight-0_faker サンプルデータ作成.txt"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="highlight-bash:install-fake-factory.sh"><div class="highlight"><pre><span></span># http://fake-factory.readthedocs.org/en/master/locales/ja_JP.html
-# pip install fake-factory
+<div class="section" id="faker">
+<span id="faker"></span><h1>faker サンプルデータ作成<a class="headerlink" href="#faker" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="install">
+<span id="install"></span><h2>install<a class="headerlink" href="#install" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># http://fake-factory.readthedocs.org/en/master/locales/ja_JP.html</span>
+<span class="c1"># pip install fake-factory</span>
 
-# http://faker.readthedocs.org/en/master/locales/ja_JP.html
+<span class="c1"># http://faker.readthedocs.org/en/master/locales/ja_JP.html</span>
 pip install faker
 </pre></div>
 </div>
-<div class="highlight-py3:faker_sample.py"><div class="highlight"><pre><span></span>from faker import Factory
-fake = Factory.create(&#39;ja_JP&#39;)
-((fake.city(), fake.month()), (fake.city(), fake.month()))
-# =&gt; ((&#39;東久留米市&#39;, &#39;05&#39;), (&#39;鴨川市&#39;, &#39;09&#39;))
+</div>
+<div class="section" id="example">
+<span id="example"></span><h2>example<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">faker</span> <span class="k">import</span> <span class="n">Factory</span>
+<span class="n">fake</span> <span class="o">=</span> <span class="n">Factory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;ja_JP&#39;</span><span class="p">)</span>
+<span class="p">((</span><span class="n">fake</span><span class="o">.</span><span class="n">city</span><span class="p">(),</span> <span class="n">fake</span><span class="o">.</span><span class="n">month</span><span class="p">()),</span> <span class="p">(</span><span class="n">fake</span><span class="o">.</span><span class="n">city</span><span class="p">(),</span> <span class="n">fake</span><span class="o">.</span><span class="n">month</span><span class="p">()))</span>
+<span class="c1"># =&gt; ((&#39;東久留米市&#39;, &#39;05&#39;), (&#39;鴨川市&#39;, &#39;09&#39;))</span>
 
-# サンプルデータを引数無しで作成するための確認
-import pandas as pd
-import inspect
+<span class="c1"># サンプルデータを引数無しで作成するための確認</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
 
-# https://docs.python.org/3/library/inspect.html#inspect.Parameter
-# https://docs.python.org/3/library/inspect.html#introspecting-callables-with-the-signature-object
+<span class="c1"># https://docs.python.org/3/library/inspect.html#inspect.Parameter</span>
+<span class="c1"># https://docs.python.org/3/library/inspect.html#introspecting-callables-with-the-signature-object</span>
 
-def add(x, y):
-    return x + y
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
-class MyClass:
-    def __init__(self, a, b, c=&quot;default&quot;):
-        pass
-    
-for p in inspect.signature(MyClass.__init__).parameters.values():
-    print(p, type(p), p.kind, p.default, type(p.default))
-    print(p.KEYWORD_ONLY and p.default is param.empty)
+<span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">):</span>
+        <span class="k">pass</span>
 
-(
-    p.KEYWORD_ONLY,
-    p.POSITIONAL_ONLY,
-    p.POSITIONAL_OR_KEYWORD,
-    p.VAR_KEYWORD,
-    p.VAR_POSITIONAL,
-    
-)
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">MyClass</span><span class="o">.</span><span class="n">__init__</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">p</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">default</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">default</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">KEYWORD_ONLY</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="n">param</span><span class="o">.</span><span class="n">empty</span><span class="p">)</span>
 
-def sample_fake():
-    for name, method in inspect.getmembers(fake, inspect.ismethod):
-        if name.startswith(&quot;_&quot;):
-            print(name)
-            continue
-        try:
-            sig = inspect.signature(method)
-            params = sig.parameters.values()
-            
-            n_args = len(params)
-            n_kwargs = sum(1 for p in params
-                           if p.default is not p.empty)
+<span class="p">(</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">KEYWORD_ONLY</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">POSITIONAL_ONLY</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">POSITIONAL_OR_KEYWORD</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">VAR_KEYWORD</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">VAR_POSITIONAL</span><span class="p">,</span>
 
-            if n_args == 0 or n_kwargs == n_args:
-                value = method()
-            else:
-                value = None
-            
-            yield {&quot;key&quot;: name, &quot;value&quot;: value,
-                   &quot;n_args&quot;: n_args,
-                   &quot;n_kwargs&quot;: n_kwargs}
-        except Exception as e:
-            print(&quot;method error:&quot;, name)
+<span class="p">)</span>
 
-from IPython.display import display
-with pd.option_context(&quot;display.max_rows&quot;, 300):
-    display(pd.DataFrame(sample_fake()))
+<span class="k">def</span> <span class="nf">sample_fake</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmembers</span><span class="p">(</span><span class="n">fake</span><span class="p">,</span> <span class="n">inspect</span><span class="o">.</span><span class="n">ismethod</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+            <span class="n">n_args</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+            <span class="n">n_kwargs</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span>
+                           <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">empty</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">n_args</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n_kwargs</span> <span class="o">==</span> <span class="n">n_args</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">method</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="k">yield</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span>
+                   <span class="s2">&quot;n_args&quot;</span><span class="p">:</span> <span class="n">n_args</span><span class="p">,</span>
+                   <span class="s2">&quot;n_kwargs&quot;</span><span class="p">:</span> <span class="n">n_kwargs</span><span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;method error:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
+<span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="mi">300</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sample_fake</span><span class="p">()))</span>
 
 </pre></div>
 </div>
-<div class="highlight-txt:faker.log"><div class="highlight"><pre><span></span>## module
-faker.providers.address
-faker.providers.barcode
-faker.providers.color
-faker.providers.company
-faker.providers.credit_card
-faker.providers.currency
-faker.providers.date_time
-faker.providers.file
-faker.providers.internet
-faker.providers.job
-faker.providers.lorem
-faker.providers.misc
-faker.providers.person
-faker.providers.phone_number
-faker.providers.profile
-faker.providers.python
-faker.providers.ssn
-faker.providers.user_agent
+</div>
+<div class="section" id="faker-log">
+<span id="faker-log"></span><h2>faker.log<a class="headerlink" href="#faker-log" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## module</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">address</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">barcode</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">color</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">company</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">credit_card</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">currency</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">date_time</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">file</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">internet</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">job</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">lorem</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">misc</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">person</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">phone_number</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">profile</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">python</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">ssn</span>
+<span class="n">faker</span><span class="o">.</span><span class="n">providers</span><span class="o">.</span><span class="n">user_agent</span>
 
-## with argument
-fake.geo_coordinate(center=None, radius=0.001)
-fake.ean(length=13)
-fake.credit_card_security_code(card_type=None)
-fake.credit_card_provider(card_type=None)
-fake.credit_card_full(card_type=None)
-fake.credit_card_expire(start=&quot;now&quot;, end=&quot;+10y&quot;, date_format=&quot;%m/%y&quot;)
-fake.credit_card_number(card_type=None)
-fake.date_time_this_year(before_now=True, after_now=False, tzinfo=None)
-fake.date_time_between_dates(datetime_start=None, datetime_end=None, tzinfo=None)
-fake.date_time_between(start_date=&quot;-30y&quot;, end_date=&quot;now&quot;, tzinfo=None)
-fake.time(pattern=&quot;%H:%M:%S&quot;)
-fake.date_time_ad(tzinfo=None)
-fake.date_time_this_month(before_now=True, after_now=False, tzinfo=None)
-fake.date_time_this_decade(before_now=True, after_now=False, tzinfo=None)
-fake.date(pattern=&quot;%Y-%m-%d&quot;)
-fake.iso8601(tzinfo=None)
-fake.date_time(tzinfo=None)
-fake.date_time_this_century(before_now=True, after_now=False, tzinfo=None)
-fake.mime_type(category=None)
-fake.file_name(category=None, extension=None)
-fake.file_extension(category=None)
-fake.domain_word(*args, **kwargs)
-fake.image_url(width=None, height=None)
-fake.slug(*args, **kwargs)
-fake.user_name(*args, **kwargs)
-fake.uri_path(deep=None)
-fake.text(max_nb_chars=200)
-fake.sentence(nb_words=6, variable_nb_words=True)
-fake.paragraphs(nb=3)
-fake.words(nb=3)
-fake.paragraph(nb_sentences=3, variable_nb_sentences=True)
-fake.sentences(nb=3)
-fake.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)
-fake.md5(raw_output=False)
-fake.sha1(raw_output=False)
-fake.sha256(raw_output=False)
-fake.boolean(chance_of_getting_true=50)
-fake.profile(fields=None)
-fake.pyiterable(nb_elements=10, variable_nb_elements=True, *value_types)
-fake.pystr(max_chars=20)
-fake.pyfloat(left_digits=None, right_digits=None, positive=False)
-fake.pystruct(count=10, *value_types)
-fake.pydecimal(left_digits=None, right_digits=None, positive=False)
-fake.pylist(nb_elements=10, variable_nb_elements=True, *value_types)
-fake.pytuple(nb_elements=10, variable_nb_elements=True, *value_types)
-fake.pyset(nb_elements=10, variable_nb_elements=True, *value_types)
-fake.pydict(nb_elements=10, variable_nb_elements=True, *value_types)
+<span class="c1">## with argument</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">geo_coordinate</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">ean</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">credit_card_security_code</span><span class="p">(</span><span class="n">card_type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">credit_card_provider</span><span class="p">(</span><span class="n">card_type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">credit_card_full</span><span class="p">(</span><span class="n">card_type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">credit_card_expire</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;now&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;+10y&quot;</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="s2">&quot;%m/%y&quot;</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">credit_card_number</span><span class="p">(</span><span class="n">card_type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">date_time_this_year</span><span class="p">(</span><span class="n">before_now</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">after_now</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">date_time_between_dates</span><span class="p">(</span><span class="n">datetime_start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">datetime_end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">date_time_between</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;-30y&quot;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;now&quot;</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">date_time_ad</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">date_time_this_month</span><span class="p">(</span><span class="n">before_now</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">after_now</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">date_time_this_decade</span><span class="p">(</span><span class="n">before_now</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">after_now</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">iso8601</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">date_time</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">date_time_this_century</span><span class="p">(</span><span class="n">before_now</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">after_now</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">mime_type</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">file_name</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">file_extension</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">domain_word</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">image_url</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">slug</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">user_name</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">uri_path</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">max_nb_chars</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">sentence</span><span class="p">(</span><span class="n">nb_words</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">variable_nb_words</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">(</span><span class="n">nb</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">nb</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">paragraph</span><span class="p">(</span><span class="n">nb_sentences</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">variable_nb_sentences</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">sentences</span><span class="p">(</span><span class="n">nb</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">password</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">special_chars</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">upper_case</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lower_case</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">md5</span><span class="p">(</span><span class="n">raw_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">sha1</span><span class="p">(</span><span class="n">raw_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">raw_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">boolean</span><span class="p">(</span><span class="n">chance_of_getting_true</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">pyiterable</span><span class="p">(</span><span class="n">nb_elements</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">variable_nb_elements</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">value_types</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">pystr</span><span class="p">(</span><span class="n">max_chars</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">pyfloat</span><span class="p">(</span><span class="n">left_digits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_digits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">pystruct</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="o">*</span><span class="n">value_types</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">pydecimal</span><span class="p">(</span><span class="n">left_digits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_digits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">pylist</span><span class="p">(</span><span class="n">nb_elements</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">variable_nb_elements</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">value_types</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">pytuple</span><span class="p">(</span><span class="n">nb_elements</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">variable_nb_elements</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">value_types</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">pyset</span><span class="p">(</span><span class="n">nb_elements</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">variable_nb_elements</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">value_types</span><span class="p">)</span>
+<span class="n">fake</span><span class="o">.</span><span class="n">pydict</span><span class="p">(</span><span class="n">nb_elements</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">variable_nb_elements</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">*</span><span class="n">value_types</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
 </div>
 
 
@@ -333,6 +590,15 @@ fake.pydict(nb_elements=10, variable_nb_elements=True, *value_types)
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fetch github user repositories with topics.html" class="btn btn-neutral float-right" title="fetch github user repositories with topics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="editRを試した.html" class="btn btn-neutral" title="editR試した" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

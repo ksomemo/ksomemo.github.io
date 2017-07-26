@@ -1,3 +1,4 @@
+# python, decision treeのtree graph plot
 ## 動機
 - decision treeのtree plotのためにいろいろ調べた
 - kerasで使うので久しぶりに調べた(2017-02-16)
@@ -7,7 +8,7 @@
 - だいたいのライブラリで使ってるらしい
 - つまりだいたいのライブラリがwrapper
 
-```bash:brew_install_graphviz.sh
+```bash
 brew install graphviz
 ```
 
@@ -32,20 +33,20 @@ https://github.com/scikit-learn/scikit-learn/pull/6380
 - sklearnのexampleにも使われているが、開発継続されていない？
 - python3でやってみたけど、エラー
 
-```py3:pydot_tree_plot.py
+```py3
 from sklearn.externals.six import StringIO as SkStringIO
 from IPython.display import Image
-import pydot 
+import pydot
 
 
 dot_data = SkStringIO()
 export_graphviz(
-    tree_clf, out_file=dot_data,  
-    feature_names=X.columns,  
+    tree_clf, out_file=dot_data,
+    feature_names=X.columns,
     class_names=["0", "1"],
-    filled=True, rounded=True,  
-    special_characters=True) 
-graph = pydot.graph_from_dot_data(dot_data.getvalue())  
+    filled=True, rounded=True,
+    special_characters=True)
+graph = pydot.graph_from_dot_data(dot_data.getvalue())
 Image(graph.create_png())
 ```
 
@@ -76,11 +77,12 @@ Image(graph.create_png())
 - plot用APIのWIPではこれが使われていた
 - こちらは問題なく動いた
 
-```bash:pip_install_graphviz.sh
+```bash
 pip install graphviz
 ```
 
-```py3:graphviz_tree_plot.py
+#### graphviz_tree_plot.py
+```py3
 from sklearn.externals.six import StringIO as SkStringIO
 from IPython.display import Image
 import graphviz
@@ -101,7 +103,7 @@ def tree_plot(decision_tree, width=500, height=500, max_depth=None,
     return Image(src.pipe(format='png'), height=height, width=width)
 
 tree_plot(tree_clf,
-    feature_names=X.columns,  
+    feature_names=X.columns,
     class_names=["d", "s"],
 #    class_names={1: "s", 0: "d"},
     filled=True,

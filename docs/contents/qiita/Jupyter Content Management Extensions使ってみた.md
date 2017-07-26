@@ -1,4 +1,4 @@
-
+# Jupyter Content Management Extensions使ってみた
 [データサイエンティストに向けたコーディング環境Jupyter Notebookの勧め](http://qiita.com/y__sama/items/17aedf0c05187edd61c3) で紹介されていたnotebook内の全文検索を試してみたかった。
 
 ## いきなりだけどまとめ
@@ -10,7 +10,7 @@
 
 ## install
 
-```
+```bash
 pip install jupyter_cms
 Collecting jupyter-cms
   Downloading jupyter_cms-0.4.0.tar.gz
@@ -23,10 +23,10 @@ Collecting whoosh<3.0,>=2.7.0 (from jupyter-cms)
 - [Python純正の全文検索ライブラリ、Whooshを使ってみた](http://d.hatena.ne.jp/rudi/20110420/1303307332)
 
 ### extensionとしてのinstallと有効化
-```
+```bash
 % jupyter cms install --user --symlink --overwrite
 [ExtensionInstallApp] Installing jupyter_cms JS notebook extensions
-symlink /Users/xxx/Library/Jupyter/nbextensions/jupyter_cms 
+symlink /Users/xxx/Library/Jupyter/nbextensions/jupyter_cms
 -> /Users/xxx/.pyenv/versions/anaconda3-2.5.0/lib/python3.5/site-packages/jupyter_cms/nbextension
 
 % jupyter cms activate

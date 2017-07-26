@@ -1,3 +1,4 @@
+# pd.options.mode.chained_assignment
 ## Noneにして無視しないために
 - http://pandas.pydata.org/pandas-docs/stable/indexing.html#why-does-assignment-fail-when-using-chained-indexing
 - http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
@@ -11,7 +12,7 @@
 - DataFrameから使用する特定カラムを抜き出して別のDataFrameとする
 - そのDataFrameのカラムを使って新しいカラムを追加する
 
-```py3:warning_pattern_and_not_patterns.py
+```py3
 import seaborn as sns
 
 iris = sns.load_dataset("iris")

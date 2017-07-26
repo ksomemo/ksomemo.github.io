@@ -1,4 +1,5 @@
-```py3:temporary_styling.py
+# matplotlib temporary styling
+```py3
 import numpy as np
 import pandas as pd
 import matplotlib

@@ -1,6 +1,7 @@
+# perceptronの可視化
+
 [パーセプトロンの学習規則をPythonで実装](http://qiita.com/s-kiriki/items/b7e5b87e526153dc3611) を参考に可視化した
 
-```note.md
 ## いろんな関数
 - 損失関数(loss) or 誤差関数(error)
     - ある学習手法の損失関数はxxxである
@@ -40,16 +41,15 @@ https://ja.wikipedia.org/wiki/%E6%B4%BB%E6%80%A7%E5%8C%96%E9%96%A2%E6%95%B0
     - 活性化関数
 
 各層における役割と関数を適切に考える
-```
 
-```py3:perceptron.py
+```
 """
 - http://qiita.com/s-kiriki/items/b7e5b87e526153dc3611
 - matplotlibのAnimationでやろうとしたけど、global変数の扱いがめんどうだった(class使えばいい気もするが)
 - ipywidgets](https://github.com/ipython/ipywidgets) を採用した
 - ipywidgetsの方が自分で値を調整しながら可視化できるので、勉強する身としては役に立つ(ただし、このように公開するときはAnimation GIFのほうがよい)
 - オンライン機械学習としては、データ数を少しずつ増やす かつ データセットでの繰り返しを１回に抑えたほうがわかりやすいと思った
-- 
+-
 """
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -83,13 +83,13 @@ def f(X, Y):
 
         # ax1+bx2+c = 0
         # x2 = -(a/b)x1 -(c/b)
-        x2 = -weight[0]/weight[1] * train_x[:, 0] -(weight[2]/weight[1]) 
+        x2 = -weight[0]/weight[1] * train_x[:, 0] -(weight[2]/weight[1])
         plt.plot(train_x[:,0], x2)
         plt.scatter(train_x[:, 0], train_x[:, 1], c=train_y)
     return plot
 ```
 
-```py3:example_plot.py
+```py3
 """
 - 線形分離できそうなもの２つとできないもので試した
 - http://scikit-learn.org/stable/datasets/
@@ -97,7 +97,7 @@ def f(X, Y):
 
 # Generate a random regression problem.
 X, Y = datasets.make_regression(
-    n_samples=100, n_features=2, n_informative=2, n_targets=1, 
+    n_samples=100, n_features=2, n_informative=2, n_targets=1,
     bias=0.0, effective_rank=None, tail_strength=0.5, noise=1.0, shuffle=True, coef=False, random_state=0)
 f(X, Y > 5)()
 
@@ -105,7 +105,7 @@ f(X, Y > 5)()
 # Generate isotropic Gaussian blobs for clustering.
 # datasets.make_blobs([n_samples, n_features, ...])
 X_b, Y_b = datasets.make_blobs(
-    n_samples=100, n_features=2, centers=2, cluster_std=1.0, 
+    n_samples=100, n_features=2, centers=2, cluster_std=1.0,
     center_box=(-10.0, 10.0), shuffle=True, random_state=100)
 plt.scatter(X_b[:, 0], X_b[:, 1], c=Y_b, cmap=plt.cm.Paired)
 f(X_b, Y_b)()

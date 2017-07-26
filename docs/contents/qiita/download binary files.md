@@ -1,8 +1,9 @@
+# download binary files with requests
 - requestsいつも忘れるのでメモ
 - binary fileをどうればよいか調べた
 - おまけとして、optionの引数を調べた
 
-```py3:download-binary-files.py
+```python3
 import requests
 import io
 import shutil

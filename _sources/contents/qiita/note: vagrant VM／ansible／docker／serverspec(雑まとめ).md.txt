@@ -1,4 +1,4 @@
-
+# note: vagrant VM／ansible／docker／serverspec(雑まとめ)
 ## 動機
 - 開発環境を整える環境を最新にする
 - いいかげんにDockerを触る
@@ -37,7 +37,9 @@ https://www.vagrantup.com/docs/
     - https://atlas.hashicorp.com/bento/ bento/ubuntu-16.04 あった
 
 ### donwload and settings
-```bash:vagrant-vm-setup.sh
+vagrant-vm-setup.sh
+
+```bash
 mdkir ~/programming/vagrant/ubuntu && $_
 vagrant box add bento/ubuntu-16.04
 vagrant init bento/ubuntu-16.04
@@ -55,7 +57,9 @@ ls /vagrant/synced_folder_test
 # https://www.vagrantup.com/docs/synced-folders/basic_usage.html
 ```
 
-```vagrant-bootstrap.sh
+vagrant-bootstrap.sh
+
+```bash
 #!/usr/bin/env bash
 
 sudo apt-get update
@@ -67,7 +71,9 @@ sudo apt-get install -y ansible
 # and sudo pip install ansible
 ```
 
-```rb:Vagrantfile-provisioning
+Vagrantfile-provisioning
+
+```ruby
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-16.04"
   config.vm.provision :shell, path: "bootstrap.sh"
@@ -98,7 +104,9 @@ end
 - -i hostfilepath
 - hostはgroup化できる
 
-```ansible_example.sh
+playbook example
+
+```bash
 cat <<EOF > ansible_hosts
 [local]
 localhost ansible_connection=local
@@ -111,8 +119,10 @@ ansible all   -i ansible_hosts -m shell -a "echo ansible shell module"
 ### ansible-playbook
 - playbookを使うとき
 
-```playbook-example.yml
----
+playbook-example.yml
+
+```yaml
+-------
 - hosts: 127.0.0.1
   tasks:
     - name: ping
@@ -134,7 +144,9 @@ ansible all   -i ansible_hosts -m shell -a "echo ansible shell module"
 - https://docs.docker.com/engine/installation/linux/ubuntulinux/
 - 設定が思っていたよりめんどうだったので、ansible-playbookやめてbootstrap.shに追加した
 
-```docker_install_for_ubuntu.sh
+docker_install_for_ubuntu.sh
+
+```bash
 sudo apt-get install -y apt-transport-https ca-certificates
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" \
@@ -196,8 +208,8 @@ https://www.docker.com/products/docker-toolbox, docker関連いろいろ
 
 ### docker for mac/windows
 https://blog.docker.com/2016/03/docker-for-mac-windows-beta/
-> 
-Docker for Mac can be used at the same time as Docker Toolbox on the same machine, allowing developers to continue using Toolbox as they evaluate Docker for Mac. 
+>
+Docker for Mac can be used at the same time as Docker Toolbox on the same machine, allowing developers to continue using Toolbox as they evaluate Docker for Mac.
 
 - betaなのでdocker IDを登録してから使う必要がある
 - 下記、使用例。toolboxと比べると便利そう
@@ -210,7 +222,9 @@ Docker for Mac can be used at the same time as Docker Toolbox on the same machin
 
 ## Dockerfile
 
-```docker_Dockerfile
+docker_Dockerfile
+
+```bash
 # command: docker build -t docker-example:0.0.1 /vagrant/
 
 # Pull base image.
@@ -333,11 +347,15 @@ CMD ["bash"]"
 ## serverspec
 dockerコンテナでubuntu環境を整えられたので、コピペしてVM ubuntuでもruby環境を整える
 
-```rb:serverspec_.gemrc
+serverspec.gemrc
+
+```ruby
 gem: --no-ri --no-rdoc
 ```
 
-```rb:serverspec_Gemfile
+serverspec.Gemfile
+
+```ruby
 source 'https://rubygems.org'
 
 gem 'rake'

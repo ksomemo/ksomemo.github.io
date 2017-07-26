@@ -1,5 +1,8 @@
+# create new package project and open.md
 
-```bash:create-new-package-project-and-open.sh
+create-new-package-project-and-open.sh
+
+```bash
 cd /path/to/new-package-parent-folder
 R -q -e "library(devtools); devtools::create('mypackage')"
 # open /Applications/RStudio.app
@@ -7,7 +10,9 @@ open -a RStudio mypackage
 ```
 
 ## ここからおまけ
-```R:Lib.R
+Lib.R
+
+```R
 # library path関連
 .Library.site
 [1] "/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/site-library"
@@ -16,7 +21,7 @@ open -a RStudio mypackage
 [1] "/usr/local/Cellar/r/3.2.2_1/R.framework/Resources/library"
 
 .libPaths()
-[1] "/usr/local/lib/R/site-library"                                         
+[1] "/usr/local/lib/R/site-library"
 [2] "/usr/local/Cellar/r/3.2.2_1/R.framework/Versions/3.2/Resources/library"
 
 Sys.getenv("R_HOME")
@@ -73,18 +78,22 @@ env | grep -e "^R_"
 empty
 ```
 
-```R:library-test.R
+library-test.R
+
+```R
 library(mypackage)
- library(mypackage) でエラー: 
-   ‘mypackage’ は有効なインストール済みパッケージではありません 
+ library(mypackage) でエラー:
+   ‘mypackage’ は有効なインストール済みパッケージではありません
 
 library(mypackage)
- library(mypackage) でエラー: 
-   ‘mypackage’ という名前のパッケージはありません 
+ library(mypackage) でエラー:
+   ‘mypackage’ という名前のパッケージはありません
 # 置いただけではだめ、Installするひつようがある
 ```
 
-```R：devtools_便利.R
+devtools_便利.R
+
+```R
 devtools::add_travis()
 
 # Sample .travis.yml for R projects
@@ -97,6 +106,5 @@ sudo: required
 ```
 
 
-```links.md
+## links
 - https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces
-``` 

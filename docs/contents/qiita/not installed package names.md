@@ -1,5 +1,5 @@
-
-```R:not.installed.pkg.names.R
+# not installed package names
+```R
 installed.pkg.names <- rownames(installed.packages())
 pkg.names <- (read.table(pipe("pbpaste"), header = F, stringsAsFactors = F))$V1
 not.installed.pkg.names <- setdiff(pkg.names, installed.pkg.names)
@@ -16,26 +16,30 @@ not.installed.pkg.names
 - http://www.gtk.org/
 - http://www.ggobi.org/rgtk2/
 
-```bash:install-gtk.sh
+install-gtk.sh
+
+```bash
 brew install gtk+
 brew install gtk+3
 ```
 
-### Rgtk2 
+### Rgtk2
 - https://github.com/Homebrew/homebrew/issues/43290#issuecomment-135601807
 - http://apple.stackexchange.com/questions/202501/how-to-install-rgtk2-on-os-x-10-10-5
 
-```R:install-rgtk2-for-macos.R
+install-rgtk2-for-macos.R
+
+```R
 install.packages("RGtk2", dependencies = T, type = 'mac.binary.mavericks')
 ```
 
 ```
-Error in dyn.load(file, DLLpath = DLLpath, ...) : 
-   共有ライブラリ '/usr/local/lib/R/site-library/RGtk2/libs/RGtk2.so' を読み込めません: 
+Error in dyn.load(file, DLLpath = DLLpath, ...) :
+   共有ライブラリ '/usr/local/lib/R/site-library/RGtk2/libs/RGtk2.so' を読み込めません:
   dlopen(/usr/local/lib/R/site-library/RGtk2/libs/RGtk2.so, 6): Library not loaded: /Library/Frameworks/GTK+.framework/Versions/2.24.X11/Resources/lib/libgtk-x11-2.0.0.dylib
   Referenced from: /usr/local/lib/R/site-library/RGtk2/libs/RGtk2.so
-  Reason: image not found 
-Need GTK+ ? (Restart R after installing) 
+  Reason: image not found
+Need GTK+ ? (Restart R after installing)
 
 1: Install GTK+
 2: Do not install GTK+
@@ -52,7 +56,9 @@ Need GTK+ ? (Restart R after installing)
 
 
 ## FSelector
-```R:install-FSelector.R
+install-FSelector.R
+
+```R
 install.packages("FSelector")
 also installing the dependencies ‘RWekajars’, ‘rJava’, ‘RWeka’
 
@@ -63,8 +69,8 @@ also installing the dependencies ‘RWekajars’, ‘rJava’, ‘RWeka’
 install.packages("rJava")
 
 ...
- 
-checking whether JNI programs can be compiled... 
+
+checking whether JNI programs can be compiled...
 configure: error: Cannot compile a simple JNI program. See config.log for details.
 
 Make sure you have Java Development Kit installed and correctly registered in R.
@@ -73,21 +79,25 @@ If in doubt, re-run "R CMD javareconf" as root.
 ERROR: configuration failed for package ‘rJava’
 ```
 
-```R:java-info-from-RStudio.R
+R:java-info-from-RStudio.R
+
+```R
 > system("java -version")
 java version "1.8.0_20"
 Java(TM) SE Runtime Environment (build 1.8.0_20-b26)
 Java HotSpot(TM) 64-Bit Server VM (build 25.20-b23, mixed mode)
 > system("echo $JAVA_HOME")
 
-> 
+>
 ```
 
 ### javareconf
 - `install.packages("rJava")` のときに言われたことをする
 - jenv使ってたので心配だったけど、エラーは出なかった
 
-```bash:R-CMD-javareconf.sh
+R-CMD-javareconf.sh
+
+```bash
 R CMD javareconf
 Java interpreter : /Users/xxx/.jenv/versions/1.7/jre/bin/java
 Java version     : 1.7.0_09

@@ -1,4 +1,5 @@
-```py3:requests_scheduler.py
+# request build schedule using requests(basic authorization／post and query)
+```py3
 import datetime
 import requests
 

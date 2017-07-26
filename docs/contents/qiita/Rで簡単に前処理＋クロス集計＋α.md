@@ -1,5 +1,6 @@
+# Rで簡単に前処理＋クロス集計＋α
 ## execute system command
-```r
+```R
 system("R --version")
 
 R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
@@ -14,7 +15,7 @@ http://www.gnu.org/licenses/.
 ```
 
 ## attributes of variable
-```r
+```R
 # result is NULL
 attributes(c())
 attributes(NULL)
@@ -42,7 +43,7 @@ attributes(data.frame(1:5))
 
 ## date(seq and datetime)
 
-```r
+```R
 # seq for date
 last.ym <- function (x) {
   d <- seq(as.Date(x), len=2, by="-1 month")[2]
@@ -58,13 +59,13 @@ month.first.date <- function (x) {
 ```
 
 ## package version
-```r
+```R
 packageVersion("dplyr")
 [1] ‘0.4.1’
 ```
 
 
-```r
+```R
 ## data processing library
 
 library(dplyr)
@@ -98,7 +99,7 @@ The following objects are masked from ‘package:dplyr’:
 ```
 
 ### fast read file
-```r
+```R
 df1 <- data.table::fread(df1.path, header = T, stringsAsFactors = F)
 ```
 
@@ -110,7 +111,7 @@ easy to understand.
 * filter
 * delete column(or choose column)
 
-```r
+```R
 # %.% is duplicated.
 df1 %>%
   dplyr::left_join(df2, by="id") %>%
@@ -121,7 +122,7 @@ df1 %>%
 ```
 
 ### grouping and summarize
-```r
+```R
 grouped <- device %>%
   dplyr::group_by(id) %>%
   dplyr::summarize(last_timestamp = max(timestamp))
@@ -132,7 +133,7 @@ dplyr::distinct(df1, id, type)
 ```
 
 ## sql like
-```r
+```R
 library(sqldf)
 var.name.chain.dot <- data.frame(1:5)
 var_name_chain_dot <- var.name.chain.dot
@@ -142,7 +143,7 @@ sqldf("select count(*) from var_name_chain_dot")
 ```
 
 ## delete var and gc
-```r
+```R
 rm(var1, var2)
 gc()
 
@@ -154,7 +155,7 @@ clear.var.global <- function(vars) {
 ```
 
 ## cross tabulation
-```r
+```R
 library(reshape2)
 
 # one column
@@ -177,7 +178,7 @@ dcast(df1, value.var = "id",
 
 ## arguments parser
 
-```r
+```R
 # Python optparse like
 library(optparse)
 optslist <- list(
@@ -194,7 +195,7 @@ cat(sprintf("flag1=%s, flag2=%s, num=%d, raw-data=%s",
 ```
 
 ## exit or assertion like function
-```r
+```R
 stop("Message")
 
 stopifnot(T)
@@ -203,13 +204,13 @@ stopifnot(F == T)
 ```
 
 ### random, shuffle(sample)
-```r
+```R
 m1 <- matrix(runif(100), nrow=10)
 m2 <- matrix(sample(c(rep(0, 5), rep(1, 5)), size = 9), ncol=3)
 ```
 
 ## network graph
-```r
+```R
 library(igraph)
 g <- graph.adjacency(m1 <= 0.5, mode="undirected")
 
@@ -228,7 +229,7 @@ V(g)$label.cex <- 1.5                   # font size for label
 ```
 
 ### plot
-```r
+```R
 plot(g)
 plot(g, layout=layout.circle)
 plot(g, layout=layout.star)

@@ -1,9 +1,11 @@
-```0_title_ContextManagerとcontextlibいろいろ
+# ContextManagerとcontextlibいろいろ
+## links
 - http://docs.python.jp/3/library/stdtypes.html#typecontextmanager
 - http://docs.python.jp/3/library/contextlib.html#module-contextlib
-```
 
-```py3:1_my_context_manager.py
+my_context_manager.py
+
+```python3
 """context manager としての動きの確認"""
 class MyContextManager(object):
     def __enter__(self):
@@ -25,7 +27,9 @@ with MyContextManager():
 # Traceback (xxxxx...
 ```
 
-```py3:2_using_mycm_as_decorator.py
+using_mycm_as_decorator.py
+
+```python3
 from contextlib import ContextDecorator
 
 
@@ -43,7 +47,9 @@ decorated()
 ```
 
 
-```py3:3_contextlib_context_manager.py
+contextlib_context_manager.py
+
+```python3
 """generator functionをenter/exitに対応させるdecorator"""
 from contextlib import contextmanager
 
@@ -73,7 +79,9 @@ with cm2():
 # 前者ではbackは表示されないので、完全にcontext managerとしての動きはしてない?
 ```
 
-```py3:4_contextlib_closing.py
+contextlib_closing.py
+
+```python3
 """auto closing"""
 from contextlib import closing
 
@@ -89,7 +97,9 @@ with closing(Close()) as c:
 ```
 
 
-```py3:5_contextlib_suppress_py34.py
+contextlib_suppress_py34.py
+
+```python3
 """指定したErrorを無視するようになる"""
 from contextlib import suppress
 

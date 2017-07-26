@@ -1,8 +1,8 @@
+# note: mecab + python
+結局janomeだけでなくMeCabも試した
 
-```bash:install_mecab_env.sh
-# 結局janomeだけでなくMeCabも試した
-
-```bash:install_mecab_env.sh
+## nstall_mecab_env.sh
+```bash
 # https://github.com/neologd/mecab-ipadic-neologd/blob/master/README.ja.md
 brew install mecab
 brew install mecab-ipadic
@@ -29,7 +29,8 @@ cd -
 pip install mecab-python3
 ```
 
-```py3:parse_to_node.py
+## parse_to_node.py
+```py3
 import MeCab
 
 
@@ -53,25 +54,23 @@ def parse_to_node(text, opt=None):
         node = node.next
     # https://www.python.org/dev/peps/pep-0479/
     raise StopIteration()
-```
 
-```to_df.py
+# to_df
 import pandas as pd
 
 
 text = "すもももももももものうち"
 # 利用できそうな属性を探した
 attrs = [
-    # 'bnext', 'enext', 'prev', 'next', 'this', 
-    'alpha', 'beta', 'char_type', 'cost', 'feature', 'id', 
-    'isbest', 'lcAttr', 'length', 'lpath', 'posid', 
+    # 'bnext', 'enext', 'prev', 'next', 'this',
+    'alpha', 'beta', 'char_type', 'cost', 'feature', 'id',
+    'isbest', 'lcAttr', 'length', 'lpath', 'posid',
     'prob', 'rcAttr', 'rlength', 'rpath', 'stat', 'surface', 'wcost'
 ]
 gen = ({a: getattr(n, a) for a in dir(n) if a in attrs}  for n in parse_to_node(text))
 nodes = pd.DataFrame(gen)
-```
 
-```py3:to_table.py
+# to_table.py
 import tabulate
 
 

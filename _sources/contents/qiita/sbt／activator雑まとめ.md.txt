@@ -1,4 +1,4 @@
-
+# sbt／activator雑まとめ
 ## references
 - http://www.scala-sbt.org/0.13/docs/index.html
 - http://www.scala-sbt.org/0.13/docs/ja/index.html
@@ -9,12 +9,12 @@
 - homebrew
 
 ## install sbt
-```
+```bash
 brew install sbt
 ```
 
 ## help
-```
+```bash
 sbt -h
 ```
 
@@ -37,7 +37,7 @@ http://www.scala-sbt.org/0.13/docs/Command-Line-Reference.html
 - ~ compile
 
 ## ディレクトリ構造
-```
+```bash
 target/
 lib/
 src/
@@ -66,18 +66,17 @@ build時に生成されるファイルの出力場所
 - パッケージ化された jar ファイル
 - managed 配下のファイル/キャッシュとドキュメンテーション?
 
-そのため無視しておく
+そのため `.gitignore` で `target/` を無視しておく
 
-```.gitignore
-target/
-```
 
 ### project/build.properties
 - sbtのversion指定
 - バイナリー互換を気にしないため
 - ここ、スクリプト言語出身だとあんまりピンとこない
 
-```build.properties
+build.properties
+
+```
 sbt.version=0.1x.x
 ```
 
@@ -91,7 +90,7 @@ sbt.version=0.1x.x
 
 よくわからない
 
-```scala:common_setting.scala
+```scala
 lazy val commonSettings = Seq(
   organization := "com.example",
   version := "0.1.0",
@@ -120,7 +119,7 @@ lazy val root = (project in file(".")).
 Keys と呼ばれるオブジェクトのフィールド
 build.sbt は、自動的に import sbt.Keys._ する
 
-```auto_import_key.scala
+```scala
 import sbt._
 import Process._
 import Keys._
@@ -168,12 +167,12 @@ http://www.scala-sbt.org/0.13/docs/ja/Using-Plugins.html
 - sbtのSuperSet
 - つまり、sbtの機能を全て持っていて追加機能がある
 
-```
+```bash
 brew install typesafe-activator
 ```
 
 ### Sub-commands
-```
+```bash
 activator ui
 # activator -Dhttp.port=9999 -J-Xmx1g ui
 
@@ -181,14 +180,14 @@ Open the project in the UI if executed from an existing project
 directory, otherwise open a project-creation UI.
 ```
 
-```
+```bash
 activator new [project-name] [template-name]
 
 Create a new project, prompting for project-name if missing and helping you
 find a template if template-name is not provided.
 ```
 
-```
+```bash
 activator list-templates
 
 Fetch the latest template list and print it to the console.

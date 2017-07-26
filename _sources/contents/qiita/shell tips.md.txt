@@ -1,5 +1,6 @@
+# shell tips
 ## heredoc中でescape
-```bash:escape_heredoc.sh
+```bash
 # 単純に実行結果をredirectしてるのでescapeする必要がある
 cat <<EOF > escape_heredoc.sh
 echo \`whoami\` home is \$HOME
@@ -10,7 +11,7 @@ echo `whoami` home is $HOME
 ```
 
 ## 一時的に環境変数を変更
-```zsh:一時的に環境変数を変更.zsh
+```bash
 echo $LANG         # ja_JP.UTF-8
        date        # 土  3 25 16:20:03 JST 2017
 LANG=C date        # Sat Mar 25 16:20:18 JST 2017
@@ -24,7 +25,7 @@ LANG=C ./test.sh   # C
 ```
 
 ## gzip sample
-```bash:gzip_sample.sh
+```bash
 gzip -V
 gzip 1.6
 
@@ -40,7 +41,7 @@ gzip -l data.gz
 ```
 
 ## oneliner: get-pip and install
-```exec-python-from-stdin.sh
+```bash
 # http://stackoverflow.com/questions/11369964/run-a-python-script-from-url-in-terminal
 
 echo "import sys;print sys.version" | python
@@ -55,7 +56,7 @@ python -c "import pip; pip.main(['install', 'joblib'])"
 ```
 
 ## 日付時刻指定してファイル作成
-```bash:日付時刻指定してファイル作成.sh
+```bash
 # ファイル作成と、作成済みファイルの日時変更は覚えていたので、調べてみた
 
 touch
@@ -70,14 +71,14 @@ touch -t "202001010123.45" f3
 ```
 
 ## あるファイルより新しい時刻のファイルの検索
-```bash:あるファイルより新しい時刻のファイルの検索.sh
+```bash
 # 日付時刻指定してファイル作成で分かりやすくファイルを作成した後に
 find . -newer f1
 ./f3
 ```
 
 ## wget with header
-```bash:wget_with_header_example.sh
+```bash
 # and basic authorization
 wget http://localhost:8080 \
     --header='field: value' \
@@ -86,7 +87,7 @@ wget http://localhost:8080 \
 ```
 
 ## curl basic auth
-```bash:curl_basic_auth_example.sh
+```bash
 curl --user id:pass \
      -X POST \
      -d name=value
@@ -94,7 +95,7 @@ curl --user id:pass \
 ```
 
 ## bash の dollar と mkdir and cd
-```bash:mdkir_and_cd.sh
+```bash
 # https://www.gnu.org/software/bash/manual/html_node/Variable-Index.html
 
 mkdir -p foo/bar && cd $_
@@ -102,7 +103,7 @@ mkdir -p foo/bar && cd $_
 ```
 
 ## 普段awkしか使わないのでcut のメモ
-```bash:cut_example.sh
+```bash
 echo "1  2  3" | cut -d" " -f1,2,5
 1  3
 # delimiterの連続は考慮しない
@@ -114,7 +115,7 @@ echo "1  2  3" | awk -F' ' '{print $1 $2 $5}'
 ```
 
 ## bashで桁の大きい数値文字列の作成
-```bash:bashで桁の大きい数値文字列の作成.sh
+```bash
 # 今回は20桁
 # 10^18になるとオーバーフロー
 # seqだけでも0埋め可能
@@ -129,9 +130,9 @@ done
 ```
 
 ## expectを使った自動パスワード入力でのssh接続
-```bash:expectを使った自動パスワード入力でのssh接続_expect_script.sh
+```bash
 #!/usr/bin/expect
- 
+
 set timeout 5
 spawn ssh [lindex $argv 0]
 expect "password:"
@@ -140,7 +141,7 @@ send exit\n
 interact
 ```
 
-```bash:expectを使った自動パスワード入力でのssh接続_run_expect.sh
+```bash
 #!/bin/sh
 
 expect -c "

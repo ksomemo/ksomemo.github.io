@@ -1,5 +1,5 @@
-
-## 目的 
+# Upload package to PyPI By twine
+## 目的
 - ライブラリ公開に対して気楽になるように経験する
 - setup.pyの勉強
 - のはずだったんだけど、twineの勉強になってた
@@ -24,7 +24,7 @@ http://python-packaging-user-guide.readthedocs.org/en/latest/single_source_versi
 
 なにを実行しているかわかりやすようにgrepしてみた。詳細は素の出力をみるとわかる
 
-```
+```bash
 python setup.py sdist | grep running
 
 running sdit
@@ -32,7 +32,7 @@ running egg_info
 running check
 ```
 
-```
+```bash
 python setup.py bdist_wheel | grep running
 
 running bdist_wheel
@@ -56,7 +56,7 @@ eff-infoのPKG_INFOを見ればsetup.pyの設定の反映を確認できる
 #### dist
 uploadするもの
 
-```
+```bash
 tree dist
 
 dist
@@ -68,12 +68,12 @@ dist
 >
 ```
 https://pypi.python.org/pypi/wheel
-A wheel is a ZIP-format archive with a specially formatted filename and the .whl extension. 
+A wheel is a ZIP-format archive with a specially formatted filename and the .whl extension.
 ```
 
 なので下記で確認できる
 
-```
+```bash
 mkdir hoge && cd $_
 unzip ../dist/ciserviceex-0.0.1-py2.py3-none-any.whl
 ```
@@ -94,7 +94,7 @@ setup.pyだけでもPyPIへの登録はできるが、こちらを推奨して�
 - http://bugs.python.org/issue12226
 
 #### install
-```
+```bash
 pip install twine
 ```
 
@@ -109,7 +109,7 @@ https://wiki.python.org/moin/EnhancedPyPI
 - もしくはpasswordの設定だけ書かない
 - passwordを含めた設定は以下のとおり
 
-```
+```bash
 cat << EOF > ~/.pypirc
 [distutils]
 index-servers=
@@ -131,7 +131,7 @@ EOF
 `python -c "import distutils"` で一応使えるか確認しておいた
 
 #### アカウント登録前
-```
+```bash
 twine upload -r test dist/*
 
 Uploading distributions to https://testpypi.python.org/pypi
@@ -140,7 +140,7 @@ HTTPError: 401 Client Error: You must be identified to edit package information 
 ```
 
 #### アカウント登録後
-```
+```bash
 twine upload -r test dist/*
 
 Uploading distributions to https://testpypi.python.org/pypi
@@ -152,14 +152,14 @@ HTTPError: 403 Client Error: You are not allowed to edit 'ciserviceex' package i
 - そもそもの使い方が違っていた
 - https://github.com/pypa/twine/issues/21
 
-```
+```bash
 twine register -r test dist/ciserviceex-0.0.1.tar.gz
 ```
 
 Webブラウザでrepository URLにアクセスすると、右上のあたりにYour packages:が追加されている
 
 #### tar.gz と whlのUpload
-```
+```bash
 twine upload dist/*
 ```
 
@@ -168,14 +168,14 @@ twine upload dist/*
 ### pip install
 -r test を消していままでの流れを実行すればpip install できるだろうけど、testpypiからインストールする方法を調べた
 
-```
+```bash
 pip install -h
 
 Package Index Options (including deprecated options):
   -i, --index-url <url>       Base URL of Python Package Index (default https://pypi.python.org/simple).
 ```
 
-```
+```bash
 pip install -i https://testpypi.python.org/pypi ciserviceex
 
 Collecting ciserviceex

@@ -1,9 +1,10 @@
+# matplotlibの設定とcontext manager とmosaic plot
 - matplotlibの設定一覧
 - 上記の設定を一時的に適用できるcontext manager
 - mosaic plot というクロス集計結果の割合の可視化
 - plot結果を解像度指定して画像として保存
 
-```mosaic_plot.py
+```py3
 %matplotlib inline
 
 import numpy as np

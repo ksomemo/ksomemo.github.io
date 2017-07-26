@@ -1,3 +1,4 @@
+# コマンドラインからsqlworkbenchを使ってRedshiftからデータを取得する
 ## DBへのアクセス経路
 local -> 踏み台サーバー -> Redshift
 
@@ -80,13 +81,15 @@ teraterm のマクロで
 ## SQL実行
 `cd  "/path/to/Workbench-dir"`
 
-```sql:export.sql
-WbExport -file=export.tsv -type=text -delimiter=\t -encoding=UTF8;
+```sql
+-- WbExport -file=export.tsv -type=text -delimiter=\t -encoding=UTF8;
 SELECT *
 FROM table_name
 ```
 
-```without_profile.bat
+without_profile.bat
+
+```bat
 java -jar sqlworkbench.jar
     -url=url
     -driver=class_name
@@ -100,7 +103,9 @@ java -jar sqlworkbench.jar
     -script='/path/to/script.sql'
 ```
 
-```with_profile.bat
+with_profile.bat
+
+```bat
 java -jar sqlworkbench.jar
     -profile='profile_name'
     -script='/path/to/script.sql'

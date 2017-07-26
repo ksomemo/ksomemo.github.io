@@ -1,8 +1,7 @@
 いろいろあって悩むのでまとめた
 
-## コード
-
-```r:rpart.R
+## rpart
+```R
 # install.packages("rpart")
 # library("rpart")
 data(iris)
@@ -12,7 +11,10 @@ plot(iris.rp)
 text(iris.rp, use.n = T)
 ```
 
-```r:mvpart.R
+### mvpart
+もうない
+
+```R
 # install.packages("mvpart")
 # package ‘mvpart’ is not available (for R version 3.2.2)
 
@@ -22,14 +24,16 @@ text(iris.rp, use.n = T)
 # より、ArchiveをダウンロードしてInstallは可能だが、他のPackageの存在を知ったのでもうお世話にならなさそう
 ```
 
-```r:rpart-plot.R
+## rpart-plot
+```R
 install.packages("rpart.plot")
 library("rpart.plot")
 
 rpart.plot(iris.rp)
 ```
 
-```r:fancyRpartPlot.R
+## fancyRpartPlot
+```R
 # http://rattle.togaware.com/
 # Rattle: A Graphical User Interface for Data Mining using R
 
@@ -42,7 +46,8 @@ library("rpart.plot")
 fancyRpartPlot(iris.rp)
 ```
 
-```r:partykit.R
+## partykit
+```R
 install.packages("partykit")
 library("partykit")
 

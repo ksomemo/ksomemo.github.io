@@ -1,22 +1,22 @@
-
-```py3
+# python True／False／None
+```python3
 import numpy as np
 import pandas as pd
 import array
 
 values = [
-    0, 0.0, 1, -1, 
+    0, 0.0, 1, -1,
     0j, 0.0j, 1j, -1j,
     False, True,
     '', '0', '0.0', '1',
-    [], [False], 
+    [], [False],
     (), (False,),
     {}, {False: False},
     object(),
     None,
     np.nan,
     np.array([]), np.array([False]), np.array([True]), np.array([0]), np.array([1]),
-    array.array('b', []), array.array('b', [0]), 
+    array.array('b', []), array.array('b', [0]),
 ]
 
 t(pd.DataFrame())

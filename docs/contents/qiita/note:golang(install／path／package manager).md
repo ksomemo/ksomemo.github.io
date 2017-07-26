@@ -1,4 +1,8 @@
-```bash:golang.sh
+# note:golang(install／path／package manager)
+
+golang.sh
+
+```bash
 # install
 # brew install go
 

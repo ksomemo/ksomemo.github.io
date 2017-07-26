@@ -1,6 +1,6 @@
-```メモリ使用量を少なくしすぎて起動できなかった時の対処.md
+# メモリ使用量を少なくしすぎて起動できなかった時の対処
 - local環境
 - "C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Binn\sqlservr.exe" -s InstanceName
 - Management Studio起動
 - Windows認証でサーバーに接続
-```
+

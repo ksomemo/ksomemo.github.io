@@ -1,5 +1,5 @@
-
-```py3:lmplot-fit_reg=scatter.py
+# scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした
+```py3
 """
 https://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.lmplot.html
 scatter plotだけを実現したいけど、おまけが邪魔だったので非表示にした

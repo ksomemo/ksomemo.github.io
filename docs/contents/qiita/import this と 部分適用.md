@@ -1,4 +1,4 @@
-
+# import this と 部分適用
 ## The Zen of Python と import
 import this すると表示されるはよく知られているので省略。
 
@@ -20,7 +20,7 @@ sはThe Zen of Pythonと似たような文章で、
 ここまで分かれば、あとはsの文字をdでmapするだけ。
 
 ## functools と 部分適用
-```py3
+```python3
 import this
 import functools
 

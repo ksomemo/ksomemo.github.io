@@ -1,6 +1,7 @@
+# pickleとジョブフローのメモ
 ## Pickle化するコードと読み込み
 
-```sh:tree.sh
+```bash
 tree
 .
 ├── item.py
@@ -9,7 +10,8 @@ tree
 └── users.pickle
 ```
 
-```py3:pickle_sample.py
+## pickle_sample.py
+```py3
 import pickle
 import user
 import item
@@ -30,7 +32,8 @@ with open('users.pickle', 'rb') as f:
     print(users_loaded)
 ```
 
-```py3:user.py
+## user.py
+```py3
 class User:
     def __init__(self, id, name):
         self.id = id
@@ -45,7 +48,8 @@ class User:
             self.items.append(i)
 ```
 
-```py3:item.py
+## item.py
+```py3
 class Item:
     def __init__(self, name):
         self.name = name
@@ -54,15 +58,15 @@ class Item:
         return '<%s(%s): %s>' % (self.__class__, id(self), self.__dict__)
 ```
 
-
-```py3:run_pickle_sample.sh
+## run
+```pycon
 python pickle_sample.py
 [<<class 'user.User'>(4330090336): {'items': [<<class 'item.Item'>(4330307768): {'name': 'I1'}>, <<class 'item.Item'>(4330622592): {'name': 'I2'}>], 'id': 1, 'name': 'A'}>, <<class 'user.User'>(4330307712): {'items': [<<class 'item.Item'>(4330307768): {'name': 'I1'}>, <<class 'item.Item'>(4330622592): {'name': 'I2'}>], 'id': 2, 'name': 'B'}>]
 [<<class 'user.User'>(4330622704): {'items': [<<class 'item.Item'>(4330635336): {'name': 'I1'}>, <<class 'item.Item'>(4330635560): {'name': 'I2'}>], 'id': 1, 'name': 'A'}>, <<class 'user.User'>(4330635728): {'items': [<<class 'item.Item'>(4330635336): {'name': 'I1'}>, <<class 'item.Item'>(4330635560): {'name': 'I2'}>], 'id': 2, 'name': 'B'}>]
 ```
 
 ## モジュールを読み込めないディレクトリでPickle読み込み
-```py3:load_pickle.sh
+```py3
 mkdir test && cd test
 python -c "
 import pickle

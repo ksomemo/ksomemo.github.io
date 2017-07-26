@@ -1,3 +1,4 @@
+# 階級作成とDummy変数の作成
 - いままでの階級作成は、dictを作ってmapさせていた
     - 右区間の開閉を指定できる
     - 数値の範囲を示す文字列を作成することでmapのようなことができる
@@ -5,19 +6,17 @@
 - おまけにのせたfactorizeは数値しか扱えないライブラリには便利そう
     - ただし、numpyとはnanの扱いが少し違うらしい
 
-```python
+```python3
 import numpy as np
 import pandas as pd
 ```
 
 ## 参考
-```python
-# http://pandas.pydata.org/pandas-docs/stable/generated/pandas.cut.html
-# http://pandas.pydata.org/pandas-docs/stable/reshaping.html#computing-indicator-dummy-variables
-```
+- http://pandas.pydata.org/pandas-docs/stable/generated/pandas.cut.html
+- http://pandas.pydata.org/pandas-docs/stable/reshaping.html#computing-indicator-dummy-variables
 
 ## データ
-```python
+```python3
 np.random.seed(0)
 df_for_cut = pd.DataFrame(np.random.randint(1, 99, 1000), columns=["age"])
 df_for_cut.tail()
@@ -62,14 +61,14 @@ df_for_cut.tail()
 
 
 ## bin作成
-```python
+```python3
 bins = list(range(0, 100+1, 10))
 bins
  [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 ```
 
 ## binのラベル
-```python
+```python3
 bins_labels = [str(b) + " - " + str(b + 10 - 1) for b in bins[:-1]]
 bins_labels
 
@@ -85,7 +84,7 @@ bins_labels
      '90 - 99']
 ```
 
-```python
+```python3
 df_for_cut["age_group"] = pd.cut(df_for_cut.age, bins=bins)
 df_for_cut["age_group_right"] = pd.cut(df_for_cut.age, bins=bins, right=False)
 df_for_cut["age_group_label_F"] = pd.cut(df_for_cut.age, bins=bins, labels=False)
@@ -153,14 +152,14 @@ df_for_cut.tail()
 
 
 
-```python
+```python3
 df_for_cut.age_group.unique()
 
     [(40, 50], (60, 70], (0, 10], (80, 90], (20, 30], (30, 40], (70, 80], (10, 20], (50, 60], (90, 100]]
     Categories (10, object): [(0, 10] < (10, 20] < (20, 30] < (30, 40] ... (60, 70] < (70, 80] < (80, 90] < (90, 100]]
 ```
 
-```python
+```python3
 df_for_cut.age_group_label_F.unique()
 
     array([4, 6, 0, 8, 2, 3, 7, 1, 5, 9])
@@ -168,7 +167,7 @@ df_for_cut.age_group_label_F.unique()
 
 pd.qcut(quantile cut) もあるが、こちらは分位数または分位のリストを指定してするものもある。
 
-```python
+```python3
 qcuted_4 = pd.qcut(df_for_cut["age"], q=4)
 qcuted_4.tail()
 
@@ -178,7 +177,7 @@ qcuted_list.tail()
 ```
 
 ## Dummy変数
-```python
+```python3
 dummies = pd.get_dummies(df_for_cut['age_group'], prefix='age_group')
 df_for_cut_with_dummies = pd.concat([df_for_cut, dummies], axis=1)
 df_for_cut_with_dummies.tail()
@@ -289,7 +288,7 @@ df_for_cut_with_dummies.tail()
 </table>
 </div>
 
-```python
+```python3
 pd.get_dummies(pd.DataFrame({"a": list("AB"), "b": list("CD")}), prefix=list("ab"))
 
 # Series
@@ -328,7 +327,7 @@ pd.Series(["a|b|c", "e|fg"]).str.split("|", expand=True)
 </table>
 </div>
 
-```python
+```python3
 factors = pd.Series(["B", np.nan, "a", np.nan, 123, 0.4, np.inf])
 factors
 
@@ -343,7 +342,7 @@ factors
 ```
 
 ## おまけ
-```python
+```python3
 factors.factorize()
 
     (array([ 0, -1,  1, -1,  2,  3,  4]),

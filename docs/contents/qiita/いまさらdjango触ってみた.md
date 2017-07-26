@@ -1,3 +1,4 @@
+# いまさらdjango触ってみた
 - scaffoldがない
 - 積み中, とりあえず最低限は完了
 
@@ -6,14 +7,14 @@
 - https://docs.djangoproject.com/en/1.10/intro/
 
 ## install
-```bash:pip_install_django.sh
+```bash
 pip install django
 ```
 
 ## project
 アプリじゃなくてプロジェクト作成
 
-```bash:django_admin_startproject.sh
+```bash
 django-admin startproject en_jp_dict
 
 cd en_jp_dict
@@ -24,7 +25,7 @@ manage.py en_jp_dict
 ## migrate
 基本となるテーブル作成
 
-```bash:manage_py_migrate.sh
+```bash
 python manage.py migrate
 
 sqlite3 db.sqlite3
@@ -34,7 +35,7 @@ sqlite> .schema
 ```
 
 ## 管理ユーザと管理画面
-```bash:manage_py_createsuperuser.sh
+```bash
 python manage.py createsuperuser
 # mail省略化
 ```
@@ -43,13 +44,13 @@ python manage.py createsuperuser
 - サーバー立ち上げて確認
 - ついでに /admin も確認
 
-```bash:runserver.sh
+```bash
 python manage.py runserver
 
 Starting development server at http://127.0.0.1:8000/
 ```
 
-```text:response.txt
+```text
 It worked!
 Congratulations on your first Django-powered page.
 
@@ -58,7 +59,7 @@ You're seeing this message because you have DEBUG = True in your Django settings
 ```
 
 ## プロジェクトファイル一覧
-```bash:project_files.sh
+```bash
 cd en_jp_dict
 ls
 __init__.py __pycache__ settings.py urls.py wsgi.py
@@ -88,7 +89,7 @@ __init__.py __pycache__ settings.py urls.py wsgi.py
     - 概要はWAFとWebServerのインターフェイス
     - これに沿っていればWAF WebServerを入れ替えられる
 
-```py3:japanese_settings.py
+```python3
 # settings.pyの日本に関わりそうな部分を変更しておく
 LANGUAGE_CODE = 'ja'
 TIME_ZOME = Asia/Tokyo
@@ -101,7 +102,7 @@ SECRET_KEYはenvironで回避した(http://qiita.com/ksomemo/items/ea887b5271825
 - 変えるようにしてるのあるけど、どう変わるのかわからないのでそのまま
 
 ## アプリ作成
-```bash:manage_py_startapp.sh
+```bash
 cd ..
 python manage.py startapp dictionary
 
@@ -119,7 +120,7 @@ __init__.py admin.py migrations models.py tests.py views.py
 - tests
 - views
 
-```py3:app_templates.py
+```python3
 from django.contrib import admin
 # Register your models here.
 
@@ -195,7 +196,7 @@ from django.shortcuts import render
         - ｀--fake-initial｀ の説明だけしかなかった
         - 本来の用途は、すでにDB存在するけど,djangoへの移行などに使う感じがする
 
-```bash:sqlite3_run_sql_from_stdin.sh
+```bash
 echo "select * from django_migrations" | \
 sqlite3 db.sqlite3 -column -cmd ".headers on"
 ```
@@ -229,8 +230,8 @@ sqlite3 db.sqlite3 -column -cmd ".headers on"
 - ipythonで起動した
 - installされてない場合, default python repl
 
-### insert to 品詞master 
-```py3:model_in_django_shell.py 
+### insert to 品詞master
+```python3
 from dictionary.models import PartOfSpeech, Word
 
 # SQLAlchemyと似た感じ, choiceは名前を引ける
@@ -253,7 +254,7 @@ w.save()
 - model class名しか分からなくて一覧の意味がない…
 - 下記で対応したけど、best practiceが分からない
 
-```py3:to_string_model.py
+```python3
     def __str__(self):
         values = [str(v) for v in [self.pos, self.get_pos_display()]]
         return "({0})".format(", ".join(values))
