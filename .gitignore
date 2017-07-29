@@ -103,3 +103,7 @@ ENV/
 ### Intellij ###
 # User-specific stuff:
 .idea/
+
+### VS Code ###
+.vscode
+
