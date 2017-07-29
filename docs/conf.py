@@ -171,6 +171,8 @@ texinfo_documents = [
 
 # At the bottom of conf.py
 github_doc_root = 'https://ksomemo.github.io/tree/master/docs'
+
+
 def setup(app):
     app.add_config_value('recommonmark_config', {
         'url_resolver': lambda url: github_doc_root + url,
@@ -181,5 +183,3 @@ def setup(app):
         'ename_eval_rst': True,
     }, True)
     app.add_transform(AutoStructify)
-
-

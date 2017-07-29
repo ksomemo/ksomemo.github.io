@@ -1,0 +1,11 @@
+{% extends "!layout.html" %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block footer %}
+    {% include 'google-analytics-privacy.html' %}
+    {{ super() }}
+    {% include 'google-analytics.html' %}
+{% endblock %}

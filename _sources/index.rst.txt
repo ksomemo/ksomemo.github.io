@@ -1,10 +1,13 @@
-.. gh-pages documentation master file, created by
-   sphinx-quickstart on Sun Apr  9 22:05:14 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to ksomemo gh-pages's documentation!
+=============================================
 
-Welcome to gh-pages's documentation!
-====================================
+python, data analysis, machine learning, etc.
+
+links
+-------------
+
+* twitter: `ksomemo <https://twitter.com/ksomemo>`_ 
+* github: `ksomemo <https://github.com/ksomemo>`_ 
 
 .. toctree::
    :maxdepth: 1
